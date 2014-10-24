@@ -1,0 +1,47 @@
+﻿<Page x:Class="Adibrata.Demo.FileTransfer.AgrmntView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="800"
+	Title="AgrmntView">
+
+    <Grid>
+        <DataGrid Name="dgPaging" HorizontalAlignment="Left" Margin="10,120,0,0" Width="780" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="390" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding TrxNo}" Header="No" x:Name="TrxNo"/>
+                <DataGridTextColumn Binding="{Binding DocType}" Header="Document Type" x:Name="DocType"/>
+
+                <DataGridTemplateColumn Header="Image from Varbinary">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image x:Name="imgPreviewBin" Source="{Binding PreviewBin}" Width="200" Height="200"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Image from Path">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image x:Name="imgPreviewPath" Source="{Binding PreviewPath}" Width="200" Height="200"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <GroupBox Header="Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="105" Width="295">
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Agreement No :" VerticalAlignment="Top" x:Name="lblAgrmnt"/>
+                <TextBlock HorizontalAlignment="Left" Margin="125,0,0,0" TextWrapping="Wrap" Text="null" VerticalAlignment="Top" x:Name="txtaAgrmntNo"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Document Status :" VerticalAlignment="Top" x:Name="lblType"/>
+                <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125,0,0,0" Width="99" x:Name="cmbS" Loaded="cmbType_Loaded_1"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>

@@ -198,6 +198,10 @@
       <Project>{0f67e63a-234d-45cc-a656-82d1c741fb41}</Project>
       <Name>Adibrata.BusinessProcess.Report.Extend</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Core\Adibrata.BusinessProcess.UserManagement.Core.csproj">
+      <Project>{72c9f1f3-82c5-4335-98ec-c6c5462f8b55}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
       <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
       <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>

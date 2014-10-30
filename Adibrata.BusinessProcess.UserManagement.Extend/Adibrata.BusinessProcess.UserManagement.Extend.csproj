@@ -42,6 +42,12 @@
     <Compile Include="UserManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Core\Adibrata.BusinessProcess.UserManagement.Core.csproj">
+      <Project>{72c9f1f3-82c5-4335-98ec-c6c5462f8b55}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

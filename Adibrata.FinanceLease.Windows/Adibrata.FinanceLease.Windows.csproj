@@ -94,6 +94,12 @@
     <Compile Include="Page3.xaml.cs">
       <DependentUpon>Page3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserRegistrationAddEdit.xaml.cs">
+      <DependentUpon>UserRegistrationAddEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\UserRegistrationPaging.xaml.cs">
       <DependentUpon>UserRegistrationPaging.xaml</DependentUpon>
     </Compile>
@@ -125,6 +131,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UserRegistrationAddEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,6 +174,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Core\Adibrata.BusinessProcess.Paging.Core.csproj">
+      <Project>{3faa1e40-56fe-46c9-bec5-7cae5863af3f}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj">
       <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
       <Name>Adibrata.BusinessProcess.Paging.Entities</Name>
@@ -168,6 +186,10 @@
       <Project>{8c4e97be-3d29-443e-b212-7b64dc2b7564}</Project>
       <Name>Adibrata.BusinessProcess.Paging.Extend</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Core\Adibrata.BusinessProcess.Report.Core.csproj">
+      <Project>{2827d775-62c7-4e0c-8788-622b174c7583}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Entities\Adibrata.BusinessProcess.Report.Entities.csproj">
       <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
       <Name>Adibrata.BusinessProcess.Report.Entities</Name>
@@ -175,6 +197,22 @@
     <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Extend\Adibrata.BusinessProcess.Report.Extend.csproj">
       <Project>{0f67e63a-234d-45cc-a656-82d1c741fb41}</Project>
       <Name>Adibrata.BusinessProcess.Report.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Core\Adibrata.BusinessProcess.UserManagement.Core.csproj">
+      <Project>{72c9f1f3-82c5-4335-98ec-c6c5462f8b55}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
+      <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Extend\Adibrata.BusinessProcess.UserManagement.Extend.csproj">
+      <Project>{d7e666c8-e6ee-4a52-aa01-7bc02aec113c}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.View.Core\Adibrata.BusinessProcess.Views.Core.csproj">
+      <Project>{da2973f7-b07d-4489-90ce-29a9e67266c3}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.View.Entities\Adibrata.BusinessProcess.Views.Entities.csproj">
       <Project>{f4ca92e1-b570-4d5f-b320-9228ed30e8dd}</Project>
@@ -219,10 +257,6 @@
     <ProjectReference Include="..\Adibrata.Windows.UserControler\Adibrata.Windows.UserControler.csproj">
       <Project>{B9A31278-1B27-40E7-9F42-570BEA054915}</Project>
       <Name>Adibrata.Windows.UserControler</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DatabaseScript\StoreProcedure\Adibrata.Database.Script.StoreProcedure.sqlproj">
-      <Project>{67478d1d-c82d-4d93-b99b-6151cd366ed8}</Project>
-      <Name>Adibrata.Database.Script.StoreProcedure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -299,10 +333,11 @@
     <StartArguments />
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Adibrata.FinanceLease.Windows_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CA2B78AE6E729881331977467F965556BB74A8F3</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>9A27C07C6147E6B44093B0A3CDDDC7F61A3D2708</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />

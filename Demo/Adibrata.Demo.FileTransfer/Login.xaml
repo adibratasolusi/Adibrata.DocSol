@@ -8,7 +8,7 @@
         
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="Login">
+	Title="Login" ShowsNavigationUI="False">
     
     <Page.Resources>
         <ResourceDictionary>
@@ -37,10 +37,10 @@
 
             <StackPanel x:Name="TextBoxGrid" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                <TextBlock Text="Username" Margin="0 0 0 10" HorizontalAlignment="Left" Style="{StaticResource HeaderTextBlockStyle}"  /> 
+                <TextBlock Text="Username" Margin="0 0 0 10" HorizontalAlignment="Left"  /> 
                
                 <TextBox Name="txtUsr" Width="150" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" />
-                <TextBlock Text="Password" Margin="0 0 0 10" HorizontalAlignment="Left" Style="{StaticResource HeaderTextBlockStyle}"  />
+                <TextBlock Text="Password" Margin="0 0 0 10" HorizontalAlignment="Left" />
 
                 <PasswordBox Margin="0 0 0 10" Name="txtPsw" Width="150" >
 

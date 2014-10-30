@@ -41,7 +41,7 @@ namespace Adibrata.Demo.FileTransfer
             string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                CmdString = "SELECT PATH_ID as TrxNo, DOC_TYPE as DocType,BINARY as PreviewBin,'file://PC195/Project/'+FILE_NAME as PreviewPath FROM PATH where AGREEMENT_NO = '"+currentAgrmntNo+"'";
+                CmdString = "SELECT PATH_ID as TrxNo, DOC_TYPE as DocType,BINARY as PreviewBin FROM PATH where AGREEMENT_NO = '"+currentAgrmntNo+"'";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("DOC_MASTER");

@@ -41,14 +41,14 @@
                 <Grid>
                     <TreeView HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0">
                         <TreeViewItem Header ="Main Menu">
-                            <TreeViewItem.Items>
-                                <Button x:Name="mnUpload" Click="mnUpload_Click_1" Width="100">Upload</Button>
+                                <TreeViewItem.Items>
+                                    <Hyperlink x:Name="mnUpload" Click="mnUpload_Click_1">Upload</Hyperlink>
                             </TreeViewItem.Items>
                         </TreeViewItem>
                         <TreeViewItem Header="Other">
                             <TreeViewItem.Items>
-                                <Button x:Name="mnContact" Click="mnUpload_Click_1"  Width="100">Contact</Button>
-                                <Button x:Name="mnAbout" Click="mnUpload_Click_1"  Width="100">About Us</Button>
+                                    <Hyperlink x:Name="mnContact" Click="mnUpload_Click_1">Contact</Hyperlink>
+                                    <Hyperlink x:Name="mnAbout" Click="mnUpload_Click_1">About us</Hyperlink>
                             </TreeViewItem.Items>
                         </TreeViewItem>
                     </TreeView>

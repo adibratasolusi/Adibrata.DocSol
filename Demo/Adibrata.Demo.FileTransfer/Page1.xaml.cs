@@ -27,7 +27,7 @@ namespace Adibrata.Demo.FileTransfer
 
         private void mnUpload_Click_1(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
+            Hyperlink btn = (Hyperlink)sender;
             if (btn.Name == "mnUpload")
             {
                 mainFrm.Source = new Uri("AgrmntPaging.xaml", UriKind.Relative);

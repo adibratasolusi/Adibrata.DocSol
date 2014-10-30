@@ -39,7 +39,7 @@ namespace Adibrata.Demo.WCF.FileTransfer
 
 
             var webClient = new WebClient();
-            byte[] fileBytes = webClient.DownloadData("file://PC195/Project/" + pathInfo.FileName + pathInfo.Ext);
+            byte[] fileBytes = webClient.DownloadData("file://PC195/BITS/" + pathInfo.FileName + pathInfo.Ext);
             string strMessage = string.Empty;
             SqlConnection con = new SqlConnection(conString);
             int result = 0;

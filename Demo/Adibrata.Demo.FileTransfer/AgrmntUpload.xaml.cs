@@ -29,8 +29,7 @@ namespace Adibrata.Demo.FileTransfer
     public partial class AgrmntUpload : Page
     {
         string currentAgrmntNo;
-        BitsManager manager = new BitsManager();
-        BitsJob newJob;
+
         string trxFileName;
         int jobCount = 0;
         int fileCount = 0;
@@ -45,8 +44,8 @@ namespace Adibrata.Demo.FileTransfer
             currentAgrmntNo = agrmntNo;
             InitializeComponent();
             FillDataGrid();
-            txtSvr.Text = "file://PC195/Project/";
-            server = "file://PC195/Project/";
+            txtSvr.Text = "file://PC195/bits/";
+            server = "file://PC195/bits/";
         }
         Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
@@ -277,7 +276,7 @@ namespace Adibrata.Demo.FileTransfer
         }
         #endregion
         #region "BITS"
-        void bits(string fileName, string trxNo)
+        void bits(string fileName, string trxNo)  
         {
             try
             {
@@ -288,12 +287,13 @@ namespace Adibrata.Demo.FileTransfer
                 string safeFileName = System.IO.Path.GetFileName(fileName);
                 string extension = System.IO.Path.GetExtension(fileName);
                 //BITS begin
-                manager = new BitsManager();
+                //manager = new BitsManager();
+                BitsManager manager = new BitsManager();
                 manager.EnumJobs(JobOwner.CurrentUser);
-                newJob = manager.CreateJob("TestUpload", JobType.Upload);
+                BitsJob newJob = manager.CreateJob("TestUpload1",JobType.Upload); //upload or download
                 newJob.AddFile(server + trxNo + extension, fileName); //NewJob.AddFile(namafiletujuan, namafileasal)
                 newJob.Resume();
-                newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred); //event success
+                newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred); //event notification success
 
                 #region "Comment, about BITS info, uncomment with your own risk"
                 //foreach (BitsJob job in manager.Jobs.Values)

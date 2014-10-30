@@ -13,9 +13,9 @@ namespace Adibrata.Controller.Paging
 {
     public class PagingController
     {
-        public static DataTable PagingData(PagingEntities _ent)
+        public T PagingData<T>(PagingEntities _ent)
          {
-            DataTable dtpaging = new DataTable();
+             var _result = default(T);
             try
             {
                 _ent.AssemblyName = "Adibrata.BusinessProcess.Paging.Extend";
@@ -32,7 +32,7 @@ namespace Adibrata.Controller.Paging
                 //var prog = new Program();
                 //dtpaging = (DataTable)_type.GetMethod(_ent.MethodName).Invoke(prog, _obj);
 
-                dtpaging = (DataTable)_type.InvokeMember(_ent.MethodName, BindingFlags.InvokeMethod, null, _obj, _param);
+                _result = (T)_type.InvokeMember(_ent.MethodName, BindingFlags.InvokeMethod, null, _obj, _param);
             }
             catch (Exception exp)
             {
@@ -40,7 +40,7 @@ namespace Adibrata.Controller.Paging
                 a = exp.InnerException.Message.ToString();
             }
             //static sub --> dtpaging = (DataTable)_type.GetMethod(_ent.MethodName).Invoke(null, _param);
-            return dtpaging;
+            return _result;
         }
     }
 }

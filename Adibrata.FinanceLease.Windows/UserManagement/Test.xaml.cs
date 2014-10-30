@@ -13,22 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.Demo.FileTransfer
+namespace Adibrata.FinanceLease.Windows.UserManagement
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Test.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class Test : Page
     {
-        public Login()
+        public Test()
         {
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnTest_Click(object sender, RoutedEventArgs e)
         {
-           // Demo form = new Demo();
-            //this.NavigationService.Navigate(form);
+            this.NavigationService.Navigate(new Uri("UserRegistrationAddEdit?paramp=asd", UriKind.Relative));
         }
     }
 }

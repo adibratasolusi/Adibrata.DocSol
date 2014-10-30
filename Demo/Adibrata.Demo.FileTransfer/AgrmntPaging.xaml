@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                    xmlns:toolkitLayout="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
         xmlns:toolkitInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
-        
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+        xmlns:themes="clr-namespace:DataGridThemes;assembly=DataGridThemes"
       mc:Ignorable="d" d:DesignWidth="1000"
       
 	Title="AgrmntPaging" ShowsNavigationUI="False" Height="705">
@@ -42,7 +43,12 @@
 
                 </StackPanel>
             </GroupBox>
-            <DataGrid Name="dgPaging" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="241" Width="980" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True">
+            <controls:DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          themes:DataGridHelper.HorizontalMouseWheelScrollingEnabled="True"
+                          x:Name="dgPaging" 
+                          HorizontalAlignment="Left" Margin="10,95,0,0" Width="780" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="330" VerticalAlignment="Top"
+                          >
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding AgreementNo}" Header="Agreement" x:Name="AgrmntNo"/>
                     <DataGridTextColumn Binding="{Binding CustName}" Header="Customer" x:Name="CustName"/>
@@ -67,7 +73,8 @@
 
                 </DataGrid.Columns>
 
-            </DataGrid>
+
+            </controls:DataGrid>
 
         </Grid>
     </ScrollViewer>

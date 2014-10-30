@@ -46,6 +46,7 @@
     <Compile Include="PagingController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportController.cs" />
+    <Compile Include="UserManagementController.cs" />
     <Compile Include="ViewController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +73,18 @@
     <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Extend\Adibrata.BusinessProcess.Report.Extend.csproj">
       <Project>{0f67e63a-234d-45cc-a656-82d1c741fb41}</Project>
       <Name>Adibrata.BusinessProcess.Report.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Core\Adibrata.BusinessProcess.UserManagement.Core.csproj">
+      <Project>{72c9f1f3-82c5-4335-98ec-c6c5462f8b55}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
+      <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Extend\Adibrata.BusinessProcess.UserManagement.Extend.csproj">
+      <Project>{d7e666c8-e6ee-4a52-aa01-7bc02aec113c}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Extend</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.View.Core\Adibrata.BusinessProcess.Views.Core.csproj">
       <Project>{da2973f7-b07d-4489-90ce-29a9e67266c3}</Project>

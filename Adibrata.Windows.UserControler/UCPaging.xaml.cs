@@ -107,11 +107,12 @@ namespace Adibrata.Windows.UserControler
         public DataTable PagingData()
         {
             DataTable _dt = new DataTable();
+            PagingController _obj = new PagingController();
             try
             {
                 PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.SortBy, CurrentPage = 1 };
 
-                _dt = PagingController.PagingData(_ent);
+                _dt = _obj.PagingData(_ent);
             }
             catch (Exception _exp)
             {

@@ -13,7 +13,7 @@ namespace Adibrata.BusinessProcess.Paging.Core
 {
     public class RuleSchemePaging
     {
-        // Henry Sudarma
+        // Henry Sudarma test sekali lagi
         public virtual DataTable PagingProcess(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();

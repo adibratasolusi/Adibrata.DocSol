@@ -33,7 +33,7 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="FontWeight" Value="Medium" />
             <Setter Property="Margin" Value="0,0,0,5" />
-            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="Height" Value="Auto"></Setter>
             <Setter Property="Background" Value="{x:Null}"/>

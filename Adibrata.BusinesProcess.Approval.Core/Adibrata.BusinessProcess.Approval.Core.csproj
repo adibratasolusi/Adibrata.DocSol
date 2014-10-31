@@ -43,6 +43,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Entities\Adibrata.BusinessProcess.Approval.Entities.csproj">
+      <Project>{619b7815-58fb-4374-accb-e206cc14ca35}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
+      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
+      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
       <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
       <Name>Adibrata.Configuration</Name>

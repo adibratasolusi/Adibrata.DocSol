@@ -55,9 +55,17 @@
       <Project>{1cc2e5f8-6bff-4068-acdd-03cd93863761}</Project>
       <Name>Adibrata.BusinessProcess.Approval.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Entities\Adibrata.BusinessProcess.Approval.Entities.csproj">
+      <Project>{619b7815-58fb-4374-accb-e206cc14ca35}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Extend\Adibrata.BusinessProcess.Approval.Extend.csproj">
       <Project>{d7c16ef2-3399-4480-908a-fab3bec831ed}</Project>
       <Name>Adibrata.BusinessProcess.Approval.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
+      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
+      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Core\Adibrata.BusinessProcess.Paging.Core.csproj">
       <Project>{3faa1e40-56fe-46c9-bec5-7cae5863af3f}</Project>

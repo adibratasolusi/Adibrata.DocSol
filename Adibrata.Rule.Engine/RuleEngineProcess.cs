@@ -177,12 +177,12 @@ namespace Adibrata.Rule.Engine
                 SqlParameter[] sqlParams = new SqlParameter[3];
                 sqlParams[0] = new SqlParameter("@currentpage", SqlDbType.VarChar, 500);
                 sqlParams[0].Value = _ent.CurrentPage;
-                sqlParams[0] = new SqlParameter("@pagesize", SqlDbType.VarChar, 500);
-                sqlParams[0].Value = _ent.PageSize;
-                sqlParams[0] = new SqlParameter("@wherecond", SqlDbType.VarChar, 500);
-                sqlParams[0].Value = _ent.WhereCond;
-                sqlParams[0] = new SqlParameter("@sortby", SqlDbType.VarChar, 500);
-                sqlParams[0].Value = _ent.SortBy;
+                sqlParams[1] = new SqlParameter("@pagesize", SqlDbType.VarChar, 500);
+                sqlParams[1].Value = _ent.PageSize;
+                sqlParams[2] = new SqlParameter("@wherecond", SqlDbType.VarChar, 500);
+                sqlParams[2].Value = _ent.WhereCond;
+                sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 500);
+                sqlParams[3].Value = _ent.SortBy;
                 _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams).Tables[0];
             }
             catch (Exception _exp)

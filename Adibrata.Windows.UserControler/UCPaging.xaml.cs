@@ -16,6 +16,7 @@ using Adibrata.BusinessProcess.Paging.Entities;
 using Adibrata.Controller.Paging;
 using System.Data;
 using Adibrata.Framework.Logging;
+using Adibrata.Controller;
 
 namespace Adibrata.Windows.UserControler
 {
@@ -112,7 +113,7 @@ namespace Adibrata.Windows.UserControler
             {
                 PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.SortBy, CurrentPage = 1 };
 
-                PagingController.PagingData(_ent);
+                PagingController.PagingData<DataTable>(_ent);
             }
             catch (Exception _exp)
             {

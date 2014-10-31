@@ -145,6 +145,18 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinesProcess.Approval.Core\Adibrata.BusinessProcess.Approval.Core.csproj">
+      <Project>{1cc2e5f8-6bff-4068-acdd-03cd93863761}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Entities\Adibrata.BusinessProcess.Approval.Entities.csproj">
+      <Project>{619b7815-58fb-4374-accb-e206cc14ca35}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Extend\Adibrata.BusinessProcess.Approval.Extend.csproj">
+      <Project>{d7c16ef2-3399-4480-908a-fab3bec831ed}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Extend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
       <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
       <Name>Adibrata.BusinessProcess.Entities.Base</Name>
@@ -204,6 +216,10 @@
     <ProjectReference Include="..\Adibrata.Controller\Adibrata.Controller.csproj">
       <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>
       <Name>Adibrata.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
+      <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>
+      <Name>Adibrata.Framework.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
       <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>

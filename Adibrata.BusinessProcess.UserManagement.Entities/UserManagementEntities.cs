@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Adibrata.BusinessProcess.Entities.Base;
 namespace Adibrata.BusinessProcess.UserManagement.Entities
 {
-    public class UserManagementEntities
+    [Serializable]
+    public class UserManagementEntities : EntitiesBase
     {
-        public string AssemblyName { get; set; }
-        public string ClassName { get; set; }
-        public string MethodName { get; set; }
         public DataTable ReportTable { get; set; }
         public byte[] ReportData { get; set; }
         public int CurrentPage { get; set; }
@@ -20,6 +19,5 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public string SortBy { get; set; }
         public int TotalRecord { get; set; }
         public string ConnectionString { get; set; } // Connection string di set di ui
-
     }
 }

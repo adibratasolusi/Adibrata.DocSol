@@ -8,6 +8,7 @@ using Adibrata.Rule.Engine;
 using System.Configuration;
 using Adibrata.BusinessProcess.Paging.Entities;
 using Adibrata.Framework.Logging;
+using Adibrata.Framework.DataAccess;
 
 namespace Adibrata.BusinessProcess.Paging.Core
 {
@@ -25,7 +26,7 @@ namespace Adibrata.BusinessProcess.Paging.Core
                 _ent1.WhereCond = "";
                 _ent1.SortBy = "";
                 _ent1.PageSize = _ent.PageSize;
-                _dt = RuleEngineProcess.ListRuleEngine(_ent1);
+                _dt = RuleEngineProcess.RuleEngineList(_ent1);
             }
             catch (Exception _exp)
             {
@@ -36,9 +37,9 @@ namespace Adibrata.BusinessProcess.Paging.Core
                     ClassName = "RuleEngine",
                     FunctionName = "RuleEnginePaging",
                     ExceptionNumber = 1,
-                    EventSource = "Paging_Core",
+                    EventSource = "RuleScheme",
                     ExceptionObject = _exp,
-                    EventID = 1, // 1 Untuk Framework 
+                    EventID = 300, // 300 Untuk RuleEngine
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

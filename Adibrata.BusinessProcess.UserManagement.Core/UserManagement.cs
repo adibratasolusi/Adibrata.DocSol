@@ -10,7 +10,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
     public class UserManagement
     {
         public static void UserMangementAddEdit (UserManagement _ent)
-        {
+        { 
 
         }
     }

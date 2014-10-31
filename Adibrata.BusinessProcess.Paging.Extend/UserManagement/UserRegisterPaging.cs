@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using Adibrata.Rule.Engine;
+﻿using Adibrata.BusinessProcess.Paging.Entities;
 using Adibrata.Configuration;
-using Adibrata.BusinessProcess.Paging.Entities;
-using Adibrata.Framework.Logging;
 using Adibrata.Framework.DataAccess;
+using Adibrata.Framework.Logging;
+using System;
+using System.Data;
 using System.Data.SqlClient;
-using Adibrata.BusinessProcess.Entities.Base;
+using System.Text;
 
-namespace Adibrata.BusinessProcess.Paging.Core
+namespace Adibrata.BusinessProcess.Paging.Extend.UserManagement
 {
-    public class RuleSchemePaging
+   public class UserRegisterPaging: Adibrata.BusinessProcess.Paging.Core.UserManagement.UserRegisterPaging
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
-
-         public virtual DataTable RuleEngineList (RuleEngineEntities _ent)
+        public virtual DataTable UserRegister(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();
             try
             {
-                sb.Append("spRuleEnginePaging");
+                sb.Append("spMsUserPaging");
                 SqlParameter[] sqlParams = new SqlParameter[3];
                 sqlParams[0] = new SqlParameter("@currentpage", SqlDbType.VarChar, 500);
                 sqlParams[0].Value = _ent.CurrentPage;
@@ -40,12 +34,12 @@ namespace Adibrata.BusinessProcess.Paging.Core
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
-                    NameSpace = " Adibrata.Rule.Engine",
-                    ClassName = "RuleEngineProcess",
-                    FunctionName = "UploadRuleEngine",
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = " Adibrata.BusinessProcess.Paging.Core.UserManagement",
+                    ClassName = "UserRegisterPaging",
+                    FunctionName = "UserRegister",
                     ExceptionNumber = 1,
-                    EventSource = "RuleEngineList",
+                    EventSource = "UserRegister",
                     ExceptionObject = _exp,
                     EventID = 80, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message

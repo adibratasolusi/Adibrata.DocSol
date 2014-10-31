@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuleEngine\RuleSchemePaging.cs" />
+    <Compile Include="UserManagement\UserRegisterPaging.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
@@ -50,6 +51,10 @@
     <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj">
       <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
       <Name>Adibrata.BusinessProcess.Paging.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
+      <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
+      <Name>Adibrata.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
       <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>

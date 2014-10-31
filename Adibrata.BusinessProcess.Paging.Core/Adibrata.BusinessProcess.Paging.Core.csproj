@@ -43,10 +43,6 @@
     <Compile Include="RuleEngine\RuleSchemePaging.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
-      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
-      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj">
       <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
       <Name>Adibrata.BusinessProcess.Paging.Entities</Name>

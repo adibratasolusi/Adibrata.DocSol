@@ -47,10 +47,6 @@
       <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
       <Name>Adibrata.BusinessProcess.Paging.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
-      <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>
-      <Name>Adibrata.Framework.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
       <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
       <Name>Adibrata.Framework.Logging</Name>

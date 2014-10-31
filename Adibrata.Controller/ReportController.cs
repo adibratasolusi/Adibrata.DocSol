@@ -10,9 +10,9 @@ using Adibrata.Framework.Logging;
 
 namespace Adibrata.Controller.Report
 {
-    class ReportController
+    public static class ReportController
     {
-        public  T ReportData<T>(ReportEntities _ent)
+        public static T ReportData<T>(ReportEntities _ent)
         {
             var _result = default(T);
             try
@@ -38,7 +38,7 @@ namespace Adibrata.Controller.Report
                     ExceptionNumber = 1,
                     EventSource = "ReportData",
                     ExceptionObject = _exp,
-                    EventID = 1, // 1 Untuk Framework 
+                    EventID = 90, // 90 Untuk Controller
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

@@ -48,6 +48,7 @@
     <Compile Include="ReportController.cs" />
     <Compile Include="UserManagementController.cs" />
     <Compile Include="ViewController.cs" />
+    <Compile Include="_result.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Core\Adibrata.BusinessProcess.Paging.Core.csproj">

@@ -13,7 +13,7 @@ namespace Adibrata.Controller.Paging
 {
     public class PagingController
     {
-        public T PagingData<T>(PagingEntities _ent)
+        public static T PagingData<T>(PagingEntities _ent)
          {
              var _result = default(T);
             try
@@ -34,10 +34,21 @@ namespace Adibrata.Controller.Paging
 
                 _result = (T)_type.InvokeMember(_ent.MethodName, BindingFlags.InvokeMethod, null, _obj, _param);
             }
-            catch (Exception exp)
+            catch (Exception _exp)
             {
-                string a;
-                a = exp.InnerException.Message.ToString();
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = "",
+                    NameSpace = "Adibrata.Controller.Paging",
+                    ClassName = "PagingController",
+                    FunctionName = "PagingData",
+                    ExceptionNumber = 1,
+                    EventSource = "PagingData",
+                    ExceptionObject = _exp,
+                    EventID = 90, // 90 Untuk Controller
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
             //static sub --> dtpaging = (DataTable)_type.GetMethod(_ent.MethodName).Invoke(null, _param);
             return _result;

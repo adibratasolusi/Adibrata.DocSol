@@ -9,9 +9,9 @@ using Adibrata.Framework.Logging;
 
 namespace Adibrata.Controller.UserManagement
 {
-   public class UserManagementController
+   public static class UserManagementController
     {
-       public T UserManagement<T>(UserManagementEntities _ent)
+       public static T UserManagement<T>(UserManagementEntities _ent)
         {
             var _result = default(T);
             try
@@ -36,7 +36,7 @@ namespace Adibrata.Controller.UserManagement
                     ExceptionNumber = 1,
                     EventSource = "UserMangement",
                     ExceptionObject = _exp,
-                    EventID = 1, // 1 Untuk Framework 
+                    EventID = 90, // 90 Untuk Controller
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

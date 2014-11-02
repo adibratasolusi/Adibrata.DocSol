@@ -17,7 +17,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
 
         static string Connectionstring = AppConfig.Config("ConnectionString");
 
-        public static void UserMangementAddEdit (UserManagementEntities _ent)
+        public virtual void UserMangementAddEdit (UserManagementEntities _ent)
         {
             SqlParameter[] sqlParams = new SqlParameter[4];
             sqlParams[0] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
@@ -31,8 +31,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
             sqlParams[4] = new SqlParameter("@IsActive", SqlDbType.Int);
             sqlParams[4].Value = _ent.IsActive;
             SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spUserManagementAddEdit");
-
-
         }
+
     }
 }

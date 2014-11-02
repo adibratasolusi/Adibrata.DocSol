@@ -82,6 +82,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Approval.Extend", "Adibrata.BusinessProcess.Approval.Extend\Adibrata.BusinessProcess.Approval.Extend.csproj", "{D7C16EF2-3399-4480-908A-FAB3BEC831ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.Caching", "Adibrata.Framework.Caching\Adibrata.Framework.Caching.csproj", "{87734E21-D1D6-49AB-8BA9-D207E82F9BC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -230,6 +232,10 @@ Global
 		{D7C16EF2-3399-4480-908A-FAB3BEC831ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7C16EF2-3399-4480-908A-FAB3BEC831ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7C16EF2-3399-4480-908A-FAB3BEC831ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87734E21-D1D6-49AB-8BA9-D207E82F9BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87734E21-D1D6-49AB-8BA9-D207E82F9BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87734E21-D1D6-49AB-8BA9-D207E82F9BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87734E21-D1D6-49AB-8BA9-D207E82F9BC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

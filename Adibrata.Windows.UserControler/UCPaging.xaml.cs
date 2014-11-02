@@ -47,7 +47,7 @@ namespace Adibrata.Windows.UserControler
                 dgObj.ItemsSource = _dt.DefaultView;
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = this.UserName,
                     
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
@@ -64,7 +64,7 @@ namespace Adibrata.Windows.UserControler
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = this.UserName,
                     
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
@@ -91,7 +91,7 @@ namespace Adibrata.Windows.UserControler
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = this.UserName,
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
                     FunctionName = "btnPrev_Click",
@@ -111,15 +111,15 @@ namespace Adibrata.Windows.UserControler
             
             try
             {
-                PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.SortBy, CurrentPage = 1 };
+                PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, CurrentPage = 1 };
 
-                PagingController.PagingData<DataTable>(_ent);
+                _dt = (DataTable) PagingController.PagingData<DataTable>(_ent);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = this.UserName,
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
                     FunctionName = "PagingData",

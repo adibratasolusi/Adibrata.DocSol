@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Adibrata.BusinessProcess.UserManagement.Entities;
 using System.Reflection;
 using Adibrata.Framework.Logging;
+using Adibrata.Framework.Caching;
 
 namespace Adibrata.Controller.UserManagement
 {
@@ -14,13 +15,34 @@ namespace Adibrata.Controller.UserManagement
        public static T UserManagement<T>(UserManagementEntities _ent)
         {
             var _result = default(T);
+            Assembly _objassembly = null;
+            Type _type = null;
+            object _obj = null; 
             try
             {
                 _ent.AssemblyName = "Adibrata.BusinessProcess.UserManagement.Extend";
-                Assembly test = Assembly.Load(_ent.AssemblyName);
-                Type _type = test.GetType(_ent.ClassName);
-                //New Non Static Classs
-                object _obj = Activator.CreateInstance(_type);
+                if (!DataCache.Contains(_ent.AssemblyName))
+                {
+                    _objassembly = Assembly.Load(_ent.AssemblyName);
+                    DataCache.Insert<Assembly>(_ent.AssemblyName, _objassembly);
+                }
+                else
+                {
+                    _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
+                }
+
+                if (!DataCache.Contains(_ent.ClassName))
+                {
+                    _type = _objassembly.GetType(_ent.ClassName);
+                    _obj = Activator.CreateInstance(_type);
+                    DataCache.Insert<Type>(_ent.ClassName, _type);
+                }
+                else
+                {
+                    _type = DataCache.Get<Type>(_ent.ClassName);
+                    _obj = Activator.CreateInstance(_type);
+                }
+
                 object[] _param = new object[] { _ent };
 
                 _result = (T)_type.InvokeMember(_ent.MethodName, BindingFlags.InvokeMethod, null, _obj, _param);

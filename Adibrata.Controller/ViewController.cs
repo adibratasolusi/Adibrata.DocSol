@@ -8,6 +8,7 @@ using System.Reflection;
 using Adibrata.BusinessProcess.Views.Entities;
 using Adibrata.Framework.Logging;
 using Adibrata.Controller;
+using Adibrata.Framework.Caching;
 
 namespace Adibrata.Controller.Paging
 {
@@ -15,15 +16,34 @@ namespace Adibrata.Controller.Paging
     {
         public static T ViewData <T>(ViewEntities _ent)
         {
-
+            Assembly _objassembly = null;
+            Type _type = null;
+            object _obj = null; 
             var _result = default(T);
             try
             {
                 _ent.AssemblyName = "Adibrata.BusinessProcess.View.Extend";
-                Assembly test = Assembly.Load(_ent.AssemblyName);
-                Type _type = test.GetType(_ent.ClassName);
-                //New Non Static Classs
-                object _obj = Activator.CreateInstance(_type);
+                if (!DataCache.Contains(_ent.AssemblyName))
+                {
+                    _objassembly = Assembly.Load(_ent.AssemblyName);
+                    DataCache.Insert<Assembly>(_ent.AssemblyName, _objassembly);
+                }
+                else
+                {
+                    _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
+                }
+
+                if (!DataCache.Contains(_ent.ClassName))
+                {
+                    _type = _objassembly.GetType(_ent.ClassName);
+                    _obj = Activator.CreateInstance(_type);
+                    DataCache.Insert<Type>(_ent.ClassName, _type);
+                }
+                else
+                {
+                    _type = DataCache.Get<Type>(_ent.ClassName);
+                    _obj = Activator.CreateInstance(_type);
+                }
                 object[] _param = new object[] { _ent };
 
                 _result = (T)_type.InvokeMember(_ent.MethodName, BindingFlags.InvokeMethod, null, _obj, _param);

@@ -31,6 +31,9 @@ namespace Adibrata.FinanceLease.Windows.UserManagement
                 InitializeComponent();
                 PagingControl.ClassName = "Adibrata.BusinessProcess.Paging.Extend.UserManagement.UserRegisterPaging";
                 PagingControl.MethodName = "UserRegister";
+                PagingControl.SortBy = "";
+                PagingControl.WhereCond = "";
+
                 PagingControl.dgObj = dgListUser;
             }
             catch (Exception _exp)

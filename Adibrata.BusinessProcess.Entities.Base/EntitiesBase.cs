@@ -20,6 +20,7 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string WhereCond { get; set; }
         public string SortBy { get; set; }
         public int TotalRecord { get; set; }
+        public string UserLogin { get; set; }
         //test
     }
 }

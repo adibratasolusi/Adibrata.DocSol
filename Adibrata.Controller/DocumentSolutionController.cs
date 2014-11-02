@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Adibrata.BusinessProcess.Approval.Entities;
 using System.Reflection;
-using Adibrata.Framework.Logging;
 using Adibrata.Framework.Caching;
+using Adibrata.Framework.Logging;
+using Adibrata.BusinessProcess.DocumentSol.Entities;
 
-namespace Adibrata.Controller.Approval
+namespace Adibrata.Controller
 {
-    public static class ApprovalController
+    public class DocumentSolutionController
     {
-        public static T Approval<T>(ApprovalEntities _ent)
+        public static T DocSolProcess<T>(DocSolEntities _ent)
         {
             var _result = default(T);
             Assembly _objassembly = null;
@@ -21,8 +21,8 @@ namespace Adibrata.Controller.Approval
             string _methodname;
             try
             {
-                
-                _ent.AssemblyName = "Adibrata.BusinessProcess.Report.Extend";
+
+                _ent.AssemblyName = "Adibrata.BusinessProcess.DocumentSol.Extend";
                 if (!DataCache.Contains(_ent.AssemblyName))
                 {
                     _objassembly = Assembly.Load(_ent.AssemblyName);
@@ -32,6 +32,7 @@ namespace Adibrata.Controller.Approval
                 {
                     _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
                 }
+
                 if (!DataCache.Contains(_ent.ClassName))
                 {
                     _type = _objassembly.GetType(_ent.ClassName);
@@ -62,11 +63,11 @@ namespace Adibrata.Controller.Approval
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = "",
-                    NameSpace = "Adibrata.Controller.Approval",
-                    ClassName = "ApprovalController",
-                    FunctionName = "Approval",
+                    NameSpace = "Adibrata.Controller.Report",
+                    ClassName = "ReportController",
+                    FunctionName = "ReportData",
                     ExceptionNumber = 1,
-                    EventSource = "Approval",
+                    EventSource = "ReportData",
                     ExceptionObject = _exp,
                     EventID = 90, // 90 Untuk Controller
                     ExceptionDescription = _exp.Message
@@ -77,5 +78,4 @@ namespace Adibrata.Controller.Approval
             return _result;
         }
     }
-
 }

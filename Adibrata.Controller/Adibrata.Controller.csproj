@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApprovalController.cs" />
+    <Compile Include="DocumentSolutionController.cs" />
     <Compile Include="PagingController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportController.cs" />
@@ -63,6 +64,18 @@
     <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Extend\Adibrata.BusinessProcess.Approval.Extend.csproj">
       <Project>{d7c16ef2-3399-4480-908a-fab3bec831ed}</Project>
       <Name>Adibrata.BusinessProcess.Approval.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Core\Adibrata.BusinessProcess.DocumentSol.Core.csproj">
+      <Project>{10783b5e-99ed-4ce7-b769-9d77605179b2}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Entities\Adibrata.BusinessProcess.DocumentSol.Entities.csproj">
+      <Project>{c6363188-e561-4c44-973c-9be674a54ba5}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Extend\Adibrata.BusinessProcess.DocumentSol.Extend.csproj">
+      <Project>{03f8fe1b-a61b-4947-83f2-7d377ac48377}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Extend</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
       <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>

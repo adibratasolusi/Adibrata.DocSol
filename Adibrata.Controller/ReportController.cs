@@ -18,7 +18,8 @@ namespace Adibrata.Controller.Report
             var _result = default(T);
             Assembly _objassembly = null;
             Type _type = null;
-            object _obj = null; 
+            object _obj = null;
+            string _methodname;
             try
             {
                 
@@ -36,14 +37,24 @@ namespace Adibrata.Controller.Report
                 if (!DataCache.Contains(_ent.ClassName))
                 {
                     _type = _objassembly.GetType(_ent.ClassName);
-                    _obj = Activator.CreateInstance(_type);
                     DataCache.Insert<Type>(_ent.ClassName, _type);
                 }
                 else
                 {
                     _type = DataCache.Get<Type>(_ent.ClassName);
+                }
+                _methodname = _ent.ClassName + "." + _ent.MethodName;
+
+                if (!DataCache.Contains(_methodname))
+                {
+                    _obj = Activator.CreateInstance(_type);
+                    DataCache.Insert<object>(_methodname, _obj);
+                }
+                else
+                {
                     _obj = Activator.CreateInstance(_type);
                 }
+
                 object[] _param = new object[] { _ent };
 
                 _result =  (T)_type.InvokeMember(_ent.MethodName, BindingFlags.InvokeMethod, null, _obj, _param);

@@ -20,7 +20,7 @@ namespace Adibrata.Controller.Paging
             Assembly _objassembly = null;
             Type _type = null;
             object _obj = null;
-            string _methodname;
+            string _methodname, _classname; 
             try
             {
                 _ent.AssemblyName = "Adibrata.BusinessProcess.Paging.Extend";
@@ -34,17 +34,17 @@ namespace Adibrata.Controller.Paging
                 {
                     _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
                 }
-
-                if (!DataCache.Contains(_ent.ClassName))
+                _classname = _ent.AssemblyName + "." + _ent.ClassName;
+                if (!DataCache.Contains(_classname))
                 {
-                    _type = _objassembly.GetType(_ent.ClassName);
-                    DataCache.Insert<Type>(_ent.ClassName, _type);
+                    _type = _objassembly.GetType(_classname);
+                    DataCache.Insert<Type>(_classname, _type);
                 }
                 else
                 {
-                    _type = DataCache.Get<Type>(_ent.ClassName);
+                    _type = DataCache.Get<Type>(_classname);
                 }
-                _methodname = _ent.ClassName + "." + _ent.MethodName;
+                _methodname = _classname  + "." + _ent.MethodName;
 
                 if (!DataCache.Contains(_methodname))
                 {

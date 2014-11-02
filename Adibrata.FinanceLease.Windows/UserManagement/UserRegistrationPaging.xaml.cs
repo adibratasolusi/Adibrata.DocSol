@@ -29,7 +29,7 @@ namespace Adibrata.FinanceLease.Windows.UserManagement
             {
                 DataTable dt = new DataTable();
                 InitializeComponent();
-                PagingControl.ClassName = "Adibrata.BusinessProcess.Paging.Extend.UserManagement.UserRegisterPaging";
+                PagingControl.ClassName = "UserManagement.UserRegisterPaging";
                 PagingControl.MethodName = "UserRegister";
                 PagingControl.SortBy = "";
                 PagingControl.WhereCond = "";

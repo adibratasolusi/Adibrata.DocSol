@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using Adibrata.Configuration;
 
 namespace Adibrata.Framework.Messaging
 {
@@ -32,13 +33,13 @@ namespace Adibrata.Framework.Messaging
         public string Attahment { get; set; }
         public string MailBody { get; set;}
         public string MailSubject { get; set;}
-        public bool UseDefaultCredentials { get { return Convert.ToBoolean(ConfigurationManager.AppSettings["UseDefaultCredentials"].ToString()); } }
+        public bool UseDefaultCredentials { get { return Convert.ToBoolean(AppConfig.Config("UseDefaultCredentials")); } }
         public string SMTPServer
         {
-            get { return ConfigurationManager.AppSettings["SMTPServer"].ToString(); }
+            get { return AppConfig.Config("SMTPServer"); }
         }
-        public int SMTP_Port { get { return Convert.ToInt32(ConfigurationManager.AppSettings["SMTPPort"].ToString()); } }
-        public bool EnableSSL { get { return Convert.ToBoolean(ConfigurationManager.AppSettings["EnableSsl"].ToString()); }}
+        public int SMTP_Port { get { return Convert.ToInt32(AppConfig.Config("SMTPPort")); } }
+        public bool EnableSSL { get { return Convert.ToBoolean(AppConfig.Config("EnableSsl")); }}
         public System.Net.Mail.SmtpClient SmtpConfiguration { get; set; }
         public System.Net.Mail.MailMessage MailConfiguration { get; set; }
     }
@@ -49,7 +50,6 @@ namespace Adibrata.Framework.Messaging
     {
         public string DicExtString { get; set; }
         public string DicFileString { get; set; }
-        
     }
 
     [Serializable]
@@ -59,10 +59,5 @@ namespace Adibrata.Framework.Messaging
         public string LocalFileName { get; set; }
         public string RemoteFileName { get; set; }
         public string Type { get; set; }
-
-        public int SMTP_Port { get { return Convert.ToInt32(ConfigurationManager.AppSettings["SMTPPort"].ToString()); } }
-        public bool EnableSSL { get { return Convert.ToBoolean(ConfigurationManager.AppSettings["EnableSsl"].ToString()); } }
-        public System.Net.Mail.SmtpClient SmtpConfiguration { get; set; }
-        public System.Net.Mail.MailMessage MailConfiguration { get; set; }
     }
 }

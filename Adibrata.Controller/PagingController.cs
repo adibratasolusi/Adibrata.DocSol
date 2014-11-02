@@ -38,7 +38,7 @@ namespace Adibrata.Controller.Paging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = "",
                     NameSpace = "Adibrata.Controller.Paging",
                     ClassName = "PagingController",
                     FunctionName = "PagingData",

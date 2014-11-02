@@ -29,7 +29,7 @@ namespace Adibrata.Controller.UserManagement
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = "",
                     NameSpace = "Adibrata.Controller.UserManagement",
                     ClassName = "UserManagementController",
                     FunctionName = "UserManagement",

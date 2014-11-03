@@ -25,19 +25,37 @@ namespace Adibrata.FinanceLease.Windows.UserManagement
         string currentUserName;
         UserManagementController _obj = new UserManagementController();
 
-       
+
         public UserRegistrationAddEdit(string username = "0")
         {
 
-            
+
             InitializeComponent();
             dpExp.DisplayDateStart = DateTime.Now;
             currentUserName = username;
+            
+        }
+        private void updateUser
+        { 
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserMangementAddEdit", ClassName = "Adibrata.BusinessProcess.UserManagement.Extend.UserManagement" };
+            UserManagementEntities _ent = new UserManagementEntities
+            {
+                MethodName = "UserMangementAddEdit",
+                ClassName = "Adibrata.BusinessProcess.UserManagement.Extend.UserManagement"
+            };
+            string active = "0";
+            if (isActive.IsChecked == true)
+            {
+                active = "1";
+            }
+            _ent.UserName = txtUserName.Text.Trim();
+            _ent.Pass = txtPassword.Text;
+            _ent.IsActive = active;
+            _ent.seqWrongPwd = Convert.ToInt64(txtMax.Text.Trim());
+            _ent.ExpiredDt = dpExp.SelectedDate.Value;
             _obj.UserManagement<string>(_ent);
         }
     }

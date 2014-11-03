@@ -6,7 +6,7 @@
       mc:Ignorable="d" 
 	Title="UserRegistrationAddEdit">
     <ScrollViewer x:Name="svMain">
-    <Grid>
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190*" />
                 <ColumnDefinition Width="300*" />
@@ -39,14 +39,18 @@
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Re. Password</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3" Style="{StaticResource EvenGridStyle}">
-                    <TextBox x:Name="txtRepeatPsw"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+                <TextBox x:Name="txtRepeatPsw"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
             </Grid>
-          
+
             <Grid Grid.Column="0" Grid.Row="4" Style="{StaticResource OddGridStyle}" Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Max Wrong</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="4" Style="{StaticResource EvenGridStyle}">
-                <TextBox x:Name="txtMax" Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="259*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="txtMax" Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" Grid.ColumnSpan="2" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="5" Style="{StaticResource OddGridStyle}" Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Expired Date</TextBlock>
@@ -61,8 +65,9 @@
                 <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="7">
-                <Button Name="btnSave" Content="Save" Margin="100 10 0 0" Click="btnSave_Click"></Button></Grid>
-        
+                <Button Name="btnSave" Content="Save" Margin="100 10 0 0" Click="btnSave_Click"></Button>
+            </Grid>
+
         </Grid>
     </ScrollViewer>
 </Page>

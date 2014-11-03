@@ -58,4 +58,54 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo.Agrmnt.Table.sql" />
+    <Build Include="dbo.Agrmnt_Mnt.Table.sql" />
+    <Build Include="dbo.AgrmntAsset.Table.sql" />
+    <Build Include="dbo.AgrmntInsur.Table.sql" />
+    <Build Include="dbo.AgrmntInsurAsset.Table.sql" />
+    <Build Include="dbo.AgrmntInsurDtl.Table.sql" />
+    <Build Include="dbo.AgrmntInsurHdr.Table.sql" />
+    <Build Include="dbo.AmendmentTrx.Table.sql" />
+    <Build Include="dbo.Application.Table.sql" />
+    <Build Include="dbo.AprvlAltrnUsr.Table.sql" />
+    <Build Include="dbo.AprvlNextPerson.Table.sql" />
+    <Build Include="dbo.AprvlPathTree.Table.sql" />
+    <Build Include="dbo.AprvlPathTreeMember.Table.sql" />
+    <Build Include="dbo.AprvlStatus.Table.sql" />
+    <Build Include="dbo.AprvlStatusLogs.Table.sql" />
+    <Build Include="dbo.AprvlType.Table.sql" />
+    <Build Include="dbo.AprvlTypeScheme.Table.sql" />
+    <Build Include="dbo.CashBankMutDtl.Table.sql" />
+    <Build Include="dbo.CashBankMutHdr.Table.sql" />
+    <Build Include="dbo.CoaSchmDtl.Table.sql" />
+    <Build Include="dbo.CoaSchmHdr.Table.sql" />
+    <Build Include="dbo.Cust.Table.sql" />
+    <Build Include="dbo.EarlyTermination.Table.sql" />
+    <Build Include="dbo.InstSchdl.Table.sql" />
+    <Build Include="dbo.Jrnl_Trx_Dtl.Table.sql" />
+    <Build Include="dbo.Jrnl_Trx_Hdr.Table.sql" />
+    <Build Include="dbo.JrnlJob.Table.sql" />
+    <Build Include="dbo.JrnlSchmDtl.Table.sql" />
+    <Build Include="dbo.JrnlSchmHdr.Table.sql" />
+    <Build Include="dbo.MS_Bank.Table.sql" />
+    <Build Include="dbo.MS_BankAccount.Table.sql" />
+    <Build Include="dbo.Ms_Coa.Table.sql" />
+    <Build Include="dbo.MS_Company.Table.sql" />
+    <Build Include="dbo.Ms_Journal_Seq.Table.sql" />
+    <Build Include="dbo.MS_JrnlTrx.Table.sql" />
+    <Build Include="dbo.MS_Office.Table.sql" />
+    <Build Include="dbo.MS_Sequence.Table.sql" />
+    <Build Include="dbo.MS_Setting.Table.sql" />
+    <Build Include="dbo.MS_SettingType.Table.sql" />
+    <Build Include="dbo.MsUser.Table.sql" />
+    <Build Include="dbo.PayHistDtl.Table.sql" />
+    <Build Include="dbo.PayHistHdr.Table.sql" />
+    <Build Include="dbo.PayRcv.Table.sql" />
+    <Build Include="dbo.PayRcvDtl.Table.sql" />
+    <Build Include="dbo.PayRcvOth.Table.sql" />
+    <Build Include="dbo.RuleScheme.Table.sql" />
+    <Build Include="dbo.RuPriceList.Table.sql" />
+    <Build Include="dbo.UserActivityLog.Table.sql" />
+  </ItemGroup>
 </Project>

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Reflection;
-using Adibrata.BusinessProcess.Views.Entities;
-using Adibrata.Framework.Logging;
-using Adibrata.Controller;
+﻿using Adibrata.BusinessProcess.Views.Entities;
 using Adibrata.Framework.Caching;
+using Adibrata.Framework.Logging;
+using System;
+using System.Reflection;
 
 namespace Adibrata.Controller.Paging
 {

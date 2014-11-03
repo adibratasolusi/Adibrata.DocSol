@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Adibrata.BusinessProcess.UserManagement.Entities;
-using System.Reflection;
-using Adibrata.Framework.Logging;
+﻿using Adibrata.BusinessProcess.UserManagement.Entities;
 using Adibrata.Framework.Caching;
+using Adibrata.Framework.Logging;
+using System;
+using System.Reflection;
 
 namespace Adibrata.Controller.UserManagement
 {

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using Adibrata.BusinessProcess.Paging.Entities;
-using System.Reflection;
-using Adibrata.Framework.Logging;
-using System.IO;
+﻿using Adibrata.BusinessProcess.Paging.Entities;
 using Adibrata.Framework.Caching;
+using Adibrata.Framework.Logging;
+using System;
+using System.Reflection;
 
 namespace Adibrata.Controller.Paging
 {
@@ -23,27 +17,30 @@ namespace Adibrata.Controller.Paging
             string _methodname, _classname; 
             try
             {
+                // Load Assembly
                 _ent.AssemblyName = "Adibrata.BusinessProcess.Paging.Extend";
-
+                #region "Load Assembly"
+                // Load Assembly
                 if (!DataCache.Contains(_ent.AssemblyName))
-                {
-                    _objassembly = Assembly.Load(_ent.AssemblyName);
-                    DataCache.Insert<Assembly>(_ent.AssemblyName, _objassembly);
-                }
+                {_objassembly = Assembly.Load(_ent.AssemblyName);
+                  DataCache.Insert<Assembly>(_ent.AssemblyName, _objassembly);}
                 else
-                {
-                    _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
-                }
+                {_objassembly = DataCache.Get<Assembly>(_ent.AssemblyName); }
+                #endregion 
+
+                #region "Load Class"
+                // Load Class
                 _classname = _ent.AssemblyName + "." + _ent.ClassName;
                 if (!DataCache.Contains(_classname))
                 {
                     _type = _objassembly.GetType(_classname);
                     DataCache.Insert<Type>(_classname, _type);
                 }
-                else
-                {
-                    _type = DataCache.Get<Type>(_classname);
-                }
+                else {_type = DataCache.Get<Type>(_classname); }
+                #endregion 
+
+                #region "Load Method"
+                // Load Method
                 _methodname = _classname  + "." + _ent.MethodName;
 
                 if (!DataCache.Contains(_methodname))
@@ -51,18 +48,11 @@ namespace Adibrata.Controller.Paging
                     _obj = Activator.CreateInstance(_type);
                     DataCache.Insert<object>(_methodname, _obj);
                 }
-                else
-                {
-                    _obj = Activator.CreateInstance(_type);
-                }
+                else {_obj = Activator.CreateInstance(_type); }
+                #endregion 
 
                 //New Non Static Classs
         
-
-                //Assembly test = Assembly.GetExecutingAssembly();
-
-
-              
                 object[] _param = new object[] { _ent };
 
                 //_type.GetMethod(_ent.MethodName);
@@ -93,24 +83,3 @@ namespace Adibrata.Controller.Paging
         }
     }
 }
-
-
-//ObjectCache cache = MemoryCache.Default;
-//    string fileContents = cache["filecontents"] as string;
-
-//    if (fileContents == null)
-//    {
-//        CacheItemPolicy policy = new CacheItemPolicy();
-        
-//        List<string> filePaths = new List<string>();
-//        filePaths.Add("c:\\cache\\example.txt");
-
-//        policy.ChangeMonitors.Add(new 
-//        HostFileChangeMonitor(filePaths));
-
-//        // Fetch the file contents.
-//        fileContents = 
-//            File.ReadAllText("c:\\cache\\example.txt");
-        
-//        cache.Set("filecontents", fileContents, policy);
-//    }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.Framework.Caching;
 using Adibrata.Framework.Logging;
-using Adibrata.BusinessProcess.DocumentSol.Entities;
+using System;
+using System.Reflection;
 
 namespace Adibrata.Controller
 {

@@ -18,7 +18,7 @@ namespace Adibrata.Controller.Approval
             string _classname; 
             try
             {
-                
+                #region "Load Assembly"
                 _ent.AssemblyName = "Adibrata.BusinessProcess.Report.Extend";
                 if (!DataCache.Contains(_ent.AssemblyName))
                 {
@@ -29,6 +29,10 @@ namespace Adibrata.Controller.Approval
                 {
                     _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
                 }
+                #endregion 
+
+                #region "Load Class"
+                // Load Class
                 _classname = _ent.AssemblyName + "." + _ent.ClassName;
                 if (!DataCache.Contains(_classname))
                 {
@@ -39,6 +43,10 @@ namespace Adibrata.Controller.Approval
                 {
                     _type = DataCache.Get<Type>(_classname);
                 }
+                #endregion 
+                
+                #region "Load Method"
+                // Load Method
                 _methodname = _classname + "." + _ent.MethodName;
 
                 if (!DataCache.Contains(_methodname))
@@ -50,6 +58,7 @@ namespace Adibrata.Controller.Approval
                 {
                     _obj = Activator.CreateInstance(_type);
                 }
+                #endregion 
 
                 object[] _param = new object[] { _ent };
 

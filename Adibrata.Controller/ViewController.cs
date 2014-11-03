@@ -17,6 +17,7 @@ namespace Adibrata.Controller.Paging
             string _methodname, _classname;
             try
             {
+                #region "Load Assembly"
                 _ent.AssemblyName = "Adibrata.BusinessProcess.View.Extend";
                 if (!DataCache.Contains(_ent.AssemblyName))
                 {
@@ -27,7 +28,10 @@ namespace Adibrata.Controller.Paging
                 {
                     _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
                 }
+                #endregion 
 
+                #region "Load Class"
+                // Load Class
                 _classname = _ent.AssemblyName + "." + _ent.ClassName;
 
                 if (!DataCache.Contains(_classname))
@@ -39,6 +43,10 @@ namespace Adibrata.Controller.Paging
                 {
                     _type = DataCache.Get<Type>(_classname);
                 }
+                #endregion 
+                
+                #region "Load Method"
+                // Load Method
                 _methodname = _ent.ClassName + "." + _ent.MethodName;
 
                 if (!DataCache.Contains(_methodname))
@@ -50,6 +58,7 @@ namespace Adibrata.Controller.Paging
                 {
                     _obj = Activator.CreateInstance(_type);
                 }
+                #endregion 
 
                 object[] _param = new object[] { _ent };
 

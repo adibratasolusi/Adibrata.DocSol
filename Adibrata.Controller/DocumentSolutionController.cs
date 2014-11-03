@@ -17,7 +17,7 @@ namespace Adibrata.Controller
             string _methodname, _classname;
             try
             {
-
+                #region "Load Assembly"
                 _ent.AssemblyName = "Adibrata.BusinessProcess.DocumentSol.Extend";
                 if (!DataCache.Contains(_ent.AssemblyName))
                 {
@@ -28,7 +28,11 @@ namespace Adibrata.Controller
                 {
                     _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
                 }
-                  _classname = _ent.AssemblyName + "." + _ent.ClassName;
+                #endregion 
+                
+                #region "Load Class"
+                // Load Class
+                _classname = _ent.AssemblyName + "." + _ent.ClassName;
                 if (!DataCache.Contains(_classname))
                 {
                     _type = _objassembly.GetType(_classname);
@@ -38,6 +42,10 @@ namespace Adibrata.Controller
                 {
                     _type = DataCache.Get<Type>(_classname);
                 }
+                #endregion 
+                
+                #region "Load Method"
+                // Load Method
                 _methodname = _classname + "." + _ent.MethodName;
 
                 if (!DataCache.Contains(_methodname))
@@ -49,6 +57,7 @@ namespace Adibrata.Controller
                 {
                     _obj = Activator.CreateInstance(_type);
                 }
+                #endregion 
 
                 object[] _param = new object[] { _ent };
 

@@ -17,7 +17,7 @@ namespace Adibrata.Controller.Report
             string _methodname, _classname;
             try
             {
-                
+                #region "Load Assembly"
                 _ent.AssemblyName = "Adibrata.BusinessProcess.Report.Extend";
                 if (!DataCache.Contains(_ent.AssemblyName))
                 {
@@ -28,6 +28,10 @@ namespace Adibrata.Controller.Report
                 {
                     _objassembly = DataCache.Get<Assembly>(_ent.AssemblyName);
                 }
+                #endregion 
+
+                #region "Load Class"
+                // Load Class
                 _classname = _ent.AssemblyName + "." + _ent.ClassName;
                 if (!DataCache.Contains(_classname))
                 {
@@ -38,6 +42,10 @@ namespace Adibrata.Controller.Report
                 {
                     _type = DataCache.Get<Type>(_classname);
                 }
+                #endregion 
+                
+                #region "Load Method"
+                // Load Method
                 _methodname = _classname + "." + _ent.MethodName;
 
                 if (!DataCache.Contains(_methodname))
@@ -49,7 +57,7 @@ namespace Adibrata.Controller.Report
                 {
                     _obj = Activator.CreateInstance(_type);
                 }
-
+                #endregion 
                 object[] _param = new object[] { _ent };
 
                 _result =  (T)_type.InvokeMember(_ent.MethodName, BindingFlags.InvokeMethod, null, _obj, _param);

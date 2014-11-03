@@ -1,11 +1,11 @@
-﻿using Microsoft.Reporting.WebForms;
-using System.IO;
+﻿using Adibrata.Framework.Logging;
+using Microsoft.Reporting.WebForms;
 using System;
-using Adibrata.Framework.Logging; 
+using System.IO; 
 
 namespace Adibrata.Framework.ReportDocument
 {
-    public class ReportServerRDLC
+    public static  class ReportServerRDLC
     {
         #region "How To Use this Class"
           //ReportingEntities _ent = new ReportingEntities();

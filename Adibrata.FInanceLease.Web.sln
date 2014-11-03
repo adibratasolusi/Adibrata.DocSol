@@ -90,6 +90,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.DocumentSol.Extend", "Adibrata.BusinessProcess.DocumentSol.Extend\Adibrata.BusinessProcess.DocumentSol.Extend.csproj", "{03F8FE1B-A61B-4947-83F2-7D377AC48377}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Table", "Adibrata.Database.Table\Adibrata.Database.Table.sqlproj", "{9627A6F1-349D-4660-B900-3C221EA3DF33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -254,6 +256,12 @@ Global
 		{03F8FE1B-A61B-4947-83F2-7D377AC48377}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03F8FE1B-A61B-4947-83F2-7D377AC48377}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03F8FE1B-A61B-4947-83F2-7D377AC48377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

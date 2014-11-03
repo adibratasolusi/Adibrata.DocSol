@@ -105,6 +105,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
+      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
+      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj">
       <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
       <Name>Adibrata.BusinessProcess.Paging.Entities</Name>
@@ -117,13 +121,25 @@
       <Project>{f4ca92e1-b570-4d5f-b320-9228ed30e8dd}</Project>
       <Name>Adibrata.BusinessProcess.Views.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
+      <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
+      <Name>Adibrata.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Controller\Adibrata.Controller.csproj">
       <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>
       <Name>Adibrata.Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Caching\Adibrata.Framework.Caching.csproj">
+      <Project>{87734e21-d1d6-49ab-8ba9-d207e82f9bc0}</Project>
+      <Name>Adibrata.Framework.Caching</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
       <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
       <Name>Adibrata.Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj">
+      <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
+      <Name>Adibrata.Framework.Messaging</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj">
       <Project>{030bbc11-268a-4abf-8e58-3c2461aab791}</Project>

@@ -16,6 +16,7 @@ using Adibrata.BusinessProcess.Paging.Entities;
 using Adibrata.Controller.Paging;
 using System.Data;
 using Adibrata.Framework.Logging;
+using Adibrata.Controller;
 
 namespace Adibrata.Windows.UserControler
 {
@@ -46,7 +47,7 @@ namespace Adibrata.Windows.UserControler
                 dgObj.ItemsSource = _dt.DefaultView;
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = this.UserName,
                     
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
@@ -63,7 +64,7 @@ namespace Adibrata.Windows.UserControler
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = this.UserName,
                     
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
@@ -90,7 +91,7 @@ namespace Adibrata.Windows.UserControler
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = this.UserName,
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
                     FunctionName = "btnPrev_Click",
@@ -107,18 +108,18 @@ namespace Adibrata.Windows.UserControler
         public DataTable PagingData()
         {
             DataTable _dt = new DataTable();
-            PagingController _obj = new PagingController();
+            
             try
             {
-                PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.SortBy, CurrentPage = 1 };
+                PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, CurrentPage = 1 };
 
-                _dt = _obj.PagingData(_ent);
+                _dt = (DataTable) PagingController.PagingData<DataTable>(_ent);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = this.UserName,
                     NameSpace = "Adibrata.Windows.UserControler",
                     ClassName = "UCPaging",
                     FunctionName = "PagingData",

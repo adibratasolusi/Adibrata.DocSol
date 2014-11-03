@@ -29,15 +29,18 @@ namespace Adibrata.FinanceLease.Windows.UserManagement
             {
                 DataTable dt = new DataTable();
                 InitializeComponent();
-                PagingControl.ClassName = "Adibrata.BusinessProcess.Paging.Extend.RuleSchemePaging";
-                PagingControl.MethodName = "PagingProcess";
+                PagingControl.ClassName = "UserManagement.UserRegisterPaging";
+                PagingControl.MethodName = "UserRegister";
+                PagingControl.SortBy = "";
+                PagingControl.WhereCond = "";
+
                 PagingControl.dgObj = dgListUser;
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = "EMAIL",
                     NameSpace = "Adibrata.FinanceLease.Windows.UserManagement",
                     ClassName = "UserRegistrationPaging",
                     FunctionName = "UserRegistrationPaging / Constructor",

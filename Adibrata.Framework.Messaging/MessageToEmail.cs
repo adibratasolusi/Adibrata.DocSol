@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading;
-using Adibrata.Framework.Logging;
+﻿using Adibrata.Framework.Logging;
+using System;
+using System.Net;
 using System.Net.Mail;
-using System.Net; 
+using System.Threading; 
 
 namespace Adibrata.Framework.Messaging
 {

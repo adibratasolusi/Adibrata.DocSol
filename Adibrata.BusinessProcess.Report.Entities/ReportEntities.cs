@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Adibrata.BusinessProcess.Entities.Base;
 
 namespace Adibrata.BusinessProcess.Report.Entities
 {
     [Serializable]
-    public class ReportEntities
+    public class ReportEntities : EntitiesBase
     {
         public string AssemblyName { get; set; }
         public string ClassName { get; set; }

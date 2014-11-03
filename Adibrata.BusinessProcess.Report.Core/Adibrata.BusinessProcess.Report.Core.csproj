@@ -42,6 +42,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
+      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
+      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Entities\Adibrata.BusinessProcess.Report.Entities.csproj">
       <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
       <Name>Adibrata.BusinessProcess.Report.Entities</Name>

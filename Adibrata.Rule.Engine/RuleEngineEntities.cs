@@ -8,7 +8,7 @@ using System.Data;
 namespace Adibrata.Rule.Engine
 {
     [Serializable]    
-    public class RuleEngineEntities
+    public class RuleEngineEntities :Adibrata.BusinessProcess.Entities.Base.EntitiesBase
     {
         public string RuleName { get; set; }
         public int NumOfCondition { get; set; }
@@ -16,10 +16,6 @@ namespace Adibrata.Rule.Engine
         public Dictionary<string, string> Listvalue;
         public DataTable DtListValue { get; set; }
         public DataTable DtResultRule { get; set; }
-        public string ConnectionString { get; set; }
-        public int CurrentPage { get; set; }
-        public int PageSize { get; set; }
-        public string WhereCond { get; set; }
-        public string SortBy { get; set; }
+        
     }
 }

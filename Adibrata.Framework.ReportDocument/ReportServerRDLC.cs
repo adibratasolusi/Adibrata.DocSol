@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Adibrata.Framework.ReportDocument
 {
-    public static  class ReportServerRDLC
+    public  class ReportServerRDLC
     {
         #region "How To Use this Class"
           //ReportingEntities _ent = new ReportingEntities();

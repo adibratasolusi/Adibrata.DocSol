@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Adibrata.Framework.ImageProcessing
 {
-    public class Class1
+    public class GrayScaleProcess
     {
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Rule.Engine", "Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj", "{030BBC11-268A-4ABF-8E58-3C2461AAB791}"
 EndProject
@@ -93,6 +93,12 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Table", "Adibrata.Database.Table\Adibrata.Database.Table.sqlproj", "{9627A6F1-349D-4660-B900-3C221EA3DF33}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.StoreProcedure", "Adibrata.Database.StoreProcedure\Adibrata.Database.StoreProcedure.sqlproj", "{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.DocumentSol.Windows", "Adibrata.DocumentSol.Windows\Adibrata.DocumentSol.Windows.csproj", "{65A92DCA-E31F-4642-9AB9-93A3E8AF1905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCF", "WCF", "{2E8E8F77-A074-4721-BE56-FE4108B98C6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.WCF.DocumentSol", "Adibrata.WCF.DocumentSol\Adibrata.WCF.DocumentSol.csproj", "{6C89CFE9-3306-4FC8-B1ED-2FDAF6D60725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -270,6 +276,14 @@ Global
 		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{65A92DCA-E31F-4642-9AB9-93A3E8AF1905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A92DCA-E31F-4642-9AB9-93A3E8AF1905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A92DCA-E31F-4642-9AB9-93A3E8AF1905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A92DCA-E31F-4642-9AB9-93A3E8AF1905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C89CFE9-3306-4FC8-B1ED-2FDAF6D60725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C89CFE9-3306-4FC8-B1ED-2FDAF6D60725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C89CFE9-3306-4FC8-B1ED-2FDAF6D60725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C89CFE9-3306-4FC8-B1ED-2FDAF6D60725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,5 +295,6 @@ Global
 		{F72247A4-7D9B-4EBF-9C76-71656C3FA823} = {1E006B03-C6E6-42A0-AA29-849D0C1E1836}
 		{8BE99BF0-4500-4F2A-8240-81CC192C47DA} = {F72247A4-7D9B-4EBF-9C76-71656C3FA823}
 		{75FF1407-1C79-4138-B6AD-3E8D69D2AD36} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
+		{6C89CFE9-3306-4FC8-B1ED-2FDAF6D60725} = {2E8E8F77-A074-4721-BE56-FE4108B98C6B}
 	EndGlobalSection
 EndGlobal

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
+using System.Data;
 
 namespace Adibrata.Windows.UserControler
 {
@@ -41,14 +42,18 @@ namespace Adibrata.Windows.UserControler
             get { return _getCell(Row, Column); }
         }
 
-        public void AddColumn(string header, string binding)
+        public void AddColumn(string header, string binding, object asd)
         {
-            //DataGridTextColumn textColumn = new DataGridTextColumn();
-            //textColumn.Header = "First Name";
-            //textColumn.Binding = new Binding("FirstName");
+         
+            DataGridTemplateColumn textColumn = new DataGridTemplateColumn();
+            textColumn.CellTemplate = (DataTemplate)Resources[asd];
             //dtGrid.Columns.Add(textColumn);
             //DataGridTemplateColumn templaterColumn = new DataGridTemplateColumn();
             //templaterColumn.CellTemplate
+        }
+        public void Resourse(DataTable dt)
+        {
+            dtGrid.
         }
         /*
          *                    <DataGridTemplateColumn Header="Upload">

@@ -17,7 +17,7 @@
             <TextBox Name="txtInput"  Style="{StaticResource textStyle}" LostKeyboardFocus="txtInput_LostKeyboardFocus"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="0">
-            <TextBlock Name="lblValidInput" FontStyle="Normal" Foreground="Red" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left"> test</TextBlock>
+            <TextBlock Name="lblValidInput" FontStyle="Normal" Style="{StaticResource ValidatorStyle}" HorizontalAlignment="Left"></TextBlock>
         </Grid>
     </Grid>
 </UserControl>

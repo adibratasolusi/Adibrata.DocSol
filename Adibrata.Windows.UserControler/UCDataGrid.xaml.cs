@@ -53,7 +53,7 @@ namespace Adibrata.Windows.UserControler
         }
         public void Resourse(DataTable dt)
         {
-            dtGrid.
+            
         }
         /*
          *                    <DataGridTemplateColumn Header="Upload">

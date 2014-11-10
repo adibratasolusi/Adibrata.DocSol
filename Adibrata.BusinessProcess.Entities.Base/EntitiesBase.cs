@@ -21,6 +21,11 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string SortBy { get; set; }
         public int TotalRecord { get; set; }
         public string UserLogin { get; set; }
+        public int IsActive { get; set; }
+        public int IsSystem { get; set; }
+
+        public Boolean IsEdit { get; set; }
+
         //test
     }
 }

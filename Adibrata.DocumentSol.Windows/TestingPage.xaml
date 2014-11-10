@@ -1,4 +1,4 @@
-﻿<Page xmlns:UserControler="clr-namespace:Adibrata.Windows.UserControler;assembly=Adibrata.Windows.UserControler"  x:Class="Adibrata.DocumentSol.Windows.TestingPage"
+﻿<Page xmlns:UCMenu="clr-namespace:Adibrata.Windows.UserControler.UCMenu;assembly=Adibrata.Windows.UserControler"  xmlns:UserControler="clr-namespace:Adibrata.Windows.UserControler;assembly=Adibrata.Windows.UserControler"  x:Class="Adibrata.DocumentSol.Windows.TestingPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,8 +8,6 @@
 	Title="TestingPage">
 
     <Grid>
-        <UserControler:UCDataGrid x:Name="dtgTest">
-            
-        </UserControler:UCDataGrid>
+        <UCMenu:UCMainMenu></UCMenu:UCMainMenu>
     </Grid>
 </Page>

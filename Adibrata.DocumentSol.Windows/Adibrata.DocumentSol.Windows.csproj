@@ -163,13 +163,41 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
+      <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
+      <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
+      <Name>Adibrata.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Controller\Adibrata.Controller.csproj">
+      <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>
+      <Name>Adibrata.Controller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
       <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>
       <Name>Adibrata.Framework.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.ImageProcessing\Adibrata.Framework.ImageProcessing.csproj">
+      <Project>{794775bc-8818-45e6-ad10-491e74af573a}</Project>
+      <Name>Adibrata.Framework.ImageProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj">
+      <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
+      <Name>Adibrata.Framework.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Security\Adibrata.Framework.Security.csproj">
+      <Project>{26f1e2d1-b0e5-405b-9d73-369db760a730}</Project>
+      <Name>Adibrata.Framework.Security</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Windows.UserControler\Adibrata.Windows.UserControler.csproj">
       <Project>{b9a31278-1b27-40e7-9f42-570bea054915}</Project>
       <Name>Adibrata.Windows.UserControler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpBITS.Base\SharpBITS.Base.csproj">
+      <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>
+      <Name>SharpBITS.Base</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

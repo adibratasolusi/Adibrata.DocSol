@@ -52,6 +52,15 @@
     <Compile Include="UCDataGrid.xaml.cs">
       <DependentUpon>UCDataGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCMenu\Converters\MenuDataItemConverter.cs" />
+    <Compile Include="UCMenu\Helpers\FindAncestores.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuDataItem.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuDataItemComparer.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuItems.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuSeparatorStyleSelector.cs" />
+    <Compile Include="UCMenu\UCMainMenu.xaml.cs">
+      <DependentUpon>UCMainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCPaging.xaml.cs">
       <DependentUpon>UCPaging.xaml</DependentUpon>
     </Compile>
@@ -71,6 +80,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCMenu\UCMainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,6 +137,10 @@
       <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
       <Name>Adibrata.BusinessProcess.Report.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
+      <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.View.Entities\Adibrata.BusinessProcess.Views.Entities.csproj">
       <Project>{f4ca92e1-b570-4d5f-b320-9228ed30e8dd}</Project>
       <Name>Adibrata.BusinessProcess.Views.Entities</Name>
@@ -164,6 +181,9 @@
   <ItemGroup>
     <Resource Include="Pictures\NextGreen.png" />
     <Resource Include="Pictures\PreviousGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UCMenu\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

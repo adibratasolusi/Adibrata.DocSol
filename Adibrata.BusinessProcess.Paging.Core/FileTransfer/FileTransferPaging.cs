@@ -15,8 +15,8 @@ namespace Adibrata.BusinessProcess.Paging.Core.FileTransfer
     public class FileTransferPaging
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
-        
-         public virtual DataTable FileTransferList (PagingEntities _ent)
+
+        public virtual DataTable FileTransferList(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();
@@ -52,5 +52,6 @@ namespace Adibrata.BusinessProcess.Paging.Core.FileTransfer
             }
 
             return _dt;
+        }
     }
 }

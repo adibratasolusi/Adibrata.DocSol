@@ -7,7 +7,43 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Login">
 
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer x:Name="svMain">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="190*" />
+                <ColumnDefinition Width="300*" />
+                <ColumnDefinition Width="190*" />
+                <ColumnDefinition Width="300*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}" Margin="0,1">
+                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >User Name</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource EvenGridStyle}">
+                <TextBox x:Name="txtUserName"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="2" Style="{StaticResource OddGridStyle}" Margin="0,1">
+                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Password</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="2" Style="{StaticResource EvenGridStyle}">
+                <TextBox x:Name="txtPass"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3">
+                <Button Name="btnReset" Content="Login" Margin="100 10 0 0" Click="btnReset_Click"></Button>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3">
+                <Button Name="btnLogin" Content="Login" Margin="100 10 0 0" Click="btnLogin_Click"></Button>
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
 </Page>

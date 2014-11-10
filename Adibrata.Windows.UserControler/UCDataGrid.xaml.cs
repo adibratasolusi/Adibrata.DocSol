@@ -42,18 +42,21 @@ namespace Adibrata.Windows.UserControler
             get { return _getCell(Row, Column); }
         }
 
+        
         public void AddColumn(string header, string binding, object asd)
         {
          
             DataGridTemplateColumn textColumn = new DataGridTemplateColumn();
+            textColumn.Header = header;
             textColumn.CellTemplate = (DataTemplate)Resources[asd];
-            //dtGrid.Columns.Add(textColumn);
+            dtGrid.Columns.Add(textColumn);
             //DataGridTemplateColumn templaterColumn = new DataGridTemplateColumn();
             //templaterColumn.CellTemplate
         }
         public void Resourse(DataTable dt)
         {
-            dtGrid.
+            dtGrid.ItemsSource = dt.DefaultView;
+
         }
         /*
          *                    <DataGridTemplateColumn Header="Upload">

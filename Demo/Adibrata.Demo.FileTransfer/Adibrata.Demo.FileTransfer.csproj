@@ -239,6 +239,10 @@
       <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
       <Name>Adibrata.Framework.Messaging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Windows.UserControler\Adibrata.Windows.UserControler.csproj">
+      <Project>{b9a31278-1b27-40e7-9f42-570bea054915}</Project>
+      <Name>Adibrata.Windows.UserControler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SharpBITS.Base\SharpBITS.Base.csproj">
       <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>
       <Name>SharpBITS.Base</Name>

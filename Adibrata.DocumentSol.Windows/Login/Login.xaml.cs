@@ -24,5 +24,15 @@ namespace Adibrata.DocumentSol.Windows.Login
         {
             InitializeComponent();
         }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

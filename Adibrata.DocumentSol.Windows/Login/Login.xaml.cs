@@ -34,22 +34,26 @@ namespace Adibrata.DocumentSol.Windows.Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserManagement", MethodName = "UserNamePasswordVerification" };
-            if (!txtUserName.IsValid)
-            {
-               
-            }
-            if (!txtPassword.IsValid)
-            { 
-
-            }
+         
             if (txtUserName.IsValid && txtPassword.IsValid && UserManagementController.UserManagement<Boolean>(_ent) != true)
             {
                 lblMessage.Text = "Please Verify User Name And Password";
             }
             else {
-            
-            _ent.UserLogin = txtUserName.InputValue;
-            _ent.Password = txtPassword.PasswordValue;
+                _ent.UserLogin = txtUserName.InputValue;
+                _ent.Password = txtPassword.PasswordValue;
+            }
+        }
+
+        private void CheckMandatory()
+        {
+            if (!txtUserName.IsValid)
+            {
+                txtUserName.CheckValue();
+            }
+            if (!txtPassword.IsValid)
+            {
+                txtPassword.CheckValue();
             }
         }
 

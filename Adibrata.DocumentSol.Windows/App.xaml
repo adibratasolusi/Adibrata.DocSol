@@ -38,6 +38,19 @@
             <Setter Property="Height" Value="Auto"></Setter>
             <Setter Property="Background" Value="{x:Null}"/>
         </Style>
+
+        <Style x:Key="ValidatorStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Margin" Value="0,0,0,5" />
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Height" Value="Auto"></Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+        </Style>
         <!-- DataGrid header style -->
         <Style x:Key="columnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="Height" Value="35" />

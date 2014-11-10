@@ -108,4 +108,7 @@
     <Build Include="dbo.RuPriceList.Table.sql" />
     <Build Include="dbo.UserActivityLog.Table.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Adibrata.Database.Table.refactorlog" />
+  </ItemGroup>
 </Project>

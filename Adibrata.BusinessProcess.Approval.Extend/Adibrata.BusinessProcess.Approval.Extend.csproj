@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApprovalPath.cs" />
+    <Compile Include="ApprovalPath.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ApprovalScheme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

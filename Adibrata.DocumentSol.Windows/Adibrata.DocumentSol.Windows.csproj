@@ -67,8 +67,8 @@
     <Compile Include="Menu\MenuRegistration.xaml.cs">
       <DependentUpon>MenuRegistration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestingPage.xaml.cs">
-      <DependentUpon>TestingPage.xaml</DependentUpon>
+    <Compile Include="TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserRegistrationAddEdit.xaml.cs">
       <DependentUpon>UserRegistrationAddEdit.xaml</DependentUpon>
@@ -115,7 +115,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TestingPage.xaml">
+    <Page Include="TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

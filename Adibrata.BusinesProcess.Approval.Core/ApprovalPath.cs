@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Adibrata.BusinessProcess.Approval.Core
 {
-    class ApprovalPath
+    public class ApprovalPath
     {
     }
 }

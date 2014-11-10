@@ -112,7 +112,7 @@ namespace Adibrata.Demo.FileTransfer
                     flag += 1;
                     //MessageBox.Show("panggil service disini" + dicFile[i+1].ToString());
                 }
-                MessageBox.Show("Semua Proses sukses");
+                MessageBox.Show("Upload file Success");
             }
         }
 
@@ -130,7 +130,7 @@ namespace Adibrata.Demo.FileTransfer
             string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                CmdString = "SELECT DOC_MASTER_ID as No, DOC_TYPE as DocumentType FROM DOC_MASTER";
+                CmdString = "SELECT DOC_MASTER_ID as No, DOC_TYPE as DocumentType FROM DOC_MASTER with (Nolock)";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("DOC_MASTER");
@@ -143,7 +143,7 @@ namespace Adibrata.Demo.FileTransfer
 
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                CmdString = "SELECT CUST_NAME as CustName FROM AGREEMENT where AGREEMENT_NO = '" + currentAgrmntNo +"'";
+                CmdString = "SELECT CUST_NAME as CustName FROM AGREEMENT  with (Nolock) where AGREEMENT_NO = '" + currentAgrmntNo + "'";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Agrmnt");
@@ -184,43 +184,43 @@ namespace Adibrata.Demo.FileTransfer
         void Browse(object sender, RoutedEventArgs e)
         {
 
-            
-                    // Create OpenFileDialog
-                        
-                    // Set filter for file extension and default file extension
-                    dlg.Title = "Select a picture";
-                    dlg.DefaultExt = ".jpg";
-                    dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                    "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                    "Portable Network Graphic (*.png)|*.png";
 
-                    // Display OpenFileDialog by calling ShowDialog method
-                    Nullable<bool> result = dlg.ShowDialog();
+            // Create OpenFileDialog
 
-                    // Get the selected file name and display in a TextBox
-                    if (result == true)
-                    {
+            // Set filter for file extension and default file extension
+            dlg.Title = "Select a picture";
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+            "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+            "Portable Network Graphic (*.png)|*.png";
 
-                        string filename = dlg.FileName;
-                        int i = dgUpload.SelectedIndex;
-                        var txtBox = new TextBox();
+            // Display OpenFileDialog by calling ShowDialog method
+            Nullable<bool> result = dlg.ShowDialog();
 
-                        txtBox.Text = filename;
+            // Get the selected file name and display in a TextBox
+            if (result == true)
+            {
 
-                        // Open document
-                        string asd = dgUpload.CurrentItem.ToString();
-                        DataGridCell cell = GetCell(i, 3);
-                        cell.Content = txtBox;
-                        //MessageBox.Show(tb.Text);
-                        var img = new Image { Width = 100, Height = 100 };
-                        var bitmapImage = new BitmapImage(new Uri(filename));
+                string filename = dlg.FileName;
+                int i = dgUpload.SelectedIndex;
+                var txtBox = new TextBox();
 
-                        img.Source = bitmapImage;
-                        DataGridCell image = GetCell(i, 4);
-                        image.Content = img;
+                txtBox.Text = filename;
 
-                    }
-                
+                // Open document
+                string asd = dgUpload.CurrentItem.ToString();
+                DataGridCell cell = GetCell(i, 3);
+                cell.Content = txtBox;
+                //MessageBox.Show(tb.Text);
+                var img = new Image { Width = 100, Height = 100 };
+                var bitmapImage = new BitmapImage(new Uri(filename));
+
+                img.Source = bitmapImage;
+                DataGridCell image = GetCell(i, 4);
+                image.Content = img;
+
+            }
+
         }
 
         #region "GET GRID"

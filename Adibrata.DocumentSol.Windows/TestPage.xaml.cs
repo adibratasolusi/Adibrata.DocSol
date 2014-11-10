@@ -16,13 +16,14 @@ using System.Windows.Shapes;
 namespace Adibrata.DocumentSol.Windows
 {
     /// <summary>
-    /// Interaction logic for TestingPage.xaml
+    /// Interaction logic for TestPage.xaml
     /// </summary>
-    public partial class TestingPage : Page
+    public partial class TestPage : Page
     {
-        public TestingPage()
+        public TestPage()
         {
             InitializeComponent();
+          
         }
     }
 }

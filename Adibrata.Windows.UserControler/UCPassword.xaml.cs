@@ -33,17 +33,23 @@ namespace Adibrata.Windows.UserControler
 
         private void txtPassword_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if (txtPassword.Password== "")
-            {
-                lblValidPassword.Text = this.MessageValidator;
-                this.IsValid = false;
-            }
-            else
-            {
-                lblValidPassword.Text = "";
-                this.IsValid = true;
-            }
+            CheckValue();
 
+        }
+        public void CheckValue()
+        {
+          
+                if (txtPassword.Password == "")
+                {
+                    lblValidPassword.Text = this.MessageValidator;
+                    this.IsValid = false;
+                }
+                else
+                {
+                    lblValidPassword.Text = "";
+                    this.IsValid = true;
+                }
+           
         }
 
     }

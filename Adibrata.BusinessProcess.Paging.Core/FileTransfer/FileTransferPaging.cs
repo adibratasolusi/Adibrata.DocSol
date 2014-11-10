@@ -15,8 +15,8 @@ namespace Adibrata.BusinessProcess.Paging.Core.FileTransfer
     public class FileTransferPaging
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
-        
-         public virtual DataTable FileTransferList (PagingEntities _ent)
+
+        public virtual DataTable FileTransferList(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();
@@ -32,7 +32,7 @@ namespace Adibrata.BusinessProcess.Paging.Core.FileTransfer
                 sqlParams[2].Value = _ent.WhereCond;
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 500);
                 sqlParams[3].Value = _ent.SortBy;
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
             }
             catch (Exception _exp)
             {
@@ -52,5 +52,6 @@ namespace Adibrata.BusinessProcess.Paging.Core.FileTransfer
             }
 
             return _dt;
+        }
     }
 }

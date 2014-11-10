@@ -22,7 +22,7 @@ namespace Adibrata.Windows.UserControler
     {
         public string DateString
         {
-            get { return DpCallendar.SelectedDate.Value.ToString("dd/MM/yyyy");  }
+            get { return DpCallendar.SelectedDate.Value.ToString("dd/MM/yyyy"); }
             //set { DpCallendar.Value = new DateTime(2001, 10, 20); }
         }
 
@@ -32,16 +32,21 @@ namespace Adibrata.Windows.UserControler
             //set { DpCallendar.Value = new DateTime(2001, 10, 20); }
         }
 
-        public DateTime DateSet
-        {
-            set { DpCallendar.SelectedDate = value; 
-            }
-        }
+        public DateTime DateSet {get;set;}
         public Callendar()
         {
             InitializeComponent();
+         
             DpCallendar.SelectedDateFormat = DatePickerFormat.Short;
+            DpCallendar.DisplayDate = this.DateSet;
+
+            DpCallendar.Text = this.DateSet.ToString();
             
+        }
+
+        private void DpCallendar_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
        
 

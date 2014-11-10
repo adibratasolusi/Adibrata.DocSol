@@ -34,8 +34,7 @@ namespace Adibrata.Windows.UserControler
             lblValidInput.Text = this.MessageValidator;
         }
 
-        
-        private void txtInput_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        public void CheckValue()
         {
             if (this.IsMandatory)
             {
@@ -50,6 +49,11 @@ namespace Adibrata.Windows.UserControler
                     this.IsValid = true;
                 }
             }
+        }
+        
+        private void txtInput_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            CheckValue();
         }
     }
 }

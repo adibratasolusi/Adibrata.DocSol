@@ -10,7 +10,7 @@ using Adibrata.BusinessProcess.Approval.Core;
 
 namespace Adibrata.BusinessProcess.Approval.Extend
 {
-    public class ApprovalPath
+    public class ApprovalPath : Adibrata.BusinessProcess.Approval.Core.ApprovalPath
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
         SqlTransaction _trans;

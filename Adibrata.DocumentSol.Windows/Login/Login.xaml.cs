@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Adibrata.BusinessProcess.UserManagement.Extend;
+using Adibrata.Controller.UserManagement;
+using Adibrata.BusinessProcess.UserManagement.Entities;
 
 namespace Adibrata.DocumentSol.Windows.Login
 {
@@ -23,6 +26,32 @@ namespace Adibrata.DocumentSol.Windows.Login
         public Login()
         {
             InitializeComponent();
+            txtUserName.MessageValidator = "Please Enter User Name";
+            txtUserName.IsMandatory = true;
+            txtPassword.MessageValidator = "Please Enter Password";
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserManagement", MethodName = "UserNamePasswordVerification" };
+            if (!txtUserName.IsValid)
+            {
+               
+            }
+            if (!txtPassword.IsValid)
+            { 
+
+            }
+            if (txtUserName.IsValid && txtPassword.IsValid && UserManagementController.UserManagement<Boolean>(_ent) != true)
+            {
+                lblMessage.Text = "Please Verify User Name And Password";
+            }
+            else {
+            
+            _ent.UserLogin = txtUserName.InputValue;
+            _ent.Password = txtPassword.PasswordValue;
+            }
+        }
+
     }
 }

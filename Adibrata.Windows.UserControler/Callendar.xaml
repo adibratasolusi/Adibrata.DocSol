@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Height="30" Width="150">
     <Grid Margin="0,0,0,0">
-        <DatePicker HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30" Width="140" FirstDayOfWeek="Monday" Name="DpCallendar" Text="23/10/2014" Background="#FFFFF9F9" ToolTip="Callendar" Cursor="Arrow">
-            <DatePicker.ContextMenu>
+        <DatePicker HorizontalAlignment="Left" Margin="0,0,0,0"  DataContextChanged="DpCallendar_DataContextChanged"   VerticalAlignment="Top" Height="30" Width="140" FirstDayOfWeek="Monday" Name="DpCallendar"  ToolTip="Callendar" Cursor="Arrow" SelectedDate="{Binding Path=DateOfBirth,StringFormat='dd/MM/yyy'}" >
+            <!--<DatePicker.ContextMenu>
                 <ContextMenu/>
             </DatePicker.ContextMenu>
             <DatePicker.CacheMode>
@@ -14,8 +14,8 @@
             </DatePicker.CacheMode>
             <DatePicker.Effect>
                 <DropShadowEffect ShadowDepth="2" Opacity="0"/>
-            </DatePicker.Effect>
-            <DatePicker.Resources>
+            </DatePicker.Effect>-->
+            <!--<DatePicker.Resources>
                 <Style TargetType="{x:Type DatePickerTextBox}">
                     <Setter Property="Control.Template">
                         <Setter.Value>
@@ -26,8 +26,8 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-            </DatePicker.Resources>
+            </DatePicker.Resources>-->
         </DatePicker>
-
+        <TextBlock Name="result"></TextBlock>
     </Grid>
 </UserControl>

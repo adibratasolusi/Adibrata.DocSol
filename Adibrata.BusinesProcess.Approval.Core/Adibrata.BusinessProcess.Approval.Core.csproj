@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApprovalPath.cs" />
     <Compile Include="ApprovalSheme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

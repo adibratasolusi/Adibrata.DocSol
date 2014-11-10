@@ -64,8 +64,16 @@
     <Compile Include="UCPaging.xaml.cs">
       <DependentUpon>UCPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCPassword.xaml.cs">
+      <DependentUpon>UCPassword.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UCSaveTransaction.xaml.cs">
       <DependentUpon>UCSaveTransaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCTextBox.xaml.cs">
+      <DependentUpon>UCTextBox.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Page Include="Callendar.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,7 +99,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCSaveTransaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

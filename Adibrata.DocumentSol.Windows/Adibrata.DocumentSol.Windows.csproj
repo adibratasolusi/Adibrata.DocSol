@@ -67,8 +67,8 @@
     <Compile Include="Menu\MenuRegistration.xaml.cs">
       <DependentUpon>MenuRegistration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestingPage.xaml.cs">
-      <DependentUpon>TestingPage.xaml</DependentUpon>
+    <Compile Include="TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserRegistrationAddEdit.xaml.cs">
       <DependentUpon>UserRegistrationAddEdit.xaml</DependentUpon>
@@ -102,10 +102,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="AgrmntUpload\AgrmntUploadPaging.xaml.cs">
       <DependentUpon>AgrmntUploadPaging.xaml</DependentUpon>
     </Compile>
@@ -119,11 +115,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="TestingPage.xaml">
+    <Page Include="TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,9 +155,81 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinesProcess.Approval.Core\Adibrata.BusinessProcess.Approval.Core.csproj">
+      <Project>{1cc2e5f8-6bff-4068-acdd-03cd93863761}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Entities\Adibrata.BusinessProcess.Approval.Entities.csproj">
+      <Project>{619b7815-58fb-4374-accb-e206cc14ca35}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Approval.Extend\Adibrata.BusinessProcess.Approval.Extend.csproj">
+      <Project>{d7c16ef2-3399-4480-908a-fab3bec831ed}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Core\Adibrata.BusinessProcess.DocumentSol.Core.csproj">
+      <Project>{10783b5e-99ed-4ce7-b769-9d77605179b2}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Entities\Adibrata.BusinessProcess.DocumentSol.Entities.csproj">
+      <Project>{c6363188-e561-4c44-973c-9be674a54ba5}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Extend\Adibrata.BusinessProcess.DocumentSol.Extend.csproj">
+      <Project>{03f8fe1b-a61b-4947-83f2-7d377ac48377}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
+      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
+      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Core\Adibrata.BusinessProcess.Paging.Core.csproj">
+      <Project>{3faa1e40-56fe-46c9-bec5-7cae5863af3f}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj">
+      <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Extend\Adibrata.BusinessProcess.Paging.Extend.csproj">
+      <Project>{8c4e97be-3d29-443e-b212-7b64dc2b7564}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Core\Adibrata.BusinessProcess.Report.Core.csproj">
+      <Project>{2827d775-62c7-4e0c-8788-622b174c7583}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Entities\Adibrata.BusinessProcess.Report.Entities.csproj">
+      <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Extend\Adibrata.BusinessProcess.Report.Extend.csproj">
+      <Project>{0f67e63a-234d-45cc-a656-82d1c741fb41}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Core\Adibrata.BusinessProcess.UserManagement.Core.csproj">
+      <Project>{72c9f1f3-82c5-4335-98ec-c6c5462f8b55}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
       <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
       <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Extend\Adibrata.BusinessProcess.UserManagement.Extend.csproj">
+      <Project>{d7e666c8-e6ee-4a52-aa01-7bc02aec113c}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.View.Core\Adibrata.BusinessProcess.Views.Core.csproj">
+      <Project>{da2973f7-b07d-4489-90ce-29a9e67266c3}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.View.Entities\Adibrata.BusinessProcess.Views.Entities.csproj">
+      <Project>{f4ca92e1-b570-4d5f-b320-9228ed30e8dd}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.View.Extend\Adibrata.BusinessProcess.Views.Extend.csproj">
+      <Project>{c1c37fe2-2ddf-4b10-813c-d0c81f8a5f4f}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Extend</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
       <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
@@ -175,9 +239,17 @@
       <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>
       <Name>Adibrata.Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Caching\Adibrata.Framework.Caching.csproj">
+      <Project>{87734e21-d1d6-49ab-8ba9-d207e82f9bc0}</Project>
+      <Name>Adibrata.Framework.Caching</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
       <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>
       <Name>Adibrata.Framework.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
+      <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
+      <Name>Adibrata.Framework.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.ImageProcessing\Adibrata.Framework.ImageProcessing.csproj">
       <Project>{794775bc-8818-45e6-ad10-491e74af573a}</Project>
@@ -186,6 +258,10 @@
     <ProjectReference Include="..\Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj">
       <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
       <Name>Adibrata.Framework.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
+      <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
+      <Name>Adibrata.Framework.ReportDocument</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.Security\Adibrata.Framework.Security.csproj">
       <Project>{26f1e2d1-b0e5-405b-9d73-369db760a730}</Project>
@@ -199,6 +275,20 @@
       <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>
       <Name>SharpBITS.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Theme\Src\DataGridThemes.csproj">
+      <Project>{75ff1407-1c79-4138-b6ad-3e8d69d2ad36}</Project>
+      <Name>DataGridThemes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoCall\Peer_Video_Confere\Video_Conference Peer1\Video_Conference.csproj">
+      <Project>{8be99bf0-4500-4f2a-8240-81cc192c47da}</Project>
+      <Name>Video_Conference</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logoadibrata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logoadibrata_login.png" />
   </ItemGroup>
   <PropertyGroup>
     <StartArguments />

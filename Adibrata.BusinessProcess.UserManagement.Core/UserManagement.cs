@@ -47,7 +47,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
 
             _password = (string)SqlHelper.ExecuteScalar(Connectionstring, CommandType.Text, sb.ToString(), sqlParams);
             
-            if (_password == Encryption.EncryptToSHA3(_ent.Password))
+            if (_password == Encryption.EncryptToSHA3(_ent.Password) && _password != "")
             {
                 _isvalid = true;
             }

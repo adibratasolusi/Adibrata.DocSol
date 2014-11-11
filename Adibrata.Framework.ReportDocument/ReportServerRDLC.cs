@@ -2,6 +2,7 @@
 using Microsoft.Reporting.WebForms;
 using System;
 using System.IO; 
+using Adibrata.Configuration;
 
 namespace Adibrata.Framework.ReportDocument
 {
@@ -30,15 +31,16 @@ namespace Adibrata.Framework.ReportDocument
         public enum DocumentType { Word, PDF, EXCEL};
 
         ReportViewer _viewer = new ReportViewer();
-       
+        static string DefaultReportPath = AppConfig.Config("ReportPath");
+
         public ReportServerRDLC(ReportingEntities _ent)
         {
             try
             {
-                if (File.Exists(@_ent.ReportPath))
+                string _reportpath = DefaultReportPath + _ent.ReportPath;
+                if (File.Exists(@_reportpath))
                 {
-                    
-                    _viewer.LocalReport.ReportPath = @_ent.ReportPath;
+                    _viewer.LocalReport.ReportPath = @_reportpath;
                 }
                 else
                 {
@@ -50,6 +52,7 @@ namespace Adibrata.Framework.ReportDocument
                     ReportDataSource rds = new ReportDataSource(_ent.DataSetName,_ent.ReportData);
                     _viewer.ProcessingMode = ProcessingMode.Local;
                     _viewer.LocalReport.DataSources.Clear();
+                    
                     _viewer.LocalReport.DataSources.Add(rds);
                     //_viewer.DataBind();
                 }
@@ -91,7 +94,8 @@ namespace Adibrata.Framework.ReportDocument
                 _ent.ReportResult = _viewer.LocalReport.Render(documenttype.ToString(), null, out mimeType, out encoding, out extension, out streamIds, out warnings);
                 _ent.MimeDocument = mimeType;
                 _ent.Encoding = encoding;
-                _ent.Extention = extension;
+
+                //_ent.Extention = extension;
             }
             catch (Exception _exp)
             {
@@ -113,3 +117,31 @@ namespace Adibrata.Framework.ReportDocument
         }
     }
 }
+#region "Sample Program RDLC for WPF"
+//Microsoft.Reporting.WinForms.ReportViewer reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+             
+//            Microsoft.Reporting.WinForms.LocalReport objRDLC = new Microsoft.Reporting.WinForms.LocalReport();
+//            reportViewer1.LocalReport.ReportEmbeddedResource = "OrderDetails.rdlc";
+             
+             
+//            ReportData oReportData = new ReportData();
+//            DataTable oReportDataTable = oReportData. OrderDetails (OrderID, UserID).Tables[0]; // Fetch data from database
+//            objRDLC.DataSources.Clear();
+//            reportViewer1.LocalReport.EnableHyperlinks = true;
+//            reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", oReportDataTable));
+//            //objRDLC.Refresh();
+//            reportViewer1.RefreshReport(); 
+//            byte[] byteViewer = reportViewer1.LocalReport.Render("PDF");
+ 
+//            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+ 
+//            saveFileDialog1.Filter = "*PDF files (*.pdf)|*.pdf";
+//            saveFileDialog1.FilterIndex = 2;
+//            saveFileDialog1.RestoreDirectory = true;
+//            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+//            {
+//                FileStream newFile = new FileStream(saveFileDialog1.FileName, FileMode.Create);
+//                newFile.Write(byteViewer, 0, byteViewer.Length);
+//                newFile.Close();
+//            }
+#endregion 

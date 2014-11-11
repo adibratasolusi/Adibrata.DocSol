@@ -9,8 +9,8 @@ namespace Adibrata.Framework.Caching
 {
  public class DataCache
     {
-     const int CacheDuration = 60;
-
+        const int CacheDuration = 60;
+        public enum Duration {Day, Hour, Minutes, Second};
         public static void Insert<T>(string key, T value)
         {
             lock (MemoryCache.Default)
@@ -31,6 +31,24 @@ namespace Adibrata.Framework.Caching
             }
         }
 
+        public static void Insert<T>(string key, T value, Duration DurationPeriod, int duration)
+        {
+            DateTimeOffset expires;
+            lock (MemoryCache.Default)
+            {
+                MemoryCache.Default.Remove(key.ToString());
+                switch (DurationPeriod)
+                {
+                    case Duration.Day: expires = new DateTimeOffset(DateTime.Now.AddDays(duration)); break;
+                    case Duration.Hour: expires = new DateTimeOffset(DateTime.Now.AddHours(duration)); break;
+                    case Duration.Minutes: expires = new DateTimeOffset(DateTime.Now.AddMinutes(duration)); break;
+                    case Duration.Second: expires = new DateTimeOffset(DateTime.Now.AddSeconds(duration)); break;
+                    default :expires = new DateTimeOffset(DateTime.Now.AddMilliseconds(duration)); break;
+                }
+                
+                MemoryCache.Default.Add(key.ToString(), value, expires);
+            }
+        }
         public static T Get<T>(string key)
         {
             if (MemoryCache.Default.Contains(key.ToString()))

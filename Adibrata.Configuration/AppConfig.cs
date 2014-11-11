@@ -28,7 +28,7 @@ namespace Adibrata.Configuration
                     sqlParams[0] = new SqlParameter("@Key", SqlDbType.VarChar, 500);
                     sqlParams[0].Value = key;
                     value = SqlHelper.ExecuteScalar(ConnectionString, CommandType.Text, SQLSyntax, sqlParams).ToString();
-                    DataCache.Insert<string>(key, value);
+                    DataCache.Insert<string>(key, value,DataCache.Duration.Day,1);
                 }
                 else
                 {

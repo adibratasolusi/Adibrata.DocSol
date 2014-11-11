@@ -55,6 +55,14 @@
       <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
       <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
+      <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
+      <Name>Adibrata.Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
+      <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
+      <Name>Adibrata.Framework.ReportDocument</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -58,5 +58,12 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Approval" />
+    <Folder Include="UserManagement" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="UserManagement\spUserRegisterListReport.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="UserManagement\spUserRegisterDelete.sql" />
   </ItemGroup>
 </Project>

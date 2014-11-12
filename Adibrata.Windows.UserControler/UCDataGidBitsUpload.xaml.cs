@@ -1,6 +1,7 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.Configuration;
 using Adibrata.Controller;
+using Adibrata.Framework.ImageProcessing;
 using Adibrata.Framework.Messaging;
 using SharpBits.Base;
 using System;
@@ -33,7 +34,7 @@ namespace Adibrata.Windows.UserControler
         int jobCount = 0;
         int fileCount = 0;
         // ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
-       Dictionary<int, string> dicFile = new Dictionary<int, string>();
+        Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();
         string server = AppConfig.Config("BITSServer");
         public string currentAgrmntNo
@@ -58,12 +59,12 @@ namespace Adibrata.Windows.UserControler
                 MethodName = "AgreementGetInfo",
                 ClassName = "UploadProcess"
             };
-            
+
             DataTable dt = new DataTable();
             dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-             txtCustName.Text = dt.Rows[0]["CustName"].ToString();
+            txtCustName.Text = dt.Rows[0]["CustName"].ToString();
             txtAgrmntNo.Text = currentAgrmntNo;
-            
+
             txtAgrmntNo.Text = currentAgrmntNo;
 
         }
@@ -74,7 +75,7 @@ namespace Adibrata.Windows.UserControler
                 MethodName = "DocMasterGetActive",
                 ClassName = "UploadProcess"
             };
-            
+
             DataTable dt = new DataTable();
             dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
 
@@ -105,7 +106,8 @@ namespace Adibrata.Windows.UserControler
                 docType = (TextBlock)cellDocType.Content;
                 if (path.Text != null && path.Text != "")
                 {
-                    string extension = System.IO.Path.GetExtension(path.Text);
+                    string newPath = WaterMarkProcess.SetWatermark(path.Text);
+                    string extension = System.IO.Path.GetExtension(newPath);
                     fileCount += 1; //set jumlah file
                     saveUpload(docType.Text);
                     dicExt.Add(fileCount, extension);
@@ -120,7 +122,11 @@ namespace Adibrata.Windows.UserControler
                 if (path.Text != null && path.Text != "")
                 {
                     string filePath = path.Text;
-                    bits(filePath, dicFile[i + 1]);
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath);
+                    string filePathOnly = System.IO.Path.GetDirectoryName(filePath);
+                    string extension = System.IO.Path.GetExtension(filePath);
+                    string newPath = filePathOnly + "//" + fileName + "_marking" + extension;
+                    bits(newPath, dicFile[i + 1]);
                 }
             }
 

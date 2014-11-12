@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,17 @@ namespace Adibrata.Framework.ImageProcessing
 {
     public class WaterMarkProcess
     {
-        
+
 
         [STAThread]
-        public static Image SetWatermark(Image img)
+        public static string SetWatermark(string WorkingDirectory)
         {
-         
+
             //define a string of text to use as the Copyright message
             string Copyright = "Copyright © Adibrata 2014";
 
             //create a image object containing the photograph to watermark
-            Image imgPhoto = img;
+            Image imgPhoto = Image.FromFile(WorkingDirectory);
             int phWidth = imgPhoto.Width;
             int phHeight = imgPhoto.Height;
 
@@ -182,9 +183,14 @@ namespace Adibrata.Framework.ImageProcessing
             grPhoto.Dispose();
 
             //save new image to file system.
-            return imgPhoto;
-            //imgPhoto.Save(WorkingDirectory + "\\watermark_final.jpg", ImageFormat.Jpeg);
-            //imgPhoto.Dispose();
+
+            string path = Path.GetDirectoryName(WorkingDirectory);
+            string fileName = Path.GetFileNameWithoutExtension(WorkingDirectory);
+            string extension = Path.GetExtension(WorkingDirectory);
+            string newPath = path + "\\" + fileName + "_marking" + extension;
+            imgPhoto.Save(newPath);
+            imgPhoto.Dispose();
+            return newPath;
 
         }
     }

@@ -195,6 +195,10 @@
       <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
       <Name>Adibrata.Framework.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.ImageProcessing\Adibrata.Framework.ImageProcessing.csproj">
+      <Project>{794775bc-8818-45e6-ad10-491e74af573a}</Project>
+      <Name>Adibrata.Framework.ImageProcessing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj">
       <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
       <Name>Adibrata.Framework.Messaging</Name>

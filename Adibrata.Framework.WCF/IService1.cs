@@ -44,4 +44,52 @@ namespace Adibrata.Framework.WCF
             set { stringValue = value; }
         }
     }
+    // Use a data contract as illustrated in the sample below to add composite types to service operations.
+    [DataContract]
+    public class PathDetails
+    {
+        string agrmntNo = string.Empty;
+        string docType = string.Empty;
+        string fileName = string.Empty;
+        string ext = string.Empty;
+        Int64 pathId;
+        byte[] fileBinary;
+
+        [DataMember]
+        public string AgrmntNo
+        {
+            get { return agrmntNo; }
+            set { agrmntNo = value; }
+        }
+        [DataMember]
+        public string Ext
+        {
+            get { return ext; }
+            set { ext = value; }
+        }
+        [DataMember]
+        public string DocType
+        {
+            get { return docType; }
+            set { docType = value; }
+        }
+        [DataMember]
+        public string FileName
+        {
+            get { return fileName; }
+            set { fileName = value; }
+        }
+        [DataMember]
+        public byte[] FileBinary
+        {
+            get { return fileBinary; }
+            set { fileBinary = value; }
+        }
+        [DataMember]
+        public Int64 PathId
+        {
+            get { return pathId; }
+            set { pathId = value; }
+        }
+    }
 }

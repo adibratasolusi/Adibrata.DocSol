@@ -26,6 +26,11 @@ namespace Adibrata.BusinessProcess.Entities.Base
 
         public Boolean IsEdit { get; set; }
 
+        #region "For Report Document"
+        public byte[] ReportOutput { get; set; }
+        public string MimeDocument { get; set; }
+        public string FileDocumentName { get; set; }
+        #endregion 
         //test
     }
 }

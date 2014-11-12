@@ -19,10 +19,9 @@ namespace Adibrata.Framework.ReportDocument
         public DataTable SubReportData { get; set; }
         public Byte[] ReportResult { get; set; }
         public string MimeDocument { get; set; }
-        public string Extention { get; set; }
         public string Encoding { get; set;  }
         public string FileNameDocument { get; set; }
         public string DataSetName { get; set; }
-        public string SubReportDataSetName { get; set;  }
+        public string SubReportDataSetName { get; set; }
     }
 }

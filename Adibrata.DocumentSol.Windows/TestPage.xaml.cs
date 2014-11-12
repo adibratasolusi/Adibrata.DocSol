@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Adibrata.Framework.ReportDocument;
+using Adibrata.Controller.UserManagement;
+using Adibrata.BusinessProcess.UserManagement.Entities;
 
 namespace Adibrata.DocumentSol.Windows
 {
@@ -24,6 +27,13 @@ namespace Adibrata.DocumentSol.Windows
         {
             InitializeComponent();
           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserRegister", MethodName = "UserREgisterListReport" };
+            //_ent = UserManagementController<UserManagementEntities>(_ent);
+
         }
     }
 }

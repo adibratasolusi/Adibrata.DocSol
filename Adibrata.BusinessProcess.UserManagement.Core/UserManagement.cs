@@ -59,6 +59,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
 
         }
 
+
     }
 }
 

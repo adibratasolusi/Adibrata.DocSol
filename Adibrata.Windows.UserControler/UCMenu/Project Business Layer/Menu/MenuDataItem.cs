@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Adibrata.Windows.UserControler.UCMenu.Project_Business_Layer.Menu
 {
@@ -16,6 +17,7 @@ namespace Adibrata.Windows.UserControler.UCMenu.Project_Business_Layer.Menu
         private int _intMenuItemParentID;
         private int _intSortOrder;
         private string _strIcon = string.Empty;
+        private string _form = string.Empty;
 
         private string _strMenuText = string.Empty;
         #endregion
@@ -58,12 +60,18 @@ namespace Adibrata.Windows.UserControler.UCMenu.Project_Business_Layer.Menu
             set { _intSortOrder = value; }
         }
 
+        public string Form
+        {
+            get { return _form; }
+            set { _form = value; }
+        }
+
         #endregion
 
         #region " Constructors "
 
 
-        public  MenuDataItem(int intMenuItemID, int intMenuItemParentID, int intSortOrder, string strMenuText, bool bolIsSeparator, string strIcon)
+        public  MenuDataItem(int intMenuItemID, int intMenuItemParentID, int intSortOrder, string strMenuText, bool bolIsSeparator, string strIcon, string form)
         {
             _intMenuItemID = intMenuItemID;
             _intMenuItemParentID = intMenuItemParentID;
@@ -71,10 +79,9 @@ namespace Adibrata.Windows.UserControler.UCMenu.Project_Business_Layer.Menu
             _strMenuText = strMenuText;
             _bolIsSeparator = bolIsSeparator;
             _strIcon = strIcon;
-
+            _form = form;
         }
 
         #endregion
-
     }
 }

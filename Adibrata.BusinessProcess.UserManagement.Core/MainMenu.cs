@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Configuration;
+using Adibrata.Framework.DataAccess;
+using Adibrata.Framework.Logging;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Adibrata.BusinessProcess.UserManagement.Core;
-using System.Data;
-using Adibrata.BusinessProcess.UserManagement.Entities;
-using Adibrata.Framework.Logging;
-using Adibrata.Configuration;
-using Adibrata.Framework.DataAccess;
-using System.Data.SqlClient;
 
-namespace Adibrata.BusinessProcess.UserManagement.Extend
+namespace Adibrata.BusinessProcess.UserManagement.Core
 {
-    public class UserManagement:Adibrata.BusinessProcess.UserManagement.Core.UserManagement
+    public class MainMenu
     {
+
         static string Connectionstring = AppConfig.Config("ConnectionString");
         public virtual DataTable MainMenuGetActive(UserManagementEntities _ent)
         {
@@ -56,13 +56,13 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 sqlParams[1].Value = _ent.MenuParentId;
                 sqlParams[2] = new SqlParameter("@shortOrder", SqlDbType.Int);
                 sqlParams[2].Value = _ent.ShortOrder;
-                sqlParams[3] = new SqlParameter("@menuTxt", SqlDbType.VarChar,50);
+                sqlParams[3] = new SqlParameter("@menuTxt", SqlDbType.VarChar, 50);
                 sqlParams[3].Value = _ent.MenuTxt;
-                sqlParams[4] = new SqlParameter("@isSeparator", SqlDbType.VarChar,1);
+                sqlParams[4] = new SqlParameter("@isSeparator", SqlDbType.VarChar, 1);
                 sqlParams[4].Value = _ent.IsSeparator;
-                sqlParams[5] = new SqlParameter("@isActive", SqlDbType.VarChar,1);
+                sqlParams[5] = new SqlParameter("@isActive", SqlDbType.VarChar, 1);
                 sqlParams[5].Value = _ent.IsActive;
-                sqlParams[6] = new SqlParameter("@form", SqlDbType.VarChar,50);
+                sqlParams[6] = new SqlParameter("@form", SqlDbType.VarChar, 50);
                 sqlParams[6].Value = _ent.Form;
                 if (_ent.FlagInsert == true)
                 {
@@ -72,7 +72,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 {
                     SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spMsMenuUpdate", sqlParams);
                 }
-                
+
             }
             catch (Exception _exp)
             {

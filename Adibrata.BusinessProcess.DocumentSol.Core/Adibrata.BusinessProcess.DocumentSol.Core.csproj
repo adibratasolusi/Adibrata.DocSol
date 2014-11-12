@@ -42,6 +42,28 @@
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Entities\Adibrata.BusinessProcess.DocumentSol.Entities.csproj">
+      <Project>{c6363188-e561-4c44-973c-9be674a54ba5}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
+      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
+      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
+      <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
+      <Name>Adibrata.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
+      <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>
+      <Name>Adibrata.Framework.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
+      <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
+      <Name>Adibrata.Framework.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

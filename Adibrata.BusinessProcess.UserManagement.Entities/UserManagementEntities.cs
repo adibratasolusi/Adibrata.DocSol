@@ -25,7 +25,8 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public int ShortOrder { get; set; }
         public string MenuTxt { get; set; }
         public char IsSeparator { get; set; }
-
         public string Icon { get; set; }
+        public string Form { get; set; }
+        public Boolean FlagInsert { get; set; }
     }
 }

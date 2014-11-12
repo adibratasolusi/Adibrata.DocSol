@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Adibrata.BusinessProcess.DocumentSol.Extend
 {
-    public class UploadProcess
+    public class UploadProcess : Adibrata.BusinessProcess.DocumentSol.Core.UploadProcess
     {
     }
 }

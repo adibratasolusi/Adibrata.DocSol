@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Adibrata.BusinessProcess.DocumentSol.Entities
 {
-    public class DocSolEntities:Adibrata.BusinessProcess.Entities.Base.EntitiesBase
+    [Serializable]
+    public class DocSolEntities : EntitiesBase
     {
+        public string AgrmntNo { get; set; }
+        public string DocType { get; set; }
     }
 }

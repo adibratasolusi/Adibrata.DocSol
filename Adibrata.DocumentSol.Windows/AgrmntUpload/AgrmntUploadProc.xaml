@@ -1,64 +1,17 @@
-﻿<Page x:Class="Adibrata.DocumentSol.Windows.AgrmntUpload.AgrmntUploadProc"
+﻿<Page xmlns:UserControler="clr-namespace:Adibrata.Windows.UserControler;assembly=Adibrata.Windows.UserControler"  x:Class="Adibrata.DocumentSol.Windows.AgrmntUpload.AgrmntUploadProc"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="768" d:DesignWidth="1024"
 	Title="AgrmntUploadProc">
+
 
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid>
-            <GroupBox Header="Agreement Info" Margin="10,0,660,690">
-                <StackPanel>
-                    <TextBlock Text="Agreement No" Margin="0 0 0 0" HorizontalAlignment="Left"/>
-                    <TextBox IsReadOnly="True" x:Name="txtAgrmntNo" Width="150" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="146,0,0,0" HorizontalAlignment="Left" />
-                    <TextBlock Text="Customer Name" Margin="0 0 0 0" HorizontalAlignment="Left"  />
-                    <TextBox IsReadOnly="True" x:Name="txtCustName" Width="150" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="146,0,0,0" HorizontalAlignment="Left" />
-
-                </StackPanel>
-
-            </GroupBox>
-            <DataGrid Name="dgUpload" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="241" Width="980">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding No}" Header="No" x:Name="hdrNo"/>
-                    <DataGridTextColumn Binding="{Binding DocumentType}" Header="Document Type" x:Name="Doctype"/>
-
-                    <DataGridTemplateColumn Header="Browse">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Name="btnBrowse" Content="Browse" Click="Browse"></Button>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Path" x:Name="Path">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox x:Name="lblPath" IsReadOnly="True"></TextBox>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Preview">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image x:Name="picture"></Image>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-
-                    </DataGridTemplateColumn>
-
-
-                </DataGrid.Columns>
-
-            </DataGrid>
-            <StackPanel Margin="10,439,10,316" Orientation="Horizontal">
-                <TextBlock Text="Server" Margin="0,4,20,6" HorizontalAlignment="Left"/>
-                <TextBox x:Name="txtSvr" Width="150" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Margin="0,6,0,9" HorizontalAlignment="Left" />
-                <Button x:Name="btnUpload" Content="Upload" Height="30" Margin="680,0,0,0" Click="btnUpload_Click" />
-            </StackPanel>
+            <UserControler:UCDataGidBitsUpload x:Name="ucBITS"></UserControler:UCDataGidBitsUpload>
 
         </Grid>
     </ScrollViewer>

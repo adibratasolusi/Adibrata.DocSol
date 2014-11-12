@@ -13,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows.AgrmntUpload
+namespace Adibrata.DocumentSol.Windows.Menu
 {
     /// <summary>
-    /// Interaction logic for AgrmntUploadView.xaml
+    /// Interaction logic for MenuPaging.xaml
     /// </summary>
-    public partial class AgrmntUploadView : Page
+    public partial class MenuPaging : Page
     {
-        public AgrmntUploadView(string agrmntNo)
+        public MenuPaging()
         {
             InitializeComponent();
-            dgView.currentAgrmntNo = agrmntNo;
-            dgView.SetScreen();
         }
     }
 }

@@ -18,27 +18,14 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
 
-        public virtual UserManagementEntities UserREgisterListReport(UserManagementEntities _ent)
+        public virtual DataTable UserRegisterListReportData(UserManagementEntities _ent)
         {
             DataTable dt = new DataTable();
             
 
             dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spUserRegisterListReport"));
 
-            ReportingEntities _rptent = new ReportingEntities { 
-                DataSetName = "dsUserRegisterList",
-                ReportName = @"UserManagement\UserRegisterReport.rdlc", 
-                ReportData = dt, 
-                FileNameDocument ="UserRegisterReport.PDF"};
-
-            ReportServerRDLC _objreport = new ReportServerRDLC(_rptent);
-
-            _rptent = _objreport.ReportOutput(_rptent, ReportServerRDLC.DocumentType.PDF);
-
-            _ent.ReportOutput = _rptent.ReportResult;
-            _ent.MimeDocument = _rptent.MimeDocument;
-            _ent.FileDocumentName = _rptent.FileNameDocument;
-            return _ent;
+            return dt;
         }
     }
 }

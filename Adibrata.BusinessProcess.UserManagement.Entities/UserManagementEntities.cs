@@ -16,5 +16,17 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public int MaxWrong { get; set; }
         public DateTime ExpiredDate { get; set; }
         public int IsActive { get; set; }
+        public string FullName { get; set; }
+        public int IsConnect { get; set; }
+        public string SecQuestion { get; set; }
+        public string SecAnswer { get; set; }
+        public int MenuItemId { get; set; }
+        public int MenuParentId { get; set; }
+        public int ShortOrder { get; set; }
+        public string MenuTxt { get; set; }
+        public char IsSeparator { get; set; }
+        public string Icon { get; set; }
+        public string Form { get; set; }
+        public Boolean FlagInsert { get; set; }
     }
 }

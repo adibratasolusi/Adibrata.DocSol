@@ -20,9 +20,11 @@ namespace Adibrata.DocumentSol.Windows.AgrmntUpload
     /// </summary>
     public partial class AgrmntUploadView : Page
     {
-        public AgrmntUploadView()
+        public AgrmntUploadView(string agrmntNo)
         {
             InitializeComponent();
+            dgView.currentAgrmntNo = agrmntNo;
+            dgView.SetScreen();
         }
     }
 }

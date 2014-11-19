@@ -42,6 +42,16 @@
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Core\Adibrata.BusinessProcess.DocumentSol.Core.csproj">
+      <Project>{10783b5e-99ed-4ce7-b769-9d77605179b2}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Entities\Adibrata.BusinessProcess.DocumentSol.Entities.csproj">
+      <Project>{c6363188-e561-4c44-973c-9be674a54ba5}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

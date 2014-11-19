@@ -1,4 +1,4 @@
-﻿<Page x:Class="Adibrata.Demo.FileTransfer.Contact"
+﻿<Page xmlns:UCMenu="clr-namespace:Adibrata.Windows.UserControler.UCMenu;assembly=Adibrata.Windows.UserControler"  x:Class="Adibrata.Demo.FileTransfer.Contact"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +8,6 @@
 	Title="Contact">
 
     <Grid>
-        <TextBlock Text="Contact : 08566615999" Margin="0 0 0 20" HorizontalAlignment="Center"  />
-
+<UCMenu:UCMainMenu />
     </Grid>
 </Page>

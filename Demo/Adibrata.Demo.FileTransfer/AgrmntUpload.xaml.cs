@@ -116,13 +116,7 @@ namespace Adibrata.Demo.FileTransfer
             }
         }
 
-        //void updateFile(string dicFileString,string dicExtString)
-        //{
-        //    PathDetails pathInfo = new PathDetails();
-        //    pathInfo.Ext=dicExtString;
-        //    pathInfo.FileName = dicFileString;
-        //    objService.UpdatePathDetails(pathInfo);
-        //}
+
         private void FillDataGrid()
         {
 

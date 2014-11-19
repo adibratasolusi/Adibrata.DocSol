@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Adibrata.Configuration;
+using Adibrata.Framework.Messaging;
+using SharpBits.Base;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -20,9 +26,12 @@ namespace Adibrata.DocumentSol.Windows.AgrmntUpload
     /// </summary>
     public partial class AgrmntUploadProc : Page
     {
-        public AgrmntUploadProc()
+        public AgrmntUploadProc(string agrmntNo)
         {
             InitializeComponent();
+            ucBITS.currentAgrmntNo = agrmntNo;
+            ucBITS.SetScreen();
         }
+
     }
 }

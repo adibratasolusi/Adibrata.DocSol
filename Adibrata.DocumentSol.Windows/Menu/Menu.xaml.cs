@@ -23,6 +23,9 @@ namespace Adibrata.DocumentSol.Windows.Menu
         public Menu()
         {
             InitializeComponent();
+            MainMenu.mainFrame = mainFrame;
         }
+ 
+
     }
 }

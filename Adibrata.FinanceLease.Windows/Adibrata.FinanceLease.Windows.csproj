@@ -257,10 +257,6 @@
       <Project>{030bbc11-268a-4abf-8e58-3c2461aab791}</Project>
       <Name>Adibrata.Rule.Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adibrata.Windows.UserControler\Adibrata.Windows.UserControler.csproj">
-      <Project>{B9A31278-1B27-40E7-9F42-570BEA054915}</Project>
-      <Name>Adibrata.Windows.UserControler</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,KB2468871">

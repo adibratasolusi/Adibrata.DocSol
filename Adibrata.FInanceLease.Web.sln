@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Rule.Engine", "Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj", "{030BBC11-268A-4ABF-8E58-3C2461AAB791}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Report.Template", "Adibrata.Report.Template\Adibrata.Report.Template.csproj", "{C6DFA240-C475-49E6-96BD-3A0D6961F134}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.FinanceLease.Windows", "Adibrata.FinanceLease.Windows\Adibrata.FinanceLease.Windows.csproj", "{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Windows.UserControler", "Adibrata.Windows.UserControler\Adibrata.Windows.UserControler.csproj", "{B9A31278-1B27-40E7-9F42-570BEA054915}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Paging.Core", "Adibrata.BusinessProcess.Paging.Core\Adibrata.BusinessProcess.Paging.Core.csproj", "{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}"
 EndProject
@@ -140,10 +138,6 @@ Global
 		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9A31278-1B27-40E7-9F42-570BEA054915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9A31278-1B27-40E7-9F42-570BEA054915}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9A31278-1B27-40E7-9F42-570BEA054915}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9A31278-1B27-40E7-9F42-570BEA054915}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU

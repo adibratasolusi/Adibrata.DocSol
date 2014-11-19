@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Adibrata.Framework.ReportDocument;
 using Adibrata.Controller.UserManagement;
 using Adibrata.BusinessProcess.UserManagement.Entities;
+using System.Data;
+using Adibrata.Framework.ReportDocument;
 
 namespace Adibrata.DocumentSol.Windows
 {
@@ -26,14 +28,23 @@ namespace Adibrata.DocumentSol.Windows
         public TestPage()
         {
             InitializeComponent();
-          
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserRegister", MethodName = "UserREgisterListReport" };
-            //_ent = UserManagementController<UserManagementEntities>(_ent);
+            DataTable dtReport;
+            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserRegister", MethodName = "UserRegisterListReportData" };
+            dtReport = UserManagementController.UserManagement<DataTable>(_ent);
+
+            rptViewer.FileNameDocument = "UserList.pdf";
+            rptViewer.DataReport = dtReport;
+            rptViewer.DataSetName = "dsUserRegisterList";
+            rptViewer.ReportTemplate = @"UserManagement\UserRegisterReport.rdlc";
+            rptViewer.ReportBind();
 
         }
+
+
     }
 }

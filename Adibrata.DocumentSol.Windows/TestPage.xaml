@@ -9,7 +9,10 @@
 	Title="TestPage">
 
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="59,226,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+        <Button Content="Button" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <UserControler:ReportViewerRDLC HorizontalAlignment="Left" Height="100" Margin="100,103,0,0" VerticalAlignment="Top" Width="100" Name="rptViewer"/>
+
 
     </Grid>
 </Page>

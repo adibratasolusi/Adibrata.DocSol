@@ -35,9 +35,9 @@ namespace Adibrata.Framework.ImageProcessing
             Graphics grPhoto = Graphics.FromImage(bmPhoto);
 
             ////create a image object containing the watermark
-            //Image imgWatermark = new Bitmap(WorkingDirectory + "\\watermark.bmp");
-            //int wmWidth = imgWatermark.Width;
-            //int wmHeight = imgWatermark.Height;
+            Image imgWatermark = new Bitmap(Path.GetDirectoryName(WorkingDirectory) + "\\watermark.png");
+            int wmWidth = 10;
+            int wmHeight = 10;
 
             //------------------------------------------------------------
             //Step #1 - Insert Copyright message
@@ -122,64 +122,64 @@ namespace Adibrata.Framework.ImageProcessing
             ////Step #2 - Insert Watermark image
             ////------------------------------------------------------------
 
-            ////Create a Bitmap based on the previously modified photograph Bitmap
-            //Bitmap bmWatermark = new Bitmap(bmPhoto);
-            //bmWatermark.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
-            ////Load this Bitmap into a new Graphic Object
-            //Graphics grWatermark = Graphics.FromImage(bmWatermark);
+            //Create a Bitmap based on the previously modified photograph Bitmap
+            Bitmap bmWatermark = new Bitmap(bmPhoto);
+            bmWatermark.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
+            //Load this Bitmap into a new Graphic Object
+            Graphics grWatermark = Graphics.FromImage(bmWatermark);
 
-            ////To achieve a transulcent watermark we will apply (2) color 
-            ////manipulations by defineing a ImageAttributes object and 
-            ////seting (2) of its properties.
-            //ImageAttributes imageAttributes = new ImageAttributes();
+            //To achieve a transulcent watermark we will apply (2) color 
+            //manipulations by defineing a ImageAttributes object and 
+            //seting (2) of its properties.
+            ImageAttributes imageAttributes = new ImageAttributes();
 
-            ////The first step in manipulating the watermark image is to replace 
-            ////the background color with one that is trasparent (Alpha=0, R=0, G=0, B=0)
-            ////to do this we will use a Colormap and use this to define a RemapTable
-            //ColorMap colorMap = new ColorMap();
+            //The first step in manipulating the watermark image is to replace 
+            //the background color with one that is trasparent (Alpha=0, R=0, G=0, B=0)
+            //to do this we will use a Colormap and use this to define a RemapTable
+            ColorMap colorMap = new ColorMap();
 
-            ////My watermark was defined with a background of 100% Green this will
-            ////be the color we search for and replace with transparency
-            //colorMap.OldColor = Color.FromArgb(255, 0, 255, 0);
-            //colorMap.NewColor = Color.FromArgb(0, 0, 0, 0); 
+            //My watermark was defined with a background of 100% Green this will
+            //be the color we search for and replace with transparency
+            colorMap.OldColor = Color.FromArgb(255, 0, 255, 0);
+            colorMap.NewColor = Color.FromArgb(0, 0, 0, 0);
 
-            //ColorMap[] remapTable = {colorMap};
+            ColorMap[] remapTable = { colorMap };
 
-            //imageAttributes.SetRemapTable(remapTable, ColorAdjustType.Bitmap);
+            imageAttributes.SetRemapTable(remapTable, ColorAdjustType.Bitmap);
 
-            ////The second color manipulation is used to change the opacity of the 
-            ////watermark.  This is done by applying a 5x5 matrix that contains the 
-            ////coordinates for the RGBA space.  By setting the 3rd row and 3rd column 
-            ////to 0.3f we achive a level of opacity
-            //float[][] colorMatrixElements = { 
-            //                                    new float[] {1.0f,  0.0f,  0.0f,  0.0f, 0.0f},       
-            //                                    new float[] {0.0f,  1.0f,  0.0f,  0.0f, 0.0f},        
-            //                                    new float[] {0.0f,  0.0f,  1.0f,  0.0f, 0.0f},        
-            //                                    new float[] {0.0f,  0.0f,  0.0f,  0.3f, 0.0f},        
-            //                                    new float[] {0.0f,  0.0f,  0.0f,  0.0f, 1.0f}}; 
-            //ColorMatrix wmColorMatrix = new ColorMatrix(colorMatrixElements);
+            //The second color manipulation is used to change the opacity of the 
+            //watermark.  This is done by applying a 5x5 matrix that contains the 
+            //coordinates for the RGBA space.  By setting the 3rd row and 3rd column 
+            //to 0.3f we achive a level of opacity
+            float[][] colorMatrixElements = { 
+                                                new float[] {1.0f,  0.0f,  0.0f,  0.0f, 0.0f},       
+                                                new float[] {0.0f,  1.0f,  0.0f,  0.0f, 0.0f},        
+                                                new float[] {0.0f,  0.0f,  1.0f,  0.0f, 0.0f},        
+                                                new float[] {0.0f,  0.0f,  0.0f,  0.3f, 0.0f},        
+                                                new float[] {0.0f,  0.0f,  0.0f,  0.0f, 1.0f}};
+            ColorMatrix wmColorMatrix = new ColorMatrix(colorMatrixElements);
 
-            //imageAttributes.SetColorMatrix(wmColorMatrix, ColorMatrixFlag.Default,
-            //    ColorAdjustType.Bitmap);
+            imageAttributes.SetColorMatrix(wmColorMatrix, ColorMatrixFlag.Default,
+                ColorAdjustType.Bitmap);
 
-            ////For this example we will place the watermark in the upper right
-            ////hand corner of the photograph. offset down 10 pixels and to the 
-            ////left 10 pixles
+            //For this example we will place the watermark in the upper right
+            //hand corner of the photograph. offset down 10 pixels and to the 
+            //left 10 pixles
 
-            //int xPosOfWm = ((phWidth - wmWidth)-10);
-            //int yPosOfWm = 10;
+            int xPosOfWm = ((phWidth - wmWidth) - 10);
+            int yPosOfWm = 10;
 
-            //grWatermark.DrawImage(imgWatermark, 
-            //    new Rectangle(xPosOfWm,yPosOfWm,wmWidth,wmHeight),  //Set the detination Position
-            //    0,                  // x-coordinate of the portion of the source image to draw. 
-            //    0,                  // y-coordinate of the portion of the source image to draw. 
-            //    wmWidth,            // Watermark Width
-            //    wmHeight,		    // Watermark Height
-            //    GraphicsUnit.Pixel, // Unit of measurment
-            //    imageAttributes);   //ImageAttributes Object
+            grWatermark.DrawImage(imgWatermark,
+                new Rectangle(xPosOfWm, yPosOfWm, wmWidth, wmHeight),  //Set the detination Position
+                0,                  // x-coordinate of the portion of the source image to draw. 
+                0,                  // y-coordinate of the portion of the source image to draw. 
+                wmWidth,            // Watermark Width
+                wmHeight,		    // Watermark Height
+                GraphicsUnit.Pixel, // Unit of measurment
+                imageAttributes);   //ImageAttributes Object
 
             ////Replace the original photgraphs bitmap with the new Bitmap
-            //imgPhoto = bmWatermark;
+            imgPhoto = bmWatermark;
             grPhoto.Dispose();
 
             //save new image to file system.

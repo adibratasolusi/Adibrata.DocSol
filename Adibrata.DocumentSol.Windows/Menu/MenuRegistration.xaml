@@ -11,10 +11,10 @@
     <ScrollViewer x:Name="svMain">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300*" />
-                <ColumnDefinition Width="300*" />
-                <ColumnDefinition Width="300*" />
-                <ColumnDefinition Width="300*" />
+                <ColumnDefinition Width="190*" />
+                <ColumnDefinition Width="190*" />
+                <ColumnDefinition Width="190*" />
+                <ColumnDefinition Width="190*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -32,8 +32,8 @@
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource EvenGridStyle}">
                 <StackPanel>
-                    <RadioButton Content="Separator" GroupName="rbMenuType"></RadioButton>
-                    <RadioButton Content="Menu" GroupName="rbMenuType" IsChecked="True"></RadioButton>
+                    <RadioButton Content="Separator" GroupName="rbMenuType" x:Name="rbSeparator" Checked="rbSeparator_Checked"></RadioButton>
+                    <RadioButton Content="Menu" GroupName="rbMenuType" x:Name="rbMenu" Checked="rbMenu_Checked"></RadioButton>
                 </StackPanel>
                 
             </Grid>
@@ -41,13 +41,20 @@
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Menu Parent</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="2" Style="{StaticResource EvenGridStyle}">
-                <ComboBox x:Name="cmbParent"></ComboBox>
+                <StackPanel>
+                    <CheckBox x:Name="chkItemRoot" Content="Root" Checked="chkItemRoot_Checked" Unchecked="chkItemRoot_Unchecked"></CheckBox>
+                    <ComboBox x:Name="cmbParent" DisplayMemberPath="Name" SelectedValuePath="MENU_ITEM_ID" SelectionChanged="cmbParent_SelectionChanged">
+                    </ComboBox>
+                </StackPanel>
+
             </Grid>
             <Grid Grid.Column="0" Grid.Row="3" Style="{StaticResource OddGridStyle}" Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Order</TextBlock>
+
+                    <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Order</TextBlock>
+
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3" Style="{StaticResource EvenGridStyle}">
-                <ComboBox x:Name="cmbOrder" IsEnabled="False"></ComboBox>
+                <UserControler:UCTextBox x:Name="txtOrder" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="4" Style="{StaticResource OddGridStyle}" Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Menu Text</TextBlock>
@@ -60,7 +67,8 @@
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Icon</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="5" Style="{StaticResource EvenGridStyle}">
-                <ComboBox x:Name="cmbIcon"></ComboBox>
+                <UserControler:UCTextBox x:Name="txtIcon" />
+                <!--<ComboBox x:Name="cmbIcon"></ComboBox>-->
             </Grid>
             <Grid Grid.Column="0" Grid.Row="6" Style="{StaticResource OddGridStyle}" Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Form</TextBlock>

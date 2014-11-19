@@ -48,7 +48,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Background="Snow">
+        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Background="SteelBlue">
             <Image x:Name="imgLogo" Source="../Pictures/logoadibrata.png" Height="100"/>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}">

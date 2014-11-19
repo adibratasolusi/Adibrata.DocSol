@@ -22,7 +22,7 @@
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}">
 
-            <Frame NavigationUIVisibility="Hidden" x:Name="mainFrame"></Frame>
+            <Frame NavigationUIVisibility="Hidden" x:Name="mainFrame" Source="../Main.xaml"></Frame>
         </Grid>
 
 

@@ -4,10 +4,60 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300" ShowsNavigationUI="False"
+      d:DesignHeight="1024" d:DesignWidth="768" ShowsNavigationUI="False"
+                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+        xmlns:themes="clr-namespace:DataGridThemes;assembly=DataGridThemes"
 	Title="AgrmntUploadPaging">
 
-    <Grid>
-        
-    </Grid>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,-45,305">
+
+        <Grid>
+            <GroupBox Header="Search" Margin="10,0,629,711">
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox HorizontalAlignment="Left" Margin="0,0,3,0" VerticalAlignment="Top" Width="194" x:Name="cmbType" Loaded="cmbType_Loaded_1">
+                    </ComboBox>
+                    <TextBox x:Name="txtCrit" HorizontalAlignment="Left" Height="23" Margin="0,0,3,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" Click="btnSearch_Click_1"/>
+
+                </StackPanel>
+            </GroupBox>
+
+
+            
+                <controls:DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          themes:DataGridHelper.HorizontalMouseWheelScrollingEnabled="True"
+                          x:Name="dgPaging" 
+                          HorizontalAlignment="Left" Margin="10,95,0,0" Width="780" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="330" VerticalAlignment="Top"
+                          >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding AgreementNo}" Header="Agreement" x:Name="AgrmntNo"/>
+                    <DataGridTextColumn Binding="{Binding CustName}" Header="Customer" x:Name="CustName"/>
+
+                    <DataGridTemplateColumn Header="Upload">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnUpload" Content="Upload" Click="btnUpload_Click_1"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="View Document">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDocument" Content="View Document" Click="btnDocument_Click"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+
+
+                </DataGrid.Columns>
+
+
+            </controls:DataGrid>
+
+        </Grid>
+    </ScrollViewer>
 </Page>

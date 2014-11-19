@@ -108,6 +108,7 @@ namespace Adibrata.Windows.UserControler.UCMenu
                 
                 MenuDataItem objMenuDataItem = objMenuItem.DataContext as MenuDataItem;
                 mainFrame.Source = new Uri("pack://application:,,,/" + objMenuDataItem.Form, UriKind.Absolute);
+                
                 flag++;
             }
             

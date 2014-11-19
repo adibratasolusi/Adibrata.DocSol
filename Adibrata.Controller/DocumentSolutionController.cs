@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Adibrata.Controller
 {
-    public class DocumentSolutionController
+    public static class DocumentSolutionController
     {
         public static T DocSolProcess<T>(DocSolEntities _ent)
         {

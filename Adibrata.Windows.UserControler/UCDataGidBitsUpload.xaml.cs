@@ -37,22 +37,18 @@ namespace Adibrata.Windows.UserControler
         Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();
         string server = AppConfig.Config("BITSServer");
-        public string currentAgrmntNo
-        {
-            get;
-            set;
-        }
+ 
         public UCDataGidBitsUpload()
         {
             InitializeComponent();
 
         }
-        public void SetScreen()
+        public void SetScreen(string agrmntNo)
         {
-            getAgrmntInfo();
+            getAgrmntInfo(agrmntNo);
             fillDataGrid();
         }
-        public void getAgrmntInfo()
+        public void getAgrmntInfo(string currentAgrmntNo)
         {
             DocSolEntities _ent = new DocSolEntities
             {
@@ -61,8 +57,9 @@ namespace Adibrata.Windows.UserControler
             };
 
             DataTable dt = new DataTable();
+            _ent.AgrmntNo = currentAgrmntNo;
             dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-            txtCustName.Text = dt.Rows[0]["CustName"].ToString();
+            txtCustName.Text = dt.Rows[0]["CUST_NAME"].ToString();
             txtAgrmntNo.Text = currentAgrmntNo;
 
             txtAgrmntNo.Text = currentAgrmntNo;
@@ -109,7 +106,7 @@ namespace Adibrata.Windows.UserControler
                     string newPath = WaterMarkProcess.SetWatermark(path.Text);
                     string extension = System.IO.Path.GetExtension(newPath);
                     fileCount += 1; //set jumlah file
-                    saveUpload(docType.Text);
+                    saveUpload(docType.Text, agrmntNo);
                     dicExt.Add(fileCount, extension);
                 }
 
@@ -132,7 +129,7 @@ namespace Adibrata.Windows.UserControler
 
         }
 
-        private void saveUpload(string docType)
+        private void saveUpload(string docType, string currentAgrmntNo)
         {
             //ketika upload file akan di catat di database
             DocSolEntities _ent = new DocSolEntities

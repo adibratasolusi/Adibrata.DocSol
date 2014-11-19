@@ -50,26 +50,26 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
             try
             {
                 SqlParameter[] sqlParams = new SqlParameter[6];
-                sqlParams[0] = new SqlParameter("@menuItemId", SqlDbType.Int);
-                sqlParams[0].Value = _ent.MenuItemId;
-                sqlParams[1] = new SqlParameter("@menuParentId", SqlDbType.Int);
-                sqlParams[1].Value = _ent.MenuParentId;
-                sqlParams[2] = new SqlParameter("@shortOrder", SqlDbType.Int);
-                sqlParams[2].Value = _ent.ShortOrder;
-                sqlParams[3] = new SqlParameter("@menuTxt", SqlDbType.VarChar, 50);
-                sqlParams[3].Value = _ent.MenuTxt;
-                sqlParams[4] = new SqlParameter("@isSeparator", SqlDbType.VarChar, 1);
-                sqlParams[4].Value = _ent.IsSeparator;
-                sqlParams[5] = new SqlParameter("@isActive", SqlDbType.VarChar, 1);
-                sqlParams[5].Value = _ent.IsActive;
-                sqlParams[6] = new SqlParameter("@form", SqlDbType.VarChar, 50);
-                sqlParams[6].Value = _ent.Form;
+                sqlParams[0] = new SqlParameter("@menuParentId", SqlDbType.Int);
+                sqlParams[0].Value = _ent.MenuParentId;
+                sqlParams[1] = new SqlParameter("@shortOrder", SqlDbType.Int);
+                sqlParams[1].Value = _ent.ShortOrder;
+                sqlParams[2] = new SqlParameter("@menuTxt", SqlDbType.VarChar, 50);
+                sqlParams[2].Value = _ent.MenuTxt;
+                sqlParams[3] = new SqlParameter("@isSeparator", SqlDbType.VarChar, 1);
+                sqlParams[3].Value = _ent.IsSeparator;
+                sqlParams[4] = new SqlParameter("@isActive", SqlDbType.VarChar, 1);
+                sqlParams[4].Value = _ent.IsActive;
+                sqlParams[5] = new SqlParameter("@form", SqlDbType.VarChar, 50);
+                sqlParams[5].Value = _ent.Form;
                 if (_ent.FlagInsert == true)
                 {
                     SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spMsMenuInsert", sqlParams);
                 }
                 else
                 {
+                    sqlParams[6] = new SqlParameter("@menuItemId", SqlDbType.Int);
+                    sqlParams[6].Value = _ent.MenuItemId;
                     SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spMsMenuUpdate", sqlParams);
                 }
 
@@ -93,6 +93,67 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
             }
 
         }
+
+        public virtual DataTable MainMenuGetActiveItemId(UserManagementEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                sb.Append("spMsMenuGetActiveMenuCmbBox");
+                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString()).Tables[0];
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.MainMenu.Core",
+                    ClassName = "UserManagement",
+                    FunctionName = "MainMenuGetActiveItemId",
+                    ExceptionNumber = 1,
+                    EventSource = "MainMenuGetActiveItemId",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return _dt;
+        }
+        public virtual DataTable MainMenuGetActiveShortOrder(UserManagementEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                sb.Append("spMsMenuGetShortOrder");
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@menuItemId", SqlDbType.Int);
+                sqlParams[0].Value = _ent.MenuItemId;
+                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams).Tables[0];
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.MainMenu.Core",
+                    ClassName = "UserManagement",
+                    FunctionName = "MainMenuGetActiveShortOrder",
+                    ExceptionNumber = 1,
+                    EventSource = "MainMenuGetActiveShortOrder",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return _dt;
+        }
+
 
     }
 }

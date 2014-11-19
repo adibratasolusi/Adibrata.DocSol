@@ -21,7 +21,11 @@ namespace Adibrata.Windows.UserControler
     public partial class UCTextBox : UserControl
     {
         public string MessageValidator { get; set; }
-        public string InputValue { get; set; }
+        public string InputValue
+        {
+            get { return txtInput.Text; }
+            set { txtInput.Text = value; }
+        }
         public Boolean IsMandatory { get; set; }
         public Boolean IsValid { get; set; }
         public int MaxLength { get; set; }
@@ -29,6 +33,8 @@ namespace Adibrata.Windows.UserControler
         public UCTextBox()
         {
             InitializeComponent();
+            txtInput.Text= this.InputValue;
+
             txtInput.MaxLength = this.MaxLength;
             this.IsValid = false;
             lblValidInput.Text = this.MessageValidator;

@@ -28,9 +28,9 @@ namespace Adibrata.DocumentSol.Windows.AgrmntUpload
     {
         public AgrmntUploadProc(string agrmntNo)
         {
+
             InitializeComponent();
-            ucBITS.currentAgrmntNo = agrmntNo;
-            ucBITS.SetScreen();
+            ucBITS.SetScreen(agrmntNo);
         }
 
     }

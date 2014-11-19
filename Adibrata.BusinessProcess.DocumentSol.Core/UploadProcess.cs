@@ -50,7 +50,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             try
             {
                 DataTable _dt = new DataTable();
-                SqlParameter[] sqlParams = new SqlParameter[1];
+                SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@agrmntNo", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.AgrmntNo;
                 sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar,50);
@@ -86,8 +86,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             try
             {
                 
-                SqlParameter[] sqlParams = new SqlParameter[0];
-                sqlParams[0] = new SqlParameter("@agrmntNo", SqlDbType.VarChar, 50);
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@agreementNo", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.AgrmntNo;
 
                 _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, "spAgreementGetAgreementInfo", sqlParams).Tables[0];
@@ -141,6 +141,44 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     FunctionName = "PathGetView",
                     ExceptionNumber = 1,
                     EventSource = "PathGetView",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _dt;
+
+        }
+
+
+        public virtual DataTable PagingAgreement(DocSolEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[2];
+                sqlParams[0] = new SqlParameter("@by", SqlDbType.VarChar, 50);
+                sqlParams[0].Value = _ent.By;
+                sqlParams[1] = new SqlParameter("@crit", SqlDbType.VarChar, 50);
+                sqlParams[1].Value = _ent.Crit;
+
+                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, "spPagingAgreement", sqlParams).Tables[0];
+
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
+                    ClassName = "UploadProcess",
+                    FunctionName = "PagingAgreement",
+                    ExceptionNumber = 1,
+                    EventSource = "PagingAgreement",
                     ExceptionObject = _exp,
                     EventID = 80, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message

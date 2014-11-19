@@ -12,5 +12,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
     {
         public string AgrmntNo { get; set; }
         public string DocType { get; set; }
+        public string Crit { get; set; }
+        public string By { get; set; }
     }
 }

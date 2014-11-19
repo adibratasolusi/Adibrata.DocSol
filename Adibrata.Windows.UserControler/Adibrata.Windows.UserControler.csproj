@@ -224,11 +224,17 @@
     <Resource Include="Pictures\NextGreen.png" />
     <Resource Include="Pictures\PreviousGreen.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UCMenu\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Pictures\logoadibrata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UCMenu\Images\Admin.png" />
+    <Resource Include="UCMenu\Images\Finance.png" />
+    <Resource Include="UCMenu\Images\Group.png" />
+    <Resource Include="UCMenu\Images\Print.png" />
+    <Resource Include="UCMenu\Images\Save.png" />
+    <Resource Include="UCMenu\Images\User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

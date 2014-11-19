@@ -7,8 +7,8 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Main">
 
-    <Grid>
+    <Grid Background="Snow">
 
-        <Image x:Name="logo" Source="Images/logoadibrata.png" Margin="0,30,0,0"></Image>
+        <Image x:Name="logo" Source="Images/logoadibrata.png" Margin="0,30,0,0" Width="100" Height="100"></Image>
     </Grid>
 </Page>

@@ -10,6 +10,5 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
     [Serializable]
     public class MainMenuEntities  : EntitiesBase
     {
-
     }
 }

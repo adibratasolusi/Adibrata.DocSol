@@ -22,8 +22,14 @@
         <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Center"/>
         </Grid>
+        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <TextBox Name="txtAddress" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Center"/>
+        </Grid>
         <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}" Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="RT" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <TextBox Name="txtRT" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="2" Style="{StaticResource OddGridStyle}" Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="RW" VerticalAlignment="Center"/>

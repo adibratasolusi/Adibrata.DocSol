@@ -20,6 +20,13 @@ namespace Adibrata.Windows.UserControler
     /// </summary>
     public partial class UCAddress : UserControl
     {
+    //    public string Address
+    //    {
+    //        get { return }
+    //        set; }
+        public string PasswordValue { get; set; }
+        public Boolean IsValid { get; set; }
+
         public UCAddress()
         {
             InitializeComponent();

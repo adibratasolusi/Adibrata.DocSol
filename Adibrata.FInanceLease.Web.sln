@@ -100,6 +100,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.DocumentSol.Web", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.WCF", "Adibrata.Framework.WCF\Adibrata.Framework.WCF.csproj", "{B4E44C92-4874-430B-A050-2C6D10A30A7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Windows.UserController", "Adibrata.Windows.UserController\Adibrata.Windows.UserController.csproj", "{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.FInanceLease.Web", "Adibrata.FInanceLease.Web\Adibrata.FInanceLease.Web\Adibrata.FInanceLease.Web.csproj", "{F1681826-6705-4064-BA1E-122ED0BCB6E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -285,6 +289,14 @@ Global
 		{B4E44C92-4874-430B-A050-2C6D10A30A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4E44C92-4874-430B-A050-2C6D10A30A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4E44C92-4874-430B-A050-2C6D10A30A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -66,6 +66,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UCDataGidBitsUpload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCDataGidBitsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCPaging.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +101,14 @@
     </Compile>
     <Compile Include="UCAddress.xaml.cs">
       <DependentUpon>UCAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCDataGidBitsUpload.xaml.cs">
+      <DependentUpon>UCDataGidBitsUpload.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UCDataGidBitsView.xaml.cs">
+      <DependentUpon>UCDataGidBitsView.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="UCPaging.xaml.cs">
       <DependentUpon>UCPaging.xaml</DependentUpon>
@@ -160,6 +176,10 @@
     <ProjectReference Include="..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
       <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
       <Name>Adibrata.Framework.ReportDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpBITS.Base\SharpBITS.Base.csproj">
+      <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>
+      <Name>SharpBITS.Base</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

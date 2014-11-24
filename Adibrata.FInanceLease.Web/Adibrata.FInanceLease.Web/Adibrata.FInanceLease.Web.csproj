@@ -175,8 +175,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Silverlight.js" />
-    <Content Include="SilverlightApplication2TestPage.aspx" />
-    <Content Include="SilverlightApplication2TestPage.html" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />

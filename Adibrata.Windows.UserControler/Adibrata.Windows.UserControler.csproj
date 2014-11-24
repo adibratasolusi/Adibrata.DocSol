@@ -47,6 +47,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UCAddress.xaml.cs">
+      <DependentUpon>UCAddress.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Callendar.xaml.cs">
       <DependentUpon>Callendar.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UCAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Callendar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,6 +149,20 @@
     <Folder Include="UCMenu\Helpers\" />
     <Folder Include="UCMenu\Images\" />
     <Folder Include="UCMenu\Project Business Layer\Menu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj">
+      <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Controller\Adibrata.Controller.csproj">
+      <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>
+      <Name>Adibrata.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.DocumentSol.Web\Adibrata.DocumentSol.Web.csproj">
+      <Project>{e80c8f54-ecfd-4193-8aa9-2dc4bc699fb0}</Project>
+      <Name>Adibrata.DocumentSol.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

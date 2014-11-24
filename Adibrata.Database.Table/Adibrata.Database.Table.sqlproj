@@ -14,7 +14,7 @@
     </RootPath>
     <RootNamespace>Adibrata.Database.Table</RootNamespace>
     <AssemblyName>Adibrata.Database.Table</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AI</DefaultCollation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -59,54 +60,57 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo.Agrmnt.Table.sql" />
-    <Build Include="dbo.Agrmnt_Mnt.Table.sql" />
-    <Build Include="dbo.AgrmntAsset.Table.sql" />
-    <Build Include="dbo.AgrmntInsur.Table.sql" />
-    <Build Include="dbo.AgrmntInsurAsset.Table.sql" />
-    <Build Include="dbo.AgrmntInsurDtl.Table.sql" />
-    <Build Include="dbo.AgrmntInsurHdr.Table.sql" />
-    <Build Include="dbo.AmendmentTrx.Table.sql" />
-    <Build Include="dbo.Application.Table.sql" />
-    <Build Include="dbo.AprvlAltrnUsr.Table.sql" />
-    <Build Include="dbo.AprvlNextPerson.Table.sql" />
-    <Build Include="dbo.AprvlPathTree.Table.sql" />
-    <Build Include="dbo.AprvlPathTreeMember.Table.sql" />
-    <Build Include="dbo.AprvlStatus.Table.sql" />
-    <Build Include="dbo.AprvlStatusLogs.Table.sql" />
-    <Build Include="dbo.AprvlType.Table.sql" />
-    <Build Include="dbo.AprvlTypeScheme.Table.sql" />
-    <Build Include="dbo.CashBankMutDtl.Table.sql" />
-    <Build Include="dbo.CashBankMutHdr.Table.sql" />
-    <Build Include="dbo.CoaSchmDtl.Table.sql" />
-    <Build Include="dbo.CoaSchmHdr.Table.sql" />
-    <Build Include="dbo.Cust.Table.sql" />
-    <Build Include="dbo.EarlyTermination.Table.sql" />
-    <Build Include="dbo.InstSchdl.Table.sql" />
-    <Build Include="dbo.Jrnl_Trx_Dtl.Table.sql" />
-    <Build Include="dbo.Jrnl_Trx_Hdr.Table.sql" />
-    <Build Include="dbo.JrnlJob.Table.sql" />
-    <Build Include="dbo.JrnlSchmDtl.Table.sql" />
-    <Build Include="dbo.JrnlSchmHdr.Table.sql" />
-    <Build Include="dbo.MS_Bank.Table.sql" />
-    <Build Include="dbo.MS_BankAccount.Table.sql" />
-    <Build Include="dbo.Ms_Coa.Table.sql" />
-    <Build Include="dbo.MS_Company.Table.sql" />
-    <Build Include="dbo.Ms_Journal_Seq.Table.sql" />
-    <Build Include="dbo.MS_JrnlTrx.Table.sql" />
-    <Build Include="dbo.MS_Office.Table.sql" />
-    <Build Include="dbo.MS_Sequence.Table.sql" />
-    <Build Include="dbo.MS_Setting.Table.sql" />
-    <Build Include="dbo.MS_SettingType.Table.sql" />
-    <Build Include="dbo.MsUser.Table.sql" />
-    <Build Include="dbo.PayHistDtl.Table.sql" />
-    <Build Include="dbo.PayHistHdr.Table.sql" />
-    <Build Include="dbo.PayRcv.Table.sql" />
-    <Build Include="dbo.PayRcvDtl.Table.sql" />
-    <Build Include="dbo.PayRcvOth.Table.sql" />
-    <Build Include="dbo.RuleScheme.Table.sql" />
-    <Build Include="dbo.RuPriceList.Table.sql" />
-    <Build Include="dbo.UserActivityLog.Table.sql" />
+    <Build Include="Agrmnt.Table.sql" />
+    <Build Include="Agrmnt_Mnt.Table.sql" />
+    <Build Include="AgrmntAsset.Table.sql" />
+    <Build Include="AgrmntInsur.Table.sql" />
+    <Build Include="AgrmntInsurAsset.Table.sql" />
+    <Build Include="AgrmntInsurDtl.Table.sql" />
+    <Build Include="AgrmntInsurHdr.Table.sql" />
+    <Build Include="AmendmentTrx.Table.sql" />
+    <Build Include="Application.Table.sql" />
+    <Build Include="AprvlAltrnUsr.Table.sql" />
+    <Build Include="AprvlNextPerson.Table.sql" />
+    <Build Include="AprvlPathTree.Table.sql" />
+    <Build Include="AprvlPathTreeMember.Table.sql" />
+    <Build Include="AprvlStatus.Table.sql" />
+    <Build Include="AprvlStatusLogs.Table.sql" />
+    <Build Include="AprvlType.Table.sql" />
+    <Build Include="AprvlTypeScheme.Table.sql" />
+    <Build Include="CashBankMutDtl.Table.sql" />
+    <Build Include="CashBankMutHdr.Table.sql" />
+    <Build Include="CoaSchmDtl.Table.sql" />
+    <Build Include="CoaSchmHdr.Table.sql" />
+    <Build Include="Cust.Table.sql" />
+    <Build Include="EarlyTermination.Table.sql" />
+    <Build Include="InstSchdl.Table.sql" />
+    <Build Include="Jrnl_Trx_Dtl.Table.sql" />
+    <Build Include="Jrnl_Trx_Hdr.Table.sql" />
+    <Build Include="JrnlJob.Table.sql" />
+    <Build Include="JrnlSchmDtl.Table.sql" />
+    <Build Include="JrnlSchmHdr.Table.sql" />
+    <Build Include="MS_Bank.Table.sql" />
+    <Build Include="MS_BankAccount.Table.sql" />
+    <Build Include="Ms_Coa.Table.sql" />
+    <Build Include="MS_Company.Table.sql" />
+    <Build Include="Ms_Journal_Seq.Table.sql" />
+    <Build Include="MS_JrnlTrx.Table.sql" />
+    <Build Include="MS_Office.Table.sql" />
+    <Build Include="MS_Sequence.Table.sql" />
+    <Build Include="MS_Setting.Table.sql" />
+    <Build Include="MS_SettingType.Table.sql" />
+    <Build Include="MsUser.Table.sql" />
+    <Build Include="PayHistDtl.Table.sql" />
+    <Build Include="PayHistHdr.Table.sql" />
+    <Build Include="PayRcv.Table.sql" />
+    <Build Include="PayRcvDtl.Table.sql" />
+    <Build Include="PayRcvOth.Table.sql" />
+    <Build Include="RuleScheme.Table.sql" />
+    <Build Include="RuPriceList.Table.sql" />
+    <Build Include="UserActivityLog.Table.sql" />
+    <Build Include="CustCoy.sql" />
+    <Build Include="MSForm.sql" />
+    <Build Include="MSUserForm.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Adibrata.Database.Table.refactorlog" />

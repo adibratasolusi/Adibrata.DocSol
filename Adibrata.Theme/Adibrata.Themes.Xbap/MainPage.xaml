@@ -1,0 +1,13 @@
+﻿<Page x:Class="Adibrata.Themes.Xbap.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:prototype="clr-namespace:Adibrata.Themes.Prototype.WPF;assembly=Adibrata.Themes.Prototype.WPF"      
+      Title="Style application - www.HighRobotics.com"
+      Height="Auto" Width="Auto">
+    <Grid>
+            <prototype:MainWindow_UC />
+      
+    </Grid>
+</Page>

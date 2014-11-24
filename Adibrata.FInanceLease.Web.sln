@@ -56,7 +56,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VideoCall", "VideoCall", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Video_Conference", "VideoCall\Peer_Video_Confere\Video_Conference Peer1\Video_Conference.csproj", "{8BE99BF0-4500-4F2A-8240-81CC192C47DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Theme", "Theme", "{CCC29B55-7F75-4C14-BD17-C868AE208E64}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adibrata.Theme", "Adibrata.Theme", "{CCC29B55-7F75-4C14-BD17-C868AE208E64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridThemes", "Theme\Src\DataGridThemes.csproj", "{75FF1407-1C79-4138-B6AD-3E8D69D2AD36}"
 EndProject
@@ -99,6 +99,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.DocumentSol.Web", "Adibrata.DocumentSol.Web\Adibrata.DocumentSol.Web.csproj", "{E80C8F54-ECFD-4193-8AA9-2DC4BC699FB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.WCF", "Adibrata.Framework.WCF\Adibrata.Framework.WCF.csproj", "{B4E44C92-4874-430B-A050-2C6D10A30A7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Core", "Adibrata.Theme\Adibrata.Themes.Core\Adibrata.Themes.Core.csproj", "{D0447080-8D02-4958-835C-055CD642450C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Core.Light", "Adibrata.Theme\Adibrata.Themes.Core.Light\Adibrata.Themes.Core.Light.csproj", "{2BEEB702-6196-4538-874B-F5819A5BB374}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Fischer.WPF", "Adibrata.Theme\Adibrata.Themes.Fischer.WPF\Adibrata.Themes.Fischer.WPF.csproj", "{D8166AD7-25DD-4953-84DD-347CB0321582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Prototype.WPF", "Adibrata.Theme\Adibrata.Themes.Prototype.WPF\Adibrata.Themes.Prototype.WPF.csproj", "{37C1111A-9818-48EA-ADC4-6F53FF12102A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Xbap", "Adibrata.Theme\Adibrata.Themes.Xbap\Adibrata.Themes.Xbap.csproj", "{F271010E-3B17-47CF-9ECD-C770949D653A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -285,6 +295,26 @@ Global
 		{B4E44C92-4874-430B-A050-2C6D10A30A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4E44C92-4874-430B-A050-2C6D10A30A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4E44C92-4874-430B-A050-2C6D10A30A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0447080-8D02-4958-835C-055CD642450C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0447080-8D02-4958-835C-055CD642450C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0447080-8D02-4958-835C-055CD642450C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0447080-8D02-4958-835C-055CD642450C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEEB702-6196-4538-874B-F5819A5BB374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEEB702-6196-4538-874B-F5819A5BB374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEEB702-6196-4538-874B-F5819A5BB374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEEB702-6196-4538-874B-F5819A5BB374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8166AD7-25DD-4953-84DD-347CB0321582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8166AD7-25DD-4953-84DD-347CB0321582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8166AD7-25DD-4953-84DD-347CB0321582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8166AD7-25DD-4953-84DD-347CB0321582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F271010E-3B17-47CF-9ECD-C770949D653A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F271010E-3B17-47CF-9ECD-C770949D653A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F271010E-3B17-47CF-9ECD-C770949D653A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F271010E-3B17-47CF-9ECD-C770949D653A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -296,5 +326,10 @@ Global
 		{F72247A4-7D9B-4EBF-9C76-71656C3FA823} = {1E006B03-C6E6-42A0-AA29-849D0C1E1836}
 		{8BE99BF0-4500-4F2A-8240-81CC192C47DA} = {F72247A4-7D9B-4EBF-9C76-71656C3FA823}
 		{75FF1407-1C79-4138-B6AD-3E8D69D2AD36} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
+		{D0447080-8D02-4958-835C-055CD642450C} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
+		{2BEEB702-6196-4538-874B-F5819A5BB374} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
+		{D8166AD7-25DD-4953-84DD-347CB0321582} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
+		{F271010E-3B17-47CF-9ECD-C770949D653A} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
 	EndGlobalSection
 EndGlobal

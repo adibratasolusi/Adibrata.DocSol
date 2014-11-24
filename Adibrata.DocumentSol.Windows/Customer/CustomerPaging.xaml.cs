@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.Windows.UserControler
+namespace Adibrata.DocumentSol.Windows.Customer
 {
     /// <summary>
-    /// Interaction logic for UCSaveTransaction.xaml
+    /// Interaction logic for CustomerPaging.xaml
     /// </summary>
-    public partial class UCSaveTransaction : UserControl
+    public partial class CustomerPaging : Page
     {
-        public UCSaveTransaction()
+        public CustomerPaging()
         {
             InitializeComponent();
         }

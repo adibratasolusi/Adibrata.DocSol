@@ -76,6 +76,12 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="Customer\CustomerAddEdit.xaml.cs">
+      <DependentUpon>CustomerAddEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerPaging.xaml.cs">
+      <DependentUpon>CustomerPaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -111,6 +117,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AgrmntUpload\AgrmntUploadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customer\CustomerAddEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customer\CustomerPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -336,6 +350,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

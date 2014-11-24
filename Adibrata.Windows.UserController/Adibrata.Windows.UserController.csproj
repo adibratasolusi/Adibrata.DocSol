@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B9A31278-1B27-40E7-9F42-570BEA054915}</ProjectGuid>
+    <ProjectGuid>{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Adibrata.Windows.UserControler</RootNamespace>
-    <AssemblyName>Adibrata.Windows.UserControler</AssemblyName>
+    <RootNamespace>Adibrata.Windows.UserController</RootNamespace>
+    <AssemblyName>Adibrata.Windows.UserController</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Build\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Build\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -36,9 +36,7 @@
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,103 +50,64 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+    <Page Include="Callendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InputNumber.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReportViewerRDLC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCAddress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCPaging.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCSaveTransaction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Callendar.xaml.cs">
+      <DependentUpon>Callendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InputNumber.xaml.cs">
+      <DependentUpon>InputNumber.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewerRDLC.xaml.cs">
       <DependentUpon>ReportViewerRDLC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UCDataGrid.xaml.cs">
-      <DependentUpon>UCDataGrid.xaml</DependentUpon>
-=======
-    <Compile Include="UCDataGidBitsUpload.xaml.cs">
-      <DependentUpon>UCDataGidBitsUpload.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UCDataGidBitsView.xaml.cs">
-      <DependentUpon>UCDataGidBitsView.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UCMenu\Converters\MenuDataItemConverter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UCMenu\Helpers\FindAncestores.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UCMenu\Project Business Layer\Menu\MenuDataItem.cs" />
-    <Compile Include="UCMenu\Project Business Layer\Menu\MenuDataItemComparer.cs" />
-    <Compile Include="UCMenu\Project Business Layer\Menu\MenuItems.cs" />
-    <Compile Include="UCMenu\Project Business Layer\Menu\MenuSeparatorStyleSelector.cs" />
-    <Compile Include="UCMenu\UCMainMenu.xaml.cs">
-      <DependentUpon>UCMainMenu.xaml</DependentUpon>
-      <SubType>Code</SubType>
->>>>>>> origin/master
+    <Compile Include="UCAddress.xaml.cs">
+      <DependentUpon>UCAddress.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCPaging.xaml.cs">
       <DependentUpon>UCPaging.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCPassword.xaml.cs">
       <DependentUpon>UCPassword.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="UCSaveTransaction.xaml.cs">
       <DependentUpon>UCSaveTransaction.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCTextBox.xaml.cs">
       <DependentUpon>UCTextBox.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Page Include="Callendar.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="Callendar.xaml.cs">
-      <DependentUpon>Callendar.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="InputNumber.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-<<<<<<< HEAD
-    <Page Include="ReportViewerRDLC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCDataGrid.xaml">
-=======
-    <Page Include="UCDataGidBitsUpload.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCDataGidBitsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCMenu\UCMainMenu.xaml">
->>>>>>> origin/master
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCPaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCPassword.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCSaveTransaction.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCTextBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputNumber.xaml.cs">
-      <DependentUpon>InputNumber.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -174,10 +133,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Entities\Adibrata.BusinessProcess.DocumentSol.Entities.csproj">
-      <Project>{c6363188-e561-4c44-973c-9be674a54ba5}</Project>
-      <Name>Adibrata.BusinessProcess.DocumentSol.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
       <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
       <Name>Adibrata.BusinessProcess.Entities.Base</Name>
@@ -190,14 +145,6 @@
       <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
       <Name>Adibrata.BusinessProcess.Report.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
-      <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
-      <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Adibrata.BusinessProcess.View.Entities\Adibrata.BusinessProcess.Views.Entities.csproj">
-      <Project>{f4ca92e1-b570-4d5f-b320-9228ed30e8dd}</Project>
-      <Name>Adibrata.BusinessProcess.Views.Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
       <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
       <Name>Adibrata.Configuration</Name>
@@ -206,58 +153,14 @@
       <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>
       <Name>Adibrata.Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adibrata.Framework.Caching\Adibrata.Framework.Caching.csproj">
-      <Project>{87734e21-d1d6-49ab-8ba9-d207e82f9bc0}</Project>
-      <Name>Adibrata.Framework.Caching</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
       <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
       <Name>Adibrata.Framework.Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Adibrata.Framework.ImageProcessing\Adibrata.Framework.ImageProcessing.csproj">
-      <Project>{794775bc-8818-45e6-ad10-491e74af573a}</Project>
-      <Name>Adibrata.Framework.ImageProcessing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj">
-      <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
-      <Name>Adibrata.Framework.Messaging</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
       <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
       <Name>Adibrata.Framework.ReportDocument</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj">
-      <Project>{030bbc11-268a-4abf-8e58-3c2461aab791}</Project>
-      <Name>Adibrata.Rule.Engine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SharpBITS.Base\SharpBITS.Base.csproj">
-      <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>
-      <Name>SharpBITS.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Theme\Src\DataGridThemes.csproj">
-      <Project>{75ff1407-1c79-4138-b6ad-3e8d69d2ad36}</Project>
-      <Name>DataGridThemes</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\Next.jpg" />
-    <Resource Include="Pictures\Prev.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pictures\NextGreen.png" />
-    <Resource Include="Pictures\PreviousGreen.png" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Resource Include="Pictures\logoadibrata.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="UCMenu\Images\Admin.png" />
-    <Resource Include="UCMenu\Images\Finance.png" />
-    <Resource Include="UCMenu\Images\Group.png" />
-    <Resource Include="UCMenu\Images\Print.png" />
-    <Resource Include="UCMenu\Images\Save.png" />
-    <Resource Include="UCMenu\Images\User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

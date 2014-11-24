@@ -1,0 +1,140 @@
+2014-11-24 14:07:16,472 [5] ERROR - Login User    :
+Namespace     : Adibrata.Configuration
+ClassName     : AppConfig
+Function Name : Config
+Event Number  : 1
+Event Message     : 
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+Exception Message : 
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+
+2014-11-24 14:15:49,413 [8] ERROR - Login User    :
+Namespace     : Adibrata.Configuration
+ClassName     : AppConfig
+Function Name : Config
+Event Number  : 1
+Event Message     : 
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+Exception Message : 
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+
+2014-11-24 14:45:37,867 [8] ERROR - Login User    :
+Namespace     : Adibrata.Configuration
+ClassName     : AppConfig
+Function Name : Config
+Event Number  : 1
+Event Message     : 
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+Exception Message : 
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+
+2014-11-24 14:53:27,511 [7] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Column 'Field0' does not belong to table .
+Exception Message : 
+Column 'Field0' does not belong to table .
+
+2014-11-24 14:58:11,651 [6] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Index was outside the bounds of the array.
+Exception Message : 
+Index was outside the bounds of the array.
+
+2014-11-24 14:58:27,929 [10] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Index was outside the bounds of the array.
+Exception Message : 
+Index was outside the bounds of the array.
+
+2014-11-24 15:04:22,869 [6] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Column 'Field0' does not belong to table .
+Exception Message : 
+Column 'Field0' does not belong to table .
+
+2014-11-24 15:10:34,310 [5] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Index was outside the bounds of the array.
+Exception Message : 
+Index was outside the bounds of the array.
+
+2014-11-24 15:46:02,769 [5] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Index was outside the bounds of the array.
+Exception Message : 
+Index was outside the bounds of the array.
+
+2014-11-24 15:46:20,863 [5] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Index was outside the bounds of the array.
+Exception Message : 
+Index was outside the bounds of the array.
+
+2014-11-24 15:46:26,677 [10] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Index was outside the bounds of the array.
+Exception Message : 
+Index was outside the bounds of the array.
+
+2014-11-24 16:10:25,155 [9] ERROR - Login User    :
+Namespace     : Adibrata.Controller.Paging
+ClassName     : PagingController
+Function Name : PagingData
+Event Number  : 1
+Event Message     : 
+Could not load file or assembly 'Adibrata.BusinessProcess.Paging.Extend' or one of its dependencies. The system cannot find the file specified.
+Exception Message : 
+Could not load file or assembly 'Adibrata.BusinessProcess.Paging.Extend' or one of its dependencies. The system cannot find the file specified.
+
+2014-11-24 16:47:26,244 [8] ERROR - Login User    :
+Namespace     :  Adibrata.Rule.Engine
+ClassName     : RuleEngineProcess
+Function Name : UploadRuleEngine
+Event Number  : 1
+Event Message     : 
+Index was outside the bounds of the array.
+Exception Message : 
+Index was outside the bounds of the array.
+
+2014-11-24 16:47:37,127 [8] ERROR - Login User    :
+Namespace     : Adibrata.Controller.Paging
+ClassName     : PagingController
+Function Name : PagingData
+Event Number  : 1
+Event Message     : 
+Exception has been thrown by the target of an invocation.
+Exception Message : 
+Exception has been thrown by the target of an invocation.
+

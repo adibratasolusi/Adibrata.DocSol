@@ -1,0 +1,18 @@
+2014-09-27 16:25:08,878 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+Exception Message : 
+Errror nih
+
+2014-09-27 16:25:08,925 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+Exception Message : 
+Errror nih
+

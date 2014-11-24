@@ -1,0 +1,676 @@
+2014-10-01 15:09:08,335 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SMTPConfiguration
+Event Number  : 1
+Event Message     : 
+Object reference not set to an instance of an object.
+Exception Message : 
+Object reference not set to an instance of an object.
+
+2014-10-01 15:09:08,608 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The SMTP host was not specified.
+Exception Message : 
+The SMTP host was not specified.
+
+2014-10-01 15:11:01,092 [10] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SMTPConfiguration
+Event Number  : 1
+Event Message     : 
+Object reference not set to an instance of an object.
+Exception Message : 
+Object reference not set to an instance of an object.
+
+2014-10-01 15:11:01,116 [10] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The SMTP host was not specified.
+Exception Message : 
+The SMTP host was not specified.
+
+2014-10-01 15:11:20,379 [12] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SMTPConfiguration
+Event Number  : 1
+Event Message     : 
+Object reference not set to an instance of an object.
+Exception Message : 
+Object reference not set to an instance of an object.
+
+2014-10-01 15:11:20,400 [12] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The SMTP host was not specified.
+Exception Message : 
+The SMTP host was not specified.
+
+2014-10-01 15:15:45,142 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:18:53,560 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:21:01,609 [5] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:22:11,647 [6] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:23:25,768 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:23:25,802 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Exception of type 'System.Exception' was thrown.
+
+2014-10-01 15:24:41,736 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:24:41,766 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 15:24:49,519 [9] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:24:49,542 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 15:25:42,706 [6] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:25:50,002 [9] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:28:53,453 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:28:57,120 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 15:33:09,823 [6] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:42:27,819 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:42:35,120 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 15:46:41,215 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:46:41,247 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 15:51:05,546 [8] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 15:51:05,947 [8] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 15:56:28,681 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : MailConfiguration
+Event Number  : 1
+Event Message     : 
+Object reference not set to an instance of an object.
+Exception Message : 
+Object reference not set to an instance of an object.
+
+2014-10-01 15:56:28,713 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 15:56:28,733 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:00:32,533 [8] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : MailConfiguration
+Event Number  : 1
+Event Message     : 
+Object reference not set to an instance of an object.
+Exception Message : 
+Object reference not set to an instance of an object.
+
+2014-10-01 16:00:32,561 [8] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:00:32,576 [8] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:06:46,543 [9] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : MailConfiguration
+Event Number  : 1
+Event Message     : 
+Object reference not set to an instance of an object.
+Exception Message : 
+Object reference not set to an instance of an object.
+
+2014-10-01 16:06:46,575 [9] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:06:46,593 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:07:34,491 [11] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : MailConfiguration
+Event Number  : 1
+Event Message     : 
+Object reference not set to an instance of an object.
+Exception Message : 
+Object reference not set to an instance of an object.
+
+2014-10-01 16:07:34,505 [11] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:07:34,543 [11] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:15:26,870 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 16:15:26,915 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:19:00,289 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The remote certificate is invalid according to the validation procedure.
+Exception Message : 
+The remote certificate is invalid according to the validation procedure.
+
+2014-10-01 16:19:00,322 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:21:32,222 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 16:21:32,251 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:22:16,887 [10] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 16:22:16,905 [10] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:24:24,284 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 16:24:24,325 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:30:14,518 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+Exception Message : 
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+
+2014-10-01 16:30:14,566 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:33:02,106 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The remote certificate is invalid according to the validation procedure.
+Exception Message : 
+The remote certificate is invalid according to the validation procedure.
+
+2014-10-01 16:33:02,147 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 16:41:20,475 [9] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The remote certificate is invalid according to the validation procedure.
+Exception Message : 
+The remote certificate is invalid according to the validation procedure.
+
+2014-10-01 16:41:20,507 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 17:04:10,897 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+Failure sending mail.
+Exception Message : 
+Failure sending mail.
+
+2014-10-01 17:04:10,950 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+
+2014-10-01 17:26:11,829 [7] ERROR - Login User    :EMAIL
+Namespace     : Adibrata.Framework.Messaging
+ClassName     : MessageToEmail
+Function Name : SendMessageToEmail
+Event Number  : 1
+Event Message     : 
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+Exception Message : 
+The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.1 Client was not authenticated
+
+2014-10-01 17:26:11,866 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.Messaging and Class : MessageToEmail
+Please See Event Log For Detail Information
+
+

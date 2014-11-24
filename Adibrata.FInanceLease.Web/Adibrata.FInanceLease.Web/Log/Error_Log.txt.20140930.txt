@@ -1,0 +1,120 @@
+2014-09-30 11:29:48,308 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+Exception Message : 
+Cannot open log for source 'Security'. You may not have write access.
+
+2014-09-30 11:29:48,319 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+
+2014-09-30 11:31:27,438 [10] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+Exception Message : 
+Cannot open log for source 'Security'. You may not have write access.
+
+2014-09-30 11:31:27,439 [10] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+
+2014-09-30 11:35:46,829 [10] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+Exception Message : 
+Cannot open log for source 'Security'. You may not have write access.
+
+2014-09-30 11:35:46,830 [10] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+
+2014-09-30 11:37:50,690 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+Exception Message : 
+Cannot open log for source 'Security'. You may not have write access.
+
+2014-09-30 11:37:50,703 [7] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Nih Messagenya
+
+2014-09-30 11:43:05,433 [6] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Cannot open log for source 'Security'. You may not have write access.
+
+2014-09-30 11:46:24,597 [9] ERROR - Login User    :Encryption
+Namespace     : Adibrata.Framework.Security
+ClassName     : Encryption
+Function Name : EncryptString
+Event Number  : 1
+Event Message     : 
+Value cannot be null.
+Parameter name: xmlString
+Exception Message : 
+Value cannot be null.
+Parameter name: xmlString
+
+2014-09-30 11:48:20,169 [10] ERROR - Login User    :Encryption
+Namespace     : Adibrata.Framework.Security
+ClassName     : Encryption
+Function Name : EncryptString
+Event Number  : 1
+Event Message     : 
+Value cannot be null.
+Parameter name: xmlString
+Exception Message : 
+Value cannot be null.
+Parameter name: xmlString
+
+2014-09-30 13:33:21,368 [9] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Object reference not set to an instance of an object.
+
+2014-09-30 15:09:04,153 [11] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Object reference not set to an instance of an object.
+

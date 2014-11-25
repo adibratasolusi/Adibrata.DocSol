@@ -93,18 +93,19 @@
     <Compile Include="Callendar.xaml.cs">
       <DependentUpon>Callendar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DesignQuotes.cs" />
+    <Compile Include="CommonClass\DataGridHelper.cs" />
+    <Compile Include="CommonClass\DesignQuotes.cs" />
     <Compile Include="InputNumber.xaml.cs">
       <DependentUpon>InputNumber.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainVM.cs">
+    <Compile Include="CommonClass\MainVM.cs">
       <SubType>
       </SubType>
     </Compile>
     <Compile Include="ReportViewerRDLC.xaml.cs">
       <DependentUpon>ReportViewerRDLC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ThemeSwitcherVM.cs">
+    <Compile Include="CommonClass\ThemeSwitcherVM.cs">
       <SubType>
       </SubType>
     </Compile>

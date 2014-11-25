@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Adibrata.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{aae1ba57-e0bd-4d83-891c-67f220b69cb3}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Adibrata.Database.StoreProcedure</RootNamespace>
+    <AssemblyName>Adibrata.Database.StoreProcedure</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <TargetDatabase>Adibrata.Database</TargetDatabase>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>false</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Approval" />
+    <Folder Include="Table" />
+    <Folder Include="StoreProcedure" />
+    <Folder Include="StoreProcedure\UserManagement" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Table\Agrmnt.Table.sql" />
+    <Build Include="Table\Agrmnt_Mnt.Table.sql" />
+    <Build Include="Table\AgrmntAsset.Table.sql" />
+    <Build Include="Table\AgrmntInsur.Table.sql" />
+    <Build Include="Table\AgrmntInsurAsset.Table.sql" />
+    <Build Include="Table\AgrmntInsurDtl.Table.sql" />
+    <Build Include="Table\AgrmntInsurHdr.Table.sql" />
+    <Build Include="Table\AmendmentTrx.Table.sql" />
+    <Build Include="Table\Application.Table.sql" />
+    <Build Include="Table\AprvlAltrnUsr.Table.sql" />
+    <Build Include="Table\AprvlNextPerson.Table.sql" />
+    <Build Include="Table\AprvlPathTree.Table.sql" />
+    <Build Include="Table\AprvlPathTreeMember.Table.sql" />
+    <Build Include="Table\AprvlStatus.Table.sql" />
+    <Build Include="Table\AprvlStatusLogs.Table.sql" />
+    <Build Include="Table\AprvlType.Table.sql" />
+    <Build Include="Table\AprvlTypeScheme.Table.sql" />
+    <Build Include="Table\CashBankMutDtl.Table.sql" />
+    <Build Include="Table\CashBankMutHdr.Table.sql" />
+    <Build Include="Table\CoaSchmDtl.Table.sql" />
+    <Build Include="Table\CoaSchmHdr.Table.sql" />
+    <Build Include="Table\Cust.Table.sql" />
+    <Build Include="Table\CustCoy.sql" />
+    <Build Include="Table\EarlyTermination.Table.sql" />
+    <Build Include="Table\InstSchdl.Table.sql" />
+    <Build Include="Table\Jrnl_Trx_Dtl.Table.sql" />
+    <Build Include="Table\Jrnl_Trx_Hdr.Table.sql" />
+    <Build Include="Table\JrnlJob.Table.sql" />
+    <Build Include="Table\JrnlSchmDtl.Table.sql" />
+    <Build Include="Table\JrnlSchmHdr.Table.sql" />
+    <Build Include="Table\MS_Bank.Table.sql" />
+    <Build Include="Table\MS_BankAccount.Table.sql" />
+    <Build Include="Table\Ms_Coa.Table.sql" />
+    <Build Include="Table\MS_Company.Table.sql" />
+    <Build Include="Table\MS_Form.sql" />
+    <Build Include="Table\Ms_Journal_Seq.Table.sql" />
+    <Build Include="Table\MS_JrnlTrx.Table.sql" />
+    <Build Include="Table\MS_Office.Table.sql" />
+    <Build Include="Table\MS_Sequence.Table.sql" />
+    <Build Include="Table\MS_Setting.Table.sql" />
+    <Build Include="Table\MS_SettingType.Table.sql" />
+    <Build Include="Table\Ms_User.Table.sql" />
+    <Build Include="Table\MSUserForm.sql" />
+    <Build Include="Table\PayHistDtl.Table.sql" />
+    <Build Include="Table\PayHistHdr.Table.sql" />
+    <Build Include="Table\PayRcv.Table.sql" />
+    <Build Include="Table\PayRcvDtl.Table.sql" />
+    <Build Include="Table\PayRcvOth.Table.sql" />
+    <Build Include="Table\RuleScheme.Table.sql" />
+    <Build Include="Table\RuPriceList.Table.sql" />
+    <Build Include="Table\UserActivityLog.Table.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormAdd.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormDelete.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormEdit.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormPaging.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormView.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserAdd.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserDelete.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserEdit.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserPaging.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserView.sql" />
+    <Build Include="StoreProcedure\UserManagement\spUserRegisterListReport.sql" />
+  </ItemGroup>
+</Project>

@@ -14,10 +14,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Column="0" Grid.Row="0">
-            <TextBox Name="txtInput"  Style="{StaticResource textStyle}" LostKeyboardFocus="txtInput_LostKeyboardFocus"></TextBox>
+            <TextBox Name="txtInput" LostKeyboardFocus="txtInput_LostKeyboardFocus"></TextBox>
+            
         </Grid>
+        
         <Grid Grid.Column="1" Grid.Row="0">
-            <TextBlock Name="lblValidInput" FontStyle="Normal" Style="{StaticResource ValidatorStyle}" HorizontalAlignment="Left"></TextBlock>
+            <TextBlock Name="lblValidInput" FontStyle="Normal"  HorizontalAlignment="Left"></TextBlock>
         </Grid>
     </Grid>
 </UserControl>

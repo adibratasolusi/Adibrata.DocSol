@@ -17,10 +17,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}">
+        <Grid Grid.Column="0" Grid.Row="0" >
             <UCMenu:UCMainMenu x:Name="MainMenu" />
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}">
+        <Grid Grid.Column="0" Grid.Row="1" >
 
             <Frame NavigationUIVisibility="Hidden" x:Name="mainFrame" Source="../Main.xaml"></Frame>
         </Grid>

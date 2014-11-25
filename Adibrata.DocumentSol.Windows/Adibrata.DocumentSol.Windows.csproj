@@ -82,6 +82,7 @@
     <Compile Include="Customer\CustomerPaging.xaml.cs">
       <DependentUpon>CustomerPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IWindow.cs" />
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -97,6 +98,10 @@
     <Compile Include="Menu\MenuRegistration.xaml.cs">
       <DependentUpon>MenuRegistration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Popup_UC.xaml.cs">
+      <DependentUpon>Popup_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell.cs" />
     <Compile Include="TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
@@ -161,6 +166,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Popup_UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -333,10 +342,6 @@
     <ProjectReference Include="..\Theme\Src\DataGridThemes.csproj">
       <Project>{75ff1407-1c79-4138-b6ad-3e8d69d2ad36}</Project>
       <Name>DataGridThemes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VideoCall\Peer_Video_Confere\Video_Conference Peer1\Video_Conference.csproj">
-      <Project>{8be99bf0-4500-4f2a-8240-81cc192c47da}</Project>
-      <Name>Video_Conference</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

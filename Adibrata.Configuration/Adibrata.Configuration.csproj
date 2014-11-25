@@ -42,6 +42,7 @@
     <Compile Include="AppConfig.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CheckForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

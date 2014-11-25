@@ -64,6 +64,7 @@
     <Folder Include="Table" />
     <Folder Include="StoreProcedure" />
     <Folder Include="StoreProcedure\UserManagement" />
+    <Folder Include="Function" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -128,5 +129,8 @@
     <Build Include="StoreProcedure\UserManagement\spMsUserPaging.sql" />
     <Build Include="StoreProcedure\UserManagement\spMsUserView.sql" />
     <Build Include="StoreProcedure\UserManagement\spUserRegisterListReport.sql" />
+    <Build Include="StoreProcedure\UserManagement\spSecurityCheckForm.sql" />
+    <Build Include="Function\fnSecurityCheckForm.sql" />
+    <Build Include="Table\MS_UserMenu.sql" />
   </ItemGroup>
 </Project>

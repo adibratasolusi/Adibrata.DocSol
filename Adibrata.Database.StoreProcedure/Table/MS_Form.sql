@@ -13,6 +13,7 @@ GO
 
 CREATE TABLE [dbo].[MS_Form](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	FormCode varchar(50), 
 	[FormName] [varchar](50) NULL,
 	[FormURL] [varchar](255) NULL,
 	[ISActive] [int] NULL,

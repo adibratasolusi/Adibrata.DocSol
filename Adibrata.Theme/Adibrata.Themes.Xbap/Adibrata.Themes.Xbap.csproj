@@ -125,13 +125,13 @@
       <Project>{d0447080-8d02-4958-835c-055cd642450c}</Project>
       <Name>Adibrata.Themes.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adibrata.Themes.Prototype.WPF\Adibrata.Themes.Prototype.WPF.csproj">
-      <Project>{37c1111a-9818-48ea-adc4-6f53ff12102a}</Project>
-      <Name>Adibrata.Themes.Prototype.WPF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Themes.Fischer.WPF\Adibrata.Themes.Fischer.WPF.csproj">
       <Project>{d8166ad7-25dd-4953-84dd-347cb0321582}</Project>
       <Name>Adibrata.Themes.Fischer.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Themes.Prototype.WPF\Adibrata.Themes.Prototype.WPF.csproj">
+      <Project>{37C1111A-9818-48EA-ADC4-6F53FF12102A}</Project>
+      <Name>Adibrata.Themes.Prototype.WPF</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

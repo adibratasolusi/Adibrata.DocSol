@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" ShowsNavigationUI="False"
       d:DesignHeight="300" d:DesignWidth="300"
+      Height="Auto" Width="Auto"
 	Title="Main">
 
     <Grid Background="Snow">

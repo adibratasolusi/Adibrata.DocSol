@@ -23,8 +23,8 @@ namespace Adibrata.DocumentSol.Windows.AgrmntUpload
         public AgrmntUploadView(string agrmntNo)
         {
             InitializeComponent();
-            dgView.currentAgrmntNo = agrmntNo;
-            dgView.SetScreen();
+            //dgView.currentAgrmntNo = agrmntNo;
+            //dgView.SetScreen();
         }
     }
 }

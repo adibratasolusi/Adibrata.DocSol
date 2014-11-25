@@ -66,6 +66,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UCMenu\UCMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCPaging.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +97,15 @@
     </Compile>
     <Compile Include="UCAddress.xaml.cs">
       <DependentUpon>UCAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCMenu\Converters\MenuDataItemConverter.cs" />
+    <Compile Include="UCMenu\Helpers\FindAncestores.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuDataItem.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuDataItemComparer.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuItems.cs" />
+    <Compile Include="UCMenu\Project Business Layer\Menu\MenuSeparatorStyleSelector.cs" />
+    <Compile Include="UCMenu\UCMainMenu.xaml.cs">
+      <DependentUpon>UCMainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCPaging.xaml.cs">
       <DependentUpon>UCPaging.xaml</DependentUpon>
@@ -145,6 +158,10 @@
       <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
       <Name>Adibrata.BusinessProcess.Report.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
+      <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
       <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
       <Name>Adibrata.Configuration</Name>
@@ -161,6 +178,15 @@
       <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
       <Name>Adibrata.Framework.ReportDocument</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="UCMenu\Images\Admin.png" />
+    <Resource Include="UCMenu\Images\Finance.png" />
+    <Resource Include="UCMenu\Images\Group.png" />
+    <Resource Include="UCMenu\Images\Print.png" />
+    <Resource Include="UCMenu\Images\Save.png" />
+    <Resource Include="UCMenu\Images\User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

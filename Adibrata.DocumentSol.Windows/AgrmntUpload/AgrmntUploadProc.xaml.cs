@@ -30,7 +30,7 @@ namespace Adibrata.DocumentSol.Windows.AgrmntUpload
         {
 
             InitializeComponent();
-            ucBITS.SetScreen(agrmntNo);
+            //ucBITS.SetScreen(agrmntNo);
         }
 
     }

@@ -70,8 +70,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Configuration", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Approval.Core", "Adibrata.BusinesProcess.Approval.Core\Adibrata.BusinessProcess.Approval.Core.csproj", "{1CC2E5F8-6BFF-4068-ACDD-03CD93863761}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Script.StoreProcedure", "DatabaseScript\StoreProcedure\Adibrata.Database.Script.StoreProcedure.sqlproj", "{67478D1D-C82D-4D93-B99B-6151CD366ED8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Entities.Base", "Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj", "{E55F8780-287D-44D7-9C30-37562E95BA42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Approval.Entities", "Adibrata.BusinessProcess.Approval.Entities\Adibrata.BusinessProcess.Approval.Entities.csproj", "{619B7815-58FB-4374-ACCB-E206CC14CA35}"
@@ -87,10 +85,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.DocumentSol.Core", "Adibrata.BusinessProcess.DocumentSol.Core\Adibrata.BusinessProcess.DocumentSol.Core.csproj", "{10783B5E-99ED-4CE7-B769-9D77605179B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.DocumentSol.Extend", "Adibrata.BusinessProcess.DocumentSol.Extend\Adibrata.BusinessProcess.DocumentSol.Extend.csproj", "{03F8FE1B-A61B-4947-83F2-7D377AC48377}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Table", "Adibrata.Database.Table\Adibrata.Database.Table.sqlproj", "{9627A6F1-349D-4660-B900-3C221EA3DF33}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.StoreProcedure", "Adibrata.Database.StoreProcedure\Adibrata.Database.StoreProcedure.sqlproj", "{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.ImageProcessing", "Adibrata.Framework.ImageProcessing\Adibrata.Framework.ImageProcessing.csproj", "{794775BC-8818-45E6-AD10-491E74AF573A}"
 EndProject
@@ -109,6 +103,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Prototype.WPF", "Adibrata.Theme\Adibrata.Themes.Prototype.WPF\Adibrata.Themes.Prototype.WPF.csproj", "{37C1111A-9818-48EA-ADC4-6F53FF12102A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Xbap", "Adibrata.Theme\Adibrata.Themes.Xbap\Adibrata.Themes.Xbap.csproj", "{F271010E-3B17-47CF-9ECD-C770949D653A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Windows.UserController", "Adibrata.Windows.UserController\Adibrata.Windows.UserController.csproj", "{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Table", "Adibrata.Database.Table\Adibrata.Database.Table.sqlproj", "{9627A6F1-349D-4660-B900-3C221EA3DF33}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.StoreProcedure", "Adibrata.Database.StoreProcedure\Adibrata.Database.StoreProcedure.sqlproj", "{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -232,11 +232,6 @@ Global
 		{1CC2E5F8-6BFF-4068-ACDD-03CD93863761}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CC2E5F8-6BFF-4068-ACDD-03CD93863761}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CC2E5F8-6BFF-4068-ACDD-03CD93863761}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{E55F8780-287D-44D7-9C30-37562E95BA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E55F8780-287D-44D7-9C30-37562E95BA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E55F8780-287D-44D7-9C30-37562E95BA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -269,16 +264,6 @@ Global
 		{03F8FE1B-A61B-4947-83F2-7D377AC48377}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03F8FE1B-A61B-4947-83F2-7D377AC48377}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03F8FE1B-A61B-4947-83F2-7D377AC48377}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{794775BC-8818-45E6-AD10-491E74AF573A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{794775BC-8818-45E6-AD10-491E74AF573A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{794775BC-8818-45E6-AD10-491E74AF573A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -315,6 +300,22 @@ Global
 		{F271010E-3B17-47CF-9ECD-C770949D653A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F271010E-3B17-47CF-9ECD-C770949D653A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F271010E-3B17-47CF-9ECD-C770949D653A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

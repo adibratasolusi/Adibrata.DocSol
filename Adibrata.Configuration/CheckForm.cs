@@ -19,7 +19,7 @@ namespace Adibrata.Configuration
        public static Boolean CheckFormSecurity (string UserName, string FormID)
        {
            StringBuilder sb = new StringBuilder();
-           sb.Append ("Select 1 from ")
+           sb.Append("Select 1 from ");
            Boolean _value=false;
 
             try

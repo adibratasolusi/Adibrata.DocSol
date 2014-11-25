@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Adibrata.Windows.UserController;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace Adibrata.DocumentSol.Windows.Customer
         public CustomerAddEdit()
         {
             InitializeComponent();
+
+            this.DataContext = new MainVM(new Shell());
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

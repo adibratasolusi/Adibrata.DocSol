@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
+            Style="{StaticResource PageStyle}"
 	Title="Customer Maintenance">
-    <Grid>
-        <Grid     HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Style="{StaticResource GridStyle}" >
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="190*" />
+                <ColumnDefinition Width="500*" />
                 <ColumnDefinition Width="300*" />
                 <ColumnDefinition Width="300*" />
             </Grid.ColumnDefinitions>
@@ -18,35 +19,19 @@
                 <RowDefinition Height="Auto"  />
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" >
-                <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock></Grid>
+            <Grid Grid.Column="0" Grid.Row="1"><TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Company Name" VerticalAlignment="Center"/></Grid>
+            <Grid Grid.Column="0" Grid.Row="1">
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Company Name" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="NPWP Number" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="TDP Number" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Notary Number" VerticalAlignment="Center"/>
-            </Grid>
-           
-
-            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="1"  Margin="0,1" Grid.ColumnSpan="2">
-                
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="2"  Margin="0,1" Grid.ColumnSpan="2">
-                
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3"  Margin="0,2" HorizontalAlignment="Right" Width="184">
-                <Button Name="btnLogin" Click="btnLogin_Click" Margin="129,0,0,0">Login</Button>
+            <Grid Grid.Column="0" Grid.Row="2"><TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="NPWP Number" VerticalAlignment="Center"/></Grid>
+            <Grid Grid.Column="0" Grid.Row="3"><TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TDP Number" VerticalAlignment="Center"/></Grid>
+            <Grid Grid.Column="0" Grid.Row="4"><TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Notary Number" VerticalAlignment="Center"/></Grid>
+            <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Right" Width="184"><Button Name="btnSave" Click="btnSave_Click" Margin="35,0,82,0">Save</Button>
+                <Button Name="btnBack" Click="btnBack_Click" Margin="117,0,0,0">Back</Button>
             </Grid>
         </Grid>
     </Grid>

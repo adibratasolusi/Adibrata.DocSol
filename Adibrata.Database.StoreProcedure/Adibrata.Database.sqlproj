@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Adibrata.Database.StoreProcedure</Name>
+    <Name>Adibrata.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{aae1ba57-e0bd-4d83-891c-67f220b69cb3}</ProjectGuid>
@@ -24,6 +24,7 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <TargetDatabase>Adibrata.Database</TargetDatabase>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -60,21 +61,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Approval" />
-    <Folder Include="UserManagement" />
     <Folder Include="Table" />
+    <Folder Include="StoreProcedure" />
+    <Folder Include="StoreProcedure\UserManagement" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="UserManagement\spUserRegisterListReport.sql" />
-    <Build Include="UserManagement\spMsUserPaging.sql" />
-    <Build Include="UserManagement\spMsUserAdd.sql" />
-    <Build Include="UserManagement\spMsUserEdit.sql" />
-    <Build Include="UserManagement\spMsUserDelete.sql" />
-    <Build Include="UserManagement\spMsFormPaging.sql" />
-    <Build Include="UserManagement\spMsFormAdd.sql" />
-    <Build Include="UserManagement\spMsFormEdit.sql" />
-    <Build Include="UserManagement\spMsFormDelete.sql" />
-    <Build Include="UserManagement\spMsFormView.sql" />
-    <Build Include="UserManagement\spMsUserView.sql" />
     <Build Include="Table\Agrmnt.Table.sql" />
     <Build Include="Table\Agrmnt_Mnt.Table.sql" />
     <Build Include="Table\AgrmntAsset.Table.sql" />
@@ -126,5 +117,16 @@
     <Build Include="Table\RuleScheme.Table.sql" />
     <Build Include="Table\RuPriceList.Table.sql" />
     <Build Include="Table\UserActivityLog.Table.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormAdd.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormDelete.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormEdit.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormPaging.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsFormView.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserAdd.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserDelete.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserEdit.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserPaging.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserView.sql" />
+    <Build Include="StoreProcedure\UserManagement\spUserRegisterListReport.sql" />
   </ItemGroup>
 </Project>

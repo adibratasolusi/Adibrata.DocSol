@@ -1,0 +1,24 @@
+2014-10-08 13:41:30,682 [13] ERROR - Login User    :REPORT
+Namespace     : Adibrata.Framework.ReportDocument
+ClassName     : ReportServerRDLC
+Function Name : ReportServerRDLC / Construtor
+Event Number  : 1
+Event Message     : 
+File Report Template Not Exists
+Exception Message : 
+File Report Template Not Exists
+
+2014-10-08 13:41:30,731 [13] ERROR - Login User    :Test
+Namespace     :  Adibrata.FInanceLease.Web
+ClassName     : _Default
+Function Name : 
+Event Number  : 2
+Event Message     : 
+Error Occured in Namespace : Adibrata.Framework.ReportDocument and Class : ReportServerRDLC
+Please See Event Log For Detail Information
+
+Exception Message : 
+Error Occured in Namespace : Adibrata.Framework.ReportDocument and Class : ReportServerRDLC
+Please See Event Log For Detail Information
+
+

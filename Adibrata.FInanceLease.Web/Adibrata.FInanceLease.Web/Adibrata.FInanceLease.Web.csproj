@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F1681826-6705-4064-BA1E-122ED0BCB6E2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adibrata.FInanceLease.Web</RootNamespace>
+    <AssemblyName>Adibrata.FInanceLease.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ext.Net, Version=2.5.2.10712, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ext.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net.Utilities, Version=2.4.0.0, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ext.Net.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="ClientBin\SilverlightApplication2.xap" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="JournalEngine\JournalSchemeDetailAddEdit.aspx" />
+    <Content Include="JournalEngine\JournalSchemeHeaderAddEdit.aspx" />
+    <Content Include="JournalEngine\JournalSchemePaging.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Log4net.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="RuleEngine\PagingRule.aspx" />
+    <Content Include="RuleEngine\UploadRule.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Site.Mobile.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="JournalEngine\JournalSchemeDetailAddEdit.aspx.cs">
+      <DependentUpon>JournalSchemeDetailAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JournalEngine\JournalSchemeDetailAddEdit.aspx.designer.cs">
+      <DependentUpon>JournalSchemeDetailAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JournalEngine\JournalSchemeHeaderAddEdit.aspx.cs">
+      <DependentUpon>JournalSchemeHeaderAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JournalEngine\JournalSchemeHeaderAddEdit.aspx.designer.cs">
+      <DependentUpon>JournalSchemeHeaderAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JournalEngine\JournalSchemePaging.aspx.cs">
+      <DependentUpon>JournalSchemePaging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JournalEngine\JournalSchemePaging.aspx.designer.cs">
+      <DependentUpon>JournalSchemePaging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RuleEngine\PagingRule.aspx.cs">
+      <DependentUpon>PagingRule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RuleEngine\PagingRule.aspx.designer.cs">
+      <DependentUpon>PagingRule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RuleEngine\UploadRule.aspx.cs">
+      <DependentUpon>UploadRule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RuleEngine\UploadRule.aspx.designer.cs">
+      <DependentUpon>UploadRule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="ReportTemplate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Adibrata.BusinesProcess.Approval.Core\Adibrata.BusinessProcess.Approval.Core.csproj">
+      <Project>{1cc2e5f8-6bff-4068-acdd-03cd93863761}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Approval.Entities\Adibrata.BusinessProcess.Approval.Entities.csproj">
+      <Project>{619b7815-58fb-4374-accb-e206cc14ca35}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Approval.Extend\Adibrata.BusinessProcess.Approval.Extend.csproj">
+      <Project>{d7c16ef2-3399-4480-908a-fab3bec831ed}</Project>
+      <Name>Adibrata.BusinessProcess.Approval.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.DocumentSol.Core\Adibrata.BusinessProcess.DocumentSol.Core.csproj">
+      <Project>{10783b5e-99ed-4ce7-b769-9d77605179b2}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.DocumentSol.Entities\Adibrata.BusinessProcess.DocumentSol.Entities.csproj">
+      <Project>{c6363188-e561-4c44-973c-9be674a54ba5}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.DocumentSol.Extend\Adibrata.BusinessProcess.DocumentSol.Extend.csproj">
+      <Project>{03f8fe1b-a61b-4947-83f2-7d377ac48377}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
+      <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
+      <Name>Adibrata.BusinessProcess.Entities.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Paging.Core\Adibrata.BusinessProcess.Paging.Core.csproj">
+      <Project>{3faa1e40-56fe-46c9-bec5-7cae5863af3f}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj">
+      <Project>{a9d73b8b-a1e7-4f36-a145-6d3efe17c3e8}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Paging.Extend\Adibrata.BusinessProcess.Paging.Extend.csproj">
+      <Project>{8c4e97be-3d29-443e-b212-7b64dc2b7564}</Project>
+      <Name>Adibrata.BusinessProcess.Paging.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Report.Core\Adibrata.BusinessProcess.Report.Core.csproj">
+      <Project>{2827d775-62c7-4e0c-8788-622b174c7583}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Report.Entities\Adibrata.BusinessProcess.Report.Entities.csproj">
+      <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.Report.Extend\Adibrata.BusinessProcess.Report.Extend.csproj">
+      <Project>{0f67e63a-234d-45cc-a656-82d1c741fb41}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.UserManagement.Core\Adibrata.BusinessProcess.UserManagement.Core.csproj">
+      <Project>{72c9f1f3-82c5-4335-98ec-c6c5462f8b55}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
+      <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.UserManagement.Extend\Adibrata.BusinessProcess.UserManagement.Extend.csproj">
+      <Project>{d7e666c8-e6ee-4a52-aa01-7bc02aec113c}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.View.Core\Adibrata.BusinessProcess.Views.Core.csproj">
+      <Project>{da2973f7-b07d-4489-90ce-29a9e67266c3}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.View.Entities\Adibrata.BusinessProcess.Views.Entities.csproj">
+      <Project>{f4ca92e1-b570-4d5f-b320-9228ed30e8dd}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.BusinessProcess.View.Extend\Adibrata.BusinessProcess.Views.Extend.csproj">
+      <Project>{c1c37fe2-2ddf-4b10-813c-d0c81f8a5f4f}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Configuration\Adibrata.Configuration.csproj">
+      <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
+      <Name>Adibrata.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Controller\Adibrata.Controller.csproj">
+      <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>
+      <Name>Adibrata.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Framework.Caching\Adibrata.Framework.Caching.csproj">
+      <Project>{87734e21-d1d6-49ab-8ba9-d207e82f9bc0}</Project>
+      <Name>Adibrata.Framework.Caching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
+      <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>
+      <Name>Adibrata.Framework.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
+      <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
+      <Name>Adibrata.Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Framework.ImageProcessing\Adibrata.Framework.ImageProcessing.csproj">
+      <Project>{794775bc-8818-45e6-ad10-491e74af573a}</Project>
+      <Name>Adibrata.Framework.ImageProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj">
+      <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
+      <Name>Adibrata.Framework.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
+      <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
+      <Name>Adibrata.Framework.ReportDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Framework.Security\Adibrata.Framework.Security.csproj">
+      <Project>{26f1e2d1-b0e5-405b-9d73-369db760a730}</Project>
+      <Name>Adibrata.Framework.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Journal.Engine\Adibrata.Journal.Engine.csproj">
+      <Project>{f7dbf23d-bc47-45b8-ae26-955908e5c9d7}</Project>
+      <Name>Adibrata.Journal.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj">
+      <Project>{030bbc11-268a-4abf-8e58-3c2461aab791}</Project>
+      <Name>Adibrata.Rule.Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59798</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59798/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

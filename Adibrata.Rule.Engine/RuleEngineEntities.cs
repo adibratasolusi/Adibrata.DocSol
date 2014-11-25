@@ -16,6 +16,6 @@ namespace Adibrata.Rule.Engine
         public Dictionary<string, string> Listvalue;
         public DataTable DtListValue { get; set; }
         public DataTable DtResultRule { get; set; }
-        
+        public string PathFile { get; set; }
     }
 }

@@ -1,0 +1,17 @@
+<Page x:Class="Adibrata.Windows.Theme.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="77,112,77,113">
+            <TextBlock Text="Thanks For Download" FontWeight="Bold" Margin="0,0,0,10" Foreground="BlueViolet" HorizontalAlignment="Center"/>
+            <TextBlock Text="Saha Soft(ALI.ALIKHANI)" FontWeight="Bold" Margin="0,0,0,10" Foreground="BlueViolet" HorizontalAlignment="Center"/>
+            <TextBlock Text="For Change Theme Go To App.Xaml And Change ResourceDictionary"/>
+            <TextBlock Text="You Can Find Theme Name On Theme Folder On Solution Explorer" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>

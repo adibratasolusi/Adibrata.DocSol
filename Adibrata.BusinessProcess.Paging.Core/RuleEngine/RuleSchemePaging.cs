@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using Adibrata.Rule.Engine;
-using Adibrata.Configuration;
-using Adibrata.BusinessProcess.Paging.Entities;
-using Adibrata.Framework.Logging;
+﻿using Adibrata.Configuration;
 using Adibrata.Framework.DataAccess;
+using Adibrata.Framework.Logging;
+using Adibrata.Rule.Engine;
+using System;
+using System.Data;
 using System.Data.SqlClient;
-using Adibrata.BusinessProcess.Entities.Base;
+using System.Text;
+using Adibrata.BusinessProcess.Paging.Entities;
 
 namespace Adibrata.BusinessProcess.Paging.Core
 {
@@ -18,22 +14,27 @@ namespace Adibrata.BusinessProcess.Paging.Core
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
 
-         public virtual DataTable RuleEngineList (RuleEngineEntities _ent)
+        public virtual DataTable RuleEngineList(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();
             try
             {
                 sb.Append("spRuleEnginePaging");
-                SqlParameter[] sqlParams = new SqlParameter[3];
-                sqlParams[0] = new SqlParameter("@currentpage", SqlDbType.VarChar, 500);
+                SqlParameter[] sqlParams = new SqlParameter[4];
+
+                sqlParams[0] = new SqlParameter("@CurrentPage", SqlDbType.Int);
                 sqlParams[0].Value = _ent.CurrentPage;
-                sqlParams[1] = new SqlParameter("@pagesize", SqlDbType.VarChar, 500);
+
+                sqlParams[1] = new SqlParameter("@PagSize", SqlDbType.Int);
                 sqlParams[1].Value = _ent.PageSize;
-                sqlParams[2] = new SqlParameter("@wherecond", SqlDbType.VarChar, 500);
+
+                sqlParams[2] = new SqlParameter("@WhereCod", SqlDbType.VarChar, 4000);
                 sqlParams[2].Value = _ent.WhereCond;
-                sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 500);
+
+                sqlParams[3] = new SqlParameter("@SortBy", SqlDbType.VarChar, 4000);
                 sqlParams[3].Value = _ent.SortBy;
+
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
             }
             catch (Exception _exp)

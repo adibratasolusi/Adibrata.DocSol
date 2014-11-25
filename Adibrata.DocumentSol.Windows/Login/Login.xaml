@@ -1,4 +1,4 @@
-﻿<Page xmlns:UserControler="clr-namespace:Adibrata.Windows.UserControler;assembly=Adibrata.Windows.UserController" x:Class="Adibrata.DocumentSol.Windows.Login.Login"
+﻿<Page xmlns:usercontroller="clr-namespace:Adibrata.Windows.UserControler" x:Class="Adibrata.DocumentSol.Windows.Login.Login"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

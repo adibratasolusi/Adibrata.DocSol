@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="FileTransfer\FileTransferPaging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RuleEnging\RuleSchemePaging.cs" />
+    <Compile Include="RuleEngine\RuleSchemePaging.cs" />
     <Compile Include="UserManagement\UserRegisterPaging.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,7 +18,5 @@ namespace Adibrata.Framework.Logging
         public string EventSource { get; set; }
         public Exception ExceptionObject { get; set; }
         public string FunctionName { get; set;  }
-
-        public string ClassName { get; set; }
     }
 }

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B70CD3B4-9E43-4597-B5DE-E0CDD88E1A60}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Adibrata.Window.ProjectManager</RootNamespace>
+    <AssemblyName>Adibrata.Window.ProjectManager</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Infragistics4.Shared.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinGanttView.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinListView.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinPrintPreviewDialog.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinSchedule.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v14.1, Version=14.1.0.9000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AboutControl.Designer.cs">
+      <DependentUpon>AboutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NativeWindowMethods.cs" />
+    <Compile Include="ProjectManagerForm.cs" />
+    <Compile Include="ProjectManagerForm.Designer.cs">
+      <DependentUpon>ProjectManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SamplesBrowser\SamplesBrowser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SamplesBrowser.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="AboutControl.resx">
+      <DependentUpon>AboutControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectManagerForm.ja.resx">
+      <DependentUpon>ProjectManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EmbeddedResource Include="ProjectManagerForm.resx">
+      <DependentUpon>ProjectManagerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Resources\SamplesBrowser\SamplesBrowser.ja.resx" />
+    <EmbeddedResource Include="Resources\SamplesBrowser\SamplesBrowser.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SamplesBrowser.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StyleLibraries\Theme 01.isl" />
+    <EmbeddedResource Include="StyleLibraries\Theme 02.isl" />
+    <EmbeddedResource Include="StyleLibraries\Theme 03.isl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tasks_MoveRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Tasks_MoveLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Large_248x124.png" />
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Large_310x155.png" />
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Large_434x217.png" />
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Large_558x279.png" />
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Med_118x88.png" />
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Med_148x113.png" />
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Med_208x158.png" />
+    <Content Include="Resources\SamplesBrowser\ProjectMngr_Med_268x202.png" />
+    <EmbeddedResource Include="Images\AppIcon - Theme 01.ico" />
+    <EmbeddedResource Include="Images\AppIcon - Theme 02.ico" />
+    <EmbeddedResource Include="Images\AppIcon - Theme 03.ico" />
+    <Content Include="Images\Font_Bold.png" />
+    <Content Include="Images\Font_BackColor.png" />
+    <Content Include="Images\Font_ForeColor.png" />
+    <Content Include="Images\Font_Italic.png" />
+    <Content Include="Images\Font_Underline.png" />
+    <EmbeddedResource Include="Images\Logo.PNG" />
+    <EmbeddedResource Include="Data.ProjManager.XML" />
+    <Content Include="Images\Logo.ico" />
+    <Content Include="Images\Tasks_Delete.png" />
+    <Content Include="Images\Tasks_PercentComplete_0.png" />
+    <Content Include="Images\Tasks_PercentComplete_100.png" />
+    <Content Include="Images\Tasks_PercentComplete_25.png" />
+    <Content Include="Images\Tasks_PercentComplete_50.png" />
+    <Content Include="Images\Tasks_PercentComplete_75.png" />
+    <None Include="Images\Tasks_MoveBackward_Month.png" />
+    <None Include="Images\Tasks_MoveBackward_Week.png" />
+    <None Include="Images\Tasks_MoveBackward_Day.png" />
+    <None Include="Images\Tasks_MoveForward_Month.png" />
+    <Content Include="Images\Tasks_MoveForward_Week.png" />
+    <None Include="Images\Tasks_MoveForward_Day.png" />
+    <None Include="Images\Properties_Notes.png" />
+    <None Include="Images\Properties_TaskInformation.png" />
+    <None Include="Images\Insert_Milestone.png" />
+    <None Include="Images\Insert_Task.png" />
+    <None Include="Images\Tasks_MoveTask.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

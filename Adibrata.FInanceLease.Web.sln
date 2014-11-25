@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Rule.Engine", "Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj", "{030BBC11-268A-4ABF-8E58-3C2461AAB791}"
 EndProject
@@ -89,11 +89,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Xbap", "Adi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Windows.UserController", "Adibrata.Windows.UserController\Adibrata.Windows.UserController.csproj", "{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Table", "Adibrata.Database.Table\Adibrata.Database.Table.sqlproj", "{9627A6F1-349D-4660-B900-3C221EA3DF33}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.StoreProcedure", "Adibrata.Database.StoreProcedure\Adibrata.Database.StoreProcedure.sqlproj", "{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Prototype.WPF", "Adibrata.Theme\Adibrata.Themes.Prototype.WPF\Adibrata.Themes.Prototype.WPF.csproj", "{37C1111A-9818-48EA-ADC4-6F53FF12102A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database", "Adibrata.Database.StoreProcedure\Adibrata.Database.sqlproj", "{911118F7-2BAB-411B-BAAA-7EB95FE4CA82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -269,22 +267,16 @@ Global
 		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9627A6F1-349D-4660-B900-3C221EA3DF33}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{911118F7-2BAB-411B-BAAA-7EB95FE4CA82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{911118F7-2BAB-411B-BAAA-7EB95FE4CA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{911118F7-2BAB-411B-BAAA-7EB95FE4CA82}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{911118F7-2BAB-411B-BAAA-7EB95FE4CA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{911118F7-2BAB-411B-BAAA-7EB95FE4CA82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{911118F7-2BAB-411B-BAAA-7EB95FE4CA82}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

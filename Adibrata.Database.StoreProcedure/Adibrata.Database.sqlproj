@@ -7,7 +7,7 @@
     <Name>Adibrata.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{aae1ba57-e0bd-4d83-891c-67f220b69cb3}</ProjectGuid>
+    <ProjectGuid>{911118f7-2bab-411b-baaa-7eb95fe4ca82}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>

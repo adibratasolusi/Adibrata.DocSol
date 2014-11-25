@@ -18,6 +18,9 @@ using Adibrata.Controller.UserManagement;
 using System.Data;
 using Adibrata.Framework.Security;
 using Adibrata.Configuration;
+using Adibrata.Windows.UserController;
+using Adibrata.Framework.Logging;
+
 
 namespace Adibrata.DocumentSol.Windows.UserManagement
 {
@@ -28,34 +31,63 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
     {
 
         string currentUserName;
-        static string coyName = AppConfig.Config("CoyName");
-
-        public UserRegistrationAddEdit(string username)
+        
+        static Boolean _isedit;
+        public UserRegistrationAddEdit(string UserName, Boolean isEdit)
         {
             InitializeComponent();
-
-            dpExp.DisplayDateStart = DateTime.Now;
-            currentUserName = username;
+            this.DataContext = new MainVM(new Shell());
+            _isedit = isEdit;
+            currentUserName = UserName;
         }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            string password = Encryption.EncryptToSHA3(txtPassword.Text) + Encryption.EncryptToSHA3(coyName);
-            UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserMangementAddEdit", ClassName = "Adibrata.BusinessProcess.UserManagement.Extend.UserManagement" };
-            _ent.UserName = txtUserName.Text;
-            _ent.Password = password;
-            _ent.FullName = txtFullname.Text;
-            if (isActive.IsChecked == true)
+            try
             {
-                _ent.IsActive = 1;
+                UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserRegisterAddEdit", ClassName = "UserRegister" };
+                _ent.UserName = txtUserName.Text;
+                _ent.Password = txtPassword.Text;
+                _ent.FullName = txtFullname.Text;
+
+                if (isActive.IsChecked == true)
+                {
+                    _ent.IsActive = 1;
+                }
+                else
+                {
+                    _ent.IsActive = 0;
+                }
+                if (_isedit)
+                {
+                    _ent.UsrUpd = currentUserName;
+                }
+                else
+                {
+                    _ent.UsrCrt = currentUserName;
+                }
+                _ent.IsEdit = _isedit;
+
+                UserManagementController.UserManagement<string>(_ent);
             }
-            else
+            catch (Exception _exp)
             {
-                _ent.IsActive = 0;
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = currentUserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationAddEdit",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "UserRegistration",
+                    ExceptionObject = _exp,
+                    EventID = 70, // 70 Untuk User Managemetn
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
             }
-            _ent.MaxWrong = Convert.ToInt32(txtMax.Text);
-
-
-            UserManagementController.UserManagement<string>(_ent);
         }
     }
 }

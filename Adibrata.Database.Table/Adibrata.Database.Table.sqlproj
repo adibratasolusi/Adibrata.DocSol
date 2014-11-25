@@ -102,7 +102,7 @@
     <Build Include="MS_Sequence.Table.sql" />
     <Build Include="MS_Setting.Table.sql" />
     <Build Include="MS_SettingType.Table.sql" />
-    <Build Include="MsUser.Table.sql" />
+    <Build Include="Ms_User.Table.sql" />
     <Build Include="PayHistDtl.Table.sql" />
     <Build Include="PayHistHdr.Table.sql" />
     <Build Include="PayRcv.Table.sql" />
@@ -112,7 +112,7 @@
     <Build Include="RuPriceList.Table.sql" />
     <Build Include="UserActivityLog.Table.sql" />
     <Build Include="CustCoy.sql" />
-    <Build Include="MSForm.sql" />
+    <Build Include="MS_Form.sql" />
     <Build Include="MSUserForm.sql" />
   </ItemGroup>
   <ItemGroup>

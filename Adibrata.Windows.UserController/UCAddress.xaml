@@ -19,31 +19,31 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="0"  Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="0"  Margin="0,1">
             <TextBox Name="txtAddress" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="RT" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="0"  Margin="0,1">
             <TextBox Name="txtRT" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="2" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="RW" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="3" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="3"  Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Kelurahan" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="4" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="4"  Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Kecamatan" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="5" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="5"  Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="City" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="6" Style="{StaticResource OddGridStyle}" Margin="0,1">
+        <Grid Grid.Column="0" Grid.Row="6"  Margin="0,1">
             <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="ZipCode" VerticalAlignment="Center"/>
         </Grid>
     </Grid>

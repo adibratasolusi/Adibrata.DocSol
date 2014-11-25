@@ -5,12 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300" ShowsNavigationUI="False"
+      Style="{StaticResource PageStyle}"
 	Title="Login">
 
-    <Grid>
+    <Grid Style="{StaticResource GridStyle}" >
        
       
-        <Grid  Style="{StaticResource OddGridStyle}"   HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190*" />
                 <ColumnDefinition Width="300*" />
@@ -26,26 +27,27 @@
 
                 <Image Source="Images/logoadibrata.png" Width="100" Height="100" Visibility="Visible">
                 </Image>
-                <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
             </Grid>
            
             
-            <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="User Name" VerticalAlignment="Center"/>
             </Grid>
            
-            <Grid Grid.Column="0" Grid.Row="2" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center"/>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource OddGridStyle}" Margin="0,1" Grid.ColumnSpan="2">
+            <Grid Grid.Column="1" Grid.Row="1"  Margin="0,1" Grid.ColumnSpan="2">
                 <UserControler:UCTextBox  Name="txtUserName" />
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="2" Style="{StaticResource OddGridStyle}" Margin="0,1" Grid.ColumnSpan="2">
+            <Grid Grid.Column="1" Grid.Row="2"  Margin="0,1" Grid.ColumnSpan="2">
               <UserControler:UCPassword Name="txtPassword"/>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="3" Style="{StaticResource OddGridStyle}" Margin="0,2" HorizontalAlignment="Right" Width="184">
-                <Button Name="btnLogin" Click="btnLogin_Click" Margin="129,0,0,0">Login</Button>
+            <Grid Grid.Column="1" Grid.Row="3"  Margin="0,2" HorizontalAlignment="Right" Width="184">
+                <Button Name="btnLogin" Click="btnLogin_Click" Margin="129,0,0,0">Login</Button> 
             </Grid>
         </Grid>
+        <TextBlock Padding="20,3"> <Hyperlink Command="{Binding ThemeCommand}">Switch theme</Hyperlink></TextBlock>
     </Grid>
 </Page>

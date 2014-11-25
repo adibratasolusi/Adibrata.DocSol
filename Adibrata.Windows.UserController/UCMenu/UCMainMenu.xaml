@@ -48,10 +48,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource OddGridStyle}" Background="SteelBlue">
+        <Grid Grid.Column="0" Grid.Row="0"  Background="SteelBlue">
             <Image x:Name="imgLogo" Source="../Images/logoadibrata.png" Height="100"/>
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}">
+        <Grid Grid.Column="0" Grid.Row="1" >
 
             <Menu x:Name="mnuMainMenu" ItemsSource="{Binding}" VerticalAlignment="Top" DockPanel.Dock="Top" 
         ItemContainerStyleSelector="{StaticResource menuSeparatorStyleSelector}" />

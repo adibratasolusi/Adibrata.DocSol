@@ -27,7 +27,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Type</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource EvenGridStyle}">
@@ -37,7 +37,7 @@
                 </StackPanel>
                 
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="2" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Menu Parent</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="2" Style="{StaticResource EvenGridStyle}">
@@ -48,7 +48,7 @@
                 </StackPanel>
 
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="3" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="3"  Margin="0,1">
 
                     <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Order</TextBlock>
 
@@ -56,33 +56,33 @@
             <Grid Grid.Column="1" Grid.Row="3" Style="{StaticResource EvenGridStyle}">
                 <UserControler:UCTextBox x:Name="txtOrder" />
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="4" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="4"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Menu Text</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="4" Style="{StaticResource EvenGridStyle}">
                 <UserControler:UCTextBox x:Name="txtMenu" />
             </Grid>
 
-            <Grid Grid.Column="0" Grid.Row="5" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="5"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Icon</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="5" Style="{StaticResource EvenGridStyle}">
                 <UserControler:UCTextBox x:Name="txtIcon" />
                 <!--<ComboBox x:Name="cmbIcon"></ComboBox>-->
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="6" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="6"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Form</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="6" Style="{StaticResource EvenGridStyle}">
                 <UserControler:UCTextBox x:Name="txtForm" />
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="7" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="7"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Active</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="7" Style="{StaticResource EvenGridStyle}">
                 <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="9" Style="{StaticResource OddGridStyle}">
+            <Grid Grid.Column="1" Grid.Row="9" >
                 <Button Name="btnSave" Content="Save" Click="btnSave_Click"></Button>
             </Grid>
 

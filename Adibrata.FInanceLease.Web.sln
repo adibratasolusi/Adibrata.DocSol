@@ -39,22 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Vi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Controller", "Adibrata.Controller\Adibrata.Controller.csproj", "{3C1D4BBE-264F-405F-B212-72BFC2595D28}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{1E006B03-C6E6-42A0-AA29-849D0C1E1836}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpBITS.Base", "SharpBITS.Base\SharpBITS.Base.csproj", "{B39FDB92-7420-487E-8B44-D9BC0B88D857}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Demo.FileTransfer", "Demo\Adibrata.Demo.FileTransfer\Adibrata.Demo.FileTransfer.csproj", "{D7165174-F6E4-4969-A057-CDBA4B005CA7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F0ADCF8C-47F9-4E15-AB58-22564225EF87} = {F0ADCF8C-47F9-4E15-AB58-22564225EF87}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Demo.Web.FileTransfer", "Demo\Adibrata.Demo.Web.FileTransfer\Adibrata.Demo.Web.FileTransfer.csproj", "{13C73F6F-784A-4767-B325-21E14508EF86}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Demo.WCF.FileTransfer", "Demo\Adibrata.Demo.WCF.FileTransfer\Adibrata.Demo.WCF.FileTransfer.csproj", "{F0ADCF8C-47F9-4E15-AB58-22564225EF87}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VideoCall", "VideoCall", "{F72247A4-7D9B-4EBF-9C76-71656C3FA823}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Video_Conference", "VideoCall\Peer_Video_Confere\Video_Conference Peer1\Video_Conference.csproj", "{8BE99BF0-4500-4F2A-8240-81CC192C47DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adibrata.Theme", "Adibrata.Theme", "{CCC29B55-7F75-4C14-BD17-C868AE208E64}"
 EndProject
@@ -100,8 +85,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Core.Light"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Fischer.WPF", "Adibrata.Theme\Adibrata.Themes.Fischer.WPF\Adibrata.Themes.Fischer.WPF.csproj", "{D8166AD7-25DD-4953-84DD-347CB0321582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Prototype.WPF", "Adibrata.Theme\Adibrata.Themes.Prototype.WPF\Adibrata.Themes.Prototype.WPF.csproj", "{37C1111A-9818-48EA-ADC4-6F53FF12102A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Xbap", "Adibrata.Theme\Adibrata.Themes.Xbap\Adibrata.Themes.Xbap.csproj", "{F271010E-3B17-47CF-9ECD-C770949D653A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Windows.UserController", "Adibrata.Windows.UserController\Adibrata.Windows.UserController.csproj", "{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}"
@@ -109,6 +92,8 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Table", "Adibrata.Database.Table\Adibrata.Database.Table.sqlproj", "{9627A6F1-349D-4660-B900-3C221EA3DF33}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.StoreProcedure", "Adibrata.Database.StoreProcedure\Adibrata.Database.StoreProcedure.sqlproj", "{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Themes.Prototype.WPF", "Adibrata.Theme\Adibrata.Themes.Prototype.WPF\Adibrata.Themes.Prototype.WPF.csproj", "{37C1111A-9818-48EA-ADC4-6F53FF12102A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -192,22 +177,6 @@ Global
 		{B39FDB92-7420-487E-8B44-D9BC0B88D857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B39FDB92-7420-487E-8B44-D9BC0B88D857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B39FDB92-7420-487E-8B44-D9BC0B88D857}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7165174-F6E4-4969-A057-CDBA4B005CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7165174-F6E4-4969-A057-CDBA4B005CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7165174-F6E4-4969-A057-CDBA4B005CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7165174-F6E4-4969-A057-CDBA4B005CA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13C73F6F-784A-4767-B325-21E14508EF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13C73F6F-784A-4767-B325-21E14508EF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13C73F6F-784A-4767-B325-21E14508EF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13C73F6F-784A-4767-B325-21E14508EF86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0ADCF8C-47F9-4E15-AB58-22564225EF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0ADCF8C-47F9-4E15-AB58-22564225EF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0ADCF8C-47F9-4E15-AB58-22564225EF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0ADCF8C-47F9-4E15-AB58-22564225EF87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8BE99BF0-4500-4F2A-8240-81CC192C47DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8BE99BF0-4500-4F2A-8240-81CC192C47DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8BE99BF0-4500-4F2A-8240-81CC192C47DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8BE99BF0-4500-4F2A-8240-81CC192C47DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75FF1407-1C79-4138-B6AD-3E8D69D2AD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75FF1407-1C79-4138-B6AD-3E8D69D2AD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75FF1407-1C79-4138-B6AD-3E8D69D2AD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -292,10 +261,6 @@ Global
 		{D8166AD7-25DD-4953-84DD-347CB0321582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8166AD7-25DD-4953-84DD-347CB0321582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8166AD7-25DD-4953-84DD-347CB0321582}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F271010E-3B17-47CF-9ECD-C770949D653A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F271010E-3B17-47CF-9ECD-C770949D653A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F271010E-3B17-47CF-9ECD-C770949D653A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -316,21 +281,20 @@ Global
 		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AAE1BA57-E0BD-4D83-891C-67F220B69CB3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D7165174-F6E4-4969-A057-CDBA4B005CA7} = {1E006B03-C6E6-42A0-AA29-849D0C1E1836}
-		{13C73F6F-784A-4767-B325-21E14508EF86} = {1E006B03-C6E6-42A0-AA29-849D0C1E1836}
-		{F0ADCF8C-47F9-4E15-AB58-22564225EF87} = {1E006B03-C6E6-42A0-AA29-849D0C1E1836}
-		{F72247A4-7D9B-4EBF-9C76-71656C3FA823} = {1E006B03-C6E6-42A0-AA29-849D0C1E1836}
-		{8BE99BF0-4500-4F2A-8240-81CC192C47DA} = {F72247A4-7D9B-4EBF-9C76-71656C3FA823}
 		{75FF1407-1C79-4138-B6AD-3E8D69D2AD36} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
 		{D0447080-8D02-4958-835C-055CD642450C} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
 		{2BEEB702-6196-4538-874B-F5819A5BB374} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
 		{D8166AD7-25DD-4953-84DD-347CB0321582} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
-		{37C1111A-9818-48EA-ADC4-6F53FF12102A} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
 		{F271010E-3B17-47CF-9ECD-C770949D653A} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
+		{37C1111A-9818-48EA-ADC4-6F53FF12102A} = {CCC29B55-7F75-4C14-BD17-C868AE208E64}
 	EndGlobalSection
 EndGlobal

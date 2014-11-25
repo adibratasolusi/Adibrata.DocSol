@@ -62,6 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ThemeSwitcher_UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UCAddress.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,11 +93,23 @@
     <Compile Include="Callendar.xaml.cs">
       <DependentUpon>Callendar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DesignQuotes.cs" />
     <Compile Include="InputNumber.xaml.cs">
       <DependentUpon>InputNumber.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainVM.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="ReportViewerRDLC.xaml.cs">
       <DependentUpon>ReportViewerRDLC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeSwitcherVM.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="ThemeSwitcher_UC.xaml.cs">
+      <DependentUpon>ThemeSwitcher_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCAddress.xaml.cs">
       <DependentUpon>UCAddress.xaml</DependentUpon>
@@ -177,6 +193,14 @@
     <ProjectReference Include="..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
       <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
       <Name>Adibrata.Framework.ReportDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Theme\Adibrata.Themes.Core\Adibrata.Themes.Core.csproj">
+      <Project>{d0447080-8d02-4958-835c-055cd642450c}</Project>
+      <Name>Adibrata.Themes.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Theme\Adibrata.Themes.Fischer.WPF\Adibrata.Themes.Fischer.WPF.csproj">
+      <Project>{d8166ad7-25dd-4953-84dd-347cb0321582}</Project>
+      <Name>Adibrata.Themes.Fischer.WPF</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

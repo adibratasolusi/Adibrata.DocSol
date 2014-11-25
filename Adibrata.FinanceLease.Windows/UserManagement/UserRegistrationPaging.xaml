@@ -21,7 +21,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Column="0" Grid.Row="1" Style="{StaticResource OddGridStyle}" Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >User Name</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource EvenGridStyle}">

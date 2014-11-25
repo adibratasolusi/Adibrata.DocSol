@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Adibrata.BusinessProcess.UserManagement.Extend;
 using Adibrata.Controller.UserManagement;
 using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Windows.UserController;
 
 namespace Adibrata.DocumentSol.Windows.Login
 {
@@ -26,6 +27,7 @@ namespace Adibrata.DocumentSol.Windows.Login
         public Login()
         {
             InitializeComponent();
+            this.DataContext = new MainVM(new Shell());
             txtUserName.MessageValidator = "Please Enter User Name";
             txtUserName.IsMandatory = true;
             txtPassword.MessageValidator = "Please Enter Password";

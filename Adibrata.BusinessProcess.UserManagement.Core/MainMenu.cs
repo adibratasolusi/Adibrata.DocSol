@@ -94,7 +94,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
 
         }
 
-        public virtual DataTable MainMenuGetActiveItemId(UserManagementEntities _ent)
+        public virtual DataTable MainMenuGetActiveItemID(UserManagementEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();

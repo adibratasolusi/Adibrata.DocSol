@@ -39,7 +39,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center"/>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1"  Margin="0,1" Grid.ColumnSpan="2">
-                <UserControler:UCTextBox  Name="txtUserName" />
+                <UserControler:UCTextBox  Name="txtUserName"></UserControler:UCTextBox>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="2"  Margin="0,1" Grid.ColumnSpan="2">
               <UserControler:UCPassword Name="txtPassword"/>

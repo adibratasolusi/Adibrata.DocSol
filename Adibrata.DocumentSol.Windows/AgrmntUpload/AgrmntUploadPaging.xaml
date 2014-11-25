@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="1024" d:DesignWidth="768" ShowsNavigationUI="False"
-                      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
-        xmlns:themes="clr-namespace:DataGridThemes;assembly=DataGridThemes"
+      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+       Style="{StaticResource PageStyle}"
 	Title="AgrmntUploadPaging">
 
 
@@ -27,7 +27,6 @@
             
                 <controls:DataGrid IsTextSearchEnabled="True"
                           SelectionMode="Single"
-                          themes:DataGridHelper.HorizontalMouseWheelScrollingEnabled="True"
                           x:Name="dgPaging" 
                           HorizontalAlignment="Left" Margin="10,95,0,0" Width="780" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="330" VerticalAlignment="Top"
                           >

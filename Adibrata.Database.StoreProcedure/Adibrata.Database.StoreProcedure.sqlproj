@@ -61,11 +61,70 @@
     <Folder Include="Properties" />
     <Folder Include="Approval" />
     <Folder Include="UserManagement" />
+    <Folder Include="Table" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="UserManagement\spUserRegisterListReport.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="UserManagement\spUserRegisterDelete.sql" />
+    <Build Include="UserManagement\spMsUserPaging.sql" />
+    <Build Include="UserManagement\spMsUserAdd.sql" />
+    <Build Include="UserManagement\spMsUserEdit.sql" />
+    <Build Include="UserManagement\spMsUserDelete.sql" />
+    <Build Include="UserManagement\spMsFormPaging.sql" />
+    <Build Include="UserManagement\spMsFormAdd.sql" />
+    <Build Include="UserManagement\spMsFormEdit.sql" />
+    <Build Include="UserManagement\spMsFormDelete.sql" />
+    <Build Include="UserManagement\spMsFormView.sql" />
+    <Build Include="UserManagement\spMsUserView.sql" />
+    <Build Include="Table\Agrmnt.Table.sql" />
+    <Build Include="Table\Agrmnt_Mnt.Table.sql" />
+    <Build Include="Table\AgrmntAsset.Table.sql" />
+    <Build Include="Table\AgrmntInsur.Table.sql" />
+    <Build Include="Table\AgrmntInsurAsset.Table.sql" />
+    <Build Include="Table\AgrmntInsurDtl.Table.sql" />
+    <Build Include="Table\AgrmntInsurHdr.Table.sql" />
+    <Build Include="Table\AmendmentTrx.Table.sql" />
+    <Build Include="Table\Application.Table.sql" />
+    <Build Include="Table\AprvlAltrnUsr.Table.sql" />
+    <Build Include="Table\AprvlNextPerson.Table.sql" />
+    <Build Include="Table\AprvlPathTree.Table.sql" />
+    <Build Include="Table\AprvlPathTreeMember.Table.sql" />
+    <Build Include="Table\AprvlStatus.Table.sql" />
+    <Build Include="Table\AprvlStatusLogs.Table.sql" />
+    <Build Include="Table\AprvlType.Table.sql" />
+    <Build Include="Table\AprvlTypeScheme.Table.sql" />
+    <Build Include="Table\CashBankMutDtl.Table.sql" />
+    <Build Include="Table\CashBankMutHdr.Table.sql" />
+    <Build Include="Table\CoaSchmDtl.Table.sql" />
+    <Build Include="Table\CoaSchmHdr.Table.sql" />
+    <Build Include="Table\Cust.Table.sql" />
+    <Build Include="Table\CustCoy.sql" />
+    <Build Include="Table\EarlyTermination.Table.sql" />
+    <Build Include="Table\InstSchdl.Table.sql" />
+    <Build Include="Table\Jrnl_Trx_Dtl.Table.sql" />
+    <Build Include="Table\Jrnl_Trx_Hdr.Table.sql" />
+    <Build Include="Table\JrnlJob.Table.sql" />
+    <Build Include="Table\JrnlSchmDtl.Table.sql" />
+    <Build Include="Table\JrnlSchmHdr.Table.sql" />
+    <Build Include="Table\MS_Bank.Table.sql" />
+    <Build Include="Table\MS_BankAccount.Table.sql" />
+    <Build Include="Table\Ms_Coa.Table.sql" />
+    <Build Include="Table\MS_Company.Table.sql" />
+    <Build Include="Table\MS_Form.sql" />
+    <Build Include="Table\Ms_Journal_Seq.Table.sql" />
+    <Build Include="Table\MS_JrnlTrx.Table.sql" />
+    <Build Include="Table\MS_Office.Table.sql" />
+    <Build Include="Table\MS_Sequence.Table.sql" />
+    <Build Include="Table\MS_Setting.Table.sql" />
+    <Build Include="Table\MS_SettingType.Table.sql" />
+    <Build Include="Table\Ms_User.Table.sql" />
+    <Build Include="Table\MSUserForm.sql" />
+    <Build Include="Table\PayHistDtl.Table.sql" />
+    <Build Include="Table\PayHistHdr.Table.sql" />
+    <Build Include="Table\PayRcv.Table.sql" />
+    <Build Include="Table\PayRcvDtl.Table.sql" />
+    <Build Include="Table\PayRcvOth.Table.sql" />
+    <Build Include="Table\RuleScheme.Table.sql" />
+    <Build Include="Table\RuPriceList.Table.sql" />
+    <Build Include="Table\UserActivityLog.Table.sql" />
   </ItemGroup>
 </Project>

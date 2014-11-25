@@ -15,6 +15,6 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
         static string ConnectionString = AppConfig.Config("ConnectionString");
         static string _coyName = AppConfig.Config("CoyName");
 
-        SqlTransaction _trans;
+       
     }
 }

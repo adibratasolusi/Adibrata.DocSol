@@ -23,7 +23,7 @@ namespace Adibrata.Themes.Xbap
         Panel lastParentPanel;
         Canvas canvasHolder;
         bool isShown;
-        Point startPoint;
+        //Point startPoint;
 
         public Popup_UC()
         {

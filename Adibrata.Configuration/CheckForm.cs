@@ -8,8 +8,6 @@ using Adibrata.Framework.Caching;
 using Adibrata.Framework.Logging;
 using System.Data.SqlClient;
 using System.Data;
-using System.Text;
-
 
 namespace Adibrata.Configuration
 {

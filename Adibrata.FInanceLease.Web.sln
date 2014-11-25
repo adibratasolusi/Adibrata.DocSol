@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Rule.Engine", "Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj", "{030BBC11-268A-4ABF-8E58-3C2461AAB791}"
 EndProject
@@ -100,7 +100,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.WCF", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Windows.UserController", "Adibrata.Windows.UserController\Adibrata.Windows.UserController.csproj", "{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.FInanceLease.Web", "Adibrata.FInanceLease.Web\Adibrata.FInanceLease.Web\Adibrata.FInanceLease.Web.csproj", "{F1681826-6705-4064-BA1E-122ED0BCB6E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Windows.Theme", "Adibrata.Windows.Theme\Adibrata.Windows.Theme.csproj", "{5C2F2591-593B-4196-8FEA-523A5AA3C68C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -287,10 +287,10 @@ Global
 		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{536678C3-FAB3-43A9-8A68-ADAB972A6DF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1681826-6705-4064-BA1E-122ED0BCB6E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2F2591-593B-4196-8FEA-523A5AA3C68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2F2591-593B-4196-8FEA-523A5AA3C68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2F2591-593B-4196-8FEA-523A5AA3C68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2F2591-593B-4196-8FEA-523A5AA3C68C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

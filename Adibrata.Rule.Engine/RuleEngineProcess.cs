@@ -90,7 +90,7 @@ namespace Adibrata.Rule.Engine
                 sb.Append(" Result nvarchar(50)");
                 sb.Append(" CONSTRAINT [PK_"); sb.Append(_ent.RuleName); sb.Append("] PRIMARY KEY CLUSTERED (	[ID] ASC )");
                 sb.AppendLine("WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON RuleEngine) On RuleEngine");
-                SqlHelper.ExecuteNonQuery(_ent.ConnectionString, CommandType.Text, sb.ToString());
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
 
                 sb.Clear();
                 sb.Append("Create Index IX_");

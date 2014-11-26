@@ -89,5 +89,10 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 #endregion
             }
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

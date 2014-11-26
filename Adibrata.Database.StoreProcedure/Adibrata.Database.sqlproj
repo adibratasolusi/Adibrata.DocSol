@@ -65,6 +65,7 @@
     <Folder Include="StoreProcedure" />
     <Folder Include="StoreProcedure\UserManagement" />
     <Folder Include="Function" />
+    <Folder Include="StoreProcedure\Customer" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -132,5 +133,8 @@
     <Build Include="StoreProcedure\UserManagement\spSecurityCheckForm.sql" />
     <Build Include="Function\fnSecurityCheckForm.sql" />
     <Build Include="Table\MS_UserMenu.sql" />
+    <Build Include="StoreProcedure\Customer\spCustSave.sql" />
+    <Build Include="StoreProcedure\Customer\spCustCoySave.sql" />
+    <Build Include="StoreProcedure\Customer\spCustPaging.sql" />
   </ItemGroup>
 </Project>

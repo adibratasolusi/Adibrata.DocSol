@@ -25,9 +25,12 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <TargetFrameworkProfile />
     <TargetDatabase>Adibrata.Database.Script.StoreProcedure</TargetDatabase>
+    <GenerateSqlClrSymbols>False</GenerateSqlClrSymbols>
+    <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+    <PermissionSet>SAFE</PermissionSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\Build\Release</OutputPath>
+    <OutputPath>D:\Project\Adibrata.DocSol\Build\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <DebugType>pdbonly</DebugType>
@@ -38,7 +41,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>D:\Project\Adibrata.DocSol\Build\Release\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DebugSymbols>true</DebugSymbols>
@@ -81,6 +84,7 @@
     <Compile Include="RuleEnginePagingProc.cs" />
     <Compile Include="LCInstallmentCalculationFunct.cs" />
     <Compile Include="LCInstallmentCalculationClass.cs" />
+    <Compile Include="MasterSequenceProc.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MSFormProc.cs" />
@@ -89,14 +93,5 @@
     <Compile Include="CompanyProc.cs" />
     <Compile Include="OffiecEmployeeProc.cs" />
     <Compile Include="MasterSequenceClass.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
-      <Name>Adibrata.Framework.Logging</Name>
-      <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
-      <Private>True</Private>
-      <IsModelAware>True</IsModelAware>
-      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
-    </ProjectReference>
   </ItemGroup>
 </Project>

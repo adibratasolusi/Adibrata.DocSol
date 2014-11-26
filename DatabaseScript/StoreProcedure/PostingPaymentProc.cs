@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using Microsoft.SqlServer.Server;
-using Alpha.Database.Script.StoreProcedure;
+using Adibrata.Database.Script.StoreProcedure;
 
 
 

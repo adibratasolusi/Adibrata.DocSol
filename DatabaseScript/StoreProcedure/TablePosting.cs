@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 
-namespace Alpha.Database.Script.StoreProcedure
+namespace Adibrata.Database.Script.StoreProcedure
 {
     class TablePosting
     {

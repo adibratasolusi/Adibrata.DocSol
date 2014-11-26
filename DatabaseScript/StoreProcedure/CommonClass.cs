@@ -11,7 +11,7 @@ using System.Data;
 using Microsoft.SqlServer.Server;
 using System.Data.SqlTypes;
 
-namespace Alpha.Database.Script.StoreProcedure
+namespace Adibrata.Database.Script.StoreProcedure
 {
     public static class CommonClass
     {

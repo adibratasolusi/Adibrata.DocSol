@@ -24,12 +24,48 @@ namespace Adibrata.Windows.UserControler
     //    {
     //        get { return }
     //        set; }
-        public string PasswordValue { get; set; }
-        public Boolean IsValid { get; set; }
+        public TextBox Address
+        {
+            get { return txtAddress;}
+            set { txtAddress = value; }
+        }
+        public TextBox RT
+        {
+            get { return txtRT; }
+            set { txtRT = value; }
+        }
+        public TextBox RW
+        {
+            get { return txtRW; }
+            set { txtRW = value; }
+        }
+        public TextBox Kelurahan
+        {
+            get { return txtKelurahan; }
+            set { txtKelurahan = value; }
+        }
+        public TextBox Kecamatan
+        {
+            get { return txtKecamatan; }
+            set { txtKecamatan = value; }
+        }
+        public TextBox City
+        {
+            get { return txtCity; }
+            set { txtCity = value; }
+        }
+        public TextBox ZipCode
+        {
+            get { return txtZipCode; }
+            set { txtZipCode = value; }
+        }
+
 
         public UCAddress()
         {
             InitializeComponent();
         }
+
+     
     }
 }

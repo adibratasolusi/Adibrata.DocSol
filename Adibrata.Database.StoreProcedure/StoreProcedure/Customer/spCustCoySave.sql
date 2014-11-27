@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCustCoySave]
+﻿ALter PROCEDURE [dbo].[spCustCoySave]
 	@CustID bigint, 
 	@CoyAddress Varchar(100), 
 	@CoyRT varchar(4), 
@@ -15,9 +15,11 @@
 	@DtmCrt Datetime
 AS
 Set NoCount On 
+Declare @FullAddress Varchar(5000)
+Set @FullAddress = @CoyAddress + ' RT/RW: '+ @CoyRT + '/' + @CoyRW + ' Kelurahan: ' + @CoyKelurahan + ' Kecamatan: ' + @CoyKecamatan 
++ ' Kota: ' + @CoyCity + ' ZipCode: ' + @CoyZipCode
 
-
-	Insert into CustCoy (CustID, Address, RT, RW, Kelurahan, Kecamatan, City, ZipCode, NPWP, SIUP, TDP, AkteNo, UsrCrt, DtmCrt)
-	values (@CustID, @CoyAddress, @CoyRT, @CoyRW, @CoyKelurahan, @CoyKecamatan, @CoyCity, @CoyZipCode, @CoyNPWP, @CoySIUP, @CoyTDP, @CoyNotary, @UsrCrt, @DtmCrt)
+	Insert into CustCoy (CustID, Address, RT, RW, Kelurahan, Kecamatan, City, ZipCode, NPWP, SIUP, TDP, AkteNo, FullAddress, UsrCrt, DtmCrt)
+	values (@CustID, @CoyAddress, @CoyRT, @CoyRW, @CoyKelurahan, @CoyKecamatan, @CoyCity, @CoyZipCode, @CoyNPWP, @CoySIUP, @CoyTDP, @CoyNotary, @FullAddress, @UsrCrt, @DtmCrt)
 
 RETURN 0

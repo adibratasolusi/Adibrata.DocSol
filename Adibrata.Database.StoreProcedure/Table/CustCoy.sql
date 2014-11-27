@@ -13,6 +13,7 @@
 	Kecamatan Varchar(50),
 	City Varchar(50),  
 	ZipCode varchar (12), 
+	FullAddress varchar(5000), 
 	DtmUpd Datetime, 
 	UsrUpd Varchar(50), 
 	UsrCrt DateTime, 

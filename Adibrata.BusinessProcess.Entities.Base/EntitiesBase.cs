@@ -13,8 +13,8 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string ClassName { get; set; }
         public string MethodName { get; set; }
         public DataTable PagingTable { get; set; }
-        public int StartRecord { get; set; }
-        public int EndRecord { get; set; }
+        public string StartRecord { get; set; }
+        public string EndRecord { get; set; }
         public string WhereCond { get; set; }
         public string SortBy { get; set; }
         public int TotalRecord { get; set; }

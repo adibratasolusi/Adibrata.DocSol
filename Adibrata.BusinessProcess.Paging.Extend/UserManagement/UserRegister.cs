@@ -9,10 +9,10 @@ using System.Text;
 
 namespace Adibrata.BusinessProcess.Paging.Extend.UserManagement
 {
-   public class UserRegisterPaging: Adibrata.BusinessProcess.Paging.Core.UserManagement.UserRegisterPaging
+    public class UserRegister : Adibrata.BusinessProcess.Paging.Core.UserManagement.UserRegister
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
-        public virtual DataTable UserRegister(PagingEntities _ent)
+        public virtual DataTable UserRegisterPaging(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();
@@ -20,28 +20,28 @@ namespace Adibrata.BusinessProcess.Paging.Extend.UserManagement
             {
                 sb.Append("spMsUserPaging");
                 SqlParameter[] sqlParams = new SqlParameter[4];
-                sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.Int);
+                sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar,7);
                 sqlParams[0].Value = _ent.StartRecord;
-                sqlParams[1] = new SqlParameter("@EndEndRecord", SqlDbType.Int);
+                sqlParams[1] = new SqlParameter("@EndEndRecord", SqlDbType.VarChar,7);
                 sqlParams[1].Value = _ent.EndRecord;
-                sqlParams[2] = new SqlParameter("@wherecond", SqlDbType.VarChar, 500);
+                sqlParams[2] = new SqlParameter("@wherecond", SqlDbType.VarChar, 8000);
                 sqlParams[2].Value = _ent.WhereCond;
-                sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 500);
+                sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
-                //_dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserLogin = _ent.UserLogin,
-                    NameSpace = " Adibrata.BusinessProcess.Paging.Core.UserManagement",
-                    ClassName = "UserRegisterPaging",
-                    FunctionName = "UserRegister",
+                    UserName = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.Paging.Extend.UserManagement",
+                    ClassName = "UserRegister",
+                    FunctionName = "UserRegisterPaging",
                     ExceptionNumber = 1,
                     EventSource = "UserRegister",
                     ExceptionObject = _exp,
-                    EventID = 80, // 80 Untuk Framework 
+                    EventID = 200, 
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

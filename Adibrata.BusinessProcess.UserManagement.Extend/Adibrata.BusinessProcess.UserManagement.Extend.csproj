@@ -74,6 +74,10 @@
       <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
       <Name>Adibrata.Framework.ReportDocument</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Security\Adibrata.Framework.Security.csproj">
+      <Project>{26f1e2d1-b0e5-405b-9d73-369db760a730}</Project>
+      <Name>Adibrata.Framework.Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

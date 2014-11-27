@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.Windows.UserController
+namespace Adibrata.DocumentSol.Windows.UserManagement
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for MasterFormPagingAddEdit.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class MasterFormPagingAddEdit : Page
     {
-        public UserControl1()
+        public MasterFormPagingAddEdit()
         {
             InitializeComponent();
         }

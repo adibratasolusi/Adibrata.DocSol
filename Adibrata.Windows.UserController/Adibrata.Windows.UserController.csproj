@@ -210,7 +210,9 @@
       <Name>Adibrata.Themes.Fischer.WPF</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pictures\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="UCMenu\Images\Admin.png" />
     <Resource Include="UCMenu\Images\Finance.png" />

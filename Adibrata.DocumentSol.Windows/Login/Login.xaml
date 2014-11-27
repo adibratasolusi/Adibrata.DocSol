@@ -48,6 +48,6 @@
                 <Button Name="btnLogin" Click="btnLogin_Click" Margin="129,0,0,0">Login</Button> 
             </Grid>
         </Grid>
-        <TextBlock Padding="20,3"> <Hyperlink Command="{Binding ThemeCommand}">Switch theme</Hyperlink></TextBlock>
+        <TextBlock Padding="20,3"></TextBlock>
     </Grid>
 </Page>

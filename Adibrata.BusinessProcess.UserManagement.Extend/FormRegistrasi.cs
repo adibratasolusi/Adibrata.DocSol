@@ -6,35 +6,26 @@ using Adibrata.Framework.Security;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-
 namespace Adibrata.BusinessProcess.UserManagement.Extend
 {
-    public class UserRegister : Adibrata.BusinessProcess.UserManagement.Core.UserRegister
+   public class FormRegistrasi
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
         static string _coyName = AppConfig.Config("CoyName");
 
         SqlTransaction _trans;
 
-        public virtual DataTable UserRegisterListReportData(UserManagementEntities _ent)
-        {
-            DataTable dt = new DataTable();
-            dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spUserRegisterListReport"));
-
-            return dt;
-        }
-
-        public virtual void UserRegisterDelete (UserManagementEntities _ent)
+        public virtual void FormRegisterDelete(UserManagementEntities _ent)
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams = new SqlParameter[1];
             try
             {
-                sqlParams[0] = new SqlParameter("@UserID", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.UserID;
+                sqlParams[0] = new SqlParameter("@FormID", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.FormID;
 
                 _trans = _conn.BeginTransaction();
-                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spMsUserDelete", sqlParams);
+                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spMsFormDelete", sqlParams);
                 _trans.Commit();
             }
             catch (Exception _exp)
@@ -64,7 +55,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             }
         }
 
-        public virtual void UserRegisterAddEdit (UserManagementEntities _ent)
+        public virtual void FormRegisterAddEdit(UserManagementEntities _ent)
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
@@ -78,38 +69,32 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 string password = Encryption.EncryptToSHA3(_ent.Password) + Encryption.EncryptToSHA3(_coyName);
 
                 #region "List Parameter SQL"
-                sqlParams[0] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.UserName;
-                sqlParams[1] = new SqlParameter("@FullName", SqlDbType.VarChar, 50);
-                sqlParams[1].Value = _ent.FullName;
-                sqlParams[2] = new SqlParameter("@Password", SqlDbType.VarChar, 500);
-                sqlParams[2].Value = password;
-
+                sqlParams[0] = new SqlParameter("@FormCode", SqlDbType.VarChar, 50);
+                sqlParams[0].Value = _ent.FormCode;
+                sqlParams[1] = new SqlParameter("@FormUrl", SqlDbType.VarChar, 50);
+                sqlParams[1].Value = _ent.FormURL;
+                
                 if (_ent.IsEdit)
                 {
                     sqlParams[3] = new SqlParameter("@IsActive", SqlDbType.Int);
                     sqlParams[3].Value = _ent.IsActive;
-                    sqlParams[4] = new SqlParameter("@IsConnect", SqlDbType.Int);
-                    sqlParams[4].Value = _ent.IsActive;
                     sqlParams[5] = new SqlParameter("@ID", SqlDbType.BigInt);
-                    sqlParams[5].Value = _ent.UserID;
+                    sqlParams[5].Value = _ent.FormID;
                     sqlParams[6] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 50);
                     sqlParams[6].Value = _ent.UsrCrt;
                     sqlParams[7] = new SqlParameter("@DtmUpd", SqlDbType.DateTime);
                     sqlParams[7].Value = DateTime.Now;
-                    _spname = "spMsUserEdit";
+                    _spname = "spMsFormEdit";
                 }
                 else
                 {
                     sqlParams[3] = new SqlParameter("@IsActive", SqlDbType.Int);
                     sqlParams[3].Value = 1;
-                    sqlParams[4] = new SqlParameter("@IsConnect", SqlDbType.Int);
-                    sqlParams[4].Value = 0;
                     sqlParams[5] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
                     sqlParams[5].Value = _ent.UsrUpd;
                     sqlParams[6] = new SqlParameter("@DtmCrt", SqlDbType.DateTime);
                     sqlParams[6].Value = DateTime.Now;
-                    _spname = "spMsUserAdd";
+                    _spname = "spMsFormAdd";
                 }
                 #endregion
                 _trans = _conn.BeginTransaction();

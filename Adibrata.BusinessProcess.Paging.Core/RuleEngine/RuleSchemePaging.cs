@@ -23,11 +23,11 @@ namespace Adibrata.BusinessProcess.Paging.Core
                 sb.Append("spRuleEnginePaging");
                 SqlParameter[] sqlParams = new SqlParameter[4];
 
-                sqlParams[0] = new SqlParameter("@CurrentPage", SqlDbType.Int);
-                sqlParams[0].Value = _ent.CurrentPage;
+                sqlParams[0] = new SqlParameter("@StartPage", SqlDbType.Int);
+                sqlParams[0].Value = _ent.StartRecord;
 
-                sqlParams[1] = new SqlParameter("@PagSize", SqlDbType.Int);
-                sqlParams[1].Value = _ent.PageSize;
+                sqlParams[1] = new SqlParameter("@EndPage", SqlDbType.Int);
+                sqlParams[1].Value = _ent.EndRecord;
 
                 sqlParams[2] = new SqlParameter("@WhereCod", SqlDbType.VarChar, 4000);
                 sqlParams[2].Value = _ent.WhereCond;

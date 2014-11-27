@@ -12,18 +12,17 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string AssemblyName { get; set; }
         public string ClassName { get; set; }
         public string MethodName { get; set; }
-        public string ConnectionString { get { return "Server=.;Database=TBIG;User Id=sa;Password=Alpha2014"; } }
-
         public DataTable PagingTable { get; set; }
-        public int CurrentPage { get; set; }
-        public int PageSize { get { return 20; } }
+        public int StartRecord { get; set; }
+        public int EndRecord { get; set; }
         public string WhereCond { get; set; }
         public string SortBy { get; set; }
         public int TotalRecord { get; set; }
         public string UserLogin { get; set; }
         public int IsActive { get; set; }
         public int IsSystem { get; set; }
-
+        public string UsrUpd { get; set; }
+        public string UsrCrt { get; set; }
         public Boolean IsEdit { get; set; }
 
         #region "For Report Document"
@@ -31,6 +30,10 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string MimeDocument { get; set; }
         public string FileDocumentName { get; set; }
         #endregion 
+
+        public int OfficeID { get; set; }
+        public DateTime PostingDate { get; set; }
+        public DateTime EntryDate { get; set; }
         //test
     }
 }

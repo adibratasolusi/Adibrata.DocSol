@@ -10,31 +10,31 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.SqlServer.Server;
 
-namespace Alpha.Database.Script.StoreProcedure
+
+namespace Adibrata.Database.Script.StoreProcedure
 {
-    public static class MasterSequenceClass
+    public class MasterSequenceClass
     {
+        string _sequenceno;
+       string _formatsequence;
+       string _prefix;
+       string _suffix;
+       string _isoffice;
+       string _isyear;
+       string _ismonth;
 
-      static  string _sequenceno;
-      static string _formatsequence;
-      static string _prefix;
-      static string _suffix;
-      static string _isoffice;
-      static string _isyear;
-      static string _ismonth;
+       string _month;
+       string _year;
+       string _office;
+       int _officeid; 
+       int _seqno;
+       string _strseqno;
 
-      static string _month;
-      static string _year;
-      static string _office;
-      static int _officeid; 
-      static int _seqno;
-      static string _strseqno;
-
-      static int _lengthnumber;
-      static char _fill = '0';
+       int _lengthnumber;
+       char _fill = '0';
         
 
-        public static string GetSequenceNo(int OfficeID, string SequenceID, string PostingDate)
+        public string GetSequenceNo(int OfficeID, string SequenceID, string PostingDate)
         {
             SqlParameter oParam = new SqlParameter();
             StringBuilder sb = new StringBuilder();
@@ -117,8 +117,7 @@ namespace Alpha.Database.Script.StoreProcedure
                     _cmd.Connection = _con;
 
                     _cmd.CommandText = sb.ToString();
-                    _cmd.Parameters.AddWithValue("@OfficeID", OfficeID);
-                    _cmd.Parameters.AddWithValue("@SequenceID", SequenceID);
+                
 
                     if (_con.State == ConnectionState.Closed) { _con.Open(); };
 
@@ -138,7 +137,7 @@ namespace Alpha.Database.Script.StoreProcedure
         }
 
 
-        public static string GetJournalNo( int OfficeID, int JournalTransactionID, string PostingDate)
+        public string GetJournalNo( int OfficeID, int JournalTransactionID, string PostingDate)
         {
             SqlParameter oParam = new SqlParameter();
             StringBuilder sb = new StringBuilder();
@@ -235,7 +234,7 @@ namespace Alpha.Database.Script.StoreProcedure
             return _sequenceno;
         }
 
-        public static string GetVoucherNo(int BankAccountID, string PostingDate)
+        public string GetVoucherNo(int BankAccountID, string PostingDate)
         {
             SqlParameter oParam = new SqlParameter();
             StringBuilder sb = new StringBuilder();
@@ -326,7 +325,7 @@ namespace Alpha.Database.Script.StoreProcedure
             return _sequenceno;
         }
 
-        public static int GetMaxHistorySequenceNo(long _agrmntid)
+        public int GetMaxHistorySequenceNo(long _agrmntid)
         {
             int _histseqno;
             using (SqlConnection _con = new SqlConnection("context connection=true"))
@@ -358,7 +357,7 @@ namespace Alpha.Database.Script.StoreProcedure
         }
 
   
-        public static  string GetAgreementNo(string OfficeID, string ProductID)
+        public string GetAgreementNo(string OfficeID, string ProductID)
         {
             SqlParameter oParam = new SqlParameter();
             StringBuilder sb = new StringBuilder();
@@ -447,8 +446,5 @@ namespace Alpha.Database.Script.StoreProcedure
 
             return _sequenceno;
         }
-
-
-
     }
 }

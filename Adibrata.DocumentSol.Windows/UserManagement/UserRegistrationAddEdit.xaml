@@ -5,15 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" ShowsNavigationUI="False"
       d:DesignHeight="300" d:DesignWidth="300"
+      Style="{StaticResource PageStyle}"
 	Title="UserRegistrationAddEdit">
 
     <ScrollViewer x:Name="svMain">
-        <Grid>
+        <Grid Style="{StaticResource GridStyle}">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500*" />
+                <ColumnDefinition Width="500*" />
                 <ColumnDefinition Width="190*" />
-                <ColumnDefinition Width="300*" />
-                <ColumnDefinition Width="190*" />
-                <ColumnDefinition Width="300*" />
+                
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -24,56 +25,58 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >User Name</TextBlock>
+                <TextBlock Margin="0">User Name</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource EvenGridStyle}">
-                <TextBox x:Name="txtUserName"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+            <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                <TextBox x:Name="txtUserName" Width="292" Text="" Background="{x:Null}" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Full Name</TextBlock>
+                <TextBlock Margin="0">Full Name</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="2" Style="{StaticResource EvenGridStyle}">
-                <TextBox x:Name="txtFullname"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+            <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" >
+                <TextBox x:Name="txtFullname"  Width="292" Text="" Background="{x:Null}" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="3"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Password</TextBlock>
+                <TextBlock Margin="0">Password</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="3" Style="{StaticResource EvenGridStyle}">
-                <TextBox x:Name="txtPassword"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+            <Grid Grid.Column="1" Grid.Row="3"  Grid.ColumnSpan="2">
+                <TextBox x:Name="txtPassword" Width="292" Text="" Background="{x:Null}" />
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="4"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Re. Password</TextBlock>
+            <Grid Grid.Column="0" Grid.Row="4"  Margin="0,1" >
+                <TextBlock Margin="0" >Re. Password</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="4" Style="{StaticResource EvenGridStyle}">
-                <TextBox x:Name="txtRepeatPsw"  Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" />
+            <Grid Grid.Column="1" Grid.Row="4"  Grid.ColumnSpan="2">
+                <TextBox x:Name="txtRepeatPsw"  Width="292" Text="" Background="{x:Null}" />
             </Grid>
 
-            <Grid Grid.Column="0" Grid.Row="5"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Max Wrong</TextBlock>
+            <Grid Grid.Column="0" Grid.Row="5"  Margin="0,1"  Grid.ColumnSpan="2">
+                <TextBlock Margin="0">Max Wrong</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="5" Style="{StaticResource EvenGridStyle}">
+            <Grid Grid.Column="1" Grid.Row="5"  Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="33*"/>
                     <ColumnDefinition Width="259*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="txtMax" Style="{StaticResource textStyle}"  Width="292" Text="" Background="{x:Null}" Grid.ColumnSpan="2" />
+                <TextBox x:Name="txtMax" Width="292" Text="" Background="{x:Null}" Grid.ColumnSpan="2" />
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="6"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Expired Date</TextBlock>
+            <Grid Grid.Column="0" Grid.Row="7"  Grid.ColumnSpan="2"  Margin="0,1">
+                <TextBlock Margin="0">Active</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="6" Style="{StaticResource EvenGridStyle}">
-                <DatePicker x:Name="dpExp" HorizontalAlignment="Left" Width="200" BorderThickness="0"></DatePicker>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="7"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Active</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="7" Style="{StaticResource EvenGridStyle}">
+            <Grid Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="7">
                 <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="8">
-                <Button Name="btnSave" Content="Save" Margin="100 10 0 0" Click="btnSave_Click"></Button>
+            <Grid Grid.Column="0" Grid.Row="8"  Grid.ColumnSpan="2"  Margin="0,1">
+                <TextBlock Margin="0">Active</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="8">
+                <CheckBox x:Name="isConnect" IsChecked="True"></CheckBox>
+            </Grid>
+            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8">
+                <Button Name="btnSave" Content="Save" Margin="26,10,74,0" Click="btnSave_Click"></Button>
+                <Button Name="btnBack" Content="Back" Margin="100 10 0 0" Click="btnBack_Click"></Button>
             </Grid>
 
         </Grid>

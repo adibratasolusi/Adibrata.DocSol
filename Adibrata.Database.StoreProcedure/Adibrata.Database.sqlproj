@@ -7,7 +7,7 @@
     <Name>Adibrata.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{aae1ba57-e0bd-4d83-891c-67f220b69cb3}</ProjectGuid>
+    <ProjectGuid>{911118f7-2bab-411b-baaa-7eb95fe4ca82}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
@@ -65,6 +65,7 @@
     <Folder Include="StoreProcedure" />
     <Folder Include="StoreProcedure\UserManagement" />
     <Folder Include="Function" />
+    <Folder Include="StoreProcedure\Customer" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -132,5 +133,8 @@
     <Build Include="StoreProcedure\UserManagement\spSecurityCheckForm.sql" />
     <Build Include="Function\fnSecurityCheckForm.sql" />
     <Build Include="Table\MS_UserMenu.sql" />
+    <Build Include="StoreProcedure\Customer\spCustSave.sql" />
+    <Build Include="StoreProcedure\Customer\spCustCoySave.sql" />
+    <Build Include="StoreProcedure\Customer\spCustPaging.sql" />
   </ItemGroup>
 </Project>

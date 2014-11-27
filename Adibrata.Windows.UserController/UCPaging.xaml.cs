@@ -17,7 +17,7 @@ using Adibrata.Controller.Paging;
 using System.Data;
 using Adibrata.Framework.Logging;
 using Adibrata.Controller;
-
+using Adibrata.Configuration;
 namespace Adibrata.Windows.UserControler
 {
     /// <summary>
@@ -27,15 +27,17 @@ namespace Adibrata.Windows.UserControler
     {
         public string ClassName { get; set; }
         public string MethodName { get; set; }
+
         public string DataGrid { get; set; }
         public string WhereCond { get; set; }
         public string SortBy { get; set; }
         public DataGrid dgObj { get; set; }
         public string UserName { get; set; }
-
+        private static int _pageSize = Convert.ToInt32(AppConfig.Config("PageSize"));
         public UCPaging()
         {
             InitializeComponent();
+            txtPageNumber.Text = "1";
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
@@ -108,12 +110,22 @@ namespace Adibrata.Windows.UserControler
         public DataTable PagingData()
         {
             DataTable _dt = new DataTable();
-            
+            int _startrecord=1;
+                int _endrecord = 1;
+                int _currentpage;
             try
             {
-                PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, CurrentPage = 1 };
+                if (int.TryParse(txtPageNumber.Text.Replace(",", ""), out _currentpage))
+                {
+                    _startrecord = (Convert.ToInt32(txtPageNumber.Text) - 1) * _pageSize + 1;
+                    _endrecord = (Convert.ToInt32(txtPageNumber.Text) * _pageSize + 1) - 1;
+                    PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, StartRecord = _startrecord, EndRecord = _endrecord };
 
-                _dt = (DataTable) PagingController.PagingData<DataTable>(_ent);
+                    _dt = (DataTable)PagingController.PagingData<DataTable>(_ent);
+                }
+              
+
+           
             }
             catch (Exception _exp)
             {

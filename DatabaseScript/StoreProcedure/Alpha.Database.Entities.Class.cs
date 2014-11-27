@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System; 
-namespace Alpha.Database.Script.StoreProcedure
+namespace Adibrata.Database.Script.StoreProcedure
 {
     [Serializable]    
     public class AgreementEntities

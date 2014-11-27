@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.Windows.UserControler
+namespace Adibrata.DocumentSol.Windows.UserManagement
 {
     /// <summary>
-    /// Interaction logic for UCSaveTransaction.xaml
+    /// Interaction logic for MasterFormPaging.xaml
     /// </summary>
-    public partial class UCSaveTransaction : UserControl
+    public partial class MasterFormPaging : Page
     {
-        public UCSaveTransaction()
+        public MasterFormPaging()
         {
             InitializeComponent();
         }

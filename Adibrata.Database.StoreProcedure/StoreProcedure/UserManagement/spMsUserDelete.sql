@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spMsUserDelete]
-	@param1 int = 0,
-	@param2 int
+	@UserID BigInt
 AS
-	SELECT @param1, @param2
+Set NoCount On 
+		Delete Ms_User where ID = @UserID
 RETURN 0

@@ -1,53 +1,91 @@
-﻿<Page x:Class="Adibrata.DocumentSol.Windows.Customer.CustomerAddEdit"
+﻿<Page xmlns:UserControler="clr-namespace:Adibrata.Windows.UserControler;assembly=Adibrata.Windows.UserController"  x:Class="Adibrata.DocumentSol.Windows.Customer.CustomerAddEdit"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      
+      d:DesignHeight="300" d:DesignWidth="500"
+      Style="{StaticResource PageStyle}"
 	Title="Customer Maintenance">
-    <Grid>
-        <Grid     HorizontalAlignment="Center" VerticalAlignment="Center">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+    <Grid Style="{StaticResource GridStyle}" >
+        
+        <Grid>
+            <Grid>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+            </Grid>
+        </Grid>
+        
+        <Grid Style="{StaticResource GridStyle}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="190*" />
-                <ColumnDefinition Width="300*" />
-                <ColumnDefinition Width="300*" />
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="110*"/>
+                <ColumnDefinition Width="200*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto"  />
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" >
-                <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" Style="{StaticResource TextBlockStyle}"></TextBlock>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Company Name" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="NPWP Number" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="TDP Number" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Notary Number" VerticalAlignment="Center"/>
-            </Grid>
-           
 
-            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center"/>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left"  Text="Company Name" VerticalAlignment="Center"/>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1"  Margin="0,1" Grid.ColumnSpan="2">
-                
+            <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3">
+                <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" Width="400"></TextBox>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="2"  Margin="0,1" Grid.ColumnSpan="2">
-                
+            <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left">
+                <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left" Text="NPWP No" VerticalAlignment="Center"/>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="3"  Margin="0,2" HorizontalAlignment="Right" Width="184">
-                <Button Name="btnLogin" Click="btnLogin_Click" Margin="129,0,0,0">Login</Button>
+            <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" >
+                <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}"  Width="89"></TextBox>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left">
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="SIUP No" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left">
+                <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  Width="111"></TextBox>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left">
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="TDP No" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Grid.ColumnSpan="2">
+                <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" Width="61" Grid.ColumnSpan="2" Margin="0,2"></TextBox>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left">
+                <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left" Text="Notary No" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="3" Grid.Row="3">
+                <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" Width="61"></TextBox>
+            </Grid>
+
+            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4">
+            <Grid>
+                <UserControler:UCAddress x:Name="oAddress"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+
+                    <Button Name="btnSave" Click="btnSave_Click" >Save</Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button Name="btnBack" Click="btnBack_Click">Back</Button>
+                </Grid>
+
             </Grid>
         </Grid>
     </Grid>
+    </ScrollViewer>
 </Page>

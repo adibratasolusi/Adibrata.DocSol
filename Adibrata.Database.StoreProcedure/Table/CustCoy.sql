@@ -1,8 +1,7 @@
 ﻿CREATE TABLE [dbo].[CustCoy]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY, 
+	[ID] BIGINT NOT NULL PRIMARY KEY, 
 	CustID BIGINT, 
-	CustName Varchar(100), 
 	NPWP varchar(20), 
 	SIUP Varchar(50), 
 	TDP Varchar(50), 

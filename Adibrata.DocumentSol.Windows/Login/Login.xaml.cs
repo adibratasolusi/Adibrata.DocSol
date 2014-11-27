@@ -33,6 +33,18 @@ namespace Adibrata.DocumentSol.Windows.Login
             txtPassword.MessageValidator = "Please Enter Password";
         }
 
+        private void CheckMandatory()
+        {
+            if (!txtUserName.IsValid)
+            {
+                txtUserName.CheckValue();
+            }
+            if (!txtPassword.IsValid)
+            {
+                txtPassword.CheckValue();
+            }
+        }
+
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserManagement", MethodName = "UserNamePasswordVerification" };
@@ -44,18 +56,6 @@ namespace Adibrata.DocumentSol.Windows.Login
             else {
                 _ent.UserLogin = txtUserName.InputValue;
                 _ent.Password = txtPassword.PasswordValue;
-            }
-        }
-
-        private void CheckMandatory()
-        {
-            if (!txtUserName.IsValid)
-            {
-                txtUserName.CheckValue();
-            }
-            if (!txtPassword.IsValid)
-            {
-                txtPassword.CheckValue();
             }
         }
 

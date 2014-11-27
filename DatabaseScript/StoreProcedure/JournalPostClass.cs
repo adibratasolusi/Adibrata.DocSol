@@ -9,12 +9,12 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
-using Alpha.Database.Script.StoreProcedure;
+using Adibrata.Database.Script.StoreProcedure;
 using Microsoft.SqlServer.Server;
 
-namespace Alpha.Database.Script.StoreProcedure
+namespace Adibrata.Database.Script.StoreProcedure
 {
-    class JournalPostClass
+   public class JournalPostClass
     {
 
         SqlCommand _cmd = new SqlCommand();
@@ -79,8 +79,8 @@ namespace Alpha.Database.Script.StoreProcedure
             #region "Start Process to create Journal Information"
             if (_dtjob.Rows[1]["IsCreateJournal"].ToString() == "1")
             {
-
-                _ent.JournalCodeNumber = MasterSequenceClass.GetJournalNo(_ent.OfficeID, _ent.JournalTransactionID, _ent.PostingDate); //Journal No
+                MasterSequenceClass _proc = new MasterSequenceClass();
+                _ent.JournalCodeNumber = _proc.GetJournalNo(_ent.OfficeID, _ent.JournalTransactionID, _ent.PostingDate); //Journal No
 
                 SaveJournal(_ent);
             }
@@ -89,7 +89,8 @@ namespace Alpha.Database.Script.StoreProcedure
             #region "Start Process Create Cash Bank Mutation Information"
             if (_dtjob.Rows[1]["IsCreateCashBankMutation"].ToString() == "1")
             {
-                _ent.VoucherNo = MasterSequenceClass.GetVoucherNo(_ent.BankAccountID, _ent.PostingDate);
+                MasterSequenceClass _proc = new MasterSequenceClass();
+                _ent.VoucherNo = _proc.GetVoucherNo(_ent.BankAccountID, _ent.PostingDate);
 
                 SaveCashBankTransaction(_ent);
             }
@@ -98,7 +99,8 @@ namespace Alpha.Database.Script.StoreProcedure
             #region "Start Process Create PaymentHistory Header Information"
             if (_dtjob.Rows[1]["IsCreatePaymentHistory"].ToString() == "1")
             {
-                _ent.HistorySequenceNo = MasterSequenceClass.GetMaxHistorySequenceNo(_ent.AgrmntID);
+                MasterSequenceClass _proc = new MasterSequenceClass();
+                _ent.HistorySequenceNo = _proc.GetMaxHistorySequenceNo(_ent.AgrmntID);
                 SavePaymentHistory(_ent);
             }
             #endregion 

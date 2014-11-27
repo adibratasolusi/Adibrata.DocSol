@@ -30,6 +30,12 @@ namespace Adibrata.Windows.UserControler
         public Boolean IsValid { get; set; }
         public int MaxLength { get; set; }
 
+        public TextBox txtProperty
+        {
+            get { return txtInput; }
+            set { txtInput = value; }
+        }
+
         public UCTextBox()
         {
             InitializeComponent();

@@ -1,26 +1,11 @@
-﻿using Adibrata.BusinessProcess.UserManagement.Entities;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Controller.UserManagement;
+using Adibrata.Framework.Logging;
+using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-using Adibrata.Controller.UserManagement;
-using System.Data;
-using Adibrata.Framework.Security;
-using Adibrata.Configuration;
-using Adibrata.Windows.UserController;
-using Adibrata.Framework.Logging;
-
 
 namespace Adibrata.DocumentSol.Windows.UserManagement
 {
@@ -33,12 +18,12 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
         string currentUserName;
         
         static Boolean _isedit;
-        public UserRegistrationAddEdit(string UserName, Boolean isEdit)
+        SessionEntities SessionProperty;
+        public UserRegistrationAddEdit(SessionEntities _session)
         {
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
-            _isedit = isEdit;
-            currentUserName = UserName;
+            SessionProperty = _session;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -49,6 +34,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 _ent.UserName = txtUserName.Text;
                 _ent.Password = txtPassword.Text;
                 _ent.FullName = txtFullname.Text;
+                _ent.UserName = SessionProperty.UserName;
 
                 if (isActive.IsChecked == true)
                 {
@@ -75,14 +61,14 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = currentUserName,
+                    UserName = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
                     ClassName = "UserRegistrationAddEdit",
                     FunctionName = "btnSave_Click",
                     ExceptionNumber = 1,
                     EventSource = "UserRegistration",
                     ExceptionObject = _exp,
-                    EventID = 70, // 70 Untuk User Managemetn
+                    EventID = 200, // 70 Untuk User Managemetn
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
@@ -92,7 +78,28 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                this.NavigationService.Navigate(new UserRegistrationPaging(SessionProperty));
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationAddEdit",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "UserRegistration",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Managemetn
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
         }
     }
 }

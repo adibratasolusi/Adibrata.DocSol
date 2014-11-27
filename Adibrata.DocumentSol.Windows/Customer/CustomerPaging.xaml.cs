@@ -1,23 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Framework.Logging;
+using System;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Adibrata.Controller;
-using Adibrata.BusinessProcess.DocumentSol.Entities;
-using Adibrata.BusinessProcess.Entities.Base;
-using Adibrata.BusinessProcess.Paging.Entities;
-
-using Adibrata.Framework.Logging;
 
 
 namespace Adibrata.DocumentSol.Windows.Customer
@@ -27,30 +13,103 @@ namespace Adibrata.DocumentSol.Windows.Customer
     /// </summary>
     public partial class CustomerPaging : Page
     {
-        public CustomerPaging()
+        SessionEntities SessionProperty;
+        public CustomerPaging(SessionEntities _session)
         {
             InitializeComponent();
+            SessionProperty = _session;
+
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            PagingEntities _ent = new PagingEntities { ClassName = "CustomerPaging", MethodName = "CustomerPaging" };
-            oPaging.ClassName = "CustomerRegistrasi";
-            oPaging.MethodName = "CustomerPaging";
-            oPaging.dgObj = dgPaging;
-            oPaging.WhereCond = "";
-            oPaging.SortBy = "";
-            oPaging.PagingData();
+            StringBuilder sb = new StringBuilder(8000);
+            try
+            {
+                oPaging.ClassName = "CustomerRegistrasi";
+                oPaging.MethodName = "CustomerPaging";
+                oPaging.dgObj = dgPaging;
+                if (txtCustName.Text != "")
+                {
+                    sb.Append(" Where ");
+                    sb.Append (" CustName = '");
+                    sb.Append(txtCustName.Text);
+                    sb.Append("'");
+                }
+                else
+                {
+                    sb.Append("");
+                }
+                oPaging.WhereCond = sb.ToString();
+                oPaging.SortBy = " CustName Asc ";
+                oPaging.UserName = SessionProperty.UserName;
+                oPaging.PagingData();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerPaging",
+                    FunctionName = "btnSearch_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new CustomerAddEdit("Henry"));
+            try
+            {
+                this.NavigationService.Navigate(new CustomerAddEdit(SessionProperty));
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerPaging",
+                    FunctionName = "btnAdd_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerPaging",
+                    FunctionName = "btnEdit_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            //dgPaging.
         }
 
      

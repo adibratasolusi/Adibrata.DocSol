@@ -1,21 +1,12 @@
-﻿using Adibrata.Windows.UserController;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Controller;
+using Adibrata.Framework.Logging;
+using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Adibrata.Controller;
-using Adibrata.BusinessProcess.DocumentSol.Entities;
-using Adibrata.BusinessProcess.Entities.Base;
+
 
 namespace Adibrata.DocumentSol.Windows.Customer
 {
@@ -24,44 +15,78 @@ namespace Adibrata.DocumentSol.Windows.Customer
     /// </summary>
     public partial class CustomerAddEdit : Page
     {
-        string _username;
-        public CustomerAddEdit(string UserName) 
+        SessionEntities SessionProperty;
+        public CustomerAddEdit(SessionEntities _session) 
         {
             InitializeComponent();
-            _username = UserName;
+            SessionProperty = _session;
             this.DataContext = new MainVM(new Shell());
-
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            DocSolEntities _ent = new DocSolEntities
+            try
             {
-                ClassName = "CustomerRegistrasi",
-                MethodName = "CustomerCompanyRegistrasiAdd",
-                CompanyName = txtCompanyName.Text,
-                CompanyAddress = oAddress.Address.Text,
-                CompanyRT = oAddress.RT.Text,
-                CompanyRW = oAddress.RW.Text,
-                CompanyKelurahan = oAddress.Kelurahan.Text,
-                CompanyKecamatan = oAddress.Kecamatan.Text,
-                CompanyCity = oAddress.City.Text,
-                CompanyZipCode = oAddress.ZipCode.Text,
-                CompanyNPWP = txtNPWPNumber.Text,
-                CompanySiup = txtSIUPNo.Text,
-                CompanyTDP = txtTDPNumber.Text,
-                CompanyNotary = txtNotaryNumber.Text,
-                UserLogin = ""
-            };
-            DocumentSolutionController.DocSolProcess<string>(_ent);
-
+                DocSolEntities _ent = new DocSolEntities
+                {
+                    ClassName = "CustomerRegistrasi",
+                    MethodName = "CustomerCompanyRegistrasiAdd",
+                    CompanyName = txtCompanyName.Text,
+                    CompanyAddress = oAddress.Address.Text,
+                    CompanyRT = oAddress.RT.Text,
+                    CompanyRW = oAddress.RW.Text,
+                    CompanyKelurahan = oAddress.Kelurahan.Text,
+                    CompanyKecamatan = oAddress.Kecamatan.Text,
+                    CompanyCity = oAddress.City.Text,
+                    CompanyZipCode = oAddress.ZipCode.Text,
+                    CompanyNPWP = txtNPWPNumber.Text,
+                    CompanySiup = txtSIUPNo.Text,
+                    CompanyTDP = txtTDPNumber.Text,
+                    CompanyNotary = txtNotaryNumber.Text,
+                    UserLogin = SessionProperty.UserName
+                };
+                DocumentSolutionController.DocSolProcess<string>(_ent);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerAddEdit",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                this.NavigationService.Navigate(new CustomerPaging(SessionProperty));
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserName = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerAddEdit",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
-
-   
     }
 }

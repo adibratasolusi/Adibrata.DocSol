@@ -15,9 +15,9 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
     public partial class UserRegistrationAddEdit : Page
     {
 
-        string currentUserName;
         
-        static Boolean _isedit;
+        
+        
         SessionEntities SessionProperty;
         public UserRegistrationAddEdit(SessionEntities _session)
         {
@@ -44,15 +44,15 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 {
                     _ent.IsActive = 0;
                 }
-                if (_isedit)
+                if (SessionProperty.IsEdit)
                 {
-                    _ent.UsrUpd = currentUserName;
+                    _ent.UsrUpd = SessionProperty.UserName;
                 }
                 else
                 {
-                    _ent.UsrCrt = currentUserName;
+                    _ent.UsrCrt = SessionProperty.UserName;
                 }
-                _ent.IsEdit = _isedit;
+                _ent.IsEdit = SessionProperty.IsEdit;
 
                 UserManagementController.UserManagement<string>(_ent);
             }

@@ -76,6 +76,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="CSUserControl.xaml.cs">
+      <DependentUpon>CSUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customer\CustomerAddEdit.xaml.cs">
       <DependentUpon>CustomerAddEdit.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,9 @@
     <Compile Include="TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestScreen.xaml.cs">
+      <DependentUpon>TestScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\UserRegistrationAddEdit.xaml.cs">
       <DependentUpon>UserRegistrationAddEdit.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -122,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AgrmntUpload\AgrmntUploadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CSUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +181,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

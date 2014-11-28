@@ -1,4 +1,4 @@
-﻿<Page xmlns:UserControler="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" x:Class="Adibrata.DocumentSol.Windows.Menu.MenuRegistration"
+﻿<Page xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" x:Class="Adibrata.DocumentSol.Windows.Menu.MenuRegistration"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -54,27 +54,27 @@
 
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3" Style="{StaticResource EvenGridStyle}">
-                <UserControler:UCTextBox x:Name="txtOrder" />
+                <UserController:UCTextBox x:Name="txtOrder" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="4"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Menu Text</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="4" Style="{StaticResource EvenGridStyle}">
-                <UserControler:UCTextBox x:Name="txtMenu" />
+                <UserController:UCTextBox x:Name="txtMenu" />
             </Grid>
 
             <Grid Grid.Column="0" Grid.Row="5"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Icon</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="5" Style="{StaticResource EvenGridStyle}">
-                <UserControler:UCTextBox x:Name="txtIcon" />
+                <UserController:UCTextBox x:Name="txtIcon" />
                 <!--<ComboBox x:Name="cmbIcon"></ComboBox>-->
             </Grid>
             <Grid Grid.Column="0" Grid.Row="6"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Form</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="6" Style="{StaticResource EvenGridStyle}">
-                <UserControler:UCTextBox x:Name="txtForm" />
+                <UserController:UCTextBox x:Name="txtForm" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="7"  Margin="0,1">
                 <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Active</TextBlock>

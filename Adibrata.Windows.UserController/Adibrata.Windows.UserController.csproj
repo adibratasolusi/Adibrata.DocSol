@@ -54,6 +54,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DocContent\DocumentContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocContent\UCDocContentString.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InputNumber.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -98,6 +106,12 @@
       <DependentUpon>Callendar.xaml</DependentUpon>
     </Compile>
     <Compile Include="CommonClass\DesignQuotes.cs" />
+    <Compile Include="DocContent\DocumentContent.xaml.cs">
+      <DependentUpon>DocumentContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocContent\UCDocContentString.xaml.cs">
+      <DependentUpon>UCDocContentString.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InputNumber.xaml.cs">
       <DependentUpon>InputNumber.xaml</DependentUpon>
     </Compile>

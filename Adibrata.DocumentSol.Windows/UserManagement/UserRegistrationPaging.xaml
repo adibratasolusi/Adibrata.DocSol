@@ -45,9 +45,27 @@
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="790">
                 <GroupBox>
+                    <DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          x:Name="dgPaging" 
+                          HorizontalAlignment="Left" Margin="10,95,0,0" Width="780" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="330" VerticalAlignment="Top"
+                          >
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="EDIT">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="btnEdit" Content="Upload" Click="btnEdit_Click"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Binding="{Binding ID}" Header="User Name" x:Name="ID" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding UserName}" Header="User Name" x:Name="UserName"/>
+                            <DataGridTextColumn Binding="{Binding Active}" Header="ISActive" x:Name="Active"/>
+                            </DataGrid.Columns>
+                    </DataGrid>
                 </GroupBox>
-                <UserController:UCDataGrid x:Name="dgPaging"><UserController:UCDataGrid />
-                </UserController:UCDataGrid>
             </Grid>
 
             <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">

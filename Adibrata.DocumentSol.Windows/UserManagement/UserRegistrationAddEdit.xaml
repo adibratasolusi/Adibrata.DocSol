@@ -13,10 +13,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="500*" />
                 <ColumnDefinition Width="500*" />
-                <ColumnDefinition Width="190*" />
+                
                 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -36,49 +37,48 @@
             <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
                 <TextBlock Margin="0">Full Name</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" >
+            <Grid Grid.Column="1" Grid.Row="2">
                 <TextBox x:Name="txtFullname"  Width="292" Text="" Background="{x:Null}" />
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="3"  Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="3">
                 <TextBlock Margin="0">Password</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="3"  Grid.ColumnSpan="2">
-                <TextBox x:Name="txtPassword" Width="292" Text="" Background="{x:Null}" />
+            <Grid Grid.Column="1" Grid.Row="3">
+                <PasswordBox x:Name="txtPassword" Width="350" Style="{StaticResource PasswordStyle}"/>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="4"  Margin="0,1" >
+            <Grid Grid.Column="0" Grid.Row="4" >
                 <TextBlock Margin="0" >Re. Password</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="4"  Grid.ColumnSpan="2">
-                <TextBox x:Name="txtRepeatPsw"  Width="292" Text="" Background="{x:Null}" />
+            <Grid Grid.Column="1" Grid.Row="4">
+                <PasswordBox x:Name="txtRepeatPsw" Style="{StaticResource PasswordStyle}" Width="292"/>
             </Grid>
-
-            <Grid Grid.Column="0" Grid.Row="5"  Margin="0,1"  Grid.ColumnSpan="2">
-                <TextBlock Margin="0">Max Wrong</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="5"  Grid.ColumnSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="33*"/>
-                    <ColumnDefinition Width="259*"/>
-                </Grid.ColumnDefinitions>
-                <TextBox x:Name="txtMax" Width="292" Text="" Background="{x:Null}" Grid.ColumnSpan="2" />
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="7"  Grid.ColumnSpan="2"  Margin="0,1">
+            <Grid Grid.Column="0" Grid.Row="7">
                 <TextBlock Margin="0">Active</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="7">
+            <Grid Grid.Column="1" Grid.Row="7">
                 <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="8"  Grid.ColumnSpan="2"  Margin="0,1">
-                <TextBlock Margin="0">Active</TextBlock>
+            <Grid Grid.Column="0" Grid.Row="8"  Grid.ColumnSpan="2" >
+                <TextBlock Margin="0">Connect</TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="8">
+            <Grid Grid.Column="1" Grid.Row="8">
                 <CheckBox x:Name="isConnect" IsChecked="True"></CheckBox>
             </Grid>
-            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8">
-                <Button Name="btnSave" Content="Save" Margin="26,10,74,0" Click="btnSave_Click"></Button>
-                <Button Name="btnBack" Content="Back" Margin="100 10 0 0" Click="btnBack_Click"></Button>
-            </Grid>
-
+            <GridSplitter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8"></GridSplitter>
+            <GroupBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="9">
+                <Grid Width="100" HorizontalAlignment="right">
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300*" />
+                    <ColumnDefinition Width="200*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button x:Name="btnSave" Content="Save" Click="btnSave_Click"></Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                    <Button Name="btnBack" Content="Back" Click="btnBack_Click"></Button>
+                    </Grid>
+                </Grid>
+            </GroupBox>
         </Grid>
     </ScrollViewer>
 </Page>

@@ -4,6 +4,11 @@ using System;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.Generic;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
+using Adibrata.Windows.UserController;
+
 
 namespace Adibrata.DocumentSol.Windows.UserManagement
 {
@@ -83,6 +88,20 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            int i = dgPaging.SelectedIndex;
+
+            DataGridHelper oDataGrid = new DataGridHelper();
+            oDataGrid.dtg = dgPaging;
+            DataGridCell cell = oDataGrid.GetCell(i, 1);
+            TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
+            SessionProperty.IsEdit = true;
+
+            this.NavigationService.Navigate(new UserRegistrationAddEdit(SessionProperty));
+            //string _value = agrmntNo.Text;
         }
     }
 }

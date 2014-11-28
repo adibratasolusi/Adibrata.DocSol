@@ -85,9 +85,6 @@
     <Compile Include="Customer\CustomerPaging.xaml.cs">
       <DependentUpon>CustomerPaging.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FredyTestPage.xaml.cs">
-      <DependentUpon>FredyTestPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="IWindow.cs" />
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -143,10 +140,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Customer\CustomerPaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FredyTestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

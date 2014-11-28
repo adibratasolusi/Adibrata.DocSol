@@ -11,5 +11,6 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string FormID { get; set; }
         public string FullName { get; set; }
         public Boolean IsEdit { get; set; }
+        public long KeyReff { get; set; }
     }
 }

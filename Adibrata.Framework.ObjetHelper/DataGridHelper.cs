@@ -2,21 +2,19 @@
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace Adibrata.Windows.UserController
+namespace Adibrata.Framework.ObjetHelper
 {
     public class DataGridHelper
     {
 
         /*Cara pemanggilan
          *            
-         *   int i = dgPaging.SelectedIndex;
-
-            DataGridHelper oDataGrid = new DataGridHelper();
-            oDataGrid.dtg = dgPaging;
-            DataGridCell cell = oDataGrid.GetCell(i, 0);
-            TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
-            SessionProperty.IsEdit = true;
-
+         * 
+           int i = ObjDatagrid.SelectedIndex;
+           DataGridHelper.dtg = ObjDatagrid
+           DataGridCell cell = DataGridHelper.GetCell(i, 0);
+           TextBlock agrmntNo = DataGridHelper.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
+           string _value = agrmntNo.Text;
          * 
          */
         public DataGrid dtg
@@ -57,7 +55,7 @@ namespace Adibrata.Windows.UserController
             return row;
         }
 
-        public T GetVisualChild<T>(Visual parent) where T : Visual
+        public static T GetVisualChild<T>(Visual parent) where T : Visual
         {
             T child = default(T);
             int numVisuals = VisualTreeHelper.GetChildrenCount(parent);

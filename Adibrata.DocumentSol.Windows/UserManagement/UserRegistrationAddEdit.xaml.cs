@@ -15,15 +15,25 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
     public partial class UserRegistrationAddEdit : Page
     {
 
-        
-        
-        
-        SessionEntities SessionProperty;
+
+
+
+        SessionEntities SessionProperty = new SessionEntities();
+        long _userid;
         public UserRegistrationAddEdit(SessionEntities _session)
         {
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
+            _userid = SessionProperty.KeyReff;
+        }
+
+        public UserRegistrationAddEdit()
+        {
+            InitializeComponent();
+            this.DataContext = new MainVM(new Shell());
+            
+            
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -32,7 +42,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
             {
                 UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserRegisterAddEdit", ClassName = "UserRegister" };
                 _ent.UserName = txtUserName.Text;
-                _ent.Password = txtPassword.Text;
+                _ent.Password = txtPassword.Password;
                 _ent.FullName = txtFullname.Text;
                 _ent.UserName = SessionProperty.UserName;
 

@@ -20,7 +20,7 @@ namespace Adibrata.Windows.UserController
         public string DataGrid { get; set; }
         public string WhereCond { get; set; }
         public string SortBy { get; set; }
-        public UCDataGrid dgObj { get; set; }
+        public DataGrid dgObj { get; set; }
         public string UserName { get; set; }
         private static int _pageSize = Convert.ToInt32(AppConfig.Config("PageSize"));
         public UCPaging()
@@ -35,7 +35,7 @@ namespace Adibrata.Windows.UserController
             try
             {
                 _dt = PagingData();
-                dgObj.DataGridProperty.ItemsSource = _dt.DefaultView;
+                dgObj.ItemsSource = _dt.DefaultView;
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserName = this.UserName,
@@ -76,7 +76,7 @@ namespace Adibrata.Windows.UserController
             try
             {
                 _dt = PagingData();
-                dgObj.DataGridProperty.ItemsSource = _dt.DefaultView;
+                dgObj.ItemsSource = _dt.DefaultView;
                 
             }
             catch (Exception _exp)

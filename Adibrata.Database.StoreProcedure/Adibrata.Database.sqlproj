@@ -136,5 +136,8 @@
     <Build Include="StoreProcedure\Customer\spCustSave.sql" />
     <Build Include="StoreProcedure\Customer\spCustCoySave.sql" />
     <Build Include="StoreProcedure\Customer\spCustPaging.sql" />
+    <Build Include="Table\DocTrans.sql" />
+    <Build Include="Table\DocTransContent.sql" />
+    <Build Include="Table\DocTransBinary.sql" />
   </ItemGroup>
 </Project>

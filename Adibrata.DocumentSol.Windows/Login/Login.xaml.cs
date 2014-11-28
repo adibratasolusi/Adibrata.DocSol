@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Controller.UserManagement;
+using Adibrata.Windows.UserController;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Adibrata.BusinessProcess.UserManagement.Extend;
-using Adibrata.Controller.UserManagement;
-using Adibrata.BusinessProcess.UserManagement.Entities;
-using Adibrata.Windows.UserController;
 
 namespace Adibrata.DocumentSol.Windows.Login
 {
@@ -48,14 +37,17 @@ namespace Adibrata.DocumentSol.Windows.Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserManagement", MethodName = "UserNamePasswordVerification" };
-         
+            SessionEntities _session = new SessionEntities();
+
             if (txtUserName.IsValid && txtPassword.IsValid && UserManagementController.UserManagement<Boolean>(_ent) != true)
             {
                 lblMessage.Text = "Please Verify User Name And Password";
             }
             else {
-                _ent.UserLogin = txtUserName.InputValue;
-                _ent.Password = txtPassword.PasswordValue;
+                _session.UserName = txtUserName.InputValue;
+                _session.BusinessDate = DateTime.Now;
+                this.NavigationService.Navigate(new Customer.CustomerPaging(_session));
+                
             }
         }
 

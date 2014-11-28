@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Adibrata.Windows.UserControler.Properties {
+namespace Adibrata.Windows.UserController.Properties {
     
     
     /// <summary>

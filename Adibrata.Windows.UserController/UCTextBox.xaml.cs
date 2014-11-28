@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.Windows.UserControler
+namespace Adibrata.Windows.UserController
 {
     /// <summary>
     /// Interaction logic for UCTextBox.xaml

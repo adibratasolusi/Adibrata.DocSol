@@ -66,7 +66,7 @@ namespace Adibrata.Controller.Report
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserLogin = "",
+                    UserName = "",
                     NameSpace = "Adibrata.Controller.Report",
                     ClassName = "ReportController",
                     FunctionName = "ReportData",

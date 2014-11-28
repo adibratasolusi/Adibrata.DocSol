@@ -5,7 +5,7 @@ using System.Data;
 using System.Windows.Controls;
 using Adibrata.Configuration;
 
-namespace Adibrata.Windows.UserControler
+namespace Adibrata.Windows.UserController
 {
     /// <summary>
     /// Interaction logic for ReportViewerRDLC.xaml

@@ -13,8 +13,9 @@
 	Kecamatan Varchar(50),
 	City Varchar(50),  
 	ZipCode varchar (12), 
-	DtmUpd Datetime, 
-	UsrUpd Varchar(50), 
-	UsrCrt DateTime, 
-	DtmCrt Varchar(50)
+	FullAddress varchar(5000), 
+	[UsrUpd] [varchar](50) NULL,
+	[DtmUpd] [smalldatetime] NULL,
+	[UsrCrt] [varchar](50) NULL,
+	[DtmCrt] [smalldatetime] NULL,
 )

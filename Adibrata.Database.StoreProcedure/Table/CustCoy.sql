@@ -14,8 +14,8 @@
 	City Varchar(50),  
 	ZipCode varchar (12), 
 	FullAddress varchar(5000), 
-	DtmUpd Datetime, 
-	UsrUpd Varchar(50), 
-	UsrCrt DateTime, 
-	DtmCrt Varchar(50)
+	[UsrUpd] [varchar](50) NULL,
+	[DtmUpd] [smalldatetime] NULL,
+	[UsrCrt] [varchar](50) NULL,
+	[DtmCrt] [smalldatetime] NULL,
 )

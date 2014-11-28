@@ -13,24 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.Windows.UserController.DocContent
+namespace Adibrata.Windows.UserController
 {
     /// <summary>
-    /// Interaction logic for UCDocContentString.xaml
+    /// Interaction logic for CSUserControl.xaml
     /// </summary>
-    public partial class UCDocContentString : UserControl
+    public partial class CSUserControl : UserControl
     {
-        public string PropertyName { get; set; }
-        public string PropertyValue { get; set; }
-        public UCDocContentString()
+        public CSUserControl()
         {
             InitializeComponent();
-
-        }
-
-        private void CreateObject()
-        {
-
         }
     }
 }

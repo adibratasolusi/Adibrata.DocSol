@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="CSUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DocContent\DocumentContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +117,9 @@
     </Compile>
     <Compile Include="CommonClass\DataGridHelper.cs" />
     <Compile Include="CommonClass\DesignQuotes.cs" />
+    <Compile Include="CSUserControl.xaml.cs">
+      <DependentUpon>CSUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DocContent\DocumentContent.xaml.cs">
       <DependentUpon>DocumentContent.xaml</DependentUpon>
     </Compile>

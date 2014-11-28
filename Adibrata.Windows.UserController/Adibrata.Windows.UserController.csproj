@@ -70,7 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UCDataGrid.xaml">
+    <Page Include="UCMenuSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,6 +97,7 @@
     <Compile Include="Callendar.xaml.cs">
       <DependentUpon>Callendar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommonClass\DataGridHelper.cs" />
     <Compile Include="CommonClass\DesignQuotes.cs" />
     <Compile Include="InputNumber.xaml.cs">
       <DependentUpon>InputNumber.xaml</DependentUpon>
@@ -118,8 +119,8 @@
     <Compile Include="UCAddress.xaml.cs">
       <DependentUpon>UCAddress.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UCDataGrid.xaml.cs">
-      <DependentUpon>UCDataGrid.xaml</DependentUpon>
+    <Compile Include="UCMenuSearch.xaml.cs">
+      <DependentUpon>UCMenuSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCMenu\Converters\MenuDataItemConverter.cs" />
     <Compile Include="UCMenu\Helpers\FindAncestores.cs" />

@@ -10,93 +10,22 @@ using System.Windows.Media;
 using Adibrata.Windows.UserController;
 
 
-namespace Adibrata.DocumentSol.Windows.UserManagement
+
+namespace Adibrata.DocumentSol.Windows.Form
 {
     /// <summary>
-    /// Interaction logic for UserRegistrationPaging.xaml
+    /// Interaction logic for FormRegistrasiPaging.xaml
     /// </summary>
-    public partial class UserRegistrationPaging : Page
+    public partial class FormRegistrasiPaging : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
-        public UserRegistrationPaging(SessionEntities _session)
+        public FormRegistrasiPaging(SessionEntities _session)
         {
             InitializeComponent();
+
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
             oPaging.dgObj = dgPaging;
-        }
-
-        public UserRegistrationPaging()
-        {
-            InitializeComponent();
-            this.DataContext = new MainVM(new Shell());
-            SessionProperty.UserName = "test";
-            oPaging.dgObj = dgPaging;
-        }
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                RedirectPage redirect = new RedirectPage(this, "UserManagement.UserRegistrationAddEdit", SessionProperty);
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
-                    ClassName = "UserRegistrationPaging",
-                    FunctionName = "btnAdd_Click",
-                    ExceptionNumber = 1,
-                    EventSource = "Customer",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-        }
-
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            StringBuilder sb = new StringBuilder(8000);
-            try
-            {
-                oPaging.ClassName = "UserRegister";
-                oPaging.MethodName = "UserRegisterPaging";
-                oPaging.dgObj = dgPaging;
-                if (txtUserName.Text != "")
-                {
-                    sb.Append(" Where ");
-                    sb.Append(" UserName = '");
-                    sb.Append(txtUserName.Text);
-                    sb.Append("'");
-                }
-                else
-                {
-                    sb.Append("");
-                }
-                oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " UserName Asc ";
-                oPaging.UserName = SessionProperty.UserName;
-                oPaging.PagingData();
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
-                    ClassName = "UserRegistrationPaging",
-                    FunctionName = "btnSearch_Click",
-                    ExceptionNumber = 1,
-                    EventSource = "Customer",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -131,5 +60,71 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
             }
             //string _value = agrmntNo.Text;
         }
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "UserManagement.UserRegistrationAddEdit", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationPaging",
+                    FunctionName = "btnAdd_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder(8000);
+            try
+            {
+                oPaging.ClassName = "UserRegister";
+                oPaging.MethodName = "UserRegisterPaging";
+                oPaging.dgObj = dgPaging;
+                if (txtSearch.Text != "")
+                {
+                    sb.Append(" Where ");
+                    sb.Append(" UserName = '");
+                    sb.Append(txtSearch.Text);
+                    sb.Append("'");
+                }
+                else
+                {
+                    sb.Append("");
+                }
+                oPaging.WhereCond = sb.ToString();
+                oPaging.SortBy = " UserName Asc ";
+                oPaging.UserName = SessionProperty.UserName;
+                oPaging.PagingData();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationPaging",
+                    FunctionName = "btnSearch_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
     }
 }

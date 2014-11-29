@@ -108,7 +108,7 @@ namespace Adibrata.Windows.UserController
                 {
                     _startrecord = (Convert.ToInt32(txtPageNumber.Text) - 1) * _pageSize + 1;
                     _endrecord = (Convert.ToInt32(txtPageNumber.Text) * _pageSize + 1) - 1;
-                    PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, StartRecord = _startrecord.ToString(), EndRecord = _endrecord.ToString() };
+                    PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, StartRecord = _startrecord.ToString(), EndRecord = _endrecord.ToString(), UserLogin= this.UserName };
 
                     _dt = (DataTable)PagingController.PagingData<DataTable>(_ent);
                     dgObj.ItemsSource = _dt.DefaultView;

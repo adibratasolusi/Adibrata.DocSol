@@ -28,7 +28,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public string Icon { get; set; }
         public string Form { get; set; }
         public Boolean FlagInsert { get; set; }
-        public int UserID { get; set; }
+        public long UserID { get; set; }
         public int isConnect { get; set; }
         public string MenuID { get; set; }
         public string FormID { get; set; }

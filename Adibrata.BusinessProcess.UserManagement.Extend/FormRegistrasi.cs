@@ -81,7 +81,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                     sqlParams[5] = new SqlParameter("@ID", SqlDbType.BigInt);
                     sqlParams[5].Value = _ent.FormID;
                     sqlParams[6] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 50);
-                    sqlParams[6].Value = _ent.UsrCrt;
+                    sqlParams[6].Value = _ent.UserLogin;
                     sqlParams[7] = new SqlParameter("@DtmUpd", SqlDbType.DateTime);
                     sqlParams[7].Value = DateTime.Now;
                     _spname = "spMsFormEdit";
@@ -91,7 +91,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                     sqlParams[3] = new SqlParameter("@IsActive", SqlDbType.Int);
                     sqlParams[3].Value = 1;
                     sqlParams[5] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                    sqlParams[5].Value = _ent.UsrUpd;
+                    sqlParams[5].Value = _ent.UserLogin;
                     sqlParams[6] = new SqlParameter("@DtmCrt", SqlDbType.DateTime);
                     sqlParams[6].Value = DateTime.Now;
                     _spname = "spMsFormAdd";

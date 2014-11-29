@@ -124,9 +124,8 @@
     <Build Include="StoreProcedure\UserManagement\spMsFormEdit.sql" />
     <Build Include="StoreProcedure\UserManagement\spMsFormPaging.sql" />
     <Build Include="StoreProcedure\UserManagement\spMsFormView.sql" />
-    <Build Include="StoreProcedure\UserManagement\spMsUserAdd.sql" />
+    <Build Include="StoreProcedure\UserManagement\spMsUserSave.sql" />
     <Build Include="StoreProcedure\UserManagement\spMsUserDelete.sql" />
-    <Build Include="StoreProcedure\UserManagement\spMsUserEdit.sql" />
     <Build Include="StoreProcedure\UserManagement\spMsUserPaging.sql" />
     <Build Include="StoreProcedure\UserManagement\spMsUserView.sql" />
     <Build Include="StoreProcedure\UserManagement\spUserRegisterListReport.sql" />

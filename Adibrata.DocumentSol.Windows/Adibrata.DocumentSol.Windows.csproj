@@ -86,6 +86,12 @@
     <Compile Include="Customer\CustomerPaging.xaml.cs">
       <DependentUpon>CustomerPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\FormRegistrasiPaging.xaml.cs">
+      <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormRegistrasiSave.xaml.cs">
+      <DependentUpon>FormRegistrasiSave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IWindow.cs" />
     <Compile Include="Login\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -141,6 +147,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Customer\CustomerPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormRegistrasiPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormRegistrasiSave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,8 +21,6 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string UserLogin { get; set; }
         public int IsActive { get; set; }
         public int IsSystem { get; set; }
-        public string UsrUpd { get; set; }
-        public string UsrCrt { get; set; }
         public Boolean IsEdit { get; set; }
 
         #region "For Report Document"

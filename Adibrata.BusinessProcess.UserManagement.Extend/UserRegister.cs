@@ -43,7 +43,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
                     ClassName = "UserRegister",
                     FunctionName = "UserRegisterDelete",
@@ -106,7 +106,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                     sqlParams[4] = new SqlParameter("@IsConnect", SqlDbType.Int);
                     sqlParams[4].Value = 0;
                     sqlParams[5] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                    sqlParams[5].Value = _ent.UsrUpd;
+                    sqlParams[5].Value = _ent.UserLogin;
                     sqlParams[6] = new SqlParameter("@DtmCrt", SqlDbType.DateTime);
                     sqlParams[6].Value = DateTime.Now;
                     _spname = "spMsUserAdd";
@@ -123,7 +123,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
                     ClassName = "UserRegister",
                     FunctionName = "UserRegisterAddEdit",

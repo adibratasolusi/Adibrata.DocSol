@@ -15,7 +15,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190*" />
                 <ColumnDefinition Width="300*" />
-                <ColumnDefinition Width="300*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -29,25 +28,22 @@
                 </Image>
                 <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
             </Grid>
-           
-            
             <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="User Name" VerticalAlignment="Center"/>
             </Grid>
-           
-            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center"/>
-            </Grid>
             <Grid Grid.Column="1" Grid.Row="1"  Margin="0,1" Grid.ColumnSpan="2">
                 <UserController:UCTextBox  Name="txtUserName"></UserController:UCTextBox>
+            </Grid>
+
+            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center"/>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="2"  Margin="0,1" Grid.ColumnSpan="2">
               <UserController:UCPassword Name="txtPassword"/>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3"  Margin="0,2" HorizontalAlignment="Right" Width="184">
-                <Button Name="btnLogin" Click="btnLogin_Click" Margin="129,0,0,0">Login</Button> 
+                <Button Name="btnLogin" Click="btnLogin_Click">Login</Button> 
             </Grid>
         </Grid>
-        <TextBlock Padding="20,3"></TextBlock>
-    </Grid>
+      </Grid>
 </Page>

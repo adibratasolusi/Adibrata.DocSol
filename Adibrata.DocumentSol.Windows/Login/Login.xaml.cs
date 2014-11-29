@@ -5,6 +5,9 @@ using Adibrata.Windows.UserController;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using Adibrata.Controller.PageRedirect;
+using Adibrata.Framework.Logging;
+
 
 namespace Adibrata.DocumentSol.Windows.Login
 {
@@ -36,18 +39,46 @@ namespace Adibrata.DocumentSol.Windows.Login
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserManagement", MethodName = "UserNamePasswordVerification" };
-            SessionEntities _session = new SessionEntities();
 
-            if (txtUserName.IsValid && txtPassword.IsValid && UserManagementController.UserManagement<Boolean>(_ent) != true)
+            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserManagement", MethodName = "UserNamePasswordVerification" };
+            SessionEntities SessionProperty = new SessionEntities();
+            try
             {
-                lblMessage.Text = "Please Verify User Name And Password";
+                _ent.UserName = txtUserName.InputValue;
+                _ent.Password = txtPassword.PasswordValue;
+                if (txtUserName.IsValid && txtPassword.IsValid && UserManagementController.UserManagement<Boolean>(_ent) != true)
+                {
+                    lblMessage.Text = "Please Verify User Name And Password";
+                }
+                else
+                {
+
+                    SessionProperty.UserName = txtUserName.InputValue;
+                    SessionProperty.BusinessDate = DateTime.Now;
+                    RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
+                     
+
+                    //_obj = Adibrata.Controller.PageRedirect.PageRedirectController.RedirectPage("CustomerPaging",_session);
+                    //Customer.CustomerPaging(_session));
+                    
+
+                }
             }
-            else {
-                _session.UserName = txtUserName.InputValue;
-                _session.BusinessDate = DateTime.Now;
-                this.NavigationService.Navigate(new Customer.CustomerPaging(_session));
-                
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "Login",
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerPaging",
+                    FunctionName = "btnSearch_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
         }
 

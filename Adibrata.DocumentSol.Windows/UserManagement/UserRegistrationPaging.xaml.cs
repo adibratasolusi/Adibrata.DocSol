@@ -17,24 +17,33 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
     /// </summary>
     public partial class UserRegistrationPaging : Page
     {
-        SessionEntities SessionProperty;
+        SessionEntities SessionProperty = new SessionEntities();
         public UserRegistrationPaging(SessionEntities _session)
         {
             InitializeComponent();
+            this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
+            oPaging.dgObj = dgPaging;
         }
 
+        public UserRegistrationPaging()
+        {
+            InitializeComponent();
+            this.DataContext = new MainVM(new Shell());
+            SessionProperty.UserName = "test";
+            oPaging.dgObj = dgPaging;
+        }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                this.NavigationService.Navigate(new UserRegistrationAddEdit(SessionProperty));
+                RedirectPage redirect = new RedirectPage(this, "Customer.UserRegistrationAddEdit", SessionProperty);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = SessionProperty.UserName,
+                    UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
                     ClassName = "UserRegistrationPaging",
                     FunctionName = "btnAdd_Click",
@@ -76,9 +85,9 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerPaging",
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationPaging",
                     FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
@@ -92,15 +101,34 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            int i = dgPaging.SelectedIndex;
+            try
+            {
+                int i = dgPaging.SelectedIndex;
 
-            DataGridHelper oDataGrid = new DataGridHelper();
-            oDataGrid.dtg = dgPaging;
-            DataGridCell cell = oDataGrid.GetCell(i, 1);
-            TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
-            SessionProperty.IsEdit = true;
+                DataGridHelper oDataGrid = new DataGridHelper();
+                oDataGrid.dtg = dgPaging;
+                DataGridCell cell = oDataGrid.GetCell(i, 1);
+                TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
+                SessionProperty.IsEdit = true;
 
-            this.NavigationService.Navigate(new UserRegistrationAddEdit(SessionProperty));
+                RedirectPage redirect = new RedirectPage(this, "Customer.UserRegistrationAddEdit", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationPaging",
+                    FunctionName = "btnEdit_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
             //string _value = agrmntNo.Text;
         }
     }

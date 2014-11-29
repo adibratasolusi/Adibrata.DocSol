@@ -38,7 +38,7 @@ namespace Adibrata.Framework.Messaging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = "EMAIL",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToEmail",
                     FunctionName = "Constructor",
@@ -65,7 +65,7 @@ namespace Adibrata.Framework.Messaging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = "EMAIL",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToEmail",
                     FunctionName = "SendMessageToEmail",
@@ -90,7 +90,7 @@ namespace Adibrata.Framework.Messaging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = "EMAIL",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToEmail",
                     FunctionName = "SendMessageThread",
@@ -123,7 +123,7 @@ namespace Adibrata.Framework.Messaging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = "EMAIL",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToEmail",
                     FunctionName = "SMTPConfiguration",
@@ -160,7 +160,7 @@ namespace Adibrata.Framework.Messaging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = "EMAIL",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToEmail",
                     FunctionName = "MailConfiguration",

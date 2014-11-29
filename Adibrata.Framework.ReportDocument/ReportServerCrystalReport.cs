@@ -32,7 +32,7 @@ namespace Adibrata.Framework.ReportDocument
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "REPORT",
+                    UserLogin = "REPORT",
                     NameSpace = "Adibrata.Framework.ReportDocument",
                     ClassName = "ReportServerCrystalReport",
                     FunctionName = "ReportServerCrystalReport / Constructor",
@@ -66,7 +66,7 @@ namespace Adibrata.Framework.ReportDocument
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "REPORT",
+                    UserLogin = "REPORT",
                     NameSpace = "Adibrata.Framework.ReportDocument",
                     ClassName = "ReportServerCrystalReport",
                     FunctionName = "AddParameter",
@@ -90,7 +90,7 @@ namespace Adibrata.Framework.ReportDocument
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "REPORT",
+                    UserLogin = "REPORT",
                     NameSpace = "Adibrata.Framework.ReportDocument",
                     ClassName = "ReportServerCrystalReport",
                     FunctionName = "GetReportDocument",
@@ -114,7 +114,7 @@ namespace Adibrata.Framework.ReportDocument
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "REPORT",
+                    UserLogin = "REPORT",
                     NameSpace = "Adibrata.Framework.ReportDocument",
                     ClassName = "ReportServerCrystalReport",
                     FunctionName = "ExportDocument",

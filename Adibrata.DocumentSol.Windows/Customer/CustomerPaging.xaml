@@ -51,10 +51,11 @@
                 <DataGrid IsTextSearchEnabled="True"
                           SelectionMode="Single"
                           x:Name="dgPaging" 
-                          HorizontalAlignment="Left" Margin="10,95,0,0" Width="780" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="330" VerticalAlignment="Top"
+                          
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="500" VerticalAlignment="Top"
                           >
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="EDIT">
+                            <DataGridTemplateColumn Header="EDIT" Width="50">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="btnEdit" Content="EDIT" Click="btnEdit_Click"></Button>
@@ -63,10 +64,11 @@
 
                             </DataGridTemplateColumn>
 
-                            <DataGridTextColumn Binding="{Binding ID}" Header="ID" x:Name="ID" Visibility="Hidden"/>
-                            <DataGridTextColumn Binding="{Binding UserName}" Header="CUSTOMER NAME" x:Name="CustName"/>
-                            <DataGridTextColumn Binding="{Binding Active}" Header="ADDRESS" x:Name="Address"/>
-                            </DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding CustID}" Header="ID" x:Name="ID" />
+                            <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200"/>
+                            <DataGridTextColumn Binding="{Binding Address}" Header="ADDRESS" x:Name="Address" Width="400"/>
+                        <DataGridTextColumn Binding="{Binding CustType}" Header="TYPE" x:Name="CustType" Width="100"/>
+                    </DataGrid.Columns>
                     </DataGrid>
             </Grid>
 

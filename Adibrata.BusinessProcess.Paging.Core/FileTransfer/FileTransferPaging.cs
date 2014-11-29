@@ -38,7 +38,7 @@ namespace Adibrata.BusinessProcess.Paging.Core.FileTransfer
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Paging.Core.FileTransfer",
                     ClassName = "FileTransferPaging",
                     FunctionName = "FileTransferList",

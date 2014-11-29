@@ -34,6 +34,8 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public int OfficeID { get; set; }
         public DateTime PostingDate { get; set; }
         public DateTime EntryDate { get; set; }
+      
+
         //test
     }
 }

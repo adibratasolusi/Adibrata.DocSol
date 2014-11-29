@@ -53,14 +53,12 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
 
-            long _custId;
-            
             try
             {
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
                 #region "List Parameter SQL"
-                sqlParams = new SqlParameter[7];
+                sqlParams = new SqlParameter[11];
                 sqlParams[0] = new SqlParameter("@CustName", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.CompanyName;
                 sqlParams[1] = new SqlParameter("@CustType", SqlDbType.VarChar, 2);
@@ -72,18 +70,29 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 
                 sqlParams[4] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
                 sqlParams[4].Value = _ent.UserLogin;
-                sqlParams[5] = new SqlParameter("@DtmCrt", SqlDbType.DateTime);
+                sqlParams[5] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
                 sqlParams[5].Value = DateTime.Now;
                 sqlParams[6] = new SqlParameter("@CustID", SqlDbType.BigInt);
                 sqlParams[6].Direction = ParameterDirection.Output;
 
-                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spCustSave", sqlParams);
-                _custId = (long)sqlParams[6].Value;
+                sqlParams[7] = new SqlParameter("@IsEdit", SqlDbType.Bit);
+                sqlParams[7].Value = _ent.IsEdit;
+                sqlParams[8] = new SqlParameter("@CustIDReff", SqlDbType.BigInt);
+                sqlParams[8].Value = _ent.CustomerID;
+                sqlParams[9] = new SqlParameter("@UsrUpd", SqlDbType.VarChar,50);
+                sqlParams[9].Value = _ent.UserLogin;
+                sqlParams[10] = new SqlParameter("@DtmUpd", SqlDbType.SmallDateTime);
+                sqlParams[10].Value = DateTime.Now;
 
+                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spCustSave", sqlParams);
+                if (!_ent.IsEdit)
+                {
+                   _ent.CustomerID = (long)sqlParams[6].Value;
+                }
                 
-                sqlParams = new SqlParameter[14];
+                sqlParams = new SqlParameter[17];
                 sqlParams[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
-                sqlParams[0].Value = _custId;
+                sqlParams[0].Value = _ent.CustomerID;
                 sqlParams[1] = new SqlParameter("@CoyAddress", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.CompanyAddress;
                 sqlParams[2] = new SqlParameter("@CoyRT", SqlDbType.VarChar, 4);
@@ -109,8 +118,15 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 
                 sqlParams[12] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
                 sqlParams[12].Value = _ent.UserLogin;
-                sqlParams[13] = new SqlParameter("@DtmCrt", SqlDbType.DateTime);
+                sqlParams[13] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
                 sqlParams[13].Value = DateTime.Now;
+                sqlParams[14] = new SqlParameter("@IsEdit", SqlDbType.Bit);
+                sqlParams[14].Value = _ent.IsEdit;
+                sqlParams[15] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 50);
+                sqlParams[15].Value = _ent.UserLogin;
+                sqlParams[16] = new SqlParameter("@DtmUpd", SqlDbType.SmallDateTime);
+                sqlParams[16].Value = DateTime.Now;
+                
 
                 #endregion
               
@@ -124,12 +140,12 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
-                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend.Customer",
-                    ClassName = "UserRegister",
-                    FunctionName = "UserRegisterAddEdit",
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "CustomerRegistrasi",
+                    FunctionName = "CustomerCompanyRegistrasiAdd",
                     ExceptionNumber = 1,
-                    EventSource = "UserRegistration",
+                    EventSource = "CustomerRegistrasi",
                     ExceptionObject = _exp,
                     EventID = 200, // 80 Untuk DocumentManagement
                     ExceptionDescription = _exp.Message
@@ -142,6 +158,59 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 if (_conn.State == ConnectionState.Open) { _conn.Close(); };
                 _conn.Dispose();
             }
+        }
+
+        public virtual DocSolEntities CustomerCompanyRegistrasiView(DocSolEntities _ent)
+        {
+            SqlParameter[] sqlParams;
+            SqlDataReader _rdr;
+            try
+            {
+                #region "List Parameter SQL"
+                sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.CustomerID;
+
+                _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spCustCoyView", sqlParams);
+                
+                while (_rdr.Read())
+                {
+
+                    _ent.CompanyName = (string)_rdr["CustName"];
+                    _ent.CompanyAddress = (string)_rdr["Address"];
+                     _ent.CompanyRT = (string)_rdr["RT"];
+                     _ent.CompanyRW =(string)_rdr["RW"];
+                     _ent.CompanyKelurahan = (string)_rdr["Kelurahan"];
+                     _ent.CompanyKecamatan = (string)_rdr["Kecamatan"];
+                     _ent.CompanyCity = (string)_rdr["City"];
+                     _ent.CompanyZipCode = (string)_rdr["ZipCode"];
+                     _ent.CompanyNPWP = (string)_rdr["NPWP"];
+                     _ent.CompanySiup = (string)_rdr["SIUP"];
+                     _ent.CompanyTDP = (string)_rdr["TDP"];
+                     _ent.CompanyNotary = (string)_rdr["AkteNo"];
+                }
+                _rdr.Close();
+                #endregion               
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "CustomerRegistrasi",
+                    FunctionName = "CustomerCompanyRegistrasiView",
+                    ExceptionNumber = 1,
+                    EventSource = "CustomerRegistrasi",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 80 Untuk DocumentManagement
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+            return _ent;
         }
     }
 }

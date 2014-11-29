@@ -26,7 +26,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "Encryption",
                     FunctionName = "EncryptToSHA3",
@@ -56,7 +56,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "Encryption",
                     FunctionName = "EncryptToRCA",
@@ -85,7 +85,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "Encryption",
                     FunctionName = "DecryptFromRSA",
@@ -145,7 +145,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "Encryption",
                     FunctionName = "EncryptString",
@@ -192,7 +192,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "Encryption",
                     FunctionName = "DecryptString",

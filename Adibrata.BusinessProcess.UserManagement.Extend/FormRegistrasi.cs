@@ -34,7 +34,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
                     ClassName = "UserRegister",
                     FunctionName = "UserRegisterDelete",
@@ -108,7 +108,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
                     ClassName = "UserRegister",
                     FunctionName = "UserRegisterAddEdit",

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Adibrata.BusinessProcess.UserManagement.Core;
-using System.Data;
-using Adibrata.BusinessProcess.UserManagement.Entities;
-using Adibrata.Framework.Logging;
+﻿using Adibrata.BusinessProcess.UserManagement.Entities;
 using Adibrata.Configuration;
 using Adibrata.Framework.DataAccess;
+using Adibrata.Framework.Logging;
+using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace Adibrata.BusinessProcess.UserManagement.Extend
 {
@@ -23,20 +19,20 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             try
             {
                 sb.Append("spMsMenuGetActiveMenu");
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString()).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString()));
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
                     ClassName = "UserManagement",
                     FunctionName = "MainMenuGetActive",
                     ExceptionNumber = 1,
                     EventSource = "MainMenuGetActive",
                     ExceptionObject = _exp,
-                    EventID = 80, // 80 Untuk Framework 
+                    EventID = 70, // 70 Untuk Usermanagement
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
@@ -79,14 +75,14 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
 
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Paging.Core.UserManagement",
                     ClassName = "UserRegisterPaging",
                     FunctionName = "MainMenuInsert",
                     ExceptionNumber = 1,
                     EventSource = "MainMenuInsert",
                     ExceptionObject = _exp,
-                    EventID = 80, // 80 Untuk Framework 
+                    EventID = 70, // 70 Untuk Usermanagement
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

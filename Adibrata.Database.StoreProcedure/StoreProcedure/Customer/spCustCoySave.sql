@@ -12,14 +12,38 @@
 	@CoyTDP varchar(50),
 	@CoyNotary Varchar(50), 
 	@UsrCrt varchar(50), 
-	@DtmCrt Datetime
+	@DtmCrt SmallDatetime, 
+	@IsEdit Bit = null, 
+	
+	@UsrUpd Varchar(50) = Null, 
+	@DtmUpd SmallDatetime = null
 AS
 Set NoCount On 
 Declare @FullAddress Varchar(5000)
-Set @FullAddress = @CoyAddress + ' RT/RW: '+ @CoyRT + '/' + @CoyRW + ' Kelurahan: ' + @CoyKelurahan + ' Kecamatan: ' + @CoyKecamatan 
-+ ' Kota: ' + @CoyCity + ' ZipCode: ' + @CoyZipCode
+Set @FullAddress = @CoyAddress + ' RT/RW: '+ @CoyRT + '/' + @CoyRW + ' Kelurahan: ' + @CoyKelurahan + ' Kecamatan: ' + @CoyKecamatan  + ' Kota: ' + @CoyCity + ' ZipCode: ' + @CoyZipCode
+If @ISedit = 0 or @IsEdit is null
+Begin
+		Insert into CustCoy (CustID, [Address], RT, RW, Kelurahan, Kecamatan, City, ZipCode, NPWP, SIUP, TDP, AkteNo, FullAddress, UsrCrt, DtmCrt)
+		values (@CustID, @CoyAddress, @CoyRT, @CoyRW, @CoyKelurahan, @CoyKecamatan, @CoyCity, @CoyZipCode, @CoyNPWP, @CoySIUP, @CoyTDP, @CoyNotary, @FullAddress, @UsrCrt, @DtmCrt)
+ENd
+ELSE
+BEGIN
+	Update CustCoy Set [Address] = @CoyAddress, 
+						RT = @CoyRT, 
+						RW = @CoyRW,
+						Kelurahan = @CoyKelurahan,
+						Kecamatan = @CoyKecamatan, 
+						City = @CoyCity, 
+						ZipCode  = @CoyZipCode, 
+						NPWP = @CoyNPWP,
+						SIUP = @CoySIUP, 
+						TDP = @CoyTDP, 
+						AkteNo = @CoyNotary, 
+						FullAddress = @FullAddress, 
+						UsrUpd = @UsrUpd, 
+						DtmUpd = @DtmUpd
+	Where CustID = @CustID
+						
 
-	Insert into CustCoy (CustID, Address, RT, RW, Kelurahan, Kecamatan, City, ZipCode, NPWP, SIUP, TDP, AkteNo, FullAddress, UsrCrt, DtmCrt)
-	values (@CustID, @CoyAddress, @CoyRT, @CoyRW, @CoyKelurahan, @CoyKecamatan, @CoyCity, @CoyZipCode, @CoyNPWP, @CoySIUP, @CoyTDP, @CoyNotary, @FullAddress, @UsrCrt, @DtmCrt)
-
+END
 RETURN 0

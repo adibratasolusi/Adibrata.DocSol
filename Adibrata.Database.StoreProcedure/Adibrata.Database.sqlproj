@@ -139,5 +139,6 @@
     <Build Include="Table\DocTrans.sql" />
     <Build Include="Table\DocTransContent.sql" />
     <Build Include="Table\DocTransBinary.sql" />
+    <Build Include="StoreProcedure\Customer\spCustView.sql" />
   </ItemGroup>
 </Project>

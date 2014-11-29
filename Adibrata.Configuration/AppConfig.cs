@@ -39,7 +39,7 @@ namespace Adibrata.Configuration
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = "",
                     NameSpace = "Adibrata.Configuration",
                     ClassName = "AppConfig",
                     FunctionName = "Config",

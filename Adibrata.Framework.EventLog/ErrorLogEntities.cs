@@ -5,8 +5,7 @@ namespace Adibrata.Framework.Logging
     [Serializable]    
     public class ErrorLogEntities : EntitiesBase
     {
-        public string UserName { get; set; }
-        public string NameSpace { get; set; }
+       public string NameSpace { get; set; }
         public string ExceptionDescription { get; set; }
         public int ExceptionNumber { get; set; }
         public int EventID { get; set; }

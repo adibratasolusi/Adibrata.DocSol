@@ -1,6 +1,6 @@
 ﻿using Adibrata.Configuration;
 
-namespace Adibrata.BusinessProcess.Paging.Core.UserManagement
+namespace Adibrata.BusinessProcess.Paging.Core
 {
     public class UserRegister
     {

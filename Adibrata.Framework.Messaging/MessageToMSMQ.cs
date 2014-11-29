@@ -28,7 +28,7 @@ namespace Adibrata.Framework.Messaging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "MSMQ",
+                    UserLogin = "MSMQ",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToMSMQ",
                     FunctionName = "SendMessageToMSMQ",
@@ -57,7 +57,7 @@ namespace Adibrata.Framework.Messaging
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "MSMQ",
+                    UserLogin = "MSMQ",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToMSMQ",
                     FunctionName = "ReceiveMessageFromMSMSQ",

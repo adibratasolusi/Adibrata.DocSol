@@ -47,7 +47,7 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
+                    UserLogin = "RuleEngine",
                     NameSpace = " Adibrata.Rule.Engine",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "ResultRuleEngine",
@@ -155,7 +155,7 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
+                    UserLogin = "RuleEngine",
                     NameSpace = " Adibrata.Rule.Engine",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "UploadRuleEngine",
@@ -229,7 +229,7 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
+                    UserLogin = "RuleEngine",
                     NameSpace = " Adibrata.Rule.Engine",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "FillDataRuleEngine",
@@ -284,7 +284,7 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
+                    UserLogin = "RuleEngine",
                     NameSpace = " Adibrata.Rule.Engine",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "ReadDataExcel",

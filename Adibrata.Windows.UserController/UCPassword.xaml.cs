@@ -10,7 +10,11 @@ namespace Adibrata.Windows.UserController
     public partial class UCPassword : UserControl
     {
         public string MessageValidator { get; set; }
-        public string PasswordValue { get; set; }
+        public string PasswordValue
+        {
+            get { return txtPassword.Password; }
+            set { txtPassword.Password = value; }
+        }
         public Boolean IsValid { get; set; }
 
         public UCPassword()

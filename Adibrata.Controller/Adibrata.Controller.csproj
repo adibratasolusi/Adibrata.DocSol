@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ApprovalController.cs" />
     <Compile Include="DocumentSolutionController.cs" />
+    <Compile Include="PageRedirectController.cs" />
     <Compile Include="PagingController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportController.cs" />

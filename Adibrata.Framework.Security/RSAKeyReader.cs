@@ -52,7 +52,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "RSAKeyReader",
                     FunctionName = "ReadEncryptKey",
@@ -78,7 +78,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "RSAKeyReader",
                     FunctionName = "ReadDecryptKey",
@@ -102,7 +102,7 @@ namespace Adibrata.Framework.Security
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "Encryption",
+                    UserLogin = "Encryption",
                     NameSpace = "Adibrata.Framework.Security",
                     ClassName = "RSAKeyReader",
                     FunctionName = "getBitStrengthString",

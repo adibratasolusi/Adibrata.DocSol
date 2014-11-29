@@ -25,13 +25,14 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
-            _userid = SessionProperty.KeyReff;
+            _userid = SessionProperty.ReffKey;
         }
 
         public UserRegistrationAddEdit()
         {
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
+            SessionProperty.UserName = "test";
             
             
         }
@@ -44,7 +45,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 _ent.UserName = txtUserName.Text;
                 _ent.Password = txtPassword.Password;
                 _ent.FullName = txtFullname.Text;
-                _ent.UserName = SessionProperty.UserName;
+                _ent.UserLogin = SessionProperty.UserName;
 
                 if (isActive.IsChecked == true)
                 {
@@ -65,13 +66,14 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 _ent.IsEdit = SessionProperty.IsEdit;
 
                 UserManagementController.UserManagement<string>(_ent);
+                this.NavigationService.Navigate(new UserRegistrationPaging(SessionProperty));
             }
             catch (Exception _exp)
             {
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = SessionProperty.UserName,
+                    UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
                     ClassName = "UserRegistrationAddEdit",
                     FunctionName = "btnSave_Click",
@@ -97,7 +99,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = SessionProperty.UserName,
+                    UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
                     ClassName = "UserRegistrationAddEdit",
                     FunctionName = "btnSave_Click",

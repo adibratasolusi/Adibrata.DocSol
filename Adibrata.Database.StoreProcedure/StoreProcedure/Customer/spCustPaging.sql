@@ -13,7 +13,7 @@ If @SortBy = ''
 	Set @SortBy = ' CustName Asc '
 
 	Set @SqlStatement = 'Select * from 
-		(Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, CustCode, CustName, CustType
+		(Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, Cust.ID as CustID, CustCode, CustName, CustType
 		,(Case When cust.CustType= ''C'' then isnull(CustCoy.FullAddress,'''') End) as Address
 		From Cust with (nolock)
 		left Join CustCoy with (nolock) on Cust.ID = CustCoy.CustID ' + @WhereCond  + ') Qry

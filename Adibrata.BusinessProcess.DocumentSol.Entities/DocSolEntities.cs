@@ -10,6 +10,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
     [Serializable]
     public class DocSolEntities : EntitiesBase
     {
+        public long CustomerID { get; set; }
         public string AgrmntNo { get; set; }
         public string DocType { get; set; }
         public string Crit { get; set; }

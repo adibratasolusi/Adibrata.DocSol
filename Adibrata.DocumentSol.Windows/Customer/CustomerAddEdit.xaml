@@ -19,10 +19,10 @@
         
         <Grid Style="{StaticResource GridStyle}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="110" />
-                <ColumnDefinition Width="200*"/>
-                <ColumnDefinition Width="110*"/>
-                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="300*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

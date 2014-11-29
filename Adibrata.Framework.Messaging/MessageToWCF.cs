@@ -22,7 +22,7 @@ namespace Adibrata.Framework.Messaging
 
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "WCF",
+                    UserLogin = "WCF",
                     NameSpace = "Adibrata.Framework.Messaging",
                     ClassName = "MessageToWCF",
                     FunctionName = "UpdateFilePath",

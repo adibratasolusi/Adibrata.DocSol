@@ -4,12 +4,48 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" ShowsNavigationUI="False"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="600" d:DesignWidth="800"
       Height="Auto" Width="Auto"
-	Title="Main">
-
-    <Grid Background="Snow">
-
-        <Image x:Name="logo" Source="Images/logoadibrata.png" Margin="0,30,0,0" Width="100" Height="100"></Image>
-    </Grid>
+         Style="{StaticResource PageStyle}"
+	Title="Document Solution">
+    <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Name="lblUserLoging"></TextBlock>
+                    <TextBlock Name="lblBusinessDate"></TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+                    <TreeView Margin="5" Grid.Column="0" VerticalAlignment="Stretch" Height="500" ItemsSource="{Binding Departments}">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">
+                                <TextBlock Text="{Binding Name}"/>
+                                <HierarchicalDataTemplate.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </DataTemplate>
+                                </HierarchicalDataTemplate.ItemTemplate>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </ScrollViewer>
+            </Grid>
+            <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Frame Name="frmWorksheet" Height="500" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="10" ></Frame>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

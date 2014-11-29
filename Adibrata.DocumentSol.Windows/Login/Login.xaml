@@ -14,7 +14,7 @@
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190*" />
-                <ColumnDefinition Width="300*" />
+                <ColumnDefinition Width="190*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -28,21 +28,27 @@
                 </Image>
                 <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="User Name" VerticalAlignment="Center"/>
+            <Grid Grid.Column="0" Grid.Row="1" >
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}"  Text="User Name" />
+                    <TextBlock HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}"  Text="Password" />
+                </StackPanel>
+                
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1"  Margin="0,1" Grid.ColumnSpan="2">
-                <UserController:UCTextBox  Name="txtUserName"></UserController:UCTextBox>
+            <Grid Grid.Column="1" Grid.Row="1" >
+                <StackPanel>
+                    <UserController:UCTextBox  Name="txtUserName"></UserController:UCTextBox>
+                    <UserController:UCPassword Name="txtPassword"/>
+                </StackPanel>
+                
             </Grid>
-
-            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
-                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="2"  Margin="0,1" Grid.ColumnSpan="2">
-              <UserController:UCPassword Name="txtPassword"/>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3"  Margin="0,2" HorizontalAlignment="Right" Width="184">
-                <Button Name="btnLogin" Click="btnLogin_Click">Login</Button> 
+            <Grid Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right">
+                <StackPanel>
+                    <Button Name="btnLogin" Click="btnLogin_Click">
+                        <Label>_Login</Label></Button>
+                </StackPanel>
+                    
+                
             </Grid>
         </Grid>
       </Grid>

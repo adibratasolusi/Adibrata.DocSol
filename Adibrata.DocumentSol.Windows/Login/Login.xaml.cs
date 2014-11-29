@@ -55,7 +55,7 @@ namespace Adibrata.DocumentSol.Windows.Login
 
                     SessionProperty.UserName = txtUserName.InputValue;
                     SessionProperty.BusinessDate = DateTime.Now;
-                    RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
+                    RedirectPage redirect = new RedirectPage(this, "MainForm", SessionProperty);
                      
 
                     //_obj = Adibrata.Controller.PageRedirect.PageRedirectController.RedirectPage("CustomerPaging",_session);

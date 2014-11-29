@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Framework.Logging;
+using System;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Adibrata.Windows.UserController;
+
 
 namespace Adibrata.DocumentSol.Windows
 {
@@ -20,9 +14,12 @@ namespace Adibrata.DocumentSol.Windows
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
+        SessionEntities SessionProperty;
+        public Main(SessionEntities _session)
         {
             InitializeComponent();
+            RedirectPage redirect = new RedirectPage(frmWorksheet, "Customer.CustomerPaging", _session);
+
         }
     }
 }

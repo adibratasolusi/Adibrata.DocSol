@@ -27,7 +27,7 @@
         </Grid>
         <Grid  Grid.Column="1" Grid.Row="0">
                 <StackPanel>
-                    <TextBox Name="txtAddress" Style="{StaticResource textStyle}"  Width="200" ></TextBox>
+                    <TextBox Name="txtAddress" Style="{StaticResource textStyle}"  Width="150" ></TextBox>
                     <TextBox Name="txtRT" Style="{StaticResource textStyle}" Width="50"></TextBox>
                     <TextBox Name="txtRW" Style="{StaticResource textStyle}"  Width="50"></TextBox>
                     <TextBox Name="txtZipCode" Style="{StaticResource textStyle}" Width="100"></TextBox>
@@ -44,9 +44,9 @@
         </Grid>
             <Grid Grid.Column="3" Grid.Row="0">
                 <StackPanel>
-                    <TextBox Name="txtKelurahan" Style="{StaticResource textStyle}"  Width="200"></TextBox>
-                    <TextBox Name="txtKecamatan" Style="{StaticResource textStyle}" Width="200"></TextBox>
-                    <TextBox Name="txtCity" Style="{StaticResource textStyle}" Width="200"></TextBox>
+                    <TextBox Name="txtKelurahan" Style="{StaticResource textStyle}"  Width="150"></TextBox>
+                    <TextBox Name="txtKecamatan" Style="{StaticResource textStyle}" Width="150"></TextBox>
+                    <TextBox Name="txtCity" Style="{StaticResource textStyle}" Width="150"></TextBox>
                 </StackPanel>
         </Grid>
     </Grid>

@@ -56,7 +56,7 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="EDIT" Width="100">
+                            <DataGridTemplateColumn Header="EDIT" Width="70">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="btnEdit" Content="EDIT" Click="btnEdit_Click"></Button>
@@ -64,7 +64,14 @@
                                 </DataGridTemplateColumn.CellTemplate>
 
                             </DataGridTemplateColumn>
-
+                        
+                            <DataGridTemplateColumn Header="UPLOAD" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="btnUpload" Content="EDIT" Click="btnUpload_Click"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTextColumn Binding="{Binding CustID}" Header="ID" x:Name="ID" />
                         <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
                         <DataGridTextColumn Binding="{Binding Address}" Header="ADDRESS" x:Name="Address" Width="400" FontSize="14" />

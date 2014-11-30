@@ -9,8 +9,34 @@
 	Title="DocumentContentEntry">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110" />
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="Auto"  />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <StackPanel>
+                <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type"></TextBlock>
 
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <StackPanel>
+                <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <ComboBox Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" SelectedValue ="{Binding Result`}">
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <StackPanel>
         <DocContent:UCDocumentContent x:Name="oDocContent"/>
-
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

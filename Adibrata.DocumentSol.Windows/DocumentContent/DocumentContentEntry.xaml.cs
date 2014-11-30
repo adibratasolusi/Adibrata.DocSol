@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using Adibrata.Framework.Logging;
+using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Controller;
+using Adibrata.BusinessProcess.DocumentSol.Entities;
+using System.Data;
+using System;
 using Adibrata.Windows.UserController;
+using Adibrata.Framework.Logging;
 
 namespace Adibrata.DocumentSol.Windows.DocumentContent
 {
@@ -21,11 +15,68 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
     /// </summary>
     public partial class DocumentContentEntry : Page
     {
-        public DocumentContentEntry()
+        DocSolEntities _ent = new DocSolEntities();
+        SessionEntities SessionProperty = new SessionEntities();
+
+        public DocumentContentEntry(SessionEntities _session)
         {
-            InitializeComponent();
-            oDocContent.DocumentType = "KTP";
-            oDocContent.GenerateControls();
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                DataTable _dt = new DataTable();
+
+                _ent.ClassName = "DocType";
+                _ent.MethodName = "DocTypeRetrieve";
+                _ent.LineOfBusiness = "Consumer Finance";
+                _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+                
+                cboDocumentType.ItemsSource = _dt.DefaultView;
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentContentEntry",
+                    FunctionName = "DocumentContentEntry",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
+
+        private void cboDocumentType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                oDocContent.DocumentType = cboDocumentType.SelectedValue.ToString();
+                TextBlock txtInput = (TextBlock)this.cboDocumentType.FindName("txtValue");
+               
+                oDocContent.GenerateControls();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentContentEntry",
+                    FunctionName = "cboDocumentType_SelectionChanged",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
     }
 }

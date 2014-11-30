@@ -67,7 +67,7 @@ namespace Adibrata.DocumentSol.Windows
                 #endregion
 
                 #region "DocumentContentEntry"
-                case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry()); break;
+                case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
                 #endregion
 
             }

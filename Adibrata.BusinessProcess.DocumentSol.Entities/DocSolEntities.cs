@@ -27,5 +27,6 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public string CompanyNotary { get; set; }
         public string CompanySiup { get; set; }
         public string DocumentType { get; set; }
+        public string LineOfBusiness { get; set; }
     }
 }

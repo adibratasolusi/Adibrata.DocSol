@@ -18,32 +18,51 @@ namespace Adibrata.DocumentSol.Windows.Customer
         SessionEntities SessionProperty;
         public CustomerAddEdit(SessionEntities _session)
         {
-            InitializeComponent();
-            SessionProperty = _session;
-            this.DataContext = new MainVM(new Shell());
-            if (_session.IsEdit)
+            try
             {
-                DocSolEntities _ent = new DocSolEntities
+                InitializeComponent();
+                SessionProperty = _session;
+                this.DataContext = new MainVM(new Shell());
+                if (_session.IsEdit)
                 {
-                    ClassName = "CustomerRegistrasi",
-                    MethodName = "CustomerCompanyRegistrasiView",
-                    CustomerID = _session.ReffKey
+                    DocSolEntities _ent = new DocSolEntities
+                    {
+                        ClassName = "CustomerRegistrasi",
+                        MethodName = "CustomerCompanyRegistrasiView",
+                        CustomerID = _session.ReffKey
 
+                    };
+                    _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                    txtCompanyName.Text = _ent.CompanyName;
+
+                    oAddress.Address.Text = _ent.CompanyAddress;
+                    oAddress.RT.Text = _ent.CompanyRT;
+                    oAddress.RW.Text = _ent.CompanyRW;
+                    oAddress.Kelurahan.Text = _ent.CompanyKelurahan;
+                    oAddress.Kecamatan.Text = _ent.CompanyKecamatan;
+                    oAddress.City.Text = _ent.CompanyCity;
+                    oAddress.ZipCode.Text = _ent.CompanyZipCode;
+                    txtNPWPNumber.Text = _ent.CompanyNPWP;
+                    txtSIUPNo.Text = _ent.CompanySiup;
+                    txtTDPNumber.Text = _ent.CompanyTDP;
+                    txtNotaryNumber.Text = _ent.CompanyNotary;
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerAddEdit",
+                    FunctionName = "CustomerAddEdit",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
                 };
-                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
-                txtCompanyName.Text = _ent.CompanyName;
-
-                oAddress.Address.Text = _ent.CompanyAddress;
-                oAddress.RT.Text = _ent.CompanyRT;
-                oAddress.RW.Text = _ent.CompanyRW;
-                oAddress.Kelurahan.Text = _ent.CompanyKelurahan;
-                oAddress.Kecamatan.Text = _ent.CompanyKecamatan;
-                oAddress.City.Text = _ent.CompanyCity;
-                oAddress.ZipCode.Text = _ent.CompanyZipCode;
-                txtNPWPNumber.Text = _ent.CompanyNPWP;
-                txtSIUPNo.Text = _ent.CompanySiup;
-                txtTDPNumber.Text = _ent.CompanyTDP;
-                txtNotaryNumber.Text = _ent.CompanyNotary;
+                ErrorLog.WriteEventLog(_errent);
             }
         }
         
@@ -77,6 +96,7 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 }
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
+
             }
             catch (Exception _exp)
             {

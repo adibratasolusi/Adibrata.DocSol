@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Customer\CustomerRegistrasi.cs" />
     <Compile Include="DocumentContent\DocContent.cs" />
+    <Compile Include="DocumentContent\DocType.cs" />
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

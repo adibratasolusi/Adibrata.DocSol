@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Rule.Engine", "Adibrata.Rule.Engine\Adibrata.Rule.Engine.csproj", "{030BBC11-268A-4ABF-8E58-3C2461AAB791}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.Rule", "Adibrata.Rule.Engine\Adibrata.Framework.Rule.csproj", "{030BBC11-268A-4ABF-8E58-3C2461AAB791}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Journal.Engine", "Adibrata.Journal.Engine\Adibrata.Journal.Engine.csproj", "{F7DBF23D-BC47-45B8-AE26-955908E5C9D7}"
 EndProject

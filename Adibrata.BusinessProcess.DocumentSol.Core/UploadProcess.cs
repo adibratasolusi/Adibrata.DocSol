@@ -54,7 +54,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sqlParams[0] = new SqlParameter("@agrmntNo", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.AgrmntNo;
                 sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar,50);
-                sqlParams[1].Value = _ent.DocType;
+                sqlParams[1].Value = _ent.DocumentType;
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spPathInsert", sqlParams));
                 pathId = _dt.Rows[0]["PATH_ID"].ToString(); 
 

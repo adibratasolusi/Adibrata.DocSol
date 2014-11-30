@@ -14,11 +14,12 @@ namespace Adibrata.DocumentSol.Windows
     /// </summary>
     public partial class Main : Page
     {
-        SessionEntities SessionProperty;
+        SessionEntities SessionProperty = new SessionEntities();
         public Main(SessionEntities _session)
         {
             InitializeComponent();
-            RedirectPage redirect = new RedirectPage(frmWorksheet, "Customer.CustomerPaging", _session);
+            SessionProperty = _session;
+            RedirectPage redirect = new RedirectPage(frmWorksheet, "DocumentContent.DocumentContentEntry", SessionProperty);
 
         }
     }

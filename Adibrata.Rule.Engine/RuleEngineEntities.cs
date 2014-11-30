@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace Adibrata.Rule.Engine
+namespace Adibrata.Framework.Rule
 {
     [Serializable]    
     public class RuleEngineEntities :Adibrata.BusinessProcess.Entities.Base.EntitiesBase

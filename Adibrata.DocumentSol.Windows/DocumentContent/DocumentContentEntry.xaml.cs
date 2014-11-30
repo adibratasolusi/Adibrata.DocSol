@@ -12,25 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Adibrata.Windows.UserController;
 
-namespace Adibrata.Windows.UserController.DocContent
+namespace Adibrata.DocumentSol.Windows.DocumentContent
 {
     /// <summary>
-    /// Interaction logic for UCDocContentString.xaml
+    /// Interaction logic for DocumentContentEntry.xaml
     /// </summary>
-    public partial class UCDocContentString : UserControl
+    public partial class DocumentContentEntry : Page
     {
-        public string PropertyName { get; set; }
-        public string PropertyValue { get; set; }
-        public UCDocContentString()
+        public DocumentContentEntry()
         {
             InitializeComponent();
-
-        }
-
-        private void CreateObject()
-        {
-
+            oDocContent.DocumentType = "KTP";
+            oDocContent.GenerateControls();
         }
     }
 }

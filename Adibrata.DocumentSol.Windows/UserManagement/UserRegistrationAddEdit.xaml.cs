@@ -15,7 +15,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
     public partial class UserRegistrationAddEdit : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
-        long _userid;
+        
         public UserRegistrationAddEdit(SessionEntities _session)
         {
             try

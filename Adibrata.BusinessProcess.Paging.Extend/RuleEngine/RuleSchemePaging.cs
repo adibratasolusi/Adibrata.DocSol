@@ -1,7 +1,7 @@
 ﻿using Adibrata.Configuration;
 using Adibrata.Framework.DataAccess;
 using Adibrata.Framework.Logging;
-using Adibrata.Rule.Engine;
+using Adibrata.Framework.Rule;
 using System;
 using System.Data;
 using System.Data.SqlClient;

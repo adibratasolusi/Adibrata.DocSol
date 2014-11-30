@@ -12,7 +12,6 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
     {
         public long CustomerID { get; set; }
         public string AgrmntNo { get; set; }
-        public string DocType { get; set; }
         public string Crit { get; set; }
         public string By { get; set; }
         public string CompanyName { get; set; }
@@ -27,5 +26,6 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public string CompanyTDP { get; set; }
         public string CompanyNotary { get; set; }
         public string CompanySiup { get; set; }
+        public string DocumentType { get; set; }
     }
 }

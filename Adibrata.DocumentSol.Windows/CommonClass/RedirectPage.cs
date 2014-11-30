@@ -7,7 +7,6 @@ using System.Reflection;
 using Adibrata.Framework.Caching;
 using Adibrata.Framework.Logging;
 using Adibrata.BusinessProcess.Entities.Base;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -39,6 +38,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "Form.FormRegistrasiPaging": Source.NavigationService.Navigate(new Form.FormRegistrasiPaging(_ent)); break;
                 case "Form.FormRegistrasiSave": Source.NavigationService.Navigate(new Form.FormRegistrasiSave(_ent)); break;
                 #endregion 
+
             }
 
         }
@@ -65,6 +65,11 @@ namespace Adibrata.DocumentSol.Windows
                 case "Form.FormRegistrasiPaging": Source.NavigationService.Navigate(new Form.FormRegistrasiPaging(_ent)); break;
                 case "Form.FormRegistrasiSave": Source.NavigationService.Navigate(new Form.FormRegistrasiSave(_ent)); break;
                 #endregion
+
+                #region "DocumentContentEntry"
+                case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry()); break;
+                #endregion
+
             }
 
         }

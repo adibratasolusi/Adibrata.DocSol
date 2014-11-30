@@ -86,6 +86,9 @@
     <Compile Include="Customer\CustomerPaging.xaml.cs">
       <DependentUpon>CustomerPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentContent\DocumentContentEntry.xaml.cs">
+      <DependentUpon>DocumentContentEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormRegistrasiPaging.xaml.cs">
       <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Customer\CustomerPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\DocumentContentEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

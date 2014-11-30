@@ -39,5 +39,23 @@
         <DocContent:UCDocumentContent x:Name="oDocContent"/>
             </StackPanel>
         </Grid>
+        <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+
+                <Button Name="btnSave" Click="btnSave_Click">
+                    <Label>_SAVE</Label>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Name="btnBack" Click="btnBack_Click">
+                    <Label>_BACK</Label>
+                </Button>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Page>

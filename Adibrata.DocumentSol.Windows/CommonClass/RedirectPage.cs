@@ -39,6 +39,9 @@ namespace Adibrata.DocumentSol.Windows
                 case "Form.FormRegistrasiSave": Source.NavigationService.Navigate(new Form.FormRegistrasiSave(_ent)); break;
                 #endregion 
 
+                #region "DocumentContentEntry"
+                case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
+                #endregion
             }
 
         }

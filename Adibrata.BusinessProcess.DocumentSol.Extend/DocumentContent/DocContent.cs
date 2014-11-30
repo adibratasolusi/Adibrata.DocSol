@@ -28,7 +28,11 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 
                    _entrule.WhereCond = sb.ToString();
                    _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
-                   _dt.Columns.Add("DataType", typeof(string));
+                   if (!_dt.Columns.Contains("DataType"))
+                   {
+                       _dt.Columns.Add("DataType", typeof(string));
+                   }
+                   
                    string _value;
                    string[] _splitvalue;
 

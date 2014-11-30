@@ -42,7 +42,7 @@
                     </TreeView>
                 </ScrollViewer>
             </Grid>
-            <GridSplitter Grid.Column="1" Grid.Row="1" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,0,9,-45" Grid.RowSpan="3"/>
+            <GridSplitter Grid.Column="1" Grid.Row="1" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,9,0" Grid.RowSpan="3"/>
             <Grid Grid.Column="1" Grid.Row="1">
                 <Frame Name="frmWorksheet" Height="500" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="10" ></Frame>
             </Grid>

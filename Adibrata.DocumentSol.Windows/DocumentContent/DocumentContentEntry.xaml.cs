@@ -1,12 +1,12 @@
-﻿using System.Windows.Controls;
-using Adibrata.Framework.Logging;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Controller;
-using Adibrata.BusinessProcess.DocumentSol.Entities;
-using System.Data;
-using System;
-using Adibrata.Windows.UserController;
 using Adibrata.Framework.Logging;
+using Adibrata.Windows.UserController;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Controls;
 
 namespace Adibrata.DocumentSol.Windows.DocumentContent
 {
@@ -25,13 +25,30 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 DataTable _dt = new DataTable();
+                DocSolEntities _ent = new DocSolEntities
+                {
+                    ClassName = "CustomerRegistrasi",
+                    MethodName = "CustomerCompanyRegistrasiView",
+                    CustomerID = _session.ReffKey
+
+                };
+                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                lblCustomerName.Text = _ent.CompanyName;
 
                 _ent.ClassName = "DocType";
                 _ent.MethodName = "DocTypeRetrieve";
                 _ent.LineOfBusiness = "Consumer Finance";
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                
-                cboDocumentType.ItemsSource = _dt.DefaultView;
+                List<string> data = new List<string>();
+                if (_dt.Rows.Count > 0)
+                {
+                    foreach (DataRow _row in _dt.Rows)
+                    {
+                        data.Add(_row["Result"].ToString());
+                    }
+                }
+
+                cboDocumentType.ItemsSource = data;
             }
             catch (Exception _exp)
             {
@@ -59,6 +76,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 TextBlock txtInput = (TextBlock)this.cboDocumentType.FindName("txtValue");
                
                 oDocContent.GenerateControls();
+                cboDocumentType.IsEnabled = false;
             }
             catch (Exception _exp)
             {
@@ -68,6 +86,55 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                     NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
                     ClassName = "DocumentContentEntry",
                     FunctionName = "cboDocumentType_SelectionChanged",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        private void btnBack_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerAddEdit",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        private void btnSave_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            try
+            {
+
+                RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerAddEdit",
+                    FunctionName = "btnBack_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,

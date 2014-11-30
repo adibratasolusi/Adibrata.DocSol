@@ -19,7 +19,8 @@ namespace Adibrata.DocumentSol.Windows
         {
             InitializeComponent();
             SessionProperty = _session;
-            RedirectPage redirect = new RedirectPage(frmWorksheet, "DocumentContent.DocumentContentEntry", SessionProperty);
+            
+            RedirectPage redirect = new RedirectPage(frmWorksheet, "Customer.CustomerPaging", SessionProperty);
 
         }
     }

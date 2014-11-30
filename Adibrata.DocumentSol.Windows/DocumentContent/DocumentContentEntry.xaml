@@ -29,7 +29,8 @@
         <Grid Grid.Column="1" Grid.Row="0">
             <StackPanel>
                 <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                <ComboBox Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" SelectedValue ="{Binding Result`}">
+                <ComboBox Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged"
+                       Text="{Binding Result}"   SelectedValue ="{Binding Result}">
                 </ComboBox>
             </StackPanel>
         </Grid>

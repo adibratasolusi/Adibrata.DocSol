@@ -47,6 +47,9 @@ namespace Adibrata.Windows.UserController.DocContent
                         TextBlock DocContentDescription = new TextBlock();
                         DocContentDescription.Name = _row["Field2"].ToString().Replace(" ", "");
                         DocContentDescription.Text = _row["Field2"].ToString();
+                        DocContentDescription.HorizontalAlignment = HorizontalAlignment.Stretch;
+                        DocContentDescription.Width = 200;
+                        
                         DocContentDescription.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
                         PanelInput.Children.Remove(DocContentDescription);
                         PanelLabel.Children.Add(DocContentDescription);
@@ -61,7 +64,8 @@ namespace Adibrata.Windows.UserController.DocContent
                                     TextBox txtInput = new TextBox();
                                     txtInput.Name = _row["Result"].ToString().Trim();
                                     txtInput.Width = 400;
-                                    txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
+                                    txtInput.Margin.Top.Equals(5);
+                                    //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
                                     PanelInput.Children.Add(txtInput);
                                     
                                     PanelInput.RegisterName(txtInput.Name, txtInput);
@@ -73,7 +77,7 @@ namespace Adibrata.Windows.UserController.DocContent
                                     txtInput.Name = _row["Result"].ToString().Trim();
                                     txtInput.Width = 400;
                                     PanelInput.Children.Add(txtInput);
-                                    
+                                    txtInput.Margin.Top.Equals(5);
                                     PanelInput.RegisterName(txtInput.Name, txtInput);
                                 }
                                 break;
@@ -82,7 +86,8 @@ namespace Adibrata.Windows.UserController.DocContent
                                     TextBox txtInput = new TextBox();
                                     txtInput.Name = _row["Result"].ToString().Trim();
                                     txtInput.Width = 400;
-                                    txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
+                                    txtInput.Margin.Top.Equals(5);
+                                    //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
                                     PanelInput.Children.Add(txtInput);
                      
                                     PanelInput.RegisterName(txtInput.Name, txtInput);

@@ -26,7 +26,7 @@
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Margin="5">
                 <StackPanel>
-                    <TextBlock HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}"  Text="User Name" />
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource TextBlockStyle}"  Text="User Name" />
                     <TextBlock HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}"  Text="Password" />
                 </StackPanel>
                 

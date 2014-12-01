@@ -70,7 +70,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
             else
             {
-                uploadBITS();
+                upload();
             }
         }
         private void btnBrowse_Click(object sender, RoutedEventArgs e)

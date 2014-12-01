@@ -118,9 +118,6 @@
     <Compile Include="TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestPageFredy.xaml.cs">
-      <DependentUpon>TestPageFredy.xaml</DependentUpon>
-    </Compile>
     <Compile Include="TestScreen.xaml.cs">
       <DependentUpon>TestScreen.xaml</DependentUpon>
     </Compile>
@@ -206,10 +203,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TestPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TestPageFredy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

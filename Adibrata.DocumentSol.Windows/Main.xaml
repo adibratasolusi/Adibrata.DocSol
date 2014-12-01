@@ -5,46 +5,46 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" ShowsNavigationUI="False"
       d:DesignHeight="600" d:DesignWidth="800"
-      Height="Auto" Width="Auto"
          Style="{StaticResource PageStyle}"
-	Title="Document Solution">
+	Title="Smart Custodian Management Solution">
     <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
-        <Grid>
+        <Grid  Style="{StaticResource GridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="2*"  />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <StackPanel>
+                <TextBlock Name="lblLoginName" FontSize="24"></TextBlock>
+                <TextBlock Name="lblBusinessDate" FontSize="24"></TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Column="0" Grid.Row="0">
-                <StackPanel>
-                    <TextBlock Name="lblUserLoging"></TextBlock>
-                    <TextBlock Name="lblBusinessDate"></TextBlock>
+                <TreeView   Grid.Column="0" VerticalAlignment="Stretch" ItemsSource="{Binding Departments}">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">
+                            <TextBlock Text="{Binding Name}"/>
+                            <HierarchicalDataTemplate.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </HierarchicalDataTemplate.ItemTemplate>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+            </TreeView>
+                <TextBlock Text="Copyright PT Adibrata Optima Solusi - 2014" VerticalAlignment="Bottom" TextWrapping="WrapWithOverflow"></TextBlock>
+            <GridSplitter Grid.Column="1" Width="5" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+                        <Frame Name="frmWorksheet" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Frame>
+                    </ScrollViewer>
                 </StackPanel>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="1">
-                <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
-                    <TreeView Margin="5" Grid.Column="0" VerticalAlignment="Stretch" Height="500" ItemsSource="{Binding Departments}">
-                        <TreeView.ItemTemplate>
-                            <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">
-                                <TextBlock Text="{Binding Name}"/>
-                                <HierarchicalDataTemplate.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Name}"/>
-                                    </DataTemplate>
-                                </HierarchicalDataTemplate.ItemTemplate>
-                            </HierarchicalDataTemplate>
-                        </TreeView.ItemTemplate>
-                    </TreeView>
-                </ScrollViewer>
-            </Grid>
-            <GridSplitter Grid.Column="1" Grid.Row="1" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,9,0" Grid.RowSpan="3"/>
-            <Grid Grid.Column="1" Grid.Row="1">
-                <Frame Name="frmWorksheet" Height="500" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="10" ></Frame>
             </Grid>
         </Grid>
     </ScrollViewer>

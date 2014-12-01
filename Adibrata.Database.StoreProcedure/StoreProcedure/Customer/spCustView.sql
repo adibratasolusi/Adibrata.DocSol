@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCustCoyView]
+﻿Create PROCEDURE [dbo].[spCustCoyView]
 	@CustID Bigint
 AS
 set Nocount On 

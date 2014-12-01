@@ -100,6 +100,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
+                
                 RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
             }
             catch (Exception _exp)
@@ -124,7 +125,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-
+                
                 RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
             }
             catch (Exception _exp)

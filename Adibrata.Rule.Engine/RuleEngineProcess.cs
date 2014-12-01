@@ -67,31 +67,35 @@ namespace Adibrata.Framework.Rule
         public static DataTable RuleEngineResultList(RuleEngineEntities _ent)
         {
             StringBuilder sb = new StringBuilder();
+            StringBuilder cachename = new StringBuilder();
             DataTable _dtrule = new DataTable();
             try
             {
+                sb.Append("Select * from ");
+                sb.Append(_ent.RuleName);
+                sb.Append(" with (nolock) ");
+                if (_ent.WhereCond != "")
+                {
+                    sb.Append(" where ");
+                    sb.Append(_ent.WhereCond);
+                }
+                cachename.Append(_ent.RuleName);
+                cachename.Append(sb.ToString());
+                cachename.Append("List");
                 
-                string cachename = _ent.RuleName + "List";
-                if (!DataCache.Contains(cachename))
+                if (!DataCache.Contains(cachename.ToString()))
                 {
                     //_dtrule = _ent.DtListValue;
 
-                    sb.Append("Select * from ");
-                    sb.Append(_ent.RuleName);
-                    sb.Append(" with (nolock) ");
-                    if (_ent.WhereCond != "")
-                    {
-                        sb.Append(" where ");
-                        sb.Append(_ent.WhereCond);
-                    }
+                   
 
                     _dtrule.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.Text, sb.ToString()));
-                    DataCache.Insert<DataTable>(cachename, _dtrule);
+                    DataCache.Insert<DataTable>(cachename.ToString(), _dtrule);
 
                 }
                 else
                 {
-                    _dtrule = DataCache.Get<DataTable>(cachename);
+                    _dtrule = DataCache.Get<DataTable>(cachename.ToString());
                 }
             }
             catch (Exception _exp)

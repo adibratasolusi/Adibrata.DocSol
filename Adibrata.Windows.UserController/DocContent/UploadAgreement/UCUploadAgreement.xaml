@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             Style="{StaticResource PageStyle}">
+             Width="Auto" Height="Auto">
     <ScrollViewer>
     <Grid>
             <Grid.ColumnDefinitions>
@@ -15,6 +15,7 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -31,7 +32,7 @@
                 <TextBlock Name="tbDocType" Text="Document Type :"></TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1">
-                <ComboBox Name="cmbDocType"></ComboBox>
+                <ComboBox Name="cmbDocType" DisplayMemberPath="DocType" SelectedValuePath="ID"></ComboBox>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" >
                 <GroupBox Name="testGroupBox"></GroupBox>
@@ -40,10 +41,10 @@
                 <TextBlock Name="tbUpload" Text="Upload Document :"></TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3">
-                <Button Name="btnUpload" Content="+ Browse" Click="btnUpload_Click"></Button>
+                <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click"></Button>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3">
-                <DataGrid Name="dtgUpload">
+                <DataGrid Name="dtgUpload" CanUserDeleteRows="True">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Delete" x:Name="Delete">
                             <DataGridTemplateColumn.CellTemplate>
@@ -66,6 +67,10 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="6">
+                <Button Name="btnSave" Content="Upload" Click="btnUpload_Click"></Button>
             </Grid>
 
         </Grid>

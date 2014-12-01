@@ -228,6 +228,14 @@
       <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
       <Name>Adibrata.Framework.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.ImageProcessing\Adibrata.Framework.ImageProcessing.csproj">
+      <Project>{794775bc-8818-45e6-ad10-491e74af573a}</Project>
+      <Name>Adibrata.Framework.ImageProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj">
+      <Project>{92fcf099-2046-4d09-8c2c-da3940ac4552}</Project>
+      <Name>Adibrata.Framework.Messaging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
       <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
       <Name>Adibrata.Framework.ReportDocument</Name>
@@ -239,6 +247,10 @@
     <ProjectReference Include="..\Adibrata.Theme\Adibrata.Themes.Fischer.WPF\Adibrata.Themes.Fischer.WPF.csproj">
       <Project>{d8166ad7-25dd-4953-84dd-347cb0321582}</Project>
       <Name>Adibrata.Themes.Fischer.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpBITS.Base\SharpBITS.Base.csproj">
+      <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>
+      <Name>SharpBITS.Base</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

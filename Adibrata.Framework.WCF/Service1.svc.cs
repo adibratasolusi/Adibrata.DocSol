@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Adibrata.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,7 +17,7 @@ namespace Adibrata.Framework.WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        string conString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        string conString = AppConfig.
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -39,7 +40,7 @@ namespace Adibrata.Framework.WCF
         {
 
 
-            string bitsServer = ConfigurationManager.AppSettings["BitsServer"].ToString();
+            string bitsServer = AppConfig.Config("BITSServer");
             var webClient = new WebClient();
             byte[] fileBytes = webClient.DownloadData(bitsServer + pathInfo.FileName + pathInfo.Ext);
             string strMessage = string.Empty;

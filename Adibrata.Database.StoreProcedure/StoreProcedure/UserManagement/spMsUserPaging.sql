@@ -5,7 +5,7 @@
 	@SortBy Varchar(8000)
 AS
 Set NoCount On 
-	Set NoCount On 
+	
 Declare @RecordNumber Numeric, 
 		@SqlStatement Varchar(max)
 Set NoCount On 
@@ -14,7 +14,7 @@ If @SortBy = ''
 	Set @SortBy = ' FullName Asc '
 
 	Set @SqlStatement = 'Select * from 
-		(Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, UserName, FullName, 
+		(Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, Ms_User.ID, UserName, FullName, 
 		(Case When Active = 1 then ''Y'' else ''N'' end) Active,
 		(Case When IsConnect = 1 then ''Y'' else ''N'' end) IsConnet
 		

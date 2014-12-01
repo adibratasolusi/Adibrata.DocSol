@@ -22,13 +22,13 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             try
             {
                 sb.Append("spDocMasterGetActive");
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString()).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString()));
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
                     FunctionName = "DocMasterGetActive",
@@ -54,8 +54,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sqlParams[0] = new SqlParameter("@agrmntNo", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.AgrmntNo;
                 sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar,50);
-                sqlParams[1].Value = _ent.DocType;
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, "spPathInsert",sqlParams).Tables[0];
+                sqlParams[1].Value = _ent.DocumentType;
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spPathInsert", sqlParams));
                 pathId = _dt.Rows[0]["PATH_ID"].ToString(); 
 
             }
@@ -64,7 +64,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
                     FunctionName = "MainMenuInsertUpdate",
@@ -90,8 +90,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sqlParams[0] = new SqlParameter("@agreementNo", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.AgrmntNo;
 
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, "spAgreementGetAgreementInfo", sqlParams).Tables[0];
-
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spAgreementGetAgreementInfo", sqlParams));
 
             }
             catch (Exception _exp)
@@ -99,7 +98,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
                     FunctionName = "AgreementGetInfo",
@@ -126,7 +125,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sqlParams[0] = new SqlParameter("@agrmntNo", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.AgrmntNo;
 
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, "spPathView", sqlParams).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spPathView", sqlParams));
 
 
             }
@@ -135,7 +134,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
                     FunctionName = "PathGetView",
@@ -164,7 +163,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sqlParams[1] = new SqlParameter("@crit", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.Crit;
 
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, "spPagingAgreement", sqlParams).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spPagingAgreement", sqlParams));
 
 
             }
@@ -173,7 +172,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
                     FunctionName = "PagingAgreement",

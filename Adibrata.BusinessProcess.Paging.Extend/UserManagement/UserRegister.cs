@@ -7,9 +7,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace Adibrata.BusinessProcess.Paging.Extend.UserManagement
+namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class UserRegister : Adibrata.BusinessProcess.Paging.Core.UserManagement.UserRegister
+    public class UserRegister : Adibrata.BusinessProcess.Paging.Core.UserRegister
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
         public virtual DataTable UserRegisterPaging(PagingEntities _ent)
@@ -22,19 +22,21 @@ namespace Adibrata.BusinessProcess.Paging.Extend.UserManagement
                 SqlParameter[] sqlParams = new SqlParameter[4];
                 sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar,7);
                 sqlParams[0].Value = _ent.StartRecord;
-                sqlParams[1] = new SqlParameter("@EndEndRecord", SqlDbType.VarChar,7);
+                sqlParams[1] = new SqlParameter("@EndRecord", SqlDbType.VarChar,7);
                 sqlParams[1].Value = _ent.EndRecord;
                 sqlParams[2] = new SqlParameter("@wherecond", SqlDbType.VarChar, 8000);
                 sqlParams[2].Value = _ent.WhereCond;
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
+
+
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Paging.Extend.UserManagement",
                     ClassName = "UserRegister",
                     FunctionName = "UserRegisterPaging",

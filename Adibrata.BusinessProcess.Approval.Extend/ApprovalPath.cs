@@ -74,7 +74,7 @@ namespace Adibrata.BusinessProcess.Approval.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Approval.Extend",
                     ClassName = "ApprovalPath",
                     FunctionName = "ApprPathAddEdit",
@@ -113,7 +113,7 @@ namespace Adibrata.BusinessProcess.Approval.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Approval.Extend",
                     ClassName = "ApprovalPath",
                     FunctionName = "ApprPathDelete",
@@ -148,7 +148,7 @@ namespace Adibrata.BusinessProcess.Approval.Extend
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Approval.Extend",
                     ClassName = "ApprovalScheme",
                     FunctionName = "ApprovalSchemeView",

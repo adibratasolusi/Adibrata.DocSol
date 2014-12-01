@@ -137,6 +137,7 @@ namespace Adibrata.DocumentSol.Windows.AgrmntUpload
             string _value = agrmntNo.Text;
 
             //MessageBox.Show(_value);
+
             this.NavigationService.Navigate(new AgrmntUploadView(_value));
         }
     }

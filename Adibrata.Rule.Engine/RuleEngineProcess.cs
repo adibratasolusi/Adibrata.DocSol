@@ -7,14 +7,15 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
 using System.Text;
+using Adibrata.Framework.Caching;
 
 
-namespace Adibrata.Rule.Engine
+namespace Adibrata.Framework.Rule
 {
     public static class RuleEngineProcess
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
-        public static RuleEngineEntities ResultRuleEngine(RuleEngineEntities _ent)
+        public static RuleEngineEntities RuleEngineValue(RuleEngineEntities _ent)
         {
 
             StringBuilder sb = new StringBuilder();
@@ -47,8 +48,8 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
-                    NameSpace = " Adibrata.Rule.Engine",
+                    UserLogin = "RuleEngine",
+                    NameSpace = "Adibrata.Framework.Rule",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "ResultRuleEngine",
                     ExceptionNumber = 1,
@@ -60,6 +61,60 @@ namespace Adibrata.Rule.Engine
                 ErrorLog.WriteEventLog(_errent);
             }
             return _ent;
+
+        }
+
+        public static DataTable RuleEngineResultList(RuleEngineEntities _ent)
+        {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder cachename = new StringBuilder();
+            DataTable _dtrule = new DataTable();
+            try
+            {
+                sb.Append("Select * from ");
+                sb.Append(_ent.RuleName);
+                sb.Append(" with (nolock) ");
+                if (_ent.WhereCond != "")
+                {
+                    sb.Append(" where ");
+                    sb.Append(_ent.WhereCond);
+                }
+                cachename.Append(_ent.RuleName);
+                cachename.Append(sb.ToString());
+                cachename.Append("List");
+                
+                if (!DataCache.Contains(cachename.ToString()))
+                {
+                    //_dtrule = _ent.DtListValue;
+
+                   
+
+                    _dtrule.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.Text, sb.ToString()));
+                    DataCache.Insert<DataTable>(cachename.ToString(), _dtrule);
+
+                }
+                else
+                {
+                    _dtrule = DataCache.Get<DataTable>(cachename.ToString());
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "RuleEngine",
+                    NameSpace = "Adibrata.Framework.Rule",
+                    ClassName = "RuleEngineProcess",
+                    FunctionName = "ResultRuleEngine",
+                    ExceptionNumber = 1,
+                    EventSource = "RuleEngine",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _dtrule;
 
         }
 
@@ -155,8 +210,8 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
-                    NameSpace = " Adibrata.Rule.Engine",
+                    UserLogin = "RuleEngine",
+                    NameSpace = "Adibrata.Framework.Rule",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "UploadRuleEngine",
                     ExceptionNumber = 1,
@@ -229,8 +284,8 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
-                    NameSpace = " Adibrata.Rule.Engine",
+                    UserLogin = "RuleEngine",
+                    NameSpace = "Adibrata.Framework.Rule",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "FillDataRuleEngine",
                     ExceptionNumber = 1,
@@ -284,8 +339,8 @@ namespace Adibrata.Rule.Engine
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "RuleEngine",
-                    NameSpace = " Adibrata.Rule.Engine",
+                    UserLogin = "RuleEngine",
+                    NameSpace = "Adibrata.Framework.Rule",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "ReadDataExcel",
                     ExceptionNumber = 1,

@@ -5,87 +5,72 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       
-      d:DesignHeight="300" d:DesignWidth="500"
+     d:DesignHeight="500" d:DesignWidth="800"
       Style="{StaticResource PageStyle}"
 	Title="Customer Maintenance">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-    <Grid Style="{StaticResource GridStyle}" >
-        
-        <Grid>
-            <Grid>
-                <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
-            </Grid>
-        </Grid>
-        
-        <Grid Style="{StaticResource GridStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="110" />
-                <ColumnDefinition Width="200*"/>
-                <ColumnDefinition Width="110*"/>
-                <ColumnDefinition Width="200*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"  />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"  />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"  />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"  />
-            </Grid.RowDefinitions>
+        <Grid Style="{StaticResource GridStyle}" >
 
-            <Grid Grid.Column="0" Grid.Row="0">
-                <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left"  Text="Company Name" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3">
-                <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" Width="400"></TextBox>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left">
-                <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left" Text="NPWP No" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" >
-                <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}"  Width="89"></TextBox>
-            </Grid>
-            <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left">
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="SIUP No" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left">
-                <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  Width="111"></TextBox>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left">
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="TDP No" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Grid.ColumnSpan="2">
-                <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" Width="61" Grid.ColumnSpan="2" Margin="0,2"></TextBox>
-            </Grid>
-            <Grid Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left">
-                <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left" Text="Notary No" VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="3" Grid.Row="3">
-                <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" Width="61"></TextBox>
+            <Grid>
+                <Grid>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+                </Grid>
             </Grid>
 
-            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4">
-            <Grid>
-                <UserController:UCAddress x:Name="oAddress"/>
-            </Grid>
-        </Grid>
-        <Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4" HorizontalAlignment="Right">
+            <Grid Style="{StaticResource GridStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="91*"/>
+                    
+
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto" />
 
-                    <Button Name="btnSave" Click="btnSave_Click" >Save</Button>
-                </Grid>
-                <Grid Grid.Column="1">
-                    <Button Name="btnBack" Click="btnBack_Click">Back</Button>
-                </Grid>
+                </Grid.RowDefinitions>
 
+                <Grid Grid.Column="0" Grid.Row="0" Margin="5">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Company Name" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" Text="NPWP No" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="SIUP No" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="TDP No" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" Text="Notary No" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2">
+                    <StackPanel HorizontalAlignment="Stretch">
+                        <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" MaxLength="50"  Width="500"></TextBox>
+                        <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100"></TextBox>
+                        <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  MaxLength="20" Width="100"></TextBox>
+                        <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100"></TextBox>
+                        <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100"></TextBox>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+                    <UserController:UCAddress x:Name="oAddress"/>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+
+                        <Button Name="btnSave" Click="btnSave_Click">
+                            <Label>_SAVE</Label>
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Button Name="btnBack" Click="btnBack_Click">
+                            <Label>_BACK</Label>
+                        </Button>
+                    </Grid>
+
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
     </ScrollViewer>
 </Page>

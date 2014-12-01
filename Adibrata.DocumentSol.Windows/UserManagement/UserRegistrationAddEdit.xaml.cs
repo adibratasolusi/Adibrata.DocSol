@@ -14,24 +14,51 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
     /// </summary>
     public partial class UserRegistrationAddEdit : Page
     {
-
-
-
-
         SessionEntities SessionProperty = new SessionEntities();
-        long _userid;
+        
         public UserRegistrationAddEdit(SessionEntities _session)
         {
-            InitializeComponent();
-            this.DataContext = new MainVM(new Shell());
-            SessionProperty = _session;
-            _userid = SessionProperty.KeyReff;
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
+                
+                if (SessionProperty.IsEdit)
+                {
+                    UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserRegisterView", ClassName = "UserRegister", UserLogin = SessionProperty.UserName };
+                    _ent.UserID = SessionProperty.ReffKey;
+                    _ent = UserManagementController.UserManagement<UserManagementEntities>(_ent);
+                    txtUserName.Text = _ent.UserName;
+                    txtPassword.Password = _ent.Password;
+                    txtFullname.Text = _ent.FullName;
+                }
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationAddEdit",
+                    FunctionName = "UserRegistrationAddEdit",
+                    ExceptionNumber = 1,
+                    EventSource = "UserRegistration",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Management
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
         }
 
         public UserRegistrationAddEdit()
         {
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
+            SessionProperty.UserName = "test";
             
             
         }
@@ -40,11 +67,11 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
         {
             try
             {
-                UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserRegisterAddEdit", ClassName = "UserRegister" };
+                UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserRegisterAddEdit", ClassName = "UserRegister", UserLogin = SessionProperty.UserName };
                 _ent.UserName = txtUserName.Text;
                 _ent.Password = txtPassword.Password;
                 _ent.FullName = txtFullname.Text;
-                _ent.UserName = SessionProperty.UserName;
+                _ent.UserLogin = SessionProperty.UserName;
 
                 if (isActive.IsChecked == true)
                 {
@@ -54,24 +81,19 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 {
                     _ent.IsActive = 0;
                 }
-                if (SessionProperty.IsEdit)
-                {
-                    _ent.UsrUpd = SessionProperty.UserName;
-                }
-                else
-                {
-                    _ent.UsrCrt = SessionProperty.UserName;
-                }
+                _ent.UserLogin = SessionProperty.UserName;
                 _ent.IsEdit = SessionProperty.IsEdit;
+                _ent.UserID = SessionProperty.ReffKey;
 
                 UserManagementController.UserManagement<string>(_ent);
+                RedirectPage redirect = new RedirectPage(this, "UserManagement.UserRegistrationPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = SessionProperty.UserName,
+                    UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
                     ClassName = "UserRegistrationAddEdit",
                     FunctionName = "btnSave_Click",
@@ -90,14 +112,14 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
         {
             try
             {
-                this.NavigationService.Navigate(new UserRegistrationPaging(SessionProperty));
+                RedirectPage redirect = new RedirectPage(this, "UserManagement.UserRegistrationPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
                 #region "Write to Event Viewer"
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = SessionProperty.UserName,
+                    UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
                     ClassName = "UserRegistrationAddEdit",
                     FunctionName = "btnSave_Click",

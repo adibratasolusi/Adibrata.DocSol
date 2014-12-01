@@ -4,81 +4,60 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" ShowsNavigationUI="False"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="500" d:DesignWidth="800"
       Style="{StaticResource PageStyle}"
 	Title="UserRegistrationAddEdit">
 
     <ScrollViewer x:Name="svMain">
         <Grid Style="{StaticResource GridStyle}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="500*" />
-                <ColumnDefinition Width="500*" />
-                
-                
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock Margin="0">User Name</TextBlock>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Margin="0">User Name</TextBlock>
+                    <TextBlock Margin="0">Full Name</TextBlock>
+                    <TextBlock Margin="0">Password</TextBlock>
+                    <TextBlock Margin="0" >Re. Password</TextBlock>
+                    <TextBlock Margin="0">Active</TextBlock>
+                    <TextBlock Margin="0">Connect</TextBlock>
+                </StackPanel>
+                
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-                <TextBox x:Name="txtUserName" Width="292" Text="" Background="{x:Null}" />
+            <Grid Grid.Column="1" Grid.Row="1" >
+                <StackPanel>
+                    <TextBox x:Name="txtUserName" Width="150" Text="" Style="{StaticResource textStyle}" />
+                    <TextBox x:Name="txtFullname"  Width="200" Text="" Style="{StaticResource textStyle}"/>
+                    <PasswordBox x:Name="txtPassword" Width="150"  Style="{StaticResource PasswordStyle}"/>
+                    <PasswordBox x:Name="txtRepeatPsw" Width="150" Style="{StaticResource PasswordStyle}" />
+                    <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
+                    <CheckBox x:Name="isConnect" IsChecked="False"></CheckBox>
+                </StackPanel>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
-                <TextBlock Margin="0">Full Name</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="2">
-                <TextBox x:Name="txtFullname"  Width="292" Text="" Background="{x:Null}" />
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="3">
-                <TextBlock Margin="0">Password</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3">
-                <PasswordBox x:Name="txtPassword" Width="350" Style="{StaticResource PasswordStyle}"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="4" >
-                <TextBlock Margin="0" >Re. Password</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="4">
-                <PasswordBox x:Name="txtRepeatPsw" Style="{StaticResource PasswordStyle}" Width="292"/>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="7">
-                <TextBlock Margin="0">Active</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="7">
-                <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="8"  Grid.ColumnSpan="2" >
-                <TextBlock Margin="0">Connect</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="8">
-                <CheckBox x:Name="isConnect" IsChecked="True"></CheckBox>
-            </Grid>
-            <GridSplitter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8"></GridSplitter>
-            <GroupBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="9">
-                <Grid Width="100" HorizontalAlignment="right">
+            <Grid  Grid.Column="1" Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300*" />
-                    <ColumnDefinition Width="200*" />
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="100*" />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Button x:Name="btnSave" Content="Save" Click="btnSave_Click"></Button>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                    <Button Name="btnBack" Content="Back" Click="btnBack_Click"></Button>
-                    </Grid>
+                    <StackPanel>
+                        <Button x:Name="btnSave" Click="btnSave_Click">
+                            <Label> _SAVE</Label></Button>
+                    </StackPanel>
                 </Grid>
-            </GroupBox>
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                    <Button Name="btnBack" Click="btnBack_Click">
+                            <Label>_BACK</Label></Button>
+                    </StackPanel>
+                </Grid>
+                </Grid>
         </Grid>
     </ScrollViewer>
 </Page>

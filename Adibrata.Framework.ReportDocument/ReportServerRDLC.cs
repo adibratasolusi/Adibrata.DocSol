@@ -67,7 +67,7 @@ namespace Adibrata.Framework.ReportDocument
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "REPORT",
+                    UserLogin = "REPORT",
                     NameSpace = "Adibrata.Framework.ReportDocument",
                     ClassName = "ReportServerRDLC",
                     FunctionName = "ReportServerRDLC / Construtor",
@@ -101,7 +101,7 @@ namespace Adibrata.Framework.ReportDocument
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "REPORT",
+                    UserLogin = "REPORT",
                     NameSpace = "Adibrata.Framework.ReportDocument",
                     ClassName = "ReportServerRDLC",
                     FunctionName = "ReportOutput",

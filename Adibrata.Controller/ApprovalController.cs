@@ -68,7 +68,7 @@ namespace Adibrata.Controller.Approval
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = "",
                     NameSpace = "Adibrata.Controller.Approval",
                     ClassName = "ApprovalController",
                     FunctionName = "Approval",

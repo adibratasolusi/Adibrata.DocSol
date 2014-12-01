@@ -40,7 +40,7 @@ namespace Adibrata.FinanceLease.Windows.UserManagement
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "EMAIL",
+                    UserLogin = "EMAIL",
                     NameSpace = "Adibrata.FinanceLease.Windows.UserManagement",
                     ClassName = "UserRegistrationPaging",
                     FunctionName = "UserRegistrationPaging / Constructor",

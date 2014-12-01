@@ -1,12 +1,11 @@
-﻿using Adibrata.Configuration;
+﻿using Adibrata.BusinessProcess.Paging.Entities;
+using Adibrata.Configuration;
 using Adibrata.Framework.DataAccess;
 using Adibrata.Framework.Logging;
-using Adibrata.Rule.Engine;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
-using Adibrata.BusinessProcess.Paging.Entities;
 
 namespace Adibrata.BusinessProcess.Paging.Core
 {
@@ -34,14 +33,14 @@ namespace Adibrata.BusinessProcess.Paging.Core
 
                 sqlParams[3] = new SqlParameter("@SortBy", SqlDbType.VarChar, 4000);
                 sqlParams[3].Value = _ent.SortBy;
-
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
+                
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = " Adibrata.Rule.Engine",
                     ClassName = "RuleEngineProcess",
                     FunctionName = "UploadRuleEngine",

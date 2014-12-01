@@ -9,3 +9,4 @@ set Nocount On
 	values (@FormName, @FormURL, @ISActive, @UsrCrt, Getdate())
 
 RETURN 0
+Select * from configuration.dbo.[app.config]

@@ -3,12 +3,9 @@ using Adibrata.Configuration;
 using Adibrata.Framework.DataAccess;
 using Adibrata.Framework.Logging;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Adibrata.BusinessProcess.UserManagement.Core
 {
@@ -23,13 +20,13 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
             try
             {
                 sb.Append("spMsMenuGetActiveMenu");
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString()).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString()));
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
                     ClassName = "UserManagement",
                     FunctionName = "MainMenuGetActive",
@@ -79,7 +76,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
 
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Paging.Core.UserManagement",
                     ClassName = "UserRegisterPaging",
                     FunctionName = "MainMenuInsert",
@@ -101,13 +98,13 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
             try
             {
                 sb.Append("spMsMenuGetActiveMenuCmbBox");
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString()).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString()));
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.MainMenu.Core",
                     ClassName = "UserManagement",
                     FunctionName = "MainMenuGetActiveItemId",
@@ -132,13 +129,13 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
                 SqlParameter[] sqlParams = new SqlParameter[1];
                 sqlParams[0] = new SqlParameter("@menuItemId", SqlDbType.Int);
                 sqlParams[0].Value = _ent.MenuItemId;
-                _dt = (DataTable)SqlHelper.ExecuteDataset(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams).Tables[0];
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.MainMenu.Core",
                     ClassName = "UserManagement",
                     FunctionName = "MainMenuGetActiveShortOrder",

@@ -60,11 +60,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DocContent\DocumentContent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DocContent\UCDocContentString.xaml">
+    <Page Include="DocContent\UCDocumentContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,11 +116,8 @@
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DocContent\DocumentContent.xaml.cs">
-      <DependentUpon>DocumentContent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DocContent\UCDocContentString.xaml.cs">
-      <DependentUpon>UCDocContentString.xaml</DependentUpon>
+    <Compile Include="DocContent\UCDocumentContent.xaml.cs">
+      <DependentUpon>UCDocumentContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="DocContent\UploadAgreement\UCUploadAgreement.xaml.cs">
       <DependentUpon>UCUploadAgreement.xaml</DependentUpon>
@@ -200,6 +193,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.DocumentSol.Entities\Adibrata.BusinessProcess.DocumentSol.Entities.csproj">
+      <Project>{c6363188-e561-4c44-973c-9be674a54ba5}</Project>
+      <Name>Adibrata.BusinessProcess.DocumentSol.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
       <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
       <Name>Adibrata.BusinessProcess.Entities.Base</Name>
@@ -239,6 +236,10 @@
     <ProjectReference Include="..\Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj">
       <Project>{c4382e62-8044-4292-aee4-b44fe0b7ec7e}</Project>
       <Name>Adibrata.Framework.ReportDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Rule.Engine\Adibrata.Framework.Rule.csproj">
+      <Project>{030bbc11-268a-4abf-8e58-3c2461aab791}</Project>
+      <Name>Adibrata.Framework.Rule</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Theme\Adibrata.Themes.Core\Adibrata.Themes.Core.csproj">
       <Project>{d0447080-8d02-4958-835c-055cd642450c}</Project>

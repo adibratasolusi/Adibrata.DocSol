@@ -76,6 +76,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="CommonClass\RedirectPage.cs" />
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
     </Compile>
@@ -84,6 +85,15 @@
     </Compile>
     <Compile Include="Customer\CustomerPaging.xaml.cs">
       <DependentUpon>CustomerPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\DocumentContentEntry.xaml.cs">
+      <DependentUpon>DocumentContentEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormRegistrasiPaging.xaml.cs">
+      <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormRegistrasiSave.xaml.cs">
+      <DependentUpon>FormRegistrasiSave.xaml</DependentUpon>
     </Compile>
     <Compile Include="IWindow.cs" />
     <Compile Include="Login\Login.xaml.cs">
@@ -143,6 +153,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Customer\CustomerPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\DocumentContentEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormRegistrasiPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormRegistrasiSave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

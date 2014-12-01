@@ -33,7 +33,7 @@ namespace Adibrata.Configuration
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = "",
+                    UserLogin = "",
                     NameSpace = "Adibrata.Configuration",
                     ClassName = "CheckFormSecurity",
                     FunctionName = "CheckFormSecurity",

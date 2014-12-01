@@ -746,11 +746,11 @@ namespace Adibrata.Framework.DataAccess
                 if (cn.State == ConnectionState.Open) cn.Close();
                 throw;
             }
-            finally
-            {
-                if (cn.State == ConnectionState.Open) cn.Close();
-                cn.Dispose();
-            }
+            //finally
+            //{
+            //    //if (cn.State == ConnectionState.Open) cn.Close();
+            //    //cn.Dispose();
+            //}
         }
 
         /// <summary>

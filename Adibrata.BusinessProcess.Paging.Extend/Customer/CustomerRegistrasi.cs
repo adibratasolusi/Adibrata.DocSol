@@ -5,7 +5,6 @@ using Adibrata.Framework.Logging;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
     public class CustomerRegistrasi
@@ -15,10 +14,9 @@ namespace Adibrata.BusinessProcess.Paging.Extend
         public virtual DataTable CustomerPaging (PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
-            StringBuilder sb = new StringBuilder();
             try
             {
-                sb.Append("spCustomerPaging");
+                
                 SqlParameter[] sqlParams = new SqlParameter[4];
                 sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar, 7);
                 sqlParams[0].Value = _ent.StartRecord;
@@ -29,14 +27,14 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 sqlParams[2].Value = _ent.WhereCond;
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
-                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, sb.ToString(), sqlParams));
+                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spCustPaging", sqlParams));
                 
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserName = _ent.UserLogin,
+                    UserLogin = _ent.UserLogin,
                     NameSpace = " Adibrata.BusinessProcess.Paging.Core.UserManagement",
                     ClassName = "UserRegisterPaging",
                     FunctionName = "UserRegister",

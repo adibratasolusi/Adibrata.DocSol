@@ -25,7 +25,7 @@ namespace Adibrata.Framework.Logging
         {
             Exception _exp = new Exception();
             StringBuilder sb = new StringBuilder();
-            sb.Append("Login User    :"); sb.AppendLine(_ent.UserName);
+            sb.Append("Login User    :"); sb.AppendLine(_ent.UserLogin);
             sb.Append("Namespace     : "); sb.AppendLine(_ent.NameSpace);
             sb.Append("ClassName     : "); sb.AppendLine(_ent.ClassName);
             sb.Append("Function Name : "); sb.AppendLine(_ent.FunctionName);
@@ -53,7 +53,7 @@ namespace Adibrata.Framework.Logging
         {
             Exception _exp = new Exception();
             StringBuilder sb = new StringBuilder();
-            sb.Append("Login User    :"); sb.AppendLine(_ent.UserName);
+            sb.Append("Login User    :"); sb.AppendLine(_ent.UserLogin);
             sb.Append("Namespace     : "); sb.AppendLine(_ent.NameSpace);
             sb.Append("ClassName     : "); sb.AppendLine(_ent.ClassName);
             sb.Append("Function Name : "); sb.AppendLine(_ent.FunctionName);

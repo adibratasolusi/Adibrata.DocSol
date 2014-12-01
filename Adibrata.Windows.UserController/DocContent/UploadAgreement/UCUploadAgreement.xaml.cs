@@ -1,4 +1,5 @@
-﻿using Adibrata.Configuration;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.Configuration;
 using Adibrata.Framework.ImageProcessing;
 using Adibrata.Framework.Messaging;
 using SharpBits.Base;
@@ -166,14 +167,14 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         private void saveUpload(string docType, string currentAgrmntNo)
         {
             //ketika upload file akan di catat di database
-            DocSolEntities _ent = new DocSolEntities
+            DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
             {
                 MethodName = "PathInsert",
                 ClassName = "UploadProcess"
             };
             _ent.AgrmntNo = currentAgrmntNo;
-            _ent.DocType = docType;
-            trxFileName = DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
+            _ent.DocumentType = docType;
+            trxFileName = Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
             dicFile.Add(fileCount, trxFileName); //file yg di upload di simpan di list dictionary
 
 

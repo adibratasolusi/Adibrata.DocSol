@@ -7,7 +7,7 @@
             d:DesignHeight="500" >
     <Grid Style="{StaticResource GridStyle}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="200" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0"  HorizontalAlignment="Left">

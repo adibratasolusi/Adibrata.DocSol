@@ -10,6 +10,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Adibrata.Framework.Logging;
+using Adibrata.BusinessProcess.Entities.Base;
 
 namespace Adibrata.Framework.WCF
 {
@@ -17,7 +19,8 @@ namespace Adibrata.Framework.WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        string conString = AppConfig.
+        static string Connectionstring = AppConfig.Config("ConnectionString");
+        SessionEntities SessionProperty = new SessionEntities();
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -44,7 +47,7 @@ namespace Adibrata.Framework.WCF
             var webClient = new WebClient();
             byte[] fileBytes = webClient.DownloadData(bitsServer + pathInfo.FileName + pathInfo.Ext);
             string strMessage = string.Empty;
-            SqlConnection con = new SqlConnection(conString);
+            SqlConnection con = new SqlConnection(Connectionstring);
             int result = 0;
             try
             {
@@ -68,9 +71,22 @@ namespace Adibrata.Framework.WCF
                     //logging error db here
                 }
             }
-            catch (Exception ex)
+            catch (Exception _exp)
             {
                 //logging app here
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.Framework.WCF",
+                    ClassName = "Service1",
+                    FunctionName = "UpdatePathDetails",
+                    ExceptionNumber = 1,
+                    EventSource = "UploadServices",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
 
         }

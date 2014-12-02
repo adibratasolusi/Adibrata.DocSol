@@ -1,5 +1,4 @@
-﻿using Adibrata.Windows.UserController;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows
+namespace Adibrata.DocumentSol.Windows.DocumentContent.Inquiry
 {
     /// <summary>
-    /// Interaction logic for TestPageFredy.xaml
+    /// Interaction logic for DocumentContentInquiry.xaml
     /// </summary>
-    public partial class TestPageFredy : Page
+    public partial class DocumentContentInquiry : Page
     {
-        public TestPageFredy()
+        public DocumentContentInquiry()
         {
             InitializeComponent();
-
-            this.DataContext = new MainVM(new Shell());
         }
     }
 }

@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
             <StackPanel>
-                <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"> </TextBlock>
                 <TextBlock Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type"></TextBlock>
             </StackPanel>
         </Grid>

@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.Security
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Report.Template", "Adibrata.Report.Template\Adibrata.Report.Template.csproj", "{C6DFA240-C475-49E6-96BD-3A0D6961F134}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.FinanceLease.Windows", "Adibrata.FinanceLease.Windows\Adibrata.FinanceLease.Windows.csproj", "{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Paging.Core", "Adibrata.BusinessProcess.Paging.Core\Adibrata.BusinessProcess.Paging.Core.csproj", "{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.BusinessProcess.Paging.Entities", "Adibrata.BusinessProcess.Paging.Entities\Adibrata.BusinessProcess.Paging.Entities.csproj", "{A9D73B8B-A1E7-4F36-A145-6D3EFE17C3E8}"
@@ -159,14 +157,6 @@ Global
 		{C6DFA240-C475-49E6-96BD-3A0D6961F134}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6DFA240-C475-49E6-96BD-3A0D6961F134}.Release|ARM.ActiveCfg = Release|Any CPU
 		{C6DFA240-C475-49E6-96BD-3A0D6961F134}.Release|x86.ActiveCfg = Release|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Release|ARM.ActiveCfg = Release|Any CPU
-		{CA9B27D4-15DC-43FE-A891-4BCDB8B2D709}.Release|x86.ActiveCfg = Release|Any CPU
 		{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FAA1E40-56FE-46C9-BEC5-7CAE5863AF3F}.Debug|ARM.ActiveCfg = Debug|Any CPU

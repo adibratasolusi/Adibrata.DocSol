@@ -11,6 +11,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 {
    public class DocContent : Adibrata.BusinessProcess.DocumentSol.Core.DocContent.DocContent
     {
+       int _numoffiles;
        public virtual DataTable DocContentRetrieve(DocSolEntities _ent)
        {
            DataTable _dt = new DataTable();
@@ -75,5 +76,57 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
            return _dt;
 
        }
+
+       public virtual int DocContentFiles (DocSolEntities _ent)
+       {
+           DataTable _dt = new DataTable();
+          
+
+           RuleEngineEntities _entrule = new RuleEngineEntities { RuleName = "RUDocFiles" };
+           try
+           {
+               if (!DataCache.Contains(_ent.DocumentType))
+               {
+                   StringBuilder sb = new StringBuilder();
+
+                   sb.Append(" Field1 = '");
+                   sb.Append(_ent.DocumentType);
+                   sb.Append("' ");
+
+
+                   _entrule.WhereCond = sb.ToString();
+                   _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
+              
+                   foreach (DataRow _row in _dt.Rows)
+                   {
+                       _numoffiles = (int)_row["Result"];
+
+                   }
+                   DataCache.Insert<int>(_ent.DocumentType, _numoffiles);
+               }
+               else
+               {
+                   _numoffiles = DataCache.Get<int>(_ent.DocumentType);
+               }
+           }
+           catch (Exception _exp)
+           {
+               ErrorLogEntities _errent = new ErrorLogEntities
+               {
+                   UserLogin = _ent.UserLogin,
+                   NameSpace = "Adibrata.BusinessProcess.DocumentSol",
+                   ClassName = "DocContent",
+                   FunctionName = "DocContentRetrieve",
+                   ExceptionNumber = 1,
+                   EventSource = "DocContent",
+                   ExceptionObject = _exp,
+                   EventID = 80, // 80 Untuk Framework 
+                   ExceptionDescription = _exp.Message
+               };
+               ErrorLog.WriteEventLog(_errent);
+           }
+           return _numoffiles;
+       }
+
     }
 }

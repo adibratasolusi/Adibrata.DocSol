@@ -10,6 +10,8 @@
         <Setter Property="Background" Value="{DynamicResource CommonBackgroundBrush}"/>
 		<Setter Property="BorderBrush" Value="{DynamicResource ButtonNormalBorder}"/>
 		<Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="SemiBold"></Setter>
 		<Setter Property="Padding" Value="1"/>
 		<Setter Property="AllowDrop" Value="true"/>
 		<Setter Property="FocusVisualStyle" Value="{x:Null}"/>

@@ -67,6 +67,7 @@
     <Folder Include="Function" />
     <Folder Include="StoreProcedure\Customer" />
     <Folder Include="SQLData" />
+    <Folder Include="StoreProcedure\RuleEngine" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -140,6 +141,7 @@
     <Build Include="Table\DocTransContent.sql" />
     <Build Include="Table\DocTransBinary.sql" />
     <Build Include="StoreProcedure\Customer\spCustView.sql" />
+    <Build Include="StoreProcedure\RuleEngine\spRuleEngineSchemePaging.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLData\TBIG.mdf" />

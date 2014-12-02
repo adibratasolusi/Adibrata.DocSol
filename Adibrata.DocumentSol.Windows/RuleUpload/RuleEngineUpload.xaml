@@ -1,19 +1,18 @@
-﻿<Page xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"  x:Class="Adibrata.DocumentSol.Windows.Customer.CustomerAddEdit"
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.RuleUpload.RuleEngineUpload"
+       xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" 
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      
-     d:DesignHeight="500" d:DesignWidth="800"
-      Style="{StaticResource PageStyle}"
-	Title="Customer Maintenance">
+      d:DesignHeight="300"
+	Title="RuleEngineUpload">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
 
             <Grid>
                 <Grid>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+                    <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
                 </Grid>
             </Grid>
 
@@ -21,7 +20,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="91*"/>
-                    
+
 
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -33,24 +32,32 @@
 
                 <Grid Grid.Column="0" Grid.Row="0" Margin="5">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Company Name" VerticalAlignment="Center"/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" Text="NPWP No" VerticalAlignment="Center"/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="SIUP No" VerticalAlignment="Center"/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="TDP No" VerticalAlignment="Center"/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" Text="Notary No" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Rule Code" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Rule Name" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" Text="Rule File" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2">
-                    <StackPanel HorizontalAlignment="Stretch">
-                        <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" MaxLength="50"  Width="500"></TextBox>
-                        <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100"></TextBox>
+                    <StackPanel >
+                        <TextBox Name="txtRuleCode" Style="{StaticResource textStyle}"  MaxLength="20" Height="30" Width="500"></TextBox>
+
+                        <TextBox Name="txtRuleName" Style="{StaticResource textStyle}" MaxLength="50" Height="30" Width="500"></TextBox>
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <TextBox Name="txtRuleFile" Style="{StaticResource textStyle}" Height="30" Width="300"></TextBox>
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                <Button Name="btnbrowse"  Width="60" Height="30">
+                                    <Label>_Upload</Label></Button>
+                            </Grid>
+                        </Grid>
+                        
                     </StackPanel>
-                </Grid>
-                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
-                    <UserController:UCAddress x:Name="oAddress"/>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -58,7 +65,6 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-
                         <Button Name="btnSave" Click="btnSave_Click">
                             <Label>_SAVE</Label>
                         </Button>

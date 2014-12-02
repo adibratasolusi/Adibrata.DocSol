@@ -10,6 +10,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Adibrata.Framework.Logging;
+using Adibrata.BusinessProcess.Entities.Base;
 
 namespace Adibrata.Framework.WCF
 {
@@ -18,6 +20,7 @@ namespace Adibrata.Framework.WCF
     public class Service1 : IService1
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
+        SessionEntities SessionProperty = new SessionEntities();
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -68,9 +71,22 @@ namespace Adibrata.Framework.WCF
                     //logging error db here
                 }
             }
-            catch (Exception ex)
+            catch (Exception _exp)
             {
                 //logging app here
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.Framework.WCF",
+                    ClassName = "Service1",
+                    FunctionName = "UpdatePathDetails",
+                    ExceptionNumber = 1,
+                    EventSource = "UploadServices",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
 
         }

@@ -18,7 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Adibrata.Controller;
 namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 {
     /// <summary>
@@ -36,7 +36,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();
         string server = AppConfig.Config("BITSServer");
-        int jumlahUploadMax = 2; //jumlah maksimal upload, masih hardcode
+        int jumlahUploadMax; //jumlah maksimal upload, masih hardcode
         #endregion
 
         #region Properties
@@ -45,6 +45,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             public string PathFile { get; set; }
             public string img { get; set; }
         }
+        public string UserLogin { get; set; }
+        public string DocumentType { get; set; }
 
         public string AgreementNo
         {
@@ -57,6 +59,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         public UCUploadAgreement()
         {
             InitializeComponent();
+            DocSolEntities _ent = new DocSolEntities { ClassName = "DocContent", MethodName = "DocContentFiles", UserLogin = this.UserLogin, DocumentType = this.DocumentType };
+            jumlahUploadMax = DocumentSolutionController.DocSolProcess<int>(_ent);
         }
         #endregion
 

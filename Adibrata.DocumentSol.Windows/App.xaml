@@ -137,6 +137,7 @@
                 <Setter Property="FontSize" Value="18"/>
                 <Setter Property="FontWeight" Value="Normal"/>
             </Style>
+            <Color x:Key="AdibrataLogo">#FF008EBA</Color>
             <ResourceDictionary.MergedDictionaries>
 
 

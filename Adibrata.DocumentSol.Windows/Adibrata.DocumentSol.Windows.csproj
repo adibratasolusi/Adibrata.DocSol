@@ -76,6 +76,15 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="AgrmntUpload\Inquiry\LocalInquiry.xaml.cs">
+      <DependentUpon>LocalInquiry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgrmntUpload\Inquiry\LocalInquiryDetail.xaml.cs">
+      <DependentUpon>LocalInquiryDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgrmntUpload\Inquiry\ServerInquiry.xaml.cs">
+      <DependentUpon>ServerInquiry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CommonClass\RedirectPage.cs" />
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
@@ -141,6 +150,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AgrmntUpload\AgrmntUploadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgrmntUpload\Inquiry\LocalInquiry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgrmntUpload\Inquiry\LocalInquiryDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgrmntUpload\Inquiry\ServerInquiry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

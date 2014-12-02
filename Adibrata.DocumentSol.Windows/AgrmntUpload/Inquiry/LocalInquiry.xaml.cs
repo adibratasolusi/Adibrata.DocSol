@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows.UserManagement
+namespace Adibrata.DocumentSol.Windows.AgrmntUpload.Inquiry
 {
     /// <summary>
-    /// Interaction logic for MasterFormPagingAddEdit.xaml
+    /// Interaction logic for LocalInquiry.xaml
     /// </summary>
-    public partial class MasterFormPagingAddEdit : Page
+    public partial class LocalInquiry : Page
     {
-        public MasterFormPagingAddEdit()
+        public LocalInquiry()
         {
             InitializeComponent();
+        }
+
+        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

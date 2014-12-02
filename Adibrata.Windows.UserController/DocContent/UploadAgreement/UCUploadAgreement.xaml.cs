@@ -1,7 +1,8 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Configuration;
-using Adibrata.Controller;
 using Adibrata.Framework.ImageProcessing;
+using Adibrata.Framework.Logging;
 using Adibrata.Framework.Messaging;
 using SharpBits.Base;
 using System;
@@ -47,6 +48,11 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             public string img { get; set; }
         }
 
+        public SessionEntities SessionProperty
+        {
+            get;
+            set;
+        }
         public string AgreementNo
         {
             get;
@@ -120,63 +126,106 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
         void upload()
         {
-            string agrmntNo = "test";
-
-            //set flag for save to database
-            #region "reset flag"
-            fileCount = 0;
-            jobCount = 0;
-            dicFile.Clear();
-            dicExt.Clear();
-            #endregion
-            DataGridHelper dtgHelper = new DataGridHelper();
-            dtgHelper.dtg = dtgUpload;
-            for (int i = 0; i < dtgUpload.Items.Count; i++)
+            try
             {
-                var path = new TextBlock();
-                var docType = new TextBlock();
+                string agrmntNo = "test";
 
-                DataGridCell cellPath = dtgHelper.GetCell(i, 1);
-                path = (TextBlock)cellPath.Content;
-                if (path.Text != null && path.Text != "")
+                //set flag for save to database
+                #region "reset flag"
+                fileCount = 0;
+                jobCount = 0;
+                dicFile.Clear();
+                dicExt.Clear();
+                #endregion
+                DataGridHelper dtgHelper = new DataGridHelper();
+                dtgHelper.dtg = dtgUpload;
+                for (int i = 0; i < dtgUpload.Items.Count; i++)
                 {
-                    string newPath = WaterMarkProcess.SetWatermark(path.Text);
-                    string extension = System.IO.Path.GetExtension(newPath);
-                    fileCount += 1; //set jumlah file
-                    saveUpload(docType.Text, agrmntNo);
-                    dicExt.Add(fileCount, extension);
-                }
+                    var path = new TextBlock();
+                    var docType = new TextBlock();
 
+                    DataGridCell cellPath = dtgHelper.GetCell(i, 1);
+                    path = (TextBlock)cellPath.Content;
+                    if (path.Text != null && path.Text != "")
+                    {
+                        string newPath = WaterMarkProcess.SetWatermark(path.Text);
+                        string extension = System.IO.Path.GetExtension(newPath);
+                        fileCount += 1; //set jumlah file
+                        saveUpload(docType.Text, agrmntNo);
+                        dicExt.Add(fileCount, extension);
+                    }
+
+                }
+                for (int i = 0; i < dtgUpload.Items.Count; i++)
+                {
+                    var path = new TextBox();
+                    DataGridCell cellPath = dtgHelper.GetCell(i, 3);
+                    path = (TextBox)cellPath.Content;
+                    if (path.Text != null && path.Text != "")
+                    {
+                        string filePath = path.Text;
+                        string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath);
+                        string filePathOnly = System.IO.Path.GetDirectoryName(filePath);
+                        string extension = System.IO.Path.GetExtension(filePath);
+                        string newPath = filePathOnly + "//" + fileName + "_marking" + extension;
+                        bits(newPath, dicFile[i + 1]);
+                    }
+                }
             }
-            for (int i = 0; i < dtgUpload.Items.Count; i++)
+            catch (Exception _exp)
             {
-                var path = new TextBox();
-                DataGridCell cellPath = dtgHelper.GetCell(i, 3);
-                path = (TextBox)cellPath.Content;
-                if (path.Text != null && path.Text != "")
+
+                ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    string filePath = path.Text;
-                    string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath);
-                    string filePathOnly = System.IO.Path.GetDirectoryName(filePath);
-                    string extension = System.IO.Path.GetExtension(filePath);
-                    string newPath = filePathOnly + "//" + fileName + "_marking" + extension;
-                    bits(newPath, dicFile[i + 1]);
-                }
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "upload",
+                    ExceptionNumber = 1,
+                    EventSource = "UploadProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
+          
             //MessageBox.Show("Upload");
         }
         private void saveUpload(string docType, string currentAgrmntNo)
         {
             //ketika upload file akan di catat di database
-            DocSolEntities _ent = new DocSolEntities
+            try
             {
-                MethodName = "PathInsert",
-                ClassName = "UploadProcess"
-            };
-            _ent.AgrmntNo = currentAgrmntNo;
-            _ent.DocumentType = docType;
-            trxFileName = DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
-            dicFile.Add(fileCount, trxFileName); //file yg di upload di simpan di list dictionary
+                DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+                {
+                    MethodName = "PathInsert",
+                    ClassName = "UploadProcess"
+                };
+                _ent.AgrmntNo = currentAgrmntNo;
+                _ent.DocumentType = docType;
+                trxFileName = Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
+                dicFile.Add(fileCount, trxFileName); //file yg di upload di simpan di list dictionary
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "saveUpload",
+                    ExceptionNumber = 1,
+                    EventSource = "UploadProcess",
+                    ExceptionObject = _exp,
+                    EventID = 201, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                //logging BITS here
+            }
+          
 
 
         }
@@ -192,11 +241,15 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 //manager = new BitsManager();
                 BitsManager manager = new BitsManager();
                 manager.EnumJobs(JobOwner.CurrentUser);
-                BitsJob newJob = manager.CreateJob("TestUpload1", JobType.Upload); //upload or download
+                BitsJob newJob = manager.CreateJob(fileName, JobType.Upload); //upload or download
                 newJob.AddFile(server + trxNo + extension, fileName); //NewJob.AddFile(namafiletujuan, namafileasal)
                 newJob.Resume();
-                newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred); //event notification success
 
+                Guid jobId = newJob.JobId;
+                BitsJob job = manager.Jobs[jobId];
+                string a = job.State.ToString();
+                newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred); //event notification success
+                
                 #region "Comment, about BITS info, uncomment with your own risk"
                 //foreach (BitsJob job in manager.Jobs.Values)
                 //{
@@ -214,40 +267,69 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 //newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred);
                 #endregion
             }
-            catch (Exception ex)
+            catch (Exception _exp)
             {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "bits",
+                    ExceptionNumber = 1,
+                    EventSource = "UploadProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
                 //logging BITS here
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(_exp.ToString());
             }
 
         }
         void newJob_OnJobTransferred(object sender, JobNotificationEventArgs e)
         {
-            //job selesai di transfer
-            int flag = 0; //flag untuk save ke db
-            jobCount += 1; //flag perhitungan jumlah job yang selesai
-            if (jobCount == fileCount && flag == 0) //jika jumlah job yg selesai sama dengan jumlah file
+            try
             {
-                //simpan file berdasarkan list dictionary
-                for (int i = 0; i < dicFile.Count; i++)
+                //job selesai di transfer
+
+                int flag = 0; //flag untuk save ke db
+                jobCount += 1; //flag perhitungan jumlah job yang selesai
+                if (jobCount == fileCount && flag == 0) //jika jumlah job yg selesai sama dengan jumlah file
                 {
-                    WCFEntities oWcf = new WCFEntities();
-                    oWcf.DicExtString = dicExt[i + 1];// why + 1 ? karena mengambil file berdasarkan key nya, bukan dari index, (key mulai dari 1, index mulai dari 0, nilai awal i adalah 0) jadi harus + 1
-                    oWcf.DicFileString = dicFile[i + 1];
-                    MessageToWCF.UpdateFilePath(oWcf);
-                    flag += 1;
+                    //simpan file berdasarkan list dictionary
+                    for (int i = 0; i < dicFile.Count; i++)
+                    {
+                        WCFEntities oWcf = new WCFEntities();
+                        oWcf.DicExtString = dicExt[i + 1];// why + 1 ? karena mengambil file berdasarkan key nya, bukan dari index, (key mulai dari 1, index mulai dari 0, nilai awal i adalah 0) jadi harus + 1
+                        oWcf.DicFileString = dicFile[i + 1];
+                        MessageToWCF.UpdateFilePath(oWcf);
+                        flag += 1;
+                    }
+                    MessageBox.Show("Upload file Success");
                 }
-                MessageBox.Show("Upload file Success");
             }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "newJob_OnJobTransferred",
+                    ExceptionNumber = 1,
+                    EventSource = "UploadProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
         }
 
 
         #endregion
-
-        private void cmbDocType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
         #endregion
 
 

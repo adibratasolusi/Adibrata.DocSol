@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300" ShowsNavigationUI="False"
+      d:DesignHeight="300" d:DesignWidth="300"
       Style="{StaticResource PageStyle}"
 	Title="Login">
     <Grid Style="{StaticResource GridStyle}" >
@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" >
 
-                <Image Source="Images/logoadibrata.png" Width="100" Height="100" Visibility="Visible">
+                <Image Source="../Images/logoadibrata.png" Width="200" Height="200">
                 </Image>
                 <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
             </Grid>

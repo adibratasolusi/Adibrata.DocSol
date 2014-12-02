@@ -49,6 +49,7 @@ namespace Adibrata.DocumentSol.Windows.RuleUpload
         {
             try
             {
+                _ent = RuleEngineProcess.UploadRuleEngine(_ent);
 
                 RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
             }

@@ -12,7 +12,7 @@
 
             <Grid>
                 <Grid>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+                    <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
                 </Grid>
             </Grid>
 
@@ -38,10 +38,25 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2">
-                    <StackPanel HorizontalAlignment="Stretch">
-                        <TextBox Name="txtRuleCode" Style="{StaticResource textStyle}" MaxLength="20"  Width="500"></TextBox>
-                        <TextBox Name="txtRuleName" Style="{StaticResource textStyle}" MaxLength="50"  Width="500"></TextBox>
-                        <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}" Width="500"></TextBox>
+                    <StackPanel >
+                        <TextBox Name="txtRuleCode" Style="{StaticResource textStyle}"  MaxLength="20" Height="30" Width="500"></TextBox>
+
+                        <TextBox Name="txtRuleName" Style="{StaticResource textStyle}" MaxLength="50" Height="30" Width="500"></TextBox>
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <TextBox Name="txtRuleFile" Style="{StaticResource textStyle}" Height="30" Width="300"></TextBox>
+                            </Grid>
+                            <Grid Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                <Button Name="btnbrowse"  Width="60" Height="30">
+                                    <Label>_Upload</Label></Button>
+                            </Grid>
+                        </Grid>
+                        
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
@@ -50,7 +65,6 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-
                         <Button Name="btnSave" Click="btnSave_Click">
                             <Label>_SAVE</Label>
                         </Button>

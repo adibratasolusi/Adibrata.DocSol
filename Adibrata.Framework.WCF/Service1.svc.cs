@@ -17,7 +17,7 @@ namespace Adibrata.Framework.WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        string conString = AppConfig.
+        static string Connectionstring = AppConfig.Config("ConnectionString");
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -44,7 +44,7 @@ namespace Adibrata.Framework.WCF
             var webClient = new WebClient();
             byte[] fileBytes = webClient.DownloadData(bitsServer + pathInfo.FileName + pathInfo.Ext);
             string strMessage = string.Empty;
-            SqlConnection con = new SqlConnection(conString);
+            SqlConnection con = new SqlConnection(Connectionstring);
             int result = 0;
             try
             {

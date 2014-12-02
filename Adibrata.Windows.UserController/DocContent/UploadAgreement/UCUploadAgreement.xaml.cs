@@ -70,22 +70,22 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             if (dtgUpload.Items.Count >= jumlahUploadMax)
             {
 
-                MessageBox.Show("Jumlah file maksimal sudah terpenuhi");
+                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
             }
             else
             {
-                upload();
+                FileUpload();
             }
         }
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
             if (dtgUpload.Items.Count >= jumlahUploadMax)
             {
-                MessageBox.Show("Jumlah file maksimal sudah terpenuhi");
+                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
             }
             else
             {
-                browse();
+                BrowseFile();
             }
 
         }
@@ -98,7 +98,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         #endregion
 
         #region Method
-        void browse()
+        private void BrowseFile()
         {
             // Create OpenFileDialog
 
@@ -121,7 +121,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
             }
         }
-        void upload()
+
+        private void FileUpload()
         {
             string agrmntNo = "test";
 
@@ -168,6 +169,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
             //MessageBox.Show("Upload");
         }
+
         private void saveUpload(string docType, string currentAgrmntNo)
         {
             //ketika upload file akan di catat di database

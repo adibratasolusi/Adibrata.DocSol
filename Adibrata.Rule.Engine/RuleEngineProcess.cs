@@ -115,23 +115,25 @@ namespace Adibrata.Framework.Rule
                 ErrorLog.WriteEventLog(_errent);
             }
             return _dtrule;
-
         }
 
         public static RuleEngineEntities UploadRuleEngine(RuleEngineEntities _ent)
         {
             StringBuilder sb = new StringBuilder();
             DataTable _dt = new DataTable();
+            SqlConnection _conn = new SqlConnection();
+            SqlTransaction _trans;
             try
             {
-
+                if (_conn.State == ConnectionState.Closed) { _conn.Open(); }
+                _trans = _conn.BeginTransaction();
                 _dt = FillDataRuleEngine(_ent.PathFile, _ent);
 
                 _ent.DtListValue = _dt;
 
                 sb.Append("IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME='"); sb.Append(_ent.RuleName); sb.Append("')");
                 sb.Append(" Drop Table "); sb.AppendLine(_ent.RuleName);
-                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
+                SqlHelper.ExecuteNonQuery(_trans, CommandType.Text, sb.ToString());
 
                 sb.Clear();
                 sb.Append("Create Table ");
@@ -148,7 +150,7 @@ namespace Adibrata.Framework.Rule
                 
                 sb.Append(" CONSTRAINT [PK_"); sb.Append(_ent.RuleName); sb.Append("] PRIMARY KEY CLUSTERED (	[ID] ASC )");
                 sb.AppendLine("WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON RuleEngine) On RuleEngine");
-                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
+                SqlHelper.ExecuteNonQuery(_trans, CommandType.Text, sb.ToString());
 
                 sb.Clear();
                 sb.Append("Create Index IX_");
@@ -210,9 +212,8 @@ namespace Adibrata.Framework.Rule
                         sqlParams[_ent.NumOfCondition + 1].Value = _ent.UserLogin;
                         sqlParams[_ent.NumOfCondition].Value = DateTime.Now;
 
-                        SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString(), sqlParams);
+                        SqlHelper.ExecuteNonQuery(_trans, CommandType.Text, sb.ToString(), sqlParams);
                     }
-                    
                 }
             }
             catch (Exception _exp)

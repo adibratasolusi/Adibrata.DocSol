@@ -1,4 +1,6 @@
-﻿using Adibrata.Configuration;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.Configuration;
+using Adibrata.Controller;
 using Adibrata.Framework.ImageProcessing;
 using Adibrata.Framework.Messaging;
 using SharpBits.Base;
@@ -69,7 +71,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
             else
             {
-                uploadBITS();
+                upload();
             }
         }
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
@@ -172,7 +174,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ClassName = "UploadProcess"
             };
             _ent.AgrmntNo = currentAgrmntNo;
-            _ent.DocType = docType;
+            _ent.DocumentType = docType;
             trxFileName = DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
             dicFile.Add(fileCount, trxFileName); //file yg di upload di simpan di list dictionary
 
@@ -241,6 +243,11 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
 
         #endregion
+
+        private void cmbDocType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
         #endregion
 
 

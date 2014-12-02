@@ -31,8 +31,8 @@
             <Grid Grid.Column="0" Grid.Row="1">
                 <TextBlock Name="tbDocType" Text="Document Type :"></TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="1">
-                <ComboBox Name="cmbDocType" DisplayMemberPath="DocType" SelectedValuePath="ID"></ComboBox>
+            <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                <ComboBox Name="cmbDocType" DisplayMemberPath="DocType" IsEditable="True" Text="--Select Type--" SelectedValuePath="ID" SelectionChanged="cmbDocType_SelectionChanged" ></ComboBox>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" >
                 <GroupBox Name="testGroupBox"></GroupBox>
@@ -58,7 +58,7 @@
                         <DataGridTemplateColumn Header="Preview">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image x:Name="imgPreview" Source="{Binding img}"></Image>
+                                    <Image x:Name="imgPreview" Source="{Binding img}" Height="100" Width="100"></Image>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
 

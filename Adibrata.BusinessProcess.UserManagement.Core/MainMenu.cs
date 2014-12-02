@@ -151,6 +151,38 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
             return _dt;
         }
 
+        public virtual DataTable SearchEngineMenu(UserManagementEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@criteria", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.Form;
+                sb.Append("spSearchMenuEngine");
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(),sqlParams));
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
+                    ClassName = "UserManagement",
+                    FunctionName = "MainMenuGetActive",
+                    ExceptionNumber = 1,
+                    EventSource = "MainMenuGetActive",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return _dt;
+        }
+
 
     }
 }

@@ -142,7 +142,10 @@ namespace Adibrata.Framework.Rule
                     sb.Append("Field"); sb.Append(_counter.ToString()); sb.Append(" nvarchar(50), ");
 
                 }
-                sb.Append(" Result nvarchar(50)");
+                sb.Append(" Result nvarchar(50), ");
+                sb.Append(" UsrCrt nvarchar(50)");
+                sb.Append(" DtmCrt SmallDateTime");
+                
                 sb.Append(" CONSTRAINT [PK_"); sb.Append(_ent.RuleName); sb.Append("] PRIMARY KEY CLUSTERED (	[ID] ASC )");
                 sb.AppendLine("WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON RuleEngine) On RuleEngine");
                 SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
@@ -169,18 +172,18 @@ namespace Adibrata.Framework.Rule
                     sb.Append("Field"); sb.Append(_counter);
                     sb.Append(", ");
                 }
-                sb.Append("Result) Values (");
+                sb.Append("Result, UsrCrt, DtmCrt) Values (");
                 for (_counter = 1; _counter <= _ent.NumOfCondition; _counter++)
                 {
                     sb.Append("@Field"); sb.Append(_counter);
                     sb.Append(", ");
                 }
 
-                sb.Append(" @Result)");
+                sb.Append(" @Result, @UsrCrt, @DtmCrt)");
                 string _paramname;
                 string _colomname;
                 _counter = 1;
-                SqlParameter[] sqlParams = new SqlParameter[_ent.NumOfCondition+1];
+                SqlParameter[] sqlParams = new SqlParameter[_ent.NumOfCondition+1+2];
                 for (_counter = 0; _counter <= _ent.NumOfCondition - 1; _counter++)
                 {
                     _paramname = "@Field" + (_counter+1).ToString();
@@ -189,6 +192,9 @@ namespace Adibrata.Framework.Rule
                 _paramname = "@Result";
 
                 sqlParams[_ent.NumOfCondition] = new SqlParameter(_paramname, SqlDbType.VarChar);
+                sqlParams[_ent.NumOfCondition + 1] = new SqlParameter("@UsrCrt", SqlDbType.NVarChar,50);
+                sqlParams[_ent.NumOfCondition + 2] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
+
 
                 if (_ent.DtListValue.Rows.Count > 0)
                 {
@@ -201,6 +207,9 @@ namespace Adibrata.Framework.Rule
                             sqlParams[_counter].Value = (string)_row[_colomname];
                         }
                         sqlParams[_ent.NumOfCondition].Value = (string)_row["ResultField"];
+                        sqlParams[_ent.NumOfCondition + 1].Value = _ent.UserLogin;
+                        sqlParams[_ent.NumOfCondition].Value = DateTime.Now;
+
                         SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString(), sqlParams);
                     }
                     

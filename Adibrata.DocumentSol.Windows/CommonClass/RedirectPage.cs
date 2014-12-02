@@ -42,6 +42,11 @@ namespace Adibrata.DocumentSol.Windows
                 #region "DocumentContentEntry"
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
                 #endregion
+
+                #region "Upload Rule"
+                case "RuleUpload.RuleEngineUpload": Source.NavigationService.Navigate(new RuleUpload.RuleEngineUpload(_ent)); break;
+                case "RuleUpload.RuleSchemePaging": Source.NavigationService.Navigate(new RuleUpload.RuleSchemePaging(_ent)); break;
+                #endregion 
             }
 
         }
@@ -73,6 +78,11 @@ namespace Adibrata.DocumentSol.Windows
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
                 #endregion
 
+                #region "Upload Rule"
+                case "RuleUpload.RuleEngineUpload": Source.NavigationService.Navigate(new RuleUpload.RuleEngineUpload(_ent)); break;
+                case "RuleUpload.RuleSchemePaging": Source.NavigationService.Navigate(new RuleUpload.RuleSchemePaging(_ent)); break;
+                    
+                #endregion 
             }
 
         }

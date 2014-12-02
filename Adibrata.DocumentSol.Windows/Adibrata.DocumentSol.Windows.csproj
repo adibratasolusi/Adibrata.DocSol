@@ -114,6 +114,12 @@
     <Compile Include="Popup_UC.xaml.cs">
       <DependentUpon>Popup_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RuleUpload\RuleEngineUpload.xaml.cs">
+      <DependentUpon>RuleEngineUpload.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RuleUpload\RuleSchemePaging.xaml.cs">
+      <DependentUpon>RuleSchemePaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shell.cs" />
     <Compile Include="TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
@@ -201,6 +207,14 @@
     <Page Include="Popup_UC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RuleUpload\RuleEngineUpload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RuleUpload\RuleSchemePaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestPage.xaml">
       <SubType>Designer</SubType>
@@ -358,6 +372,18 @@
     <ProjectReference Include="..\Adibrata.Framework.Security\Adibrata.Framework.Security.csproj">
       <Project>{26f1e2d1-b0e5-405b-9d73-369db760a730}</Project>
       <Name>Adibrata.Framework.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.WCF\Adibrata.Framework.WCF.csproj">
+      <Project>{b4e44c92-4874-430b-a050-2c6d10a30a7d}</Project>
+      <Name>Adibrata.Framework.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Journal.Engine\Adibrata.Journal.Engine.csproj">
+      <Project>{f7dbf23d-bc47-45b8-ae26-955908e5c9d7}</Project>
+      <Name>Adibrata.Journal.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Rule.Engine\Adibrata.Framework.Rule.csproj">
+      <Project>{030bbc11-268a-4abf-8e58-3c2461aab791}</Project>
+      <Name>Adibrata.Framework.Rule</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Theme\Adibrata.Themes.Core\Adibrata.Themes.Core.csproj">
       <Project>{d0447080-8d02-4958-835c-055cd642450c}</Project>

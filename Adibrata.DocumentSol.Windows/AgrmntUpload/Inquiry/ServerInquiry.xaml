@@ -46,7 +46,7 @@
                                 <ComboBox Name="cmbDocType"></ComboBox>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">
+                                <Button x:Name="btnSearch" FontSize="18">
                                     <Label>_SEARCH</Label>
                                 </Button>
                             </Grid>
@@ -66,7 +66,7 @@
                                 <DataGridTemplateColumn Header="DETAIL" Width="70">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click"></Button>
+                                            <Button Name="btnDetail" Content="DETAIL"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
 

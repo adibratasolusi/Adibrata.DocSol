@@ -47,7 +47,6 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
         public string UserLogin { get; set; }
         public string DocumentType { get; set; }
-
         public Int64 TransId
         {
             get;
@@ -59,24 +58,18 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         public UCUploadAgreement()
         {
             InitializeComponent();
+            jumlahUploadMax = 3;
+        }
+        public void BindingValueMax()
+        {
+            dtgUpload.Items.Clear();
             DocSolEntities _ent = new DocSolEntities { ClassName = "DocContent", MethodName = "DocContentFiles", UserLogin = this.UserLogin, DocumentType = this.DocumentType };
             jumlahUploadMax = DocumentSolutionController.DocSolProcess<int>(_ent);
         }
         #endregion
 
         #region Button Event
-        private void btnUpload_Click(object sender, RoutedEventArgs e)
-        {
-            if (dtgUpload.Items.Count >= jumlahUploadMax)
-            {
 
-                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
-            }
-            else
-            {
-                FileUpload();
-            }
-        }
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
             if (dtgUpload.Items.Count >= jumlahUploadMax)
@@ -98,6 +91,19 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         #endregion
 
         #region Method
+        public void CheckAndUpload(DataTable dtContent)
+        {
+            
+            if (dtgUpload.Items.Count >= jumlahUploadMax)
+            {
+
+                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+            }
+            else
+            {
+                FileUpload(dtContent);
+            }
+        }
         private void BrowseFile()
         {
             // Create OpenFileDialog
@@ -122,7 +128,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
         }
 
-        private void FileUpload()
+        private void FileUpload(DataTable dtContent)
         {
 
             //set flag for save to database
@@ -134,6 +140,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             #endregion
             DataGridHelper dtgHelper = new DataGridHelper();
             dtgHelper.dtg = dtgUpload;
+            int flagContent = 0;
             for (int i = 0; i < dtgUpload.Items.Count; i++)
             {
                 var path = new TextBlock();
@@ -147,6 +154,11 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     string extension = System.IO.Path.GetExtension(newPath);
                     fileCount += 1; //set jumlah file
                     saveUpload(docType.Text, TransId);
+                    if (flagContent !=0)
+                    {
+                        DataTable test = dtContent;
+                    }
+                    flagContent += 1;
                     dicExt.Add(fileCount, extension);
                 }
 

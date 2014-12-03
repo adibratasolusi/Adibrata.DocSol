@@ -11,40 +11,20 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Grid.Row="0">
-                <TextBlock Name="tbCust" Text="Customer Name :"></TextBlock>
+                <TextBlock Name="tbUpload" Text="Upload Document :"  Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="0">
-                <TextBox Name="txtCust" Text="na"></TextBox>
+                <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click" HorizontalAlignment="Right"></Button>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="1">
-                <TextBlock Name="tbDocType" Text="Document Type :"></TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
-                <ComboBox Name="cmbDocType" DisplayMemberPath="DocType" IsEditable="True" Text="--Select Type--" SelectedValuePath="ID" SelectionChanged="cmbDocType_SelectionChanged" ></ComboBox>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" >
-                <GroupBox Name="testGroupBox"></GroupBox>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="3">
-                <TextBlock Name="tbUpload" Text="Upload Document :"></TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3">
-                <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click"></Button>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3">
-                <DataGrid Name="dtgUpload" CanUserDeleteRows="True">
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <DataGrid Name="dtgUpload" CanUserDeleteRows="True" Width="Auto">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Delete" x:Name="Delete">
                             <DataGridTemplateColumn.CellTemplate>
@@ -67,10 +47,6 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-            </Grid>
-
-            <Grid Grid.Column="1" Grid.Row="6">
-                <Button Name="btnSave" Content="Upload" Click="btnUpload_Click"></Button>
             </Grid>
 
         </Grid>

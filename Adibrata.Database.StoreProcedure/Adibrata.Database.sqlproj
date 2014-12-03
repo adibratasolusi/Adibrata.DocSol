@@ -68,6 +68,7 @@
     <Folder Include="StoreProcedure\Customer" />
     <Folder Include="SQLData" />
     <Folder Include="StoreProcedure\RuleEngine" />
+    <Folder Include="StoreProcedure\Upload" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />

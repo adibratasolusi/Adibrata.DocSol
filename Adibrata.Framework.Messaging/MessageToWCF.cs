@@ -9,12 +9,19 @@ namespace Adibrata.Framework.Messaging
         public static void UpdateFilePath(WCFEntities oWCF)
         {
 
-            ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
+            Service1Client objService = new Service1Client();
             try
             {
+
                 PathDetails pathInfo = new PathDetails();
-                pathInfo.Ext = oWCF.DicExtString;
-                pathInfo.FileName = oWCF.DicFileString;
+                pathInfo.DocTransID = oWCF.DocTransID;
+                pathInfo.FileName = oWCF.FileName;
+                pathInfo.DateCreated = oWCF.DateCreated;
+                pathInfo.SizeFileBytes = oWCF.SizeFileBytes;
+                pathInfo.Pixel = oWCF.Pixel;
+                pathInfo.ComputerName = oWCF.ComputerName;
+                pathInfo.DPI = oWCF.DPI;
+                pathInfo.FileBinary = oWCF.FileBinary;
                 objService.UpdatePathDetails(pathInfo);
             }
             catch (Exception _exp)
@@ -29,7 +36,7 @@ namespace Adibrata.Framework.Messaging
                     ExceptionNumber = 1,
                     EventSource = "Messaging",
                     ExceptionObject = _exp,
-                    EventID = 1,
+                    EventID = 201,
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

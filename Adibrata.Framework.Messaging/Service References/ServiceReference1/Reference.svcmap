@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5852e66a-7772-4709-a3e0-a11ac7281042" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f83e9285-0780-4f54-b2e9-a0293584e2ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/XbapWCF/Service1.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/adibrata.wcf/Service1.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="53273e16-2b0e-406e-8647-29660d0d7a22" SourceId="1" SourceUrl="http://localhost/XbapWCF/Service1.svc?disco" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="90b85662-9e6b-4984-8aa0-8f7edd0dd64c" SourceId="1" SourceUrl="http://localhost/XbapWCF/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="949ca27b-e4f0-4366-856f-f23cbd02c2ad" SourceId="1" SourceUrl="http://localhost/XbapWCF/Service1.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="fb032f6f-cb8b-4821-a9e9-66a9e950ad66" SourceId="1" SourceUrl="http://localhost/XbapWCF/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="530b2847-5502-4650-87c1-3a6aba9dbd1e" SourceId="1" SourceUrl="http://localhost/XbapWCF/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="3df1a795-e43a-4219-8689-84d76077648e" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="ea7732e6-11ee-4fcf-801d-e7a29a1e5a4f" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="6b5b241e-3f67-4446-a860-11b643eaa5a4" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/Service1.svc?disco" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="f96a7665-b9ef-4990-8bf1-7d43eefa9c9e" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="758919c6-661e-4119-b500-ac1b8204064b" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/Service1.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

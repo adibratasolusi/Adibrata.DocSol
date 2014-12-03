@@ -51,12 +51,12 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             {
                 DataTable _dt = new DataTable();
                 SqlParameter[] sqlParams = new SqlParameter[2];
-                sqlParams[0] = new SqlParameter("@agrmntNo", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.AgrmntNo;
+                sqlParams[0] = new SqlParameter("@TransId", SqlDbType.VarChar, 50);
+                sqlParams[0].Value = _ent.TransId;
                 sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar,50);
                 sqlParams[1].Value = _ent.DocumentType;
-                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spPathInsert", sqlParams));
-                pathId = _dt.Rows[0]["PATH_ID"].ToString(); 
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
+                pathId = _dt.Rows[0]["Id"].ToString(); 
 
             }
             catch (Exception _exp)
@@ -67,11 +67,11 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
-                    FunctionName = "MainMenuInsertUpdate",
+                    FunctionName = "PathInsert",
                     ExceptionNumber = 1,
-                    EventSource = "MainMenuInsertUpdate",
+                    EventSource = "PathInsert",
                     ExceptionObject = _exp,
-                    EventID = 80, // 80 Untuk Framework 
+                    EventID = 201, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

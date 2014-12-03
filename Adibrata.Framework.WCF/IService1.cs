@@ -20,6 +20,9 @@ namespace Adibrata.Framework.WCF
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
+
+        [OperationContract]
+        void UpdatePathDetails(PathDetails pathInfo);
     }
 
 
@@ -48,30 +51,20 @@ namespace Adibrata.Framework.WCF
     [DataContract]
     public class PathDetails
     {
-        string agrmntNo = string.Empty;
-        string docType = string.Empty;
+        Int64 docTransID;
         string fileName = string.Empty;
-        string ext = string.Empty;
-        Int64 pathId;
+        DateTime dateCreated;
+        decimal sizeFileBytes;
+        string pixel = string.Empty;
+        string computerName = string.Empty;
+        string dPI = string.Empty;
         byte[] fileBinary;
 
         [DataMember]
-        public string AgrmntNo
+        public Int64 DocTransID
         {
-            get { return agrmntNo; }
-            set { agrmntNo = value; }
-        }
-        [DataMember]
-        public string Ext
-        {
-            get { return ext; }
-            set { ext = value; }
-        }
-        [DataMember]
-        public string DocType
-        {
-            get { return docType; }
-            set { docType = value; }
+            get { return docTransID; }
+            set { docTransID = value; }
         }
         [DataMember]
         public string FileName
@@ -80,16 +73,40 @@ namespace Adibrata.Framework.WCF
             set { fileName = value; }
         }
         [DataMember]
+        public DateTime DateCreated
+        {
+            get { return dateCreated; }
+            set { dateCreated = value; }
+        }
+        [DataMember]
+        public decimal SizeFileBytes
+        {
+            get { return sizeFileBytes; }
+            set { sizeFileBytes = value; }
+        }
+        [DataMember]
+        public string Pixel
+        {
+            get { return pixel; }
+            set { pixel = value; }
+        }
+        [DataMember]
+        public string ComputerName
+        {
+            get { return computerName; }
+            set { computerName = value; }
+        }
+        [DataMember]
+        public string DPI
+        {
+            get { return dPI; }
+            set { dPI = value; }
+        }
+        [DataMember]
         public byte[] FileBinary
         {
             get { return fileBinary; }
             set { fileBinary = value; }
-        }
-        [DataMember]
-        public Int64 PathId
-        {
-            get { return pathId; }
-            set { pathId = value; }
         }
     }
 }

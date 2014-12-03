@@ -12,6 +12,10 @@ using System.ServiceModel.Web;
 using System.Text;
 using Adibrata.Framework.Logging;
 using Adibrata.BusinessProcess.Entities.Base;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Globalization;
 
 namespace Adibrata.Framework.WCF
 {
@@ -39,23 +43,68 @@ namespace Adibrata.Framework.WCF
             return composite;
         }
 
+        private byte[] imageToByteArray(System.Drawing.Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            return ms.ToArray();
+        }
+        private Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
+        private DateTime getImageDtCreate(Image img)
+        {
+            PropertyItem propItem = img.GetPropertyItem(0x132);
+            DateTime dt = new DateTime();
+            if (propItem != null)
+            {
+                System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+                string text = encoding.GetString(propItem.Value, 0, propItem.Len - 1);
+
+                CultureInfo provider = CultureInfo.InvariantCulture;
+                 dt = DateTime.ParseExact(text, "yyyy:MM:d H:m:s", provider);
+
+                
+            }
+            else 
+            {
+                dt = DateTime.Now;
+            }
+            return dt;
+        }
+
         public void UpdatePathDetails(PathDetails pathInfo)
         {
 
 
             string bitsServer = AppConfig.Config("BITSServer");
             var webClient = new WebClient();
-            byte[] fileBytes = webClient.DownloadData(bitsServer + pathInfo.FileName + pathInfo.Ext);
+            byte[] fileBytes = webClient.DownloadData(bitsServer + pathInfo.FileName);
+            Image img = byteArrayToImage(fileBytes);
+            pathInfo.DPI = img.HorizontalResolution.ToString();
+            pathInfo.Pixel = img.Width +"x"+img.Height;
+            pathInfo.SizeFileBytes = fileBytes.Length;
+            pathInfo.DateCreated = getImageDtCreate(img);
             string strMessage = string.Empty;
             SqlConnection con = new SqlConnection(Connectionstring);
             int result = 0;
             try
             {
+                      
                 SqlCommand command = new SqlCommand("spUpdatePath", con);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@file", SqlDbType.VarChar).Value = pathInfo.FileName;
-                command.Parameters.Add("@bin", SqlDbType.VarBinary).Value = fileBytes;
-                command.Parameters.Add("@ext", SqlDbType.VarChar).Value = pathInfo.Ext;
+                
+                command.Parameters.Add("@DocTransID", SqlDbType.BigInt).Value = pathInfo.DocTransID;
+                command.Parameters.Add("@FileName", SqlDbType.VarChar).Value = pathInfo.FileName;
+                command.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = pathInfo.DateCreated;
+                command.Parameters.Add("@SizeFileBytes", SqlDbType.Decimal).Value = pathInfo.SizeFileBytes;
+                command.Parameters.Add("@Pixel", SqlDbType.VarChar).Value = pathInfo.Pixel;
+                command.Parameters.Add("@ComputerName", SqlDbType.VarChar).Value = pathInfo.ComputerName;
+                command.Parameters.Add("@DPI", SqlDbType.VarChar).Value = pathInfo.DPI;
+                command.Parameters.Add("@FileBinary", SqlDbType.VarBinary).Value = fileBytes;
                 con.Open();
                 result = command.ExecuteNonQuery();
                 con.Close();

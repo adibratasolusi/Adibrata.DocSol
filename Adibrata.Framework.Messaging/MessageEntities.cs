@@ -50,6 +50,52 @@ namespace Adibrata.Framework.Messaging
     {
         public string DicExtString { get; set; }
         public string DicFileString { get; set; }
+
+        public Int64 DocTransID
+        {
+            get;
+            set;
+        }
+        public string FileName
+        {
+            get;
+            set;
+        }
+        public DateTime DateCreated
+        {
+            get;
+            set;
+        }
+
+        public decimal SizeFileBytes
+        {
+            get;
+            set;
+        }
+
+        public string Pixel
+        {
+            get;
+            set;
+        }
+
+        public string ComputerName
+        {
+            get;
+            set;
+        }
+
+        public string DPI
+        {
+            get;
+            set;
+        }
+
+        public byte[] FileBinary
+        {
+            get;
+            set;
+        }
     }
 
     [Serializable]

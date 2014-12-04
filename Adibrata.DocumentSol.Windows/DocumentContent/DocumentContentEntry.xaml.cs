@@ -77,6 +77,10 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                
                 oDocContent.GenerateControls();
                 cboDocumentType.IsEnabled = false;
+                //ucUpload.DocumentType = oDocContent.DocumentType;
+                //ucUpload.UserLogin = SessionProperty.UserLogin;
+                //ucUpload.TransId = SessionProperty.ReffKey;
+                //ucUpload.BindingValueMax();
             }
             catch (Exception _exp)
             {
@@ -100,7 +104,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-                
+                DataTable dtContent = oDocContent.RetrieveValue();
+                ucUpload.CheckAndUpload(dtContent);
                 RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
             }
             catch (Exception _exp)

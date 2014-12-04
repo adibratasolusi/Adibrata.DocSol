@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCMenuTree\UCMenuTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCMenu\UCMainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,12 +120,14 @@
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCMenuTree\Database.cs" />
     <Compile Include="DocContent\UCDocumentContent.xaml.cs">
       <DependentUpon>UCDocumentContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="DocContent\UploadAgreement\UCUploadAgreement.xaml.cs">
       <DependentUpon>UCUploadAgreement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCMenuTree\FamilyTreeViewModel.cs" />
     <Compile Include="InputNumber.xaml.cs">
       <DependentUpon>InputNumber.xaml</DependentUpon>
     </Compile>
@@ -129,6 +135,8 @@
       <SubType>
       </SubType>
     </Compile>
+    <Compile Include="UCMenuTree\Person.cs" />
+    <Compile Include="UCMenuTree\PersonViewModel.cs" />
     <Compile Include="ReportViewerRDLC.xaml.cs">
       <DependentUpon>ReportViewerRDLC.xaml</DependentUpon>
     </Compile>
@@ -144,6 +152,9 @@
     </Compile>
     <Compile Include="UCMenuSearch.xaml.cs">
       <DependentUpon>UCMenuSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCMenuTree\UCMenuTree.xaml.cs">
+      <DependentUpon>UCMenuTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCMenu\Converters\MenuDataItemConverter.cs" />
     <Compile Include="UCMenu\Helpers\FindAncestores.cs" />

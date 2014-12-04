@@ -1,0 +1,106 @@
+﻿<Page xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"  x:Class="Adibrata.DocumentSol.Windows.AgrmntUpload.Inquiry.LocalInquiry"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+      mc:Ignorable="d" 
+	Title="LocalInquiry" Style="{StaticResource PageStyle}">
+
+    <Grid>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid Style="{StaticResource GridStyle}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                    <GroupBox Header="Search">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Cust. Name"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Margin="0,2" Width="159"/>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <ComboBox Name="cmbDocType"></ComboBox>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                <Button x:Name="btnSearch" FontSize="18">
+                                    <Label>_SEARCH</Label>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+                    <GroupBox>
+
+                        <DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          x:Name="dgPaging" 
+                          
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
+                          >
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="DETAIL" Width="70">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click"></Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding TransID}" Header="ID" x:Name="ID" Width="1" />
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding DocumentType}" Header="DOCUMENT TYPE" x:Name="DocType" Width="400" FontSize="14" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2">
+                    <GroupBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
+                                <UserController:UCPaging Name="oPaging" />
+                            </Grid>
+                            <Grid Grid.Column="1" HorizontalAlignment="Right">
+
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

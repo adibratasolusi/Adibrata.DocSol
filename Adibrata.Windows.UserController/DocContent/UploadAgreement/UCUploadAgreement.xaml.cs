@@ -47,8 +47,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
         public string UserLogin { get; set; }
         public string DocumentType { get; set; }
-
-        public string AgreementNo
+        public Int64 TransId
         {
             get;
             set;
@@ -59,24 +58,18 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         public UCUploadAgreement()
         {
             InitializeComponent();
+            jumlahUploadMax = 3;
+        }
+        public void BindingValueMax()
+        {
+            dtgUpload.Items.Clear();
             DocSolEntities _ent = new DocSolEntities { ClassName = "DocContent", MethodName = "DocContentFiles", UserLogin = this.UserLogin, DocumentType = this.DocumentType };
             jumlahUploadMax = DocumentSolutionController.DocSolProcess<int>(_ent);
         }
         #endregion
 
         #region Button Event
-        private void btnUpload_Click(object sender, RoutedEventArgs e)
-        {
-            if (dtgUpload.Items.Count >= jumlahUploadMax)
-            {
 
-                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
-            }
-            else
-            {
-                FileUpload();
-            }
-        }
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
             if (dtgUpload.Items.Count >= jumlahUploadMax)
@@ -98,6 +91,19 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         #endregion
 
         #region Method
+        public void CheckAndUpload(DataTable dtContent)
+        {
+            
+            if (dtgUpload.Items.Count >= jumlahUploadMax)
+            {
+
+                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+            }
+            else
+            {
+                FileUpload(dtContent);
+            }
+        }
         private void BrowseFile()
         {
             // Create OpenFileDialog
@@ -122,9 +128,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
         }
 
-        private void FileUpload()
+        private void FileUpload(DataTable dtContent)
         {
-            string agrmntNo = "test";
 
             //set flag for save to database
             #region "reset flag"
@@ -135,6 +140,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             #endregion
             DataGridHelper dtgHelper = new DataGridHelper();
             dtgHelper.dtg = dtgUpload;
+            int flagContent = 0;
             for (int i = 0; i < dtgUpload.Items.Count; i++)
             {
                 var path = new TextBlock();
@@ -147,7 +153,12 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     string newPath = WaterMarkProcess.SetWatermark(path.Text);
                     string extension = System.IO.Path.GetExtension(newPath);
                     fileCount += 1; //set jumlah file
-                    saveUpload(docType.Text, agrmntNo);
+                    saveUpload(docType.Text, TransId);
+                    if (flagContent !=0)
+                    {
+                        DataTable test = dtContent;
+                    }
+                    flagContent += 1;
                     dicExt.Add(fileCount, extension);
                 }
 
@@ -170,7 +181,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             //MessageBox.Show("Upload");
         }
 
-        private void saveUpload(string docType, string currentAgrmntNo)
+        private void saveUpload(string docType, Int64 transId)
         {
             //ketika upload file akan di catat di database
             DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
@@ -178,7 +189,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 MethodName = "PathInsert",
                 ClassName = "UploadProcess"
             };
-            _ent.AgrmntNo = currentAgrmntNo;
+            _ent.TransId = transId;
             _ent.DocumentType = docType;
             trxFileName = Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
             dicFile.Add(fileCount, trxFileName); //file yg di upload di simpan di list dictionary
@@ -237,8 +248,10 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 for (int i = 0; i < dicFile.Count; i++)
                 {
                     WCFEntities oWcf = new WCFEntities();
-                    oWcf.DicExtString = dicExt[i + 1];// why + 1 ? karena mengambil file berdasarkan key nya, bukan dari index, (key mulai dari 1, index mulai dari 0, nilai awal i adalah 0) jadi harus + 1
-                    oWcf.DicFileString = dicFile[i + 1];
+                  //  oWcf.DicExtString = dicExt[i + 1];// why + 1 ? karena mengambil file berdasarkan key nya, bukan dari index, (key mulai dari 1, index mulai dari 0, nilai awal i adalah 0) jadi harus + 1
+                    oWcf.DocTransID = Convert.ToInt64(dicFile[i + 1]);
+                    oWcf.FileName = dicFile[i + 1]+ dicExt[i + 1];
+                    oWcf.ComputerName = Environment.MachineName;
                     MessageToWCF.UpdateFilePath(oWcf);
                     flag += 1;
                 }

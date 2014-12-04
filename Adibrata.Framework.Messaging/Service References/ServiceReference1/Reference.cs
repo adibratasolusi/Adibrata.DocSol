@@ -15,7 +15,7 @@ namespace Adibrata.Framework.Messaging.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.Demo.WCF.FileTransfer")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF")]
     [System.SerializableAttribute()]
     public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -76,7 +76,7 @@ namespace Adibrata.Framework.Messaging.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PathDetails", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.Demo.WCF.FileTransfer")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PathDetails", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF")]
     [System.SerializableAttribute()]
     public partial class PathDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -84,13 +84,16 @@ namespace Adibrata.Framework.Messaging.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AgrmntNoField;
+        private string ComputerNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DocTypeField;
+        private string DPIField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ExtField;
+        private System.DateTime DateCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long DocTransIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] FileBinaryField;
@@ -99,7 +102,10 @@ namespace Adibrata.Framework.Messaging.ServiceReference1 {
         private string FileNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long PathIdField;
+        private string PixelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SizeFileBytesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -112,40 +118,53 @@ namespace Adibrata.Framework.Messaging.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AgrmntNo {
+        public string ComputerName {
             get {
-                return this.AgrmntNoField;
+                return this.ComputerNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.AgrmntNoField, value) != true)) {
-                    this.AgrmntNoField = value;
-                    this.RaisePropertyChanged("AgrmntNo");
+                if ((object.ReferenceEquals(this.ComputerNameField, value) != true)) {
+                    this.ComputerNameField = value;
+                    this.RaisePropertyChanged("ComputerName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DocType {
+        public string DPI {
             get {
-                return this.DocTypeField;
+                return this.DPIField;
             }
             set {
-                if ((object.ReferenceEquals(this.DocTypeField, value) != true)) {
-                    this.DocTypeField = value;
-                    this.RaisePropertyChanged("DocType");
+                if ((object.ReferenceEquals(this.DPIField, value) != true)) {
+                    this.DPIField = value;
+                    this.RaisePropertyChanged("DPI");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ext {
+        public System.DateTime DateCreated {
             get {
-                return this.ExtField;
+                return this.DateCreatedField;
             }
             set {
-                if ((object.ReferenceEquals(this.ExtField, value) != true)) {
-                    this.ExtField = value;
-                    this.RaisePropertyChanged("Ext");
+                if ((this.DateCreatedField.Equals(value) != true)) {
+                    this.DateCreatedField = value;
+                    this.RaisePropertyChanged("DateCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long DocTransID {
+            get {
+                return this.DocTransIDField;
+            }
+            set {
+                if ((this.DocTransIDField.Equals(value) != true)) {
+                    this.DocTransIDField = value;
+                    this.RaisePropertyChanged("DocTransID");
                 }
             }
         }
@@ -177,14 +196,27 @@ namespace Adibrata.Framework.Messaging.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long PathId {
+        public string Pixel {
             get {
-                return this.PathIdField;
+                return this.PixelField;
             }
             set {
-                if ((this.PathIdField.Equals(value) != true)) {
-                    this.PathIdField = value;
-                    this.RaisePropertyChanged("PathId");
+                if ((object.ReferenceEquals(this.PixelField, value) != true)) {
+                    this.PixelField = value;
+                    this.RaisePropertyChanged("Pixel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SizeFileBytes {
+            get {
+                return this.SizeFileBytesField;
+            }
+            set {
+                if ((this.SizeFileBytesField.Equals(value) != true)) {
+                    this.SizeFileBytesField = value;
+                    this.RaisePropertyChanged("SizeFileBytes");
                 }
             }
         }

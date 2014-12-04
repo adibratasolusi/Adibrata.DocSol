@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Controller.UserManagement;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,24 @@ namespace Adibrata.Windows.UserController
         public UCMenuSearch()
         {
             InitializeComponent();
+        }
+
+        private void hypMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            UserManagementEntities _ent = new UserManagementEntities
+            {
+                MethodName = "MainMenuGetActive",
+                ClassName = "UserManagement",
+                Form = "'"+txtSearch.Text+"'"
+            };
+            DataTable dt = UserManagementController.UserManagement<DataTable>(_ent);
+            dtgMenu.ItemsSource = dt.DefaultView;
+
         }
     }
 }

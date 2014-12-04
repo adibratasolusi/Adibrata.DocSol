@@ -4,13 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+            
              Width="Auto" Height="Auto">
     <ScrollViewer>
     <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -18,33 +16,15 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Grid.Row="0">
-                <TextBlock Name="tbCust" Text="Customer Name :"></TextBlock>
+                <TextBlock Name="tbUpload" Text="Upload Document :"  Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="0">
-                <TextBox Name="txtCust" Text="na"></TextBox>
+                <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click" HorizontalAlignment="Right"></Button>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="1">
-                <TextBlock Name="tbDocType" Text="Document Type :"></TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="1">
-                <ComboBox Name="cmbDocType" DisplayMemberPath="DocType" SelectedValuePath="ID"></ComboBox>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" >
-                <GroupBox Name="testGroupBox"></GroupBox>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="3">
-                <TextBlock Name="tbUpload" Text="Upload Document :"></TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3">
-                <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click"></Button>
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3">
-                <DataGrid Name="dtgUpload" CanUserDeleteRows="True">
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <DataGrid Name="dtgUpload" CanUserDeleteRows="True" Width="Auto">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Delete" x:Name="Delete">
                             <DataGridTemplateColumn.CellTemplate>
@@ -58,7 +38,7 @@
                         <DataGridTemplateColumn Header="Preview">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image x:Name="imgPreview" Source="{Binding img}"></Image>
+                                    <Image x:Name="imgPreview" Source="{Binding img}" Height="100" Width="100"></Image>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
 
@@ -67,10 +47,6 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-            </Grid>
-
-            <Grid Grid.Column="1" Grid.Row="6">
-                <Button Name="btnSave" Content="Upload" Click="btnUpload_Click"></Button>
             </Grid>
 
         </Grid>

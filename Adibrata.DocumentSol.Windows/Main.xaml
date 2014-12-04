@@ -42,7 +42,6 @@
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
             </TreeView>
-                <TextBlock Text="Copyright PT Adibrata Optima Solusi - 2014" VerticalAlignment="Bottom" TextWrapping="WrapWithOverflow"></TextBlock>
             <GridSplitter Grid.Column="1" Width="5" 
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -52,5 +51,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
+        <!--<TextBlock Text="Copyright PT Adibrata Optima Solusi - 2014" VerticalAlignment="Bottom" TextWrapping="WrapWithOverflow"></TextBlock>-->
     </ScrollViewer>
 </Page>

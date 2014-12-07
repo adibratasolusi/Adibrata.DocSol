@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Framework.Logging;
+using System;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Adibrata.Windows.UserController;
+using Adibrata.BusinessProcess.DocumentSol.Entities;
+using System.Data;
+using System.Collections.Generic;
+using Adibrata.Controller;
 
 namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
 {
@@ -20,9 +17,85 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
     /// </summary>
     public partial class ApprovalProcessScreen : Page
     {
-        public ApprovalProcessScreen()
+        SessionEntities SessionProperty;
+        DocSolEntities _ent = new DocSolEntities();
+        public ApprovalProcessScreen(SessionEntities _session)
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent.Approval",
+                    ClassName = "ApprovalProcessScreen",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "ApprovalDocContent",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _ent.ClassName = "ApprovalProcess";
+                _ent.MethodName = "ApprovalDocContentSave";
+                _ent.LineOfBusiness = "Consumer Finance";
+                DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+                RedirectPage redirect = new RedirectPage(this, "Approval.ApprovalPaging", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent.Approval",
+                    ClassName = "ApprovalProcessScreen",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "ApprovalDocContent",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "Aprovsal.ApprovalPaging", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent.Approval",
+                    ClassName = "ApprovalProcessScreen",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
     }
 }

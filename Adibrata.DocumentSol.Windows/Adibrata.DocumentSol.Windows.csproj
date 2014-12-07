@@ -108,6 +108,9 @@
     <Compile Include="DocumentContent\DocumentContentEntry.xaml.cs">
       <DependentUpon>DocumentContentEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentContent\DocumentUploadPaging.xaml.cs">
+      <DependentUpon>DocumentUploadPaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\FormRegistration\FormRegistrasiPaging.xaml.cs">
       <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentContent\DocumentContentEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\DocumentUploadPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

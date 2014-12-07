@@ -47,6 +47,12 @@ namespace Adibrata.DocumentSol.Windows
                 case "RuleUpload.RuleEngineUpload": Source.NavigationService.Navigate(new RuleUpload.RuleEngineUpload(_ent)); break;
                 case "RuleUpload.RuleSchemePaging": Source.NavigationService.Navigate(new RuleUpload.RuleSchemePaging(_ent)); break;
                 #endregion 
+
+                #region "Document Content Approval"
+                case "Approval.ApprovalPaging": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalPaging(_ent)); break;
+                case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
+                #endregion 
+
             }
 
         }
@@ -82,6 +88,11 @@ namespace Adibrata.DocumentSol.Windows
                 case "RuleUpload.RuleEngineUpload": Source.NavigationService.Navigate(new RuleUpload.RuleEngineUpload(_ent)); break;
                 case "RuleUpload.RuleSchemePaging": Source.NavigationService.Navigate(new RuleUpload.RuleSchemePaging(_ent)); break;
                     
+                #endregion 
+
+                #region "Document Content Approval"
+                case "Approval.ApprovalPaging": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalPaging(_ent)); break;
+                case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
                 #endregion 
             }
 

@@ -21,7 +21,7 @@ namespace Adibrata.DocumentSol.Windows
             SessionProperty = _session;
             lblLoginName.Text = SessionProperty.UserName.ToUpper();
             lblBusinessDate.Text = DateTime.Now.ToString("dd/MMMM/yyyy");
-            RedirectPage redirect = new RedirectPage(frmWorksheet, "Customer.CustomerPaging", SessionProperty);
+            RedirectPage redirect = new RedirectPage(frmWorksheet, "Approval.ApprovalPaging", SessionProperty);
         }
 
         private void TreeMenuGenerate()

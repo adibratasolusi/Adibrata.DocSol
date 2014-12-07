@@ -42,5 +42,7 @@ namespace Adibrata.Windows.UserController
             if (e.Key == Key.Enter)
                 _familyTree.SearchCommand.Execute(null);
         }
+
+
     }
 }

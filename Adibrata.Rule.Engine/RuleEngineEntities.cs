@@ -17,5 +17,7 @@ namespace Adibrata.Framework.Rule
         public DataTable DtListValue { get; set; }
         public DataTable DtResultRule { get; set; }
         public string PathFile { get; set; }
+        public string RuleCode { get; set; }
+        
     }
 }

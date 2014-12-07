@@ -22,18 +22,32 @@ namespace Adibrata.Windows.UserController
         public string SortBy { get; set; }
         public DataGrid dgObj { get; set; }
         public string UserName { get; set; }
+        private int MaxPage = 999;
         private static int _pageSize = Convert.ToInt32(AppConfig.Config("PageSize"));
         public UCPaging()
         {
             InitializeComponent();
             txtPageNumber.Text = "1";
+            MaxPage = 999;
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             DataTable _dt = new DataTable();
+            int _currentpage;
             try
             {
+                
+                _currentpage = Convert.ToInt32(txtPageNumber.Text);
+                if (_currentpage >= MaxPage)
+                {
+                    _currentpage = MaxPage;
+                }
+                else
+                {
+                    _currentpage += 1;
+                }
+                txtPageNumber.Text = _currentpage.ToString();
                 PagingData();
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
@@ -72,10 +86,20 @@ namespace Adibrata.Windows.UserController
         private void btnPrev_Click(object sender, RoutedEventArgs e)
         {
             DataTable _dt = new DataTable();
+            int _currentpage;
             try
             {
+                _currentpage = Convert.ToInt32(txtPageNumber.Text);
+                if (_currentpage == 1)
+                {
+                    txtPageNumber.Text = "1";
+                }
+                else
+                {
+                    _currentpage -= 1;
+                    txtPageNumber.Text = _currentpage.ToString();
+                }
                 PagingData();
-              
                 
             }
             catch (Exception _exp)
@@ -106,16 +130,22 @@ namespace Adibrata.Windows.UserController
             {
                 if (int.TryParse(txtPageNumber.Text.Replace(",", ""), out _currentpage))
                 {
+                    
                     _startrecord = (Convert.ToInt32(txtPageNumber.Text) - 1) * _pageSize + 1;
                     _endrecord = (Convert.ToInt32(txtPageNumber.Text) * _pageSize + 1) - 1;
+                    _currentpage = Convert.ToInt32(txtPageNumber.Text);
                     PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, StartRecord = _startrecord.ToString(), EndRecord = _endrecord.ToString(), UserLogin= this.UserName };
 
                     _dt = (DataTable)PagingController.PagingData<DataTable>(_ent);
-                    dgObj.ItemsSource = _dt.DefaultView;
+                    if (_dt.Rows.Count == 0)
+                    {
+                        MaxPage = _currentpage - 1;
+                    }
+                    else
+                    {
+                        dgObj.ItemsSource = _dt.DefaultView;
+                    }
                 }
-              
-
-           
             }
             catch (Exception _exp)
             {

@@ -29,7 +29,7 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 sqlParams[2].Value = _ent.WhereCond;
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
-                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spCustPaging", sqlParams));
+                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spRuleEngineSchemePaging", sqlParams));
 
             }
             catch (Exception _exp)
@@ -37,11 +37,11 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
-                    NameSpace = " Adibrata.BusinessProcess.Paging.Core.UserManagement",
-                    ClassName = "UserRegisterPaging",
-                    FunctionName = "UserRegister",
+                    NameSpace = "Adibrata.BusinessProcess.Paging.Extend",
+                    ClassName = "RuleScheme",
+                    FunctionName = "RuleSchemePaging",
                     ExceptionNumber = 1,
-                    EventSource = "UserRegister",
+                    EventSource = "RuleScheme",
                     ExceptionObject = _exp,
                     EventID = 80, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message

@@ -116,24 +116,20 @@ namespace Adibrata.Framework.Rule
             }
             return _dtrule;
         }
-
+        #region "Process Upload Rule"
         public static RuleEngineEntities UploadRuleEngine(RuleEngineEntities _ent)
         {
             StringBuilder sb = new StringBuilder();
             DataTable _dt = new DataTable();
-            SqlConnection _conn = new SqlConnection();
-            SqlTransaction _trans;
             try
             {
-                if (_conn.State == ConnectionState.Closed) { _conn.Open(); }
-                _trans = _conn.BeginTransaction();
                 _dt = FillDataRuleEngine(_ent.PathFile, _ent);
 
                 _ent.DtListValue = _dt;
 
                 sb.Append("IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME='"); sb.Append(_ent.RuleName); sb.Append("')");
                 sb.Append(" Drop Table "); sb.AppendLine(_ent.RuleName);
-                SqlHelper.ExecuteNonQuery(_trans, CommandType.Text, sb.ToString());
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
 
                 sb.Clear();
                 sb.Append("Create Table ");
@@ -145,16 +141,16 @@ namespace Adibrata.Framework.Rule
 
                 }
                 sb.Append(" Result nvarchar(50), ");
-                sb.Append(" UsrCrt nvarchar(50)");
-                sb.Append(" DtmCrt SmallDateTime");
+                sb.Append(" UsrCrt nvarchar(50),");
+                sb.Append(" DtmCrt SmallDateTime ");
                 
                 sb.Append(" CONSTRAINT [PK_"); sb.Append(_ent.RuleName); sb.Append("] PRIMARY KEY CLUSTERED (	[ID] ASC )");
                 sb.AppendLine("WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON RuleEngine) On RuleEngine");
-                SqlHelper.ExecuteNonQuery(_trans, CommandType.Text, sb.ToString());
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
 
                 sb.Clear();
                 #region "CREATE INDEX "
-                sb.Append("CREATE UNIQUE NONCLUSTERED INDEX IX_");
+                sb.Append("CREATE NONCLUSTERED INDEX IX_");
                 sb.Append(_ent.RuleName);
                 sb.Append(" ON ");
                 sb.Append(_ent.RuleName);
@@ -166,6 +162,20 @@ namespace Adibrata.Framework.Rule
                     if (_counter != _ent.NumOfCondition) sb.Append(", ");
                 }
                 sb.Append(") on IndexTbl");
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
+                sb.Clear();
+                sb.Append("CREATE UNIQUE NONCLUSTERED INDEX IX_UNIQUE");
+                sb.Append(_ent.RuleName);
+                sb.Append(" ON ");
+                sb.Append(_ent.RuleName);
+                sb.Append(" ( ");
+
+                for (_counter = 1; _counter <= _ent.NumOfCondition; _counter++)
+                {
+                    sb.Append("Field"); sb.Append(_counter);
+                    if (_counter != _ent.NumOfCondition) sb.Append(", ");
+                }
+                sb.Append(", Result) on IndexTbl");
                 SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
                 #endregion 
                 sb.Clear();
@@ -186,7 +196,7 @@ namespace Adibrata.Framework.Rule
                 string _paramname;
                 string _colomname;
                 _counter = 1;
-                SqlParameter[] sqlParams = new SqlParameter[_ent.NumOfCondition+1+2];
+                SqlParameter[] sqlParams = new SqlParameter[_ent.NumOfCondition+3];
                 for (_counter = 0; _counter <= _ent.NumOfCondition - 1; _counter++)
                 {
                     _paramname = "@Field" + (_counter+1).ToString();
@@ -211,11 +221,12 @@ namespace Adibrata.Framework.Rule
                         }
                         sqlParams[_ent.NumOfCondition].Value = (string)_row["ResultField"];
                         sqlParams[_ent.NumOfCondition + 1].Value = _ent.UserLogin;
-                        sqlParams[_ent.NumOfCondition].Value = DateTime.Now;
+                        sqlParams[_ent.NumOfCondition + 2].Value = DateTime.Now;
 
-                        SqlHelper.ExecuteNonQuery(_trans, CommandType.Text, sb.ToString(), sqlParams);
+                        SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString(), sqlParams);
                     }
                 }
+                RuleListSave(_ent);
             }
             catch (Exception _exp)
             {
@@ -233,6 +244,7 @@ namespace Adibrata.Framework.Rule
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+        
             return _ent;
         }
         
@@ -310,7 +322,6 @@ namespace Adibrata.Framework.Rule
             return _dtrule;
         }
 
-
         private static DataTable ReadDataExcel(string _pathfile)
         {
             OleDbConnection oledbConn = new OleDbConnection();
@@ -368,6 +379,44 @@ namespace Adibrata.Framework.Rule
             }
             return ds;
         }
+
+        private static void RuleListSave (RuleEngineEntities _ent)
+        {
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("spRuleEngineListSave");
+                SqlParameter[] sqlParams = new SqlParameter[5];
+                sqlParams[0] = new SqlParameter("@RuleCode", SqlDbType.NVarChar, 50);
+                sqlParams[1] = new SqlParameter("@RuleName", SqlDbType.NVarChar, 50);
+                sqlParams[2] = new SqlParameter("@RuleFileName", SqlDbType.NVarChar, 50);
+                sqlParams[3] = new SqlParameter("@UsrCrt", SqlDbType.NVarChar, 50);
+                sqlParams[4] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
+                sqlParams[0].Value = _ent.RuleCode;
+                sqlParams[1].Value = _ent.RuleName;
+                sqlParams[2].Value = _ent.PathFile;
+                sqlParams[3].Value = _ent.UserLogin;
+                sqlParams[4].Value = DateTime.Now;
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "RuleEngine",
+                    NameSpace = "Adibrata.Framework.Rule",
+                    ClassName = "RuleEngineProcess",
+                    FunctionName = "RuleListSave",
+                    ExceptionNumber = 1,
+                    EventSource = "RuleEngine",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+        #endregion 
     }
 }
 

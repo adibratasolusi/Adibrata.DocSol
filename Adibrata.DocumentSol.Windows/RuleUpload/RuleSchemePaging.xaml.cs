@@ -19,6 +19,7 @@ namespace Adibrata.DocumentSol.Windows.RuleUpload
         public RuleSchemePaging(SessionEntities _session)
         {
             InitializeComponent();
+            SessionProperty = _session;
         }
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -40,7 +41,7 @@ namespace Adibrata.DocumentSol.Windows.RuleUpload
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " CustName Asc ";
+                oPaging.SortBy = " RuleSchmName Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

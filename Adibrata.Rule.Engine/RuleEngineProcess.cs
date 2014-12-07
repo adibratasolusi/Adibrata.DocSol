@@ -153,7 +153,8 @@ namespace Adibrata.Framework.Rule
                 SqlHelper.ExecuteNonQuery(_trans, CommandType.Text, sb.ToString());
 
                 sb.Clear();
-                sb.Append("Create Index IX_");
+                #region "CREATE INDEX "
+                sb.Append("CREATE UNIQUE NONCLUSTERED INDEX IX_");
                 sb.Append(_ent.RuleName);
                 sb.Append(" ON ");
                 sb.Append(_ent.RuleName);
@@ -166,7 +167,7 @@ namespace Adibrata.Framework.Rule
                 }
                 sb.Append(") on IndexTbl");
                 SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.Text, sb.ToString());
-
+                #endregion 
                 sb.Clear();
                 sb.Append("Insert Into "); sb.Append(_ent.RuleName); sb.Append(" (");
                 for (_counter = 1; _counter <= _ent.NumOfCondition; _counter++)

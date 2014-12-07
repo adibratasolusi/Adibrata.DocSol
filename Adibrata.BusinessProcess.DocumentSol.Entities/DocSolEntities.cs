@@ -29,5 +29,15 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public string CompanySiup { get; set; }
         public string DocumentType { get; set; }
         public string LineOfBusiness { get; set; }
+        #region "Approval Doc Content"
+        public string UserApprovalPath { get; set; }
+        public string CurrentApprovalPath { get; set; }
+        public string NextApprovalPath { get; set; }
+        public string ApprovalStatus { get; set; }
+        public string ApprovalNotes { get; set; }
+        public Boolean IsFinal { get; set; }
+        #endregion 
+
     }
 }
+

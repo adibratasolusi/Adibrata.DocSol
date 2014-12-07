@@ -13,4 +13,4 @@
 	[DtmUpd] [smalldatetime] NULL,
 	[UsrCrt] [varchar](50) NULL,
 	[DtmCrt] [smalldatetime] NULL
-)
+) on FileUpload

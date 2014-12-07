@@ -143,6 +143,8 @@
     <Build Include="Table\DocTransBinary.sql" />
     <Build Include="StoreProcedure\Customer\spCustView.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineSchemePaging.sql" />
+    <Build Include="Table\DocContentAppr.sql" />
+    <Build Include="Table\DocContentApprHist.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQLData\TBIG.mdf" />

@@ -46,7 +46,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
     public class CustomerRegistrasi
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
-
+        
         SqlTransaction _trans;
         public virtual void CustomerCompanyRegistrasiAdd(DocSolEntities _ent)
         {

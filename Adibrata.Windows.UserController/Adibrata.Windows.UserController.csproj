@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.WIA">
+      <HintPath>lib\Interop.WIA.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -108,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UCScan\UCScanMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCTextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,6 +182,10 @@
     <Compile Include="UCSaveTransaction.xaml.cs">
       <DependentUpon>UCSaveTransaction.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCScan\UCScanMain.xaml.cs">
+      <DependentUpon>UCScanMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCScan\WIAScanner.cs" />
     <Compile Include="UCTextBox.xaml.cs">
       <DependentUpon>UCTextBox.xaml</DependentUpon>
     </Compile>

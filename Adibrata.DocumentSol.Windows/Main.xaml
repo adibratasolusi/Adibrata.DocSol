@@ -28,7 +28,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="9*"/>
             </Grid.ColumnDefinitions>
                 <UserController:UCMenuTree />
                 <!--<TreeView   Grid.Column="0" VerticalAlignment="Stretch" ItemsSource="{Binding Departments}">

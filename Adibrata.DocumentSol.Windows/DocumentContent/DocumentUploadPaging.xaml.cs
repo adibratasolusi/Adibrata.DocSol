@@ -6,16 +6,15 @@ using System.Windows;
 using System.Windows.Controls;
 using Adibrata.Windows.UserController;
 
-
-namespace Adibrata.DocumentSol.Windows.Customer
+namespace Adibrata.DocumentSol.Windows.DocumentContent
 {
     /// <summary>
-    /// Interaction logic for CustomerPaging.xaml
+    /// Interaction logic for DocumentUploadPaging.xaml
     /// </summary>
-    public partial class CustomerUploadPaging : Page
+    public partial class DocumentUploadPaging : Page
     {
         SessionEntities SessionProperty;
-        public CustomerUploadPaging(SessionEntities _session)
+        public DocumentUploadPaging(SessionEntities _session)
         {
             try
             {
@@ -23,14 +22,14 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
             }
-                catch (Exception _exp)
+            catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerPaging",
-                    FunctionName = "CustomerPaging",
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentUploadPaging",
+                    FunctionName = "DocumentUploadPaging",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -52,7 +51,7 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 if (txtCustName.Text != "")
                 {
                     sb.Append(" Where ");
-                    sb.Append (" CustName = '");
+                    sb.Append(" CustName = '");
                     sb.Append(txtCustName.Text);
                     sb.Append("'");
                 }
@@ -70,65 +69,9 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerPaging",
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentUploadPaging",
                     FunctionName = "btnSearch_Click",
-                    ExceptionNumber = 1,
-                    EventSource = "Customer",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                RedirectPage redirect = new RedirectPage(this, "Customer.CustomerAddEdit", SessionProperty);
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerPaging",
-                    FunctionName = "btnAdd_Click",
-                    ExceptionNumber = 1,
-                    EventSource = "Customer",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-        }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                int i = dgPaging.SelectedIndex;
-
-                DataGridHelper oDataGrid = new DataGridHelper();
-                oDataGrid.dtg = dgPaging;
-                DataGridCell cell = oDataGrid.GetCell(i, 2);
-                TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
-                SessionProperty.IsEdit = true;
-                SessionProperty.ReffKey = Convert.ToInt64(ReffKey.Text);
-                RedirectPage redirect = new RedirectPage(this, "Customer.CustomerAddEdit", SessionProperty);
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
-                    ClassName = "UserRegistrationPaging",
-                    FunctionName = "btnEdit_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -158,9 +101,9 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
-                    ClassName = "UserRegistrationPaging",
-                    FunctionName = "btnEdit_Click",
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentUploadPaging",
+                    FunctionName = "btnUpload_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -170,7 +113,5 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-
-     
     }
 }

@@ -25,8 +25,6 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                    sb.Append(" Field1 = '");
                    sb.Append(_ent.DocumentType);
                    sb.Append("' ");
-
-
                    _entrule.WhereCond = sb.ToString();
                    _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
                    if (!_dt.Columns.Contains("DataType"))

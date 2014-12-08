@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Approval\ApprovalProcess.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />
     <Compile Include="DocContent\DocContent.cs" />
     <Compile Include="DocContent\DocType.cs" />

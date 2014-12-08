@@ -36,9 +36,10 @@
           />
                 <Button 
           Command="{Binding SearchCommand}" 
-          Content="_Find" 
+         
           Padding="8,0" 
-          />
+          >
+                    <Label>_Find</Label></Button>
             </StackPanel>
         </Border>
 

@@ -52,8 +52,8 @@
                                 <TextBox Name="txtRuleFile" Style="{StaticResource textStyle}" Height="30" Width="300"></TextBox>
                             </Grid>
                             <Grid Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                <Button Name="btnbrowse"  Width="60" Height="30">
-                                    <Label>_Upload</Label></Button>
+                                <Button Name="btnbrowse"  Width="60" Height="30" Click="btnbrowse_Click">
+                                    <Label>Bro_wse</Label></Button>
                             </Grid>
                         </Grid>
                         

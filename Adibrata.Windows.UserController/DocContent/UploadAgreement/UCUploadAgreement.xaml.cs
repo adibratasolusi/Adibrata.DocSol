@@ -1,24 +1,16 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.Configuration;
+using Adibrata.Controller;
 using Adibrata.Framework.ImageProcessing;
 using Adibrata.Framework.Messaging;
 using SharpBits.Base;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Adibrata.Controller;
+using Adibrata.Framework.Logging;
+
 namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 {
     /// <summary>
@@ -57,14 +49,53 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         #region InitializeComponent
         public UCUploadAgreement()
         {
-            InitializeComponent();
-            //jumlahUploadMax = 3;
+            try
+            {
+                InitializeComponent();
+                jumlahUploadMax = 3;
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "UCUploadAgreement",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
+
         public void BindingValueMax()
         {
-            dtgUpload.Items.Clear();
-            DocSolEntities _ent = new DocSolEntities { ClassName = "DocContent", MethodName = "DocContentFiles", UserLogin = this.UserLogin, DocumentType = this.DocumentType };
-            jumlahUploadMax = DocumentSolutionController.DocSolProcess<int>(_ent);
+            try
+            {
+                dtgUpload.Items.Clear();
+                DocSolEntities _ent = new DocSolEntities { ClassName = "DocContent", MethodName = "DocContentFiles", UserLogin = this.UserLogin, DocumentType = this.DocumentType };
+                jumlahUploadMax = DocumentSolutionController.DocSolProcess<int>(_ent);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "UCUploadAgreement",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
         #endregion
 
@@ -72,59 +103,134 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
-            if (dtgUpload.Items.Count >= jumlahUploadMax)
+            try
             {
-                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+                if (dtgUpload.Items.Count >= jumlahUploadMax)
+                {
+                    MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+                }
+                else
+                {
+                    BrowseFile();
+                }
             }
-            else
+            catch (Exception _exp)
             {
-                BrowseFile();
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "UCUploadAgreement",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
-
         }
+
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
-            dtgUpload.Items.RemoveAt(dtgUpload.SelectedIndex);
-            dtgUpload.Items.Refresh();
+            try
+            {
+                dtgUpload.Items.RemoveAt(dtgUpload.SelectedIndex);
+                dtgUpload.Items.Refresh();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "btnDelete_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
+
         #endregion
 
         #region Method
         public void CheckAndUpload(DataTable dtContent)
         {
-            
-            if (dtgUpload.Items.Count >= jumlahUploadMax)
+            try
             {
+                if (dtgUpload.Items.Count >= jumlahUploadMax)
+                {
 
-                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+                    MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+                }
+                else
+                {
+                    FileUpload(dtContent);
+                }
             }
-            else
+            catch (Exception _exp)
             {
-                FileUpload(dtContent);
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "CheckAndUpload",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
         }
         private void BrowseFile()
         {
             // Create OpenFileDialog
-
-            // Set filter for file extension and default file extension
-            dlg.Title = "Select a picture";
-            dlg.DefaultExt = ".jpg";
-            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-            "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-            "Portable Network Graphic (*.png)|*.png";
-
-            // Display OpenFileDialog by calling ShowDialog method
-            Nullable<bool> result = dlg.ShowDialog();
-
-            // Get the selected file name and display in a DataGrid
-            if (result == true)
+            try
             {
+                // Set filter for file extension and default file extension
+                dlg.Title = "Select a picture";
+                dlg.DefaultExt = ".jpg";
+                dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                "Portable Network Graphic (*.png)|*.png";
 
-                string filename = dlg.FileName;
-                dtgUpload.Items.Add(new DataItem { PathFile = filename, img = filename });
 
+                // Display OpenFileDialog by calling ShowDialog method
+                Nullable<bool> result = dlg.ShowDialog();
+
+                // Get the selected file name and display in a DataGrid
+                if (result == true)
+                {
+
+                    string filename = dlg.FileName;
+                    dtgUpload.Items.Add(new DataItem { PathFile = filename, img = filename });
+
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "BrowseFile",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
         }
 
@@ -132,51 +238,70 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
 
             //set flag for save to database
-            #region "reset flag"
-            fileCount = 0;
-            jobCount = 0;
-            dicFile.Clear();
-            dicExt.Clear();
-            #endregion
-            DataGridHelper dtgHelper = new DataGridHelper();
-            dtgHelper.dtg = dtgUpload;
-            int flagContent = 0;
-            for (int i = 0; i < dtgUpload.Items.Count; i++)
+            try
             {
-                var path = new TextBlock();
-                var docType = new TextBlock();
-
-                DataGridCell cellPath = dtgHelper.GetCell(i, 1);
-                path = (TextBlock)cellPath.Content;
-                if (path.Text != null && path.Text != "")
+                #region "reset flag"
+                fileCount = 0;
+                jobCount = 0;
+                dicFile.Clear();
+                dicExt.Clear();
+                #endregion
+                DataGridHelper dtgHelper = new DataGridHelper();
+                dtgHelper.dtg = dtgUpload;
+                int flagContent = 0;
+                for (int i = 0; i < dtgUpload.Items.Count; i++)
                 {
-                    string newPath = WaterMarkProcess.SetWatermark(path.Text);
-                    string extension = System.IO.Path.GetExtension(newPath);
-                    fileCount += 1; //set jumlah file
-                    saveUpload(docType.Text, TransId);
-                    if (flagContent !=0)
+                    var path = new TextBlock();
+                    var docType = new TextBlock();
+
+                    DataGridCell cellPath = dtgHelper.GetCell(i, 1);
+                    path = (TextBlock)cellPath.Content;
+                    if (path.Text != null && path.Text != "")
                     {
-                        DataTable test = dtContent;
+                        string newPath = WaterMarkProcess.SetWatermark(path.Text);
+                        string extension = System.IO.Path.GetExtension(newPath);
+                        fileCount += 1; //set jumlah file
+                        saveUpload(docType.Text, TransId);
+                        if (flagContent != 0)
+                        {
+                            DataTable test = dtContent;
+                        }
+                        flagContent += 1;
+                        dicExt.Add(fileCount, extension);
                     }
-                    flagContent += 1;
-                    dicExt.Add(fileCount, extension);
-                }
 
-            }
-            for (int i = 0; i < dtgUpload.Items.Count; i++)
-            {
-                var path = new TextBox();
-                DataGridCell cellPath = dtgHelper.GetCell(i, 3);
-                path = (TextBox)cellPath.Content;
-                if (path.Text != null && path.Text != "")
-                {
-                    string filePath = path.Text;
-                    string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath);
-                    string filePathOnly = System.IO.Path.GetDirectoryName(filePath);
-                    string extension = System.IO.Path.GetExtension(filePath);
-                    string newPath = filePathOnly + "//" + fileName + "_marking" + extension;
-                    bits(newPath, dicFile[i + 1]);
                 }
+                for (int i = 0; i < dtgUpload.Items.Count; i++)
+                {
+                    var path = new TextBox();
+                    DataGridCell cellPath = dtgHelper.GetCell(i, 3);
+                    path = (TextBox)cellPath.Content;
+                    if (path.Text != null && path.Text != "")
+                    {
+                        string filePath = path.Text;
+                        string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath);
+                        string filePathOnly = System.IO.Path.GetDirectoryName(filePath);
+                        string extension = System.IO.Path.GetExtension(filePath);
+                        string newPath = filePathOnly + "//" + fileName + "_marking" + extension;
+                        bits(newPath, dicFile[i + 1]);
+                    }
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "FileUpload",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
             //MessageBox.Show("Upload");
         }
@@ -184,20 +309,38 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         private void saveUpload(string docType, Int64 transId)
         {
             //ketika upload file akan di catat di database
-            DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+            try
             {
-                MethodName = "PathInsert",
-                ClassName = "UploadProcess"
-            };
-            _ent.TransId = transId;
-            _ent.DocumentType = docType;
-            trxFileName = Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
-            dicFile.Add(fileCount, trxFileName); //file yg di upload di simpan di list dictionary
-
+                DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+                {
+                    MethodName = "PathInsert",
+                    ClassName = "UploadProcess"
+                };
+                _ent.TransId = transId;
+                _ent.DocumentType = docType;
+                trxFileName = Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);//get trxId hasil dari query insert
+                dicFile.Add(fileCount, trxFileName); //file yg di upload di simpan di list dictionary
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "saveUpload",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
 
         }
         #region "BITS"
-        void bits(string fileName, string trxNo)
+        private void bits(string fileName, string trxNo)
         {
             try
             {
@@ -230,10 +373,22 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 //newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred);
                 #endregion
             }
-            catch (Exception ex)
+            catch (Exception _exp)
             {
                 //logging BITS here
-                MessageBox.Show(ex.ToString());
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "bits",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
 
         }
@@ -242,20 +397,40 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             //job selesai di transfer
             int flag = 0; //flag untuk save ke db
             jobCount += 1; //flag perhitungan jumlah job yang selesai
-            if (jobCount == fileCount && flag == 0) //jika jumlah job yg selesai sama dengan jumlah file
+            try
             {
-                //simpan file berdasarkan list dictionary
-                for (int i = 0; i < dicFile.Count; i++)
+
+                if (jobCount == fileCount && flag == 0) //jika jumlah job yg selesai sama dengan jumlah file
                 {
-                    WCFEntities oWcf = new WCFEntities();
-                  //  oWcf.DicExtString = dicExt[i + 1];// why + 1 ? karena mengambil file berdasarkan key nya, bukan dari index, (key mulai dari 1, index mulai dari 0, nilai awal i adalah 0) jadi harus + 1
-                    oWcf.DocTransID = Convert.ToInt64(dicFile[i + 1]);
-                    oWcf.FileName = dicFile[i + 1]+ dicExt[i + 1];
-                    oWcf.ComputerName = Environment.MachineName;
-                    MessageToWCF.UpdateFilePath(oWcf);
-                    flag += 1;
+                    //simpan file berdasarkan list dictionary
+                    for (int i = 0; i < dicFile.Count; i++)
+                    {
+                        WCFEntities oWcf = new WCFEntities();
+                        //  oWcf.DicExtString = dicExt[i + 1];// why + 1 ? karena mengambil file berdasarkan key nya, bukan dari index, (key mulai dari 1, index mulai dari 0, nilai awal i adalah 0) jadi harus + 1
+                        oWcf.DocTransID = Convert.ToInt64(dicFile[i + 1]);
+                        oWcf.FileName = dicFile[i + 1] + dicExt[i + 1];
+                        oWcf.ComputerName = Environment.MachineName;
+                        MessageToWCF.UpdateFilePath(oWcf);
+                        flag += 1;
+                    }
+                    MessageBox.Show("Upload file Success");
                 }
-                MessageBox.Show("Upload file Success");
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "newJob_OnJobTransferred",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
         }
 

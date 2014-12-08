@@ -16,7 +16,6 @@ namespace Adibrata.BusinessProcess.Paging.Extend
             DataTable _dt = new DataTable();
             try
             {
-                
                 SqlParameter[] sqlParams = new SqlParameter[4];
                 sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar, 7);
                 sqlParams[0].Value = _ent.StartRecord;
@@ -28,7 +27,6 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
                 _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spCustPaging", sqlParams));
-                
             }
             catch (Exception _exp)
             {
@@ -47,7 +45,6 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 ErrorLog.WriteEventLog(_errent);
             }
             return _dt;
-            
         }
     }
 }

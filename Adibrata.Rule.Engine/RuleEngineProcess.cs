@@ -82,15 +82,14 @@ namespace Adibrata.Framework.Rule
                 cachename.Append(_ent.RuleName);
                 cachename.Append(sb.ToString());
                 cachename.Append("List");
-                
+
                 if (!DataCache.Contains(cachename.ToString()))
                 {
-                    //_dtrule = _ent.DtListValue;
 
-                   
 
+                    //_dtrule = SqlHelper.ExecuteDataset(Connectionstring, CommandType.Text, sb.ToString()).Tables[0];
                     _dtrule.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.Text, sb.ToString()));
-                    DataCache.Insert<DataTable>(cachename.ToString(), _dtrule);
+                    //    DataCache.Insert<DataTable>(cachename.ToString(), _dtrule);
 
                 }
                 else

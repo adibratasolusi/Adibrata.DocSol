@@ -24,6 +24,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
             {
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
                 DataTable _dt = new DataTable();
                 DocSolEntities _ent = new DocSolEntities
                 {
@@ -77,10 +78,10 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                
                 oDocContent.GenerateControls();
                 cboDocumentType.IsEnabled = false;
-                //ucUpload.DocumentType = oDocContent.DocumentType;
-                //ucUpload.UserLogin = SessionProperty.UserLogin;
-                //ucUpload.TransId = SessionProperty.ReffKey;
-                //ucUpload.BindingValueMax();
+                ucUpload.DocumentType = oDocContent.DocumentType;
+                ucUpload.UserLogin = SessionProperty.UserName;
+                ucUpload.TransId = SessionProperty.ReffKey;
+                ucUpload.BindingValueMax();
             }
             catch (Exception _exp)
             {

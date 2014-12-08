@@ -58,7 +58,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         public UCUploadAgreement()
         {
             InitializeComponent();
-            jumlahUploadMax = 3;
+            //jumlahUploadMax = 3;
         }
         public void BindingValueMax()
         {

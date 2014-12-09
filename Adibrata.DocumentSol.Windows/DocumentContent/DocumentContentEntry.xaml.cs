@@ -80,7 +80,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 cboDocumentType.IsEnabled = false;
                 ucUpload.DocumentType = oDocContent.DocumentType;
                 ucUpload.UserLogin = SessionProperty.UserName;
-                ucUpload.TransId = SessionProperty.ReffKey;
+                ucUpload.TransId = Convert.ToInt64(SessionProperty.ReffKey);
                 ucUpload.BindingValueMax();
             }
             catch (Exception _exp)

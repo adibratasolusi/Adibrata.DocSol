@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.Logging"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.Messaging", "Adibrata.Framework.Messaging\Adibrata.Framework.Messaging.csproj", "{92FCF099-2046-4D09-8C2C-DA3940AC4552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.ReportDocument", "Adibrata.Framework.ReportDocument\Adibrata.Framework.ReportDocument.csproj", "{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.Security", "Adibrata.Framework.Security\Adibrata.Framework.Security.csproj", "{26F1E2D1-B0E5-405B-9D73-369DB760A730}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Report.Template", "Adibrata.Report.Template\Adibrata.Report.Template.csproj", "{C6DFA240-C475-49E6-96BD-3A0D6961F134}"
@@ -133,14 +131,6 @@ Global
 		{92FCF099-2046-4D09-8C2C-DA3940AC4552}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92FCF099-2046-4D09-8C2C-DA3940AC4552}.Release|ARM.ActiveCfg = Release|Any CPU
 		{92FCF099-2046-4D09-8C2C-DA3940AC4552}.Release|x86.ActiveCfg = Release|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Release|ARM.ActiveCfg = Release|Any CPU
-		{C4382E62-8044-4292-AEE4-B44FE0B7EC7E}.Release|x86.ActiveCfg = Release|Any CPU
 		{26F1E2D1-B0E5-405B-9D73-369DB760A730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{26F1E2D1-B0E5-405B-9D73-369DB760A730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26F1E2D1-B0E5-405B-9D73-369DB760A730}.Debug|ARM.ActiveCfg = Debug|Any CPU

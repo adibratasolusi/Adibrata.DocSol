@@ -20,15 +20,15 @@ namespace Adibrata.DocumentSol.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dtReport;
-            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserRegister", MethodName = "UserRegisterListReportData" };
-            dtReport = UserManagementController.UserManagement<DataTable>(_ent);
+            //DataTable dtReport;
+            //UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserRegister", MethodName = "UserRegisterListReportData" };
+            //dtReport = UserManagementController.UserManagement<DataTable>(_ent);
 
-            rptViewer.FileNameDocument = "UserList.pdf";
-            rptViewer.DataReport = dtReport;
-            rptViewer.DataSetName = "dsUserRegisterList";
-            rptViewer.ReportTemplate = @"UserManagement\UserRegisterReport.rdlc";
-            rptViewer.ReportBind();
+            //rptViewer.FileNameDocument = "UserList.pdf";
+            //rptViewer.DataReport = dtReport;
+            //rptViewer.DataSetName = "dsUserRegisterList";
+            //rptViewer.ReportTemplate = @"UserManagement\UserRegisterReport.rdlc";
+            //rptViewer.ReportBind();
 
         }
 

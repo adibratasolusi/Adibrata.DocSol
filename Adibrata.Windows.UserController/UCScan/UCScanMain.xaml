@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Adibrata.Windows.UserController.UCScan.UCScanMain"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="Auto" Height="Auto">
+    <ScrollViewer>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Button Name="btnScan" Content="Scan" Click="btnScan_Click"></Button>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <ListBox Name="lbDevices"></ListBox>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Image Name="picScan" Height="Auto" Width="Auto" />
+        </Grid>
+            
+    </Grid>
+    </ScrollViewer>
+</UserControl>

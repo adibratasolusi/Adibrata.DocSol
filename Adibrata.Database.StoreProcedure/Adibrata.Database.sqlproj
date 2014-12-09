@@ -145,5 +145,7 @@
     <Build Include="Table\DocContentApprHist.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineSchemePaging.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineListSave.sql" />
+    <Build Include="StoreProcedure\Upload\spDocTransInsert.sql" />
+    <Build Include="StoreProcedure\Upload\spUpdatePath.sql" />
   </ItemGroup>
 </Project>

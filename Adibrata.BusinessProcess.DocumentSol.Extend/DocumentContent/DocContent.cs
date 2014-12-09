@@ -83,7 +83,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
            RuleEngineEntities _entrule = new RuleEngineEntities { RuleName = "RUDocFiles" };
            try
            {
-               if (!DataCache.Contains(_ent.DocumentType))
+               string _cachename = "Files" + _ent.DocumentType;
+               if (!DataCache.Contains(_cachename))
                {
                    StringBuilder sb = new StringBuilder();
 
@@ -97,14 +98,14 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
               
                    foreach (DataRow _row in _dt.Rows)
                    {
-                       _numoffiles = (int)_row["Result"];
+                       _numoffiles = Convert.ToInt32(_row["Result"]);
 
                    }
-                   DataCache.Insert<int>(_ent.DocumentType, _numoffiles);
+                   DataCache.Insert<int>(_cachename, _numoffiles);
                }
                else
                {
-                   _numoffiles = DataCache.Get<int>(_ent.DocumentType);
+                   _numoffiles = DataCache.Get<int>(_cachename);
                }
            }
            catch (Exception _exp)

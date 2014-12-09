@@ -27,7 +27,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 if (SessionProperty.IsEdit)
                 {
                     UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserRegisterView", ClassName = "UserRegister", UserLogin = SessionProperty.UserName };
-                    _ent.UserID = SessionProperty.ReffKey;
+                    _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
                     _ent = UserManagementController.UserManagement<UserManagementEntities>(_ent);
                     txtUserName.Text = _ent.UserName;
                     txtPassword.Password = _ent.Password;
@@ -83,7 +83,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 }
                 _ent.UserLogin = SessionProperty.UserName;
                 _ent.IsEdit = SessionProperty.IsEdit;
-                _ent.UserID = SessionProperty.ReffKey;
+                _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
 
                 UserManagementController.UserManagement<string>(_ent);
                 RedirectPage redirect = new RedirectPage(this, "UserManagement.UserRegistrationPaging", SessionProperty);

@@ -71,7 +71,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTextColumn Binding="{Binding CustID}" Header="ID" x:Name="ID" Width="1"/>
+                                <DataGridTextColumn Binding="{Binding CustCode}" Header="CODE" x:Name="code" Width="100"/>
                                 <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
                                 <DataGridTextColumn Binding="{Binding Address}" Header="ADDRESS" x:Name="Address" Width="400" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding CustType}" Header="TYPE" x:Name="CustType" Width="Auto" FontSize="14"/>

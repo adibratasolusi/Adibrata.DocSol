@@ -67,12 +67,12 @@
                                 <DataGridTemplateColumn Header="EDIT" Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnEdit" Content="UPLOAD" Click="btnEdit_Click"></Button>
+                                            <Button Name="btnEdit" Content="EDIT" Click="btnEdit_Click"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTextColumn Binding="{Binding CustID}" Header="ID" x:Name="ID" Width="1"/>
+                                <DataGridTextColumn Binding="{Binding CustCode}" Header="CODE" x:Name="CODE" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
                                 <DataGridTextColumn Binding="{Binding Address}" Header="ADDRESS" x:Name="Address" Width="400" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding CustType}" Header="TYPE" x:Name="CustType" Width="Auto" FontSize="14"/>

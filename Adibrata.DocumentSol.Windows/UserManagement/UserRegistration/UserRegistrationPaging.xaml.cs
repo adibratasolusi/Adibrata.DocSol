@@ -20,19 +20,31 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
         SessionEntities SessionProperty = new SessionEntities();
         public UserRegistrationPaging(SessionEntities _session)
         {
-            InitializeComponent();
-            this.DataContext = new MainVM(new Shell());
-            SessionProperty = _session;
-            oPaging.dgObj = dgPaging;
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerPaging",
+                    FunctionName = "CustomerPaging",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
-        public UserRegistrationPaging()
-        {
-            InitializeComponent();
-            this.DataContext = new MainVM(new Shell());
-            SessionProperty.UserName = "test";
-            oPaging.dgObj = dgPaging;
-        }
+      
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             try

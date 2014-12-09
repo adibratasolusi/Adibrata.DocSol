@@ -7,18 +7,20 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
+
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class UserRegister : Adibrata.BusinessProcess.Paging.Core.UserRegister
+    public class FormRegistrasi
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
-        public virtual DataTable UserRegisterPaging(PagingEntities _ent)
+     
+        public virtual DataTable FormRegistrasiPaging (PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();
             try
             {
-                sb.Append("spMsUserPaging");
+                sb.Append("spMsFormPaging");
                 SqlParameter[] sqlParams = new SqlParameter[4];
                 sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar,7);
                 sqlParams[0].Value = _ent.StartRecord;
@@ -28,8 +30,6 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 sqlParams[2].Value = _ent.WhereCond;
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
-
-
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
             }
             catch (Exception _exp)
@@ -38,8 +38,8 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 {
                     UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Paging.Extend",
-                    ClassName = "UserRegister",
-                    FunctionName = "UserRegisterPaging",
+                    ClassName = "FormRegistrasi",
+                    FunctionName = "FormRegisterPaging",
                     ExceptionNumber = 1,
                     EventSource = "UserRegister",
                     ExceptionObject = _exp,

@@ -9,8 +9,6 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using Adibrata.Windows.UserController;
 
-
-
 namespace Adibrata.DocumentSol.Windows.Form
 {
     /// <summary>
@@ -21,11 +19,28 @@ namespace Adibrata.DocumentSol.Windows.Form
         SessionEntities SessionProperty = new SessionEntities();
         public FormRegistrasiPaging(SessionEntities _session)
         {
-            InitializeComponent();
-
-            this.DataContext = new MainVM(new Shell());
-            SessionProperty = _session;
-            oPaging.dgObj = dgPaging;
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
+                    ClassName = "CustomerPaging",
+                    FunctionName = "CustomerPaging",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -40,15 +55,15 @@ namespace Adibrata.DocumentSol.Windows.Form
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
-                RedirectPage redirect = new RedirectPage(this, "UserManagement.UserRegistrationAddEdit", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "Form.FormRegistrasiPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
-                    ClassName = "UserRegistrationPaging",
+                    NameSpace = "Adibrata.DocumentSol.Windows.Form",
+                    ClassName = "FormRegistrasiPaging",
                     FunctionName = "btnEdit_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
@@ -64,15 +79,16 @@ namespace Adibrata.DocumentSol.Windows.Form
         {
             try
             {
-                RedirectPage redirect = new RedirectPage(this, "UserManagement.UserRegistrationAddEdit", SessionProperty);
+
+                RedirectPage redirect = new RedirectPage(this, "Form.FormRegistrasiSave", SessionProperty);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
-                    ClassName = "UserRegistrationPaging",
+                    NameSpace = "Adibrata.DocumentSol.Windows.Form",
+                    ClassName = "FormRegistrasiPaging",
                     FunctionName = "btnAdd_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
@@ -89,14 +105,14 @@ namespace Adibrata.DocumentSol.Windows.Form
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                oPaging.ClassName = "UserRegister";
-                oPaging.MethodName = "UserRegisterPaging";
+                oPaging.ClassName = "FormRegistrasi";
+                oPaging.MethodName = "FormRegistrasiPaging";
                 oPaging.dgObj = dgPaging;
-                if (txtSearch.Text != "")
+                if (txtFormCode.Text != "")
                 {
                     sb.Append(" Where ");
                     sb.Append(" UserName = '");
-                    sb.Append(txtSearch.Text);
+                    sb.Append(txtFormCode.Text);
                     sb.Append("'");
                 }
                 else
@@ -104,7 +120,7 @@ namespace Adibrata.DocumentSol.Windows.Form
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " UserName Asc ";
+                oPaging.SortBy = " FormName Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }
@@ -113,8 +129,8 @@ namespace Adibrata.DocumentSol.Windows.Form
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
-                    ClassName = "UserRegistrationPaging",
+                    NameSpace = "Adibrata.DocumentSol.Windows.Form",
+                    ClassName = "FormRegistrasiPaging",
                     FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",

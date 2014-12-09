@@ -1,6 +1,4 @@
-﻿USE [TBIG]
-GO
-
+﻿
 /****** Object:  Table [dbo].[MS_Form]    Script Date: 11/25/2014 2:30:00 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -11,7 +9,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[MS_Form](
+Create TABLE [dbo].[MS_Form](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	FormCode varchar(50), 
 	[FormName] [varchar](50) NULL,

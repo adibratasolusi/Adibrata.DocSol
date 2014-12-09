@@ -74,12 +74,13 @@ namespace Adibrata.Framework.ImageProcessing
             return returnImage;
         }
 
-        public static Image BitmapToImage(Bitmap bmp)
+        public static Image ConvertBitmapImage(Bitmap bmp)
         {
             Image img = (Image)bmp;
             return img;
         }
-        public static Bitmap ImageToBitmap(Image img)
+
+        public static Bitmap ConvertBitmapImage(Image img)
         {
             Bitmap bmp = new Bitmap(img);
             return bmp;

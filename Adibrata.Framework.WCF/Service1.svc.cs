@@ -1,15 +1,8 @@
 ﻿using Adibrata.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Net;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using Adibrata.Framework.Logging;
 using Adibrata.BusinessProcess.Entities.Base;
 using System.Drawing;

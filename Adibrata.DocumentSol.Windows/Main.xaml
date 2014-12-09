@@ -30,7 +30,54 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="9*"/>
             </Grid.ColumnDefinitions>
-                <UserController:UCMenuTree />
+                <DockPanel>
+                    <!-- SEARCH AREA -->
+                    <Border 
+      DockPanel.Dock="Top" 
+      BorderBrush="Gray" 
+      BorderThickness="1,0,1,1"
+      >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#33000000" Offset="0" />
+                                <GradientStop Color="#11000000" Offset="1" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <StackPanel 
+        HorizontalAlignment="Center" 
+        Margin="4" 
+        Orientation="Horizontal"
+        >
+                            <TextBlock Text="Search for:" />
+                            <TextBox 
+          x:Name="searchTextBox"
+          Margin="6,0"
+          Width="150"
+          />
+                            <Button 
+          Padding="8,0" Name="btnFind" Click="btnFind_Click"
+          >
+                                <Label>_Find</Label>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- FAMILY TREE -->
+                    <DataGrid Name="dtgMenu">
+                        <DataGridTemplateColumn Header="Menu">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Name="tbMenu" Text="{Binding Menu}">
+                                        <Hyperlink Name="hpMenu" Click="hpMenu_Click"></Hyperlink>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+                    </DataGrid>
+                </DockPanel>
+                <!--<UserController:UCMenuTree />-->
                 <!--<TreeView   Grid.Column="0" VerticalAlignment="Stretch" ItemsSource="{Binding Departments}">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Subjects}">

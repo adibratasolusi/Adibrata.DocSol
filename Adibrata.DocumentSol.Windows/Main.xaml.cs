@@ -28,5 +28,15 @@ namespace Adibrata.DocumentSol.Windows
         {
 
         }
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void hpMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

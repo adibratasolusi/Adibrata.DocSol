@@ -158,9 +158,9 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
             try
             {
                 SqlParameter[] sqlParams = new SqlParameter[1];
-                sqlParams[0] = new SqlParameter("@criteria", SqlDbType.VarChar,50);
+                sqlParams[0] = new SqlParameter("@Crit", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.Form;
-                sb.Append("spSearchMenuEngine");
+                sb.Append("spMenuSearch");
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, sb.ToString(),sqlParams));
             }
             catch (Exception _exp)

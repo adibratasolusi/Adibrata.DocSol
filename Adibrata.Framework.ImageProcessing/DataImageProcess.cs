@@ -28,6 +28,5 @@ namespace Adibrata.Framework.ImageProcessing
             return dt;
         }
 
-
     }
 }

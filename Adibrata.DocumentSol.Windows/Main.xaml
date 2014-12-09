@@ -64,18 +64,23 @@
                     </Border>
 
                     <!-- FAMILY TREE -->
-                    <DataGrid Name="dtgMenu">
-                        <DataGridTemplateColumn Header="Menu">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Name="tbMenu" Text="{Binding Menu}">
-                                        <Hyperlink Name="hpMenu" Click="hpMenu_Click"></Hyperlink>
-                                    </TextBlock>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
+                    <ScrollViewer>
+                    <DataGrid Name="dtgMenu" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Menu">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button  Name="hpMenu" Content=">" Click="hpMenu_Click"></Button>
+                                           
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
 
-                        </DataGridTemplateColumn>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="FormURL" Binding="{Binding FormURL}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                
                     </DataGrid>
+                    </ScrollViewer>
                 </DockPanel>
                 <!--<UserController:UCMenuTree />-->
                 <!--<TreeView   Grid.Column="0" VerticalAlignment="Stretch" ItemsSource="{Binding Departments}">

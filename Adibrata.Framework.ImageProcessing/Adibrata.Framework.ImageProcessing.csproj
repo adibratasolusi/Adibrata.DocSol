@@ -53,7 +53,12 @@
     <Compile Include="SizeRotateProcess.cs" />
     <Compile Include="WatermarkProcess.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
+      <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
+      <Name>Adibrata.Framework.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Images\watermark.png" />
     <Content Include="lib\PdfSharp.dll" />

@@ -72,6 +72,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ImageProcess\UCImageInputWatermark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\UCImageRotate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\UCImageToGrayscale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\UCImageToPdf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InputNumber.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,6 +103,10 @@
     <Page Include="UCAddress.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCCanvas\UCCanvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UCMenuSearch.xaml">
       <SubType>Designer</SubType>
@@ -127,6 +147,21 @@
     <Compile Include="CommonClass\DesignQuotes.cs" />
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\UCImageInputWatermark.xaml.cs">
+      <DependentUpon>UCImageInputWatermark.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\UCImageRotate.xaml.cs">
+      <DependentUpon>UCImageRotate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\UCImageToGrayscale.xaml.cs">
+      <DependentUpon>UCImageToGrayscale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\UCImageToPdf.xaml.cs">
+      <DependentUpon>UCImageToPdf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCCanvas\UCCanvas.xaml.cs">
+      <DependentUpon>UCCanvas.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCMenuTree\Database.cs" />
     <Compile Include="DocContent\UCDocumentContent.xaml.cs">
@@ -287,6 +322,9 @@
     <Resource Include="UCMenu\Images\Print.png" />
     <Resource Include="UCMenu\Images\Save.png" />
     <Resource Include="UCMenu\Images\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\Interop.WIA.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

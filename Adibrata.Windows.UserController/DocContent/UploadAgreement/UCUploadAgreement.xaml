@@ -24,7 +24,7 @@
                 <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click" HorizontalAlignment="Right"></Button>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                <DataGrid Name="dtgUpload" CanUserDeleteRows="True" Width="Auto">
+                <DataGrid Name="dtgUpload" CanUserDeleteRows="True" Width="500">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Delete" x:Name="Delete">
                             <DataGridTemplateColumn.CellTemplate>

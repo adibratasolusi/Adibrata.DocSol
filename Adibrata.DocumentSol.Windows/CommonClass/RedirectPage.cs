@@ -53,10 +53,9 @@ namespace Adibrata.DocumentSol.Windows
                 case "Approval.ApprovalPaging": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalPaging(_ent)); break;
                 case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
                 #endregion 
-
             }
-
         }
+
         public RedirectPage(Frame Source, string PageName, SessionEntities _ent)
         {
             switch (PageName)

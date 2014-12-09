@@ -6,10 +6,10 @@
 AS
 Set NoCount On 
 	
-Declare @RecordNumber Numeric, 
+Declare 
 		@SqlStatement Varchar(max)
 Set NoCount On 
-Declare @TotalRecord int
+
 If @SortBy = '' 
 	Set @SortBy = ' FullName Asc '
 
@@ -21,6 +21,6 @@ If @SortBy = ''
 		From Ms_User with (nolock) ' + @WhereCond  + ') Qry
 		where number between ' + @StartRecord  + ' and  ' + @EndRecord  
 		exec (@SqlStatement)
-Set @TotalRecord =  @@ROWCOUNT
+--Set @TotalRecord =  @@ROWCOUNT
 RETURN 0
 

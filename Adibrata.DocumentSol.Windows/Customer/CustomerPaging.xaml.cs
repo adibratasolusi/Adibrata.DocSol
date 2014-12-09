@@ -22,7 +22,7 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
             }
-                catch (Exception _exp)
+            catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {

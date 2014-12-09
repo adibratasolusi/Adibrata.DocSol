@@ -97,7 +97,7 @@ namespace Adibrata.DocumentSol.Windows.RuleUpload
                 DataGridCell cell = oDataGrid.GetCell(i, 2);
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
-                SessionProperty.ReffKey = Convert.ToInt64(ReffKey.Text);
+                SessionProperty.ReffKey = ReffKey.Text;
                 RedirectPage redirect = new RedirectPage(this, "RuleUpload.RuleEngineUpload", SessionProperty);
             }
             catch (Exception _exp)

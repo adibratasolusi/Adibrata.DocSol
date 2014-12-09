@@ -66,7 +66,6 @@
     <Folder Include="StoreProcedure\UserManagement" />
     <Folder Include="Function" />
     <Folder Include="StoreProcedure\Customer" />
-    <Folder Include="SQLData" />
     <Folder Include="StoreProcedure\Upload" />
     <Folder Include="StoreProcedure\RuleEngine" />
   </ItemGroup>
@@ -146,23 +145,5 @@
     <Build Include="Table\DocContentApprHist.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineSchemePaging.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineListSave.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SQLData\TBIG.mdf" />
-    <None Include="SQLData\TBIG_1.ndf" />
-    <None Include="SQLData\TBIG_10.ndf" />
-    <None Include="SQLData\TBIG_11.ndf" />
-    <None Include="SQLData\TBIG_13.ndf" />
-    <None Include="SQLData\TBIG_14.ndf" />
-    <None Include="SQLData\TBIG_15.ndf" />
-    <None Include="SQLData\TBIG_2.ndf" />
-    <None Include="SQLData\TBIG_20.ndf" />
-    <None Include="SQLData\TBIG_4.ndf" />
-    <None Include="SQLData\TBIG_5.ndf" />
-    <None Include="SQLData\TBIG_6.ndf" />
-    <None Include="SQLData\TBIG_7.ndf" />
-    <None Include="SQLData\TBIG_8.ndf" />
-    <None Include="SQLData\TBIG_9.ndf" />
-    <None Include="SQLData\TBIG_log.ldf" />
   </ItemGroup>
 </Project>

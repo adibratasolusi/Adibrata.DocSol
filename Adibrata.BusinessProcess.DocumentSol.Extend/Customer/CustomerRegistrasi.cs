@@ -168,8 +168,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             {
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[1];
-                sqlParams[0] = new SqlParameter("@CustID", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.CustomerID;
+                sqlParams[0] = new SqlParameter("@CustCode", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.CustomerCode;
 
                 _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spCustCoyView", sqlParams);
                 

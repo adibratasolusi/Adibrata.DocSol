@@ -29,7 +29,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 {
                     ClassName = "CustomerRegistrasi",
                     MethodName = "CustomerCompanyRegistrasiView",
-                    CustomerID = _session.ReffKey
+                    CustomerCode = _session.ReffKey
 
                 };
                 _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);

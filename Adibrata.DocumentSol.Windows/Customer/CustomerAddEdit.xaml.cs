@@ -29,8 +29,7 @@ namespace Adibrata.DocumentSol.Windows.Customer
                     {
                         ClassName = "CustomerRegistrasi",
                         MethodName = "CustomerCompanyRegistrasiView",
-                        CustomerID = _session.ReffKey
-
+                        CustomerCode = _session.ReffKey
                     };
                     _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                     txtCompanyName.Text = _ent.CompanyName;
@@ -92,7 +91,7 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 if (SessionProperty.IsEdit)
                 {
                     _ent.IsEdit = SessionProperty.IsEdit;
-                    _ent.CustomerID = SessionProperty.ReffKey;
+                    _ent.CustomerCode = SessionProperty.ReffKey;
                 }
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);

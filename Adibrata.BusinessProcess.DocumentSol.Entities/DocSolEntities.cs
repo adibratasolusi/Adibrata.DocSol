@@ -11,6 +11,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
     public class DocSolEntities : EntitiesBase
     {
         public long CustomerID { get; set; }
+        public string CustomerCode { get; set; }
         public string AgrmntNo { get; set; }
         public Int64 TransId { get; set; }
         public string Crit { get; set; }

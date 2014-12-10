@@ -11,7 +11,3 @@ BEGIN
 END
 RETURN 0
 
-select * from MS_Form
-
-insert into MS_Form values('TestFredy','FredyAsd',1,GETDATE(),'sa',GETDATE(),'sa')
-insert into MS_Form values('TestMenu','AsdAsd',1,GETDATE(),'sa',GETDATE(),'sa')

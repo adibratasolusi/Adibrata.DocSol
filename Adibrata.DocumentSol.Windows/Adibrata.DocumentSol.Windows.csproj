@@ -111,6 +111,39 @@
     <Compile Include="DocumentContent\DocumentUploadPaging.xaml.cs">
       <DependentUpon>DocumentUploadPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageProcess\Canvas.xaml.cs">
+      <DependentUpon>Canvas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\DataImage.xaml.cs">
+      <DependentUpon>DataImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Decryption.xaml.cs">
+      <DependentUpon>Decryption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Encryption.xaml.cs">
+      <DependentUpon>Encryption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Grayscale.xaml.cs">
+      <DependentUpon>Grayscale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\ImageToPdf.xaml.cs">
+      <DependentUpon>ImageToPdf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Lock.xaml.cs">
+      <DependentUpon>Lock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Rotate.xaml.cs">
+      <DependentUpon>Rotate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Scanner.xaml.cs">
+      <DependentUpon>Scanner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Unlock.xaml.cs">
+      <DependentUpon>Unlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Watermark.xaml.cs">
+      <DependentUpon>Watermark.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\FormRegistration\FormRegistrasiPaging.xaml.cs">
       <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
     </Compile>
@@ -206,6 +239,50 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentContent\DocumentUploadPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Canvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\DataImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Decryption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Encryption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Grayscale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageToPdf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Lock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Rotate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Scanner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Unlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Watermark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -476,9 +553,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ImageProcess\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

@@ -36,19 +36,19 @@ namespace Adibrata.Framework.WCF
             return composite;
         }
 
-        private byte[] imageToByteArray(System.Drawing.Image imageIn)
+        public byte[] imageToByteArray(System.Drawing.Image imageIn)
         {
             MemoryStream ms = new MemoryStream();
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
             return ms.ToArray();
         }
-        private Image byteArrayToImage(byte[] byteArrayIn)
+        public Image byteArrayToImage(byte[] byteArrayIn)
         {
             MemoryStream ms = new MemoryStream(byteArrayIn);
             Image returnImage = Image.FromStream(ms);
             return returnImage;
         }
-        private DateTime getImageDtCreate(Image img)
+        public DateTime getImageDtCreate(Image img)
         {
             PropertyItem propItem = img.GetPropertyItem(0x132);
             DateTime dt = new DateTime();

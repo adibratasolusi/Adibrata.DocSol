@@ -13,7 +13,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public long CustomerID { get; set; }
         public string CustomerCode { get; set; }
         public string AgrmntNo { get; set; }
-        public Int64 TransId { get; set; }
+        public string TransId { get; set; }
         public string Crit { get; set; }
         public string By { get; set; }
         public string CompanyName { get; set; }

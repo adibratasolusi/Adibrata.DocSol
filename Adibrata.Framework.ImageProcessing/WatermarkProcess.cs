@@ -36,7 +36,7 @@ namespace Adibrata.Framework.ImageProcessing
             Graphics grPhoto = Graphics.FromImage(bmPhoto);
 
             ////create a image object containing the watermark
-            Image imgWatermark = new Bitmap(Path.GetDirectoryName(WorkingDirectory) + "\\watermark.png");
+            Image imgWatermark = Image.FromFile("D://BITSServer/watermark.png");
             int wmWidth = 10;
             int wmHeight = 10;
 

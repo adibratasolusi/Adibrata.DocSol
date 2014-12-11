@@ -85,7 +85,7 @@
 	</ControlTemplate>
 	
 	<Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
-		<Setter Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
+		<Setter Property="Background" Value="Gray"/>
 		<Setter Property="BorderBrush" Value="{StaticResource WhiteBrush}"/>
 		<Setter Property="BorderThickness" Value="1"/>
 		<Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>

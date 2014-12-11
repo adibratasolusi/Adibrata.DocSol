@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -23,6 +24,15 @@ namespace Adibrata.Framework.WCF
 
         [OperationContract]
         void UpdatePathDetails(PathDetails pathInfo);
+
+        [OperationContract]
+        byte[] imageToByteArray(System.Drawing.Image imageIn);
+
+        [OperationContract]
+        Image byteArrayToImage(byte[] byteArrayIn);
+
+        [OperationContract]
+        DateTime getImageDtCreate(Image img);
     }
 
 

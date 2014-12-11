@@ -9,10 +9,10 @@
 -- This block of comments will not be included in
 -- the definition of the function.
 -- ================================================
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+-- SET ANSI_NULLS ON
+--GO
+--SET QUOTED_IDENTIFIER ON
+--GO
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date, ,>
@@ -36,6 +36,6 @@ BEGIN
 		Set @Valid = 0
 	RETURN @Valid
 END
-GO
+--GO
 
 

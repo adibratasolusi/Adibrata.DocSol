@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spMenuSearch]
+﻿CREATE PROCEDURE [dbo].[spMenuSearch]
 	@Crit varchar(50)
 AS
 IF LOWER(@Crit) = 'all'

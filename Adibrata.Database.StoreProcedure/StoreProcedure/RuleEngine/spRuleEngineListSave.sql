@@ -1,5 +1,5 @@
 ﻿
-ALTER PROCEDURE [dbo].[spRuleEngineListSave]
+CREATE PROCEDURE [dbo].[spRuleEngineListSave]
 	@RuleCode varchar(20), 
 	@RuleName Varchar(50), 
 	@RuleFileName varchar(500), 

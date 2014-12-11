@@ -1,4 +1,4 @@
-﻿ALter PROCEDURE [dbo].[spCustCoySave]
+﻿CREATE PROCEDURE [dbo].[spCustCoySave]
 	@CustID bigint, 
 	@CoyAddress Varchar(100), 
 	@CoyRT varchar(4), 

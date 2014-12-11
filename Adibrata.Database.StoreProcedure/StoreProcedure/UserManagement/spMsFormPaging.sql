@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE spMsFormPaging
+﻿CREATE PROCEDURE spMsFormPaging
 	@StartRecord varchar(7), 
 	@EndRecord varchar(7), 
 	@WhereCond varchar(8000), 

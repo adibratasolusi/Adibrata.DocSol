@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spRuleEngineSchemePaging]
+﻿CREATE PROCEDURE [dbo].[spRuleEngineSchemePaging]
 	@StartRecord varchar(10), 
 	@EndRecord varchar(10), 
 	@WhereCond varchar(8000), 

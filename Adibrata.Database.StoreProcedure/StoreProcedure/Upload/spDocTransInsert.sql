@@ -4,7 +4,7 @@
 -- Create date: 20141110
 -- Description:	insert ke tabel DocTrans
 -- =============================================
-ALTER PROCEDURE [dbo].[spDocTransInsert]
+CREATE PROCEDURE [dbo].[spDocTransInsert]
 	-- Add the parameters for the stored procedure here
 	@TransId bigint,
 	@docType varchar(50)

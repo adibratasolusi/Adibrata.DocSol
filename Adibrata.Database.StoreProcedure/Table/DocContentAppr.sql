@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[DocContentAppr]
 (
-	[ID] BIGINT  NULL PRIMARY KEY, 
+	[ID] BIGINT PRIMARY KEY, 
 	NextLevelAppr varchar(50), 
 	DocTypeCode VARCHAR(50), 
 	DocTransID BIGINT, 

@@ -64,8 +64,9 @@
                     </Border>
 
                     <!-- FAMILY TREE -->
+
                     <ScrollViewer>
-                    <DataGrid Name="dtgMenu" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+                    <DataGrid Name="dtgMenu" AutoGenerateColumns="False" CanUserAddRows="False" ScrollViewer.CanContentScroll="True" CanUserDeleteRows="False">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="Menu">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -80,6 +81,8 @@
                             </DataGrid.Columns>
                 
                     </DataGrid>
+                   
+
                     </ScrollViewer>
                 </DockPanel>
                 <!--<UserController:UCMenuTree />-->
@@ -100,7 +103,7 @@
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
-                        <Frame Name="frmWorksheet" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></Frame>
+                        <Frame Name="frmWorksheet" Width="Auto" HorizontalAlignment="Stretch" ScrollViewer.CanContentScroll="True" VerticalAlignment="Stretch" ></Frame>
                     </ScrollViewer>
                 </StackPanel>
             </Grid>

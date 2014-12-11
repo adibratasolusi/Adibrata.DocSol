@@ -8,7 +8,7 @@ namespace Adibrata.Framework.Messaging
     {
         public static void UpdateFilePath(WCFEntities oWCF)
         {
-
+            Adibrata.Framework.Messaging.ServiceReference1.
             Service1Client objService = new Service1Client();
             try
             {

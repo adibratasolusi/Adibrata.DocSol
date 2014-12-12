@@ -8,8 +8,8 @@ namespace Adibrata.Framework.Messaging
     {
         public static void UpdateFilePath(WCFEntities oWCF)
         {
-            Adibrata.Framework.Messaging.ServiceReference1.
-            Service1Client objService = new Service1Client();
+            //Adibrata.Framework.Messaging.ServiceReference1.
+            //Service1Client objService = new Service1Client();
             try
             {
 
@@ -22,7 +22,7 @@ namespace Adibrata.Framework.Messaging
                 pathInfo.ComputerName = oWCF.ComputerName;
                 pathInfo.DPI = oWCF.DPI;
                 pathInfo.FileBinary = oWCF.FileBinary;
-                objService.UpdatePathDetails(pathInfo);
+              //  objService.UpdatePathDetails(pathInfo);
             }
             catch (Exception _exp)
             {

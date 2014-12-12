@@ -66,7 +66,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                    ExceptionNumber = 1,
                    EventSource = "DocContent",
                    ExceptionObject = _exp,
-                   EventID = 80, // 80 Untuk Framework 
+                   EventID = 200, // 80 Untuk Framework 
                    ExceptionDescription = _exp.Message
                };
                ErrorLog.WriteEventLog(_errent);
@@ -119,7 +119,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                    ExceptionNumber = 1,
                    EventSource = "DocContent",
                    ExceptionObject = _exp,
-                   EventID = 80, // 80 Untuk Framework 
+                   EventID = 200, // 80 Untuk Framework 
                    ExceptionDescription = _exp.Message
                };
                ErrorLog.WriteEventLog(_errent);

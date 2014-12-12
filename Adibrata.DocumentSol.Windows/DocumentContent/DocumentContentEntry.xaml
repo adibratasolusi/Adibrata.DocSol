@@ -7,60 +7,68 @@
       mc:Ignorable="d" 
       d:DesignHeight="500"
 	Title="DocumentContentEntry">
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto"  />
-            <RowDefinition Height="Auto"  />
-            <RowDefinition Height="Auto"  />
-        </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
-            <StackPanel>
-                <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"> </TextBlock>
-                <TextBlock Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type"></TextBlock>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="0">
-            <StackPanel>
-                <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                <ComboBox Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged"
-                       Text="{Binding Result}"   SelectedValue ="{Binding Result}">
-                </ComboBox>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <Grid>
-                    <DocContent:UCDocumentContent x:Name="oDocContent"/>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-            <Grid>
-                <UploadAgreement:UCUploadAgreement Name="ucUpload" Width="Auto" Height="Auto" />
-            </Grid>
-        </Grid>
-        <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridStyle}" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-
-                <Button Name="btnSave" Click="btnSave_Click">
-                    <Label>_SAVE</Label>
-                </Button>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Upload" FontSize="24" FontWeight="Bold"></TextBlock>
+                </StackPanel>
             </Grid>
-            <Grid Grid.Column="1">
-                <Button Name="btnBack" Click="btnBack_Click">
-                    <Label>_BACK</Label>
-                </Button>
+            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
+                <StackPanel>
+                    <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
+                    <TextBlock Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type"></TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                    <ComboBox Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged"
+                       Text="{Binding Result}"   SelectedValue ="{Binding Result}">
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid>
+                    <DocContent:UCDocumentContent x:Name="oDocContent"/>
+                </Grid>
             </Grid>
 
+            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+                <Grid>
+                    <UploadAgreement:UCUploadAgreement Name="ucUpload" Width="Auto" Height="Auto" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+
+                    <Button Name="btnSave" Click="btnSave_Click">
+                        <Label>_SAVE</Label>
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button Name="btnBack" Click="btnBack_Click">
+                        <Label>_BACK</Label>
+                    </Button>
+                </Grid>
+
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Page>

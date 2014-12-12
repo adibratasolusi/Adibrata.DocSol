@@ -43,6 +43,7 @@
     <Compile Include="Customer\CustomerRegistrasi.cs" />
     <Compile Include="DocContent\DocContent.cs" />
     <Compile Include="DocContent\DocType.cs" />
+    <Compile Include="Project\ProjectRegistrasi.cs" />
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

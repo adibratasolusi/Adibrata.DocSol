@@ -143,6 +143,15 @@
     <Compile Include="ImageProcess\Watermark.xaml.cs">
       <DependentUpon>Watermark.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Project\CustomerProjectPaging.xaml.cs">
+      <DependentUpon>CustomerProjectPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\ProjectAddEdit.xaml.cs">
+      <DependentUpon>ProjectAddEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\ProjectPaging.xaml.cs">
+      <DependentUpon>ProjectPaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\FormRegistration\FormRegistrasiPaging.xaml.cs">
       <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
     </Compile>
@@ -282,6 +291,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\Watermark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Project\CustomerProjectPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Project\ProjectAddEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Project\ProjectPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

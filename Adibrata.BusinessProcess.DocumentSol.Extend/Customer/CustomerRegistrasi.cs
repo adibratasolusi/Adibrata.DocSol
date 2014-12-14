@@ -43,7 +43,7 @@ using System.Data.SqlClient;
 
 namespace Adibrata.BusinessProcess.DocumentSol.Extend
 {
-    public class CustomerRegistrasi
+    public class CustomerRegistrasi : Adibrata.BusinessProcess.DocumentSol.Core.CustomerRegistrasi
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
         

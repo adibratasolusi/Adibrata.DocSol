@@ -4,7 +4,7 @@
 -- Create date: 29/10/2014
 -- Description:	SP Untuk update binary di table path, input berupa gambar
 -- =============================================
-ALTER PROCEDURE [dbo].[spUpdatePath]
+CREATE PROCEDURE [dbo].[spUpdatePath]
  
  
 	@DocTransID BigInt,

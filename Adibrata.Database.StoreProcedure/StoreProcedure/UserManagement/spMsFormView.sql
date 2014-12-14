@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spMsFormView]
+﻿CREATE PROCEDURE [dbo].[spMsFormView]
 	@FormID BigInt
 AS
 set NoCount On 

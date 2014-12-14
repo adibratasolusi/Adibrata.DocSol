@@ -1,7 +1,7 @@
 ﻿
 -- Create by Henry, 25 Nov 2014
 
-ALTER PROCEDURE [dbo].[spMsUserView]
+CREATE PROCEDURE [dbo].[spMsUserView]
 	@UserID bigint
 AS
 set NoCount On 

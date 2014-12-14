@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spMsUserPaging]
+﻿CREATE PROCEDURE [dbo].[spMsUserPaging]
 	@StartRecord varchar(7), 
 	@EndRecord varchar(7), 
 	@WhereCond varchar(8000), 

@@ -53,6 +53,13 @@ namespace Adibrata.DocumentSol.Windows
                 case "Approval.ApprovalPaging": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalPaging(_ent)); break;
                 case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
                 #endregion 
+
+                #region "Project"
+                case "Project.CustomerProjectPaging": Source.NavigationService.Navigate(new Project.CustomerProjectPaging(_ent)); break;
+                case "Project.ProjectPaging": Source.NavigationService.Navigate(new Project.ProjectPaging(_ent)); break;
+                case "Project.ProjectAddEdit": Source.NavigationService.Navigate(new Project.ProjectAddEdit(_ent)); break;
+
+                #endregion
             }
         }
 
@@ -109,6 +116,14 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcessing.ImageUnlock": Source.NavigationService.Navigate(new ImageProcess.Unlock()); break;
                 case "ImageProcessing.ImageScanner": Source.NavigationService.Navigate(new ImageProcess.Scanner()); break;
                 
+                #endregion
+
+
+                #region "Project"
+                case "Project.CustomerProjectPaging": Source.NavigationService.Navigate(new Project.CustomerProjectPaging(_ent)); break;
+                case "Project.ProjectPaging": Source.NavigationService.Navigate(new Project.ProjectPaging(_ent)); break;
+                case "Project.ProjectAddEdit": Source.NavigationService.Navigate(new Project.ProjectAddEdit(_ent)); break;
+
                 #endregion
             }
 

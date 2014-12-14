@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.Configuration;
+using Adibrata.Framework.DataAccess;
+using Adibrata.Framework.Logging;
+using System;
+using System.Data;
+using System.Data.SqlClient;
 
-namespace Adibrata.BusinessProcess.DocumentSol.Core.Customer
+namespace Adibrata.BusinessProcess.DocumentSol.Core
 {
-    class CustomerRegistrasi
+    public class CustomerRegistrasi
     {
+
     }
 }

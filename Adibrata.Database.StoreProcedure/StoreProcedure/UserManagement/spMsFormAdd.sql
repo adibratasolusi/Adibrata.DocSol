@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spMsFormAdd]
+﻿CREATE PROCEDURE [dbo].[spMsFormAdd]
 	@FormCode Varchar(50), 
 	@FormURL Varchar(255), 
 	@FormName Varchar(50), 

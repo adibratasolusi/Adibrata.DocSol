@@ -1,0 +1,79 @@
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.Project.ProjectAddEdit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+	Title="ProjectAddEdit">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridStyle}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="PROJECT REGISTRATION" FontSize="24" FontWeight="Bold"></TextBlock>
+                </StackPanel>
+            </Grid>
+
+            <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="91*"/>
+
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto" />
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="0" Grid.Row="0" Margin="5">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Customer Code" VerticalAlignment="Center" Width="200"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Customer Name" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblDescProjCode" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Project Name" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" Text="Project Type" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2">
+                    <StackPanel HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblCustomerCode" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblCustomerName" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblProjectCode" VerticalAlignment="Center"/>
+                        
+                        <TextBox Name="txtPrjectName" Style="{StaticResource textStyle}" MaxLength="50" Width="300"></TextBox>
+                        <ComboBox Name="cboProjectType" Text="{Binding Result}"   SelectedValue ="{Binding Result}">
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+
+                        <Button Name="btnSave" Click="btnSave_Click">
+                            <Label>_SAVE</Label>
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Button Name="btnBack" Click="btnBack_Click">
+                            <Label>_BACK</Label>
+                        </Button>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

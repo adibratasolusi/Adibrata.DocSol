@@ -68,6 +68,7 @@
     <Folder Include="StoreProcedure\Customer" />
     <Folder Include="StoreProcedure\Upload" />
     <Folder Include="StoreProcedure\RuleEngine" />
+    <Folder Include="StoreProcedure\Project" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -148,6 +149,10 @@
     <Build Include="StoreProcedure\Upload\spDocTransInsert.sql" />
     <Build Include="StoreProcedure\Upload\spUpdatePath.sql" />
     <Build Include="StoreProcedure\UserManagement\spMenuSearch.sql" />
+    <Build Include="StoreProcedure\Project\spProjectPaging.sql" />
+    <Build Include="StoreProcedure\Project\spProjectSave.sql" />
+    <Build Include="StoreProcedure\Project\spProjectView.sql" />
+    <Build Include="Table\Proj.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryUpdate.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryInsert.sql" />
   </ItemGroup>

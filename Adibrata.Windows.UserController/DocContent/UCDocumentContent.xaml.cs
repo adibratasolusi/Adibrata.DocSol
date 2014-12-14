@@ -126,7 +126,7 @@ namespace Adibrata.Windows.UserController.DocContent
                 _dtfinal.Columns.Add("EntryValue", typeof(string));
                 _dtfinal.Columns.Add("EntryValueDate", typeof(DateTime));
                 _dtfinal.Columns.Add("EntryValueNumber", typeof(double));
-
+                _dtfinal.AcceptChanges();
                 if (_dtfinal.Rows.Count > 0)
                 {
 
@@ -136,26 +136,23 @@ namespace Adibrata.Windows.UserController.DocContent
                         {
                             case "STRING":
                                 {
-                                    TextBox txtInput = (TextBox)this.PanelInput.FindName(_row["Result"].ToString());
+                                    TextBox txtInput = (TextBox)this.PanelInput.FindName(_row["Result"].ToString().Trim());
                                     _row["EntryValue"] = txtInput.Text;
-                                    PanelInput.UnregisterName(_row["Result"].ToString());
-                                    PanelLabel.UnregisterName(_row["Field2"].ToString().Replace(" ", "")); ;
+                                    
                                 }
                                 break;
                             case "DATE":
                                 {
-                                    DatePicker txtInput = (DatePicker)this.PanelInput.FindName(_row["Result"].ToString());
+                                    DatePicker txtInput = (DatePicker)this.PanelInput.FindName(_row["Result"].ToString().Trim());
                                     _row["EntryValue"] = txtInput.SelectedDate.ToString();
                                     _row["EntryValueDate"] = txtInput.SelectedDate;
-                                    PanelInput.UnregisterName(_row["Result"].ToString());
                                 }
                                 break;
                             case "NUMBER":
                                 {
-                                    DatePicker txtInput = (DatePicker)this.PanelInput.FindName(_row["Result"].ToString());
+                                    DatePicker txtInput = (DatePicker)this.PanelInput.FindName(_row["Result"].ToString().Trim());
                                     _row["EntryValue"] = txtInput.Text;
                                     _row["EntryValueNumber"] = Convert.ToDecimal(txtInput.Text);
-                                    PanelInput.UnregisterName(_row["Result"].ToString());
                                 }
                                 break;
                         }

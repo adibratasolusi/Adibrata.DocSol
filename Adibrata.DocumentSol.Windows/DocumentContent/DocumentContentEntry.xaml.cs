@@ -105,16 +105,16 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-                
-                RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
+
+                RedirectPage redirect = new RedirectPage(this, "DocumentContent.DocumentUploadPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerAddEdit",
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentContentEntry",
                     FunctionName = "btnBack_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
@@ -130,12 +130,13 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
+
+                
                 DataTable dtContent = new DataTable();
                 dtContent = oDocContent.RetrieveValue();
-                
                 ucUpload.DocumentTypeUpload = cboDocumentType.Text;
                 ucUpload.CheckAndUpload(dtContent);
-                RedirectPage redirect = new RedirectPage(this, "Customer.CustomerPaging", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "DocumentContent.DocumentUploadPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
@@ -143,7 +144,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerAddEdit",
+                    ClassName = "DocumentContentEntry",
                     FunctionName = "btnBack_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",

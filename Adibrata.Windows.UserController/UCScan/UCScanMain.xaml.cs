@@ -69,6 +69,7 @@ namespace Adibrata.Windows.UserController.UCScan
                     lbDevices.SelectedIndex = 0;
                 }
                 //get images from scanner
+                
                 List<System.Drawing.Image> images = WIAScanner.Scan((string)lbDevices.SelectedItem);
                 foreach (System.Drawing.Image img in images)
                 {

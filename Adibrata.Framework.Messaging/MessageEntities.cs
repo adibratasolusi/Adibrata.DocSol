@@ -51,6 +51,11 @@ namespace Adibrata.Framework.Messaging
         public string DicExtString { get; set; }
         public string DicFileString { get; set; }
 
+        public Int64 DocTransBinaryID
+        {
+            get;
+            set;
+        }
         public Int64 DocTransID
         {
             get;

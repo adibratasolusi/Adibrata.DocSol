@@ -76,27 +76,18 @@ namespace Adibrata.Framework.WCF
             string bitsServer = AppConfig.Config("BITSServer");
             var webClient = new WebClient();
             byte[] fileBytes = webClient.DownloadData(bitsServer + pathInfo.FileName);
-            Image img = byteArrayToImage(fileBytes);
-            pathInfo.DPI = img.HorizontalResolution.ToString();
-            pathInfo.Pixel = img.Width +"x"+img.Height;
-            pathInfo.SizeFileBytes = fileBytes.Length;
-            pathInfo.DateCreated = getImageDtCreate(img);
+            pathInfo.FileName = pathInfo.DocTransBinaryID+pathInfo.FileName;
             string strMessage = string.Empty;
             SqlConnection con = new SqlConnection(Connectionstring);
             int result = 0;
             try
             {
-                      
-                SqlCommand command = new SqlCommand("spUpdatePath", con);
+
+                SqlCommand command = new SqlCommand("spDocTransBinaryUpdate", con);
                 command.CommandType = CommandType.StoredProcedure;
                 
-                command.Parameters.Add("@DocTransID", SqlDbType.BigInt).Value = pathInfo.DocTransID;
+                command.Parameters.Add("@DocTransBinaryID", SqlDbType.BigInt).Value = pathInfo.DocTransBinaryID;
                 command.Parameters.Add("@FileName", SqlDbType.VarChar).Value = pathInfo.FileName;
-                command.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = pathInfo.DateCreated;
-                command.Parameters.Add("@SizeFileBytes", SqlDbType.Decimal).Value = pathInfo.SizeFileBytes;
-                command.Parameters.Add("@Pixel", SqlDbType.VarChar).Value = pathInfo.Pixel;
-                command.Parameters.Add("@ComputerName", SqlDbType.VarChar).Value = pathInfo.ComputerName;
-                command.Parameters.Add("@DPI", SqlDbType.VarChar).Value = pathInfo.DPI;
                 command.Parameters.Add("@FileBinary", SqlDbType.VarBinary).Value = fileBytes;
                 con.Open();
                 result = command.ExecuteNonQuery();

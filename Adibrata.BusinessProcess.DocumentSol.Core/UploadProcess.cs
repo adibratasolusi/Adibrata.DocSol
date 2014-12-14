@@ -44,7 +44,71 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             return _dt;
         }
 
-        public virtual string PathInsert(DocSolEntities _ent)
+        //public void UpdatePathDetails(PathDetails pathInfo)
+        //{
+
+
+        //    string bitsServer = AppConfig.Config("BITSServer");
+        //    var webClient = new WebClient();
+        //    byte[] fileBytes = webClient.DownloadData(bitsServer + pathInfo.FileName);
+        //    Image img = byteArrayToImage(fileBytes);
+        //    pathInfo.DPI = img.HorizontalResolution.ToString();
+        //    pathInfo.Pixel = img.Width + "x" + img.Height;
+        //    pathInfo.SizeFileBytes = fileBytes.Length;
+        //    pathInfo.DateCreated = getImageDtCreate(img);
+        //    string strMessage = string.Empty;
+        //    SqlConnection con = new SqlConnection(Connectionstring);
+        //    int result = 0;
+        //    try
+        //    {
+
+        //        SqlCommand command = new SqlCommand("spUpdatePath", con);
+        //        command.CommandType = CommandType.StoredProcedure;
+
+        //        command.Parameters.Add("@DocTransID", SqlDbType.BigInt).Value = pathInfo.DocTransID;
+        //        command.Parameters.Add("@FileName", SqlDbType.VarChar).Value = pathInfo.FileName;
+        //        command.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = pathInfo.DateCreated;
+        //        command.Parameters.Add("@SizeFileBytes", SqlDbType.Decimal).Value = pathInfo.SizeFileBytes;
+        //        command.Parameters.Add("@Pixel", SqlDbType.VarChar).Value = pathInfo.Pixel;
+        //        command.Parameters.Add("@ComputerName", SqlDbType.VarChar).Value = pathInfo.ComputerName;
+        //        command.Parameters.Add("@DPI", SqlDbType.VarChar).Value = pathInfo.DPI;
+        //        command.Parameters.Add("@FileBinary", SqlDbType.VarBinary).Value = fileBytes;
+        //        con.Open();
+        //        result = command.ExecuteNonQuery();
+        //        con.Close();
+
+        //        if (result == 1)
+        //        {
+
+        //            //logging success here
+        //        }
+        //        else
+        //        {
+
+        //            //logging error db here
+        //        }
+        //    }
+        //    catch (Exception _exp)
+        //    {
+        //        //logging app here
+        //        ErrorLogEntities _errent = new ErrorLogEntities
+        //        {
+        //            UserLogin = SessionProperty.UserName,
+        //            NameSpace = "Adibrata.Framework.WCF",
+        //            ClassName = "Service1",
+        //            FunctionName = "UpdatePathDetails",
+        //            ExceptionNumber = 1,
+        //            EventSource = "UploadServices",
+        //            ExceptionObject = _exp,
+        //            EventID = 200, // 1 Untuk Framework 
+        //            ExceptionDescription = _exp.Message
+        //        };
+        //        ErrorLog.WriteEventLog(_errent);
+        //    }
+
+        //}
+
+        public virtual string DocTransInsert(DocSolEntities _ent)
         {
             string pathId = "";
             try
@@ -185,6 +249,86 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 ErrorLog.WriteEventLog(_errent);
             }
             return _dt;
+
+        }
+
+        public virtual string DocTransBinaryInsert(DocSolEntities _ent)
+        {
+            string Id = "";
+            try
+            {
+
+                DataTable _dt = new DataTable();
+                SqlParameter[] sqlParams = new SqlParameter[7];
+                sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.DocTransId;
+                sqlParams[1] = new SqlParameter("@FileName", SqlDbType.VarChar, 8000);
+                sqlParams[1].Value = _ent.FileName;
+                sqlParams[2] = new SqlParameter("@DateCreated", SqlDbType.DateTime);
+                sqlParams[2].Value = _ent.DateCreated;
+                sqlParams[3] = new SqlParameter("@SizeFileBytes", SqlDbType.Decimal);
+                sqlParams[3].Value = _ent.SizeFileBytes;
+                sqlParams[4] = new SqlParameter("@Pixel", SqlDbType.VarChar, 100);
+                sqlParams[4].Value = _ent.Pixel;
+                sqlParams[5] = new SqlParameter("@ComputerName", SqlDbType.VarChar, 100);
+                sqlParams[5].Value = _ent.ComputerName;
+                sqlParams[6] = new SqlParameter("@DPI", SqlDbType.VarChar, 100);
+                sqlParams[6].Value = _ent.DPI;
+               // _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransBinaryInsert", sqlParams));
+                Id = _dt.Rows[0]["Id"].ToString();
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
+                    ClassName = "UploadProcess",
+                    FunctionName = "PathInsert",
+                    ExceptionNumber = 1,
+                    EventSource = "PathInsert",
+                    ExceptionObject = _exp,
+                    EventID = 201, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return Id;
+
+        }
+
+        public virtual void DocTransBinaryUpdate(DocSolEntities _ent)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[2];
+                sqlParams[0] = new SqlParameter("@Id", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
+                sqlParams[1] = new SqlParameter("@FileBinary", SqlDbType.VarBinary);
+                sqlParams[1].Value = _ent.FileBinary;
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spDocTransBinaryUpdate", sqlParams);
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
+                    ClassName = "UploadProcess",
+                    FunctionName = "PathInsert",
+                    ExceptionNumber = 1,
+                    EventSource = "PathInsert",
+                    ExceptionObject = _exp,
+                    EventID = 201, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
 
         }
 

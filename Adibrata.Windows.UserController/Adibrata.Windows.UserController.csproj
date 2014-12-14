@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DocContent\UploadAgreement\UCUploadAgreementAllDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImageProcess\UCImageInputWatermark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +147,9 @@
     <Compile Include="CommonClass\DesignQuotes.cs" />
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocContent\UploadAgreement\UCUploadAgreementAllDoc.xaml.cs">
+      <DependentUpon>UCUploadAgreementAllDoc.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\UCImageInputWatermark.xaml.cs">
       <DependentUpon>UCImageInputWatermark.xaml</DependentUpon>

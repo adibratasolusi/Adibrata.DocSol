@@ -105,6 +105,9 @@
     <Compile Include="DocumentContent\Approval\ApprovalProcessScreen.xaml.cs">
       <DependentUpon>ApprovalProcessScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentContent\DocumentAllUpload.xaml.cs">
+      <DependentUpon>DocumentAllUpload.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DocumentContent\DocumentContentEntry.xaml.cs">
       <DependentUpon>DocumentContentEntry.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,9 @@
     </Compile>
     <Compile Include="ImageProcess\ImageToPdf.xaml.cs">
       <DependentUpon>ImageToPdf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\ImageToPdfPaging.xaml.cs">
+      <DependentUpon>ImageToPdfPaging.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\Lock.xaml.cs">
       <DependentUpon>Lock.xaml</DependentUpon>
@@ -234,6 +240,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DocumentContent\DocumentAllUpload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DocumentContent\DocumentContentEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -263,6 +273,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\ImageToPdf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageToPdfPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

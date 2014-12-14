@@ -25,14 +25,6 @@ namespace Adibrata.Framework.WCF
         [OperationContract]
         void UpdatePathDetails(PathDetails pathInfo);
 
-        [OperationContract]
-        byte[] imageToByteArray(System.Drawing.Image imageIn);
-
-        [OperationContract]
-        Image byteArrayToImage(byte[] byteArrayIn);
-
-        [OperationContract]
-        DateTime getImageDtCreate(Image img);
     }
 
 
@@ -62,6 +54,7 @@ namespace Adibrata.Framework.WCF
     public class PathDetails
     {
         Int64 docTransID;
+        Int64 docTransBinaryID;
         string fileName = string.Empty;
         DateTime dateCreated;
         decimal sizeFileBytes;
@@ -75,6 +68,12 @@ namespace Adibrata.Framework.WCF
         {
             get { return docTransID; }
             set { docTransID = value; }
+        }
+        [DataMember]
+        public Int64 DocTransBinaryID
+        {
+            get { return docTransBinaryID; }
+            set { docTransBinaryID = value; }
         }
         [DataMember]
         public string FileName

@@ -10,6 +10,17 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
     [Serializable]
     public class DocSolEntities : EntitiesBase
     {
+
+        public string Ext { get; set; }
+        public byte[] FileBinary { get; set; }
+        public Int64 DocTransId { get; set; }
+        public string FileName { get; set; }
+        public DateTime DateCreated { get; set; }
+        public decimal SizeFileBytes { get; set; }
+        public string Pixel { get; set; }
+        public string ComputerName { get; set; }
+        public string DPI { get; set; }
+        public Int64 Id { get; set; }
         public long CustomerID { get; set; }
         public string CustomerCode { get; set; }
         public string AgrmntNo { get; set; }

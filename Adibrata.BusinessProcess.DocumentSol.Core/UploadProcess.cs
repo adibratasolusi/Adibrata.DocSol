@@ -287,9 +287,9 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
-                    FunctionName = "PathInsert",
+                    FunctionName = "DocTransBinaryInsert",
                     ExceptionNumber = 1,
-                    EventSource = "PathInsert",
+                    EventSource = "DocTransBinaryInsert",
                     ExceptionObject = _exp,
                     EventID = 201, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -320,9 +320,9 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
                     ClassName = "UploadProcess",
-                    FunctionName = "PathInsert",
+                    FunctionName = "DocTransBinaryUpdate",
                     ExceptionNumber = 1,
-                    EventSource = "PathInsert",
+                    EventSource = "DocTransBinaryUpdate",
                     ExceptionObject = _exp,
                     EventID = 201, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -331,6 +331,48 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             }
 
         }
+        public virtual void DocTransContentInsert(DocSolEntities _ent)
+        {
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[7];
+                sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.DocTypeCode;
+                sqlParams[1] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                sqlParams[1].Value = _ent.DocTransId;
+                sqlParams[2] = new SqlParameter("@ContentName", SqlDbType.VarChar, 50);
+                sqlParams[2].Value = _ent.ContentName;
+                sqlParams[3] = new SqlParameter("@ContentValue", SqlDbType.VarChar, 8000);
+                sqlParams[3].Value = _ent.ContentValue;
+                sqlParams[4] = new SqlParameter("@ContentValueDate", SqlDbType.DateTime);
+                sqlParams[4].Value = _ent.ContentValueDate;
+                sqlParams[5] = new SqlParameter("@ContentValueNumeric", SqlDbType.Decimal);
+                sqlParams[5].Value = _ent.ContentValueNumeric;
+                sqlParams[6] = new SqlParameter("@ContentSearchTag", SqlDbType.VarChar,8000);
+                sqlParams[6].Value = _ent.ContentSearchTag;
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
+                    ClassName = "UploadProcess",
+                    FunctionName = "DocTransContentInsert",
+                    ExceptionNumber = 1,
+                    EventSource = "DocTransContentInsert",
+                    ExceptionObject = _exp,
+                    EventID = 201, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+        }
+
 
     }
 }

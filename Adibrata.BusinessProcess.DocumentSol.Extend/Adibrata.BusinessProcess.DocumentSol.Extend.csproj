@@ -43,7 +43,6 @@
     <Compile Include="Customer\CustomerRegistrasi.cs" />
     <Compile Include="DocumentContent\DocContent.cs" />
     <Compile Include="DocumentContent\DocType.cs" />
-    <Compile Include="Project\ProjectRegistrasi.cs" />
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,7 +84,9 @@
       <Name>Adibrata.Framework.Rule</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Project\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

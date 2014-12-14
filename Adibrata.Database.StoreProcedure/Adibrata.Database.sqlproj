@@ -155,5 +155,6 @@
     <Build Include="Table\Proj.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryUpdate.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryInsert.sql" />
+    <Build Include="StoreProcedure\Upload\spDocTransContentInsert.sql" />
   </ItemGroup>
 </Project>

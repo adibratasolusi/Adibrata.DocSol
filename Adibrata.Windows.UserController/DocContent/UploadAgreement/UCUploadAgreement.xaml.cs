@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using Adibrata.Framework.Logging;
 using System.IO;
 using System.Text;
+using WIATest;
 
 namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 {
@@ -166,7 +167,18 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
+        private void btnScan_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtgUpload.Items.Count > jumlahUploadMax)
+            {
+                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+            }
+            else
+            {
+                scanFile();
+            }
 
+        }
         #endregion
 
         #region Method
@@ -211,8 +223,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 dlg.DefaultExt = ".jpg";
                 dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
                 "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                "Portable Network Graphic (*.png)|*.png" + 
-                "Portable Document Format (*.pdf)|*.pdf" +
+                "Portable Network Graphic (*.png)|*.png|" +
+                "Portable Document Format (*.pdf)|*.pdf|" +
                 "Word Document (*.doc;*.docx)|*.doc;*.docx";
 
 
@@ -222,7 +234,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 // Get the selected file name and display in a DataGrid
                 if (result == true)
                 {
-                 
+
                     string filename = dlg.FileName;
                     string path = Path.GetExtension(filename).ToLower();
                     string picture = "";
@@ -242,7 +254,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     {
                         picture = filename;
                     }
-                    dtgUpload.Items.Add(new DataItem { PathFile = filename , img=picture});
+                    dtgUpload.Items.Add(new DataItem { PathFile = filename, img = picture });
                     dtgUpload.Items.Refresh();
 
                 }
@@ -283,15 +295,19 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             if (listPath.Count != 0)
             {
                 Int64 docTransId = saveUploadToDocTrans(TransId, DocumentType);
+                //place for doc content
+                saveUploadToDocTransContent(docTransId, dtContent);
+                //
+
                 for (int i = 0; i < listPath.Count; i++)
                 {
-                  Int64 docTransBinaryId = Convert.ToInt64(saveUploadToDocTransBinary(docTransId, listPath[i]));
+                    Int64 docTransBinaryId = Convert.ToInt64(saveUploadToDocTransBinary(docTransId, listPath[i]));
 
-                  dictDocTransBinary.Add(new KeyValuePair<Int64, string>(docTransBinaryId,listPath[i]));
+                    dictDocTransBinary.Add(new KeyValuePair<Int64, string>(docTransBinaryId, listPath[i]));
                 }
                 for (int i = 0; i < dictDocTransBinary.Count; i++)
                 {
-                   string a = bits(listPath[i], dictDocTransBinary[i].Key.ToString());
+                    string a = bits(listPath[i], dictDocTransBinary[i].Key.ToString());
                 }
             }
             else
@@ -313,7 +329,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             Int64 docTransId = Convert.ToInt64(Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent));//get trxId hasil dari query insert
 
             return docTransId;
-      
+
 
         }
 
@@ -354,10 +370,49 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             return docTransBinaryId;
         }
 
+        private void saveUploadToDocTransContent(Int64 docTransId, DataTable dtContent)
+        {
+            for (int i = 0; i < dtContent.Rows.Count; i++)
+            {
+
+                DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+                {
+                    MethodName = "DocTransContentInsert",
+                    ClassName = "UploadProcess"
+                };
+
+                _ent.DocTypeCode = dtContent.Rows[i]["Field1"].ToString();
+                _ent.DocTransId = docTransId;
+                _ent.ContentName = dtContent.Rows[i]["Field2"].ToString();
+                _ent.ContentValue = "";
+                _ent.ContentValueNumeric = 0;
+                _ent.ContentValueDate = DateTime.Now;
+                if (dtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "string")
+                {
+
+                    _ent.ContentValue = dtContent.Rows[i]["EntryValue"].ToString();
+                }
+                if (dtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "date")
+                {
+                    _ent.ContentValue = dtContent.Rows[i]["EntryValue"].ToString();
+                    _ent.ContentValueDate = Convert.ToDateTime(dtContent.Rows[i]["EntryValueDate"].ToString());
+
+                }
+                if (dtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "number")
+                {
+
+                    _ent.ContentValueNumeric = Convert.ToDecimal(dtContent.Rows[i]["EntryValueNumber"].ToString());
+                }
+
+                Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);
+            }
+        }
+
+
         private string bits(string path, string jobName)
         {
             //get file info
-          
+
             string fileName = Path.GetFileNameWithoutExtension(path);
             string extension = Path.GetExtension(path);
 
@@ -377,7 +432,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             newJob.Description = fileFrom.ToString();
             newJob.Resume();
             manager.OnJobTransferred += manager_OnJobTransferred;
-           // newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred); //event notification success
+            // newJob.OnJobTransferred += new EventHandler<JobNotificationEventArgs>(newJob_OnJobTransferred); //event notification success
 
             return jobName;
         }
@@ -386,13 +441,13 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
             lock (jobTransferredSync)
             {
-               BitsJob job = e.Job;
+                BitsJob job = e.Job;
                 job.Complete();
                 WCFEntities oWcf = new WCFEntities();
                 oWcf.DocTransBinaryID = Convert.ToInt64(job.DisplayName.Trim());
                 oWcf.FileName = Path.GetFileName(job.Description);
                 MessageToWCF.UpdateFilePath(oWcf);
-                
+
                 MessageBox.Show(job.Description + " Upload Succeed");
                 //    MessageBox.Show(job.JobId.ToString() + "----------" + job.DisplayName.ToString() + "--------" + job.Description.ToString());
 
@@ -471,48 +526,48 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         //    //MessageBox.Show("Upload");
         //}
 
-        void newJob_OnJobTransferred(object sender, JobNotificationEventArgs e)
-        {
-            //job selesai di transfer
-            NotificationEventArgs asd = (NotificationEventArgs)e;
-            MessageBox.Show(asd.Job.JobId.ToString());
-            //int flag = 0; //flag untuk save ke db
-            //jobCount += 1; //flag perhitungan jumlah job yang selesai
-            //try
-            //{
 
-            //    if (jobCount == fileCount && flag == 0) //jika jumlah job yg selesai sama dengan jumlah file
-            //    {
-            //        //simpan file berdasarkan list dictionary
-            //        for (int i = 0; i < dicFile.Count; i++)
-            //        {
-            //            WCFEntities oWcf = new WCFEntities();
-            //            //  oWcf.DicExtString = dicExt[i + 1];// why + 1 ? karena mengambil file berdasarkan key nya, bukan dari index, (key mulai dari 1, index mulai dari 0, nilai awal i adalah 0) jadi harus + 1
-            //            oWcf.DocTransID = Convert.ToInt64(dicFile[i + 1]);
-            //            oWcf.FileName = dicFile[i + 1] + dicExt[i + 1];
-            //            oWcf.ComputerName = Environment.MachineName;
-            //            //MessageToWCF.UpdateFilePath(oWcf);
-            //            flag += 1;
-            //        }
-            //        MessageBox.Show("Upload file Success");
-            //    }
-            //}
-            //catch (Exception _exp)
-            //{
-            //    ErrorLogEntities _errent = new ErrorLogEntities
-            //    {
-            //        UserLogin = "UCUploadAgreement",
-            //        NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
-            //        ClassName = "UCUploadAgreement",
-            //        FunctionName = "newJob_OnJobTransferred",
-            //        ExceptionNumber = 1,
-            //        EventSource = "UCUploadAgreement",
-            //        ExceptionObject = _exp,
-            //        EventID = 200, // 1 Untuk Framework 
-            //        ExceptionDescription = _exp.Message
-            //    };
-            //    ErrorLog.WriteEventLog(_errent);
-            //}
+        void scanFile()
+        {
+            try
+            {
+                //get list of devices available
+                List<string> devices = WIAScanner.GetDevices();
+
+                foreach (string device in devices)
+                {
+                    lbDevices.Items.Add(device);
+                }
+                //check if device is not available
+                if (lbDevices.Items.Count == 0)
+                {
+                    MessageBox.Show("You do not have any WIA devices.");
+                }
+                else
+                {
+                    lbDevices.SelectedIndex = 0;
+                }
+                //get images from scanner
+                string path = "C:\\Temp\\"; // your code goes here
+
+                bool exists = System.IO.Directory.Exists(path);
+
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(path);
+                List<System.Drawing.Image> images = WIAScanner.Scan((string)lbDevices.SelectedItem);
+                string pathFile = path + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
+                foreach (System.Drawing.Image img in images)
+                {
+
+                    img.Save(pathFile);
+                }
+                dtgUpload.Items.Add(new DataItem { PathFile = pathFile, img = pathFile });
+                dtgUpload.Items.Refresh();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         #region comment
         //private void saveUpload(string docType, string transId, string path)

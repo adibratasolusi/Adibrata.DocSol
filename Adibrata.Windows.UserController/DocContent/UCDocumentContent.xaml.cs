@@ -150,7 +150,7 @@ namespace Adibrata.Windows.UserController.DocContent
                                 break;
                             case "NUMBER":
                                 {
-                                    DatePicker txtInput = (DatePicker)this.PanelInput.FindName(_row["Result"].ToString().Trim());
+                                    TextBox txtInput = (TextBox)this.PanelInput.FindName(_row["Result"].ToString().Trim());
                                     _row["EntryValue"] = txtInput.Text;
                                     _row["EntryValueNumber"] = Convert.ToDecimal(txtInput.Text);
                                 }

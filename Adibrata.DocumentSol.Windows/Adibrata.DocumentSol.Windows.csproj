@@ -128,6 +128,9 @@
     <Compile Include="ImageProcess\Grayscale.xaml.cs">
       <DependentUpon>Grayscale.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageProcess\ImageDocTransPaging.xaml.cs">
+      <DependentUpon>ImageDocTransPaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ImageProcess\ImageToPdf.xaml.cs">
       <DependentUpon>ImageToPdf.xaml</DependentUpon>
     </Compile>
@@ -277,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\Grayscale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageDocTransPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

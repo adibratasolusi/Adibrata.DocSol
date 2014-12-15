@@ -6,7 +6,7 @@
 -- =============================================
 CREATE PROCEDURE [dbo].[spDocTransInsert]
 	-- Add the parameters for the stored procedure here
-	@TransId bigint,
+	@TransId Varchar(50),
 	@docType varchar(50)
 
 AS

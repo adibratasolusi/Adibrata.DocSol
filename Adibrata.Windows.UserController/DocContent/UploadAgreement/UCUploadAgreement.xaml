@@ -21,7 +21,13 @@
                 <TextBlock Name="tbUpload" Text="Upload Document :"  Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="0">
-                <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click" HorizontalAlignment="Right"></Button>
+                <StackPanel>
+                    <Button Name="btnScan" Content="+ Scan" Click="btnScan_Click" HorizontalAlignment="Right"></Button>
+
+                    <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click" HorizontalAlignment="Right"></Button>
+                    <ListBox Name="lbDevices" Width="1" Height="1"></ListBox>
+                </StackPanel>
+                  
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
                 <DataGrid Name="dtgUpload" CanUserDeleteRows="True" Width="1000">

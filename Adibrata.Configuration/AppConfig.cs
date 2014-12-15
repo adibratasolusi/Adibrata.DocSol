@@ -17,18 +17,21 @@ namespace Adibrata.Configuration
         {
             string value = "";
 
-         
+#if DEBUG
             const string ConnectionString = "Server=.;Database=Configuration;User Id=sa;Password=Alpha2014";
+#else
+            const string ConnectionString = "Server=Maximus-PC;Database=Configuration;User Id=sa;Password=Alpha2014";
+#endif
             string SQLSyntax = "Select value from [App.Config] with (nolock) where [key] = @Key";
             try
             {
-                if (!DataCache.Contains (key))
+                if (!DataCache.Contains(key))
                 {
                     SqlParameter[] sqlParams = new SqlParameter[1];
                     sqlParams[0] = new SqlParameter("@Key", SqlDbType.VarChar, 500);
                     sqlParams[0].Value = key;
                     value = SqlHelper.ExecuteScalar(ConnectionString, CommandType.Text, SQLSyntax, sqlParams).ToString();
-                    DataCache.Insert<string>(key, value,DataCache.Duration.Day,1);
+                    DataCache.Insert<string>(key, value, DataCache.Duration.Day, 1);
                 }
                 else
                 {

@@ -10,6 +10,17 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
     [Serializable]
     public class DocSolEntities : EntitiesBase
     {
+
+        public string Ext { get; set; }
+        public byte[] FileBinary { get; set; }
+        public Int64 DocTransId { get; set; }
+        public string FileName { get; set; }
+        public DateTime DateCreated { get; set; }
+        public decimal SizeFileBytes { get; set; }
+        public string Pixel { get; set; }
+        public string ComputerName { get; set; }
+        public string DPI { get; set; }
+        public Int64 Id { get; set; }
         public long CustomerID { get; set; }
         public string CustomerCode { get; set; }
         public string AgrmntNo { get; set; }
@@ -37,12 +48,22 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public string ApprovalStatus { get; set; }
         public string ApprovalNotes { get; set; }
         public Boolean IsFinal { get; set; }
-        #endregion 
+        #endregion
 
 
         public string ProjectCode { get; set; }
         public string ProjectType { get; set; }
         public string ProjectName { get; set; }
+
+        public string ContentName { get; set; }
+        public string ContentValue { get; set; }
+        public string DocTypeCode { get; set; }
+        public DateTime ContentValueDate { get; set; }
+        public decimal ContentValueNumeric { get; set; }
+        public string ContentSearchTag { get; set; }
+
+
+
     }
 }
 

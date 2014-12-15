@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spMsFormEdit]
+﻿ALTER PROCEDURE [dbo].[spMsFormEdit]
 	@FormID bigint, 
 	@FormName Varchar(50), 
 	@FormURL Varchar(255), 

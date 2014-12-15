@@ -12,6 +12,7 @@
       <xs:element minOccurs="0" name="ComputerName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DPI" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocTransBinaryID" type="xs:long" />
       <xs:element minOccurs="0" name="DocTransID" type="xs:long" />
       <xs:element minOccurs="0" name="FileBinary" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />

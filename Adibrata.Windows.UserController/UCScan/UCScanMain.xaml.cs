@@ -69,16 +69,20 @@ namespace Adibrata.Windows.UserController.UCScan
                     lbDevices.SelectedIndex = 0;
                 }
                 //get images from scanner
+                string path = "C:\\Temp\\"; // your code goes here
+
+                bool exists = System.IO.Directory.Exists(path);
+
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(path);
                 List<System.Drawing.Image> images = WIAScanner.Scan((string)lbDevices.SelectedItem);
                 foreach (System.Drawing.Image img in images)
                 {
                     byte[] byteImg = imageToByteArray(img);
                     picScan.Source = LoadImage(byteImg);
                     
-                   // picScan.Show();
-                   // picScan.
-                    //save scanned image into specific folder
-                   // img.Save(@"D:\" + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg", ImageFormat.Jpeg);
+         
+                    img.Save(path + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg");
                 }
             }
             catch (Exception exc)

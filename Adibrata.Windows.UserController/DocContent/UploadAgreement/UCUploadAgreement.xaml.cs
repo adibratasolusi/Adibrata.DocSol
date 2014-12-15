@@ -88,8 +88,14 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             {
                 dtgUpload.Items.Clear();
                 DocSolEntities _ent = new DocSolEntities { ClassName = "DocContent", MethodName = "DocContentFiles", UserLogin = this.UserLogin, DocumentType = this.DocumentType };
+#if DEBUG
+                jumlahUploadMax = 5;
+#else
+                
                 jumlahUploadMax = DocumentSolutionController.DocSolProcess<int>(_ent);
-                jumlahUploadMax = 2;
+#endif
+
+
             }
             catch (Exception _exp)
             {

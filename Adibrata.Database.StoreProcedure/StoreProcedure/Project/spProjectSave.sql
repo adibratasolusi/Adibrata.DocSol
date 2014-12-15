@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spProjectSave]
+﻿CREATE PROCEDURE [dbo].[spProjectSave]
 	@CustCode Varchar(50), 
 	@ProjName Varchar(50), 
 	@ProjType Varchar(50), 

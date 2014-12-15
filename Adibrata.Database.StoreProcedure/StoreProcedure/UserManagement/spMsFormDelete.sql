@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spMsFormDelete]
+﻿ALTER PROCEDURE [dbo].[spMsFormDelete]
 	@FormID bigint
 AS
 set NoCount On 

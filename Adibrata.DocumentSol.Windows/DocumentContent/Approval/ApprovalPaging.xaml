@@ -1,10 +1,11 @@
 ﻿<Page xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" 
+      x:Class="Adibrata.DocumentSol.Windows.DocumentContent.Approval.ApprovalPaging" 
        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
-      	 x:Class="Adibrata.DocumentSol.Windows.DocumentContent.Approval.ApprovalPaging" 
+      	 
       mc:Ignorable="d" 
       d:DesignHeight="550" 
         Style="{StaticResource PageStyle}"
@@ -43,6 +44,7 @@
                             <Grid Grid.Column="0" Grid.Row="0">
                                 <StackPanel Width="200">
                                     <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Approval User"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Code"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Document Type"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Transaction Code"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Approval Status"/>
@@ -51,6 +53,8 @@
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblUserName"/>
+                                    <ComboBox Name="cboProjectCode" Text="{Binding Result}"   SelectedValue ="{Binding Result}" SelectionChanged="cboProjectCode_SelectionChanged">
+                                    </ComboBox>
                                     <ComboBox Name="cboDocumentType" Text="{Binding Result}"   SelectedValue ="{Binding Result}">
                                     </ComboBox>
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Width="300"/>

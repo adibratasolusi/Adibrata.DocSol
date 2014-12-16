@@ -21,19 +21,19 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
         DocSolEntities _ent = new DocSolEntities();
         public ApprovalPaging(SessionEntities _session)
         {
+            List<string> data = new List<string>();
+            List<string> statusApproval = new List<string>();
             try
             {
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-                #region "Get Document Type"
 
                 DataTable _dt = new DataTable();
-                _ent.ClassName = "DocType";
-                _ent.MethodName = "DocTypeRetrieve";
-                _ent.LineOfBusiness = "Consumer Finance";
+                _ent.ClassName = "ProjectRegistrasi";
+                _ent.MethodName = "ProjectTypeReceive";
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                List<string> data = new List<string>();
+                
                 if (_dt.Rows.Count > 0)
                 {
                     foreach (DataRow _row in _dt.Rows)
@@ -41,15 +41,15 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
                         data.Add(_row["Result"].ToString());
                     }
                 }
-                cboDocumentType.ItemsSource = data;
-                #endregion 
 
+                cboProjectCode.ItemsSource = data;
                 #region "List Approval Status"
-                data.Clear();
-                data.Add("New");
-                data.Add("In Progress");
-                data.Add("Final");
-                cboApprStatus.ItemsSource = data;
+                
+
+                statusApproval.Add("New");
+                statusApproval.Add("In Progress");
+                statusApproval.Add("Final");
+                cboApprStatus.ItemsSource = statusApproval;
                 #endregion 
                 lblUserName.Text = SessionProperty.UserName;
 
@@ -169,6 +169,46 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
                 //RedirectPage redirect = new RedirectPage(this, "Customer.CustomerAddEdit", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent.Approval",
+                    ClassName = "ApprovalPaging",
+                    FunctionName = "rdoApproval_Checked",
+                    ExceptionNumber = 1,
+                    EventSource = "ApprovalDocContent",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        private void cboProjectCode_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                #region "Get Document Type"
+
+                DataTable _dt = new DataTable();
+                _ent.ClassName = "DocType";
+                _ent.MethodName = "DocTypeRetrieve";
+                _ent.LineOfBusiness = cboProjectCode.SelectedValue.ToString();
+                _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+                List<string> data = new List<string>();
+                if (_dt.Rows.Count > 0)
+                {
+                    foreach (DataRow _row in _dt.Rows)
+                    {
+                        data.Add(_row["Result"].ToString());
+                    }
+                }
+                cboDocumentType.ItemsSource = data;
+                #endregion 
             }
             catch (Exception _exp)
             {

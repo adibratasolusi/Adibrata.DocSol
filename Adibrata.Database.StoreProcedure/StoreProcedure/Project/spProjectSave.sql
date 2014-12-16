@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spProjectSave]
+﻿ALTER PROCEDURE [dbo].[spProjectSave]
 	@CustCode Varchar(50), 
 	@ProjName Varchar(50), 
 	@ProjType Varchar(50), 
@@ -13,7 +13,7 @@ Set @PostingDate = getdate()
 
 Exec spMasterSequence 1, 'Proj', @PostingDate, @ProjCode Output
 
-Insert Into Proj (ProjCode, ProjName, ProjType, CustID)
-Values (@ProjCode, @ProjName, @ProjType, @CustID)
+Insert Into Proj (ProjCode, ProjName, ProjType, CustID, UsrCrt, DtmCrt )
+Values (@ProjCode, @ProjName, @ProjType, @CustID, @UsrCrt, getDate())
 
 RETURN 0

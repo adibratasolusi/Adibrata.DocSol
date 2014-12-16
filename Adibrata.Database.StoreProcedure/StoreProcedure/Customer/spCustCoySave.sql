@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCustCoySave]
+﻿ALTER PROCEDURE [dbo].[spCustCoySave]
 	@CustID bigint, 
 	@CoyAddress Varchar(100), 
 	@CoyRT varchar(4), 
@@ -24,7 +24,7 @@ Set @FullAddress = @CoyAddress + ' RT/RW: '+ @CoyRT + '/' + @CoyRW + ' Kelurahan
 If @ISedit = 0 or @IsEdit is null
 Begin
 		Insert into CustCoy (CustID, [Address], RT, RW, Kelurahan, Kecamatan, City, ZipCode, NPWP, SIUP, TDP, AkteNo, FullAddress, UsrCrt, DtmCrt)
-		values (@CustID, @CoyAddress, @CoyRT, @CoyRW, @CoyKelurahan, @CoyKecamatan, @CoyCity, @CoyZipCode, @CoyNPWP, @CoySIUP, @CoyTDP, @CoyNotary, @FullAddress, @UsrCrt, @DtmCrt)
+		values (@CustID, @CoyAddress, @CoyRT, @CoyRW, @CoyKelurahan, @CoyKecamatan, @CoyCity, @CoyZipCode, @CoyNPWP, @CoySIUP, @CoyTDP, @CoyNotary, @FullAddress, @UsrCrt, GetDate())
 ENd
 ELSE
 BEGIN
@@ -41,7 +41,7 @@ BEGIN
 						AkteNo = @CoyNotary, 
 						FullAddress = @FullAddress, 
 						UsrUpd = @UsrUpd, 
-						DtmUpd = @DtmUpd
+						DtmUpd = GetDate()
 	Where CustID = @CustID
 						
 

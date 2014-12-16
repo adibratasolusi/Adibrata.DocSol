@@ -140,6 +140,7 @@ namespace Adibrata.Windows.UserController
                     if (_dt.Rows.Count == 0)
                     {
                         MaxPage = _currentpage - 1;
+                        dgObj.ItemsSource = _dt.DefaultView;
                     }
                     else
                     {

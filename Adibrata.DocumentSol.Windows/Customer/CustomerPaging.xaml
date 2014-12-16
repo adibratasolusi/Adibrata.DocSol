@@ -6,7 +6,7 @@
       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
 	 x:Class="Adibrata.DocumentSol.Windows.Customer.CustomerPaging" 
       mc:Ignorable="d" 
-      d:DesignHeight="550" 
+      d:DesignHeight="500" 
         Style="{StaticResource PageStyle}"
 	Title="Document Upload Paging">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-            <TextBlock FontSize="20" FontWeight="Bold"> Customer Entry</TextBlock>
+            <TextBlock FontSize="24" FontWeight="Bold">CUSTOMER REGISTRATION</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>

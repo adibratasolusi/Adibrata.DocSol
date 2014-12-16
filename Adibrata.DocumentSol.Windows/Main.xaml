@@ -66,18 +66,25 @@
                     <!-- FAMILY TREE -->
 
                     <ScrollViewer>
-                    <DataGrid Name="dtgMenu" AutoGenerateColumns="False" CanUserAddRows="False" ScrollViewer.CanContentScroll="True" CanUserDeleteRows="False">
+                    <DataGrid Name="dtgMenu" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" CanUserDeleteRows="False" HeadersVisibility="Column">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="Menu">
+                                <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  Name="hpMenu" Content=">" Click="hpMenu_Click"></Button>
-                                           
+                                            <Button  Name="hpMenu" Click="hpMenu_Click" Content="{Binding FormName}">
+                                            </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Header="FormURL" Binding="{Binding FormURL}"></DataGridTextColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Label  Name="hpMenu" Content="{Binding FormURL}">
+                                            </Label>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding FormURL}" Width="0"></DataGridTextColumn>
                             </DataGrid.Columns>
                 
                     </DataGrid>

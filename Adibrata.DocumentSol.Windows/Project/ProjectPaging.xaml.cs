@@ -65,17 +65,32 @@ namespace Adibrata.DocumentSol.Windows.Project
                 sb.Append(" CustCode = '");
                 sb.Append(SessionProperty.ReffKey);
                 sb.Append(" ' ");
+
                 if (txtProjectName.Text != "")
                 {
                     sb.Append(" AND ");
-                    sb.Append(" ProjName = '");
+                    if (txtProjectName.Text.Contains("%"))
+                    {
+                        sb.Append(" ProjName LIKE '");
+                    }
+                    else
+                    {
+                        sb.Append(" ProjName = '");
+                    }
                     sb.Append(txtProjectName.Text);
                     sb.Append("' ");
                 }
                 if (txtProjectCode.Text != "")
                 {
                     sb.Append(" AND ");
-                    sb.Append(" ProjCoded = '");
+                    if (txtProjectCode.Text.Contains("%"))
+                    {
+                        sb.Append(" ProjCode LIKE '");
+                    }
+                    else
+                    {
+                        sb.Append(" ProjCode = '");
+                    }
                     sb.Append(txtProjectCode.Text);
                     sb.Append("' ");
                 }

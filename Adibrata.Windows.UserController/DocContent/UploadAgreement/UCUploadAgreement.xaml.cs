@@ -26,9 +26,6 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
         object jobTransferredSync = new object();
         Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-        string trxFileName;
-        int jobCount = 0;
-        int fileCount = 0;
         // ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
         Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();

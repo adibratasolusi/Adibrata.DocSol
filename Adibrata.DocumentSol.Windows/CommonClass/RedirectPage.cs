@@ -103,20 +103,20 @@ namespace Adibrata.DocumentSol.Windows
                 case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
                 #endregion 
 
-                #region "Image Processing"
-                case "ImageProcessing.WaterMark": Source.NavigationService.Navigate(new ImageProcess.Watermark()); break;
-                case "ImageProcessing.Grayscale": Source.NavigationService.Navigate(new ImageProcess.Grayscale()); break;
-                case "ImageProcessing.Rotate": Source.NavigationService.Navigate(new ImageProcess.Rotate()); break;
-                case "ImageProcessing.Canvas": Source.NavigationService.Navigate(new ImageProcess.Canvas()); break;
-                case "ImageProcessing.GetDataImage": Source.NavigationService.Navigate(new ImageProcess.DataImage()); break;
-                case "ImageProcessing.ImageToPdf": Source.NavigationService.Navigate(new ImageProcess.ImageToPdf()); break;
-                case "ImageProcessing.ImageEncryption": Source.NavigationService.Navigate(new ImageProcess.Encryption()); break;
-                case "ImageProcessing.ImageDecryption": Source.NavigationService.Navigate(new ImageProcess.Decryption()); break;
-                case "ImageProcessing.ImageLock": Source.NavigationService.Navigate(new ImageProcess.Lock()); break;
-                case "ImageProcessing.ImageUnlock": Source.NavigationService.Navigate(new ImageProcess.Unlock()); break;
-                case "ImageProcessing.ImageScanner": Source.NavigationService.Navigate(new ImageProcess.Scanner()); break;
+                //#region "Image Processing"
+                //case "ImageProcessing.WaterMark": Source.NavigationService.Navigate(new ImageProcess.Watermark()); break;
+                //case "ImageProcessing.Grayscale": Source.NavigationService.Navigate(new ImageProcess.Grayscale()); break;
+                //case "ImageProcessing.Rotate": Source.NavigationService.Navigate(new ImageProcess.Rotate()); break;
+                //case "ImageProcessing.Canvas": Source.NavigationService.Navigate(new ImageProcess.Canvas()); break;
+                //case "ImageProcessing.GetDataImage": Source.NavigationService.Navigate(new ImageProcess.DataImage()); break;
+                //case "ImageProcessing.ImageToPdf": Source.NavigationService.Navigate(new ImageProcess.ImageToPdf()); break;
+                //case "ImageProcessing.ImageEncryption": Source.NavigationService.Navigate(new ImageProcess.Encryption()); break;
+                //case "ImageProcessing.ImageDecryption": Source.NavigationService.Navigate(new ImageProcess.Decryption()); break;
+                //case "ImageProcessing.ImageLock": Source.NavigationService.Navigate(new ImageProcess.Lock()); break;
+                //case "ImageProcessing.ImageUnlock": Source.NavigationService.Navigate(new ImageProcess.Unlock()); break;
+                //case "ImageProcessing.ImageScanner": Source.NavigationService.Navigate(new ImageProcess.Scanner()); break;
                 
-                #endregion
+                //#endregion
 
 
                 #region "Project"

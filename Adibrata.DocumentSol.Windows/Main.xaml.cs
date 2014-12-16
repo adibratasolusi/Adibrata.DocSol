@@ -47,7 +47,8 @@ namespace Adibrata.DocumentSol.Windows
             dt = UserManagementController.UserManagement<DataTable>(_ent);
 
             dtgMenu.ItemsSource = dt.DefaultView;
-            dtgMenu.CanUserSortColumns = false;
+            dtgMenu.CanUserSortColumns = true;
+            dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
         }
 
         private void hpMenu_Click(object sender, RoutedEventArgs e)
@@ -55,10 +56,10 @@ namespace Adibrata.DocumentSol.Windows
             int i = dtgMenu.SelectedIndex;
             DataGridHelper dtgHelper = new DataGridHelper();
             dtgHelper.dtg = dtgMenu;
-            DataGridCell cell = dtgHelper.GetCell(i, 1);
+            DataGridCell cell = dtgHelper.GetCell(i, 2);
             //var asd = cell.Content;
             TextBlock formUrl = dtgHelper.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
-
+            
             string _formUrl = formUrl.Text;
 
             RedirectPage redirect = new RedirectPage(frmWorksheet, _formUrl, SessionProperty);

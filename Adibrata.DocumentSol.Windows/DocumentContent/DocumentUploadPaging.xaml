@@ -63,7 +63,7 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="UPLOAD" Width="150">
+                                <DataGridTemplateColumn Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Name="btnUpload" Content="UPLOAD" Click="btnUpload_Click"></Button>

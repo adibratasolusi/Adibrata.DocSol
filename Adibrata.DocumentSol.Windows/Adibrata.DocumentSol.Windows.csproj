@@ -230,6 +230,9 @@
       <DependentUpon>WaterMarkProcess.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ImageScanMulti\ImageScanMultiProcess.xaml.cs">
+      <DependentUpon>ImageScanMultiProcess.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Project\CustomerProjectPaging.xaml.cs">
       <DependentUpon>CustomerProjectPaging.xaml</DependentUpon>
     </Compile>
@@ -470,6 +473,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\WaterMark\WaterMarkProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageScanMulti\ImageScanMultiProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" ShowsNavigationUI="False"
       d:DesignHeight="600" d:DesignWidth="800"
-         Style="{StaticResource PageStyle}"
+
 	Title="Smart Custodian Management Solution">
     <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
-        <Grid  Style="{StaticResource GridStyle}">
+        <Grid >
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="{DynamicResource AdibrataLogo}" Offset="0.843"/>
@@ -20,8 +20,8 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Grid.Column="0">
                 <StackPanel>
-                <TextBlock Name="lblLoginName" FontSize="24"></TextBlock>
-                <TextBlock Name="lblBusinessDate" FontSize="24"></TextBlock>
+                <TextBlock Name="lblLoginName" FontSize="20" Foreground="White"></TextBlock>
+                    <TextBlock Name="lblBusinessDate" FontSize="20" Foreground="White"></TextBlock>
                 </StackPanel>
             </Grid>
             <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
@@ -32,11 +32,7 @@
             </Grid.ColumnDefinitions>
                 <DockPanel>
                     <!-- SEARCH AREA -->
-                    <Border 
-      DockPanel.Dock="Top" 
-      BorderBrush="Gray" 
-      BorderThickness="1,0,1,1"
-      >
+                    <Border DockPanel.Dock="Top" BorderBrush="Gray" BorderThickness="1,0,1,1">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                 <GradientStop Color="#33000000" Offset="0" />
@@ -44,21 +40,13 @@
                             </LinearGradientBrush>
                         </Border.Background>
 
-                        <StackPanel 
-        HorizontalAlignment="Center" 
-        Margin="4" 
-        Orientation="Horizontal"
-        >
+                        <StackPanel HorizontalAlignment="Center" Margin="4" Orientation="Horizontal">
                             <TextBlock Text="Search for:" />
-                            <TextBox 
-          x:Name="searchTextBox"
-          Margin="6,0"
-          Width="150"
-          />
-                            <Button 
-          Padding="8,0" Name="btnFind" Click="btnFind_Click"
-          >
-                                <Label>_Find</Label>
+                            <TextBox x:Name="searchTextBox" Margin="6,0" Width="150"/>
+                            <Button Padding="8,0" Name="btnFind" Click="btnFind_Click" Width="40" Height="40">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="Images/Find.png" Stretch="UniformToFill"/>
+                                </Button.Background>
                             </Button>
                         </StackPanel>
                     </Border>
@@ -66,25 +54,41 @@
                     <!-- FAMILY TREE -->
 
                     <ScrollViewer>
-                    <DataGrid Name="dtgMenu" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" CanUserDeleteRows="False" HeadersVisibility="Column">
+                        <DataGrid Name="dtgMenu" AutoGenerateColumns="False" ItemsSource="{Binding}" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" CanUserDeleteRows="False" HeadersVisibility="Column">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  Name="hpMenu" Click="hpMenu_Click" Content="{Binding FormName}">
+                                            <Button  Name="hpMenu" Click="hpMenu_Click" Content="{Binding Path=FormName}" Tag="{Binding Path=FormURL }">
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="-1">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Label  Name="hpMenu" Content="{Binding FormURL}">
+                                            <Label Name="lblMenu" Content="{Binding Path=FormURL}" Visibility="Collapsed">
                                             </Label>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Binding="{Binding FormURL}" Width="0"></DataGridTextColumn>
+
+                                
+                                <!--<my:DataGridTemplateColumn Header="source_address" Width="SizeToCells" Visibility="Hidden">
+
+                                    <my:DataGridTemplateColumn.CellTemplate>
+
+                                        <DataTemplate>
+
+                                            <Label x:Name="lblsource_address" Content="{Binding Path=source_address}" />
+
+                                        </DataTemplate>
+
+                                    </my:DataGridTemplateColumn.CellTemplate>
+
+                                </my:DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding FormURL}"  IsReadOnly="True" Width="0" FontWeight="Thin">
+                                </DataGridTextColumn>-->
                             </DataGrid.Columns>
                 
                     </DataGrid>

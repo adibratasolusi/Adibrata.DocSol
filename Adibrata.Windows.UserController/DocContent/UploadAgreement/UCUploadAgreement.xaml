@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-            
              Width="Auto" Height="Auto">
     <ScrollViewer>
     <Grid>
@@ -20,16 +19,36 @@
             <Grid Grid.Column="0" Grid.Row="0">
                 <TextBlock Name="tbUpload" Text="Upload Document :"  Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="0">
-                <StackPanel>
-                    <Button Name="btnScan" Content="+ Scan" Click="btnScan_Click" HorizontalAlignment="Right"></Button>
-
-                    <Button Name="btnUpload" Content="+ Browse" Click="btnBrowse_Click" HorizontalAlignment="Right"></Button>
+            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0">
+                    <Button Name="btnScan"  Click="btnScan_Click" HorizontalAlignment="Right" Width="80" Height="80">
+                        <Button.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.Windows.UserController;component/Pictures/AlienAqua scanner 2.png"/>
+                        </Button.Background>
+                    </Button>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                    <Button Name="btnUpload" Click="btnBrowse_Click" HorizontalAlignment="Right" Width="100" Height="80">
+                        <Button.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.Windows.UserController;component/Pictures/kde-folder-saved-search.png"/>
+                        </Button.Background>
+                    </Button>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
                     <ListBox Name="lbDevices" Width="1" Height="1"></ListBox>
-                </StackPanel>
-                  
+                    </Grid>
+                </Grid>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
                 <DataGrid Name="dtgUpload" CanUserDeleteRows="True" Width="1000">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Delete" x:Name="Delete">
@@ -47,10 +66,7 @@
                                     <Image x:Name="imgPreview" Source="{Binding img}" Height="100" Width="100"></Image>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
-
                         </DataGridTemplateColumn>
-
-
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

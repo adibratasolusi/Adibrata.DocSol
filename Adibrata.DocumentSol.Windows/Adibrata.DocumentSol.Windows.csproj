@@ -113,6 +113,18 @@
     <Compile Include="DocumentContent\DocumentUploadPaging.xaml.cs">
       <DependentUpon>DocumentUploadPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentMaintenance\DeleteDocumentDetail.xaml.cs">
+      <DependentUpon>DeleteDocumentDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\DeleteDocumentInquiryDetail.xaml.cs">
+      <DependentUpon>DeleteDocumentInquiryDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\DeleteDocumentInquiryPaging.xaml.cs">
+      <DependentUpon>DeleteDocumentInquiryPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\DeleteDocumentPaging.xaml.cs">
+      <DependentUpon>DeleteDocumentPaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ImageProcess\Canvas.xaml.cs">
       <DependentUpon>Canvas.xaml</DependentUpon>
     </Compile>
@@ -260,6 +272,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentContent\DocumentUploadPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\DeleteDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\DeleteDocumentInquiryDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\DeleteDocumentInquiryPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\DeleteDocumentPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

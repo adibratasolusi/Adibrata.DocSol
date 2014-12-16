@@ -147,7 +147,6 @@
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineSchemePaging.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineListSave.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransInsert.sql" />
-    <Build Include="StoreProcedure\Upload\spUpdatePath.sql" />
     <Build Include="StoreProcedure\UserManagement\spMenuSearch.sql" />
     <Build Include="StoreProcedure\Project\spProjectPaging.sql" />
     <Build Include="StoreProcedure\Project\spProjectSave.sql" />

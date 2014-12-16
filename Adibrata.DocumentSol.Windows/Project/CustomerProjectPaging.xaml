@@ -5,7 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="450"
+      d:DesignHeight="500"
 	Title="CustomerProjectPaging">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold"> Document Upload</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold">PROJECT REGISTRATION</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>

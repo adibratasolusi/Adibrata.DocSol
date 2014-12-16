@@ -5,7 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="450"
+      d:DesignHeight="500"
 	Title="ProjectPaging">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -71,7 +71,7 @@
                           SelectionMode="Single"
                           x:Name="dgPaging" 
                           
-                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="250" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
                                 

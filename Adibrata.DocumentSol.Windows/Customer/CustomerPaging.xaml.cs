@@ -51,7 +51,14 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 if (txtCustName.Text != "")
                 {
                     sb.Append(" Where ");
-                    sb.Append (" CustName = '");
+                    if (txtCustName.Text.Contains("%"))
+                    {
+                        sb.Append(" CustName LIKE '");
+                    }
+                    else
+                    {
+                        sb.Append(" CustName = '");
+                    }
                     sb.Append(txtCustName.Text);
                     sb.Append("'");
                 }

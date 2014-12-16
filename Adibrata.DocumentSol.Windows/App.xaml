@@ -23,7 +23,27 @@
                 <Setter Property="BorderThickness" Value="10"></Setter>
                 <Setter Property="Background" Value="{x:Null}"/>
             </Style>
+            <Style x:Key="labelButton" TargetType="{x:Type Label}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="Margin" Value="0,0,0,5" />
+                
+                <Setter Property="FontWeight" Value="Normal"/>
+                <Setter Property="Height" Value="Auto"></Setter>
+                <Setter Property="BorderThickness" Value="10"></Setter>
+                <Setter Property="Background" Value="{x:Null}"/>
+                <Setter Property="Background" Value="Gray"/>
+                
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                <!--<Setter Property="Padding" Value="20,2"/>
+                <Setter Property="Height" Value="40"/>-->
+                <Setter Property="FontSize" Value="18"></Setter>
 
+            </Style>
             <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="HorizontalAlignment" Value="Left" />

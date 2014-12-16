@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold"> Document Upload</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT UPLOAD</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>

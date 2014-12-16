@@ -113,41 +113,125 @@
     <Compile Include="DocumentContent\DocumentUploadPaging.xaml.cs">
       <DependentUpon>DocumentUploadPaging.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\Canvas.xaml.cs">
-      <DependentUpon>Canvas.xaml</DependentUpon>
+    <Compile Include="DocumentMaintenance\DeleteDocumentDetail.xaml.cs">
+      <DependentUpon>DeleteDocumentDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\DataImage.xaml.cs">
-      <DependentUpon>DataImage.xaml</DependentUpon>
+    <Compile Include="DocumentMaintenance\DeleteDocumentInquiryDetail.xaml.cs">
+      <DependentUpon>DeleteDocumentInquiryDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\Decryption.xaml.cs">
-      <DependentUpon>Decryption.xaml</DependentUpon>
+    <Compile Include="DocumentMaintenance\DeleteDocumentInquiryPaging.xaml.cs">
+      <DependentUpon>DeleteDocumentInquiryPaging.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\Encryption.xaml.cs">
-      <DependentUpon>Encryption.xaml</DependentUpon>
+    <Compile Include="DocumentMaintenance\DeleteDocumentPaging.xaml.cs">
+      <DependentUpon>DeleteDocumentPaging.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\Grayscale.xaml.cs">
-      <DependentUpon>Grayscale.xaml</DependentUpon>
+    <Compile Include="ImageProcess\Canvas\CanvasDetail.xaml.cs">
+      <DependentUpon>CanvasDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\ImageToPdf.xaml.cs">
-      <DependentUpon>ImageToPdf.xaml</DependentUpon>
+    <Compile Include="ImageProcess\Canvas\CanvasPaging.xaml.cs">
+      <DependentUpon>CanvasPaging.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\ImageToPdfPaging.xaml.cs">
+    <Compile Include="ImageProcess\Canvas\CanvasProcess.xaml.cs">
+      <DependentUpon>CanvasProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\DataImage\DataImageDetail.xaml.cs">
+      <DependentUpon>DataImageDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\DataImage\DataImagePaging.xaml.cs">
+      <DependentUpon>DataImagePaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Decryption\DecryptionDetail.xaml.cs">
+      <DependentUpon>DecryptionDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Decryption\DecryptionProcess.xaml.cs">
+      <DependentUpon>DecryptionProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Decryption\DecrytionPaging.xaml.cs">
+      <DependentUpon>DecrytionPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Encryption\EncryptionDetail.xaml.cs">
+      <DependentUpon>EncryptionDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Encryption\EncryptionPaging.xaml.cs">
+      <DependentUpon>EncryptionPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Encryption\EncryptionProcess.xaml.cs">
+      <DependentUpon>EncryptionProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Grayscale\GrayscaleDetail.xaml.cs">
+      <DependentUpon>GrayscaleDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Grayscale\GrayscalePaging.xaml.cs">
+      <DependentUpon>GrayscalePaging.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Grayscale\GrayscaleProcess.xaml.cs">
+      <DependentUpon>GrayscaleProcess.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\ImageToPdf\ImageToPdfDetail.xaml.cs">
+      <DependentUpon>ImageToPdfDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\ImageToPdf\ImageToPdfPaging.xaml.cs">
       <DependentUpon>ImageToPdfPaging.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageProcess\Lock.xaml.cs">
-      <DependentUpon>Lock.xaml</DependentUpon>
+    <Compile Include="ImageProcess\ImageToPdf\ImageToPdfProcess.xaml.cs">
+      <DependentUpon>ImageToPdfProcess.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageProcess\Rotate.xaml.cs">
-      <DependentUpon>Rotate.xaml</DependentUpon>
+    <Compile Include="ImageProcess\Lock\ImageLockDetail.xaml.cs">
+      <DependentUpon>ImageLockDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageProcess\Scanner.xaml.cs">
-      <DependentUpon>Scanner.xaml</DependentUpon>
+    <Compile Include="ImageProcess\Lock\ImageLockPaging.xaml.cs">
+      <DependentUpon>ImageLockPaging.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageProcess\Unlock.xaml.cs">
-      <DependentUpon>Unlock.xaml</DependentUpon>
+    <Compile Include="ImageProcess\Lock\ImageUnlockProcess.xaml.cs">
+      <DependentUpon>ImageUnlockProcess.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageProcess\Watermark.xaml.cs">
-      <DependentUpon>Watermark.xaml</DependentUpon>
+    <Compile Include="ImageProcess\Rotate\ImageRotateDetail.xaml.cs">
+      <DependentUpon>ImageRotateDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Rotate\ImageRotatePaging.xaml.cs">
+      <DependentUpon>ImageRotatePaging.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Rotate\ImageRotateProcess.xaml.cs">
+      <DependentUpon>ImageRotateProcess.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Unlock\UnlockImageDetail.xaml.cs">
+      <DependentUpon>UnlockImageDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Unlock\UnlockImagePaging.xaml.cs">
+      <DependentUpon>UnlockImagePaging.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Unlock\UnlockImageProcess.xaml.cs">
+      <DependentUpon>UnlockImageProcess.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\WaterMark\WaterMarkDetail.xaml.cs">
+      <DependentUpon>WaterMarkDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\WaterMark\WaterMarkPaging.xaml.cs">
+      <DependentUpon>WaterMarkPaging.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\WaterMark\WaterMarkProcess.xaml.cs">
+      <DependentUpon>WaterMarkProcess.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageScanMulti\ImageScanMultiProcess.xaml.cs">
+      <DependentUpon>ImageScanMultiProcess.xaml</DependentUpon>
     </Compile>
     <Compile Include="Project\CustomerProjectPaging.xaml.cs">
       <DependentUpon>CustomerProjectPaging.xaml</DependentUpon>
@@ -260,51 +344,139 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Canvas.xaml">
+    <Page Include="DocumentMaintenance\DeleteDocumentDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\DataImage.xaml">
+    <Page Include="DocumentMaintenance\DeleteDocumentInquiryDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Decryption.xaml">
+    <Page Include="DocumentMaintenance\DeleteDocumentInquiryPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Encryption.xaml">
+    <Page Include="DocumentMaintenance\DeleteDocumentPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Grayscale.xaml">
+    <Page Include="ImageProcess\Canvas\CanvasDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\ImageToPdf.xaml">
+    <Page Include="ImageProcess\Canvas\CanvasPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\ImageToPdfPaging.xaml">
+    <Page Include="ImageProcess\Canvas\CanvasProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Lock.xaml">
+    <Page Include="ImageProcess\DataImage\DataImageDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Rotate.xaml">
+    <Page Include="ImageProcess\DataImage\DataImagePaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Scanner.xaml">
+    <Page Include="ImageProcess\Decryption\DecryptionDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Unlock.xaml">
+    <Page Include="ImageProcess\Decryption\DecryptionProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Watermark.xaml">
+    <Page Include="ImageProcess\Decryption\DecrytionPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Encryption\EncryptionDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Encryption\EncryptionPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Encryption\EncryptionProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Grayscale\GrayscaleDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Grayscale\GrayscalePaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Grayscale\GrayscaleProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageToPdf\ImageToPdfDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageToPdf\ImageToPdfPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageToPdf\ImageToPdfProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Lock\ImageLockDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Lock\ImageLockPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Lock\ImageUnlockProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Rotate\ImageRotateDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Rotate\ImageRotatePaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Rotate\ImageRotateProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Unlock\UnlockImageDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Unlock\UnlockImagePaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Unlock\UnlockImageProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\WaterMark\WaterMarkDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\WaterMark\WaterMarkPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\WaterMark\WaterMarkProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageScanMulti\ImageScanMultiProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

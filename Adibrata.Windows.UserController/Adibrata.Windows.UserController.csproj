@@ -39,6 +39,10 @@
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PdfSharp, Version=1.0.898.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Adibrata.Framework.ImageProcessing\lib\PdfSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -132,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UCScanToPdf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCScan\UCScanMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,6 +224,9 @@
     </Compile>
     <Compile Include="UCSaveTransaction.xaml.cs">
       <DependentUpon>UCSaveTransaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCScanToPdf.xaml.cs">
+      <DependentUpon>UCScanToPdf.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCScan\UCScanMain.xaml.cs">
       <DependentUpon>UCScanMain.xaml</DependentUpon>
@@ -321,6 +332,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\Interop.WIA.dll" />
+    <Content Include="lib\PdfSharp.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

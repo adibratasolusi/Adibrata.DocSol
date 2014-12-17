@@ -1,10 +1,13 @@
-﻿CREATE TABLE [dbo].DocTrans
+﻿Drop TABLE [dbo].DocTrans
+GO
+CREATE TABLE [dbo].DocTrans
 (
 	[Id] BIGINT NOT NULL IDENTITY PRIMARY KEY, 
 	TransID BIGINT, 
 	TransDesc Varchar(100) null, 
 	DocTransCode varchar(50) null, 
 	DocTypeCode varchar(50), 
+	DocTransStatus varchar (10), 
 	DocAprStat varchar(3) null, 
 	DocApprCurrLevel varchar(50) null,
 	DocLastApprUser varchar(50) null, 

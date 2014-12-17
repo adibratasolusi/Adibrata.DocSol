@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCustSave]
+﻿ALTER PROCEDURE [dbo].[spCustSave]
 	@CustName varchar(50), 
 	@CustType varchar(1), 
 	@PostingDate datetime, 

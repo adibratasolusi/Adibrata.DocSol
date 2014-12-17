@@ -108,7 +108,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-                RedirectPage redirect = new RedirectPage(this, "Project.CustomerProjectPaging", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
@@ -137,7 +137,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ucUpload.DocumentTypeUpload = cboDocumentType.Text;
                 ucUpload.CheckAndUpload(dtContent);
 
-                RedirectPage redirect = new RedirectPage(this, "Project.CustomerProjectPaging", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)
             {

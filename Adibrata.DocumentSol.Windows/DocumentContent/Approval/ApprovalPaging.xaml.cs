@@ -134,7 +134,14 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
         {
             try
             {
-
+                DocSolEntities _ent = new DocSolEntities
+                {
+                    ClassName = "ApprovalProcess",
+                    MethodName = "ApprovalPathRetrieve",
+                    DocumentType = cboDocumentType.SelectedItem.ToString(),
+                    UserLogin = SessionProperty.UserName
+                };
+                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                 RedirectPage redirect = new RedirectPage(this, "Approval.ApprovalProcessScreen", SessionProperty);
             }
             catch (Exception _exp)

@@ -1,16 +1,13 @@
 ﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Controller.UserManagement;
 using Adibrata.Framework.Logging;
 using System;
-using System.Text;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using Adibrata.Windows.UserController;
-using Adibrata.Controller.UserManagement;
-using System.Data;
-using Adibrata.BusinessProcess.DocumentSol.Entities;
-using Adibrata.BusinessProcess.UserManagement.Entities;
-using System.Windows.Media;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 
 namespace Adibrata.DocumentSol.Windows
@@ -23,34 +20,66 @@ namespace Adibrata.DocumentSol.Windows
         SessionEntities SessionProperty = new SessionEntities();
         public Main(SessionEntities _session)
         {
-            InitializeComponent();
-            SessionProperty = _session;
-            lblLoginName.Text = SessionProperty.UserName.ToUpper();
-            lblBusinessDate.Text = DateTime.Now.ToString("dd/MMMM/yyyy");
+            try
+            {
+                InitializeComponent();
+                SessionProperty = _session;
+                lblLoginName.Text = SessionProperty.UserName.ToUpper();
+                lblBusinessDate.Text = DateTime.Now.ToString("dd/MMMM/yyyy");
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "Main",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
             //RedirectPage redirect = new RedirectPage(frmWorksheet, "Form.FormRegistrasiPaging", SessionProperty);
-        }
-
-        private void TreeMenuGenerate()
-        {
-
         }
 
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
-
-            UserManagementEntities _ent = new UserManagementEntities
+            try
             {
-                MethodName = "SearchEngineMenu",
-                ClassName = "MainMenu"
-            };
-            
-            DataTable dt = new DataTable();
-            _ent.Form = searchTextBox.Text;
-            dt = UserManagementController.UserManagement<DataTable>(_ent);
+                UserManagementEntities _ent = new UserManagementEntities
+                {
+                    MethodName = "SearchEngineMenu",
+                    ClassName = "MainMenu"
+                };
 
-            dtgMenu.ItemsSource = dt.DefaultView;
-            dtgMenu.CanUserSortColumns = true;
-            dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
+                DataTable dt = new DataTable();
+                _ent.Form = searchTextBox.Text;
+                dt = UserManagementController.UserManagement<DataTable>(_ent);
+
+                dtgMenu.ItemsSource = dt.DefaultView;
+                dtgMenu.CanUserSortColumns = true;
+                dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "Main",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void hpMenu_Click(object sender, RoutedEventArgs e)
@@ -63,34 +92,51 @@ namespace Adibrata.DocumentSol.Windows
             //TextBlock formUrl = dtgHelper.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
 
             //string _formUrl = formUrl.Text;
-
-            DataRowView Grdrow = ((FrameworkElement)sender).DataContext as DataRowView;
-
-
-
-            //Fidn the DataGrid row index
-
-            int rowIndex = dtgMenu.Items.IndexOf(Grdrow);
+            try
+            {
+                DataRowView Grdrow = ((FrameworkElement)sender).DataContext as DataRowView;
 
 
 
-            //Find the DataGridCell
+                //Fidn the DataGrid row index
 
-            DataGridCell cell = GetCell(rowIndex, 1); //Pass the row and column
-
-
-
-            //Find the "lblVehicleName" lable.
-
-            Label lblsource_address = GetVisualChild<Label>(cell); // pass the DataGridCell as a parameter to GetVisualChild
+                int rowIndex = dtgMenu.Items.IndexOf(Grdrow);
 
 
 
-            string _value = lblsource_address.Content.ToString();
+                //Find the DataGridCell
+
+                DataGridCell cell = GetCell(rowIndex, 1); //Pass the row and column
 
 
-            RedirectPage redirect = new RedirectPage(frmWorksheet, _value, SessionProperty);
 
+                //Find the "lblVehicleName" lable.
+
+                Label lblsource_address = GetVisualChild<Label>(cell); // pass the DataGridCell as a parameter to GetVisualChild
+
+
+
+                string _value = lblsource_address.Content.ToString();
+
+
+                RedirectPage redirect = new RedirectPage(frmWorksheet, _value, SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "hpMenu_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
             //RedirectPage(frmWorksheet, _formUrl, SessionProperty);
             //MessageBox.Show(_value);
            // frmWorksheet.NavigationService.Navigate( new Uri( "pack://application:,,,/AssemblyName;component/Resources/logo.png"+ _formUrl),UriKind.Relative);
@@ -100,27 +146,44 @@ namespace Adibrata.DocumentSol.Windows
         {
 
             DataGridRow rowContainer = GetRow(row);
-
-            if (rowContainer != null)
+            try
             {
-
-                DataGridCellsPresenter presenter = GetVisualChild<DataGridCellsPresenter>(rowContainer);
-
-                if (presenter == null)
+                if (rowContainer != null)
                 {
 
-                    dtgMenu.ScrollIntoView(rowContainer, dtgMenu.Columns[column]);
+                    DataGridCellsPresenter presenter = GetVisualChild<DataGridCellsPresenter>(rowContainer);
 
-                    presenter = GetVisualChild<DataGridCellsPresenter>(rowContainer);
+                    if (presenter == null)
+                    {
+
+                        dtgMenu.ScrollIntoView(rowContainer, dtgMenu.Columns[column]);
+
+                        presenter = GetVisualChild<DataGridCellsPresenter>(rowContainer);
+
+                    }
+
+                    DataGridCell cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(column);
+
+                    return cell;
 
                 }
-
-                DataGridCell cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(column);
-
-                return cell;
-
             }
-
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "GetCell",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
             return null;
 
         }
@@ -129,27 +192,45 @@ namespace Adibrata.DocumentSol.Windows
 
         public DataGridRow GetRow(int index)
         {
-
-            DataGridRow row = (DataGridRow)dtgMenu.ItemContainerGenerator.ContainerFromIndex(index);
-
-            if (row == null)
+            DataGridRow row = new DataGridRow();
+            try
             {
-
-                dtgMenu.UpdateLayout();
-
-                dtgMenu.ScrollIntoView(dtgMenu.Items[index]);
-
                 row = (DataGridRow)dtgMenu.ItemContainerGenerator.ContainerFromIndex(index);
 
-            }
+                if (row == null)
+                {
 
+                    dtgMenu.UpdateLayout();
+
+                    dtgMenu.ScrollIntoView(dtgMenu.Items[index]);
+
+                    row = (DataGridRow)dtgMenu.ItemContainerGenerator.ContainerFromIndex(index);
+
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "GetRow",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
             return row;
 
         }
 
 
 
-        public static T GetVisualChild<T>(Visual parent) where T : Visual
+        public T GetVisualChild<T>(Visual parent) where T : Visual
         {
 
             T child = default(T);
@@ -184,10 +265,47 @@ namespace Adibrata.DocumentSol.Windows
             }
             catch (Exception _exp)
             {
-
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "GetVisualChild",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
             return child;
 
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                this.NavigationService.Navigate(new Login.Login()); 
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "btnLogout_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
     }

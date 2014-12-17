@@ -787,6 +787,9 @@
   <ItemGroup>
     <Resource Include="Images\AlienAqua scanner 2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\300px-Crystal_Clear_action_exit.svg.png" />
+  </ItemGroup>
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

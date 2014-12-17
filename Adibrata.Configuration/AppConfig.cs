@@ -17,11 +17,8 @@ namespace Adibrata.Configuration
         {
             string value = "";
 
-#if DEBUG
-            const string ConnectionString = "Server=.;Database=Configuration;User Id=sa;Password=Alpha2014";
-#else
             const string ConnectionString = "Server=Maximus-PC;Database=Configuration;User Id=sa;Password=Alpha2014";
-#endif
+
             string SQLSyntax = "Select value from [App.Config] with (nolock) where [key] = @Key";
             try
             {

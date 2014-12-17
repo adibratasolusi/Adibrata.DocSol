@@ -790,6 +790,9 @@
   <ItemGroup>
     <Resource Include="Images\300px-Crystal_Clear_action_exit.svg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login.png" />
+  </ItemGroup>
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

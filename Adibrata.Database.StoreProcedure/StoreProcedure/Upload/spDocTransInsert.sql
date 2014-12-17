@@ -11,31 +11,29 @@ CREATE PROCEDURE [dbo].[spDocTransInsert]
 
 AS
 BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-	BEGIN TRAN A
-    -- Insert statements for procedure here
-	INSERT INTO DocTrans
-	(
-		TransID,
-		DocTypeCode,
-		UsrCrt,
-		DtmCrt,
-		UsrUpd,
-		DtmUpd
-
-	) 
-	OUTPUT inserted.Id 
-	VALUES
-	(
-		@TransId,
-		@docType,
-		'sa',
-		GETDATE(),
-		'sa',
-		GETDATE()
-	)
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+-- Insert statements for procedure here
+INSERT INTO DocTrans
+(
+	TransID,
+	DocTypeCode,
+	UsrCrt,
+	DtmCrt,
+	UsrUpd,
+	DtmUpd
+) 
+OUTPUT inserted.Id 
+VALUES
+(
+	@TransId,
+	@docType,
+	'sa',
+	GETDATE(),
+	'sa',
+	GETDATE()
+)
 		 IF (@@ERROR <> 0) BEGIN
         ROLLBACK TRAN A
         RETURN 1

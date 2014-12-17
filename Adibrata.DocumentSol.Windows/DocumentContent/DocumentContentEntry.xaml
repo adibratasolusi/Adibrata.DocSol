@@ -3,9 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:DocContent="clr-namespace:Adibrata.Windows.UserController.DocContent;assembly=Adibrata.Windows.UserController" x:Class="Adibrata.DocumentSol.Windows.DocumentContent.DocumentContentEntry" 
+      xmlns:DocContent="clr-namespace:Adibrata.Windows.UserController.DocContent;assembly=Adibrata.Windows.UserController" xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" x:Class="Adibrata.DocumentSol.Windows.DocumentContent.DocumentContentEntry" 
       mc:Ignorable="d" 
-      d:DesignHeight="500"
+      d:DesignHeight="550"
 	Title="DocumentContentEntry">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
@@ -20,30 +20,31 @@
                 <RowDefinition Height="Auto"  />
                 <RowDefinition Height="Auto"  />
                 <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="DOCUMENT UPLOAD" FontSize="24" FontWeight="Bold"></TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblMessage" FontStyle="Normal" Foreground="Red" />
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="DOCUMENT UPLOAD" FontSize="24" FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
                 <StackPanel>
-                    <TextBlock Text="Customer Code" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                    <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                    <TextBlock Text="Project Code" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                    <TextBlock Text="Project Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                    <TextBlock Text="Project Type" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
+                    <TextBlock Text="Customer Code" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Project Code" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Project Name" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Project Type" Style="{StaticResource TextBlockStyle}" Width="200"/>
 
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1">
                 <StackPanel>
-                    <TextBlock Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                    <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                    <TextBlock Name="lblProjectName" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                    <TextBlock Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                    <TextBlock Name="lblProjectType" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                    <TextBlock x:Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblProjectName" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblProjectType" Style="{StaticResource TextBlockStyle}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
@@ -52,13 +53,13 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBlock Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type" Width="200"></TextBlock>
+                    <TextBlock x:Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type" Width="200"/>
                 </Grid>
                 <Grid Grid.Column="1" HorizontalAlignment="Left">
-                    <ComboBox Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="400"
-                       Text="{Binding Result}"   SelectedValue ="{Binding Result}"/>
+                    <ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="400"
+						Text="{Binding Result}"   SelectedValue ="{Binding Result}"/>
                 </Grid>
-                
+
             </Grid>
             <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
                 <Grid>
@@ -68,17 +69,20 @@
 
             <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
                 <Grid>
-                    <UploadAgreement:UCUploadAgreement Name="ucUpload" Width="Auto" Height="Auto" />
+                    <UploadAgreement:UCUploadAgreement x:Name="ucUpload" Width="Auto" Height="Auto" />
                 </Grid>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+            <Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+                <UserController:UCRequestApproval x:Name="oApproval" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
 
-                    <Button Name="btnSave" Click="btnSave_Click" Width="100" Height="50" ToolTip="Save Data Document Content">
+                    <Button x:Name="btnSave" Click="btnSave_Click" Width="100" Height="50" ToolTip="Save Data Document Content">
                         <Button.Background>
                             <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/save-png-hi.png"/>
                         </Button.Background>
@@ -86,7 +90,7 @@
                     </Button>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Button Name="btnBack" Click="btnBack_Click" Width="100" Height="50" ToolTip="Back To Project Paging">
+                    <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" ToolTip="Back To Project Paging">
                         <Button.Background>
                             <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
                         </Button.Background>
@@ -95,6 +99,7 @@
                 </Grid>
 
             </Grid>
+            
         </Grid>
     </ScrollViewer>
 </Page>

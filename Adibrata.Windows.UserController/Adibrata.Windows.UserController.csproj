@@ -132,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="UCRequestApproval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCSaveTransaction.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -221,6 +225,9 @@
     </Compile>
     <Compile Include="UCPassword.xaml.cs">
       <DependentUpon>UCPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCRequestApproval.xaml.cs">
+      <DependentUpon>UCRequestApproval.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCSaveTransaction.xaml.cs">
       <DependentUpon>UCSaveTransaction.xaml</DependentUpon>

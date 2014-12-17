@@ -90,5 +90,42 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                   ErrorLog.WriteEventLog(_errent);
               }
           }
+
+        public virtual DataTable ApprovalRequestTo (DocSolEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            try
+            {
+                RuleEngineEntities _entrule = new RuleEngineEntities { RuleName = "RUDocContentAppr" };
+                StringBuilder sb = new StringBuilder();
+
+                sb.Append(" Field1 = '");
+                sb.Append(_ent.DocumentType);
+                sb.Append("' ");
+
+                sb.Append(" AND Field2 = '1'");
+                
+                _entrule.WhereCond = sb.ToString();
+                _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
+
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "ApprovalProcess",
+                    FunctionName = "ApprovalRequestTo",
+                    ExceptionNumber = 1,
+                    EventSource = "DocContent",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _dt;
+        }
     }
 }

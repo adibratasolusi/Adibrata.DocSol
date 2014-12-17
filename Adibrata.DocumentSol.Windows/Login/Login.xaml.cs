@@ -52,15 +52,24 @@ namespace Adibrata.DocumentSol.Windows.Login
                 }
                 else
                 {
+                    if (_ent.UserName == "")
+                    { lblMessage.Text = "Pleasse Enter Your User Name"; }
+                    else
+                    {
+                        if (_ent.Password == "") { lblMessage.Text = "Please Enter Your Password"; }
 
-                    SessionProperty.UserName = txtUserName.InputValue;
-                    SessionProperty.BusinessDate = DateTime.Now;
-                    RedirectPage redirect = new RedirectPage(this, "MainForm", SessionProperty);
-                     
+                        else
+                        {
 
-                    //_obj = Adibrata.Controller.PageRedirect.PageRedirectController.RedirectPage("CustomerPaging",_session);
-                    //Customer.CustomerPaging(_session));
-                    
+
+                            SessionProperty.UserName = txtUserName.InputValue;
+                            SessionProperty.BusinessDate = DateTime.Now;
+                            RedirectPage redirect = new RedirectPage(this, "MainForm", SessionProperty);
+                        }
+
+                        //_obj = Adibrata.Controller.PageRedirect.PageRedirectController.RedirectPage("CustomerPaging",_session);
+                        //Customer.CustomerPaging(_session));
+                    }
 
                 }
             }

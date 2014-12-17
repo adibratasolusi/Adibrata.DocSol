@@ -18,11 +18,19 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="2*"  />
             </Grid.RowDefinitions>
+            
             <Grid Grid.Row="0" Grid.Column="0">
                 <StackPanel>
-                <TextBlock Name="lblLoginName" FontSize="20" Foreground="White"></TextBlock>
+                    
+                    <TextBlock Name="lblLoginName" FontSize="20" Foreground="White"></TextBlock>
                     <TextBlock Name="lblBusinessDate" FontSize="20" Foreground="White"></TextBlock>
+                  
                 </StackPanel>
+                <Button x:Name="btnLogout" Click="btnLogout_Click" Width="30" Height="30"  Margin="770,14,0,10">
+                    <Button.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="Images/300px-Crystal_Clear_action_exit.svg.png" />
+                    </Button.Background>
+                </Button>
             </Grid>
             <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
             <Grid.ColumnDefinitions>

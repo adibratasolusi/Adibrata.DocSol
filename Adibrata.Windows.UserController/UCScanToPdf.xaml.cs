@@ -3,6 +3,8 @@ using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -67,6 +69,13 @@ namespace Adibrata.Windows.UserController
                         }
                         doc.Save(txtDir.Text);
                         doc.Close();
+                        for (int i = 0; i < dtgUpload.Items.Count; i++)
+                        {
+                            
+                            DataGridCell cellPath = dtgHelper.GetCell(i, 1);
+                            TextBlock path = (TextBlock)cellPath.Content;
+                            File.Delete(path.Text);
+                        }
 
                         MessageBox.Show("Convert Succeed");
                     }
@@ -97,6 +106,7 @@ namespace Adibrata.Windows.UserController
                             doc.Save(txtDir.Text + "\\" + fileName + ".pdf");
                             doc.Close();
                             xgr.Dispose();
+                            File.Delete(path.Text);
                         }
 
                         MessageBox.Show("Convert Succeed");
@@ -143,11 +153,11 @@ namespace Adibrata.Windows.UserController
                 if (!exists)
                     System.IO.Directory.CreateDirectory(path);
                 List<System.Drawing.Image> images = WIAScanner.Scan((string)lbDevices.SelectedItem);
-                string pathFile = path + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
+                string pathFile = path + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpg";
                 foreach (System.Drawing.Image img in images)
                 {
 
-                    img.Save(pathFile);
+                    img.Save(pathFile,ImageFormat.Jpeg);
                 }
                 dtgUpload.Items.Add(new DataItem { PathFile = pathFile, img = pathFile });
                 dtgUpload.Items.Refresh();
@@ -341,6 +351,11 @@ namespace Adibrata.Windows.UserController
             }
 
             progBar.IsIndeterminate = false;
+            txtDir.Text = "";
+            txtDirFile.Text = "";
+            txtSaveFile.Text = "";
+            dtgUpload.Items.Clear();
+            dtgUpload.Items.Refresh();
         }
 
         private void tabScan_GotFocus(object sender, RoutedEventArgs e)

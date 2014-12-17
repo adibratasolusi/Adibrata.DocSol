@@ -13,6 +13,9 @@ using Adibrata.Framework.Logging;
 using System.IO;
 using System.Text;
 using WIATest;
+using System.Drawing.Imaging;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
 
 namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 {
@@ -562,8 +565,23 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 foreach (System.Drawing.Image img in images)
                 {
 
-                    img.Save(pathFile);
+                    img.Save(pathFile,ImageFormat.Jpeg );
                 }
+
+                PdfDocument doc = new PdfDocument();
+                doc.Pages.Add(new PdfPage());
+                XGraphics xgr = XGraphics.FromPdfPage(doc.Pages[0]);
+                XImage ximg = XImage.FromFile(pathFile);
+
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(pathFile);
+                xgr.DrawImage(ximg, 0, 0);
+                
+                doc.Save(pathFile + "\\" + fileName + ".pdf");
+                doc.Close();
+                xgr.Dispose();
+
+                File.Delete(pathFile);
+
                 dtgUpload.Items.Add(new DataItem { PathFile = pathFile, img = pathFile });
                 dtgUpload.Items.Refresh();
             }

@@ -83,8 +83,6 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-
-                                <DataGridTextColumn Binding="{Binding ProjId}" Header="" x:Name="ProjId" Width="1"/>
                                 <DataGridTextColumn Binding="{Binding ProjCode}" Header="PROJECT CODE" x:Name="ProjCode" Width="200"/>
                                 <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="300"/>
                             </DataGrid.Columns>

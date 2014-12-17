@@ -41,7 +41,6 @@ namespace Adibrata.DocumentSol.Windows
 
                 #region "DocumentContentEntry"
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
-                case "DocumentContent.DocumentUploadPaging": Source.NavigationService.Navigate(new DocumentContent.DocumentUploadPaging(_ent)); break;
                 #endregion
 
                 #region "Upload Rule"
@@ -58,6 +57,11 @@ namespace Adibrata.DocumentSol.Windows
                 case "Project.CustomerProjectPaging": Source.NavigationService.Navigate(new Project.CustomerProjectPaging(_ent)); break;
                 case "Project.ProjectPaging": Source.NavigationService.Navigate(new Project.ProjectPaging(_ent)); break;
                 case "Project.ProjectAddEdit": Source.NavigationService.Navigate(new Project.ProjectAddEdit(_ent)); break;
+
+                #endregion
+
+                #region "Scan Multi"
+                case "ImageScanMulti.ImageScanMultiProcess": Source.NavigationService.Navigate(new ImageScanMulti.ImageScanMultiProcess()); break;
 
                 #endregion
             }
@@ -89,7 +93,6 @@ namespace Adibrata.DocumentSol.Windows
 
                 #region "DocumentContentEntry"
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
-                case "DocumentContent.DocumentUploadPaging": Source.NavigationService.Navigate(new DocumentContent.DocumentUploadPaging(_ent)); break;
                 #endregion
 
                 #region "Upload Rule"
@@ -124,6 +127,12 @@ namespace Adibrata.DocumentSol.Windows
                 case "Project.ProjectPaging": Source.NavigationService.Navigate(new Project.ProjectPaging(_ent)); break;
                 case "Project.ProjectAddEdit": Source.NavigationService.Navigate(new Project.ProjectAddEdit(_ent)); break;
 
+                #endregion
+
+
+                #region "Scan Multi"
+                case "ImageScanMulti.ImageScanMultiProcess": Source.NavigationService.Navigate(new ImageScanMulti.ImageScanMultiProcess()); break;
+                
                 #endregion
             }
 

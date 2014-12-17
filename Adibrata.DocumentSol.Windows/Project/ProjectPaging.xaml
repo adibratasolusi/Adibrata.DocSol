@@ -5,6 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
+      d:DesignHeight="350"
 	Title="ProjectPaging">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -82,8 +83,6 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-
-                                <DataGridTextColumn Binding="{Binding ProjId}" Header="" x:Name="ProjId" Width="1"/>
                                 <DataGridTextColumn Binding="{Binding ProjCode}" Header="PROJECT CODE" x:Name="ProjCode" Width="200"/>
                                 <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="300"/>
                             </DataGrid.Columns>

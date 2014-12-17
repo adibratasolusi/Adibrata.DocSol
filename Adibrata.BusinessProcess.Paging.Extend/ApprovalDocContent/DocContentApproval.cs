@@ -11,6 +11,7 @@ namespace Adibrata.BusinessProcess.Paging.Extend
     public class DocContentApproval
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
+       
         public virtual DataTable ApprovalTaskPaging(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
@@ -26,8 +27,8 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 sqlParams[2].Value = _ent.WhereCond;
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
-                
-                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocContentApprPaging", sqlParams));
+
+                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocTransApprPaging", sqlParams));
 
             }
             catch (Exception _exp)

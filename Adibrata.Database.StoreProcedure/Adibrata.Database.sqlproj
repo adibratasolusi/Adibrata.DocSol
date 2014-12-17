@@ -69,6 +69,7 @@
     <Folder Include="StoreProcedure\Upload" />
     <Folder Include="StoreProcedure\RuleEngine" />
     <Folder Include="StoreProcedure\Project" />
+    <Folder Include="StoreProcedure\Approval" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -155,5 +156,6 @@
     <Build Include="StoreProcedure\Upload\spDocTransBinaryUpdate.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryInsert.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransContentInsert.sql" />
+    <Build Include="StoreProcedure\Approval\spDocTransApprPaging.sql" />
   </ItemGroup>
 </Project>

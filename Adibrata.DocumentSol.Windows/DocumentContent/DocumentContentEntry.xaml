@@ -42,8 +42,8 @@
                 <StackPanel>
                     <TextBlock x:Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock x:Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"/>
-                    <TextBlock x:Name="lblProjectName" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock x:Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblProjectName" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock x:Name="lblProjectType" Style="{StaticResource TextBlockStyle}"/>
                 </StackPanel>
             </Grid>

@@ -5,9 +5,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
-      	 
       mc:Ignorable="d" 
-      d:DesignHeight="550" 
+      d:DesignHeight="650" 
         Style="{StaticResource PageStyle}"
 	Title="ApprovalPaging">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -44,20 +43,22 @@
                             <Grid Grid.Column="0" Grid.Row="0">
                                 <StackPanel Width="200">
                                     <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Approval User"/>
-                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Code"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Type"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Document Type"/>
-                                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Transaction Code"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Project Name"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Customer Name"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Approval Status"/>
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblUserName"/>
-                                    <ComboBox Name="cboProjectCode" Text="{Binding Result}"   SelectedValue ="{Binding Result}" SelectionChanged="cboProjectCode_SelectionChanged">
+                                    <ComboBox Name="cboProjectType" Text="{Binding Result}" Height="30" Width="400" SelectedValue ="{Binding Result}" SelectionChanged="cboProjectCode_SelectionChanged" HorizontalAlignment="Left">
                                     </ComboBox>
-                                    <ComboBox Name="cboDocumentType" Text="{Binding Result}"   SelectedValue ="{Binding Result}">
+                                    <ComboBox Name="cboDocumentType" Text="{Binding Result}"   Height="30"  Width="400" SelectedValue ="{Binding Result}" HorizontalAlignment="Left">
                                     </ComboBox>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectName" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustomerName" Width="300"/>
                                     <ComboBox Name="cboApprStatus" Text="{Binding Result}" Height="30" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" SelectedValue ="{Binding Result}">
                                     </ComboBox>
                                 </StackPanel>
@@ -76,8 +77,8 @@
                         <DataGrid IsTextSearchEnabled="True"
                           SelectionMode="Single"
                           x:Name="dgPaging" 
-                          
-                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="250" 
                           >
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="SELECT" Width="100">
@@ -87,10 +88,12 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-
-                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="CODE" x:Name="DocTransCode" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding DocTransDesc}" Header="DESCRIPTION" x:Name="DocTransDesc" Width="400" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="Address" Width="200" FontSize="14" />
+                                
+                                <DataGridTextColumn Binding="{Binding DocTransApprCode}" Header="APPROVAL CODE" x:Name="DocTransCode" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="PROJECT CODE" x:Name="DocTransDesc" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjectName" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ProjType}" Header="PROJECT TYPE" x:Name="ProjectType" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>

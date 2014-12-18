@@ -1,4 +1,4 @@
-﻿Alter PROCEDURE [dbo].[spDocTransApprPaging]
+﻿Create  PROCEDURE [dbo].[spDocTransApprPaging]
 	@StartRecord varchar(10), 
 	@EndRecord varchar(10), 
 	@WhereCond varchar(8000), 

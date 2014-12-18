@@ -337,6 +337,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\Interop.WIA.dll" />
+    <Resource Include="Pictures\folder_delete.png" />
     <Resource Include="Pictures\kde-folder-saved-search.png" />
     <Resource Include="Pictures\AlienAqua scanner 2.png" />
     <Resource Include="Pictures\next-button-png-hi.png" />

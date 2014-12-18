@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             Width="Auto" Height="Auto">
-    <ScrollViewer>
+             Height="Auto">
     <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -16,9 +15,8 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Column="0" Grid.Row="0">
-                <TextBlock Name="tbUpload" Text="Upload Document :"  Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-            </Grid>
+            <GroupBox Header="Upload Document" FontSize="18">
+ 
             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -30,14 +28,14 @@
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" Grid.Row="0">
-                    <Button Name="btnScan"  Click="btnScan_Click" HorizontalAlignment="Right" Width="80" Height="80">
+                    <Button Name="btnScan"  Click="btnScan_Click" HorizontalAlignment="Right" Width="50" Height="50">
                         <Button.Background>
                             <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.Windows.UserController;component/Pictures/AlienAqua scanner 2.png"/>
                         </Button.Background>
                     </Button>
                     </Grid>
                     <Grid Grid.Column="1" Grid.Row="0">
-                    <Button Name="btnUpload" Click="btnBrowse_Click" HorizontalAlignment="Right" Width="100" Height="80">
+                    <Button Name="btnUpload" Click="btnBrowse_Click" HorizontalAlignment="Right" Width="50" Height="50">
                         <Button.Background>
                             <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.Windows.UserController;component/Pictures/kde-folder-saved-search.png"/>
                         </Button.Background>
@@ -48,29 +46,32 @@
                     </Grid>
                 </Grid>
             </Grid>
+            </GroupBox>
             <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
                 <DataGrid Name="dtgUpload" CanUserDeleteRows="True" Width="1000">
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Delete" x:Name="Delete">
+                        <DataGridTemplateColumn  x:Name="Delete" Width="80">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Name="btnDelete" Content="X" Click="btnDelete_Click"></Button>
+                                    <Button HorizontalAlignment="Center" Name="btnDelete" Click="btnDelete_Click" Width="50" Height="50">
+                                        <Button.Background>
+                                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.Windows.UserController;component/Pictures/folder_delete.png"/>
+                                        </Button.Background>
+                                    </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Binding="{Binding PathFile}" Header="Path File" x:Name="PathFile"/>
+                        <DataGridTextColumn Binding="{Binding PathFile}" Header="PATH FILE" x:Name="PathFile" FontSize="18" Width="400"/>
 
-                        <DataGridTemplateColumn Header="Preview">
+                        <DataGridTemplateColumn Header="IMAGE PREVIEW" Width="400" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image x:Name="imgPreview" Source="{Binding img}" Height="100" Width="100"></Image>
+                                    <Image x:Name="imgPreview" Stretch="UniformToFill"  Source="{Binding img}" Height="50" Width="50" HorizontalAlignment="Left"></Image>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-
         </Grid>
-    </ScrollViewer>
 </UserControl>

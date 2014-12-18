@@ -78,70 +78,85 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                #region "Getting path Approval from Rule Configuration"
-                DocSolEntities _ent = new DocSolEntities
+                if (cboDocumentType.SelectedValue == null)
                 {
-                    ClassName = "ApprovalProcess",
-                    MethodName = "ApprovalPathRetrieve",
-                    DocumentType = cboDocumentType.SelectedItem.ToString(),
-                    UserLogin = SessionProperty.UserName
-                };
-                string _nextlevel = DocumentSolutionController.DocSolProcess<string>(_ent);
-                #endregion 
+                    MessageBox.Show("Please Select Document Type");
 
-                oPaging.ClassName = "DocContentApproval";
-                oPaging.MethodName = "ApprovalTaskPaging";
-                oPaging.dgObj = dgPaging;
-                sb.Append(" Where ");
-                sb.Append(" A.DocTypeCode = '");
-                sb.Append(cboDocumentType.SelectedItem.ToString());
-                sb.Append("'");
-                sb.Append(" AND ");
-                sb.Append(" A.NextLevelAppr = '");
-                sb.Append(_nextlevel);
-                sb.Append("' ");
-
-                if (txtProjectName.Text != "")
-                {
-                    sb.Append(" AND ");
-                    if (txtProjectName.Text.Contains("%"))
+                }
+                else
+                    if (cboProjectType.SelectedValue == null)
                     {
-                        sb.Append(" c.ProjName LIKE ");
-                        sb.Append(txtProjectName.Text);
+                        MessageBox.Show("Please Select Project Type");
+                    }
+                else
+                {
+
+                    #region "Getting path Approval from Rule Configuration"
+                    DocSolEntities _ent = new DocSolEntities
+                    {
+                        ClassName = "ApprovalProcess",
+                        MethodName = "ApprovalPathRetrieve",
+                        DocumentType = cboDocumentType.SelectedItem.ToString(),
+                        UserLogin = SessionProperty.UserName
+                    };
+
+                    string _nextlevel = DocumentSolutionController.DocSolProcess<string>(_ent);
+                    #endregion
+
+                    oPaging.ClassName = "DocContentApproval";
+                    oPaging.MethodName = "ApprovalTaskPaging";
+                    oPaging.dgObj = dgPaging;
+                    sb.Append(" Where ");
+                    sb.Append(" A.DocTypeCode = '");
+                    sb.Append(cboDocumentType.SelectedItem.ToString());
+                    sb.Append("'");
+                    sb.Append(" AND ");
+                    sb.Append(" A.NextLevelAppr = '");
+                    sb.Append(_nextlevel);
+                    sb.Append("' ");
+
+                    if (txtProjectName.Text != "")
+                    {
+                        sb.Append(" AND ");
+                        if (txtProjectName.Text.Contains("%"))
+                        {
+                            sb.Append(" c.ProjName LIKE ");
+                            sb.Append(txtProjectName.Text);
+                        }
+                        else
+                        {
+                            sb.Append(" c.ProjName = ");
+                            sb.Append(txtProjectName.Text);
+                        }
                     }
                     else
                     {
-                        sb.Append(" c.ProjName = ");
-                        sb.Append(txtProjectName.Text);
+                        sb.Append("");
                     }
-                }
-                else
-                {
-                    sb.Append("");
-                }
 
-                if (txtCustomerName.Text != "")
-                {
-                    sb.Append(" AND ");
-                    if (txtProjectName.Text.Contains("%"))
+                    if (txtCustomerName.Text != "")
                     {
-                        sb.Append(" d.CustName LIKE ");
-                        sb.Append(txtCustomerName.Text);
+                        sb.Append(" AND ");
+                        if (txtProjectName.Text.Contains("%"))
+                        {
+                            sb.Append(" d.CustName LIKE ");
+                            sb.Append(txtCustomerName.Text);
+                        }
+                        else
+                        {
+                            sb.Append(" c.CustName = ");
+                            sb.Append(txtCustomerName.Text);
+                        }
                     }
                     else
                     {
-                        sb.Append(" c.CustName = ");
-                        sb.Append(txtCustomerName.Text);
+                        sb.Append("");
                     }
+                    oPaging.WhereCond = sb.ToString();
+                    oPaging.SortBy = " DocTransCode Asc ";
+                    oPaging.UserName = SessionProperty.UserName;
+                    oPaging.PagingData();
                 }
-                else
-                {
-                    sb.Append("");
-                }
-                oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " DocTransCode Asc ";
-                oPaging.UserName = SessionProperty.UserName;
-                oPaging.PagingData();
             }
             catch (Exception _exp)
             {

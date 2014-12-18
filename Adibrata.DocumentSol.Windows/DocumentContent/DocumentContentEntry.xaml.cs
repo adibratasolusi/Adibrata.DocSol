@@ -17,7 +17,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
     {
         DocSolEntities _ent = new DocSolEntities();
         SessionEntities SessionProperty = new SessionEntities();
-
+        string _customercode;
         public DocumentContentEntry(SessionEntities _session)
         {
             try
@@ -31,12 +31,13 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 _ent.ProjectCode = _session.ReffKey;
                 _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                 lblCustomerCode.Text = _ent.CustomerCode;
+
                 lblCustomerName.Text = _ent.CompanyName;
                 
                 lblProjectCode.Text = _session.ReffKey;
                 lblProjectName.Text = _ent.ProjectName;
                 lblProjectType.Text = _ent.ProjectType;
-
+                
 
                 _ent.ClassName = "DocType";
                 _ent.MethodName = "DocTypeRetrieve";
@@ -108,6 +109,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
+                SessionProperty.ReffKey = lblCustomerCode.Text; ;
                 RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)

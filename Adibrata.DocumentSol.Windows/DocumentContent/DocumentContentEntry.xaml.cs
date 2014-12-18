@@ -37,8 +37,6 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 lblProjectCode.Text = _session.ReffKey;
                 lblProjectName.Text = _ent.ProjectName;
                 lblProjectType.Text = _ent.ProjectType;
-                
-
                 _ent.ClassName = "DocType";
                 _ent.MethodName = "DocTypeRetrieve";
                 _ent.LineOfBusiness = _ent.ProjectType;
@@ -86,6 +84,12 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ucUpload.TransId = SessionProperty.ReffKey;
                 ucUpload.BindingValueMax();
                 oApproval.DocumentType = oDocContent.DocumentType;
+
+                _ent.ClassName = "ProjectRegistrasi";
+                _ent.MethodName = "ProjectRegistrasiView";
+                _ent.ProjectCode = _session.ReffKey;
+                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                //oApproval.Visibility = false;
             }
             catch (Exception _exp)
             {

@@ -1,11 +1,12 @@
-﻿<Page x:Class="Adibrata.DocumentSol.Windows.DocumentContent.Approval.ApprovalProcessScreen"
+﻿<Page
       xmlns:UploadAgreement="clr-namespace:Adibrata.Windows.UserController.DocContent.UploadAgreement;assembly=Adibrata.Windows.UserController" 
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" x:Class="Adibrata.DocumentSol.Windows.DocumentContent.Approval.ApprovalProcessScreen" 
       mc:Ignorable="d" 
-       d:DesignHeight="500" 
+       d:DesignHeight="800" 
         Style="{StaticResource PageStyle}"
 	Title="ApprovalProcessScreen">
 
@@ -23,35 +24,36 @@
             <RowDefinition Height="Auto"  />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT UPLOAD</TextBlock>
+            <TextBlock FontSize="24" FontWeight="Bold"><Run Text="DOCUMENT APPROVAL"/></TextBlock>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
             <StackPanel>
-                <TextBlock Text="Customer Code" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                <TextBlock Text="Project Code" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                <TextBlock Text="Project Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type"></TextBlock>
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Status"></TextBlock>
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Notes"></TextBlock>
-                
+                <TextBlock Text="Customer Code" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                <TextBlock Text="Project Code" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                <TextBlock Text="Project Name" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                <TextBlock Text="Project Type" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Status"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Notes"/>
+
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
             <StackPanel>
-                <TextBlock Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}" Width="400"></TextBlock>
-                <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                <TextBlock Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                <TextBlock Name="lblProjectName" Style="{StaticResource TextBlockStyle}"></TextBlock>
-                <TextBlock Name="lblDocumentType" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock x:Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}" Width="400"/>
+                <TextBlock x:Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock x:Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock x:Name="lblProjectName" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock x:Name="lblProjectType" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock x:Name="lblDocumentType" Style="{StaticResource TextBlockStyle}"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <ComboBox x:Name="cboApprovalStatus"  Width="250">
-                        </ComboBox>
+                        <ComboBox x:Name="cboApprovalStatus"  Width="250"/>
                     </Grid>
                 </Grid>
                 <RichTextBox Height="100">
@@ -61,7 +63,7 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                
+
             </StackPanel>
         </Grid>
         <!--<Grid Grid.Row="1" Grid.Column="0">
@@ -92,7 +94,7 @@
         <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
             <Grid>
                 <GroupBox Header="Document Preview">
-                  
+                    <UserController:UCDocTransBinaryContentView HorizontalAlignment="Stretch"  VerticalAlignment="Top" x:Name="oDocContentView"/>
                 </GroupBox>
             </Grid>
         </Grid>
@@ -103,16 +105,17 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
 
-                <Button Name="btnSave" Click="btnSave_Click">
-                    <Label>_SAVE</Label>
+                <Button x:Name="btnSave" Click="btnSave_Click">
+                    <Label Content="_SAVE"/>
                 </Button>
             </Grid>
             <Grid Grid.Column="1">
-                <Button Name="btnBack" Click="btnBack_Click">
-                    <Label>_BACK</Label>
+                <Button x:Name="btnBack" Click="btnBack_Click">
+                    <Label Content="_BACK"/>
                 </Button>
             </Grid>
 
         </Grid>
+        
     </Grid>
 </Page>

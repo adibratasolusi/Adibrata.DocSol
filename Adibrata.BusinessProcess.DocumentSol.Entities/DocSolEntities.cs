@@ -10,7 +10,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
     [Serializable]
     public class DocSolEntities : EntitiesBase
     {
-
+        public string ApprovalTransCode { get; set; }
+        public string DocTransCode { get; set; }
         public string Ext { get; set; }
         public byte[] FileBinary { get; set; }
         public Int64 DocTransId { get; set; }
@@ -62,7 +63,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public decimal ContentValueNumeric { get; set; }
         public string ContentSearchTag { get; set; }
 
-
+        public Int64 DocumentTransID { get; set; }
 
     }
 }

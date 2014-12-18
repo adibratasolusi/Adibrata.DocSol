@@ -26,6 +26,26 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+                _ent.ClassName = "ApprovalProcess";
+                _ent.MethodName = "ApprovalTransView";
+                _ent.ApprovalTransCode = SessionProperty.ReffKey;
+                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                lblCustomerCode.Text = _ent.CustomerCode;
+                lblCustomerName.Text = _ent.CompanyName;
+                lblProjectCode.Text = _ent.ProjectCode;
+                lblProjectName.Text = _ent.ProjectName;
+                lblProjectType.Text = _ent.ProjectType;
+                lblDocumentType.Text = _ent.DocumentType;
+                  #region "List Approval Status"
+                
+
+                List<string> statusApproval = new List<string>();
+                statusApproval.Add("Approve");
+                statusApproval.Add("Reject");
+                cboApprovalStatus.ItemsSource = statusApproval;
+                #endregion 
+                oDocContentView.DocTransId = _ent.DocumentTransID;
+               
             }
             catch (Exception _exp)
             {
@@ -77,7 +97,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
         {
             try
             {
-                RedirectPage redirect = new RedirectPage(this, "Aprovsal.ApprovalPaging", SessionProperty);
+
+                RedirectPage redirect = new RedirectPage(this, "Approval.ApprovalPaging", SessionProperty);
             }
             catch (Exception _exp)
             {

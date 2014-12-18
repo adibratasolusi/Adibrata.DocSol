@@ -160,5 +160,6 @@
     <Build Include="StoreProcedure\Upload\spUploadInquiry.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransContentView.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryView.sql" />
+    <Build Include="StoreProcedure\Approval\spDocTransApprovalView.sql" />
   </ItemGroup>
 </Project>

@@ -26,9 +26,13 @@ namespace Adibrata.Windows.UserController
     {
         public Int64 DocTransId
         {
-            get;
+            get
+            {
+                return _doctransid;
+            }
             set
             {
+                _doctransid = value;
                 BindingData(value);
             }
         }
@@ -38,6 +42,7 @@ namespace Adibrata.Windows.UserController
             InitializeComponent();
 
         }
+        private Int64 _doctransid;
         public void BindingData(Int64 _transid)
         {
             bindContent(_transid);

@@ -92,6 +92,53 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
               }
           }
 
+          public virtual DocSolEntities ApprovalTransView(DocSolEntities _ent)
+          {
+              SqlParameter[] sqlParams;
+              SqlDataReader _rdr;
+              try
+              {
+                  #region "List Parameter SQL"
+                  sqlParams = new SqlParameter[1];
+                  sqlParams[0] = new SqlParameter("@DocTransApprCode", SqlDbType.VarChar, 50);
+                  sqlParams[0].Value = _ent.ApprovalTransCode;
+
+                  _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocTransApprovalView", sqlParams);
+
+                  while (_rdr.Read())
+                  {
+                      _ent.DocumentType = (string)_rdr["DocTypeCode"];
+                      _ent.DocTransCode = (string)_rdr["DocTransCode"];
+                      _ent.CustomerCode = (string)_rdr["CustCode"];
+                      _ent.CompanyName = (string)_rdr["CustName"];
+                      _ent.ProjectCode = (string)_rdr["ProjCode"];
+                      _ent.ProjectName = (string)_rdr["ProjName"];
+                      _ent.ProjectType = (string)_rdr["ProjType"];
+                      _ent.DocumentTransID = Convert.ToInt64(_rdr["DocTransID"]);
+                  }
+                  _rdr.Close();
+                  #endregion
+              }
+              catch (Exception _exp)
+              {
+                  #region "Write to Event Viewer"
+                  ErrorLogEntities _errent = new ErrorLogEntities
+                  {
+                      UserLogin = _ent.UserLogin,
+                      NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                      ClassName = "CustomerRegistrasi",
+                      FunctionName = "CustomerCompanyRegistrasiView",
+                      ExceptionNumber = 1,
+                      EventSource = "CustomerRegistrasi",
+                      ExceptionObject = _exp,
+                      EventID = 200, // 80 Untuk DocumentManagement
+                      ExceptionDescription = _exp.Message
+                  };
+                  ErrorLog.WriteEventLog(_errent);
+                  #endregion
+              }
+              return _ent;
+          }
         public virtual DataTable ApprovalRequestTo (DocSolEntities _ent)
         {
             DataTable _dt = new DataTable();
@@ -127,6 +174,41 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 ErrorLog.WriteEventLog(_errent);
             }
             return _dt;
+        }
+
+        public virtual Boolean ApprovalRequestVisibility (DocSolEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            Boolean _value = false;
+            RuleEngineEntities _entrule = new RuleEngineEntities { RuleName = "RuDocTypeApproval" };
+              try
+              {
+                  StringBuilder sb = new StringBuilder();
+                  sb.Append(" Field1 = '");
+                  sb.Append(_ent.DocumentType);
+                  sb.Append("' ");
+                  _entrule.WhereCond = sb.ToString();
+                  _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
+                 
+              }
+              catch (Exception _exp)
+              {
+                  ErrorLogEntities _errent = new ErrorLogEntities
+                  {
+                      UserLogin = _ent.UserLogin,
+                      NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                      ClassName = "ApprovalProcess",
+                      FunctionName = "ApprovalRequestTo",
+                      ExceptionNumber = 1,
+                      EventSource = "DocContent",
+                      ExceptionObject = _exp,
+                      EventID = 200, // 80 Untuk Framework 
+                      ExceptionDescription = _exp.Message
+                  };
+                  ErrorLog.WriteEventLog(_errent);
+              }
+              return _value;
+
         }
     }
 }

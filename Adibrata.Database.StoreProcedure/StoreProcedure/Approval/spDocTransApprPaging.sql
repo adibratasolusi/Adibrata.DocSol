@@ -12,8 +12,8 @@ If @SortBy = ''
 
 	Set @SqlStatement = 'Select * from 
 		(Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, A.DocTransApprCode, B.DocTransCode, C.ProjName, C.ProjType, D.CustName
-		 from DocTransAppr A WITH (NOLOCK)
-				Inner Join DocTrans B WITH (NOLOCK) on A.ID = B.ID
+		from DocTransAppr A WITH (NOLOCK)
+				Inner Join DocTrans B WITH (NOLOCK) on A.DocTransID = B.ID
 				inner Join Proj C WITH (NOLOCK) on B.TransID = C.Id
 				inner Join Cust D WITH (NOLOCK) on C.CustID = D.ID
 		' + @WhereCond  + ') Qry

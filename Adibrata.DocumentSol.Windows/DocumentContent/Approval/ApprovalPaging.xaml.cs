@@ -75,46 +75,50 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            string _nextlevel = "";
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                if (cboDocumentType.SelectedValue == null)
+                
+                if (cboProjectType.SelectedValue == null)
                 {
-                    MessageBox.Show("Please Select Document Type");
-
+                    MessageBox.Show("Please Select Project Type");
                 }
                 else
-                    if (cboProjectType.SelectedValue == null)
-                    {
-                        MessageBox.Show("Please Select Project Type");
-                    }
-                else
                 {
-
-                    #region "Getting path Approval from Rule Configuration"
-                    DocSolEntities _ent = new DocSolEntities
+                    if (cboDocumentType.SelectedValue == null)
                     {
-                        ClassName = "ApprovalProcess",
-                        MethodName = "ApprovalPathRetrieve",
-                        DocumentType = cboDocumentType.SelectedItem.ToString(),
-                        UserLogin = SessionProperty.UserName
-                    };
+                        MessageBox.Show("Please Select Document Type");
+                    }
+                    else
+                    {
+                        #region "Getting path Approval from Rule Configuration"
+                        DocSolEntities _ent = new DocSolEntities
+                        {
+                            ClassName = "ApprovalProcess",
+                            MethodName = "ApprovalPathRetrieve",
+                            DocumentType = cboDocumentType.SelectedItem.ToString(),
+                            UserLogin = SessionProperty.UserName
+                        };
 
-                    string _nextlevel = DocumentSolutionController.DocSolProcess<string>(_ent);
-                    #endregion
-
+                        _nextlevel = DocumentSolutionController.DocSolProcess<string>(_ent);
+                        #endregion
+                    }
                     oPaging.ClassName = "DocContentApproval";
                     oPaging.MethodName = "ApprovalTaskPaging";
                     oPaging.dgObj = dgPaging;
                     sb.Append(" Where ");
-                    sb.Append(" A.DocTypeCode = '");
-                    sb.Append(cboDocumentType.SelectedItem.ToString());
-                    sb.Append("'");
-                    sb.Append(" AND ");
+                    if (cboDocumentType.SelectedValue != null)
+                    {
+                        sb.Append(" A.DocTypeCode = '");
+                        sb.Append(cboDocumentType.SelectedItem.ToString());
+                        sb.Append("'");
+                        sb.Append(" AND ");
+                    }
+                   
                     sb.Append(" A.NextLevelAppr = '");
                     sb.Append(_nextlevel);
                     sb.Append("' ");
-
                     if (txtProjectName.Text != "")
                     {
                         sb.Append(" AND ");
@@ -180,14 +184,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
         {
             try
             {
-                DocSolEntities _ent = new DocSolEntities
-                {
-                    ClassName = "ApprovalProcess",
-                    MethodName = "ApprovalPathRetrieve",
-                    DocumentType = cboDocumentType.SelectedItem.ToString(),
-                    UserLogin = SessionProperty.UserName
-                };
-                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+              
                 RedirectPage redirect = new RedirectPage(this, "Approval.ApprovalProcessScreen", SessionProperty);
             }
             catch (Exception _exp)
@@ -217,7 +214,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
 
                 DataGridHelper oDataGrid = new DataGridHelper();
                 oDataGrid.dtg = dgPaging;
-                DataGridCell cell = oDataGrid.GetCell(i, 2);
+                DataGridCell cell = oDataGrid.GetCell(i, 1);
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;

@@ -84,7 +84,7 @@
                                 <DataGridTemplateColumn Header="SELECT" Width="100">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <RadioButton Name="rdoApproval" Checked="rdoApproval_Checked"></RadioButton>
+                                            <RadioButton Name="rdoApproval" Checked="rdoApproval_Checked" GroupName="Select" ></RadioButton>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

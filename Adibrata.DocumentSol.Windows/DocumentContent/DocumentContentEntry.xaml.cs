@@ -17,7 +17,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
     {
         DocSolEntities _ent = new DocSolEntities();
         SessionEntities SessionProperty = new SessionEntities();
-        string _customercode;
+        
         public DocumentContentEntry(SessionEntities _session)
         {
             try

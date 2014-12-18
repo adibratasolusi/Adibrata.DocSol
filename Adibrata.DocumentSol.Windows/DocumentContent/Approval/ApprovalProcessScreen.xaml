@@ -20,8 +20,12 @@
             <RowDefinition Height="Auto"  />
             <RowDefinition Height="Auto"  />
             <RowDefinition Height="Auto"  />
+            <RowDefinition Height="Auto"  />
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
+        <Grid Grid.Row="0">
+            <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT UPLOAD</TextBlock>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
             <StackPanel>
                 <TextBlock Text="Customer Code" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
                 <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
@@ -33,7 +37,7 @@
                 
             </StackPanel>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="0">
+        <Grid Grid.Column="1" Grid.Row="1">
             <StackPanel>
                 <TextBlock Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}" Width="400"></TextBlock>
                 <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
@@ -88,9 +92,7 @@
         <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
             <Grid>
                 <GroupBox Header="Document Preview">
-                    <Image x:Name="imgPreview">
-                        
-                    </Image>
+                  
                 </GroupBox>
             </Grid>
         </Grid>

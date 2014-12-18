@@ -24,19 +24,28 @@ namespace Adibrata.Windows.UserController
     /// </summary>
     public partial class UCDocTransBinaryContentView : UserControl
     {
-        public Int64 DocTransId { get; set; }
+        public Int64 DocTransId
+        {
+            get;
+            set
+            {
+                BindingData(value);
+            }
+        }
+
         public UCDocTransBinaryContentView()
         {
             InitializeComponent();
 
         }
-        public void BindingData()
+        public void BindingData(Int64 _transid)
         {
-            bindContent();
-            bindBinary();
-            txtDocTransId.Text = DocTransId.ToString();
+            bindContent(_transid);
+            bindBinary(_transid);
+            txtDocTransId.Text = this.DocTransId.ToString();
         }
-        void bindContent()
+
+        private void bindContent(Int64 _transid)
         {
             try
             {
@@ -44,7 +53,7 @@ namespace Adibrata.Windows.UserController
                 DataTable _dt = new DataTable();
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransContentDetail";
-                _ent.DocTransId = DocTransId;
+                _ent.DocTransId = this.DocTransId;
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dtgContent.ItemsSource = _dt.DefaultView;
             }
@@ -65,9 +74,8 @@ namespace Adibrata.Windows.UserController
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
-
         }
-        void bindBinary()
+       private void bindBinary(Int64 _transid)
         {
             try
             {
@@ -75,7 +83,7 @@ namespace Adibrata.Windows.UserController
                 DataTable _dt = new DataTable();
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransInquiryDetail";
-                _ent.DocTransId = DocTransId;
+                _ent.DocTransId = this.DocTransId;
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dgPaging.ItemsSource = _dt.DefaultView;
             }

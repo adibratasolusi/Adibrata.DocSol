@@ -5,7 +5,7 @@
 -- =============================================
 CREATE PROCEDURE [dbo].[spDocTransContentView]
 	-- Add the parameters for the stored procedure here
-	@DocTransId varchar(50)
+	@DocTransId BigInt
 AS
 BEGIN
 

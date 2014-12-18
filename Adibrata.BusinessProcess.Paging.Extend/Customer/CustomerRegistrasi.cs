@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class CustomerRegistrasi
+    public class CustomerRegistrasi : Adibrata.BusinessProcess.Paging.Core.CustomerRegistrasi
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
 

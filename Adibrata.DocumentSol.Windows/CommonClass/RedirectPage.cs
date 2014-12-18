@@ -64,6 +64,11 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageScanMulti.ImageScanMultiProcess": Source.NavigationService.Navigate(new ImageScanMulti.ImageScanMultiProcess()); break;
 
                 #endregion
+                #region "Upload Inquiry"
+                case "UploadInquiry.UploadInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)); break;
+                case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
+
+                #endregion
             }
         }
 
@@ -133,6 +138,12 @@ namespace Adibrata.DocumentSol.Windows
                 #region "Scan Multi"
                 case "ImageScanMulti.ImageScanMultiProcess": Source.NavigationService.Navigate(new ImageScanMulti.ImageScanMultiProcess()); break;
                 
+                #endregion
+
+                #region "Upload Inquiry"
+                case "UploadInquiry.UploadInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)); break;
+                case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
+
                 #endregion
             }
 

@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -238,6 +238,12 @@
     </Compile>
     <Compile Include="Project\ProjectPaging.xaml.cs">
       <DependentUpon>ProjectPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UploadInquiry\UploadDetailInquiry.xaml.cs">
+      <DependentUpon>UploadDetailInquiry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UploadInquiry\UploadInquiry.xaml.cs">
+      <DependentUpon>UploadInquiry.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\FormRegistration\FormRegistrasiPaging.xaml.cs">
       <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
@@ -486,6 +492,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Project\ProjectPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UploadInquiry\UploadDetailInquiry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UploadInquiry\UploadInquiry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

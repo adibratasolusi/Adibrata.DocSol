@@ -78,9 +78,9 @@ namespace Adibrata.DocumentSol.Windows.Login
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = "Login",
-                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerPaging",
-                    FunctionName = "btnSearch_Click",
+                    NameSpace = "Adibrata.DocumentSol.Windows.Login",
+                    ClassName = "Login",
+                    FunctionName = "btnLogin_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,

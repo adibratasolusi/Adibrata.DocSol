@@ -69,6 +69,7 @@
     <Folder Include="StoreProcedure\Upload" />
     <Folder Include="StoreProcedure\RuleEngine" />
     <Folder Include="StoreProcedure\Project" />
+    <Folder Include="StoreProcedure\Approval" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -142,8 +143,8 @@
     <Build Include="Table\DocTransContent.sql" />
     <Build Include="Table\DocTransBinary.sql" />
     <Build Include="StoreProcedure\Customer\spCustView.sql" />
-    <Build Include="Table\DocContentAppr.sql" />
-    <Build Include="Table\DocContentApprHist.sql" />
+    <Build Include="Table\DocTransAppr.sql" />
+    <Build Include="Table\DocTransApprHist.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineSchemePaging.sql" />
     <Build Include="StoreProcedure\RuleEngine\spRuleEngineListSave.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransInsert.sql" />
@@ -155,6 +156,7 @@
     <Build Include="StoreProcedure\Upload\spDocTransBinaryUpdate.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryInsert.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransContentInsert.sql" />
+    <Build Include="StoreProcedure\Approval\spDocTransApprPaging.sql" />
     <Build Include="StoreProcedure\Upload\spUploadInquiry.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransContentView.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryView.sql" />

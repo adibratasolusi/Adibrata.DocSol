@@ -14,25 +14,25 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
     public class ApprovalProcess : Adibrata.BusinessProcess.DocumentSol.Core.ApprovalProcess
     {
           static string ConnectionString = AppConfig.Config("ConnectionString");
-          public virtual DocSolEntities ApprovalPathRetrieve(DocSolEntities _ent)
+          string _levelapproval;
+          public virtual string ApprovalPathRetrieve(DocSolEntities _ent)
           {
               DataTable _dt = new DataTable();
-              RuleEngineEntities _entrule = new RuleEngineEntities { RuleName = "RUDocContentAppr" };
+
               try
               {
                   StringBuilder sb = new StringBuilder();
+                  sb.Append("Select Field2 from ");
+                  sb.Append(" RUDocContentAppr ");
+                  sb.Append(" Where ");
                   sb.Append(" Field1 = '");
                   sb.Append(_ent.DocumentType);
                   sb.Append("' ");
-                  sb.Append(" And Field2 = '");
+                  sb.Append(" And Result = '");
                   sb.Append(_ent.UserLogin);
                   sb.Append("' ");
-                  _entrule.WhereCond = sb.ToString();
-                  _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
-                  foreach (DataRow _row in _dt.Rows)
-                  {
-                      _ent.UserApprovalPath = (string)_row["Result"];
-                  }
+                  _levelapproval = (string)SqlHelper.ExecuteScalar(ConnectionString, CommandType.Text, sb.ToString());
+
               }
               catch (Exception _exp)
               {
@@ -50,9 +50,10 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                   };
                   ErrorLog.WriteEventLog(_errent);
               }
-              return _ent;
+              return _levelapproval;
           }
 
+        
           public virtual void ApprovalDocContentSave(DocSolEntities _ent)
           {
               DataTable _dt = new DataTable();

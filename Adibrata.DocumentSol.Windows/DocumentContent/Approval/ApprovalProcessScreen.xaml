@@ -23,7 +23,10 @@
         </Grid.RowDefinitions>
         <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
             <StackPanel>
+                <TextBlock Text="Customer Code" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
                 <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
+                <TextBlock Text="Project Code" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
+                <TextBlock Text="Project Name" Style="{StaticResource TextBlockStyle}" Width="200"></TextBlock>
                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type"></TextBlock>
                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Status"></TextBlock>
                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Notes"></TextBlock>
@@ -32,7 +35,10 @@
         </Grid>
         <Grid Grid.Column="1" Grid.Row="0">
             <StackPanel>
+                <TextBlock Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}" Width="400"></TextBlock>
                 <TextBlock Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Name="lblProjectName" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBlock Name="lblDocumentType" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -40,14 +46,8 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <RadioButton GroupName="ApprovalStatus">
-                            <Label>_Approve</Label>
-                        </RadioButton>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <RadioButton GroupName="ApprovalStatus">
-                            <Label>_Return</Label>
-                        </RadioButton>
+                        <ComboBox x:Name="cboApprovalStatus"  Width="250">
+                        </ComboBox>
                     </Grid>
                 </Grid>
                 <RichTextBox Height="100">
@@ -60,7 +60,7 @@
                 
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
+        <!--<Grid Grid.Row="1" Grid.Column="0">
             <StackPanel>
                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Mark Notes"></TextBlock>
             </StackPanel>
@@ -84,7 +84,7 @@
                     </Grid>
                 </Grid>
             </StackPanel>
-        </Grid>
+        </Grid>-->
         <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
             <Grid>
                 <GroupBox Header="Document Preview">

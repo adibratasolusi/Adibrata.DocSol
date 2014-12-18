@@ -87,7 +87,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
 
                 _ent.ClassName = "ProjectRegistrasi";
                 _ent.MethodName = "ProjectRegistrasiView";
-                _ent.ProjectCode = _session.ReffKey;
+                _ent.ProjectCode = SessionProperty.ReffKey;
                 _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                 //oApproval.Visibility = false;
             }

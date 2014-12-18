@@ -281,7 +281,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     string filename = dlg.FileName;
                     string path = Path.GetExtension(filename).ToLower();
                     string picture = "";
-                    if (path == "jpg" || path == "jpeg" || path == "png")
+                    if (path == ".jpg" || path == ".jpeg" || path == ".png")
                     {
                         picture = filename;
                     }

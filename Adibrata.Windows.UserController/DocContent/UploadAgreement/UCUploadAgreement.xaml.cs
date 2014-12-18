@@ -267,7 +267,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
                 "Portable Network Graphic (*.png)|*.png|" +
                 "Portable Document Format (*.pdf)|*.pdf|" +
-                "Word Document (*.doc;*.docx)|*.doc;*.docx";
+                "Word Document (*.doc;*.docx)|*.doc;*.docx|"+
+                "All files (*.*)|*.*";
 
 
                 // Display OpenFileDialog by calling ShowDialog method
@@ -280,21 +281,13 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     string filename = dlg.FileName;
                     string path = Path.GetExtension(filename).ToLower();
                     string picture = "";
-                    if (path == "pdf")
+                    if (path == "jpg" || path == "jpeg" || path == "png")
                     {
-                        picture = "";
-                    }
-                    if (path == "doc")
-                    {
-                        picture = "";
-                    }
-                    if (path == "docx")
-                    {
-                        picture = "";
+                        picture = filename;
                     }
                     else
                     {
-                        picture = filename;
+                        picture = "";
                     }
                     dtgUpload.Items.Add(new DataItem { PathFile = filename, img = picture });
                     dtgUpload.Items.Refresh();
@@ -430,17 +423,20 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 _ent.SizeFileBytes = byteFile.Length;
                 _ent.ComputerName = Environment.MachineName;
                 _ent.DateCreated = File.GetCreationTime(path);
-                if (_ent.Ext == ".doc" || _ent.Ext == ".docx" || _ent.Ext == ".pdf")
+                if (path == ".jpg" || path == ".jpeg" || path == ".png")
                 {
-                    _ent.Pixel = "-";
-                    _ent.DPI = "-";
-                }
-                else
-                {
+
                     System.Drawing.Image imgFile = ImageConverterProcess.byteArrayToImage(byteFile);
 
                     _ent.Pixel = imgFile.Width + "x" + imgFile.Height;
                     _ent.DPI = imgFile.HorizontalResolution.ToString();
+
+                }
+                else
+                {
+
+                    _ent.Pixel = "-";
+                    _ent.DPI = "-";
                 }
 
 

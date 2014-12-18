@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class DocContentApproval
+    public class DocContentApproval : Adibrata.BusinessProcess.Paging.Core.DocContentApproval
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
         public virtual DataTable ApprovalTaskPaging(PagingEntities _ent)

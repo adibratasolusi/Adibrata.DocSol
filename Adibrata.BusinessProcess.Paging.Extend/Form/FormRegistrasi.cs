@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class FormRegistrasi
+    public class FormRegistrasi : Adibrata.BusinessProcess.Paging.Core.FormRegistrasi
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
      

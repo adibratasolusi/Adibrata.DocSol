@@ -155,5 +155,8 @@
     <Build Include="StoreProcedure\Upload\spDocTransBinaryUpdate.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransBinaryInsert.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransContentInsert.sql" />
+    <Build Include="StoreProcedure\Upload\spUploadInquiry.sql" />
+    <Build Include="StoreProcedure\Upload\spDocTransContentView.sql" />
+    <Build Include="StoreProcedure\Upload\spDocTransBinaryView.sql" />
   </ItemGroup>
 </Project>

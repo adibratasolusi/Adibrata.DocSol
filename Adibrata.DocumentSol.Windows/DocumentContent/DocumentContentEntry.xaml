@@ -73,7 +73,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
-                <UserController:UCRequestApproval x:Name="oApproval" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <UserController:UCRequestApproval x:Name="oApproval" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>

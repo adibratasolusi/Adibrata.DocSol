@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using Adibrata.Framework.Caching;
 using Adibrata.Framework.DataAccess;
-using System.Data;
 using Adibrata.Framework.Logging;
-using Adibrata.Framework.Caching;
+using System;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Adibrata.Configuration
 {

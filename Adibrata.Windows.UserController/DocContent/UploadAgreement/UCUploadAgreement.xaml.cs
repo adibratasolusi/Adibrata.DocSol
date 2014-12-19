@@ -2,20 +2,20 @@
 using Adibrata.Configuration;
 using Adibrata.Controller;
 using Adibrata.Framework.ImageProcessing;
+using Adibrata.Framework.Logging;
 using Adibrata.Framework.Messaging;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using SharpBits.Base;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Windows;
-using System.Windows.Controls;
-using Adibrata.Framework.Logging;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
+using System.Windows;
+using System.Windows.Controls;
 using WIATest;
-using System.Drawing.Imaging;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
 
 namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 {

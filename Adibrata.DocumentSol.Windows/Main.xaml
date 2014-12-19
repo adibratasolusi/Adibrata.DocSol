@@ -36,7 +36,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
                 <DockPanel>
                     <!-- SEARCH AREA -->
@@ -49,7 +49,6 @@
                         </Border.Background>
 
                         <StackPanel HorizontalAlignment="Center" Margin="4" Orientation="Horizontal">
-                            <TextBlock Text="Search for:" />
                             <TextBox x:Name="searchTextBox" Margin="6,0" Width="150"/>
                             <Button Padding="8,0" Name="btnFind" Click="btnFind_Click" Width="40" Height="40">
                                 <Button.Background>
@@ -62,20 +61,20 @@
                     <!-- FAMILY TREE -->
 
                     <ScrollViewer>
-                        <DataGrid Name="dtgMenu" AutoGenerateColumns="False" ItemsSource="{Binding}" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" CanUserDeleteRows="False" HeadersVisibility="Column" VerticalAlignment="Top">
+                        <DataGrid Name="dtgMenu" AutoGenerateColumns="False" ItemsSource="{Binding}" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  HorizontalAlignment="Left" CanUserDeleteRows="False" VerticalAlignment="Top" Height="480">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  Name="hpMenu" Click="hpMenu_Click" Content="{Binding Path=FormName}" Tag="{Binding Path=FormURL }">
+                                            <Button  Name="hpMenu" FontSize="14" Click="hpMenu_Click" Content="{Binding Path=FormName}" Tag="{Binding Path=FormURL }">
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Width="-1">
+                                <DataGridTemplateColumn Width="0">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Label Name="lblMenu" Content="{Binding Path=FormURL}" Visibility="Collapsed">
+                                            <Label Name="lblMenu" Content="{Binding Path=FormURL}" Visibility="Hidden">
                                             </Label>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

@@ -189,7 +189,18 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                   sb.Append("' ");
                   _entrule.WhereCond = sb.ToString();
                   _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
-                 
+                  foreach (DataRow _row in _dt.Rows)
+                  {
+                      if (_row["Result"].ToString() == "Y")
+                      {
+                          _value = true;
+                      }
+                      else
+                      {
+                          _value = false;
+                      }
+                      
+                  }
               }
               catch (Exception _exp)
               {

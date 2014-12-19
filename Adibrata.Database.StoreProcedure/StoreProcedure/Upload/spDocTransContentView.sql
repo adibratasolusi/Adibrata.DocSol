@@ -29,7 +29,7 @@ BEGIN
 			END
 		AS varchar(100)) 
 		as value
-		from DocTransContent
+		from DocTransContent with (nolock) 
 		WHERE 
 		DocTransID = @DocTransId
 

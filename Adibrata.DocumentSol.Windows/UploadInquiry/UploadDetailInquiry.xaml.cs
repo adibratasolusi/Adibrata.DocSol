@@ -53,7 +53,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 DataTable _dt = new DataTable();
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransContentDetail";
-                _ent.DocTransCode - SessionProperty.ReffKey;
+                _ent.DocTransCode = SessionProperty.ReffKey;
                 //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dtgContent.ItemsSource = _dt.DefaultView;
@@ -85,7 +85,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 DataTable _dt = new DataTable();
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransInquiryDetail";
-                _ent.DocTransCode - SessionProperty.ReffKey;
+                _ent.DocTransCode = SessionProperty.ReffKey;
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dgPaging.ItemsSource = _dt.DefaultView;
             }

@@ -26,5 +26,12 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
         }
+
+        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+      
     }
 }

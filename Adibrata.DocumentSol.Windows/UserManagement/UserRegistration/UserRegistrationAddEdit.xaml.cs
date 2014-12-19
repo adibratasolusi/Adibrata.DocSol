@@ -15,7 +15,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
     public partial class UserRegistrationAddEdit : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
-        
+
         public UserRegistrationAddEdit(SessionEntities _session)
         {
             try
@@ -23,10 +23,15 @@ namespace Adibrata.DocumentSol.Windows.UserManagement
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-                
+
                 if (SessionProperty.IsEdit)
                 {
-                    UserManagementEntities _ent = new UserManagementEntities { MethodName = "UserRegisterView", ClassName = "UserRegister", UserLogin = SessionProperty.UserName };
+                    UserManagementEntities _ent = new UserManagementEntities
+                    {
+                        MethodName = "UserRegisterView",
+                        ClassName = "UserRegister",
+                        UserLogin = SessionProperty.UserName
+                    };
                     _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
                     _ent = UserManagementController.UserManagement<UserManagementEntities>(_ent);
                     txtUserName.Text = _ent.UserName;

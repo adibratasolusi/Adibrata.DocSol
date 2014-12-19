@@ -103,6 +103,14 @@ namespace Adibrata.DocumentSol.Windows
                 case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
                 #endregion 
 
+                #region "DocumentsMaintenance"
+                case "DocumentMaintenance.DeleteDocumentPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentPaging(_ent)); break;
+                case "DocumentMaintenance.DeleteDocumentInquiryPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryPaging(_ent)); break;
+                
+              
+                #endregion
+
+
                 //#region "Image Processing"
                 //case "ImageProcessing.WaterMark": Source.NavigationService.Navigate(new ImageProcess.Watermark()); break;
                 //case "ImageProcessing.Grayscale": Source.NavigationService.Navigate(new ImageProcess.Grayscale()); break;

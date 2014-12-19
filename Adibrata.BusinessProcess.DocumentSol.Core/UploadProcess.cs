@@ -224,14 +224,14 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
         #region UPLOAD PROCESS
 
         SqlTransaction _trans;
-        public virtual List<Int64> DocUpload(DocSolEntities _ent)
+        public virtual List<KeyValuePair<Int64, string>> DocUpload(DocSolEntities _ent)
         {
 
 
             SqlConnection _conn = new SqlConnection(Connectionstring);
             SqlParameter[] sqlParams;
             DataTable _dt;
-            List<Int64> listDocBinaryId = new List<Int64>();
+            List<KeyValuePair<Int64, string>> listDocBinary = new  List<KeyValuePair<Int64, string>>();
 
             try
             {
@@ -344,7 +344,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransBinaryInsert", sqlParams));
 
                     Int64 Id = Convert.ToInt64(_dt.Rows[0]["Id"].ToString());
-                    listDocBinaryId.Add(Id);
+                    listDocBinary.Add(new KeyValuePair<Int64, string>(Id, _ent.ListPath[i])); ;
 
                 }
                 #endregion
@@ -376,7 +376,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 _conn.Dispose();
             }
 
-            return listDocBinaryId;
+            return listDocBinary;
         }
 
         public virtual string DocTransInsert(DocSolEntities _ent)

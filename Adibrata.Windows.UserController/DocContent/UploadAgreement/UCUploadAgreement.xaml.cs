@@ -189,7 +189,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
         Int64 docTransId;
         string docTransBinaryId;
-        
+
 
         #region Method
         public void CheckAndUpload(DataTable dtContent)
@@ -267,7 +267,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
                 "Portable Network Graphic (*.png)|*.png|" +
                 "Portable Document Format (*.pdf)|*.pdf|" +
-                "Word Document (*.doc;*.docx)|*.doc;*.docx|"+
+                "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
                 "All files (*.*)|*.*";
 
 
@@ -313,7 +313,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
 
         List<string> fileList = new List<string>();
-        private void UploadFile(DataTable dtContent)
+        private void UploadFileSEBELUMRevisi(DataTable dtContent)
         {
 
             DataGridHelper dtgHelper = new DataGridHelper();
@@ -380,7 +380,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             {
                 dtgHelper.dtg = dtgUpload;
 
-                List<KeyValuePair<Int64, string>> dictDocTransBinary = new List<KeyValuePair<Int64, string>>();
+                List<KeyValuePair<Int64, string>> listDocTransBinary = new List<KeyValuePair<Int64, string>>();
                 #region CEK DATAGRID
                 for (int i = 0; i < dtgUpload.Items.Count; i++)
                 {
@@ -390,20 +390,22 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 }
                 if (listPath.Count != 0)
                 {
-                    Int64 docTransId = SaveUploadToDocTrans(TransId, DocumentType);
-                    //place for doc content
-                    saveUploadToDocTransContent(docTransId, dtContent);
-                    //
 
-                    for (int i = 0; i < listPath.Count; i++)
+                    DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
                     {
-                        Int64 docTransBinaryId = Convert.ToInt64(saveUploadToDocTransBinary(docTransId, listPath[i]));
+                        MethodName = "DocUpload",
+                        ClassName = "UploadProcess"
+                    };
+                    _ent.TransId = TransId;
+                    _ent.DocumentType = DocumentType;
+                    _ent.ListPath = listPath;
+                    _ent.DtContent = dtContent;
 
-                        dictDocTransBinary.Add(new KeyValuePair<Int64, string>(docTransBinaryId, listPath[i]));
-                    }
-                    for (int i = 0; i < dictDocTransBinary.Count; i++)
+                    listDocTransBinary = Adibrata.Controller.DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
+
+                    for (int i = 0; i < listDocTransBinary.Count; i++)
                     {
-                        string a = bits(listPath[i], dictDocTransBinary[i].Key.ToString());
+                        string a = bits(listPath[i], listDocTransBinary[i].Key.ToString());
                     }
                 }
                 else
@@ -432,7 +434,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
         private Int64 SaveUploadToDocTrans(string transId, string docType)
         {
-           
+
             try
             {
                 DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
@@ -443,7 +445,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 _ent.TransId = transId;
                 _ent.DocumentType = docType;
                 docTransId = Convert.ToInt64(Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent));//get trxId hasil dari query insert
-             
+
             }
             catch (Exception _exp)
             {
@@ -467,7 +469,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         private string saveUploadToDocTransBinary(Int64 docTransId, string path)
         {
             byte[] byteFile = File.ReadAllBytes(path);
-            
+
             try
             {
                 DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
@@ -711,7 +713,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 foreach (System.Drawing.Image img in images)
                 {
 
-                    img.Save(pathFile,ImageFormat.Jpeg );
+                    img.Save(pathFile, ImageFormat.Jpeg);
                 }
 
                 PdfDocument doc = new PdfDocument();
@@ -721,7 +723,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                 string fileName = System.IO.Path.GetFileNameWithoutExtension(pathFile);
                 xgr.DrawImage(ximg, 0, 0);
-                
+
                 doc.Save(pathFile + "\\" + fileName + ".pdf");
                 doc.Close();
                 xgr.Dispose();

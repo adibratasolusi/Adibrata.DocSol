@@ -1,10 +1,13 @@
-﻿using Adibrata.BusinessProcess.Entities.Base;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Controller;
 using Adibrata.Controller.UserManagement;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +65,18 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            DocSolEntities _ent = new DocSolEntities
+            {
+                MethodName = "DeleteDocumentStatus",
+               ClassName = "DeleteDocument"
+            };
+            _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+
+            DocumentSolutionController.DocSolProcess<string>(_ent);
+            MessageBox.Show("Sukses");
+            RedirectPage redirect = new RedirectPage(this, "DocumentMaintenance.DeleteDocumentPaging", SessionProperty);
+        
+       
 
         }
 

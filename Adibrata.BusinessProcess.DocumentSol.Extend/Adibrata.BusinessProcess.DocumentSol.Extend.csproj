@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Approval\ApprovalProcess.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />
+    <Compile Include="DeleteDocument\DeleteDocument.cs" />
     <Compile Include="DocumentContent\DocContent.cs" />
     <Compile Include="DocumentContent\DocType.cs" />
     <Compile Include="Project\ProjectRegistrasi.cs" />

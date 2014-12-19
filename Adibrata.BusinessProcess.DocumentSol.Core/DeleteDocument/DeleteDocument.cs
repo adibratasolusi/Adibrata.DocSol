@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adibrata.BusinessProcess.DocumentSol.Core.DeleteDocument
+namespace Adibrata.BusinessProcess.DocumentSol.Core
 {
     public class DeleteDocument
     {

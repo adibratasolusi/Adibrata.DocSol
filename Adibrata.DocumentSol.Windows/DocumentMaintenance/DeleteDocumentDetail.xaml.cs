@@ -36,19 +36,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-
-                if (SessionProperty.IsEdit)
-                {
-                    UserManagementEntities _ent = new UserManagementEntities
-                    {
-                        MethodName = "DeleteDocumentPaging",
-                        ClassName  = "DeleteDocument",
-                        UserLogin  = SessionProperty.UserName
-                    };
-                    _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
-                    _ent = UserManagementController.UserManagement<UserManagementEntities>(_ent);
-                   // txtTransId.Text = _ent.;
-                }
+                ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+           
             }
             catch (Exception _exp)
             {
@@ -70,14 +59,12 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
             }
         }
 
+
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnDetail_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

@@ -17,8 +17,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Margin="5">
-            <Button Name="btnPrev" Click="btnPrev_Click" VerticalAlignment="Center" Width="100" >
-                <Label>_Prev</Label>
+            <Button Name="btnPrev" Click="btnPrev_Click" VerticalAlignment="Center" Height="50" Width="100" ToolTip="Previous">
+                <Button.Background>
+                    <ImageBrush ImageSource="Pictures/previous-png-hi.png"/>
+                </Button.Background>
+
+
                 <!--<Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Pictures/PreviousGreen.png"/>
@@ -27,8 +31,11 @@
             </Button>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1" Margin="5" >
-            <Button  Name="btnNext" Click="btnNext_Click"  VerticalAlignment="Center" Width="100" >
-                <Label>_Next</Label>
+            <Button  Name="btnNext" Click="btnNext_Click"  VerticalAlignment="Center" Height="50" Width="100" ToolTip="Next">
+                <Button.Background>
+                    <ImageBrush ImageSource="Pictures/next-button-png-hi.png"/>
+                </Button.Background>
+
                 <!--<Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Pictures/NextGreen.png"/>

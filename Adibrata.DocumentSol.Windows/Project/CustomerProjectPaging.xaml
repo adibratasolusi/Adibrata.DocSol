@@ -5,7 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500"
+      d:DesignHeight="350"
 	Title="CustomerProjectPaging">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -46,8 +46,10 @@
                                 <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Margin="0,2" Width="159"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">
-                                    <Label>_SEARCH</Label>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" Height="50" Width="100" ToolTip="Search">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/search-button-png-hi.png" Stretch="UniformToFill"/>
+                                    </Button.Background>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -55,23 +57,21 @@
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <GroupBox>
-
-                        <DataGrid IsTextSearchEnabled="True"
-                          SelectionMode="Single"
-                          x:Name="dgPaging" 
-                          
-                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
-                          >
+                        <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnProject" Content="PROJECT" Click="btnProject_Click"></Button>
+                                            <Button Name="btnProject" Click="btnProject_Click" Width="60" Height="60" ToolTip="New Project">
+                                                <Button.Background>
+                                                    <ImageBrush Stretch="None"  ImageSource="/Adibrata.DocumentSol.Windows;component/Images/project.png"/>
+                                                </Button.Background>
+                                            </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridTextColumn Binding="{Binding CustCode}" Header="CODE" x:Name="code" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding CustCode}" Header="CODE" x:Name="code" Width="150" />
                                 <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
                                 <DataGridTextColumn Binding="{Binding Address}" Header="ADDRESS" x:Name="CustAddress" Width="400" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding CustType}" Header="TYPE" x:Name="CustType" Width="Auto" FontSize="14"/>

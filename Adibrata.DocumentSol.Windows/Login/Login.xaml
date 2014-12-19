@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="500" d:DesignWidth="1000"
       Style="{StaticResource PageStyle}"
 	Title="Login">
     <Grid Style="{StaticResource GridStyle}" >
@@ -19,10 +19,12 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" >
-
+                <StackPanel>
+                    <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red"  FontSize="20"></TextBlock>
                 <Image Source="../Images/logoadibrata.png" Width="200" Height="200">
                 </Image>
-                <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+                
+                </StackPanel>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Margin="5">
                 <StackPanel>
@@ -37,10 +39,13 @@
                     <UserController:UCPassword Name="txtPassword"/>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right" Margin="5">
+            <Grid Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right">
                 <StackPanel>
-                    <Button Name="btnLogin" Click="btnLogin_Click">
-                        <Label>_Login</Label></Button>
+                    <Button Name="btnLogin" Click="btnLogin_Click" Width="155" Height="60" BorderThickness="0" ToolTip="Login ">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/login.png" Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Grid>

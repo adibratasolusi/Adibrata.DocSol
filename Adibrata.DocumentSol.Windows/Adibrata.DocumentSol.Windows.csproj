@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -56,9 +56,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -241,6 +238,12 @@
     </Compile>
     <Compile Include="Project\ProjectPaging.xaml.cs">
       <DependentUpon>ProjectPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UploadInquiry\UploadDetailInquiry.xaml.cs">
+      <DependentUpon>UploadDetailInquiry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UploadInquiry\UploadInquiry.xaml.cs">
+      <DependentUpon>UploadInquiry.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\FormRegistration\FormRegistrasiPaging.xaml.cs">
       <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
@@ -489,6 +492,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Project\ProjectPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UploadInquiry\UploadDetailInquiry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UploadInquiry\UploadInquiry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -754,7 +765,45 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Edit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Find.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search-button-png-hi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new-button-png-hi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back-button-png-hi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\save-png-hi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlienAqua scanner 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\300px-Crystal_Clear_action_exit.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login.png" />
+  </ItemGroup>
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

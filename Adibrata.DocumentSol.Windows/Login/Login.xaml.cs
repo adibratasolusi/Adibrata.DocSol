@@ -52,15 +52,24 @@ namespace Adibrata.DocumentSol.Windows.Login
                 }
                 else
                 {
+                    if (_ent.UserName == "")
+                    { lblMessage.Text = "Pleasse Enter Your User Name"; }
+                    else
+                    {
+                        if (_ent.Password == "") { lblMessage.Text = "Please Enter Your Password"; }
 
-                    SessionProperty.UserName = txtUserName.InputValue;
-                    SessionProperty.BusinessDate = DateTime.Now;
-                    RedirectPage redirect = new RedirectPage(this, "MainForm", SessionProperty);
-                     
+                        else
+                        {
 
-                    //_obj = Adibrata.Controller.PageRedirect.PageRedirectController.RedirectPage("CustomerPaging",_session);
-                    //Customer.CustomerPaging(_session));
-                    
+
+                            SessionProperty.UserName = txtUserName.InputValue;
+                            SessionProperty.BusinessDate = DateTime.Now;
+                            RedirectPage redirect = new RedirectPage(this, "MainForm", SessionProperty);
+                        }
+
+                        //_obj = Adibrata.Controller.PageRedirect.PageRedirectController.RedirectPage("CustomerPaging",_session);
+                        //Customer.CustomerPaging(_session));
+                    }
 
                 }
             }
@@ -69,9 +78,9 @@ namespace Adibrata.DocumentSol.Windows.Login
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = "Login",
-                    NameSpace = "Adibrata.DocumentSol.Windows.Customer",
-                    ClassName = "CustomerPaging",
-                    FunctionName = "btnSearch_Click",
+                    NameSpace = "Adibrata.DocumentSol.Windows.Login",
+                    ClassName = "Login",
+                    FunctionName = "btnLogin_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,

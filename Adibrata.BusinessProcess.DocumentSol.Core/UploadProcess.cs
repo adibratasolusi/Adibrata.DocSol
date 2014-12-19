@@ -374,5 +374,77 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
         }
 
 
+        public virtual DataTable DocTransInquiryDetail(DocSolEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.DocTransId;
+
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransBinaryView", sqlParams));
+
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
+                    ClassName = "UploadProcess",
+                    FunctionName = "DocTransInquiryDetail",
+                    ExceptionNumber = 1,
+                    EventSource = "DocTransInquiryDetail",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _dt;
+
+        }
+
+
+        public virtual DataTable DocTransContentDetail(DocSolEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            try
+            {
+
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.DocTransId;
+
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransContentView", sqlParams));
+
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
+                    ClassName = "UploadProcess",
+                    FunctionName = "DocTransContentDetail",
+                    ExceptionNumber = 1,
+                    EventSource = "DocTransContentDetail",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _dt;
+
+        }
+
+
     }
 }

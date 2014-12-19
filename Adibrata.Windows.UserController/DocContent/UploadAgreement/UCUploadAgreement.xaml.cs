@@ -13,6 +13,9 @@ using Adibrata.Framework.Logging;
 using System.IO;
 using System.Text;
 using WIATest;
+using System.Drawing.Imaging;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
 
 namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 {
@@ -135,7 +138,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     UserLogin = "UCUploadAgreement",
                     NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
                     ClassName = "UCUploadAgreement",
-                    FunctionName = "UCUploadAgreement",
+                    FunctionName = "btnBrowse_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -184,8 +187,44 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
         #endregion
 
+        Int64 docTransId;
+        string docTransBinaryId;
+        
+
         #region Method
         public void CheckAndUpload(DataTable dtContent)
+        {
+            try
+            {
+                if (dtgUpload.Items.Count > jumlahUploadMax)
+                {
+
+                    MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+                }
+                else
+                {
+                    UploadFile(dtContent);
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "CheckAndUpload",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        public void CheckAndUpload(DataTable dtContent, DocSolEntities _ent)
         {
             try
             {
@@ -228,7 +267,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
                 "Portable Network Graphic (*.png)|*.png|" +
                 "Portable Document Format (*.pdf)|*.pdf|" +
-                "Word Document (*.doc;*.docx)|*.doc;*.docx";
+                "Word Document (*.doc;*.docx)|*.doc;*.docx|"+
+                "All files (*.*)|*.*";
 
 
                 // Display OpenFileDialog by calling ShowDialog method
@@ -241,21 +281,13 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     string filename = dlg.FileName;
                     string path = Path.GetExtension(filename).ToLower();
                     string picture = "";
-                    if (path == "pdf")
+                    if (path == ".jpg" || path == ".jpeg" || path == ".png")
                     {
-                        picture = "";
-                    }
-                    if (path == "doc")
-                    {
-                        picture = "";
-                    }
-                    if (path == "docx")
-                    {
-                        picture = "";
+                        picture = filename;
                     }
                     else
                     {
-                        picture = filename;
+                        picture = "";
                     }
                     dtgUpload.Items.Add(new DataItem { PathFile = filename, img = picture });
                     dtgUpload.Items.Refresh();
@@ -285,91 +317,149 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
 
             DataGridHelper dtgHelper = new DataGridHelper();
-            dtgHelper.dtg = dtgUpload;
             List<string> listPath = new List<string>();
-            List<KeyValuePair<Int64, string>> dictDocTransBinary = new List<KeyValuePair<Int64, string>>();
-            #region CEK DATAGRID
-            for (int i = 0; i < dtgUpload.Items.Count; i++)
+            try
             {
-                DataGridCell cellPath = dtgHelper.GetCell(i, 1);
-                TextBlock path = (TextBlock)cellPath.Content;
-                listPath.Add(path.Text);
-            }
-            if (listPath.Count != 0)
-            {
-                Int64 docTransId = saveUploadToDocTrans(TransId, DocumentType);
-                //place for doc content
-                saveUploadToDocTransContent(docTransId, dtContent);
-                //
+                dtgHelper.dtg = dtgUpload;
 
-                for (int i = 0; i < listPath.Count; i++)
+                List<KeyValuePair<Int64, string>> dictDocTransBinary = new List<KeyValuePair<Int64, string>>();
+                #region CEK DATAGRID
+                for (int i = 0; i < dtgUpload.Items.Count; i++)
                 {
-                    Int64 docTransBinaryId = Convert.ToInt64(saveUploadToDocTransBinary(docTransId, listPath[i]));
-
-                    dictDocTransBinary.Add(new KeyValuePair<Int64, string>(docTransBinaryId, listPath[i]));
+                    DataGridCell cellPath = dtgHelper.GetCell(i, 1);
+                    TextBlock path = (TextBlock)cellPath.Content;
+                    listPath.Add(path.Text);
                 }
-                for (int i = 0; i < dictDocTransBinary.Count; i++)
+                if (listPath.Count != 0)
                 {
-                    string a = bits(listPath[i], dictDocTransBinary[i].Key.ToString());
-                }
-            }
-            else
-            {
-                MessageBox.Show("File Not Found");
-            }
-            #endregion
+                    Int64 docTransId = SaveUploadToDocTrans(TransId, DocumentType);
+                    //place for doc content
+                    saveUploadToDocTransContent(docTransId, dtContent);
+                    //
 
+                    for (int i = 0; i < listPath.Count; i++)
+                    {
+                        Int64 docTransBinaryId = Convert.ToInt64(saveUploadToDocTransBinary(docTransId, listPath[i]));
+
+                        dictDocTransBinary.Add(new KeyValuePair<Int64, string>(docTransBinaryId, listPath[i]));
+                    }
+                    for (int i = 0; i < dictDocTransBinary.Count; i++)
+                    {
+                        string a = bits(listPath[i], dictDocTransBinary[i].Key.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File Not Found");
+                }
+                #endregion
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "UploadFile",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
-        private Int64 saveUploadToDocTrans(string transId, string docType)
+        private Int64 SaveUploadToDocTrans(string transId, string docType)
         {
-            DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+           
+            try
             {
-                MethodName = "DocTransInsert",
-                ClassName = "UploadProcess"
-            };
-            _ent.TransId = transId;
-            _ent.DocumentType = docType;
-            Int64 docTransId = Convert.ToInt64(Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent));//get trxId hasil dari query insert
-
+                DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+                {
+                    MethodName = "DocTransInsert",
+                    ClassName = "UploadProcess"
+                };
+                _ent.TransId = transId;
+                _ent.DocumentType = docType;
+                docTransId = Convert.ToInt64(Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent));//get trxId hasil dari query insert
+             
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "CheckAndUpload",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
             return docTransId;
-
-
         }
 
         private string saveUploadToDocTransBinary(Int64 docTransId, string path)
         {
             byte[] byteFile = File.ReadAllBytes(path);
-
-            DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+            
+            try
             {
-                MethodName = "DocTransBinaryInsert",
-                ClassName = "UploadProcess"
-            };
+                DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
+                {
+                    MethodName = "DocTransBinaryInsert",
+                    ClassName = "UploadProcess"
+                };
 
 
-            _ent.Ext = Path.GetExtension(path).ToLower();
-            _ent.DocTransId = docTransId;
-            _ent.SizeFileBytes = byteFile.Length;
-            _ent.ComputerName = Environment.MachineName;
-            _ent.DateCreated = File.GetCreationTime(path);
-            if (_ent.Ext == ".doc" || _ent.Ext == ".docx" || _ent.Ext == ".pdf")
-            {
-                _ent.Pixel = "-";
-                _ent.DPI = "-";
+                _ent.Ext = Path.GetExtension(path).ToLower();
+                _ent.DocTransId = docTransId;
+                _ent.SizeFileBytes = byteFile.Length;
+                _ent.ComputerName = Environment.MachineName;
+                _ent.DateCreated = File.GetCreationTime(path);
+                if (path == ".jpg" || path == ".jpeg" || path == ".png")
+                {
+
+                    System.Drawing.Image imgFile = ImageConverterProcess.byteArrayToImage(byteFile);
+
+                    _ent.Pixel = imgFile.Width + "x" + imgFile.Height;
+                    _ent.DPI = imgFile.HorizontalResolution.ToString();
+
+                }
+                else
+                {
+
+                    _ent.Pixel = "-";
+                    _ent.DPI = "-";
+                }
+
+
+                _ent.FileName = Path.GetFileName(path);
+
+                docTransBinaryId = Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);
             }
-            else
+            catch (Exception _exp)
             {
-                System.Drawing.Image imgFile = ImageConverterProcess.byteArrayToImage(byteFile);
-
-                _ent.Pixel = imgFile.Width + "x" + imgFile.Height;
-                _ent.DPI = imgFile.HorizontalResolution.ToString();
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "saveUploadToDocTransBinary",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
             }
-
-
-            _ent.FileName = Path.GetFileName(path);
-
-            string docTransBinaryId = Adibrata.Controller.DocumentSolutionController.DocSolProcess<string>(_ent);
-
             return docTransBinaryId;
         }
 
@@ -562,8 +652,23 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 foreach (System.Drawing.Image img in images)
                 {
 
-                    img.Save(pathFile);
+                    img.Save(pathFile,ImageFormat.Jpeg );
                 }
+
+                PdfDocument doc = new PdfDocument();
+                doc.Pages.Add(new PdfPage());
+                XGraphics xgr = XGraphics.FromPdfPage(doc.Pages[0]);
+                XImage ximg = XImage.FromFile(pathFile);
+
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(pathFile);
+                xgr.DrawImage(ximg, 0, 0);
+                
+                doc.Save(pathFile + "\\" + fileName + ".pdf");
+                doc.Close();
+                xgr.Dispose();
+
+                File.Delete(pathFile);
+
                 dtgUpload.Items.Add(new DataItem { PathFile = pathFile, img = pathFile });
                 dtgUpload.Items.Refresh();
             }
@@ -572,6 +677,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 MessageBox.Show(exc.Message);
             }
         }
+
         #region comment
         //private void saveUpload(string docType, string transId, string path)
         //{

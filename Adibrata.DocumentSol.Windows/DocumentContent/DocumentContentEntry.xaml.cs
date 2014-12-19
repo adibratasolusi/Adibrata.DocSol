@@ -17,7 +17,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
     {
         DocSolEntities _ent = new DocSolEntities();
         SessionEntities SessionProperty = new SessionEntities();
-
+        
         public DocumentContentEntry(SessionEntities _session)
         {
             try
@@ -26,19 +26,20 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
                 DataTable _dt = new DataTable();
-                DocSolEntities _ent = new DocSolEntities
-                {
-                    ClassName = "CustomerRegistrasi",
-                    MethodName = "CustomerCompanyRegistrasiView",
-                    CustomerCode = _session.ReffKey
-
-                };
+                _ent.ClassName = "ProjectRegistrasi";
+                _ent.MethodName = "ProjectRegistrasiView";
+                _ent.ProjectCode = _session.ReffKey;
                 _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
-                lblCustomerName.Text = _ent.CompanyName;
+                lblCustomerCode.Text = _ent.CustomerCode;
 
+                lblCustomerName.Text = _ent.CompanyName;
+                
+                lblProjectCode.Text = _session.ReffKey;
+                lblProjectName.Text = _ent.ProjectName;
+                lblProjectType.Text = _ent.ProjectType;
                 _ent.ClassName = "DocType";
                 _ent.MethodName = "DocTypeRetrieve";
-                _ent.LineOfBusiness = "Consumer Finance";
+                _ent.LineOfBusiness = _ent.ProjectType;
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 List<string> data = new List<string>();
                 if (_dt.Rows.Count > 0)
@@ -82,6 +83,13 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ucUpload.UserLogin = SessionProperty.UserName;
                 ucUpload.TransId = SessionProperty.ReffKey;
                 ucUpload.BindingValueMax();
+                oApproval.DocumentType = oDocContent.DocumentType;
+
+                _ent.ClassName = "ProjectRegistrasi";
+                _ent.MethodName = "ProjectRegistrasiView";
+                _ent.ProjectCode = SessionProperty.ReffKey;
+                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                //oApproval.Visibility = false;
             }
             catch (Exception _exp)
             {
@@ -105,8 +113,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-
-                RedirectPage redirect = new RedirectPage(this, "Project.CustomerProjectPaging", SessionProperty);
+                SessionProperty.ReffKey = lblCustomerCode.Text; ;
+                RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
@@ -130,13 +138,12 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-
-                
                 DataTable dtContent = new DataTable();
                 dtContent = oDocContent.RetrieveValue();
                 ucUpload.DocumentTypeUpload = cboDocumentType.Text;
                 ucUpload.CheckAndUpload(dtContent);
-                RedirectPage redirect = new RedirectPage(this, "Project.CustomerProjectPaging", SessionProperty);
+
+                RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)
             {

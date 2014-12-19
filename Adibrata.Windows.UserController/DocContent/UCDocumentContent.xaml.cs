@@ -63,6 +63,7 @@ namespace Adibrata.Windows.UserController.DocContent
                                 {
                                     TextBox txtInput = new TextBox();
                                     txtInput.Name = _row["Result"].ToString().Trim();
+                                    txtInput.Text = "-";
                                     txtInput.Width = 400;
                                     txtInput.Margin.Top.Equals(5);
                                     //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
@@ -75,6 +76,7 @@ namespace Adibrata.Windows.UserController.DocContent
                                 {
                                     DatePicker txtInput = new DatePicker();
                                     txtInput.Name = _row["Result"].ToString().Trim();
+                                    txtInput.Text = DateTime.Now.ToString();
                                     txtInput.Width = 400;
                                     PanelInput.Children.Add(txtInput);
                                     txtInput.Margin.Top.Equals(5);
@@ -85,6 +87,7 @@ namespace Adibrata.Windows.UserController.DocContent
                                 {
                                     TextBox txtInput = new TextBox();
                                     txtInput.Name = _row["Result"].ToString().Trim();
+                                    txtInput.Text = "0";
                                     txtInput.Width = 400;
                                     txtInput.Margin.Top.Equals(5);
                                     //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");

@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Text;
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class ProjectRegistrasi
+    public class ProjectRegistrasi : Adibrata.BusinessProcess.Paging.Core.ProjectRegistrasi
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
         public virtual DataTable ProjectRegisterPaging(PagingEntities _ent)

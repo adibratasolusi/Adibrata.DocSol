@@ -93,6 +93,7 @@ namespace Adibrata.DocumentSol.Windows.Customer
         {
             try
             {
+                SessionProperty.IsEdit = false;
                 RedirectPage redirect = new RedirectPage(this, "Customer.CustomerAddEdit", SessionProperty);
             }
             catch (Exception _exp)

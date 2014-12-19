@@ -371,6 +371,65 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
+        private void UploadFile(DataTable dtContent)
+        {
+
+            DataGridHelper dtgHelper = new DataGridHelper();
+            List<string> listPath = new List<string>();
+            try
+            {
+                dtgHelper.dtg = dtgUpload;
+
+                List<KeyValuePair<Int64, string>> dictDocTransBinary = new List<KeyValuePair<Int64, string>>();
+                #region CEK DATAGRID
+                for (int i = 0; i < dtgUpload.Items.Count; i++)
+                {
+                    DataGridCell cellPath = dtgHelper.GetCell(i, 1);
+                    TextBlock path = (TextBlock)cellPath.Content;
+                    listPath.Add(path.Text);
+                }
+                if (listPath.Count != 0)
+                {
+                    Int64 docTransId = SaveUploadToDocTrans(TransId, DocumentType);
+                    //place for doc content
+                    saveUploadToDocTransContent(docTransId, dtContent);
+                    //
+
+                    for (int i = 0; i < listPath.Count; i++)
+                    {
+                        Int64 docTransBinaryId = Convert.ToInt64(saveUploadToDocTransBinary(docTransId, listPath[i]));
+
+                        dictDocTransBinary.Add(new KeyValuePair<Int64, string>(docTransBinaryId, listPath[i]));
+                    }
+                    for (int i = 0; i < dictDocTransBinary.Count; i++)
+                    {
+                        string a = bits(listPath[i], dictDocTransBinary[i].Key.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File Not Found");
+                }
+                #endregion
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "UploadFile",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
         private Int64 SaveUploadToDocTrans(string transId, string docType)
         {
            

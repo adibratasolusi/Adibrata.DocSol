@@ -51,6 +51,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 }
 
                 cboDocumentType.ItemsSource = data;
+                oApproval.Visibility = System.Windows.Visibility.Hidden;
             }
             catch (Exception _exp)
             {
@@ -72,6 +73,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
 
         private void cboDocumentType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             try
             {
                 oDocContent.DocumentType = cboDocumentType.SelectedValue.ToString();
@@ -85,10 +87,19 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ucUpload.BindingValueMax();
                 oApproval.DocumentType = oDocContent.DocumentType;
 
-                _ent.ClassName = "ProjectRegistrasi";
-                _ent.MethodName = "ProjectRegistrasiView";
-                _ent.ProjectCode = _session.ReffKey;
-                _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                _ent.ClassName = "ApprovalProcess";
+                _ent.MethodName = "ApprovalRequestVisibility";
+                _ent.ProjectCode = SessionProperty.ReffKey;
+                _ent.DocumentType = oDocContent.DocumentType;
+                if (DocumentSolutionController.DocSolProcess<Boolean>(_ent))
+                {
+                    oApproval.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                {
+                    oApproval.Visibility = System.Windows.Visibility.Hidden;
+                }
+
                 //oApproval.Visibility = false;
             }
             catch (Exception _exp)

@@ -20,9 +20,9 @@ namespace Adibrata.BusinessProcess.Paging.Extend
             {
                 sb.Append("spMsUserPaging");
                 SqlParameter[] sqlParams = new SqlParameter[4];
-                sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar,7);
+                sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar,10);
                 sqlParams[0].Value = _ent.StartRecord;
-                sqlParams[1] = new SqlParameter("@EndRecord", SqlDbType.VarChar,7);
+                sqlParams[1] = new SqlParameter("@EndRecord", SqlDbType.VarChar,10);
                 sqlParams[1].Value = _ent.EndRecord;
                 sqlParams[2] = new SqlParameter("@wherecond", SqlDbType.VarChar, 8000);
                 sqlParams[2].Value = _ent.WhereCond;

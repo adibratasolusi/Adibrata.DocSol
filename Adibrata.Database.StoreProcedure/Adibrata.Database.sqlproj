@@ -70,6 +70,7 @@
     <Folder Include="StoreProcedure\RuleEngine" />
     <Folder Include="StoreProcedure\Project" />
     <Folder Include="StoreProcedure\Approval" />
+    <Folder Include="StoreProcedure\DocumentMaintenance" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -162,6 +163,12 @@
     <Build Include="StoreProcedure\Upload\spDocTransBinaryView.sql" />
     <Build Include="StoreProcedure\Approval\spDocTransApprovalView.sql" />
     <Build Include="Table\DocTransViewLog.sql" />
+<<<<<<< HEAD
     <Build Include="StoreProcedure\Upload\spDocTransGetTransID.sql" />
+=======
+    <Build Include="StoreProcedure\DocumentMaintenance\spDeleteDocumentInquiryPaging.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDeleteDocumentPaging.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDeleteDocumentStatus.sql" />
+>>>>>>> origin/master
   </ItemGroup>
 </Project>

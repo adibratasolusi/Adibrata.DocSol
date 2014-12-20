@@ -22,6 +22,7 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public int IsActive { get; set; }
         public int IsSystem { get; set; }
         public Boolean IsEdit { get; set; }
+        
 
         #region "For Report Document"
         public byte[] ReportOutput { get; set; }

@@ -35,6 +35,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public string FormName { get; set; }
         public string FormURL { get; set; }
         public string FormCode { get; set; }
+ 
         
     }
 }

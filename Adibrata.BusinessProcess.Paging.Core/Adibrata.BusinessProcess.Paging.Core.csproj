@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocumentMaintenance\DeleteDocument.cs" />
     <Compile Include="ApprovalDocContent\DocContentApproval.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />
     <Compile Include="FileTransfer\FileTransferPaging.cs" />

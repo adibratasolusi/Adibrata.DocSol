@@ -1,6 +1,7 @@
 ﻿using Adibrata.BusinessProcess.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,9 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public string ContentSearchTag { get; set; }
 
         public Int64 DocumentTransID { get; set; }
+
+        public DataTable DtContent { get; set; }
+        public List<string> ListPath { get; set; }
 
     }
 }

@@ -43,6 +43,15 @@ namespace Adibrata.DocumentSol.Windows
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
                 #endregion
 
+                #region "DocumentsMaintenance"
+                case "DocumentMaintenance.DeleteDocumentPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentPaging(_ent)); break;
+                case "DocumentMaintenance.DeleteDocumentInquiryPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryPaging(_ent)); break;
+                case "DocumentMaintenance.DeleteDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentDetail(_ent)); break;
+                case "DocumentMaintenance.DeleteDocumentInquiryDetail": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryDetail(_ent)); break;
+
+
+                #endregion
+
                 #region "Upload Rule"
                 case "RuleUpload.RuleEngineUpload": Source.NavigationService.Navigate(new RuleUpload.RuleEngineUpload(_ent)); break;
                 case "RuleUpload.RuleSchemePaging": Source.NavigationService.Navigate(new RuleUpload.RuleSchemePaging(_ent)); break;
@@ -110,6 +119,14 @@ namespace Adibrata.DocumentSol.Windows
                 case "Approval.ApprovalPaging": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalPaging(_ent)); break;
                 case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
                 #endregion 
+
+                #region "DocumentsMaintenance"
+                case "DocumentMaintenance.DeleteDocumentPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentPaging(_ent)); break;
+                case "DocumentMaintenance.DeleteDocumentInquiryPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryPaging(_ent)); break;
+                
+              
+                #endregion
+
 
                 //#region "Image Processing"
                 //case "ImageProcessing.WaterMark": Source.NavigationService.Navigate(new ImageProcess.Watermark()); break;

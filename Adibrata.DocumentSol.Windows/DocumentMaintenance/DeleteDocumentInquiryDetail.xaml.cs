@@ -1,4 +1,6 @@
-﻿using Adibrata.Windows.UserController;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Framework.Logging;
+using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +23,42 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
     /// </summary>
     public partial class DeleteDocumentInquiryDetail : Page
     {
-        public DeleteDocumentInquiryDetail()
+        SessionEntities SessionProperty = new SessionEntities();
+        public DeleteDocumentInquiryDetail(SessionEntities _session)
         {
-            InitializeComponent();
-            this.DataContext = new MainVM(new Shell());
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
+                ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentMaintenance",
+                    ClassName = "DeleteDocumentDetail",
+                    FunctionName = "DeleteDocumentDetail",
+                    ExceptionNumber = 1,
+                    EventSource = "UserRegistration",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Management
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
         }
+
+        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+      
     }
 }

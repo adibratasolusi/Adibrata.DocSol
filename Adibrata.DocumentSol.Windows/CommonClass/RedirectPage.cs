@@ -9,7 +9,8 @@ using Adibrata.Framework.Logging;
 using Adibrata.BusinessProcess.Entities.Base;
 using System.Windows;
 using System.Windows.Controls;
-
+using Adibrata.Controller;
+using Adibrata.BusinessProcess.DocumentSol.Entities;
 namespace Adibrata.DocumentSol.Windows
 {
     public class RedirectPage : Page
@@ -17,6 +18,12 @@ namespace Adibrata.DocumentSol.Windows
         
         public RedirectPage(Page Source, string PageName, SessionEntities _ent)
         {
+            DocSolEntities _entDocSol = new DocSolEntities();
+            _entDocSol.FormPath = PageName;
+            _entDocSol.ClassName = "LoginActivity";
+            _entDocSol.MethodName = "LoginActivitySave";
+            _entDocSol.UserLogin = _ent.UserName;
+            string _execute = Controller.DocumentSolutionController.DocSolProcess<string>(_entDocSol);
             switch (PageName)
             {
                 #region "MainForm"
@@ -83,6 +90,12 @@ namespace Adibrata.DocumentSol.Windows
 
         public RedirectPage(Frame Source, string PageName, SessionEntities _ent)
         {
+            DocSolEntities _entDocSol = new DocSolEntities();
+            _entDocSol.FormName = PageName;
+            _entDocSol.ClassName = "LoginActivity";
+            _entDocSol.MethodName = "LoginActivitySave";
+            _entDocSol.UserLogin = _ent.UserName;
+            string _execute = Controller.DocumentSolutionController.DocSolProcess<string>(_entDocSol);
             switch (PageName)
             {
                 #region "MainForm"

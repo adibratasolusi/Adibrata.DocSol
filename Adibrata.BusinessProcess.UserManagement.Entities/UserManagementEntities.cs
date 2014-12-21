@@ -32,7 +32,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public int isConnect { get; set; }
         public string MenuID { get; set; }
         public string FormID { get; set; }
-        public string FormName { get; set; }
+
         public string FormURL { get; set; }
         public string FormCode { get; set; }
  

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Adibrata.Framework.DataAccess;
 using Adibrata.Framework.Logging;
-using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.BusinessProcess.UserManagement.Entities;
 using Adibrata.BusinessProcess.Entities.Base;
 using System.Data;
 using System.Data.SqlClient;
 using Adibrata.Configuration;
 
-namespace Adibrata.BusinessProcess.DocumentSol.Extend
+namespace Adibrata.BusinessProcess.UserManagement.Extend
 {
     public class LoginActivity
     {
@@ -19,7 +19,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 
         SqlTransaction _trans;
 
-        public void LoginActivitySave(DocSolEntities _ent)
+        public void LoginActivitySave(UserManagementEntities _ent)
        {
            SqlConnection _conn = new SqlConnection(ConnectionString);
            SqlParameter[] sqlParams;
@@ -28,7 +28,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
            {
                if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                _trans = _conn.BeginTransaction();
-               sqlParams = new SqlParameter[11];
+               sqlParams = new SqlParameter[3];
                sqlParams[0] = new SqlParameter("@FormUrl", SqlDbType.VarChar, 50);
                sqlParams[0].Value = _ent.FormPath;
                sqlParams[1] = new SqlParameter("@UserLogin", SqlDbType.VarChar, 20);

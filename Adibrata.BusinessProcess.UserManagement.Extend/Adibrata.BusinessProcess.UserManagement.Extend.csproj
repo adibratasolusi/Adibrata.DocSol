@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormRegistrasi.cs" />
+    <Compile Include="LoginActivity.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="UserManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

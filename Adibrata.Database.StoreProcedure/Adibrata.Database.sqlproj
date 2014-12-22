@@ -167,5 +167,7 @@
     <Build Include="StoreProcedure\DocumentMaintenance\spDeleteDocumentInquiryPaging.sql" />
     <Build Include="StoreProcedure\DocumentMaintenance\spDeleteDocumentPaging.sql" />
     <Build Include="StoreProcedure\DocumentMaintenance\spDeleteDocumentStatus.sql" />
+    <Build Include="StoreProcedure\UserManagement\spUserLoginActivitySave.sql" />
+    <Build Include="Table\UserActivity.sql" />
   </ItemGroup>
 </Project>

@@ -248,6 +248,18 @@
     <Compile Include="Project\ProjectPaging.xaml.cs">
       <DependentUpon>ProjectPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StorageMonitoring\FileNumber\FileNumberDetail.xaml.cs">
+      <DependentUpon>FileNumberDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StorageMonitoring\FileNumber\FileNumberPaging.xaml.cs">
+      <DependentUpon>FileNumberPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StorageMonitoring\FileStorageSize\FileStoragePaging.xaml.cs">
+      <DependentUpon>FileStoragePaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StorageMonitoring\SummarySize.xaml.cs">
+      <DependentUpon>SummarySize.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UploadInquiry\UploadDetailInquiry.xaml.cs">
       <DependentUpon>UploadDetailInquiry.xaml</DependentUpon>
     </Compile>
@@ -513,6 +525,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Project\ProjectPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StorageMonitoring\FileNumber\FileNumberDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StorageMonitoring\FileNumber\FileNumberPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StorageMonitoring\FileStorageSize\FileStoragePaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StorageMonitoring\SummarySize.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -825,9 +853,7 @@
   <ItemGroup>
     <Resource Include="Images\login.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StorageMonitoring\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

@@ -8,7 +8,6 @@ ALTER PROCEDURE [dbo].[spDocTransInsert]
 	-- Add the parameters for the stored procedure here
 	@TransId Varchar(50),
 	@docType varchar(50), 
-	@DocTransStatus varchar(10),
 	@UsrCrt Varchar(50)
 
 AS
@@ -36,10 +35,9 @@ VALUES
 	@TransIDInt,
 	@TransId,
 	@docType,
-	@DocTransStatus,
+	'ACTIVE',
 	@UsrCrt,
 	GETDATE()
 )
 
 RETURN 0
-Select * from DocTrans

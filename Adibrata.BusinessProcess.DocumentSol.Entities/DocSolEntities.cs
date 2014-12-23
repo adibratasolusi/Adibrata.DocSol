@@ -69,6 +69,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public DataTable DtContent { get; set; }
         public List<string> ListPath { get; set; }
 
+        public Boolean DocContentNeedApproval { get; set; }
     }
 }
 

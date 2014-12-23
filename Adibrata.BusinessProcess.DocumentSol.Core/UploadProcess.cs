@@ -239,15 +239,17 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 _trans = _conn.BeginTransaction();
                 #region DOC TRANS INSERT
 
-                string docTransId = "";
+                Int64 docTransId = 0;
                 _dt = new DataTable();
-                sqlParams = new SqlParameter[2];
+                sqlParams = new SqlParameter[3];
                 sqlParams[0] = new SqlParameter("@TransId", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.TransId;
                 sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.DocumentType;
-                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
-                docTransId = _dt.Rows[0]["Id"].ToString();
+                sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                sqlParams[2].Value = _ent.UserLogin;
+                _dt.Load(SqlHelper.ExecuteReader(_trans, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
+                docTransId = (Int64)_dt.Rows[0]["Id"];
                 #endregion
                 #region DOC TRANS CONTENT INSERT
 
@@ -273,11 +275,11 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                         _ent.ContentValueNumeric = Convert.ToDecimal(_ent.DtContent.Rows[i]["EntryValueNumber"].ToString());
                     }
 
-                    sqlParams = new SqlParameter[7];
+                    sqlParams = new SqlParameter[8];
                     sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar, 50);
                     sqlParams[0].Value = _ent.DtContent.Rows[i]["Field1"].ToString();
                     sqlParams[1] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                    sqlParams[1].Value = Convert.ToInt64(docTransId);
+                    sqlParams[1].Value = docTransId;
                     sqlParams[2] = new SqlParameter("@ContentName", SqlDbType.VarChar, 50);
                     sqlParams[2].Value = _ent.DtContent.Rows[i]["Field2"].ToString(); ;
                     sqlParams[3] = new SqlParameter("@ContentValue", SqlDbType.VarChar, 8000);
@@ -288,7 +290,9 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     sqlParams[5].Value = _ent.ContentValueNumeric;
                     sqlParams[6] = new SqlParameter("@ContentSearchTag", SqlDbType.VarChar, 8000);
                     sqlParams[6].Value = "";
-                    SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+                    sqlParams[7] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                    sqlParams[7].Value = _ent.UserLogin;
+                    SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
 
                 }
 
@@ -325,9 +329,9 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                     _dt = new DataTable();
 
-                    sqlParams = new SqlParameter[7];
+                    sqlParams = new SqlParameter[8];
                     sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
-                    sqlParams[0].Value = Convert.ToInt64(docTransId);
+                    sqlParams[0].Value = docTransId;
                     sqlParams[1] = new SqlParameter("@FileName", SqlDbType.VarChar, 8000);
                     sqlParams[1].Value = _ent.FileName;
                     sqlParams[2] = new SqlParameter("@DateCreated", SqlDbType.DateTime);
@@ -340,14 +344,33 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     sqlParams[5].Value = _ent.ComputerName;
                     sqlParams[6] = new SqlParameter("@DPI", SqlDbType.VarChar, 100);
                     sqlParams[6].Value = _ent.DPI;
+                    sqlParams[7] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                    sqlParams[7].Value = _ent.UserLogin;
                     // _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
-                    _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransBinaryInsert", sqlParams));
+                    _dt.Load(SqlHelper.ExecuteReader(_trans, CommandType.StoredProcedure, "spDocTransBinaryInsert", sqlParams));
 
                     Int64 Id = Convert.ToInt64(_dt.Rows[0]["Id"].ToString());
                     listDocBinary.Add(new KeyValuePair<Int64, string>(Id, _ent.ListPath[i])); ;
 
                 }
                 #endregion
+                if (_ent.DocContentNeedApproval)
+                {
+                    sqlParams = new SqlParameter[6];
+                    sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar, 50);
+                    sqlParams[0].Value = _ent.DocTypeCode;
+                    sqlParams[1] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
+                    sqlParams[1].Value = docTransId;
+                    sqlParams[2] = new SqlParameter("@DocTransReqDate", SqlDbType.SmallDateTime);
+                    sqlParams[2].Value = DateTime.Now;
+                    sqlParams[3] = new SqlParameter("@DocTransReqUser", SqlDbType.VarChar, 50);
+                    sqlParams[3].Value = _ent.UserLogin;
+                    sqlParams[4] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                    sqlParams[4].Value = _ent.UserLogin;
+                    sqlParams[5] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
+                    sqlParams[5].Value = DateTime.Now;
+                    SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+                }
 
                 _trans.Commit();
             }

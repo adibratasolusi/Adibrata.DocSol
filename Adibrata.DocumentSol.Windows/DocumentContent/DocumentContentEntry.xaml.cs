@@ -94,10 +94,12 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 if (DocumentSolutionController.DocSolProcess<Boolean>(_ent))
                 {
                     oApproval.Visibility = System.Windows.Visibility.Visible;
+                    _ent.DocContentNeedApproval = true;
                 }
                 else
                 {
                     oApproval.Visibility = System.Windows.Visibility.Hidden;
+                    _ent.DocContentNeedApproval = false;
                 }
 
                 //oApproval.Visibility = false;

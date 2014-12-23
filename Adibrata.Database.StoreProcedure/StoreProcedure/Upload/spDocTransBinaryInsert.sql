@@ -7,7 +7,8 @@
 	@SizeFileBytes numeric(20,0),
 	@Pixel varchar(100) = 0,
 	@ComputerName varchar(100) = 0,
-	@DPI varchar(100) = 0
+	@DPI varchar(100) = 0, 
+	@UsrCrt varchar(50)
 
 
 AS
@@ -24,8 +25,6 @@ BEGIN
 		Pixel,
 		ComputerName,
 		DPI,
-		UsrUpd,
-		DtmUpd,
 		UsrCrt,
 		DtmCrt
 		)
@@ -39,9 +38,7 @@ BEGIN
 		@Pixel,
 		@ComputerName,
 		@DPI,
-		'sa',
-		GETDATE(),
-		'sa',
+		@UsrCrt,
 		GETDATE()
 		)
 

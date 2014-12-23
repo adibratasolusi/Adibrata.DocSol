@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Approval\ApprovalProcess.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />
-    <Compile Include="DeleteDocument\DeleteDocument.cs" />
+    <Compile Include="Approval\DeleteDocument\DeleteDocument.cs" />
     <Compile Include="DocumentContent\DocContent.cs" />
     <Compile Include="DocumentContent\DocType.cs" />
     <Compile Include="ImageProcess\ImageProcess.cs" />

@@ -610,6 +610,42 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
         }
         #endregion
 
+        public virtual Int64 DocTransGetTransID(DocSolEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            Int64 _transid = 0;
+            try
+            {
 
+                SqlParameter[] sqlParams = new SqlParameter[2];
+                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[1] = new SqlParameter("@TransID", SqlDbType.BigInt);
+                sqlParams[1].Direction = ParameterDirection.Output;
+                sqlParams[1] = new SqlParameter("@UserLogin", SqlDbType.VarChar,50);
+                sqlParams[1].Value = _ent.UserLogin;
+                SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spDocTransGetTransID", sqlParams);
+                _transid = Convert.ToInt64(sqlParams[1].Value);
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Core",
+                    ClassName = "UploadProcess",
+                    FunctionName = "DocTransContentDetail",
+                    ExceptionNumber = 1,
+                    EventSource = "DocTransContentDetail",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _transid;
+
+        }
     }
 }

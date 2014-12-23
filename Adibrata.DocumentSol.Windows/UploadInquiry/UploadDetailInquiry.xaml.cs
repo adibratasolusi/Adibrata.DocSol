@@ -15,14 +15,24 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
     public partial class UploadDetailInquiry : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
+        
         public UploadDetailInquiry(SessionEntities _session)
         {
             try
             {
+                DocSolEntities _ent = new DocSolEntities();
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-                txtDocTransId.Text = SessionProperty.ReffKey;
+                string _doctranscode = SessionProperty.ReffKey;
+                  _ent.ClassName = "UploadProcess";
+                _ent.MethodName = "DocTransGetTransID";
+                _ent.DocTransCode = SessionProperty.ReffKey;
+                //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(_ent));
+
+                txtDocTransId.Text =  _ent.DocTransCode;
+                    
                 bindContent();
                 bindBinary();
             }

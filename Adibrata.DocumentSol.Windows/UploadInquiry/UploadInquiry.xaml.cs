@@ -41,26 +41,83 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 oPaging.ClassName = "UploadProcessPaging";
                 oPaging.MethodName = "UploadInquiry";
                 oPaging.dgObj = dgPaging;
-                if (txtTransId.Text != "")
+                if (txtCustCode.Text != "" || txtCustName.Text != "" || txtProjCode.Text != "" || txtProjName.Text != "" || txtDocType.Text != "")
                 {
                     sb.Append(" Where ");
-                    if (txtTransId.Text.Contains("%"))
+                    if (txtCustCode.Text != "")
                     {
-                        sb.Append(" TransId LIKE '");
+
+                        if (txtCustCode.Text.Contains("%"))
+                        {
+                            sb.Append(" Cust.CustCode LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" Cust.CustCode = '");
+                        }
+                        sb.Append(txtCustCode.Text);
+                        sb.Append("'");
                     }
-                    else
+
+                    if (txtCustName.Text != "")
                     {
-                        sb.Append(" TransId = '");
+
+                        if (txtCustName.Text.Contains("%"))
+                        {
+                            sb.Append("  Cust.CustName LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append("  Cust.CustName = '");
+                        }
+                        sb.Append(txtCustName.Text);
+                        sb.Append("'");
                     }
-                    sb.Append(txtTransId.Text);
-                    sb.Append("'");
-                }
-                else
-                {
-                    sb.Append("");
+                    if (txtProjCode.Text != "")
+                    {
+
+                        if (txtProjCode.Text.Contains("%"))
+                        {
+                            sb.Append(" Proj.ProjCode LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" Proj.ProjCode = '");
+                        }
+                        sb.Append(txtProjCode.Text);
+                        sb.Append("'");
+                    }
+                    if (txtProjName.Text != "")
+                    {
+
+                        if (txtProjName.Text.Contains("%"))
+                        {
+                            sb.Append(" Proj.ProjName LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" Proj.ProjName = '");
+                        }
+                        sb.Append(txtProjName.Text);
+                        sb.Append("'");
+                    }
+                    if (txtDocType.Text != "")
+                    {
+
+                        if (txtDocType.Text.Contains("%"))
+                        {
+                            sb.Append(" DocTypeCode LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" DocTypeCode = '");
+                        }
+                        sb.Append(txtDocType.Text);
+                        sb.Append("'");
+                    }
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " TransId Asc ";
+                oPaging.SortBy = " Proj.ProjName Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

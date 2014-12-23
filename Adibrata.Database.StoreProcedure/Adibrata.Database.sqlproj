@@ -169,5 +169,6 @@
     <Build Include="StoreProcedure\DocumentMaintenance\spDeleteDocumentStatus.sql" />
     <Build Include="StoreProcedure\UserManagement\spUserLoginActivitySave.sql" />
     <Build Include="Table\UserActivity.sql" />
+    <Build Include="StoreProcedure\Upload\spDocTransApprovalRequest.sql" />
   </ItemGroup>
 </Project>

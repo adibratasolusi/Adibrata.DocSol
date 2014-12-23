@@ -7,10 +7,11 @@
 ALTER PROCEDURE [dbo].[spDocTransInsert]
 	-- Add the parameters for the stored procedure here
 	@TransId Varchar(50),
-	@docType varchar(50)
+	@docType varchar(50), 
+	@DocTransStatus varchar(10),
+	@UsrCrt Varchar(50)
 
 AS
-BEGIN
 -- SET NOCOUNT ON added to prevent extra result sets from
 -- interfering with SELECT statements.
 SET NOCOUNT ON;
@@ -25,10 +26,9 @@ INSERT INTO DocTrans
 	TransID,
 	DocTransCode,
 	DocTypeCode,
+	DocTransStatus,
 	UsrCrt,
-	DtmCrt,
-	UsrUpd,
-	DtmUpd
+	DtmCrt
 ) 
 OUTPUT inserted.Id 
 VALUES
@@ -36,18 +36,10 @@ VALUES
 	@TransIDInt,
 	@TransId,
 	@docType,
-	'sa',
-	GETDATE(),
-	'sa',
+	@DocTransStatus,
+	@UsrCrt,
 	GETDATE()
 )
-		 IF (@@ERROR <> 0) BEGIN
-        ROLLBACK TRAN A
-        RETURN 1
-    END
-
-COMMIT TRAN A
 
 RETURN 0
-
-END
+Select * from DocTrans

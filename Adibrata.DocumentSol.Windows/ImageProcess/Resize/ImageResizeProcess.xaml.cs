@@ -1,11 +1,7 @@
-﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
-using Adibrata.BusinessProcess.Entities.Base;
-using Adibrata.Controller;
-using Adibrata.Framework.Logging;
+﻿using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +15,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows.ImageProcess.ImageToPdf
+namespace Adibrata.DocumentSol.Windows.ImageProcess.Resize
 {
     /// <summary>
-    /// Interaction logic for ImageToPdfPaging.xaml
+    /// Interaction logic for ImageResizeProcess.xaml
     /// </summary>
-    public partial class ImageToPdfPaging : Page
+    public partial class ImageResizeProcess : Page
     {
 
         SessionEntities SessionProperty = new SessionEntities();
-
-        public ImageToPdfPaging(SessionEntities _session)
+        public ImageResizeProcess(SessionEntities _session)
         {
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
@@ -39,4 +34,3 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.ImageToPdf
         }
     }
 }
-

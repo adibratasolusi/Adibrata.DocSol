@@ -192,7 +192,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
 
         #region Method
-        public void CheckAndUpload(DataTable dtContent)
+        public void CheckAndUpload(DocSolEntities _ent)
         {
             try
             {
@@ -203,7 +203,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 }
                 else
                 {
-                    UploadFile(dtContent);
+                    UploadFile(_ent);
                 }
             }
             catch (Exception _exp)
@@ -224,37 +224,37 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
         }
 
-        public void CheckAndUpload(DataTable dtContent, DocSolEntities _ent)
-        {
-            try
-            {
-                if (dtgUpload.Items.Count > jumlahUploadMax)
-                {
+        //public void CheckAndUpload(DataTable dtContent, DocSolEntities _ent)
+        //{
+        //    try
+        //    {
+        //        if (dtgUpload.Items.Count > jumlahUploadMax)
+        //        {
 
-                    MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
-                }
-                else
-                {
-                    UploadFile(dtContent);
-                }
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = "UCUploadAgreement",
-                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
-                    ClassName = "UCUploadAgreement",
-                    FunctionName = "CheckAndUpload",
-                    ExceptionNumber = 1,
-                    EventSource = "UCUploadAgreement",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-        }
+        //            MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
+        //        }
+        //        else
+        //        {
+        //            UploadFile(dtContent);
+        //        }
+        //    }
+        //    catch (Exception _exp)
+        //    {
+        //        ErrorLogEntities _errent = new ErrorLogEntities
+        //        {
+        //            UserLogin = "UCUploadAgreement",
+        //            NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+        //            ClassName = "UCUploadAgreement",
+        //            FunctionName = "CheckAndUpload",
+        //            ExceptionNumber = 1,
+        //            EventSource = "UCUploadAgreement",
+        //            ExceptionObject = _exp,
+        //            EventID = 200, // 1 Untuk Framework 
+        //            ExceptionDescription = _exp.Message
+        //        };
+        //        ErrorLog.WriteEventLog(_errent);
+        //    }
+        //}
         private void BrowseFile()
         {
             // Create OpenFileDialog
@@ -313,7 +313,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
 
         List<string> fileList = new List<string>();
-        private void UploadFileSEBELUMRevisi(DataTable dtContent)
+        private void UploadFileLAMA(DataTable dtContent)
         {
 
             DataGridHelper dtgHelper = new DataGridHelper();
@@ -371,7 +371,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-        private void UploadFile(DataTable dtContent)
+        private void UploadFile(DocSolEntities ent)
         {
 
             DataGridHelper dtgHelper = new DataGridHelper();
@@ -391,15 +391,11 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 if (listPath.Count != 0)
                 {
 
-                    DocSolEntities _ent = new Adibrata.BusinessProcess.DocumentSol.Entities.DocSolEntities
-                    {
-                        MethodName = "DocUpload",
-                        ClassName = "UploadProcess"
-                    };
-                    _ent.TransId = TransId;
-                    _ent.DocumentType = DocumentType;
-                    _ent.ListPath = listPath;
-                    _ent.DtContent = dtContent;
+                    ent.MethodName = "DocUpload";
+                    ent.ClassName = "UploadProcess";
+                    ent.TransId = TransId;
+                    ent.DocumentType = DocumentType;
+                    ent.ListPath = listPath;
 
                     listDocTransBinary = Adibrata.Controller.DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
 

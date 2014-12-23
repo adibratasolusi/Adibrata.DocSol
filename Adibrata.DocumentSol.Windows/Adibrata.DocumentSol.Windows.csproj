@@ -19,10 +19,10 @@
     <TargetZone>Internet</TargetZone>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>True</SignManifests>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\inetpub\wwwroot\SmartCMS\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\maximus-pc\SmartCMS\</PublishUrl>
     <Install>false</Install>
-    <InstallFrom>Web</InstallFrom>
+    <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -30,10 +30,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://localhost/SmartCMS/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -191,6 +190,15 @@
     <Compile Include="ImageProcess\Lock\ImageUnlockProcess.xaml.cs">
       <DependentUpon>ImageUnlockProcess.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageProcess\Resize\ImageResizeDetail.xaml.cs">
+      <DependentUpon>ImageResizeDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Resize\ImageResizePaging.xaml.cs">
+      <DependentUpon>ImageResizePaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Resize\ImageResizeProcess.xaml.cs">
+      <DependentUpon>ImageResizeProcess.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\Rotate\ImageRotateDetail.xaml.cs">
       <DependentUpon>ImageRotateDetail.xaml</DependentUpon>
@@ -441,6 +449,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\Lock\ImageUnlockProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Resize\ImageResizeDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Resize\ImageResizePaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Resize\ImageResizeProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -805,6 +825,7 @@
   <ItemGroup>
     <Resource Include="Images\login.png" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

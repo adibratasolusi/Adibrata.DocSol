@@ -6,7 +6,91 @@
       mc:Ignorable="d" 
 	Title="ImageToPdfDetail">
 
-    <Grid>
-        
-    </Grid>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridStyle}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock FontSize="24" FontWeight="Bold">IMAGE TO PDF DETAIL</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Document Transaction ID :"></TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="0"  Name="txtDocTransId" Text="Test"></TextBlock>
+                    </Grid>
+
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                    <GroupBox Header="Document Content">
+                        <DataGrid Name="dtgContent" IsTextSearchEnabled="True" SelectionMode="Single" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding ContentName}" Header="Content Name" x:Name="ContentName" Width="150" />
+                                <DataGridTextColumn Binding="{Binding value}" Header="Value" x:Name="Value" Width="200" FontSize="14"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <GroupBox Header="File">
+                        <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="File Name" x:Name="FileName"  />
+                                <DataGridTextColumn Binding="{Binding DateCreated}" ElementStyle="{StaticResource CellCenterAlign}" Header="Date Created" x:Name="DateCreated"  FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" ElementStyle="{StaticResource CellRightAlign}" Header="Size File (Bytes)" x:Name="SizeFileBytes" />
+                                <DataGridTextColumn Binding="{Binding Pixel}" Header="Pixel" x:Name="Pixel" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ComputerName}" Header="Computer Name" x:Name="ComputerName" />
+                                <DataGridTextColumn Binding="{Binding DPI}" Header="DPI" x:Name="DPI" FontSize="14"/>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+
+                <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
+                    <GroupBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

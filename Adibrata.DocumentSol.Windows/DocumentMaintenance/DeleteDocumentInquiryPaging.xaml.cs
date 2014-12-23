@@ -97,7 +97,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 oPaging.dgObj = dgPaging;
                 if (txtTransId.Text != "")
                 {
-                    sb.Append(" Where ");
+                    sb.Append(" And ");
                     if (txtTransId.Text.Contains("%"))
                     {
                         sb.Append(" TransId LIKE '");
@@ -107,6 +107,20 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                         sb.Append(" TransId = '");
                     }
                     sb.Append(txtTransId.Text);
+                    sb.Append("'");
+                }
+                if (txtDocType.Text != "")
+                {
+                    sb.Append(" And ");
+                    if (txtDocType.Text.Contains("%"))
+                    {
+                        sb.Append(" DocTypeCode LIKE '");
+                    }
+                    else
+                    {
+                        sb.Append(" DocTypeCode = '");
+                    }
+                    sb.Append(txtDocType.Text);
                     sb.Append("'");
                 }
                 else

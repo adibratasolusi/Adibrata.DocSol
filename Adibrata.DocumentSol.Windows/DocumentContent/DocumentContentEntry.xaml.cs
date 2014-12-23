@@ -155,6 +155,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 dtContent = oDocContent.RetrieveValue();
                 DocSolEntities ent = new DocSolEntities();
                 ent.DtContent = dtContent;
+                ent.UserLogin = SessionProperty.UserName;
                 ucUpload.DocumentTypeUpload = cboDocumentType.Text;
                 ucUpload.CheckAndUpload(ent);
 

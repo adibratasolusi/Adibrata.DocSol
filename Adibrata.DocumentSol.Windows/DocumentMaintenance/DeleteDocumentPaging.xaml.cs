@@ -33,9 +33,9 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 SessionProperty = _session;
             }
             catch (Exception _exp)
-            {
+        {
                 ErrorLogEntities _errent = new ErrorLogEntities
-                {
+           {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.DocumentMaintenance",
                     ClassName = "DeleteDocumentPaging",
@@ -45,9 +45,9 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
-                };
+           };
                 ErrorLog.WriteEventLog(_errent);
-            }
+     }
         }
 
 
@@ -99,7 +99,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 oPaging.dgObj = dgPaging;
                 if (txtTransId.Text != "")
                 {
-                    sb.Append(" Where ");
+                    sb.Append(" And ");
                     if (txtTransId.Text.Contains("%"))
                     {
                         sb.Append(" TransId LIKE '");
@@ -109,6 +109,20 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                         sb.Append(" TransId = '");
                     }
                     sb.Append(txtTransId.Text);
+                    sb.Append("'");
+                }
+                if (txtDocType.Text !="")
+                {
+                    sb.Append(" And ");
+                    if (txtDocType.Text.Contains("%"))
+                    {
+                        sb.Append(" DocTypeCode LIKE '");
+                    }
+                    else
+                    {
+                        sb.Append(" DocTypeCode = '");
+                    }
+                    sb.Append(txtDocType.Text);
                     sb.Append("'");
                 }
                 else

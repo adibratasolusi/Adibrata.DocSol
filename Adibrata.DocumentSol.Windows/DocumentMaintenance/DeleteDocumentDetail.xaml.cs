@@ -68,7 +68,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
             DocSolEntities _ent = new DocSolEntities
             {
                 MethodName = "DeleteDocumentStatus",
-               ClassName = "DeleteDocument"
+                ClassName = "DeleteDocument"
             };
             _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
 

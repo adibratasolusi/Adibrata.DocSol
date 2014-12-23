@@ -825,7 +825,9 @@
   <ItemGroup>
     <Resource Include="Images\login.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="StorageMonitoring\" />
+  </ItemGroup>
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

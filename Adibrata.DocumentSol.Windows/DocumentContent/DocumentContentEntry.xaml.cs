@@ -153,8 +153,10 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
             {
                 DataTable dtContent = new DataTable();
                 dtContent = oDocContent.RetrieveValue();
+                DocSolEntities ent = new DocSolEntities();
+                ent.DtContent = dtContent;
                 ucUpload.DocumentTypeUpload = cboDocumentType.Text;
-                ucUpload.CheckAndUpload(dtContent);
+                ucUpload.CheckAndUpload(ent);
 
                 RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }

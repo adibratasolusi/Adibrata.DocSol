@@ -26,6 +26,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 sqlParams = new SqlParameter[1];
                 sqlParams[0] = new SqlParameter("@ID", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.Id;
+           
 
                 _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDeleteDocumentStatus", sqlParams);
 

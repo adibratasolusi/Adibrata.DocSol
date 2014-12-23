@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spDocTransContentInsert]
+﻿ALTER PROCEDURE [dbo].[spDocTransContentInsert]
 	-- Add the parameters for the stored procedure here
 	@DocTypeCode varchar(50),
 	@DocTransId bigint,
@@ -6,7 +6,8 @@
 	@ContentValue varchar(8000) = '',
 	@ContentValueDate datetime = GETDATE,
 	@ContentValueNumeric numeric(17,2) = 0,
-	@ContentSearchTag varchar(8000) = ''
+	@ContentSearchTag varchar(8000) = '', 
+	@UsrCrt Varchar(50)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -23,8 +24,6 @@ BEGIN
 		ContenValueDate,
 		ContentValueNumeric,
 		ContentSearchTag,
-		UsrUpd,
-		DtmUpd,
 		UsrCrt,
 		DtmCrt
 	)
@@ -37,9 +36,7 @@ BEGIN
 		@ContentValueDate,
 		@ContentValueNumeric,
 		@ContentSearchTag,
-		'sa',
-		GETDATE(),
-		'sa',
+		@UsrCrt,
 		GETDATE()
 	)
 END

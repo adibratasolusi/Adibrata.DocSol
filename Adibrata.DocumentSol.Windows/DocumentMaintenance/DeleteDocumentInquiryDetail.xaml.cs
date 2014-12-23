@@ -54,10 +54,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
             }
         }
 
-        private void btnDetail_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+      
 
       
     }

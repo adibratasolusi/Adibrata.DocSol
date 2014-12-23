@@ -9,7 +9,8 @@ using Adibrata.Framework.Logging;
 using Adibrata.BusinessProcess.Entities.Base;
 using System.Windows;
 using System.Windows.Controls;
-
+using Adibrata.Controller.UserManagement;
+using Adibrata.BusinessProcess.UserManagement.Entities;
 namespace Adibrata.DocumentSol.Windows
 {
     public class RedirectPage : Page
@@ -17,6 +18,12 @@ namespace Adibrata.DocumentSol.Windows
         
         public RedirectPage(Page Source, string PageName, SessionEntities _ent)
         {
+            UserManagementEntities _entUsrMgmt = new UserManagementEntities();
+            _entUsrMgmt.FormPath = PageName;
+            _entUsrMgmt.ClassName = "LoginActivity";
+            _entUsrMgmt.MethodName = "LoginActivitySave";
+            _entUsrMgmt.UserLogin = _ent.UserName;
+            UserManagementController.UserManagement<string>(_entUsrMgmt);
             switch (PageName)
             {
                 #region "MainForm"
@@ -52,6 +59,16 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
+                #region "ImageProcess"
+                case "ImageProcess.Lock.ImageLockPaging": Source.NavigationService.Navigate(new ImageProcess.Lock.ImageLockPaging(_ent)); break;
+                case "ImageProcess.Lock.ImageLockDetail": Source.NavigationService.Navigate(new ImageProcess.Lock.ImageLockDetail(_ent)); break;
+                case "ImageProcess.Unlock.UnlockImagePaging": Source.NavigationService.Navigate(new ImageProcess.Unlock.UnlockImagePaging(_ent)); break;
+                case "ImageProcess.Unlock.UnlockImageDetail": Source.NavigationService.Navigate(new ImageProcess.Unlock.UnlockImageDetail(_ent)); break;
+                case "ImageProcess.WaterMark.WaterMarkPaging": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkPaging(_ent)); break;
+                case "ImageProcess.WaterMark.WaterMarkDetail": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkDetail(_ent)); break;
+              
+                #endregion
+
                 #region "Upload Rule"
                 case "RuleUpload.RuleEngineUpload": Source.NavigationService.Navigate(new RuleUpload.RuleEngineUpload(_ent)); break;
                 case "RuleUpload.RuleSchemePaging": Source.NavigationService.Navigate(new RuleUpload.RuleSchemePaging(_ent)); break;
@@ -83,6 +100,12 @@ namespace Adibrata.DocumentSol.Windows
 
         public RedirectPage(Frame Source, string PageName, SessionEntities _ent)
         {
+            UserManagementEntities _entUsrMgmt = new UserManagementEntities();
+            _entUsrMgmt.FormPath = PageName;
+            _entUsrMgmt.ClassName = "LoginActivity";
+            _entUsrMgmt.MethodName = "LoginActivitySave";
+            _entUsrMgmt.UserLogin = _ent.UserName;
+            UserManagementController.UserManagement<string>(_entUsrMgmt);
             switch (PageName)
             {
                 #region "MainForm"
@@ -123,10 +146,17 @@ namespace Adibrata.DocumentSol.Windows
                 #region "DocumentsMaintenance"
                 case "DocumentMaintenance.DeleteDocumentPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentPaging(_ent)); break;
                 case "DocumentMaintenance.DeleteDocumentInquiryPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryPaging(_ent)); break;
-                
-              
                 #endregion
 
+                #region "ImageProcess"
+                case "ImageProcess.Lock.ImageLockPaging": Source.NavigationService.Navigate(new ImageProcess.Lock.ImageLockPaging(_ent)); break;
+                case "ImageProcess.Lock.ImageLockDetail": Source.NavigationService.Navigate(new ImageProcess.Lock.ImageLockDetail(_ent)); break;
+                case "ImageProcess.Unlock.UnlockImagePaging": Source.NavigationService.Navigate(new ImageProcess.Unlock.UnlockImagePaging(_ent)); break;
+                case "ImageProcess.Unlock.UnlockImageDetail": Source.NavigationService.Navigate(new ImageProcess.Unlock.UnlockImageDetail(_ent)); break;
+                case "ImageProcess.WaterMark.WaterMarkPaging": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkPaging(_ent)); break;
+                case "ImageProcess.WaterMark.WaterMarkDetail": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkDetail(_ent)); break;
+              
+                #endregion
 
                 //#region "Image Processing"
                 //case "ImageProcessing.WaterMark": Source.NavigationService.Navigate(new ImageProcess.Watermark()); break;

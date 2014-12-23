@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -45,6 +45,7 @@
     <Compile Include="DeleteDocument\DeleteDocument.cs" />
     <Compile Include="DocContent\DocContent.cs" />
     <Compile Include="DocContent\DocType.cs" />
+    <Compile Include="ImageProcess\ImageProcess.cs" />
     <Compile Include="Project\ProjectRegistrasi.cs" />
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

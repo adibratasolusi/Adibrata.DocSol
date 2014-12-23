@@ -11,53 +11,65 @@
     <ScrollViewer x:Name="svMain">
         <Grid Style="{StaticResource GridStyle}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+             <Grid Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblMessage" FontStyle="Normal" Foreground="Red" />
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="User Register" FontSize="24" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
             <Grid Grid.Column="0" Grid.Row="1">
                 <StackPanel>
-                    <TextBlock Margin="0">User Name</TextBlock>
-                    <TextBlock Margin="0">Full Name</TextBlock>
-                    <TextBlock Margin="0">Password</TextBlock>
-                    <TextBlock Margin="0" >Re. Password</TextBlock>
-                    <TextBlock Margin="0">Active</TextBlock>
-                    <TextBlock Margin="0">Connect</TextBlock>
+                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}"  Width="200">Email </TextBlock>
+                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Full Name</TextBlock>
+                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Password</TextBlock>
+                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Re. Password</TextBlock>
+                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Active</TextBlock>
+                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Connect</TextBlock>
                 </StackPanel>
-                
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1" >
                 <StackPanel>
-                    <TextBox x:Name="txtUserName" Width="150" Text="" Style="{StaticResource textStyle}" />
+                    <TextBox x:Name="txtUserName" Width="200" Text="" Style="{StaticResource textStyle}" />
                     <TextBox x:Name="txtFullname"  Width="200" Text="" Style="{StaticResource textStyle}"/>
-                    <PasswordBox x:Name="txtPassword" Width="150"  Style="{StaticResource PasswordStyle}"/>
-                    <PasswordBox x:Name="txtRepeatPsw" Width="150" Style="{StaticResource PasswordStyle}" />
-                    <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
-                    <CheckBox x:Name="isConnect" IsChecked="False"></CheckBox>
+                    <PasswordBox x:Name="txtPassword" Width="150"  FontSize="18" Style="{StaticResource PasswordStyle}"/>
+                    <PasswordBox x:Name="txtRepeatPsw" Width="150" FontSize="18" Style="{StaticResource PasswordStyle}" />
+                    <CheckBox x:Name="isActive" IsChecked="True" FontSize="18"></CheckBox>
+                    <CheckBox x:Name="isConnect" FontSize="18"></CheckBox>
                 </StackPanel>
             </Grid>
-            <Grid  Grid.Column="1" Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100*" />
-                    <ColumnDefinition Width="100*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                    <StackPanel>
-                        <Button x:Name="btnSave" Click="btnSave_Click">
-                            <Label> _SAVE</Label></Button>
-                    </StackPanel>
+            <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+
+                    <Button x:Name="btnSave" Click="btnSave_Click" Width="100" Height="50" ToolTip="Save Data Document Content">
+                        <Button.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/save-png-hi.png"/>
+                        </Button.Background>
+
+                    </Button>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <StackPanel>
-                    <Button Name="btnBack" Click="btnBack_Click">
-                            <Label>_BACK</Label></Button>
-                    </StackPanel>
+                    <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" ToolTip="Back To Project Paging">
+                        <Button.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
+                        </Button.Background>
+
+                    </Button>
                 </Grid>
-                </Grid>
+
+            </Grid>
+            
         </Grid>
     </ScrollViewer>
 </Page>

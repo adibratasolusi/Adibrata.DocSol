@@ -371,7 +371,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-        private void UploadFile(DocSolEntities ent)
+        private void UploadFile(DocSolEntities _ent)
         {
 
             DataGridHelper dtgHelper = new DataGridHelper();
@@ -391,11 +391,11 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 if (listPath.Count != 0)
                 {
 
-                    ent.MethodName = "DocUpload";
-                    ent.ClassName = "UploadProcess";
-                    ent.TransId = TransId;
-                    ent.DocumentType = DocumentType;
-                    ent.ListPath = listPath;
+                    _ent.MethodName = "DocUpload";
+                    _ent.ClassName = "UploadProcess";
+                    _ent.TransId = TransId;
+                    _ent.DocumentType = DocumentType;
+                    _ent.ListPath = listPath;
 
                     listDocTransBinary = Adibrata.Controller.DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
 

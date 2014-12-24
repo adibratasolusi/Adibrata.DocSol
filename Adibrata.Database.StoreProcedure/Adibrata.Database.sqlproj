@@ -73,6 +73,7 @@
     <Folder Include="StoreProcedure\DocumentMaintenance" />
     <Folder Include="StoreProcedure\StorageMonitoring" />
     <Folder Include="StoreProcedure\ImageProcess" />
+    <Folder Include="StoreProcedure\Logout" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -184,5 +185,7 @@
     <Build Include="StoreProcedure\ImageProcess\spImageLockedStatus.sql" />
     <Build Include="StoreProcedure\ImageProcess\spImageAktifPaging.sql" />
     <Build Include="Function\GetColumnValue.sql" />
+    <Build Include="StoreProcedure\Approval\spDocTransApprSave.sql" />
+    <Build Include="StoreProcedure\Logout\spUserActivityPaging.sql" />
   </ItemGroup>
 </Project>

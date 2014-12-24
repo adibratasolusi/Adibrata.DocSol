@@ -226,13 +226,10 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
         SqlTransaction _trans;
         public virtual List<KeyValuePair<Int64, string>> DocUpload(DocSolEntities _ent)
         {
-
-
             SqlConnection _conn = new SqlConnection(Connectionstring);
             SqlParameter[] sqlParams;
             DataTable _dt;
             List<KeyValuePair<Int64, string>> listDocBinary = new  List<KeyValuePair<Int64, string>>();
-
             try
             {
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
@@ -258,20 +255,13 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     _ent.ContentValue = "";
                     _ent.ContentValueNumeric = 0;
                     _ent.ContentValueDate = DateTime.Now;
-                    if (_ent.DtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "string")
-                    {
-
-                        _ent.ContentValue = _ent.DtContent.Rows[i]["EntryValue"].ToString();
-                    }
+                    _ent.ContentValue = _ent.DtContent.Rows[i]["EntryValue"].ToString();
                     if (_ent.DtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "date")
                     {
-                        _ent.ContentValue = _ent.DtContent.Rows[i]["EntryValue"].ToString();
-                        _ent.ContentValueDate = Convert.ToDateTime(_ent.DtContent.Rows[i]["EntryValueDate"].ToString());
-
+                       _ent.ContentValueDate = Convert.ToDateTime(_ent.DtContent.Rows[i]["EntryValueDate"].ToString());
                     }
                     if (_ent.DtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "number")
                     {
-
                         _ent.ContentValueNumeric = Convert.ToDecimal(_ent.DtContent.Rows[i]["EntryValueNumber"].ToString());
                     }
 
@@ -356,20 +346,24 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 #endregion
                 if (_ent.DocContentNeedApproval)
                 {
-                    sqlParams = new SqlParameter[6];
+                    sqlParams = new SqlParameter[8];
                     sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar, 50);
-                    sqlParams[0].Value = _ent.DocTypeCode;
+                    sqlParams[0].Value = _ent.DocumentType;
                     sqlParams[1] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
                     sqlParams[1].Value = docTransId;
                     sqlParams[2] = new SqlParameter("@DocTransReqDate", SqlDbType.SmallDateTime);
                     sqlParams[2].Value = DateTime.Now;
                     sqlParams[3] = new SqlParameter("@DocTransReqUser", SqlDbType.VarChar, 50);
                     sqlParams[3].Value = _ent.UserLogin;
-                    sqlParams[4] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                    sqlParams[4].Value = _ent.UserLogin;
-                    sqlParams[5] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
-                    sqlParams[5].Value = DateTime.Now;
-                    SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+                    sqlParams[4] = new SqlParameter("@RequestTo", SqlDbType.VarChar, 50);
+                    sqlParams[4].Value = _ent.RequestTo;
+                    sqlParams[5] = new SqlParameter("@ApprovalNotes", SqlDbType.VarChar, 8000);
+                    sqlParams[5].Value = _ent.ApprovalNotes;
+                    sqlParams[6] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                    sqlParams[6].Value = _ent.UserLogin;
+                    sqlParams[7] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
+                    sqlParams[7].Value = DateTime.Now;
+                    SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spDocTransApprovalRequest", sqlParams);
                 }
 
                 _trans.Commit();

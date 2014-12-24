@@ -87,6 +87,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database", "Adibra
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Script.StoreProcedure", "DatabaseScript\StoreProcedure\Adibrata.Database.Script.StoreProcedure.sqlproj", "{67478D1D-C82D-4D93-B99B-6151CD366ED8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptDecrypt", "EncryptDecrypt\EncryptDecrypt.csproj", "{CD229E63-EE6B-4B85-A7B2-23970AADCC74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -429,6 +431,14 @@ Global
 		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Release|ARM.ActiveCfg = Release|Any CPU
 		{67478D1D-C82D-4D93-B99B-6151CD366ED8}.Release|x86.ActiveCfg = Release|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CD229E63-EE6B-4B85-A7B2-23970AADCC74}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

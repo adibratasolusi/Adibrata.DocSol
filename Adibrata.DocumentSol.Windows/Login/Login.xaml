@@ -4,9 +4,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="1000"
+      d:DesignHeight="500" d:DesignWidth="800"
       Style="{StaticResource PageStyle}"
 	Title="Login">
+    
     <Grid Style="{StaticResource GridStyle}" >
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -18,6 +19,7 @@
                 <RowDefinition Height="Auto"  />
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
+            
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" >
                 <StackPanel>
                     <TextBlock Name="lblMessage" FontStyle="Normal" Foreground="Red"  FontSize="20"></TextBlock>
@@ -49,5 +51,7 @@
                 </StackPanel>
             </Grid>
         </Grid>
-      </Grid>
+       
+    </Grid>
+    
 </Page>

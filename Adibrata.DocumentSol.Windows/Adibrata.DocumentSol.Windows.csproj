@@ -239,6 +239,9 @@
     <Compile Include="ImageScanMulti\ImageScanMultiProcess.xaml.cs">
       <DependentUpon>ImageScanMultiProcess.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LogOutScreen.xaml.cs">
+      <DependentUpon>LogOutScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Project\CustomerProjectPaging.xaml.cs">
       <DependentUpon>CustomerProjectPaging.xaml</DependentUpon>
     </Compile>
@@ -247,6 +250,9 @@
     </Compile>
     <Compile Include="Project\ProjectPaging.xaml.cs">
       <DependentUpon>ProjectPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StorageMonitoring\FileNumber\FileNumberDetail.xaml.cs">
       <DependentUpon>FileNumberDetail.xaml</DependentUpon>
@@ -516,6 +522,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LogOutScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Project\CustomerProjectPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -525,6 +535,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Project\ProjectPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -43,6 +43,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CheckForm.cs" />
+    <Compile Include="License.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +62,10 @@
     <ProjectReference Include="..\Adibrata.Framework.EventLog\Adibrata.Framework.Logging.csproj">
       <Project>{7444d0b3-6f0e-47b5-a734-face7ee1732f}</Project>
       <Name>Adibrata.Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Security\Adibrata.Framework.Security.csproj">
+      <Project>{26f1e2d1-b0e5-405b-9d73-369db760a730}</Project>
+      <Name>Adibrata.Framework.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

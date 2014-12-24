@@ -93,13 +93,12 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
                     else
                     {
                         #region "Getting path Approval from Rule Configuration"
-                        DocSolEntities _ent = new DocSolEntities
-                        {
-                            ClassName = "ApprovalProcess",
-                            MethodName = "ApprovalPathRetrieve",
-                            DocumentType = cboDocumentType.SelectedItem.ToString(),
-                            UserLogin = SessionProperty.UserName
-                        };
+
+                        _ent.ClassName = "ApprovalProcess";
+                        _ent.MethodName = "ApprovalPathRetrieve";
+                        _ent.DocumentType = cboDocumentType.SelectedItem.ToString();
+                        _ent.UserLogin = SessionProperty.UserName;
+
 
                         _nextlevel = DocumentSolutionController.DocSolProcess<string>(_ent);
                         #endregion
@@ -108,8 +107,13 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
                     oPaging.MethodName = "ApprovalTaskPaging";
                     oPaging.dgObj = dgPaging;
                     sb.Append(" Where ");
+                    sb.Append(" RequestTo = '");
+                    sb.Append(_ent.UserLogin);
+                    sb.Append("' ");
+
                     if (cboDocumentType.SelectedValue != null)
                     {
+                        sb.Append(" AND ");
                         sb.Append(" A.DocTypeCode = '");
                         sb.Append(cboDocumentType.SelectedItem.ToString());
                         sb.Append("'");
@@ -124,38 +128,45 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
                         sb.Append(" AND ");
                         if (txtProjectName.Text.Contains("%"))
                         {
-                            sb.Append(" c.ProjName LIKE ");
+                            sb.Append(" c.ProjName LIKE '");
                             sb.Append(txtProjectName.Text);
+                            sb.Append("' ");
                         }
                         else
                         {
-                            sb.Append(" c.ProjName = ");
+                            sb.Append(" c.ProjName = '");
                             sb.Append(txtProjectName.Text);
+                            sb.Append("' ");
                         }
                     }
-                    else
-                    {
-                        sb.Append("");
-                    }
+                   
 
                     if (txtCustomerName.Text != "")
                     {
                         sb.Append(" AND ");
                         if (txtProjectName.Text.Contains("%"))
                         {
-                            sb.Append(" d.CustName LIKE ");
+                            sb.Append(" d.CustName LIKE '");
                             sb.Append(txtCustomerName.Text);
+                            sb.Append("' ");
                         }
                         else
                         {
-                            sb.Append(" c.CustName = ");
+                            sb.Append(" c.CustName = '");
                             sb.Append(txtCustomerName.Text);
+                            sb.Append("' ");
                         }
                     }
-                    else
+
+                    if (cboApprStatus.SelectedValue != null)
                     {
-                        sb.Append("");
+                        sb.Append(" AND ");
+
+                        sb.Append(" DocApprStat = '");
+                        sb.Append(cboApprStatus.SelectedValue);
+                        sb.Append("' ");
                     }
+                
                     oPaging.WhereCond = sb.ToString();
                     oPaging.SortBy = " DocTransCode Asc ";
                     oPaging.UserName = SessionProperty.UserName;

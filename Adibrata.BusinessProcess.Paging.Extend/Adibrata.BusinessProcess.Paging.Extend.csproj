@@ -45,6 +45,7 @@
     <Compile Include="DocumentMaintenance\ImageProcessPaging.cs" />
     <Compile Include="FileTransfer\FileTransferPaging.cs" />
     <Compile Include="Form\FormRegistrasi.cs" />
+    <Compile Include="Logout\Logout.cs" />
     <Compile Include="Project\ProjectRegistrasi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuleEngine\RuleScheme.cs" />

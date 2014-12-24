@@ -71,6 +71,7 @@
     <Folder Include="StoreProcedure\Project" />
     <Folder Include="StoreProcedure\Approval" />
     <Folder Include="StoreProcedure\DocumentMaintenance" />
+    <Folder Include="StoreProcedure\Logout" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -171,5 +172,6 @@
     <Build Include="Table\UserActivity.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransApprovalRequest.sql" />
     <Build Include="StoreProcedure\Approval\spDocTransApprSave.sql" />
+    <Build Include="StoreProcedure\Logout\spUserActivityPaging.sql" />
   </ItemGroup>
 </Project>

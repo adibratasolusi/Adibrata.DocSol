@@ -64,6 +64,7 @@ namespace Adibrata.DocumentSol.Windows.Login
 
                             SessionProperty.UserName = txtUserName.InputValue;
                             SessionProperty.BusinessDate = DateTime.Now;
+                            SessionProperty.StartLoginTime = DateTime.Now;
                             RedirectPage redirect = new RedirectPage(this, "MainForm", SessionProperty);
                         }
 

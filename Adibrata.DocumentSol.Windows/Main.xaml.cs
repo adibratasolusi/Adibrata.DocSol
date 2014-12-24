@@ -288,7 +288,7 @@ namespace Adibrata.DocumentSol.Windows
             try
             {
 
-                this.NavigationService.Navigate(new Login.Login()); 
+                this.NavigationService.Navigate(new LogOutScreen(SessionProperty)); 
             }
             catch (Exception _exp)
             {

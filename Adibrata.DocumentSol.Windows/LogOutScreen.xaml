@@ -1,0 +1,76 @@
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.LogOutScreen"
+      xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="650" 
+        Style="{StaticResource PageStyle}"
+	Title="LogOutScreen">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridStyle}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock FontSize="20" FontWeight="Bold">YOUR ACTIVITY</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                
+                    <GroupBox>
+                        <DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          x:Name="dgPaging" 
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="250" 
+                          >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding DateTimeAccess}" Header="TIME ACCESS" x:Name="DocTransDesc" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding FormName}" Header="FORM NAME" x:Name="DocTransCode" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding FormUrl}" Header="FORM URL" x:Name="FormURl" Width="200"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+
+                <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
+                    <GroupBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
+                                <UserController:UCPaging x:Name="oPaging"/>
+                            </Grid>
+                            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                                <Button x:Name="btnLogin" FontSize="18" Click="btnLogin_Click">
+                                    <Label>_LOGIN</Label>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

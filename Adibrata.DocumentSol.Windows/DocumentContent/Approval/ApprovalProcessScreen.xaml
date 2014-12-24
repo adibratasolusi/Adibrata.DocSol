@@ -56,13 +56,8 @@
                         <ComboBox x:Name="cboApprovalStatus"  Width="250"/>
                     </Grid>
                 </Grid>
-                <RichTextBox Height="100">
-                    <FlowDocument>
-                        <Paragraph>
-                            <Run Text=""/>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox>
+                <TextBox Height="100" Width="400" HorizontalAlignment="Left" x:Name="txtNotes">
+                </TextBox>
 
             </StackPanel>
         </Grid>

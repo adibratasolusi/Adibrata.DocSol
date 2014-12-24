@@ -170,5 +170,7 @@
     <Build Include="StoreProcedure\UserManagement\spUserLoginActivitySave.sql" />
     <Build Include="Table\UserActivity.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransApprovalRequest.sql" />
+    <Build Include="StoreProcedure\UserManagement\spDocTransActivityInsert.sql" />
+    <Build Include="Table\DocTransActivity.sql" />
   </ItemGroup>
 </Project>

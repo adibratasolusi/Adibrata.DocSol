@@ -48,6 +48,7 @@
     <Compile Include="Project\ProjectRegistrasi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuleEngine\RuleScheme.cs" />
+    <Compile Include="Storage\FileNumberPaging.cs" />
     <Compile Include="Upload\UploadProcessPaging.cs" />
     <Compile Include="UserManagement\UserRegister.cs" />
   </ItemGroup>

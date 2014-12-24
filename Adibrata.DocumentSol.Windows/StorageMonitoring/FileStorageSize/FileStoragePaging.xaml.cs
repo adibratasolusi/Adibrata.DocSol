@@ -30,5 +30,12 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileStorageSize
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
         }
+
+     
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

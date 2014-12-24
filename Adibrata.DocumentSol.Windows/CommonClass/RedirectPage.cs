@@ -69,6 +69,12 @@ namespace Adibrata.DocumentSol.Windows
               
                 #endregion
 
+                #region "FileNumber"
+                case "StorageMonitoring.FileNumber.FileNumberPaging": Source.NavigationService.Navigate(new StorageMonitoring.FileNumber.FileNumberPaging(_ent)); break;
+                case "StorageMonitoring.FileNumber.FileNumberDetail": Source.NavigationService.Navigate(new StorageMonitoring.FileNumber.FileNumberDetail(_ent)); break;
+
+                #endregion
+
                 #region "Upload Rule"
                 case "RuleUpload.RuleEngineUpload": Source.NavigationService.Navigate(new RuleUpload.RuleEngineUpload(_ent)); break;
                 case "RuleUpload.RuleSchemePaging": Source.NavigationService.Navigate(new RuleUpload.RuleSchemePaging(_ent)); break;
@@ -90,11 +96,26 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageScanMulti.ImageScanMultiProcess": Source.NavigationService.Navigate(new ImageScanMulti.ImageScanMultiProcess()); break;
 
                 #endregion
+
                 #region "Upload Inquiry"
                 case "UploadInquiry.UploadInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)); break;
                 case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
 
                 #endregion
+
+                #region "Summary"
+                case "StorageMonitoring.SummarySize": Source.NavigationService.Navigate(new StorageMonitoring.SummarySize(_ent)); break;
+     
+                #endregion
+
+
+                #region "StorageMonitoring"
+                case "StorageMonitoring.FileStorageSize.FileStoragePaging": Source.NavigationService.Navigate(new StorageMonitoring.FileStorageSize.FileStoragePaging(_ent)); break;
+     
+                #endregion
+
+
+
             }
         }
 
@@ -157,6 +178,24 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.WaterMark.WaterMarkDetail": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkDetail(_ent)); break;
               
                 #endregion
+
+                #region "FileNumber"
+                case "StorageMonitoring.FileNumber.FileNumberPaging": Source.NavigationService.Navigate(new StorageMonitoring.FileNumber.FileNumberPaging(_ent)); break;
+                case "StorageMonitoring.FileNumber.FileNumberDetail": Source.NavigationService.Navigate(new StorageMonitoring.FileNumber.FileNumberDetail(_ent)); break;
+              
+                #endregion
+
+                #region "Summary"
+                case "StorageMonitoring.SummarySize": Source.NavigationService.Navigate(new StorageMonitoring.SummarySize(_ent)); break;
+
+                #endregion
+
+                #region "StorageMonitoring"
+                case "StorageMonitoring.FileStorageSize.FileStoragePaging": Source.NavigationService.Navigate(new StorageMonitoring.FileStorageSize.FileStoragePaging(_ent)); break;
+
+                #endregion
+
+
 
                 //#region "Image Processing"
                 //case "ImageProcessing.WaterMark": Source.NavigationService.Navigate(new ImageProcess.Watermark()); break;

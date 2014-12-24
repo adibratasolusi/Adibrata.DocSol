@@ -71,6 +71,8 @@
     <Folder Include="StoreProcedure\Project" />
     <Folder Include="StoreProcedure\Approval" />
     <Folder Include="StoreProcedure\DocumentMaintenance" />
+    <Folder Include="StoreProcedure\StorageMonitoring" />
+    <Folder Include="StoreProcedure\ImageProcess" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -170,5 +172,17 @@
     <Build Include="StoreProcedure\UserManagement\spUserLoginActivitySave.sql" />
     <Build Include="Table\UserActivity.sql" />
     <Build Include="StoreProcedure\Upload\spDocTransApprovalRequest.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeStorageByExt.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeStorage.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeDetailById.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeDetail.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spFileNumberPaging.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spImageWaterMarkPaging.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spImageUnlockPaging.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spImageUnlockedStatus.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spImageLockPaging.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spImageLockedStatus.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spImageAktifPaging.sql" />
+    <Build Include="Function\GetColumnValue.sql" />
   </ItemGroup>
 </Project>

@@ -30,7 +30,7 @@ namespace Adibrata.Framework.Logging
             sb.Append("ClassName     : "); sb.AppendLine(_ent.ClassName);
             sb.Append("Function Name : "); sb.AppendLine(_ent.FunctionName);
             sb.Append("Event Number  : "); sb.AppendLine(_ent.ExceptionNumber.ToString());
-            sb.AppendLine("Event Message     : ");sb.AppendLine(_ent.ExceptionDescription);
+            sb.AppendLine("Event Message  : ");sb.AppendLine(_ent.ExceptionDescription);
             sb.AppendLine("Exception Message : ");
             if (_ent.ExceptionObject != null)
             { sb.AppendLine(_ent.ExceptionObject.Message); }

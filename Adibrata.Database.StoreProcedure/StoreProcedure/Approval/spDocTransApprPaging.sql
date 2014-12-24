@@ -19,7 +19,7 @@ If @SortBy = ''
 		' + @WhereCond  + ') Qry
 		where number between ' + @StartRecord  + ' and  ' + @EndRecord  
 		exec (@SqlStatement)
-		print 	   @SqlStatement
+		
 RETURN 0
 
 

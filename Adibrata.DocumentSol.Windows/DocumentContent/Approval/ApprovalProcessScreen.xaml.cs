@@ -71,7 +71,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
             {
                 _ent.ClassName = "ApprovalProcess";
                 _ent.MethodName = "ApprovalDocContentSave";
-                _ent.LineOfBusiness = "Consumer Finance";
+                _ent.ApprovalStatus = cboApprovalStatus.SelectedValue.ToString();
+                _ent.ApprovalNotes = txtNotes.Text;
                 DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 RedirectPage redirect = new RedirectPage(this, "Approval.ApprovalPaging", SessionProperty);
             }

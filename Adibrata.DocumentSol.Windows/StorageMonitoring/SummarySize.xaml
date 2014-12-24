@@ -7,7 +7,162 @@
       Style="{StaticResource PageStyle}"
 	Title="SummarySize">
 
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridStyle}" Height="560" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock FontSize="24" FontWeight="Bold">SUMMARY SIZE</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                    <GroupBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                                <RowDefinition Height="Auto"  />
+                                <RowDefinition Height="Auto"  />
+                                <RowDefinition Height="Auto"  />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="TOTAL FILE"/>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="MAXIMUM SIZE" />
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="2">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="MINIMUM SIZE" />
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="3">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="AVERAGE SIZE"/>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="4">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="TOTAL SIZE"/>
+
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <TextBox Style="{StaticResource textStyle}" IsReadOnly="True" x:Name="txtTotalFile"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtMaxSize"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="2">
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtMinSize"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="3">
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtAverageSize"/>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="4">
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtTotalSize"/>
+                            </Grid>
+
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="6*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="BIGGEST FILE">
+                        <DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          x:Name="dgBigFile" 
+                          
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch" Margin="0,0,0,139"
+                          >
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Binding="{Binding TransID}"  Header="TRANS ID" x:Name="TransIDBigFile" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileNameBigFile" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCTYPE" x:Name="DocTypeCodeBigFile" Width="200" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE" x:Name="SizeFileBytesBigFile" Width="200" FontSize="14" />
+                                <DataGridTemplateColumn x:Name="previewBigFile" Visibility="Hidden">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Name="imgPreviewBigFile" Source="{Binding FileBinary}" Width="150" Height="150"></Image>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                    
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="6*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="SMALLEST FILE">
+                        <DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          x:Name="dgSmallFile" 
+                          
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch" Margin="0,0,0,139"
+                          >
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Binding="{Binding TransID}"  Header="TRANS ID" x:Name="TransIDSmallFile" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileNameSmallFile" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCTYPE" x:Name="DocTypeCodeSmallFile" Width="200" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE" x:Name="SizeFileBytesSmallFile" Width="200" FontSize="14" />
+                                <DataGridTemplateColumn x:Name="previewSmallFile" Visibility="Hidden">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Name="imgPreviewSmallFile" Source="{Binding FileBinary}" Width="150" Height="150"></Image>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+
+                </Grid>
+
+
+                <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
+                    <GroupBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

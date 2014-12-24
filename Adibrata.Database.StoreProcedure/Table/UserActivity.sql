@@ -4,6 +4,7 @@ CREATE TABLE [dbo].[UserActivity]
 (
 	[ID] INT NOT NULL IDENTITY PRIMARY KEY, 
 	FormUrl varchar(50), 
+	FormName Varchar(50) null, 
 	UserLogin varchar (20), 
 	DateTimeAccess SmallDateTime, 
 	[UsrUpd] [varchar](50) NULL,

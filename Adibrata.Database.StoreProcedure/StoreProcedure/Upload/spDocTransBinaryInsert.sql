@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spDocTransBinaryInsert]
+﻿Alter PROCEDURE [dbo].[spDocTransBinaryInsert]
 
  
 	@DocTransID BigInt,

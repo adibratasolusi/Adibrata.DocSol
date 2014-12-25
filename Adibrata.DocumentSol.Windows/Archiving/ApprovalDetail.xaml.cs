@@ -30,5 +30,23 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
         }
+
+
+
+
+        private void btnHold_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnReject_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnApproval_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

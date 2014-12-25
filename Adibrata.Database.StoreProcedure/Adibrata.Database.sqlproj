@@ -72,6 +72,7 @@
     <Folder Include="StoreProcedure\Approval" />
     <Folder Include="StoreProcedure\DocumentMaintenance" />
     <Folder Include="StoreProcedure\Logout" />
+    <Folder Include="StoreProcedure\Search Engine Document" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -173,5 +174,6 @@
     <Build Include="StoreProcedure\Upload\spDocTransApprovalRequest.sql" />
     <Build Include="StoreProcedure\Approval\spDocTransApprSave.sql" />
     <Build Include="StoreProcedure\Logout\spUserActivityPaging.sql" />
+    <Build Include="StoreProcedure\Search Engine Document\spDocTransSearchPaging.sql" />
   </ItemGroup>
 </Project>

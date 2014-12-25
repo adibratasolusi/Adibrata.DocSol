@@ -14,7 +14,8 @@ AS
 -- SET NOCOUNT ON added to prevent extra result sets from
 -- interfering with SELECT statements.
 SET NOCOUNT ON;
-
+Declare @DocTransCode varchar(50)
+Exec spMasterSequence 1, 'UPL', @DtmCrt, @DocTransCode Output
 -- Insert statements for procedure here
 Declare @TransIDInt BigInt
 Select @TransIDInt = ID from Proj With (nolock) where ProjCode = @TransId
@@ -33,8 +34,8 @@ OUTPUT inserted.Id
 VALUES
 (
 	@TransIDInt,
-	@TransId,
-	@docType,
+	@DocTransCode,
+	@DocType,
 	'ACTIVE',
 	@UsrCrt,
 	GETDATE()

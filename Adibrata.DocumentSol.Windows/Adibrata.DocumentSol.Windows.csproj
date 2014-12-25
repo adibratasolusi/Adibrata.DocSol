@@ -110,6 +110,9 @@
     <Compile Include="DocumentContent\DocumentUploadPaging.xaml.cs">
       <DependentUpon>DocumentUploadPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentContent\SearchDocument\SearchDocument.xaml.cs">
+      <DependentUpon>SearchDocument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DocumentMaintenance\DeleteDocumentDetail.xaml.cs">
       <DependentUpon>DeleteDocumentDetail.xaml</DependentUpon>
     </Compile>
@@ -371,6 +374,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentContent\DocumentUploadPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\SearchDocument\SearchDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

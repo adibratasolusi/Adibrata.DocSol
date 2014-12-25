@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnBack" Grid.Column="0" Content="Reject" ToolTip="Back to Archieve Prepare Paging"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
+                <Button Name="btnBack" Grid.Column="0" Content="Back" ToolTip="Back to Archieve Prepare Paging"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
                 <Button Name="btnPrepare" Grid.Column="2"  Content="Prepare" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnPrepare_Click" ></Button>
             </Grid>
         </Grid>

@@ -1,4 +1,5 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Controller;
 using Adibrata.Framework.Logging;
 using System;
@@ -24,6 +25,8 @@ namespace Adibrata.Windows.UserController
     /// </summary>
     public partial class UCDocTransBinaryContentView : UserControl
     {
+        public SessionEntities Session
+        { get; set; }
         public Int64 DocTransId
         {
             get
@@ -59,6 +62,7 @@ namespace Adibrata.Windows.UserController
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransContentDetail";
                 _ent.DocTransId = this.DocTransId;
+                _ent.UserName = this.Session.UserName;
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dtgContent.ItemsSource = _dt.DefaultView;
             }
@@ -89,6 +93,7 @@ namespace Adibrata.Windows.UserController
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransInquiryDetail";
                 _ent.DocTransId = this.DocTransId;
+                _ent.UserName = this.Session.UserName;
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dgPaging.ItemsSource = _dt.DefaultView;
             }

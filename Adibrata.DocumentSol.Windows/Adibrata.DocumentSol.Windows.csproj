@@ -85,6 +85,22 @@
     <Compile Include="AgrmntUpload\Inquiry\ServerInquiry.xaml.cs">
       <DependentUpon>ServerInquiry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Archiving\Approval.xaml.cs">
+      <DependentUpon>Approval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Archiving\Execution.xaml.cs">
+      <DependentUpon>Execution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Archiving\Inquiry\InquiryFinish.xaml.cs">
+      <DependentUpon>InquiryFinish.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Archiving\Inquiry\InquiryProcess.xaml.cs">
+      <DependentUpon>InquiryProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Archiving\Prepare.xaml.cs">
+      <DependentUpon>Prepare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonClass\Format.cs" />
     <Compile Include="CommonClass\RedirectPage.cs" />
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
@@ -110,6 +126,9 @@
     <Compile Include="DocumentContent\DocumentUploadPaging.xaml.cs">
       <DependentUpon>DocumentUploadPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentContent\SearchDocument\SearchDocument.xaml.cs">
+      <DependentUpon>SearchDocument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DocumentMaintenance\DeleteDocumentDetail.xaml.cs">
       <DependentUpon>DeleteDocumentDetail.xaml</DependentUpon>
     </Compile>
@@ -121,6 +140,9 @@
     </Compile>
     <Compile Include="DocumentMaintenance\DeleteDocumentPaging.xaml.cs">
       <DependentUpon>DeleteDocumentPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentSearch\DocumentSearch.xaml.cs">
+      <DependentUpon>DocumentSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\Canvas\CanvasDetail.xaml.cs">
       <DependentUpon>CanvasDetail.xaml</DependentUpon>
@@ -272,6 +294,15 @@
     <Compile Include="UploadInquiry\UploadInquiry.xaml.cs">
       <DependentUpon>UploadInquiry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UploadMonitoring\UncompleteDocument.xaml.cs">
+      <DependentUpon>UncompleteDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\Favorite\FavoriteEdit.xaml.cs">
+      <DependentUpon>FavoriteEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\Favorite\FavoriteFrame.xaml.cs">
+      <DependentUpon>FavoriteFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\FormRegistration\FormRegistrasiPaging.xaml.cs">
       <DependentUpon>FormRegistrasiPaging.xaml</DependentUpon>
     </Compile>
@@ -310,6 +341,12 @@
     <Compile Include="TestScreen.xaml.cs">
       <DependentUpon>TestScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\UserFormRegistration\UserFormRegistration.xaml.cs">
+      <DependentUpon>UserFormRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserFormRegistration\UserFormRegistrationPaging.xaml.cs">
+      <DependentUpon>UserFormRegistrationPaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\UserRegistration\UserRegistrationAddEdit.xaml.cs">
       <DependentUpon>UserRegistrationAddEdit.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -317,6 +354,9 @@
     <Compile Include="UserManagement\UserRegistration\UserRegistrationPaging.xaml.cs">
       <DependentUpon>UserRegistrationPaging.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserManagement\Widget\WidgetFrame.xaml.cs">
+      <DependentUpon>WidgetFrame.xaml</DependentUpon>
     </Compile>
     <Page Include="AgrmntUpload\AgrmntUploadPaging.xaml">
       <SubType>Designer</SubType>
@@ -339,6 +379,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AgrmntUpload\Inquiry\ServerInquiry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\Approval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\Execution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\Inquiry\InquiryFinish.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\Inquiry\InquiryProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\Prepare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -374,6 +434,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DocumentContent\SearchDocument\SearchDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DocumentMaintenance\DeleteDocumentDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -387,6 +451,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentMaintenance\DeleteDocumentPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentSearch\DocumentSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -566,6 +634,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UploadMonitoring\UncompleteDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\Favorite\FavoriteEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\Favorite\FavoriteFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserManagement\FormRegistration\FormRegistrasiPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -627,11 +707,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserManagement\UserFormRegistration\UserFormRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UserFormRegistration\UserFormRegistrationPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserManagement\UserRegistration\UserRegistrationAddEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserManagement\UserRegistration\UserRegistrationPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\Widget\WidgetFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

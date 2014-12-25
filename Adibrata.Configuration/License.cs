@@ -10,7 +10,7 @@ namespace Adibrata.Configuration
 {
     public static class License
     {
-        const string ConnectionStringConfiguration = "Server=Maximus-pc;Database=Configuration;User Id=sa;Password=Alpha2014";
+        const string ConnectionStringConfiguration = "Server=.;Database=Configuration;User Id=sa;Password=Alpha2014";
         private static string ConnectionString= AppConfig.Config("ConnectionString");
         public static bool UserLicense()
         {
@@ -142,8 +142,9 @@ namespace Adibrata.Configuration
                 {
                     _licensevalue = DataCache.Get<string>(key);
                 }
-
-                if (Convert.ToDateTime(_licensevalue) == Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy")))
+                DateTime test = Convert.ToDateTime(_licensevalue);
+                DateTime test1 = Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy"));
+                if ( test == test1 )
                 {
                     _valid = false;
                 }

@@ -229,9 +229,26 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             SqlConnection _conn = new SqlConnection(Connectionstring);
             SqlParameter[] sqlParams;
             DataTable _dt;
+            StringBuilder sbsearchtag = new StringBuilder();
+
             List<KeyValuePair<Int64, string>> listDocBinary = new  List<KeyValuePair<Int64, string>>();
             try
             {
+                sbsearchtag.Append(" Cari ");
+                sbsearchtag.Append(" View ");
+                sbsearchtag.Append(" Search ");
+                sbsearchtag.Append(" Upload Time ");
+                sbsearchtag.Append(DateTime.Now.ToString("dd/MM/yyyy"));
+                sbsearchtag.Append(DateTime.Now.ToString("MM/dd/yyyy"));
+                sbsearchtag.Append(DateTime.Now.ToString("yyyy/MM/dd"));
+                sbsearchtag.Append(DateTime.Now.ToString("HH:MM:ss"));
+                
+                sbsearchtag.Append("Upload Document ");
+                sbsearchtag.Append(" User Upload ");
+                sbsearchtag.Append(_ent.UserLogin);
+                sbsearchtag.Append(" Document Upload ");
+                sbsearchtag.Append(_ent.DocumentType);
+                
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
                 #region DOC TRANS INSERT
@@ -248,50 +265,12 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 _dt.Load(SqlHelper.ExecuteReader(_trans, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
                 docTransId = (Int64)_dt.Rows[0]["Id"];
                 #endregion
-                #region DOC TRANS CONTENT INSERT
-
-                for (int i = 0; i < _ent.DtContent.Rows.Count; i++)
-                {
-                    _ent.ContentValue = "";
-                    _ent.ContentValueNumeric = 0;
-                    _ent.ContentValueDate = DateTime.Now;
-                    _ent.ContentValue = _ent.DtContent.Rows[i]["EntryValue"].ToString();
-                    if (_ent.DtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "date")
-                    {
-                       _ent.ContentValueDate = Convert.ToDateTime(_ent.DtContent.Rows[i]["EntryValueDate"].ToString());
-                    }
-                    if (_ent.DtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "number")
-                    {
-                        _ent.ContentValueNumeric = Convert.ToDecimal(_ent.DtContent.Rows[i]["EntryValueNumber"].ToString());
-                    }
-
-                    sqlParams = new SqlParameter[8];
-                    sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar, 50);
-                    sqlParams[0].Value = _ent.DtContent.Rows[i]["Field1"].ToString();
-                    sqlParams[1] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                    sqlParams[1].Value = docTransId;
-                    sqlParams[2] = new SqlParameter("@ContentName", SqlDbType.VarChar, 50);
-                    sqlParams[2].Value = _ent.DtContent.Rows[i]["Field2"].ToString(); ;
-                    sqlParams[3] = new SqlParameter("@ContentValue", SqlDbType.VarChar, 8000);
-                    sqlParams[3].Value = _ent.ContentValue;
-                    sqlParams[4] = new SqlParameter("@ContentValueDate", SqlDbType.DateTime);
-                    sqlParams[4].Value = _ent.ContentValueDate;
-                    sqlParams[5] = new SqlParameter("@ContentValueNumeric", SqlDbType.Decimal);
-                    sqlParams[5].Value = _ent.ContentValueNumeric;
-                    sqlParams[6] = new SqlParameter("@ContentSearchTag", SqlDbType.VarChar, 8000);
-                    sqlParams[6].Value = "";
-                    sqlParams[7] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                    sqlParams[7].Value = _ent.UserLogin;
-                    SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
-
-                }
-
-                #endregion
+               
                 #region DOC TRANS BINARY INSERT
                 for (int i = 0; i < _ent.ListPath.Count; i++)
                 {
                     byte[] byteFile = File.ReadAllBytes(_ent.ListPath[i]);
-
+                   
 
                     _ent.Ext = Path.GetExtension(_ent.ListPath[i]).ToLower();
                  
@@ -316,7 +295,30 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
 
                     _ent.FileName = Path.GetFileName(_ent.ListPath[i]);
-
+                    sbsearchtag.Append(" Upload Computer Name ");
+                    sbsearchtag.Append(_ent.ComputerName);
+                    sbsearchtag.Append(" File Name ");
+                    sbsearchtag.Append(_ent.FileName);
+                    sbsearchtag.Append(" Pixel ");
+                    sbsearchtag.Append(_ent.Pixel);
+                    sbsearchtag.Append(" DPI ");
+                    sbsearchtag.Append(_ent.DPI);
+                    sbsearchtag.Append(" File Extention ");
+                    sbsearchtag.Append(_ent.Ext);
+                    sbsearchtag.Append(" File Upload Date ");
+                    sbsearchtag.Append(_ent.DateCreated.ToString("dd/MM/yyyy"));
+                    sbsearchtag.Append(_ent.DateCreated.ToString("MM/dd/yyyy"));
+                    sbsearchtag.Append(_ent.DateCreated.ToString("yyyy/MM/dd"));
+                    sbsearchtag.Append(_ent.DateCreated.ToString("HH:mm:ss"));
+                    sbsearchtag.Append(" Ukuran File ");
+                    sbsearchtag.Append(_ent.SizeFileBytes.ToString());
+                    sbsearchtag.Append(" Bytes ");
+                    sbsearchtag.Append((_ent.SizeFileBytes / 1024).ToString());
+                    sbsearchtag.Append(" Kilo Bytes ");
+                    sbsearchtag.Append((_ent.SizeFileBytes / 1024 / 1024).ToString());
+                    sbsearchtag.Append(" Mega Bytes ");
+                    sbsearchtag.Append((_ent.SizeFileBytes / 1024 / 1024 / 1024).ToString());
+                    sbsearchtag.Append(" Giga Bytes ");
                     _dt = new DataTable();
 
                     sqlParams = new SqlParameter[8];
@@ -344,6 +346,69 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 }
                 #endregion
+
+                #region DOC TRANS CONTENT INSERT
+
+                for (int i = 0; i < _ent.DtContent.Rows.Count; i++)
+                {
+                    _ent.ContentValue = "";
+                    _ent.ContentValueNumeric = 0;
+                    _ent.ContentValueDate = DateTime.Now;
+                    _ent.ContentValue = _ent.DtContent.Rows[i]["EntryValue"].ToString();
+                    if (_ent.DtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "date")
+                    {
+                        _ent.ContentValueDate = Convert.ToDateTime(_ent.DtContent.Rows[i]["EntryValueDate"].ToString());
+                    }
+                    if (_ent.DtContent.Rows[i]["DataType"].ToString().ToLower().Trim() == "number")
+                    {
+                        _ent.ContentValueNumeric = Convert.ToDecimal(_ent.DtContent.Rows[i]["EntryValueNumber"].ToString());
+                    }
+                    sbsearchtag.Append(" Document Type Code ");
+                    sbsearchtag.Append(_ent.DtContent.Rows[i]["Field1"].ToString());
+                    
+                    sbsearchtag.Append(" Content Name");
+                    sbsearchtag.Append(_ent.DtContent.Rows[i]["Field2"].ToString());
+                    sbsearchtag.Append(" Value ");
+                    sbsearchtag.Append(_ent.ContentValue);
+                    
+                    sbsearchtag.Append(" Value Date ");
+                    sbsearchtag.Append(_ent.ContentValueDate.ToString("dd/MM/yyyy"));
+                    sbsearchtag.Append(_ent.ContentValueDate.ToString("MM/dd/yyyy"));
+                    sbsearchtag.Append(_ent.ContentValueDate.ToString("yyyy/MM/dd"));
+                    
+                    if (_ent.DocContentNeedApproval)
+                    {
+                        sbsearchtag.Append(" Request To ");
+                        sbsearchtag.Append(_ent.RequestTo);
+                        
+                        sbsearchtag.Append(" Approval Notes ");
+                        sbsearchtag.Append(_ent.ApprovalNotes);
+                        
+                    }
+
+
+                    sqlParams = new SqlParameter[8];
+                    sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar, 50);
+                    sqlParams[0].Value = _ent.DtContent.Rows[i]["Field1"].ToString();
+                    sqlParams[1] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                    sqlParams[1].Value = docTransId;
+                    sqlParams[2] = new SqlParameter("@ContentName", SqlDbType.VarChar, 50);
+                    sqlParams[2].Value = _ent.DtContent.Rows[i]["Field2"].ToString(); ;
+                    sqlParams[3] = new SqlParameter("@ContentValue", SqlDbType.VarChar, 8000);
+                    sqlParams[3].Value = _ent.ContentValue;
+                    sqlParams[4] = new SqlParameter("@ContentValueDate", SqlDbType.DateTime);
+                    sqlParams[4].Value = _ent.ContentValueDate;
+                    sqlParams[5] = new SqlParameter("@ContentValueNumeric", SqlDbType.Decimal);
+                    sqlParams[5].Value = _ent.ContentValueNumeric;
+                    sqlParams[6] = new SqlParameter("@ContentSearchTag", SqlDbType.VarChar);
+                    sqlParams[6].Value = sbsearchtag.ToString();
+                    sqlParams[7] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                    sqlParams[7].Value = _ent.UserLogin;
+                    SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+
+                }
+
+                #endregion
                 if (_ent.DocContentNeedApproval)
                 {
                     sqlParams = new SqlParameter[8];
@@ -367,6 +432,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 }
 
                 _trans.Commit();
+
+
             }
             catch (Exception _exp)
             {
@@ -376,10 +443,10 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 {
                     UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
-                    ClassName = "CustomerRegistrasi",
-                    FunctionName = "CustomerCompanyRegistrasiAdd",
+                    ClassName = "UploadProcess",
+                    FunctionName = "DocUpload",
                     ExceptionNumber = 1,
-                    EventSource = "CustomerRegistrasi",
+                    EventSource = "Document Upload",
                     ExceptionObject = _exp,
                     EventID = 200, // 80 Untuk DocumentManagement
                     ExceptionDescription = _exp.Message
@@ -561,9 +628,11 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[1];
+                SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.DocTransId;
+                sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                sqlParams[1].Value = _ent.UserName;
 
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransBinaryView", sqlParams));
 
@@ -597,9 +666,11 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[1];
+                SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.DocTransId;
+                sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                sqlParams[1].Value = _ent.UserName;
 
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransContentView", sqlParams));
 

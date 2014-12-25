@@ -42,7 +42,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Build\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -85,6 +85,7 @@
     <Compile Include="AgrmntUpload\Inquiry\ServerInquiry.xaml.cs">
       <DependentUpon>ServerInquiry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommonClass\Format.cs" />
     <Compile Include="CommonClass\RedirectPage.cs" />
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
@@ -312,6 +313,12 @@
     </Compile>
     <Compile Include="TestScreen.xaml.cs">
       <DependentUpon>TestScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserFormRegistration\UserFormRegistration.xaml.cs">
+      <DependentUpon>UserFormRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserFormRegistration\UserFormRegistrationPaging.xaml.cs">
+      <DependentUpon>UserFormRegistrationPaging.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserRegistration\UserRegistrationAddEdit.xaml.cs">
       <DependentUpon>UserRegistrationAddEdit.xaml</DependentUpon>
@@ -631,6 +638,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UserFormRegistration\UserFormRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\UserFormRegistration\UserFormRegistrationPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

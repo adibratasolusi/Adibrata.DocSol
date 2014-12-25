@@ -15,26 +15,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileStorageSize
+namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
 {
     /// <summary>
-    /// Interaction logic for FileStoragePaging.xaml
+    /// Interaction logic for UserFormRegistration.xaml
     /// </summary>
-    public partial class FileStoragePaging : Page
+    public partial class UserFormRegistration : Page
     {
 
         SessionEntities SessionProperty = new SessionEntities();
-        public FileStoragePaging(SessionEntities _session)
+        public UserFormRegistration(SessionEntities _session)
         {
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
-        }
-
-     
-
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
 
         }
     }

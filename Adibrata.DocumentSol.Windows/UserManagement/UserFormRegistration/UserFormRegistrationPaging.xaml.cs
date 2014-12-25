@@ -16,23 +16,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
+namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
 {
     /// <summary>
-    /// Interaction logic for FileNumberPaging.xaml
+    /// Interaction logic for UserFormRegistrationPaging.xaml
     /// </summary>
-    public partial class FileNumberPaging : Page
+    public partial class UserFormRegistrationPaging : Page
     {
 
         SessionEntities SessionProperty = new SessionEntities();
-        public FileNumberPaging(SessionEntities _session)
+        public UserFormRegistrationPaging(SessionEntities _session)
         {
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
+
         }
 
-        private void btnDetail_Click(object sender, RoutedEventArgs e)
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -44,24 +45,25 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
-                RedirectPage redirect = new RedirectPage(this, "StorageMonitoring.FileNumber.FileNumberDetail", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "UserManagement.UserFormRegistration.UserFormRegistration", SessionProperty);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber",
-                    ClassName = "ImageLockPaging",
-                    FunctionName = "btnDetail_Click",
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationPaging",
+                    FunctionName = "btnEdit_Click",
                     ExceptionNumber = 1,
-                    EventSource = "Detail",
+                    EventSource = "Customer",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+            //string _value = agrmntNo.Text;
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -69,31 +71,22 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                oPaging.ClassName  = "FileNumberPaging";
-                oPaging.MethodName = "StoragePaging";
-                //"DeleteDocumentPaging"
+                oPaging.ClassName = "UserRegister";
+                oPaging.MethodName = "UserRegisterPaging";
                 oPaging.dgObj = dgPaging;
-                if (txtExtension.Text != "")
+                if (txtUser.Text != "")
                 {
                     sb.Append(" Where ");
-                    if (txtExtension.Text.Contains("%"))
-                    {
-                        sb.Append(" (dbo.GetColumnValue(DocTransBinary.FileName,'.',2)) LIKE '");
-                    }
-                    else
-                    {
-                        sb.Append(" (dbo.GetColumnValue(DocTransBinary.FileName,'.',2)) = '");
-                    }
-                    sb.Append(txtExtension.Text);
+                    sb.Append(" UserName = '");
+                    sb.Append(txtUser.Text);
                     sb.Append("'");
                 }
-                
                 else
                 {
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " (dbo.GetColumnValue(DocTransBinary.FileName,'.',2)) Asc ";
+                oPaging.SortBy = " UserName Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }
@@ -102,9 +95,9 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.ImageProcess.Lock",
-                    ClassName = "ImageLockPaging",
-                    FunctionName = "ImageLockPaging",
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement",
+                    ClassName = "UserRegistrationPaging",
+                    FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -114,7 +107,5 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-
-   
     }
 }

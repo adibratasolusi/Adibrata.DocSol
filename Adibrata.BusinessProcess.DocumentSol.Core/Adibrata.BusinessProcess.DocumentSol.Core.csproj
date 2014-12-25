@@ -47,6 +47,7 @@
     <Compile Include="DocContent\DocType.cs" />
     <Compile Include="ImageProcess\ImageProcess.cs" />
     <Compile Include="Project\ProjectRegistrasi.cs" />
+    <Compile Include="Storage\StorageMonitoring.cs" />
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,9 +85,7 @@
       <Name>Adibrata.Framework.Rule</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Storage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

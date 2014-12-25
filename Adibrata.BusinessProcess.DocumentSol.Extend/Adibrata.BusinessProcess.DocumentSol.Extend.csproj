@@ -41,12 +41,14 @@
   <ItemGroup>
     <Compile Include="Approval\ApprovalProcess.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />
-    <Compile Include="Approval\DeleteDocument\DeleteDocument.cs" />
+    <Compile Include="DeleteDocument\DeleteDocument.cs" />
     <Compile Include="DocumentContent\DocContent.cs" />
     <Compile Include="DocumentContent\DocType.cs" />
     <Compile Include="ImageProcess\ImageProcess.cs" />
     <Compile Include="Project\ProjectRegistrasi.cs" />
-    <Compile Include="Storage\StorageMonitoring.cs" />
+    <Compile Include="Storage\StorageMonitoring.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UploadProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

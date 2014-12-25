@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spUserLoginActivitySave]
+﻿CREATE PROCEDURE [dbo].[spUserLoginActivitySave]
 	@FormUrl Varchar(50), 
 	@UserLogin varchar(20), 
 	@DateTimeAccess Datetime

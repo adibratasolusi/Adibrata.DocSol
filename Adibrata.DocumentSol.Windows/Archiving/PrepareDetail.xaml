@@ -1,13 +1,12 @@
-﻿<Page x:Class="Adibrata.DocumentSol.Windows.Archiving.ApprovalDetail"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.Archiving.PrepareDetail"
        xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       Style="{StaticResource PageStyle}"
-	Title="ApprovalDetail">
-
+	Title="PrepareDetail">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid>
@@ -17,7 +16,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">ARCHIEVE APPROVAL DETAIL</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold">ARCHIEVE PREPARE DETAIL</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
 
@@ -28,11 +27,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnReject" Grid.Column="0" Content="Reject" ToolTip="Reject to Archieve"  HorizontalAlignment="Right" Click="btnReject_Click" ></Button>
-                <Button Name="btnHold" Grid.Column="1" Content="Hold" ToolTip="Hold"  HorizontalAlignment="Right" Click="btnHold_Click" ></Button>
-                <Button Name="btnApproval" Grid.Column="2"  Content="Prepare" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnApproval_Click" ></Button>
+                <Button Name="btnBack" Grid.Column="0" Content="Reject" ToolTip="Back to Archieve Prepare Paging"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
+                <Button Name="btnPrepare" Grid.Column="2"  Content="Prepare" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnPrepare_Click" ></Button>
             </Grid>
         </Grid>
     </ScrollViewer>

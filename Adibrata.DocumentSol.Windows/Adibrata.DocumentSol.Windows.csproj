@@ -94,9 +94,6 @@
     <Compile Include="Archiving\Execution.xaml.cs">
       <DependentUpon>Execution.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Archiving\ExecutionDetail.xaml.cs">
-      <DependentUpon>ExecutionDetail.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Archiving\Inquiry\InquiryFinish.xaml.cs">
       <DependentUpon>InquiryFinish.xaml</DependentUpon>
     </Compile>
@@ -105,6 +102,10 @@
     </Compile>
     <Compile Include="Archiving\Prepare.xaml.cs">
       <DependentUpon>Prepare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Archiving\PrepareDetail.xaml.cs">
+      <DependentUpon>PrepareDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="CommonClass\Format.cs" />
     <Compile Include="CommonClass\RedirectPage.cs" />
@@ -400,10 +401,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Archiving\ExecutionDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Archiving\Inquiry\InquiryFinish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -413,6 +410,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Archiving\Prepare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\PrepareDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

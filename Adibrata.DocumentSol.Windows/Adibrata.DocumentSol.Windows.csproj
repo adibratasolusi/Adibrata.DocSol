@@ -88,8 +88,14 @@
     <Compile Include="Archiving\Approval.xaml.cs">
       <DependentUpon>Approval.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Archiving\ApprovalDetail.xaml.cs">
+      <DependentUpon>ApprovalDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Archiving\Execution.xaml.cs">
       <DependentUpon>Execution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Archiving\ExecutionDetail.xaml.cs">
+      <DependentUpon>ExecutionDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Archiving\Inquiry\InquiryFinish.xaml.cs">
       <DependentUpon>InquiryFinish.xaml</DependentUpon>
@@ -386,7 +392,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Archiving\ApprovalDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Archiving\Execution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\ExecutionDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

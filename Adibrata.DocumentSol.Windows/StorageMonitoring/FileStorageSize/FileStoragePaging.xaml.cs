@@ -1,4 +1,5 @@
 ﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,88 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileStorageSize
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder sb = new StringBuilder(8000);
+            try
+            {
+                oPaging.ClassName = "FileStorage";
+                oPaging.MethodName = "FileStoragePaging";
+                //"DeleteDocumentPaging"
+                oPaging.dgObj = dgPaging;
+                if (txtTransId.Text != "" || txtDocType.Text != "" || txtFilename.Text != "")
+                {
+                    if (txtTransId.Text != "")
+                    {
 
+                        sb.Append(" and ");
+                        if (txtTransId.Text.Contains("%"))
+                        {
+                            sb.Append(" TransId LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" TransId = '");
+                        }
+                        sb.Append(txtTransId.Text);
+                        sb.Append("'");
+                    }
+
+                    if (txtDocType.Text != "")
+                    {
+                        sb.Append(" and ");
+                        if (txtDocType.Text.Contains("%"))
+                        {
+                            sb.Append(" DocTypeCode LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" DocTypeCode = '");
+                        }
+                        sb.Append(txtDocType.Text);
+                        sb.Append("'");
+                    }
+
+                    if (txtFilename.Text != "")
+                    {
+                        sb.Append(" and ");
+                        if (txtFilename.Text.Contains("%"))
+                        {
+                            sb.Append(" FileName LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" FileName = '");
+                        }
+                        sb.Append(txtFilename.Text);
+                        sb.Append("'");
+                    }
+
+                }
+                
+                else
+                {
+                    sb.Append("");
+                }
+                oPaging.WhereCond = sb.ToString();
+                oPaging.SortBy = " TransId Asc ";
+                oPaging.UserName = SessionProperty.UserName;
+                oPaging.PagingData();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.StorageMonitoring.FileStorageSize",
+                    ClassName = " FileStoragePaging",
+                    FunctionName = "btnSearch_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
     }
 }

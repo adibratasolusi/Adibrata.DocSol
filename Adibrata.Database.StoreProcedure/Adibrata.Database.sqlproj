@@ -187,5 +187,6 @@
     <Build Include="Function\GetColumnValue.sql" />
     <Build Include="StoreProcedure\Approval\spDocTransApprSave.sql" />
     <Build Include="StoreProcedure\Logout\spUserActivityPaging.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spFileStoragePaging.sql" />
   </ItemGroup>
 </Project>

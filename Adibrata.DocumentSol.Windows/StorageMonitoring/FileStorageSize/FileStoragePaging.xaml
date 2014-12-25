@@ -9,7 +9,7 @@
       Style="{StaticResource PageStyle}"
 	Title="FileStoragePaging">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <Grid Style="{StaticResource GridStyle}" Height="318" >
+        <Grid Style="{StaticResource GridStyle}"  >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -40,24 +40,25 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto"  />
+                                <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="TransID"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtTransId" Margin="0,2" Width="159"/>
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtTransId"  Width="159"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type"  />
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="1">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType"  />
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Width="159" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="2">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="FILE NAME" Margin="2,44,0,-29"  />
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="File Name" />
                             </Grid>
-                            <Grid Grid.Column="1" Grid.Row="2">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtFilename" />
+                            <Grid Grid.Column="2" Grid.Row="2">
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtFilename" Width="159"  />
                             </Grid>
 
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
@@ -80,11 +81,11 @@
                             <DataGrid.Columns>
                                 
                                <DataGridTextColumn Binding="{Binding TransID}" Header="TRANS ID" x:Name="TransId" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocTypeCode" Width="200" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocTypeCode" Width="150" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileName" Width="200" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="SIZE" x:Name="Size" Width="200" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="200" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding ComputerFrom}" Header="COMPUTER FROM" x:Name="ComputerFrom" Width="200" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE (Bytes)" x:Name="Size" Width="100" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="50" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding ComputerName}" Header="COMPUTER FROM" x:Name="ComputerFrom" Width="150" FontSize="14" />
 
 
                             </DataGrid.Columns>
@@ -93,7 +94,7 @@
                 </Grid>
 
                 <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
-                    <GroupBox Margin="0,29,0,28">
+                    <GroupBox>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -104,7 +105,10 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
-                            <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center"/>
+
+                            <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
+                                <UserController:UCPaging x:Name="oPaging"/>
+                            </Grid>
                         </Grid>
                     </GroupBox>
                 </Grid>

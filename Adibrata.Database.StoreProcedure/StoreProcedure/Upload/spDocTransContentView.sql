@@ -5,14 +5,16 @@
 -- =============================================
 CREATE PROCEDURE [dbo].[spDocTransContentView]
 	-- Add the parameters for the stored procedure here
-	@DocTransId BigInt
+	@DocTransId BigInt,
+	@UserName varchar(50)
 AS
 BEGIN
 
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-
+	
+	exec spDocTransActivityInsert @username = @UserName, @DocTransId = @DocTransId,@description = 'Content View'
     -- Insert statements for procedure here
 	select DocTransContent.ContentName,
 		CAST(

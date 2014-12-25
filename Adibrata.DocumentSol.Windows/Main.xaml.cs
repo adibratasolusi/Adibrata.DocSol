@@ -26,6 +26,8 @@ namespace Adibrata.DocumentSol.Windows
                 SessionProperty = _session;
                 lblLoginName.Text = SessionProperty.UserName.ToUpper();
                 lblBusinessDate.Text = DateTime.Now.ToString("dd/MMMM/yyyy");
+                frmWorksheet.NavigationService.Navigate(new  DocumentContent.SearchDocument (SessionProperty));
+
             }
             catch (Exception _exp)
             {

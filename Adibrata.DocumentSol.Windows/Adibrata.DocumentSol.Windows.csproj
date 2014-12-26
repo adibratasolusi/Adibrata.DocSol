@@ -246,6 +246,9 @@
     <Compile Include="LogOutScreen.xaml.cs">
       <DependentUpon>LogOutScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuTree.xaml.cs">
+      <DependentUpon>MenuTree.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Project\CustomerProjectPaging.xaml.cs">
       <DependentUpon>CustomerProjectPaging.xaml</DependentUpon>
     </Compile>
@@ -537,6 +540,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LogOutScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCDocTransBinaryContentViewArchieved.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCMenuSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +189,9 @@
     </Compile>
     <Compile Include="UCDocTransBinaryContentView.xaml.cs">
       <DependentUpon>UCDocTransBinaryContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCDocTransBinaryContentViewArchieved.xaml.cs">
+      <DependentUpon>UCDocTransBinaryContentViewArchieved.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCMenuTree\Database.cs" />
     <Compile Include="DocContent\UCDocumentContent.xaml.cs">

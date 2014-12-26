@@ -17,7 +17,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
     {
         DocSolEntities _ent = new DocSolEntities();
         SessionEntities SessionProperty = new SessionEntities();
-        
+        string _custcode;
         public DocumentContentEntry(SessionEntities _session)
         {
             try
@@ -31,7 +31,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 _ent.ProjectCode = _session.ReffKey;
                 _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                 lblCustomerCode.Text = _ent.CustomerCode;
-
+                _custcode = _ent.CustomerCode;
                 lblCustomerName.Text = _ent.CompanyName;
                 
                 lblProjectCode.Text = _session.ReffKey;
@@ -126,7 +126,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-                SessionProperty.ReffKey = lblCustomerCode.Text; ;
+                SessionProperty.ReffKey = lblCustomerCode.Text; 
                 RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)
@@ -160,7 +160,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 _ent.ApprovalNotes = oApproval.Notes;
                 _ent.RequestTo = oApproval.RequestTo;
                 ucUpload.CheckAndUpload(_ent);
-
+                SessionProperty.ReffKey = lblCustomerCode.Text; 
                 RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)

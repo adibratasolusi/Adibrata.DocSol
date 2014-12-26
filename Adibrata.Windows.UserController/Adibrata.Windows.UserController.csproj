@@ -218,6 +218,7 @@
     </Compile>
     <Compile Include="UCMenuTree\UCMenuTree.xaml.cs">
       <DependentUpon>UCMenuTree.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="UCMenu\Converters\MenuDataItemConverter.cs" />
     <Compile Include="UCMenu\Helpers\FindAncestores.cs" />
@@ -300,6 +301,14 @@
       <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>
       <Name>Adibrata.BusinessProcess.UserManagement.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Extend\Adibrata.BusinessProcess.UserManagement.Extend.csproj">
+      <Project>{d7e666c8-e6ee-4a52-aa01-7bc02aec113c}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.View.Core\Adibrata.BusinessProcess.Views.Core.csproj">
+      <Project>{da2973f7-b07d-4489-90ce-29a9e67266c3}</Project>
+      <Name>Adibrata.BusinessProcess.Views.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
       <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
       <Name>Adibrata.Configuration</Name>
@@ -337,7 +346,9 @@
       <Name>SharpBITS.Base</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="UCMenu\Images\Admin.png" />
     <Resource Include="UCMenu\Images\Finance.png" />

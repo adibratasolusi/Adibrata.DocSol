@@ -122,7 +122,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.Archiving",
                     ClassName = "UnlockImagePaging",
-                    FunctionName = "btnUnlock_Click",
+                    FunctionName = "btnDetail_Click",
                     ExceptionNumber = 1,
                     EventSource = "ImageUnlock",
                     ExceptionObject = _exp,

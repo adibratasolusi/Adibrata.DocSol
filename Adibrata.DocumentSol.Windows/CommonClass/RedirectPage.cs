@@ -118,6 +118,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "StorageMonitoring.FileStorageSize.FileStoragePaging": Source.NavigationService.Navigate(new StorageMonitoring.FileStorageSize.FileStoragePaging(_ent)); break;
 
                 #endregion
+
                 #region "Archiving"
                 case "Archiving.Approval": Source.NavigationService.Navigate(new Archiving.Approval(_ent)); break;
                 case "Archiving.Execution": Source.NavigationService.Navigate(new Archiving.Execution(_ent)); break;

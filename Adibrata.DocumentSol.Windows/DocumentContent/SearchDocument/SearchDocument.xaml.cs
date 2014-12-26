@@ -26,7 +26,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         SessionEntities SessionProperty;
         public SearchDocument(SessionEntities _session)
         {
-     
+
             try
             {
                 InitializeComponent();
@@ -53,33 +53,58 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
             }
         }
 
+        public SearchDocument(SessionEntities _session, string SearchCriteria)
+        {
+
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
+                GridDataGrid.Visibility = Visibility.Hidden;
+                GridPaging.Visibility = Visibility.Hidden;
+                SearchDocumentProcess(SearchCriteria);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentUploadPaging",
+                    FunctionName = "DocumentUploadPaging",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+
         private void btnView_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private void SearchDocumentProcess(string searchcriteria)
         {
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                if (txtSearch.Text == "")
-                {
-                    MessageBox.Show("Please Enter Search Criteria");
-                }
-                else
-                {
-                    GridDataGrid.Visibility = Visibility.Visible;
-                    GridPaging.Visibility = Visibility.Visible;
-                    oPaging.ClassName = "DocumentSearch";
-                    oPaging.MethodName = "DocumentSearchPaging";
-                    oPaging.dgObj = dgPaging;
 
-                    oPaging.WhereCond = txtSearch.Text;
-                    oPaging.SortBy = " Rank Asc ";
-                    oPaging.UserName = SessionProperty.UserName;
-                    oPaging.PagingData();
-                }
+                GridDataGrid.Visibility = Visibility.Visible;
+                GridPaging.Visibility = Visibility.Visible;
+                oPaging.ClassName = "DocumentSearch";
+                oPaging.MethodName = "DocumentSearchPaging";
+                oPaging.dgObj = dgPaging;
+
+                oPaging.WhereCond = searchcriteria;
+                oPaging.SortBy = " Rank Asc ";
+                oPaging.UserName = SessionProperty.UserName;
+                oPaging.PagingData();
             }
             catch (Exception _exp)
             {
@@ -96,6 +121,17 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
+            }
+        }
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtSearch.Text == "")
+            {
+                MessageBox.Show("Please Enter Search Criteria");
+            }
+            else
+            {
+                SearchDocumentProcess(txtSearch.Text);
             }
         }
     }

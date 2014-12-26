@@ -56,8 +56,8 @@
                     <TextBlock x:Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type" Width="200"/>
                 </Grid>
                 <Grid Grid.Column="1" HorizontalAlignment="Left">
-                    <ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="400"
-						Text="{Binding Result}"   SelectedValue ="{Binding Result}"/>
+                    <ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="400" IsEditable="True" IsTextSearchEnabled="True" 
+						Text="{Binding Result}" SelectedValue ="{Binding Result}"/>
                 </Grid>
 
             </Grid>

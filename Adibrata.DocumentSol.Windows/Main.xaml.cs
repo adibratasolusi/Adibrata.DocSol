@@ -116,7 +116,26 @@ namespace Adibrata.DocumentSol.Windows
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                frmWorksheet.NavigationService.Navigate(new Home(SessionProperty));
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Main",
+                    FunctionName = "btnLogout_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
     }

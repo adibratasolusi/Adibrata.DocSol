@@ -151,6 +151,9 @@
     <Compile Include="DocumentSearch\DocumentSearch.xaml.cs">
       <DependentUpon>DocumentSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ImageProcess\Canvas\CanvasDetail.xaml.cs">
       <DependentUpon>CanvasDetail.xaml</DependentUpon>
     </Compile>
@@ -267,6 +270,12 @@
     </Compile>
     <Compile Include="ImageScanMulti\ImageScanMultiProcess.xaml.cs">
       <DependentUpon>ImageScanMultiProcess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseMaintenance\LicenseMaintenancePaging.xaml.cs">
+      <DependentUpon>LicenseMaintenancePaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseMaintenance\LicenseMaintenanceUpdate.xaml.cs">
+      <DependentUpon>LicenseMaintenanceUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="LogOutScreen.xaml.cs">
       <DependentUpon>LogOutScreen.xaml</DependentUpon>
@@ -476,6 +485,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImageProcess\Canvas\CanvasDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -605,6 +618,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageScanMulti\ImageScanMultiProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LicenseMaintenance\LicenseMaintenancePaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LicenseMaintenance\LicenseMaintenanceUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

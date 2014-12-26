@@ -28,6 +28,7 @@
                     <RowDefinition Height="Auto"  />
                     <RowDefinition Height="Auto"  />
                     <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
                 </Grid.RowDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
                     <GroupBox Background="Beige" Header="Search">
@@ -74,11 +75,11 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Name="btnQueue" Content="QUEUE" Click="btnQueue_Click"></Button>
-                                            
+
                                         </DataTemplate>
-                                        
+
                                     </DataGridTemplateColumn.CellTemplate>
-                                    
+
                                 </DataGridTemplateColumn>
                                 <DataGridTemplateColumn Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -100,7 +101,7 @@
                     </GroupBox>
                 </Grid>
 
-                <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
+                <Grid Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2">
                     <GroupBox>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -118,6 +119,49 @@
                         </Grid>
                     </GroupBox>
                 </Grid>
+                <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+
+
+                    <GroupBox Name="gbQueue" Header="Queue">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <DataGrid IsTextSearchEnabled="True"
+                          SelectionMode="Single"
+                          x:Name="dgQueue" 
+                          
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"  VerticalAlignment="Stretch"
+                          >
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Width="150">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click"></Button>
+
+                                                </DataTemplate>
+
+                                            </DataGridTemplateColumn.CellTemplate>
+
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Binding="{Binding Id}" Header="ID" x:Name="DocTransIdQueue" Width="1"/>
+                                        <DataGridTextColumn Binding="{Binding TransID}" Header="TRANS ID" x:Name="TransIdQueue" Width="150"/>
+                                        <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocTypeQueue" Width="200" FontSize="14" />
+
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1">
+                                <Button Name="btnPrepare" Content="Prepare Queue" Click="btnPrepare_Click" Width="100" HorizontalAlignment="Right"></Button>
+
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+
+
             </Grid>
         </Grid>
     </ScrollViewer>

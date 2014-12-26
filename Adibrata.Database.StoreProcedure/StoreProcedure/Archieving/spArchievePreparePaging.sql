@@ -1,22 +1,24 @@
 ﻿CREATE PROCEDURE [dbo].[spArchievePreparePaging]
-    @StartRecord varchar(7), 
-    @EndRecord varchar(7), 
-    @WhereCond varchar(8000), 
-    @SortBy Varchar(8000)
+	@StartRecord varchar(7), 
+	@EndRecord varchar(7), 
+	@WhereCond varchar(8000), 
+	@SortBy Varchar(8000)
 AS
 Set NoCount On 
-    Set NoCount On 
+	Set NoCount On 
 Declare @RecordNumber Numeric, 
-        @SqlStatement Varchar(max)
+		@SqlStatement Varchar(max)
 Set NoCount On 
 Declare @TotalRecord int
 If @SortBy = '' 
-    Set @SortBy = ' TransID Asc '
+	Set @SortBy = ' TransID Asc '
 
-    Set @SqlStatement = 'Select * from 
-        (Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, Id,TransID,DocTypeCode 
-        from DocTrans where DocTransStatus = ''CANCEL'' or DocTransStatus = ''REJECT'' or ArchieveStatus = ''REJECT'' ' + @WhereCond  + ') Qry
-        where number between ' + @StartRecord  + ' and  ' + @EndRecord  
-        exec (@SqlStatement)
+	Set @SqlStatement = 'Select * from 
+		(Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, Id,TransID,DocTypeCode 
+		from DocTrans where DocTransStatus = ''ACTIVE'' and (ArchieveStatus = ''REJECT'' or ArchieveStatus = '''' or ArchieveStatus is null ) ' + @WhereCond  + ') Qry
+		where number between ' + @StartRecord  + ' and  ' + @EndRecord  
+		exec (@SqlStatement)
 Set @TotalRecord =  @@ROWCOUNT
 RETURN 0
+
+

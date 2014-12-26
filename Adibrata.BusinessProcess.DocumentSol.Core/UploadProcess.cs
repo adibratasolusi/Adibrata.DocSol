@@ -628,9 +628,11 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[1];
+                SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.DocTransId;
+                sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                sqlParams[1].Value = _ent.UserName;
 
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransBinaryView", sqlParams));
 
@@ -664,9 +666,11 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
             try
             {
 
-                SqlParameter[] sqlParams = new SqlParameter[1];
+                SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.DocTransId;
+                sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                sqlParams[1].Value = _ent.UserName;
 
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransContentView", sqlParams));
 

@@ -75,6 +75,7 @@
     <Folder Include="StoreProcedure\ImageProcess" />
     <Folder Include="StoreProcedure\Logout" />
     <Folder Include="StoreProcedure\DocumetnSearch" />
+    <Folder Include="StoreProcedure\Archieving" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -188,8 +189,14 @@
     <Build Include="Function\GetColumnValue.sql" />
     <Build Include="StoreProcedure\Approval\spDocTransApprSave.sql" />
     <Build Include="StoreProcedure\Logout\spUserActivityPaging.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spFileStoragePaging.sql" />
     <Build Include="StoreProcedure\UserManagement\spDocTransActivityInsert.sql" />
     <Build Include="Table\DocTransActivity.sql" />
     <Build Include="StoreProcedure\DocumetnSearch\spDocTransSearchPaging.sql" />
+    <Build Include="StoreProcedure\Archieving\spArchievePreparePaging.sql" />
+    <Build Include="StoreProcedure\Archieving\spArchieveApprovalPaging.sql" />
+    <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging.sql" />
+    <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging_1.sql" />
+    <Build Include="StoreProcedure\Archieving\spArchieveApproval.sql" />
   </ItemGroup>
 </Project>

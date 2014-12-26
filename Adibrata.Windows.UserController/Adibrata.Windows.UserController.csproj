@@ -149,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCSearchDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCTextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -244,6 +248,9 @@
       <DependentUpon>UCScanMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCScan\WIAScanner.cs" />
+    <Compile Include="UCSearchDocument.xaml.cs">
+      <DependentUpon>UCSearchDocument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCTextBox.xaml.cs">
       <DependentUpon>UCTextBox.xaml</DependentUpon>
     </Compile>

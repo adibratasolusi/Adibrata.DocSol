@@ -72,6 +72,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public Boolean DocContentNeedApproval { get; set; }
         
         public string RequestTo { get; set; }
+
+        public string UserName { get; set; }
     }
 }
 

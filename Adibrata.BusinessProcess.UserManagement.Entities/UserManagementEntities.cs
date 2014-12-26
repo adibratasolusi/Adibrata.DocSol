@@ -31,11 +31,19 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public long UserID { get; set; }
         public int isConnect { get; set; }
         public string MenuID { get; set; }
-        public string FormID { get; set; }
+        public long FormID { get; set; }
 
         public string FormURL { get; set; }
         public string FormCode { get; set; }
- 
+
+        #region MenuEntities
+        public long MenuLevel { get; set; }
+        public long ParentLevelMenu { get; set; }
+        public string MenuName { get; set; }
         
+        public Boolean isRoot { get; set; }
+        
+        #endregion 
+
     }
 }

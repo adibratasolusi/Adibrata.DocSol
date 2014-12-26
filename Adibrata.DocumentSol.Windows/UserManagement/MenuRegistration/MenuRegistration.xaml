@@ -4,88 +4,126 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" ShowsNavigationUI="False"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="600" 
 	Title="MenuRegistration">
-
-
     <ScrollViewer x:Name="svMain">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="190*" />
-                <ColumnDefinition Width="190*" />
-                <ColumnDefinition Width="190*" />
-                <ColumnDefinition Width="190*" />
-            </Grid.ColumnDefinitions>
+        <Grid Style="{StaticResource GridStyle}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Column="0" Grid.Row="1"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Type</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource EvenGridStyle}">
-                <StackPanel>
-                    <RadioButton Content="Separator" GroupName="rbMenuType" x:Name="rbSeparator" Checked="rbSeparator_Checked"></RadioButton>
-                    <RadioButton Content="Menu" GroupName="rbMenuType" x:Name="rbMenu" Checked="rbMenu_Checked"></RadioButton>
-                </StackPanel>
-                
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="2"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Menu Parent</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="2" Style="{StaticResource EvenGridStyle}">
-                <StackPanel>
-                    <CheckBox x:Name="chkItemRoot" Content="Root" Checked="chkItemRoot_Checked" Unchecked="chkItemRoot_Unchecked"></CheckBox>
-                    <ComboBox x:Name="cmbParent" DisplayMemberPath="Name" SelectedValuePath="MENU_ITEM_ID" SelectionChanged="cmbParent_SelectionChanged">
-                    </ComboBox>
-                </StackPanel>
-
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="3"  Margin="0,1">
-
-                    <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Order</TextBlock>
-
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="3" Style="{StaticResource EvenGridStyle}">
-                <UserController:UCTextBox x:Name="txtOrder" />
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="4"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Menu Text</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="4" Style="{StaticResource EvenGridStyle}">
-                <UserController:UCTextBox x:Name="txtMenu" />
+            <Grid Grid.Row="0">
+                <TextBlock  FontSize="24" Style="{StaticResource TextBlockStyle}" >Menu Registration</TextBlock>
             </Grid>
 
-            <Grid Grid.Column="0" Grid.Row="5"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Icon</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="5" Style="{StaticResource EvenGridStyle}">
-                <UserController:UCTextBox x:Name="txtIcon" />
-                <!--<ComboBox x:Name="cmbIcon"></ComboBox>-->
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="6"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Form</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="6" Style="{StaticResource EvenGridStyle}">
-                <UserController:UCTextBox x:Name="txtForm" />
-            </Grid>
-            <Grid Grid.Column="0" Grid.Row="7"  Margin="0,1">
-                <TextBlock Margin="0" Style="{StaticResource TextBlockStyle}" >Active</TextBlock>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="7" Style="{StaticResource EvenGridStyle}">
-                <CheckBox x:Name="isActive" IsChecked="True"></CheckBox>
-            </Grid>
-            <Grid Grid.Column="1" Grid.Row="9" >
-                <Button Name="btnSave" Content="Save" Click="btnSave_Click"></Button>
-            </Grid>
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="2*"/>
+                        
+                    </Grid.ColumnDefinitions>
 
+                    <Grid Grid.Column="0" HorizontalAlignment="Left">
+                        <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="200" Width="200" >
+
+                        </TreeView>
+                    </Grid>
+
+                    <Grid Grid.Column="1" HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Width="100" HorizontalAlignment="Left" Name="grdAdd">
+                            <Button Name="btnAdd" Click="btnAdd_Click">_Add</Button>
+                        </Grid>
+                        <Grid  Name="grdAddEdit" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid  Grid.Column="0" Grid.Row="0">
+                                <StackPanel Width="250">
+                                    <TextBlock Text="Parent Level" Style="{StaticResource TextBlockStyle}" ></TextBlock>
+                                    <TextBlock Text="Parent Menu Name" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                                    <TextBlock Text="Is Form" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                                    <TextBlock Text="Form Order" Name="lblFormOrder" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1"  Width="500" Grid.Row="0">
+                                <StackPanel>
+                                    <TextBlock Name="lblParentLevel" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                                    <TextBlock Name="lblParentName" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                                    <ComboBox Name="cboYesNo"  SelectionChanged="cboYesNo_SelectionChanged"></ComboBox>
+                                    <TextBox Name="txtFormOrder" Style="{StaticResource textStyle}"  Width="100" ></TextBox>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Name="grdMenuName">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <StackPanel Width="250">
+                                            <TextBlock Text="Menu Name" Name="lblMenuName" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <StackPanel>
+                                            <TextBox Name="txtMenuName" Style="{StaticResource textStyle}" Width="300"></TextBox>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                               
+                            </Grid>
+
+                            <Grid  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"  Name="grdForm" >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <StackPanel Width="250">
+                                            <TextBlock Text="Form Name" x:Name="lblFormName" Style="{StaticResource TextBlockStyle}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <StackPanel>
+                                            <TextBox  Name="txtFormName" Style="{StaticResource textStyle}" Width="300" ></TextBox>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="3" Name="grdButtonSave">
+                <Grid HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button Name="btnSave" Click="btnSave_Click">
+                            <Label>_Save</Label></Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Button Name="btnBack" Click="btnBack_Click">
+                            <Label>_Back</Label>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     </ScrollViewer>
 </Page>

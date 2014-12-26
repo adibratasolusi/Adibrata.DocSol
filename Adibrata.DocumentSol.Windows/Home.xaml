@@ -19,8 +19,33 @@
             
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1">
+            
         </Grid>
         <Grid Grid.Row="0" Grid.Column="2">
+            
+            <StackPanel>
+                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="200" Width="400" >
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding MenuName}">
+                            <StackPanel Orientation="Horizontal">
+                                <!--<Image Source="/WpfTutorialSamples;component/Images/user.png" Margin="0,0,5,0" />-->
+                                <TextBlock Text="{Binding MenuName}" Margin="0,0,4,0" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                    <!--<TreeView.ItemContainerStyle>
+                        <Style TargetType="TreeViewItem">
+                            <Setter Property="IsSelected" Value="{Binding IsSelected}" />
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded}" />
+                        </Style>
+                    </TreeView.ItemContainerStyle>-->
+
+                </TreeView>
+                <TextBox Name="txtMenu"></TextBox>
+                <TextBox Name="txtLink"></TextBox>
+                <Button Name="btnAddTree" >
+                    <Label>_Add</Label></Button>
+            </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
         </Grid>

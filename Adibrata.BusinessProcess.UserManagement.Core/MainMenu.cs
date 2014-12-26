@@ -27,8 +27,8 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
-                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
-                    ClassName = "UserManagement",
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Core",
+                    ClassName = "MainMenu",
                     FunctionName = "MainMenuGetActive",
                     ExceptionNumber = 1,
                     EventSource = "MainMenuGetActive",
@@ -77,9 +77,9 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
-                    NameSpace = "Adibrata.BusinessProcess.Paging.Core.UserManagement",
-                    ClassName = "UserRegisterPaging",
-                    FunctionName = "MainMenuInsert",
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Core",
+                    ClassName = "MainMenu",
+                    FunctionName = "MainMenuInsertUpdate",
                     ExceptionNumber = 1,
                     EventSource = "MainMenuInsert",
                     ExceptionObject = _exp,
@@ -105,11 +105,11 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
-                    NameSpace = "Adibrata.BusinessProcess.MainMenu.Core",
-                    ClassName = "UserManagement",
-                    FunctionName = "MainMenuGetActiveItemId",
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Core",
+                    ClassName = "MainMenu",
+                    FunctionName = "MainMenuGetActiveItemID",
                     ExceptionNumber = 1,
-                    EventSource = "MainMenuGetActiveItemId",
+                    EventSource = "MainMenu",
                     ExceptionObject = _exp,
                     EventID = 80, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -136,11 +136,11 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
-                    NameSpace = "Adibrata.BusinessProcess.MainMenu.Core",
-                    ClassName = "UserManagement",
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Core",
+                    ClassName = "MainMenu",
                     FunctionName = "MainMenuGetActiveShortOrder",
                     ExceptionNumber = 1,
-                    EventSource = "MainMenuGetActiveShortOrder",
+                    EventSource = "MainMenu",
                     ExceptionObject = _exp,
                     EventID = 80, // 80 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -168,9 +168,42 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Core",
+                    ClassName = "MainMenu",
+                    FunctionName = "SearchEngineMenu",
+                    ExceptionNumber = 1,
+                    EventSource = "MainMenu",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return _dt;
+        }
+
+        public virtual DataTable MenuTreeRetrieve(UserManagementEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            SqlDataReader _dr;
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@CurrentLevel", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.MenuLevel;
+
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure,"spMenuTreeGetItem", sqlParams));
+          
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
-                    ClassName = "UserManagement",
-                    FunctionName = "MainMenuGetActive",
+                    ClassName = "MainMenu",
+                    FunctionName = "MenuTreeRetrieve",
                     ExceptionNumber = 1,
                     EventSource = "MainMenuGetActive",
                     ExceptionObject = _exp,
@@ -182,7 +215,6 @@ namespace Adibrata.BusinessProcess.UserManagement.Core
 
             return _dt;
         }
-
 
     }
 }

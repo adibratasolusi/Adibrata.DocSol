@@ -26,7 +26,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
                 #region "List Parameter SQL"
-                sqlParams = new SqlParameter[5];
+                sqlParams = new SqlParameter[6];
                 sqlParams[0] = new SqlParameter("@ProjName", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.ProjectName;
                 sqlParams[1] = new SqlParameter("@ProjType", SqlDbType.VarChar, 50);
@@ -37,6 +37,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 sqlParams[3].Value = _ent.UserLogin;
                 sqlParams[4] = new SqlParameter("@DtmCrt", SqlDbType.SmallDateTime);
                 sqlParams[4].Value = DateTime.Now;
+                sqlParams[5] = new SqlParameter("@ProjCode", SqlDbType.VarChar,50);
+                sqlParams[5].Value = _ent.ProjectCode;
                 
                 SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spProjectSave", sqlParams);
                 #endregion

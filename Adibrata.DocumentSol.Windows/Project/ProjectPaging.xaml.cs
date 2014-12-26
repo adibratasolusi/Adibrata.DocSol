@@ -17,6 +17,7 @@ namespace Adibrata.DocumentSol.Windows.Project
     {
         SessionEntities SessionProperty;
         DocSolEntities _ent = new DocSolEntities();
+        
         public ProjectPaging(SessionEntities _session)
         {
             try
@@ -126,7 +127,7 @@ namespace Adibrata.DocumentSol.Windows.Project
 
                 DataGridHelper oDataGrid = new DataGridHelper();
                 oDataGrid.dtg = dgPaging;
-                DataGridCell cell = oDataGrid.GetCell(i, 1);
+                DataGridCell cell = oDataGrid.GetCell(i, 2);
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
@@ -183,7 +184,7 @@ namespace Adibrata.DocumentSol.Windows.Project
 
                 DataGridHelper oDataGrid = new DataGridHelper();
                 oDataGrid.dtg = dgPaging;
-                DataGridCell cell = oDataGrid.GetCell(i, 1);
+                DataGridCell cell = oDataGrid.GetCell(i, 2);
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;

@@ -51,7 +51,7 @@
                         <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblProjectCode" VerticalAlignment="Center"/>
                         
                         <TextBox Name="txtPrjectName" Style="{StaticResource textStyle}" MaxLength="50" Width="300"></TextBox>
-                        <ComboBox Name="cboProjectType" Text="{Binding Result}"   SelectedValue ="{Binding Result}">
+                        <ComboBox Name="cboProjectType" Text="{Binding Result}" IsTextSearchEnabled="True"  SelectedValue ="{Binding Result}">
                         </ComboBox>
                     </StackPanel>
                 </Grid>

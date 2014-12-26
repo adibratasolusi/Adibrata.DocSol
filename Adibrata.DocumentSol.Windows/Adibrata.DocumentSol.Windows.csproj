@@ -921,6 +921,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logoadibrata.png" />
+    <Resource Include="Images\settings-icon-png-27.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logoadibrata_login.png" />
@@ -981,7 +982,9 @@
   <ItemGroup>
     <Resource Include="Images\login.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\home.png" />
+  </ItemGroup>
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

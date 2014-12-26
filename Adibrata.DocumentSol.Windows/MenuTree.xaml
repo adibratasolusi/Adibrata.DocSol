@@ -7,8 +7,14 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="MenuTree">
-
-
+    <Page.Resources>
+    <ContextMenu x:Key="cmButton">
+        <MenuItem Header="Menu item 1" />
+        <MenuItem Header="Menu item 2" />
+        <Separator />
+        <MenuItem Header="Menu item 3" />
+    </ContextMenu>
+    </Page.Resources>
     <ScrollViewer>
         <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -18,6 +24,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="2*"  />
+                <RowDefinition Height="Auto"  />
+
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
             <StackPanel HorizontalAlignment="Center" Margin="4" Orientation="Horizontal">
@@ -67,7 +75,12 @@
                 </DataGrid.Columns>
 
             </DataGrid>
+            <Grid Grid.Row="2">
+                <TreeView>
 
+                </TreeView>
+            </Grid>
+            
         </Grid>
     </ScrollViewer> 
 </Page>

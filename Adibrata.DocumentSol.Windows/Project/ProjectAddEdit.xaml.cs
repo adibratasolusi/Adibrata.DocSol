@@ -17,7 +17,8 @@ namespace Adibrata.DocumentSol.Windows.Project
     /// </summary>
     public partial class ProjectAddEdit : Page
     {
-        SessionEntities SessionProperty;
+        SessionEntities SessionProperty = new SessionEntities();
+        string _custcode;
         public ProjectAddEdit(SessionEntities _session)
         {
             try
@@ -26,44 +27,56 @@ namespace Adibrata.DocumentSol.Windows.Project
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
                 DocSolEntities _ent = new DocSolEntities();
-                 DataTable _dt = new DataTable();
-                    _ent.ClassName = "ProjectRegistrasi";
-                    _ent.MethodName = "ProjectTypeReceive";
-                    _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                    List<string> data = new List<string>();
-                    if (_dt.Rows.Count > 0)
+                DataTable _dt = new DataTable();
+                _ent.ClassName = "ProjectRegistrasi";
+                _ent.MethodName = "ProjectTypeReceive";
+                _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+                List<string> data = new List<string>();
+                if (_dt.Rows.Count > 0)
+                {
+                    foreach (DataRow _row in _dt.Rows)
                     {
-                        foreach (DataRow _row in _dt.Rows)
+                        data.Add(_row["Result"].ToString());
+                    }
+                }
+
+                cboProjectType.ItemsSource = data;
+
+                if (_session.IsEdit)
+                {
+                    _ent.ClassName = "ProjectRegistrasi";
+                    _ent.MethodName = "ProjectRegistrasiView";
+                    _ent.ProjectCode = _session.ReffKey;
+                    _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                    lblCustomerCode.Text = _ent.CustomerCode;
+                    lblCustomerName.Text = _ent.CompanyName;
+                    lblDescProjCode.Text = "Project Code";
+                    lblProjectCode.Text = _session.ReffKey;
+                    txtPrjectName.Text = _ent.ProjectName;
+                    
+                    for (int i = 0; i <= cboProjectType.Items.Count; i++)
+                    {
+
+                        cboProjectType.SelectedIndex = i;
+                        
+                        if (cboProjectType.SelectedValue.ToString() == _ent.ProjectType)
                         {
-                            data.Add(_row["Result"].ToString());
+                            
+                            break;
                         }
                     }
 
-                    cboProjectType.ItemsSource = data;
-                    if (_session.IsEdit)
-                    {
-                        _ent.ClassName = "ProjectRegistrasi";
-                        _ent.MethodName = "ProjectRegistrasiView";
-                        _ent.ProjectCode = _session.ReffKey;
-                        _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
-                        lblCustomerCode.Text = _ent.CustomerCode;
-                        lblCustomerName.Text = _ent.CompanyName;
-                        lblDescProjCode.Text = "Project Code";
-                        lblProjectCode.Text = _session.ReffKey;
-                        txtPrjectName.Text = _ent.ProjectName;
-                        cboProjectType.SelectedItem = _ent.ProjectType;
-                        
-                    }
-                    else
-                    {
-                        _ent.ClassName = "CustomerRegistrasi";
-                        _ent.MethodName = "CustomerCompanyRegistrasiView";
-                        _ent.CustomerCode = _session.ReffKey;
+                }
+                else
+                {
+                    _ent.ClassName = "CustomerRegistrasi";
+                    _ent.MethodName = "CustomerCompanyRegistrasiView";
+                    _ent.CustomerCode = _session.ReffKey;
 
-                        _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
-                        lblCustomerCode.Text = _session.ReffKey;
-                        lblCustomerName.Text = _ent.CompanyName;
-                    }
+                    _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
+                    lblCustomerCode.Text = _session.ReffKey;
+                    lblCustomerName.Text = _ent.CompanyName;
+                }
 
             }
             catch (Exception _exp)
@@ -88,15 +101,24 @@ namespace Adibrata.DocumentSol.Windows.Project
         {
             try
             {
-                DocSolEntities _ent = new DocSolEntities{ProjectName = txtPrjectName.Text, ProjectType = cboProjectType.SelectedItem.ToString()};
-                _ent.MethodName = "ProjectRegistrasiAdd";
-                _ent.ClassName = "ProjectRegistrasi";
-                _ent.UserLogin = SessionProperty.UserName;
-                _ent.CustomerCode = SessionProperty.ReffKey;
-                _ent.IsEdit = SessionProperty.IsEdit;
-                
-                DocumentSolutionController.DocSolProcess<string>(_ent);
-                RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
+                if ( cboProjectType.SelectedItem == null)
+                { MessageBox.Show("Please Select Project Type"); }
+                else
+                    if (txtPrjectName.Text == "")
+                    { MessageBox.Show("Please Enter Project Name"); }
+                    else
+                    {
+                        DocSolEntities _ent = new DocSolEntities { ProjectName = txtPrjectName.Text, ProjectType = cboProjectType.SelectedItem.ToString() };
+                        _ent.MethodName = "ProjectRegistrasiAdd";
+                        _ent.ClassName = "ProjectRegistrasi";
+                        _ent.UserLogin = SessionProperty.UserName;
+                        _ent.CustomerCode = SessionProperty.ReffKey;
+                        _ent.IsEdit = SessionProperty.IsEdit;
+                        _ent.ProjectCode = SessionProperty.ReffKey;
+                        DocumentSolutionController.DocSolProcess<string>(_ent);
+                        SessionProperty.ReffKey = lblCustomerCode.Text;
+                        RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
+                    }
             }
             catch (Exception _exp)
             {
@@ -120,7 +142,7 @@ namespace Adibrata.DocumentSol.Windows.Project
         {
             try
             {
-
+                SessionProperty.ReffKey = _custcode;
                 RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
             }
             catch (Exception _exp)

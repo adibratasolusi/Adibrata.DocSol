@@ -25,6 +25,10 @@ namespace Adibrata.DocumentSol.Windows
                 _mainframe = _frmworksheet;
                 SessionProperty = _session;
                 this.DataContext = new Adibrata.Windows.UserController.MainVM(new Shell());
+
+                dtgMenu.ItemsSource = MenuDataRetrieve().DefaultView;
+                dtgMenu.CanUserSortColumns = true;
+                dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
             }
             catch (Exception _exp)
             {
@@ -32,8 +36,8 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Main",
-                    FunctionName = "Main",
+                    ClassName = "MenuTree",
+                    FunctionName = "MenuTree",
                     ExceptionNumber = 1,
                     EventSource = "Main",
                     ExceptionObject = _exp,
@@ -45,9 +49,9 @@ namespace Adibrata.DocumentSol.Windows
  
         }
 
-
-        private void btnFind_Click(object sender, RoutedEventArgs e)
+        private DataTable MenuDataRetrieve()
         {
+            DataTable dt = new DataTable();
             try
             {
                 UserManagementEntities _ent = new UserManagementEntities
@@ -56,13 +60,9 @@ namespace Adibrata.DocumentSol.Windows
                     ClassName = "MainMenu"
                 };
 
-                DataTable dt = new DataTable();
+                
                 _ent.Form = searchTextBox.Text;
                 dt = UserManagementController.UserManagement<DataTable>(_ent);
-
-                dtgMenu.ItemsSource = dt.DefaultView;
-                dtgMenu.CanUserSortColumns = true;
-                dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
             }
             catch (Exception _exp)
             {
@@ -70,8 +70,8 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Main",
-                    FunctionName = "Main",
+                    ClassName = "MenuTree",
+                    FunctionName = "MenuDataRetrieve",
                     ExceptionNumber = 1,
                     EventSource = "Main",
                     ExceptionObject = _exp,
@@ -80,6 +80,39 @@ namespace Adibrata.DocumentSol.Windows
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+
+            return dt;
+        }
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (searchTextBox.Text != "")
+                {
+
+                    dtgMenu.ItemsSource = MenuDataRetrieve().DefaultView;
+                    dtgMenu.CanUserSortColumns = true;
+                    dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "MenuTree",
+                    FunctionName = "btnFind_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
         }
 
         private void hpMenu_Click(object sender, RoutedEventArgs e)
@@ -127,7 +160,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Main",
+                    ClassName = "MenuTree",
                     FunctionName = "hpMenu_Click",
                     ExceptionNumber = 1,
                     EventSource = "Main",
@@ -174,7 +207,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Main",
+                    ClassName = "MenuTree",
                     FunctionName = "GetCell",
                     ExceptionNumber = 1,
                     EventSource = "Main",
@@ -214,7 +247,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Main",
+                    ClassName = "MenuTree",
                     FunctionName = "GetRow",
                     ExceptionNumber = 1,
                     EventSource = "Main",
@@ -269,7 +302,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Main",
+                    ClassName = "MenuTree",
                     FunctionName = "GetVisualChild",
                     ExceptionNumber = 1,
                     EventSource = "Main",

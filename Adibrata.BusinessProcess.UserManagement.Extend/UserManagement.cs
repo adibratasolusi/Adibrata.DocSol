@@ -90,5 +90,98 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
 
         }
 
+        public virtual DataTable MsUserMenuGetByUserId(UserManagementEntities _ent)
+        {
+
+            DataTable _dt = new DataTable();
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@UserId ", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.UserID;
+                _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spMsUserMenuGetByUserId", sqlParams));
+                
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
+                    ClassName = "UserManagement",
+                    FunctionName = "MsUserMenuGetByUserId",
+                    ExceptionNumber = 1,
+                    EventSource = "UserManagement",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _dt;
+        }
+
+
+        SqlTransaction _trans;
+        public virtual void spMSUserMenuInsert(UserManagementEntities _ent)
+        {
+            SqlConnection _conn = new SqlConnection(Connectionstring);
+            SqlParameter[] sqlParams;
+            
+            try
+            {
+                
+                if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
+                _trans = _conn.BeginTransaction();
+
+
+                sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@UserId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.UserID;
+                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spMsUserMenuDeleteBeforeInsert", sqlParams);
+
+                sqlParams = new SqlParameter[3];
+                sqlParams[0] = new SqlParameter("@UserId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.UserID;
+                sqlParams[1] = new SqlParameter("@FormId", SqlDbType.BigInt);
+                sqlParams[1].Value = _ent.FormID;
+                sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                sqlParams[2].Value = _ent.UserLogin;
+                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spMSUserMenuInsert", sqlParams);
+                
+
+                _trans.Commit();
+
+
+            }
+            catch (Exception _exp)
+            {
+                _trans.Rollback();
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
+                    ClassName = "UserManagement",
+                    FunctionName = "spMSUserMenuInsert",
+                    ExceptionNumber = 1,
+                    EventSource = "UserManagement",
+                    ExceptionObject = _exp,
+                    EventID = 80, // 80 Untuk DocumentManagement
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+            finally
+            {
+                if (_conn.State == ConnectionState.Open) { _conn.Close(); };
+                _conn.Dispose();
+            }
+
+        }
+
     }
 }

@@ -72,86 +72,107 @@ namespace Adibrata.Framework.WCF.Archieve
                 #region Archieve Process
                 if (dtDocTrans.Rows.Count > 0)
                 {
-                    for (int i = 0; i < dtDocTrans.Rows.Count; i++)
+                    try
                     {
-                        #region DOC TRANS INSERT
-
-                        Int64 docTransId = 0;
-                        DataTable _dt = new DataTable();
-                        sqlParams = new SqlParameter[3];
-                        sqlParams[0] = new SqlParameter("@TransId", SqlDbType.VarChar, 50);
-                        sqlParams[0].Value = (string)dtDocTrans.Rows[i]["TransID"];
-                        sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar, 50);
-                        sqlParams[1].Value = (string)dtDocTrans.Rows[i]["DocTypeCode"];
-                        sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                        sqlParams[2].Value = _ent.UserName;
-                        _dt.Load(SqlHelper.ExecuteReader(_Archievetrans, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
-                        docTransId = (Int64)_dt.Rows[0]["Id"];
-                        #endregion
-
-                        #region DOC TRANS BINARY INSERT
-                        for (int a = 0; a < dtDocTransBinary.Rows.Count; i++)
+                        for (int i = 0; i < dtDocTrans.Rows.Count; i++)
                         {
+                            #region DOC TRANS INSERT
 
-                            sqlParams = new SqlParameter[9];
-                            sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
-                            sqlParams[0].Value = docTransId;
-                            sqlParams[1] = new SqlParameter("@FileName", SqlDbType.VarChar, 8000);
-                            sqlParams[1].Value = dtDocTransBinary.Rows[a]["FileName"].ToString();
-                            sqlParams[2] = new SqlParameter("@DateCreated", SqlDbType.DateTime);
-                            sqlParams[2].Value = (DateTime)dtDocTransBinary.Rows[a]["DateCreated"];
-                            sqlParams[3] = new SqlParameter("@SizeFileBytes", SqlDbType.Decimal);
-                            sqlParams[3].Value = (decimal)dtDocTransBinary.Rows[a]["SizeFileBytes"];
-                            sqlParams[4] = new SqlParameter("@Pixel", SqlDbType.VarChar, 100);
-                            sqlParams[4].Value = (string)dtDocTransBinary.Rows[a]["Pixel"];
-                            sqlParams[5] = new SqlParameter("@ComputerName", SqlDbType.VarChar, 100);
-                            sqlParams[5].Value = (string)dtDocTransBinary.Rows[a]["ComputerName"];
-                            sqlParams[6] = new SqlParameter("@DPI", SqlDbType.VarChar, 100);
-                            sqlParams[6].Value = (string)dtDocTransBinary.Rows[a]["DPI"];
-                            sqlParams[7] = new SqlParameter("@FileBinary", SqlDbType.VarBinary);
-                            sqlParams[7].Value = (byte[])dtDocTransBinary.Rows[a]["FileBinary"];
-                            sqlParams[8] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                            sqlParams[8].Value = _ent.UserName;
+                            Int64 docTransId = 0;
+                            DataTable _dt = new DataTable();
+                            sqlParams = new SqlParameter[3];
+                            sqlParams[0] = new SqlParameter("@TransId", SqlDbType.VarChar, 50);
+                            sqlParams[0].Value = (string)dtDocTrans.Rows[i]["TransID"];
+                            sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar, 50);
+                            sqlParams[1].Value = (string)dtDocTrans.Rows[i]["DocTypeCode"];
+                            sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                            sqlParams[2].Value = _ent.UserName;
+                            _dt.Load(SqlHelper.ExecuteReader(_Archievetrans, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
+                            docTransId = (Int64)_dt.Rows[0]["Id"];
+                            #endregion
 
-                            SqlHelper.ExecuteNonQuery(_Archievetrans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+                            #region DOC TRANS BINARY INSERT
+                            for (int a = 0; a < dtDocTransBinary.Rows.Count; i++)
+                            {
 
+                                sqlParams = new SqlParameter[9];
+                                sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
+                                sqlParams[0].Value = docTransId;
+                                sqlParams[1] = new SqlParameter("@FileName", SqlDbType.VarChar, 8000);
+                                sqlParams[1].Value = dtDocTransBinary.Rows[a]["FileName"].ToString();
+                                sqlParams[2] = new SqlParameter("@DateCreated", SqlDbType.DateTime);
+                                sqlParams[2].Value = (DateTime)dtDocTransBinary.Rows[a]["DateCreated"];
+                                sqlParams[3] = new SqlParameter("@SizeFileBytes", SqlDbType.Decimal);
+                                sqlParams[3].Value = (decimal)dtDocTransBinary.Rows[a]["SizeFileBytes"];
+                                sqlParams[4] = new SqlParameter("@Pixel", SqlDbType.VarChar, 100);
+                                sqlParams[4].Value = (string)dtDocTransBinary.Rows[a]["Pixel"];
+                                sqlParams[5] = new SqlParameter("@ComputerName", SqlDbType.VarChar, 100);
+                                sqlParams[5].Value = (string)dtDocTransBinary.Rows[a]["ComputerName"];
+                                sqlParams[6] = new SqlParameter("@DPI", SqlDbType.VarChar, 100);
+                                sqlParams[6].Value = (string)dtDocTransBinary.Rows[a]["DPI"];
+                                sqlParams[7] = new SqlParameter("@FileBinary", SqlDbType.VarBinary);
+                                sqlParams[7].Value = (byte[])dtDocTransBinary.Rows[a]["FileBinary"];
+                                sqlParams[8] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                                sqlParams[8].Value = _ent.UserName;
+
+                                SqlHelper.ExecuteNonQuery(_Archievetrans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+
+                            }
+                            #endregion
+
+                            #region DOC TRANS CONTENT INSERT
+
+                            for (int b = 0; b < dtDocTransContent.Rows.Count; i++)
+                            {
+
+                                sqlParams = new SqlParameter[8];
+                                sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar, 50);
+                                sqlParams[0].Value = dtDocTransContent.Rows[b]["DocTypeCode"].ToString();
+                                sqlParams[1] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                                sqlParams[1].Value = docTransId;
+                                sqlParams[2] = new SqlParameter("@ContentName", SqlDbType.VarChar, 50);
+                                sqlParams[2].Value = dtDocTransContent.Rows[b]["ContentName"].ToString();
+                                sqlParams[3] = new SqlParameter("@ContentValue", SqlDbType.VarChar, 8000);
+                                sqlParams[3].Value = dtDocTransContent.Rows[b]["ContentValue"].ToString();
+                                sqlParams[4] = new SqlParameter("@ContentValueDate", SqlDbType.DateTime);
+                                sqlParams[4].Value = (DateTime)dtDocTransContent.Rows[b]["ContenValueDate"];
+                                sqlParams[5] = new SqlParameter("@ContentValueNumeric", SqlDbType.Decimal);
+                                sqlParams[5].Value = (decimal)dtDocTransContent.Rows[b]["ContentValueNumeric"];
+                                sqlParams[6] = new SqlParameter("@ContentSearchTag", SqlDbType.VarChar);
+                                sqlParams[6].Value = dtDocTransContent.Rows[b]["ContensSearchTag"].ToString();
+                                sqlParams[7] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                                sqlParams[7].Value = _ent.UserName;
+                                SqlHelper.ExecuteNonQuery(_Archievetrans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+
+                            }
+
+                            #endregion
+
+                            _Archievetrans.Commit();
                         }
+
+                        #region DOC TRANS DELETE
+
+                        sqlParams = new SqlParameter[1];
+                        sqlParams[0] = new SqlParameter("@docTransId", SqlDbType.BigInt);
+                        sqlParams[0].Value = _ent.DocTransID;
+                        SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spArchieveDeleteExecution", sqlParams);
+
                         #endregion
 
-                        #region DOC TRANS CONTENT INSERT
-
-                        for (int b = 0; b < dtDocTransContent.Rows.Count; i++)
-                        {
-
-                            sqlParams = new SqlParameter[8];
-                            sqlParams[0] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar, 50);
-                            sqlParams[0].Value = dtDocTransContent.Rows[b]["DocTypeCode"].ToString();
-                            sqlParams[1] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                            sqlParams[1].Value = docTransId;
-                            sqlParams[2] = new SqlParameter("@ContentName", SqlDbType.VarChar, 50);
-                            sqlParams[2].Value = dtDocTransContent.Rows[b]["ContentName"].ToString();
-                            sqlParams[3] = new SqlParameter("@ContentValue", SqlDbType.VarChar, 8000);
-                            sqlParams[3].Value = dtDocTransContent.Rows[b]["ContentValue"].ToString();
-                            sqlParams[4] = new SqlParameter("@ContentValueDate", SqlDbType.DateTime);
-                            sqlParams[4].Value = (DateTime)dtDocTransContent.Rows[b]["ContenValueDate"];
-                            sqlParams[5] = new SqlParameter("@ContentValueNumeric", SqlDbType.Decimal);
-                            sqlParams[5].Value = (decimal)dtDocTransContent.Rows[b]["ContentValueNumeric"];
-                            sqlParams[6] = new SqlParameter("@ContentSearchTag", SqlDbType.VarChar);
-                            sqlParams[6].Value = dtDocTransContent.Rows[b]["ContensSearchTag"].ToString();
-                            sqlParams[7] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                            sqlParams[7].Value = _ent.UserName;
-                            SqlHelper.ExecuteNonQuery(_Archievetrans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
-
-                        }
-
-                        #endregion
-
-                        _Archievetrans.Commit();
+                        _trans.Commit();
                     }
+                    catch (Exception)
+                    {
+                        _trans.Rollback();
+                        _Archievetrans.Rollback();
+                    }
+
+
+
                 }
                 #endregion
 
-                _trans.Commit();
 
             }
             catch (Exception _exp)

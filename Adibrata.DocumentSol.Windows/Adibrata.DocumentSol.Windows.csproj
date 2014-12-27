@@ -93,12 +93,26 @@
     </Compile>
     <Compile Include="Archiving\Execution.xaml.cs">
       <DependentUpon>Execution.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Archiving\ExecutionDetail.xaml.cs">
+      <DependentUpon>ExecutionDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Archiving\Inquiry\InquiryFinish.xaml.cs">
       <DependentUpon>InquiryFinish.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Archiving\Inquiry\InquiryFinishDetail.xaml.cs">
+      <DependentUpon>InquiryFinishDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Archiving\Inquiry\InquiryProcess.xaml.cs">
       <DependentUpon>InquiryProcess.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Archiving\Inquiry\InquiryProcessDetail.xaml.cs">
+      <DependentUpon>InquiryProcessDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Archiving\Prepare.xaml.cs">
       <DependentUpon>Prepare.xaml</DependentUpon>
@@ -413,11 +427,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Archiving\ExecutionDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Archiving\Inquiry\InquiryFinish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Archiving\Inquiry\InquiryFinishDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Archiving\Inquiry\InquiryProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Archiving\Inquiry\InquiryProcessDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

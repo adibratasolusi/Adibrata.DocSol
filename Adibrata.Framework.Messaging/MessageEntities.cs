@@ -56,6 +56,11 @@ namespace Adibrata.Framework.Messaging
             get;
             set;
         }
+        public string UserName
+        {
+            get;
+            set;
+        }
         public Int64 DocTransID
         {
             get;
@@ -102,6 +107,9 @@ namespace Adibrata.Framework.Messaging
             set;
         }
     }
+
+
+
 
     [Serializable]
     public class BITSEntities

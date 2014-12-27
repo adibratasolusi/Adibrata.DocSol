@@ -21,6 +21,9 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
+
+            ucView.Session = SessionProperty;
+            ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
         }
 
 

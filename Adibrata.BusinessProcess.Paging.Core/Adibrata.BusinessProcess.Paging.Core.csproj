@@ -53,6 +53,7 @@
     <Compile Include="Storage\FileNumberPaging.cs" />
     <Compile Include="Storage\FileStorage.cs" />
     <Compile Include="Upload\UploadProcessPaging.cs" />
+    <Compile Include="UserManagement\UserFormRegistration.cs" />
     <Compile Include="UserManagement\UserRegister.cs" />
   </ItemGroup>
   <ItemGroup>

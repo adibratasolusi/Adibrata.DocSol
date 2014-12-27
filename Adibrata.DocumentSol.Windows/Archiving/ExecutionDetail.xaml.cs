@@ -2,6 +2,7 @@
 using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Controller;
 using Adibrata.Framework.Logging;
+using Adibrata.Framework.Messaging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Windows;
@@ -60,14 +61,10 @@ namespace Adibrata.DocumentSol.Windows.Archiving
         {
             try
             {
-                DocSolEntities _ent = new DocSolEntities
-                {
-                    MethodName = "ArchieveExecution",
-                    ClassName = "ArchieveProcess"
-                };
-                _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
-
-                DocumentSolutionController.DocSolProcess<string>(_ent);
+                WCFEntities oWcf = new WCFEntities();
+                oWcf.DocTransID = Convert.ToInt64(SessionProperty.ReffKey);
+                oWcf.UserName = SessionProperty.UserName;
+                MessageToWCF.ArchieveExecProcess(oWcf);
                 MessageBox.Show("Document Archieve Execution Success");
                 RedirectPage redirect = new RedirectPage(this, "Archiving.Execution", SessionProperty);
             }

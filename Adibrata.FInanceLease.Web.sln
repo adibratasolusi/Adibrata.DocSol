@@ -91,6 +91,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptDecrypt", "EncryptDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.WCF.Archieve", "Adibrata.Framework.WCF.Archieve\Adibrata.Framework.WCF.Archieve.csproj", "{7DA8AC35-04F9-4171-826A-A933BD61FE32}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Archieve", "Adibrata.Database.Archieve\Adibrata.Database.Archieve.sqlproj", "{265204F4-3666-4E15-A86E-42CC4475FCE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -449,6 +451,16 @@ Global
 		{7DA8AC35-04F9-4171-826A-A933BD61FE32}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7DA8AC35-04F9-4171-826A-A933BD61FE32}.Release|ARM.ActiveCfg = Release|Any CPU
 		{7DA8AC35-04F9-4171-826A-A933BD61FE32}.Release|x86.ActiveCfg = Release|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Release|ARM.ActiveCfg = Release|Any CPU
+		{265204F4-3666-4E15-A86E-42CC4475FCE5}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

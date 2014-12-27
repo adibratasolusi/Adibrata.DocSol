@@ -155,7 +155,11 @@ namespace Adibrata.Windows.UserController.DocContent
                                 {
                                     TextBox txtInput = (TextBox)this.PanelInput.FindName(_row["Result"].ToString().Trim());
                                     _row["EntryValue"] = txtInput.Text;
-                                    _row["EntryValueNumber"] = Convert.ToDecimal(txtInput.Text);
+                                    try
+                                    {
+                                        _row["EntryValueNumber"] = Convert.ToDecimal(txtInput.Text);
+                                    }
+                                    catch { MessageBox.Show("Please Enter For " + _row["Field2"].ToString()); }
                                 }
                                 break;
                         }

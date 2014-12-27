@@ -151,8 +151,8 @@
     <Compile Include="DocumentSearch\DocumentSearch.xaml.cs">
       <DependentUpon>DocumentSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
+    <Compile Include="MenuTree.xaml.cs">
+      <DependentUpon>MenuTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\Canvas\CanvasDetail.xaml.cs">
       <DependentUpon>CanvasDetail.xaml</DependentUpon>
@@ -280,8 +280,8 @@
     <Compile Include="LogOutScreen.xaml.cs">
       <DependentUpon>LogOutScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuTree.xaml.cs">
-      <DependentUpon>MenuTree.xaml</DependentUpon>
+    <Compile Include="MenuTree_Old.xaml.cs">
+      <DependentUpon>MenuTree_Old.xaml</DependentUpon>
     </Compile>
     <Compile Include="Project\CustomerProjectPaging.xaml.cs">
       <DependentUpon>CustomerProjectPaging.xaml</DependentUpon>
@@ -485,7 +485,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Home.xaml">
+    <Page Include="MenuTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -633,7 +633,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MenuTree.xaml">
+    <Page Include="MenuTree_Old.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

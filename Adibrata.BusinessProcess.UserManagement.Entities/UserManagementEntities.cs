@@ -21,7 +21,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public string SecQuestion { get; set; }
         public string SecAnswer { get; set; }
         public int MenuItemId { get; set; }
-        public int MenuParentId { get; set; }
+        public long MenuParentId { get; set; }
         public int ShortOrder { get; set; }
         public string MenuTxt { get; set; }
         public char IsSeparator { get; set; }
@@ -42,7 +42,8 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
         public string MenuName { get; set; }
         
         public Boolean isRoot { get; set; }
-        
+
+        public short MenuOrder { get; set; }
         #endregion 
 
     }

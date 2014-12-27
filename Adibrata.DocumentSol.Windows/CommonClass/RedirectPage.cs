@@ -142,6 +142,12 @@ namespace Adibrata.DocumentSol.Windows
                 case "UserManagement.Favorite.FavoriteEdit": Source.NavigationService.Navigate(new UserManagement.Favorite.FavoriteEdit(_ent)); break;
                 #endregion
 
+
+                #region "Menu Registration"
+                case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
+                #endregion 
+
+
             }
         }
 
@@ -221,6 +227,9 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
+                #region "Menu Registration"
+                case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
+                #endregion 
 
 
                 //#region "Image Processing"

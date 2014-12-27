@@ -48,7 +48,7 @@ namespace Adibrata.Controller.Paging
                     _obj = Activator.CreateInstance(_type);
                     DataCache.Insert<object>(_methodname, _obj);
                 }
-                else {_obj = Activator.CreateInstance(_type); }
+                else { _obj = DataCache.Get<object>(_methodname); }
                 #endregion 
 
                 //New Non Static Classs

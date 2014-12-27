@@ -55,7 +55,7 @@ namespace Adibrata.Controller.UserManagement
                 }
                 else
                 {
-                    _obj = Activator.CreateInstance(_type);
+                    _obj = DataCache.Get<object>(_methodname);
                 }
                 #endregion 
                 object[] _param = new object[] { _ent };

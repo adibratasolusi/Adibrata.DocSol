@@ -83,6 +83,32 @@ namespace Adibrata.DocumentSol.Windows.Menu
         {
             try
             {
+                _ent.ClassName = "MainMenu";
+                _ent.MethodName = "MenuTreeSave";
+                if (cboYesNo.SelectedValue.ToString() == "Yes" && cboYesNo.SelectedValue != null)
+                {
+                    if (cboFormName.SelectedValue != null)
+                    {
+                        _ent.MenuName = null;
+                        _ent.FormName = cboFormName.SelectedValue.ToString();
+                    }
+                }
+                else
+                {
+                    _ent.MenuName = txtMenuName.Text;
+                }
+                try
+                {
+                    _ent.MenuOrder = Convert.ToInt16(txtFormOrder.Text);
+                }
+                catch 
+                {
+                    MessageBox.Show ("Please Enter Order Menu By Numeric");
+                }
+                _ent.UserLogin = SessionProperty.UserName;
+                _ent.ParentLevelMenu = Convert.ToInt64(lblParentLevel.Text);
+                UserManagementController.UserManagement<string>(_ent);
+
                 grdAdd.Visibility = Visibility.Visible;
                 grdAddEdit.Visibility = Visibility.Hidden;
                 grdButtonSave.Visibility = Visibility.Hidden;
@@ -110,8 +136,7 @@ namespace Adibrata.DocumentSol.Windows.Menu
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             try {
-                txtFormName.Text = _ent.MenuName;
-                txtFormOrder.Text = (_ent.MenuLevel + 1).ToString();
+                
                 grdAdd.Visibility = Visibility.Hidden;
                 grdAddEdit.Visibility = Visibility.Visible;
                 grdMenuName.Visibility = Visibility.Hidden;
@@ -137,11 +162,11 @@ namespace Adibrata.DocumentSol.Windows.Menu
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-
+        #region "Tree Process"
         private void TreeViewItem_Expanded(object sender, RoutedEventArgs e)
         {
             TreeViewItem item = e.Source as TreeViewItem;
-            UserManagementEntities _menutag;
+            UserManagementEntities _menutag = new UserManagementEntities();
             try
             {
                 if ((item.Items.Count == 1) && (item.Items[0] is string))
@@ -149,23 +174,11 @@ namespace Adibrata.DocumentSol.Windows.Menu
                     item.Items.Clear();
 
                     _menutag = (UserManagementEntities)item.Tag;
-                    //DirectoryInfo expandedDir = null;
-                    //if (item.Tag is DriveInfo)
-                    //    expandedDir = (item.Tag as DriveInfo).RootDirectory;
-                    //if (item.Tag is DirectoryInfo)
-                    //    expandedDir = (item.Tag as DirectoryInfo);
-
-                    //    foreach (DirectoryInfo subDir in expandedDir.GetDirectories())
-                    //item.Items.Add(CreateTreeItem(_ent));
-                    //}
-
-                    lblParentLevel.Text = _menutag.MenuLevel.ToString();
-                    lblParentName.Text = _menutag.MenuName;
 
                     _ent.ClassName = "MainMenu";
                     _ent.MethodName = "MenuTreeRetrieve";
                     _ent.MenuLevel = _menutag.MenuLevel;
-
+                    _ent.MenuName = item.Header.ToString();
                     _dt = UserManagementController.UserManagement<DataTable>(_ent);
                     if (_dt.Rows.Count > 0)
                     {
@@ -175,19 +188,18 @@ namespace Adibrata.DocumentSol.Windows.Menu
                             _ent.MenuLevel = (long)_row["MenuLevel"];
                             _ent.FormURL = (string)_row["FormUrl"];
                             item.Items.Add(CreateTreeItem(_ent));
-                            //                                trvStructure.Items.Add(CreateTreeItem(_ent));
                         }
                     }
-
                 }
             }
+
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuRegistration",
+                    ClassName = "Home",
                     FunctionName = "TreeViewItem_Expanded",
                     ExceptionNumber = 1,
                     EventSource = "Main",
@@ -199,23 +211,40 @@ namespace Adibrata.DocumentSol.Windows.Menu
             }
         }
 
-
-        private void BindMenuRoot()
+        private TreeViewItem CreateTreeItem(object o)
         {
+            TreeViewItem item = new TreeViewItem();
+            UserManagementEntities _enttree = new UserManagementEntities();
+            _enttree = (UserManagementEntities)o;
+            item.Header = _enttree.MenuName;
+            item.Tag = _enttree;
+            item.Items.Add("Loading...");
+            return item;
+        }
+
+        private void trvStructure_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            TreeView tree = (TreeView)sender;
+            TreeViewItem temp = ((TreeViewItem)tree.SelectedItem);
+            grdAdd.Visibility = Visibility.Visible;
+            grdAddEdit.Visibility = Visibility.Hidden;
+            grdButtonSave.Visibility = Visibility.Hidden;
+            if (temp == null)
+                return;
+            DataTable _dt = new DataTable();
+            UserManagementEntities _ent = new UserManagementEntities();
             try
             {
                 _ent.ClassName = "MainMenu";
-                _ent.MethodName = "MenuTreeRetrieve";
-                _ent.MenuLevel = 0;
+                _ent.MethodName = "MenuTreeGetDetail";
+                _ent.MenuName = temp.Header.ToString();
                 _dt = UserManagementController.UserManagement<DataTable>(_ent);
                 if (_dt.Rows.Count > 0)
                 {
                     foreach (DataRow _row in _dt.Rows)
                     {
-                        _ent.MenuName = _row["MenuName"].ToString().Trim();
-                        _ent.MenuLevel = (long)_row["MenuLevel"];
-                        _ent.FormURL = (string)_row["FormUrl"];
-                        trvStructure.Items.Add(CreateTreeItem(_ent));
+                        lblParentName.Text = _row["MenuName"].ToString().Trim();
+                        lblParentLevel.Text = _row["MenuLevel"].ToString().Trim();
                     }
                 }
             }
@@ -225,8 +254,8 @@ namespace Adibrata.DocumentSol.Windows.Menu
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuRegistration",
-                    FunctionName = "BindMenuRoot",
+                    ClassName = "Home",
+                    FunctionName = "TreeViewItem_Expanded",
                     ExceptionNumber = 1,
                     EventSource = "Main",
                     ExceptionObject = _exp,
@@ -236,36 +265,66 @@ namespace Adibrata.DocumentSol.Windows.Menu
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-        private TreeViewItem CreateTreeItem(object o)
-        {
-            TreeViewItem item = new TreeViewItem();
-            UserManagementEntities _ent;
-            _ent = (UserManagementEntities)o;
-            item.Header = _ent.MenuName;
-            item.Tag = _ent;
-            item.Items.Add("Loading...");
-            
-            return item;
-        }
 
-       
+        private void BindMenuRoot()
+        {
+            try
+            {
+                _ent.MenuName = "Menu";
+                trvStructure.Items.Add(CreateTreeItem(_ent));
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Home",
+                    FunctionName = "BindMenuRoot",
+                    ExceptionNumber = 1,
+                    EventSource = "Home",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+        }
+        #endregion 
+
         private void cboYesNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cboYesNo.SelectedValue != null)
+            if (cboYesNo.SelectedValue.ToString() == "Yes")
             {
-                if (cboYesNo.SelectedValue.ToString() == "Yes")
+                _ent.ClassName = "MainMenu";
+                _ent.MethodName = "MenuTreeGetFormList";
+                _dt = UserManagementController.UserManagement<DataTable>(_ent);
+                List<string> lstForm = new List<string>();
+                if (_dt.Rows.Count > 0)
                 {
-                    grdForm.Visibility = Visibility.Visible;
-                    grdMenuName.Visibility = Visibility.Hidden;
+                    foreach (DataRow _row in _dt.Rows)
+                    {
+                        lstForm.Add(_row["FormName"].ToString().Trim());
+                    }
                 }
-                else
-                {
-                    grdForm.Visibility = Visibility.Hidden;
-                    grdMenuName.Visibility = Visibility.Visible;
-                }
+                lstForm.Add("No");
+                cboFormName.ItemsSource = lstForm;
+                grdMenuName.Visibility = Visibility.Hidden;
+                grdForm.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                grdMenuName.Visibility = Visibility.Visible;
+                grdForm.Visibility = Visibility.Hidden;
             }
         }
 
+        private void cboFormName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+      
       
     }
 }

@@ -199,11 +199,5 @@
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging_1.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveApproval.sql" />
-    <Build Include="StoreProcedure\Menu\spMenuTreeGetItem.sql" />
-    <Build Include="StoreProcedure\Menu\spMenuTreeGetUrl.sql" />
-    <Build Include="StoreProcedure\Menu\spMenuTreeGetDetail.sql" />
-    <Build Include="StoreProcedure\Menu\spMenuTreeListForm.sql" />
-    <Build Include="StoreProcedure\Menu\spMenuTreeSave.sql" />
-    <Build Include="Table\MS_Menu.sql" />
   </ItemGroup>
 </Project>

@@ -6,29 +6,52 @@ using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
 namespace Adibrata.DocumentSol.Windows
 {
     /// <summary>
-    /// Interaction logic for MenuTree.xaml
+    /// Interaction logic for Home.xaml
     /// </summary>
     public partial class MenuTree : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
-        Frame _mainframe = new Frame();
+        UserManagementEntities _ent = new UserManagementEntities();
+        DataTable _dt = new DataTable();
+        Frame _frmwork = new Frame();
+        public MenuTree(SessionEntities _session)
+        {
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new Adibrata.Windows.UserController.MainVM(new Shell());
+                SessionProperty = _session;
+                BindMenuRoot();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "Home",
+                    FunctionName = "Home",
+                    ExceptionNumber = 1,
+                    EventSource = "Home",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
         public MenuTree(SessionEntities _session, Frame _frmworksheet)
         {
             try
             {
                 InitializeComponent();
-                _mainframe = _frmworksheet;
-                SessionProperty = _session;
                 this.DataContext = new Adibrata.Windows.UserController.MainVM(new Shell());
-
-                dtgMenu.ItemsSource = MenuDataRetrieve().DefaultView;
-                dtgMenu.CanUserSortColumns = true;
-                dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
+                SessionProperty = _session;
+                BindMenuRoot();
+                _frmwork = _frmworksheet;
             }
             catch (Exception _exp)
             {
@@ -36,33 +59,24 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuTree",
-                    FunctionName = "MenuTree",
+                    ClassName = "Home",
+                    FunctionName = "Home",
                     ExceptionNumber = 1,
-                    EventSource = "Main",
+                    EventSource = "Home",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
- 
         }
 
-        private DataTable MenuDataRetrieve()
+        private void BindMenuRoot()
         {
-            DataTable dt = new DataTable();
             try
             {
-                UserManagementEntities _ent = new UserManagementEntities
-                {
-                    MethodName = "SearchEngineMenu",
-                    ClassName = "MainMenu"
-                };
-
-                
-                _ent.Form = searchTextBox.Text;
-                dt = UserManagementController.UserManagement<DataTable>(_ent);
+                _ent.MenuName = "Menu";
+                trvStructure.Items.Add(CreateTreeItem(_ent));
             }
             catch (Exception _exp)
             {
@@ -70,42 +84,10 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuTree",
-                    FunctionName = "MenuDataRetrieve",
+                    ClassName = "Home",
+                    FunctionName = "BindMenuRoot",
                     ExceptionNumber = 1,
-                    EventSource = "Main",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-
-            return dt;
-        }
-
-        private void btnFind_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (searchTextBox.Text != "")
-                {
-
-                    dtgMenu.ItemsSource = MenuDataRetrieve().DefaultView;
-                    dtgMenu.CanUserSortColumns = true;
-                    dtgMenu.HeadersVisibility = DataGridHeadersVisibility.None;
-                }
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuTree",
-                    FunctionName = "btnFind_Click",
-                    ExceptionNumber = 1,
-                    EventSource = "Main",
+                    EventSource = "Home",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -114,101 +96,44 @@ namespace Adibrata.DocumentSol.Windows
             }
 
         }
-
-        private void hpMenu_Click(object sender, RoutedEventArgs e)
+        private void TreeViewItem_Expanded(object sender, RoutedEventArgs e)
         {
-            //int i = dtgMenu.SelectedIndex;
-            //DataGridHelper dtgHelper = new DataGridHelper();
-            //dtgHelper.dtg = dtgMenu;
-            //DataGridCell cell = dtgHelper.GetCell(i, 1);
-            //var asd = cell.Content;
-            //TextBlock formUrl = dtgHelper.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
-
-            //string _formUrl = formUrl.Text;
+            TreeViewItem item = e.Source as TreeViewItem;
+            UserManagementEntities _menutag = new UserManagementEntities();
             try
             {
-                DataRowView Grdrow = ((FrameworkElement)sender).DataContext as DataRowView;
-
-
-
-                //Fidn the DataGrid row index
-
-                int rowIndex = dtgMenu.Items.IndexOf(Grdrow);
-
-
-
-                //Find the DataGridCell
-
-                DataGridCell cell = GetCell(rowIndex, 1); //Pass the row and column
-
-
-
-                //Find the "lblVehicleName" lable.
-
-                Label lblsource_address = GetVisualChild<Label>(cell); // pass the DataGridCell as a parameter to GetVisualChild
-
-
-
-                string _value = lblsource_address.Content.ToString();
-
-
-                RedirectPage redirect = new RedirectPage(_mainframe, _value, SessionProperty);
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
+                if ((item.Items.Count == 1) && (item.Items[0] is string))
                 {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuTree",
-                    FunctionName = "hpMenu_Click",
-                    ExceptionNumber = 1,
-                    EventSource = "Main",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-            //RedirectPage(frmWorksheet, _formUrl, SessionProperty);
-            //MessageBox.Show(_value);
-            // frmWorksheet.NavigationService.Navigate( new Uri( "pack://application:,,,/AssemblyName;component/Resources/logo.png"+ _formUrl),UriKind.Relative);
-            //this.NavigationService.Navigate(new AgrmntUploadProc(_value));
-        }
-        public DataGridCell GetCell(int row, int column)
-        {
+                    item.Items.Clear();
 
-            DataGridRow rowContainer = GetRow(row);
-            try
-            {
-                if (rowContainer != null)
-                {
-
-                    DataGridCellsPresenter presenter = GetVisualChild<DataGridCellsPresenter>(rowContainer);
-
-                    if (presenter == null)
+                    _menutag = (UserManagementEntities)item.Tag;
+             
+                    _ent.ClassName = "MainMenu";
+                    _ent.MethodName = "MenuTreeRetrieve";
+                    _ent.MenuLevel = _menutag.MenuLevel;
+                    _ent.MenuName = item.Header.ToString();
+                    _dt = UserManagementController.UserManagement<DataTable>(_ent);
+                    if (_dt.Rows.Count > 0)
                     {
-
-                        dtgMenu.ScrollIntoView(rowContainer, dtgMenu.Columns[column]);
-
-                        presenter = GetVisualChild<DataGridCellsPresenter>(rowContainer);
-
+                        foreach (DataRow _row in _dt.Rows)
+                        {
+                            _ent.MenuName = _row["MenuName"].ToString().Trim();
+                            _ent.MenuLevel = (long)_row["MenuLevel"];
+                            _ent.FormURL = (string)_row["FormUrl"];
+                            item.Items.Add(CreateTreeItem(_ent));
+                        }
                     }
-
-                    DataGridCell cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(column);
-
-                    return cell;
-
                 }
             }
+            
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuTree",
-                    FunctionName = "GetCell",
+                    ClassName = "Home",
+                    FunctionName = "TreeViewItem_Expanded",
                     ExceptionNumber = 1,
                     EventSource = "Main",
                     ExceptionObject = _exp,
@@ -217,28 +142,38 @@ namespace Adibrata.DocumentSol.Windows
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
-            return null;
+        }
+        
+    
 
+        private TreeViewItem CreateTreeItem(object o)
+        {
+            TreeViewItem item = new TreeViewItem();
+            UserManagementEntities _enttree = new UserManagementEntities();
+            _enttree = (UserManagementEntities)o;
+            item.Header = _enttree.MenuName;
+            item.Tag = _enttree;
+            item.Items.Add("Loading...");
+            return item;
         }
 
-
-
-        public DataGridRow GetRow(int index)
+        private void trvStructure_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            DataGridRow row = new DataGridRow();
+            TreeView tree = (TreeView)sender;
+            TreeViewItem temp = ((TreeViewItem)tree.SelectedItem);
+            String _url;
+            if (temp == null)
+                return;
+            UserManagementEntities _ent = new UserManagementEntities();
             try
             {
-                row = (DataGridRow)dtgMenu.ItemContainerGenerator.ContainerFromIndex(index);
-
-                if (row == null)
+                _ent.ClassName = "MainMenu";
+                _ent.MethodName = "MenuTreeGetURL";
+                _ent.MenuName = temp.Header.ToString();
+                _url = UserManagementController.UserManagement<String>(_ent);
+                if (_url != "")
                 {
-
-                    dtgMenu.UpdateLayout();
-
-                    dtgMenu.ScrollIntoView(dtgMenu.Items[index]);
-
-                    row = (DataGridRow)dtgMenu.ItemContainerGenerator.ContainerFromIndex(index);
-
+                    RedirectPage redirect = new RedirectPage(_frmwork, _url, SessionProperty);
                 }
             }
             catch (Exception _exp)
@@ -247,8 +182,8 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuTree",
-                    FunctionName = "GetRow",
+                    ClassName = "Home",
+                    FunctionName = "TreeViewItem_Expanded",
                     ExceptionNumber = 1,
                     EventSource = "Main",
                     ExceptionObject = _exp,
@@ -257,64 +192,57 @@ namespace Adibrata.DocumentSol.Windows
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
-            return row;
-
-        }
-
-
-
-        public T GetVisualChild<T>(Visual parent) where T : Visual
-        {
-
-            T child = default(T);
-            try
-            {
-                int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
-
-                for (int i = 0; i < numVisuals; i++)
-                {
-
-                    Visual v = (Visual)VisualTreeHelper.GetChild(parent, i);
-
-                    child = v as T;
-
-                    if (child == null)
-                    {
-
-                        child = GetVisualChild<T>
-
-                        (v);
-
-                    }
-
-                    if (child != null)
-                    {
-
-                        break;
-
-                    }
-
-                }
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "MenuTree",
-                    FunctionName = "GetVisualChild",
-                    ExceptionNumber = 1,
-                    EventSource = "Main",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-            return child;
-
         }
 
     }
 }
+
+
+//using System;
+//using System.IO;
+//using System.Windows;
+//using System.Windows.Controls;
+
+//namespace WpfTutorialSamples.TreeView_control
+//{
+//        public partial class LazyLoadingSample : Window
+//        {
+//                public LazyLoadingSample()
+//                {
+//                        InitializeComponent();
+//                        DriveInfo[] drives = DriveInfo.GetDrives();
+//                        foreach(DriveInfo driveInfo in drives)
+//                                trvStructure.Items.Add(CreateTreeItem(driveInfo));
+//                }
+
+//                public void TreeViewItem_Expanded(object sender, RoutedEventArgs e)
+//                {
+//                        TreeViewItem item = e.Source as TreeViewItem;
+//                        if((item.Items.Count == 1) && (item.Items[0] is string))
+//                        {
+//                                item.Items.Clear();
+
+//                                DirectoryInfo expandedDir = null;
+//                                if(item.Tag is DriveInfo)
+//                                        expandedDir = (item.Tag as DriveInfo).RootDirectory;
+//                                if(item.Tag is DirectoryInfo)
+//                                        expandedDir = (item.Tag as DirectoryInfo);
+//                                try
+//                                {
+//                                        foreach(DirectoryInfo subDir in expandedDir.GetDirectories())
+//                                                item.Items.Add(CreateTreeItem(subDir));
+//                                }
+//                                catch { }
+//                        }
+//                }
+
+//                private TreeViewItem CreateTreeItem(object o)
+//                {
+//                        TreeViewItem item = new TreeViewItem();
+//                        item.Header = o.ToString();
+//                        item.Tag = o;
+//                        item.Items.Add("Loading...");
+//                        return item;
+//                }
+//        }
+//}

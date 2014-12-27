@@ -102,6 +102,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
 
                 #endregion
+
                 #region "UserForm"
                 case "UserManagement.UserFormRegistration.UserFormRegistration": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistration(_ent)); break;
                 case "UserManagement.UserFormRegistration.UserFormRegistrationPaging": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistrationPaging(_ent)); break;
@@ -142,6 +143,12 @@ namespace Adibrata.DocumentSol.Windows
                 #region "Favorite"
                 case "UserManagement.Favorite.FavoriteEdit": Source.NavigationService.Navigate(new UserManagement.Favorite.FavoriteEdit(_ent)); break;
                 #endregion
+
+
+                #region "Menu Registration"
+                case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
+                #endregion 
+
 
             }
         }
@@ -222,6 +229,11 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
+                #region "Menu Registration"
+                case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
+                #endregion 
+
+
 
 
                 //#region "Image Processing"
@@ -258,6 +270,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
 
                 #endregion
+
                 #region "UserForm"
                 case "UserManagement.UserFormRegistration.UserFormRegistration": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistration(_ent)); break;
                 case "UserManagement.UserFormRegistration.UserFormRegistrationPaging": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistrationPaging(_ent)); break;
@@ -269,7 +282,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "Archiving.Execution": Source.NavigationService.Navigate(new Archiving.Execution(_ent)); break;
                 case "Archiving.ApprovalDetail": Source.NavigationService.Navigate(new Archiving.ApprovalDetail(_ent)); break;
                 case "Archiving.ExecutionDetail": Source.NavigationService.Navigate(new Archiving.ExecutionDetail(_ent)); break;
-                
+
                 case "Archiving.PrepareDetail": Source.NavigationService.Navigate(new Archiving.PrepareDetail(_ent)); break;
                 case "Archiving.Prepare": Source.NavigationService.Navigate(new Archiving.Prepare(_ent)); break;
                 case "Archiving.InquiryFinish": Source.NavigationService.Navigate(new Archiving.InquiryFinish(_ent)); break;

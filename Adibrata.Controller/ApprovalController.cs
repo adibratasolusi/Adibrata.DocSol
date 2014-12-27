@@ -56,7 +56,7 @@ namespace Adibrata.Controller.Approval
                 }
                 else
                 {
-                    _obj = Activator.CreateInstance(_type);
+                    _obj = DataCache.Get<object>(_methodname);
                 }
                 #endregion 
 

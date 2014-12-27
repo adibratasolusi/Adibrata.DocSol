@@ -29,7 +29,8 @@ namespace Adibrata.DocumentSol.Windows
 
                 lblBusinessDate.Text = DateTime.Now.ToString("dd/MMMM/yyyy");
                 frmWorksheet.NavigationService.Navigate(new  DocumentContent.SearchDocument (SessionProperty));
-                frmMenu.NavigationService.Navigate(new MenuTree(_session,frmWorksheet));
+                //frmMenu.NavigationService.Navigate(new MenuTree(_session,frmWorksheet));
+                frmMenu.NavigationService.Navigate(new MenuTree(SessionProperty, frmWorksheet));
             }
             catch (Exception _exp)
             {
@@ -118,7 +119,8 @@ namespace Adibrata.DocumentSol.Windows
         {
             try
             {
-                frmWorksheet.NavigationService.Navigate(new Home(SessionProperty));
+                //frmWorksheet.NavigationService.Navigate(new Menu.MenuRegistration(SessionProperty));
+                frmWorksheet.NavigationService.Navigate(new MenuTree(SessionProperty));
             }
             catch (Exception _exp)
             {

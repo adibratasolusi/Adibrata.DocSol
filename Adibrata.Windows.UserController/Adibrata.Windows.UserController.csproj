@@ -353,9 +353,7 @@
       <Name>SharpBITS.Base</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="UCMenu\Images\Admin.png" />
     <Resource Include="UCMenu\Images\Finance.png" />

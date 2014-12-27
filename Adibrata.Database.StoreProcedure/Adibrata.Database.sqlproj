@@ -204,5 +204,6 @@
     <Build Include="StoreProcedure\Menu\spMenuTreeGetDetail.sql" />
     <Build Include="StoreProcedure\Menu\spMenuTreeListForm.sql" />
     <Build Include="StoreProcedure\Menu\spMenuTreeSave.sql" />
+    <Build Include="Table\MS_Menu.sql" />
   </ItemGroup>
 </Project>

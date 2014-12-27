@@ -92,7 +92,7 @@ namespace Adibrata.Framework.WCF.Archieve
                             #endregion
 
                             #region DOC TRANS BINARY INSERT
-                            for (int a = 0; a < dtDocTransBinary.Rows.Count; i++)
+                            for (int a = 0; a < dtDocTransBinary.Rows.Count; a++)
                             {
 
                                 sqlParams = new SqlParameter[9];
@@ -115,14 +115,14 @@ namespace Adibrata.Framework.WCF.Archieve
                                 sqlParams[8] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
                                 sqlParams[8].Value = _ent.UserName;
 
-                                SqlHelper.ExecuteNonQuery(_Archievetrans, CommandType.StoredProcedure, "spDocTransContentInsert", sqlParams);
+                                SqlHelper.ExecuteNonQuery(_Archievetrans, CommandType.StoredProcedure, "spDocTransBinaryInsert", sqlParams);
 
                             }
                             #endregion
 
                             #region DOC TRANS CONTENT INSERT
 
-                            for (int b = 0; b < dtDocTransContent.Rows.Count; i++)
+                            for (int b = 0; b < dtDocTransContent.Rows.Count; b++)
                             {
 
                                 sqlParams = new SqlParameter[8];
@@ -148,8 +148,8 @@ namespace Adibrata.Framework.WCF.Archieve
 
                             #endregion
 
-                            _Archievetrans.Commit();
                         }
+                        _Archievetrans.Commit();
 
                         #region DOC TRANS DELETE
 
@@ -162,7 +162,7 @@ namespace Adibrata.Framework.WCF.Archieve
 
                         _trans.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception _exp)
                     {
                         _trans.Rollback();
                         _Archievetrans.Rollback();

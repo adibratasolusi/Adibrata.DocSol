@@ -1,10 +1,13 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.BusinessProcess.UserManagement.Entities;
 using Adibrata.Controller;
+using Adibrata.Controller.UserManagement;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +31,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
         List<string> listId = new List<string>();
         public class DataItem
         {
-            public string ID { get; set; }
+            public string FormID { get; set; }
             public string FormName { get; set; }
 
         }
@@ -41,18 +44,19 @@ namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-                gbQueue.Visibility = Visibility.Hidden;
+                bindExistMenu();
+                txtUserID.Text = SessionProperty.ReffKey;
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.Archiving",
-                    ClassName = "Prepare",
-                    FunctionName = "Prepare",
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration",
+                    ClassName = "UserFormRegistration",
+                    FunctionName = "UserFormRegistration",
                     ExceptionNumber = 1,
-                    EventSource = "Prepare",
+                    EventSource = "UserFormRegistration",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -60,6 +64,49 @@ namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
                 ErrorLog.WriteEventLog(_errent);
             }
 
+        }
+        private void bindExistMenu()
+        {
+            try
+            {
+                UserManagementEntities _ent = new UserManagementEntities
+                {
+                    MethodName = "MsUserMenuGetByUserId",
+                    ClassName = "UserManagement"
+                };
+                _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
+                
+
+                DataTable dt = UserManagementController.UserManagement<DataTable>(_ent);
+                if (dt.Rows.Count > 0)
+                {
+                    dgQueue.ItemsSource = dt.DefaultView;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        listId.Add(dt.Rows[i]["FormID"].ToString());
+                    }
+                }
+                gbQueueVisibleCheck();
+            }
+            catch (Exception _exp)
+            {
+
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Archiving",
+                    ClassName = "ApprovalDetail",
+                    FunctionName = "btnReject_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Archieve",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Management
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
         }
         void gbQueueVisibleCheck()
         {
@@ -107,11 +154,11 @@ namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.Archiving",
-                    ClassName = "Prepare",
+                    NameSpace = "Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration",
+                    ClassName = "UserFormRegistration",
                     FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
-                    EventSource = "Customer",
+                    EventSource = "UserManagement",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -156,7 +203,7 @@ namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
                 }
 
                 listId.Add(tbId.Text);
-                dgQueue.Items.Add(new DataItem { ID = tbId.Text,FormName = tbFormName.Text });
+                dgQueue.Items.Add(new DataItem { FormID = tbId.Text,FormName = tbFormName.Text });
                 dgQueue.Items.Refresh();
             }
             else
@@ -170,7 +217,47 @@ namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
 
         private void btnGrantAccess_Click(object sender, RoutedEventArgs e)
         {
+            if (listId.Count == 0)
+            {
+                MessageBox.Show("Please select menu");
+            }
+            else
+            {
+                try
+                {
+                    UserManagementEntities _ent = new UserManagementEntities
+                    {
+                        MethodName = "MSUserMenuInsert",
+                        ClassName = "UserManagement"
+                    };
+                    _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
+                    _ent.ListId = this.listId;
 
+
+                    UserManagementController.UserManagement<string>(_ent);
+
+                }
+                catch (Exception _exp)
+                {
+
+                    #region "Write to Event Viewer"
+                    ErrorLogEntities _errent = new ErrorLogEntities
+                    {
+                        UserLogin = SessionProperty.UserName,
+                        NameSpace = "Adibrata.DocumentSol.Windows.Archiving",
+                        ClassName = "UserFormRegistration",
+                        FunctionName = "btnGrantAccess_Click",
+                        ExceptionNumber = 1,
+                        EventSource = "UserManagement",
+                        ExceptionObject = _exp,
+                        EventID = 200, // 70 Untuk User Management
+                        ExceptionDescription = _exp.Message
+                    };
+                    ErrorLog.WriteEventLog(_errent);
+                    #endregion
+                }
+            }
+            
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿Alter Procedure spMenuTreeGetItem
+﻿Create Procedure spMenuTreeGetItem
 	@MenuName Varchar(50), 
 	@UserLogin varchar(50) = null
 	

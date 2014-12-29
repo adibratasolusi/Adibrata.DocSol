@@ -67,7 +67,10 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.WaterMark.WaterMarkPaging": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkPaging(_ent)); break;
                 case "ImageProcess.WaterMark.WaterMarkDetail": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkDetail(_ent)); break;
                 case "ImageProcess.Checkout.CheckoutPaging": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutPaging(_ent)); break;
-
+                case "ImageProcess.Checkout.CheckoutDetail": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutDetail(_ent)); break;
+                case "ImageProcess.Checkin.CheckinPaging": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinPaging(_ent)); break;
+                case "ImageProcess.Checkin.CheckinDetail": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinDetail(_ent)); break;
+         
                 #endregion
 
                 #region "FileNumber"
@@ -115,7 +118,6 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
-
                 #region "StorageMonitoring"
                 case "StorageMonitoring.FileStorageSize.FileStoragePaging": Source.NavigationService.Navigate(new StorageMonitoring.FileStorageSize.FileStoragePaging(_ent)); break;
 
@@ -133,6 +135,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "Archiving.InquiryProcess": Source.NavigationService.Navigate(new Archiving.InquiryProcess(_ent)); break;
 
                 #endregion
+
                 #region "Upload Monitoring"
                 case "UploadMonitoring.UncompleteDocument": Source.NavigationService.Navigate(new UploadMonitoring.UncompleteDocument(_ent)); break;
                 #endregion
@@ -144,7 +147,6 @@ namespace Adibrata.DocumentSol.Windows
                 #region "Favorite"
                 case "UserManagement.Favorite.FavoriteEdit": Source.NavigationService.Navigate(new UserManagement.Favorite.FavoriteEdit(_ent)); break;
                 #endregion
-
 
                 #region "Menu Registration"
                 case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
@@ -212,6 +214,9 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.WaterMark.WaterMarkPaging": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkPaging(_ent)); break;
                 case "ImageProcess.WaterMark.WaterMarkDetail": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkDetail(_ent)); break;
                 case "ImageProcess.Checkout.CheckoutPaging": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutPaging(_ent)); break;
+                case "ImageProcess.Checkout.CheckoutDetail": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutDetail(_ent)); break;
+                case "ImageProcess.Checkin.CheckinPaging": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinPaging(_ent)); break;
+                case "ImageProcess.Checkin.CheckinDetail": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinDetail(_ent)); break;
                 #endregion
 
                 #region "FileNumber"
@@ -234,32 +239,12 @@ namespace Adibrata.DocumentSol.Windows
                 case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
                 #endregion 
 
-
-
-
-                //#region "Image Processing"
-                //case "ImageProcessing.WaterMark": Source.NavigationService.Navigate(new ImageProcess.Watermark()); break;
-                //case "ImageProcessing.Grayscale": Source.NavigationService.Navigate(new ImageProcess.Grayscale()); break;
-                //case "ImageProcessing.Rotate": Source.NavigationService.Navigate(new ImageProcess.Rotate()); break;
-                //case "ImageProcessing.Canvas": Source.NavigationService.Navigate(new ImageProcess.Canvas()); break;
-                //case "ImageProcessing.GetDataImage": Source.NavigationService.Navigate(new ImageProcess.DataImage()); break;
-                //case "ImageProcessing.ImageToPdf": Source.NavigationService.Navigate(new ImageProcess.ImageToPdf()); break;
-                //case "ImageProcessing.ImageEncryption": Source.NavigationService.Navigate(new ImageProcess.Encryption()); break;
-                //case "ImageProcessing.ImageDecryption": Source.NavigationService.Navigate(new ImageProcess.Decryption()); break;
-                //case "ImageProcessing.ImageLock": Source.NavigationService.Navigate(new ImageProcess.Lock()); break;
-                //case "ImageProcessing.ImageUnlock": Source.NavigationService.Navigate(new ImageProcess.Unlock()); break;
-                //case "ImageProcessing.ImageScanner": Source.NavigationService.Navigate(new ImageProcess.Scanner()); break;
-
-                //#endregion
-
-
                 #region "Project"
                 case "Project.CustomerProjectPaging": Source.NavigationService.Navigate(new Project.CustomerProjectPaging(_ent)); break;
                 case "Project.ProjectPaging": Source.NavigationService.Navigate(new Project.ProjectPaging(_ent)); break;
                 case "Project.ProjectAddEdit": Source.NavigationService.Navigate(new Project.ProjectAddEdit(_ent)); break;
 
                 #endregion
-
 
                 #region "Scan Multi"
                 case "ImageScanMulti.ImageScanMultiProcess": Source.NavigationService.Navigate(new ImageScanMulti.ImageScanMultiProcess()); break;

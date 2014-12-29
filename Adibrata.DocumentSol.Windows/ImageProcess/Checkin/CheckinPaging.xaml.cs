@@ -88,11 +88,13 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                oPaging.ClassName = "ImageProcessCheckout";
-                oPaging.MethodName = "CheckoutPaging";
+                oPaging.ClassName = "ImageProcessCheckin";
+                oPaging.MethodName = "CheckinPaging";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
-                if (txtTransId.Text != "")
+
+                sb.Append(SessionProperty.UserName);
+                if (txtTransId.Text != "" || txtDocType.Text !="")
                 {
                     sb.Append(" And ");
                     if (txtTransId.Text.Contains("%"))
@@ -105,21 +107,22 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                     }
                     sb.Append(txtTransId.Text);
                     sb.Append("'");
-                }
-                if (txtDocType.Text != "")
-                {
-                    sb.Append(" And ");
-                    if (txtDocType.Text.Contains("%"))
+                    if (txtDocType.Text != "")
                     {
-                        sb.Append(" DocTypeCode LIKE '");
+                        sb.Append(" And ");
+                        if (txtDocType.Text.Contains("%"))
+                        {
+                            sb.Append(" DocTypeCode LIKE '");
+                        }
+                        else
+                        {
+                            sb.Append(" DocTypeCode = '");
+                        }
+                        sb.Append(txtDocType.Text);
+                        sb.Append("'");
                     }
-                    else
-                    {
-                        sb.Append(" DocTypeCode = '");
-                    }
-                    sb.Append(txtDocType.Text);
-                    sb.Append("'");
                 }
+                
                 else
                 {
                     sb.Append("");

@@ -199,5 +199,6 @@
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging_1.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveApproval.sql" />
+    <Build Include="Table\MS_Menu_1.sql" />
   </ItemGroup>
 </Project>

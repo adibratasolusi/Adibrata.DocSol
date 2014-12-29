@@ -129,7 +129,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
-                RedirectPage redirect = new RedirectPage(this, "ImageProcess.Checkin.CheckinDetail", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "ImageProcess.Checkout.CheckoutDetail", SessionProperty);
             }
             catch (Exception _exp)
             {

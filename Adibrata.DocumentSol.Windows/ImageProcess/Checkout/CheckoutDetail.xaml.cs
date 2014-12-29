@@ -1,4 +1,6 @@
-﻿using Adibrata.BusinessProcess.Entities.Base;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Controller;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
@@ -58,7 +60,19 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 
         private void btnCheckout_Click(object sender, RoutedEventArgs e)
         {
+            DocSolEntities _ent = new DocSolEntities
+            {
+                MethodName = "DocTransCheckOut",
+                ClassName = "ImageProcess"
+            };
+            _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+            _ent.UserName = SessionProperty.UserName;
 
+            DocumentSolutionController.DocSolProcess<string>(_ent);
+            MessageBox.Show("Check Out Succes");
+            RedirectPage redirect = new RedirectPage(this, "ImageProcess.Checkout.CheckoutPaging", SessionProperty);
+        
+       
         }
     }
 }

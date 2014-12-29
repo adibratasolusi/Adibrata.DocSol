@@ -75,7 +75,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
             _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
-            MessageBox.Show("Sukses");
+            MessageBox.Show("Delete Succes");
             RedirectPage redirect = new RedirectPage(this, "DocumentMaintenance.DeleteDocumentPaging", SessionProperty);
         
        

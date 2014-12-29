@@ -79,13 +79,13 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANSACTIONS ID" x:Name="Id" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ProjCode}" Header="PROJECT CODE" x:Name="ProjCode" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANSACTIONS ID" x:Name="Id" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="120" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ProjCode}" Header="PROJECT CODE" x:Name="ProjCode" Width="100"/>
                                 <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="200"/>
                                 <DataGridTextColumn Binding="{Binding CustCode}" Header="CUSTOMER CODE" x:Name="CustCode" Width="100"/>
                                 <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding DocTransStatus}" Header="STATUS" x:Name="DocTransStatus" Width="100" />
+                                <DataGridTextColumn Binding="{Binding DocTransStatus}" Header="STATUS" x:Name="DocTransStatus" Width="50" />
                                 
                             </DataGrid.Columns>
                         </DataGrid>

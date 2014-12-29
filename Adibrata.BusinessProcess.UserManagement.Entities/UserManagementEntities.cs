@@ -35,6 +35,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Entities
 
         public string FormURL { get; set; }
         public string FormCode { get; set; }
+        public List<string> ListId { get; set; }
 
         #region MenuEntities
         public long MenuLevel { get; set; }

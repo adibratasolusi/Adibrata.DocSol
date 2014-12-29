@@ -1,13 +1,10 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.BusinessProcess.Entities.Base;
-using Adibrata.BusinessProcess.UserManagement.Entities;
 using Adibrata.Controller;
-using Adibrata.Controller.UserManagement;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,19 +18,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
+namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 {
     /// <summary>
-    /// Interaction logic for DeleteDocumentDetail.xaml
+    /// Interaction logic for CheckoutDetail.xaml
     /// </summary>
-    public partial class DeleteDocumentDetail : Page
-
+    public partial class CheckoutDetail : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
-       
-        public DeleteDocumentDetail(SessionEntities _session)
+        public CheckoutDetail(SessionEntities _session)
         {
-            //Lampar ke detail
             try
             {
                 InitializeComponent();
@@ -41,8 +35,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
                 ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
-                
-           
+
+
             }
             catch (Exception _exp)
             {
@@ -50,11 +44,11 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentMaintenance",
-                    ClassName = "DeleteDocumentDetail",
-                    FunctionName = "DeleteDocumentDetail",
+                    NameSpace = "Adibrata.DocumentSol.Windows.ImageProcess.Checkout",
+                    ClassName = "CheckoutDetail",
+                    FunctionName = "CheckoutDetail",
                     ExceptionNumber = 1,
-                    EventSource = "UserRegistration",
+                    EventSource = "CheckoutDetail",
                     ExceptionObject = _exp,
                     EventID = 200, // 70 Untuk User Management
                     ExceptionDescription = _exp.Message
@@ -64,24 +58,21 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
             }
         }
 
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        private void btnCheckout_Click(object sender, RoutedEventArgs e)
         {
             DocSolEntities _ent = new DocSolEntities
             {
-                MethodName = "DeleteDocumentStatus",
-                ClassName = "DeleteDocument"
+                MethodName = "DocTransCheckOut",
+                ClassName = "ImageProcess"
             };
             _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+            _ent.UserName = SessionProperty.UserName;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
-            MessageBox.Show("Delete Succes");
-            RedirectPage redirect = new RedirectPage(this, "DocumentMaintenance.DeleteDocumentPaging", SessionProperty);
+            MessageBox.Show("Check Out Succes");
+            RedirectPage redirect = new RedirectPage(this, "ImageProcess.Checkout.CheckoutPaging", SessionProperty);
         
        
-
         }
-
-
     }
 }

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="161bbc46-56c2-432a-bea5-9444db2102d4" ChangeDateTime="12/29/2014 04:15:18">
+    <Property Name="ElementName" Value="[dbo].[DocTrans].[Bookmark]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DocTrans]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookmarkStatus" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2e6f6b5c-44ea-4fb7-9d36-77d090ef4bff" ChangeDateTime="12/29/2014 04:16:52">
+    <Property Name="ElementName" Value="[dbo].[DocTrans].[ArchieveProcess]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[DocTrans]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ArchieveProcessBy" />
+  </Operation>
+</Operations>

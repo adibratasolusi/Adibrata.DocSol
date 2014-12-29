@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Adibrata.BusinessProcess.UserManagement.Extend
 {
-    public class UserManagement:Adibrata.BusinessProcess.UserManagement.Core.UserManagement
+    public class UserManagement : Adibrata.BusinessProcess.UserManagement.Core.UserManagement
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
         public virtual DataTable MainMenuGetActive(UserManagementEntities _ent)
@@ -52,13 +52,13 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 sqlParams[1].Value = _ent.MenuParentId;
                 sqlParams[2] = new SqlParameter("@shortOrder", SqlDbType.Int);
                 sqlParams[2].Value = _ent.ShortOrder;
-                sqlParams[3] = new SqlParameter("@menuTxt", SqlDbType.VarChar,50);
+                sqlParams[3] = new SqlParameter("@menuTxt", SqlDbType.VarChar, 50);
                 sqlParams[3].Value = _ent.MenuTxt;
-                sqlParams[4] = new SqlParameter("@isSeparator", SqlDbType.VarChar,1);
+                sqlParams[4] = new SqlParameter("@isSeparator", SqlDbType.VarChar, 1);
                 sqlParams[4].Value = _ent.IsSeparator;
-                sqlParams[5] = new SqlParameter("@isActive", SqlDbType.VarChar,1);
+                sqlParams[5] = new SqlParameter("@isActive", SqlDbType.VarChar, 1);
                 sqlParams[5].Value = _ent.IsActive;
-                sqlParams[6] = new SqlParameter("@form", SqlDbType.VarChar,50);
+                sqlParams[6] = new SqlParameter("@form", SqlDbType.VarChar, 50);
                 sqlParams[6].Value = _ent.Form;
                 if (_ent.FlagInsert == true)
                 {
@@ -68,7 +68,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 {
                     SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spMsMenuUpdate", sqlParams);
                 }
-                
+
             }
             catch (Exception _exp)
             {
@@ -100,7 +100,7 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 sqlParams[0] = new SqlParameter("@UserId ", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.UserID;
                 _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spMsUserMenuGetByUserId", sqlParams));
-                
+
 
             }
             catch (Exception _exp)
@@ -125,14 +125,14 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
 
 
         SqlTransaction _trans;
-        public virtual void spMSUserMenuInsert(UserManagementEntities _ent)
+        public virtual void MSUserMenuInsert(UserManagementEntities _ent)
         {
             SqlConnection _conn = new SqlConnection(Connectionstring);
             SqlParameter[] sqlParams;
-            
+
             try
             {
-                
+
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
 
@@ -141,16 +141,19 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 sqlParams[0] = new SqlParameter("@UserId", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.UserID;
                 SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spMsUserMenuDeleteBeforeInsert", sqlParams);
+                for (int i = 0; i < _ent.ListId.Count; i++)
+                {
 
-                sqlParams = new SqlParameter[3];
-                sqlParams[0] = new SqlParameter("@UserId", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.UserID;
-                sqlParams[1] = new SqlParameter("@FormId", SqlDbType.BigInt);
-                sqlParams[1].Value = _ent.FormID;
-                sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
-                sqlParams[2].Value = _ent.UserLogin;
-                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spMSUserMenuInsert", sqlParams);
-                
+                    sqlParams = new SqlParameter[3];
+                    sqlParams[0] = new SqlParameter("@UserId", SqlDbType.BigInt);
+                    sqlParams[0].Value = _ent.UserID;
+                    sqlParams[1] = new SqlParameter("@FormId", SqlDbType.BigInt);
+                    sqlParams[1].Value = Convert.ToInt64(_ent.ListId[i]);
+                    sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
+                    sqlParams[2].Value = _ent.UserLogin;
+                    SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spMSUserMenuInsert", sqlParams);
+                }
+
 
                 _trans.Commit();
 

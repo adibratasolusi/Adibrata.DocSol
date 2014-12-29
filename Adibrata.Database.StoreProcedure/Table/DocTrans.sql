@@ -17,5 +17,9 @@ CREATE TABLE [dbo].DocTrans
 	[UsrUpd] [varchar](50) NULL,
 	[DtmUpd] [smalldatetime] NULL,
 	[UsrCrt] [varchar](50),
-	[DtmCrt] [smalldatetime] 
+	[DtmCrt] [smalldatetime], 
+    [BookmarkStatus] VARCHAR(50) NULL, 
+    [ArchieveStatus] VARCHAR(50) NULL, 
+    [ArchieveProcessBy] VARCHAR(50) NULL ,
+	
 	) on FileUpload

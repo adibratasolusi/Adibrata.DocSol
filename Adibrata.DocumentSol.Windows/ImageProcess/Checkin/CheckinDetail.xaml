@@ -1,4 +1,6 @@
 ﻿<Page x:Class="Adibrata.DocumentSol.Windows.ImageProcess.Checkin.CheckinDetail"
+      xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" 
+   
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +8,25 @@
       mc:Ignorable="d" 
       Style="{StaticResource PageStyle}"
 	Title="CheckinDetail">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock FontSize="24" FontWeight="Bold">Check In Document</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
 
-    <Grid>
-        
-    </Grid>
+                <UserController:UCDocTransBinaryContentView Name="ucView" />
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Button Name="btnCheckIn" Content="CHECK IN" Width="200" HorizontalAlignment="Right" Click="btnCheckIn_Click" ></Button>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+
 </Page>

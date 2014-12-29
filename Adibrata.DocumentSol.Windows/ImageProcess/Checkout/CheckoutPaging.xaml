@@ -72,7 +72,7 @@
                                 <DataGridTemplateColumn Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click"></Button>
+                                            <Button Name="btnCheckOut" Content="CHECK OUT" Click="btnCheckOut_Click"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

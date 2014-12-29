@@ -24,5 +24,20 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
         {
             InitializeComponent();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCheckIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

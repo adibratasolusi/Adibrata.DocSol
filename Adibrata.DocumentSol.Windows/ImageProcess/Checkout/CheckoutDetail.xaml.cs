@@ -24,5 +24,10 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
         {
             InitializeComponent();
         }
+
+        private void btnCheckout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

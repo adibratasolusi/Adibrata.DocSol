@@ -199,5 +199,11 @@
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging_1.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveApproval.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDocTransCheckOut.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDocTransCheckIn.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDocTransCheckInPaging.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDocTransCheckOutPaging.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDocTransBookMark.sql" />
+    <Build Include="StoreProcedure\DocumentMaintenance\spDocTransBinaryUpdateFileBinary.sql" />
   </ItemGroup>
 </Project>

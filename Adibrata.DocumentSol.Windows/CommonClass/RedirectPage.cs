@@ -66,6 +66,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.Unlock.UnlockImageDetail": Source.NavigationService.Navigate(new ImageProcess.Unlock.UnlockImageDetail(_ent)); break;
                 case "ImageProcess.WaterMark.WaterMarkPaging": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkPaging(_ent)); break;
                 case "ImageProcess.WaterMark.WaterMarkDetail": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkDetail(_ent)); break;
+                case "ImageProcess.Checkout.CheckoutPaging": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutPaging(_ent)); break;
 
                 #endregion
 
@@ -210,7 +211,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.Unlock.UnlockImageDetail": Source.NavigationService.Navigate(new ImageProcess.Unlock.UnlockImageDetail(_ent)); break;
                 case "ImageProcess.WaterMark.WaterMarkPaging": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkPaging(_ent)); break;
                 case "ImageProcess.WaterMark.WaterMarkDetail": Source.NavigationService.Navigate(new ImageProcess.WaterMark.WaterMarkDetail(_ent)); break;
-
+                case "ImageProcess.Checkout.CheckoutPaging": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutPaging(_ent)); break;
                 #endregion
 
                 #region "FileNumber"

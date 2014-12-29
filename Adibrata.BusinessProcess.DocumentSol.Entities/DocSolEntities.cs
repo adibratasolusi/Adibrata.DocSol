@@ -75,6 +75,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
 
         public string UserName { get; set; }
         public List<string> ListArchieve { get; set; }
+
+        public string BookmarkStat { get; set; }
     }
 }
 

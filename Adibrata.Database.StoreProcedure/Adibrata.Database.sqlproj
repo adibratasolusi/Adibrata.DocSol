@@ -206,4 +206,7 @@
     <Build Include="StoreProcedure\DocumentMaintenance\spDocTransBookMark.sql" />
     <Build Include="StoreProcedure\DocumentMaintenance\spDocTransBinaryUpdateFileBinary.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Adibrata.Database.refactorlog" />
+  </ItemGroup>
 </Project>

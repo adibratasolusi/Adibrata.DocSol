@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spMsUserFormPaging]--sama kohen (spMsUserFormPaging)
+﻿CREATE PROCEDURE [dbo].[spMsUserFormPaging]--sama kohen (spMsUserFormPaging)
     @StartRecord varchar(7), 
     @EndRecord varchar(7), 
     @WhereCond varchar(8000), 

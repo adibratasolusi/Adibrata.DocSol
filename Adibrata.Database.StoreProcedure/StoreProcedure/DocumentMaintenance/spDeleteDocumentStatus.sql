@@ -1,6 +1,4 @@
 ﻿Create PROCEDURE [dbo].[spDeleteDocumentStatus]
-	
-
 	@ID Bigint
 AS
 Set NoCount On 

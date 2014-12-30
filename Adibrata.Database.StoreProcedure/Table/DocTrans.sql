@@ -14,12 +14,13 @@ CREATE TABLE [dbo].DocTrans
 	ReqDate smalldatetime null, 
 	FinalDate smalldatetime null, 
 	FinalUser varchar(50) null, 
+	
 	[UsrUpd] [varchar](50) NULL,
 	[DtmUpd] [smalldatetime] NULL,
 	[UsrCrt] [varchar](50),
 	[DtmCrt] [smalldatetime], 
     [BookmarkStatus] VARCHAR(50) NULL, 
     [ArchieveStatus] VARCHAR(50) NULL, 
-    [ArchieveProcessBy] VARCHAR(50) NULL ,
+    [ArchiveProcessBy] VARCHAR(50) NULL
 	
 	) on FileUpload

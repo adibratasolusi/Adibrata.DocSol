@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spImageLockPaging]
+﻿ALTER  PROCEDURE [dbo].[spImageLockPaging]
 	@StartRecord varchar(10), 
 	@EndRecord varchar(10), 
 	@WhereCond varchar(8000), 

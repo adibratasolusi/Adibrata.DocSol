@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCustCoyView]
+﻿ALTER PROCEDURE [dbo].[spCustCoyView]
 	@CustCode Varchar(50)
 AS
 set Nocount On 

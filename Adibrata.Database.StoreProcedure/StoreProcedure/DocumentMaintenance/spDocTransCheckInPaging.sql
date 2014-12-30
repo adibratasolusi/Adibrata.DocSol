@@ -1,4 +1,4 @@
-﻿Create PROCEDURE [dbo].[spDocTransCheckInPaging]
+﻿ALTER PROCEDURE [dbo].[spDocTransCheckInPaging]
     @StartRecord varchar(10), 
     @EndRecord varchar(10), 
     @WhereCond varchar(8000), 

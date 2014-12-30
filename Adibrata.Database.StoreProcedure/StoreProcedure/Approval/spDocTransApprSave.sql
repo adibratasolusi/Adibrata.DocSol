@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spDocTransApprSave]
+﻿Create PROCEDURE [dbo].[spDocTransApprSave]
 	@DocTransApprID BigInt, 
 	@LastUserAppr varchar(50), 
 	@NextLevelAppr varchar(2), 
@@ -15,7 +15,7 @@ Update DocTransAppr set RequestTo = @RequestTo, ApprovalNotes = @ApprovalNotes,
 				UsrUpd = @UsrUpd, DtmUpd = GetDate()
 				where ID = @DocTransApprID
 
-Declare @DocTransID Bigint, @DocTransReqDate smalldatetime, @DocTransReqUser varchar(50), @NextLevelUser varchar(50), @ApprTimeSecond int
+Declare @DocTransID Bigint, @DocTransReqDate smalldatetime, @DocTransReqUser varchar(50), @NextLevelUser varchar(50), @ApprTimeSecond int, @DocTypeCode Varchar(50)
 Select @DocTransID = DocTransID, @DocTypeCode = DocTypeCode, @DocTransReqDate = DocTransReqDate, @DocTransReqUser = DocTransReqUser, 
 @NextLevelUser = NextLevelAppr
 from DocTransAppr	with (nolock) where ID = @DocTransApprID

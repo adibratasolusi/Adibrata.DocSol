@@ -48,11 +48,11 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring
             dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
             MaxId = (Int64)dt.Rows[0]["MaxFileID"];
             MinId = (Int64)dt.Rows[0]["MinFileID"];
-            txtAverageSize.Text = dt.Rows[0]["Average"].ToString();
+            txtAverageSize.Text = Format.NumberFormatting(dt.Rows[0]["Average"].ToString());
             txtTotalFile.Text = dt.Rows[0]["totalfile"].ToString();
-            txtMaxSize.Text = dt.Rows[0]["Maximum"].ToString();
-            txtMinSize.Text = dt.Rows[0]["Minimum"].ToString();
-            txtTotalSize.Text = dt.Rows[0]["Summary"].ToString();
+            txtMaxSize.Text = Format.NumberFormatting(dt.Rows[0]["Maximum"].ToString());
+            txtMinSize.Text = Format.NumberFormatting(dt.Rows[0]["Minimum"].ToString());
+            txtTotalSize.Text = Format.NumberFormatting(dt.Rows[0]["Summary"].ToString());
 
 
         }

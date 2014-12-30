@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adibrata.DocumentSol.Windows.CommonClass
+namespace Adibrata.DocumentSol.Windows
 {
     public class Format
     {
-        public string NumberFormatting(string num)
+        public static string NumberFormatting(string num)
         {
            return Convert.ToDecimal(num).ToString("#,##0.00");
  
         }
-        public string NumberFormatting(int num)
+        public static string NumberFormatting(int num)
         {
 
            return Convert.ToDecimal(num).ToString("#,##0.00");
         }
-        public string NumberFormatting(decimal num)
+        public static string NumberFormatting(decimal num)
         {
 
            return  num.ToString("#,##0.00");

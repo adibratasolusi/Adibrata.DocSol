@@ -165,6 +165,12 @@
     <Compile Include="DocumentSearch\DocumentSearch.xaml.cs">
       <DependentUpon>DocumentSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageProcess\Bookmark\BookmarkDetail.xaml.cs">
+      <DependentUpon>BookmarkDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\Bookmark\BookmarkPaging.xaml.cs">
+      <DependentUpon>BookmarkPaging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ImageProcess\Checkin\CheckinPaging.xaml.cs">
       <DependentUpon>CheckinPaging.xaml</DependentUpon>
     </Compile>
@@ -514,6 +520,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentSearch\DocumentSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Bookmark\BookmarkDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\Bookmark\BookmarkPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1046,9 +1060,7 @@
   <ItemGroup>
     <Resource Include="Images\home.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ImageProcess\Bookmark\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

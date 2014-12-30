@@ -74,10 +74,10 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
             DataTable dt = new DataTable();
             dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
             txtExtension.Text = SessionProperty.ReffKey;
-            txtAverageSize.Text = dt.Rows[0]["Average"].ToString();
+            txtAverageSize.Text = Format.NumberFormatting(dt.Rows[0]["Average"].ToString());
             txtNumberFile.Text = dt.Rows[0]["totalfile"].ToString();
-            txtMaxSize.Text = dt.Rows[0]["Maximum"].ToString();
-            txtMinSize.Text = dt.Rows[0]["Minimum"].ToString();
+            txtMaxSize.Text = Format.NumberFormatting(dt.Rows[0]["Maximum"].ToString());
+            txtMinSize.Text = Format.NumberFormatting(dt.Rows[0]["Minimum"].ToString());
 
         }
         void summarysizedatagrid()

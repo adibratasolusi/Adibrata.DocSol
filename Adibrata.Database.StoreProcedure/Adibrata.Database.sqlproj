@@ -77,6 +77,7 @@
     <Folder Include="StoreProcedure\Archieving" />
     <Folder Include="StoreProcedure\Menu" />
     <Folder Include="StoreProcedure\Search Engine Document" />
+    <Folder Include="StoreProcedure\Favorite Menu" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -214,5 +215,7 @@
     <Build Include="StoreProcedure\UserManagement\spMsUserMenuGetByUserId.sql" />
     <Build Include="StoreProcedure\UserManagement\spMSUserMenuInsert.sql" />
     <Build Include="StoreProcedure\Search Engine Document\spDocTransSearchPaging.sql" />
+    <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuAdd.sql" />
+    <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuDisabled.sql" />
   </ItemGroup>
 </Project>

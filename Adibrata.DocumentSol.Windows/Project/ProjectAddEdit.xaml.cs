@@ -18,7 +18,7 @@ namespace Adibrata.DocumentSol.Windows.Project
     public partial class ProjectAddEdit : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
-        string _custcode;
+        string _custcode;        
         public ProjectAddEdit(SessionEntities _session)
         {
             try
@@ -41,7 +41,7 @@ namespace Adibrata.DocumentSol.Windows.Project
                 }
 
                 cboProjectType.ItemsSource = data;
-
+                _custcode = _session.ReffKey;
                 if (_session.IsEdit)
                 {
                     _ent.ClassName = "ProjectRegistrasi";
@@ -49,6 +49,7 @@ namespace Adibrata.DocumentSol.Windows.Project
                     _ent.ProjectCode = _session.ReffKey;
                     _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                     lblCustomerCode.Text = _ent.CustomerCode;
+                    
                     lblCustomerName.Text = _ent.CompanyName;
                     lblDescProjCode.Text = "Project Code";
                     lblProjectCode.Text = _session.ReffKey;
@@ -77,6 +78,7 @@ namespace Adibrata.DocumentSol.Windows.Project
                     lblCustomerCode.Text = _session.ReffKey;
                     lblCustomerName.Text = _ent.CompanyName;
                 }
+                _custcode = lblCustomerCode.Text;
 
             }
             catch (Exception _exp)

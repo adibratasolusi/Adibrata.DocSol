@@ -77,6 +77,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Favorite\AddFavorite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImageProcess\UCImageInputWatermark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +175,9 @@
     </Compile>
     <Compile Include="DocContent\UploadAgreement\UCUploadAgreementAllDoc.xaml.cs">
       <DependentUpon>UCUploadAgreementAllDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Favorite\AddFavorite.xaml.cs">
+      <DependentUpon>AddFavorite.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\UCImageInputWatermark.xaml.cs">
       <DependentUpon>UCImageInputWatermark.xaml</DependentUpon>
@@ -303,6 +310,14 @@
     <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Entities\Adibrata.BusinessProcess.Report.Entities.csproj">
       <Project>{76a2e188-a511-44ba-ab16-3818a43a2daf}</Project>
       <Name>Adibrata.BusinessProcess.Report.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.Report.Extend\Adibrata.BusinessProcess.Report.Extend.csproj">
+      <Project>{0f67e63a-234d-45cc-a656-82d1c741fb41}</Project>
+      <Name>Adibrata.BusinessProcess.Report.Extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Core\Adibrata.BusinessProcess.UserManagement.Core.csproj">
+      <Project>{72c9f1f3-82c5-4335-98ec-c6c5462f8b55}</Project>
+      <Name>Adibrata.BusinessProcess.UserManagement.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.BusinessProcess.UserManagement.Entities\Adibrata.BusinessProcess.UserManagement.Entities.csproj">
       <Project>{f5415834-8162-4b25-ba78-4e46b5e7714b}</Project>

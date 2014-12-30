@@ -216,5 +216,6 @@
     <Build Include="StoreProcedure\UserManagement\spMsUserMenuGetByUserId.sql" />
     <Build Include="StoreProcedure\UserManagement\spMSUserMenuInsert.sql" />
     <Build Include="StoreProcedure\Search Engine Document\spDocTransSearchPaging.sql" />
+    <Build Include="Table\FavoriteMenu.sql" />
   </ItemGroup>
 </Project>

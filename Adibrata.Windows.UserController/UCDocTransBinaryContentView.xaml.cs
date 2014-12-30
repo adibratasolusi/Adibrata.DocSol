@@ -27,30 +27,48 @@ namespace Adibrata.Windows.UserController
     {
         public SessionEntities Session
         { get; set; }
-        public Int64 DocTransId
+
+        public string DocTransCode
         {
             get
             {
-                return _doctransid;
+                return _doctranscode;
             }
             set
             {
-                _doctransid = value;
+                _doctranscode = value;
                 BindingData(value);
             }
         }
+
+        public Int64 DocTransId
+        { get; set; }
+
 
         public UCDocTransBinaryContentView()
         {
             InitializeComponent();
 
+            //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+
+
+
         }
-        private Int64 _doctransid;
-        public void BindingData(Int64 _transid)
+        private string _doctranscode;
+        public void BindingData(string _doctranscode)
         {
+
+            DocSolEntities _ent = new DocSolEntities();
+            _ent.ClassName = "UploadProcess";
+            _ent.MethodName = "DocTransGetTransID";
+            _ent.DocTransCode = DocTransCode;
+
+            Int64 _transid = DocumentSolutionController.DocSolProcess<Int64>(_ent);
+            Session.ReffKey = _transid.ToString();
+            txtDocTransId.Text = _ent.DocTransCode;
             bindContent(_transid);
             bindBinary(_transid);
-            txtDocTransId.Text = this.DocTransId.ToString();
+            // txtDocTransId.Text = this.DocTransId.ToString();
         }
 
         private void bindContent(Int64 _transid)
@@ -84,7 +102,7 @@ namespace Adibrata.Windows.UserController
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-       private void bindBinary(Int64 _transid)
+        private void bindBinary(Int64 _transid)
         {
             try
             {

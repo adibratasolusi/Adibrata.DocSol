@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spDocTransActivityPaging]
+﻿ALter PROCEDURE [dbo].[spDocTransActivityPaging]
 		@StartRecord varchar(10), 
 		@EndRecord varchar(10), 
 		@WhereCond varchar(8000), 
@@ -6,12 +6,10 @@
 AS
 Set NoCount On 
 Declare 
-@TotalRecord int, @SqlStatement Varchar(max)
+@TotalRecord int, @SqlStatement Varchar(8000)
+
 If @SortBy = '' 
-	Set @SortBy = ' B.Rank Asc '
-	Select A.UserName, B.DocTransCode, B.DocTypeCode, C.ProjName, D.CustName From DocTransActivity A inner Join DocTrans B on A.DocTransId = B.ID
-	inner Join Proj C on B.TransID = C.ID 
-	Inner Join Cust D on C.CustID = D.ID
+	set @SortBy =  'C.ProjName Asc '
 
 	Set @SqlStatement = 'Select * from  
 				(Select   ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, 
@@ -21,5 +19,7 @@ If @SortBy = ''
 								Inner Join Cust D  With (nolock) on C.CustID = D.ID
 								' + @WhereCond + ') Qry
 		where number between ' + @StartRecord  + ' and  ' + @EndRecord  
+
 			exec (@SqlStatement)
+			
 RETURN 0

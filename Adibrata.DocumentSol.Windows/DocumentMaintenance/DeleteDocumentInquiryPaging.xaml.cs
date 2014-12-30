@@ -68,7 +68,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.DocumentMaintenance",
                     ClassName = "DeleteDocumentInquiryPaging",
-                    FunctionName = "btnDelete_Click",
+                    FunctionName = "btnDetail_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -90,18 +90,18 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 oPaging.MethodName = "DeleteDocumentInquiryPaging";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
-                if (txtTransId.Text != "")
+                if (txtDocTransCode.Text != "")
                 {
                     sb.Append(" And ");
-                    if (txtTransId.Text.Contains("%"))
+                    if (txtDocTransCode.Text.Contains("%"))
                     {
-                        sb.Append(" TransId LIKE '");
+                        sb.Append(" DocTransCode LIKE '");
                     }
                     else
                     {
-                        sb.Append(" TransId = '");
+                        sb.Append(" DocTransCode = '");
                     }
-                    sb.Append(txtTransId.Text);
+                    sb.Append(txtDocTransCode.Text);
                     sb.Append("'");
                 }
                 if (txtDocType.Text != "")
@@ -123,7 +123,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " TransId Asc ";
+                oPaging.SortBy = " DocTransCode Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

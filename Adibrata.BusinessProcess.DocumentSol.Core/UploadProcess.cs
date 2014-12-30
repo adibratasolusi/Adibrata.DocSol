@@ -710,8 +710,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sqlParams[0].Value = _ent.DocTransCode;
                 sqlParams[1] = new SqlParameter("@TransID", SqlDbType.BigInt);
                 sqlParams[1].Direction = ParameterDirection.Output;
-                sqlParams[1] = new SqlParameter("@UserLogin", SqlDbType.VarChar,50);
-                sqlParams[1].Value = _ent.UserLogin;
+           
                 SqlHelper.ExecuteNonQuery(Connectionstring, CommandType.StoredProcedure, "spDocTransGetTransID", sqlParams);
                 _transid = Convert.ToInt64(sqlParams[1].Value);
             }

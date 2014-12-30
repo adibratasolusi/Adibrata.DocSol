@@ -62,7 +62,7 @@ namespace Adibrata.Windows.UserController
             _ent.ClassName = "UploadProcess";
             _ent.MethodName = "DocTransGetTransID";
             _ent.DocTransCode = DocTransCode;
-
+            _ent.UserLogin = this.Session.UserName;
             Int64 _transid = DocumentSolutionController.DocSolProcess<Int64>(_ent);
             Session.ReffKey = _transid.ToString();
             DocTransId = _transid;

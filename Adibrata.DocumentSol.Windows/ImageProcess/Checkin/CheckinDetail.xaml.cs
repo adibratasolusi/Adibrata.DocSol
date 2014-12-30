@@ -34,8 +34,8 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
-                ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
-
+                ucView.DocTransCode = SessionProperty.ReffKey;
+            
 
             }
             catch (Exception _exp)
@@ -65,7 +65,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 MethodName = "DocTransCheckIn",
                 ClassName = "ImageProcess"
             };
-            _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+            _ent.Id = ucView.DocTransId;
             _ent.UserName = SessionProperty.UserName;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);

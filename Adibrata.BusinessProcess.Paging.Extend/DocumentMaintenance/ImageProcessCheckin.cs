@@ -40,9 +40,9 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                         UserLogin = _ent.UserLogin,
                         NameSpace = "Adibrata.BusinessProcess.Paging.Extend",
                         ClassName = "ImageProcessCheckin",
-                        FunctionName = "CheckoutPaging",
+                        FunctionName = "CheckinPaging",
                         ExceptionNumber = 1,
-                        EventSource = "CheckoutPaging",
+                        EventSource = "CheckinPaging",
                         ExceptionObject = _exp,
                         EventID = 80, // 80 Untuk Framework 
                         ExceptionDescription = _exp.Message

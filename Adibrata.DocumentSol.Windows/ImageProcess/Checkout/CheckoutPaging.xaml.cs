@@ -64,11 +64,11 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                     sb.Append(" And ");
                     if (txtTransId.Text.Contains("%"))
                     {
-                        sb.Append(" TransId LIKE '");
+                        sb.Append(" DocTransCode LIKE '");
                     }
                     else
                     {
-                        sb.Append(" TransId = '");
+                        sb.Append(" DocTransCode = '");
                     }
                     sb.Append(txtTransId.Text);
                     sb.Append("'");
@@ -92,7 +92,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " TransId Asc ";
+                oPaging.SortBy = " DocTransCode ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

@@ -39,8 +39,9 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+
                 ucView.Session = SessionProperty;
-                ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                ucView.DocTransCode = SessionProperty.ReffKey;
                 
            
             }
@@ -72,7 +73,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 MethodName = "DeleteDocumentStatus",
                 ClassName = "DeleteDocument"
             };
-            _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+            _ent.Id = ucView.DocTransId;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
             MessageBox.Show("Delete Succes");

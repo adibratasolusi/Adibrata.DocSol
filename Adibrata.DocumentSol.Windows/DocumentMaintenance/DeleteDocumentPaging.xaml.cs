@@ -129,7 +129,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
-                    ClassName = "DocumentUploadPaging",
+                    ClassName = "DeleteDocumentPaging",
                     FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
                     EventSource = "Customer",

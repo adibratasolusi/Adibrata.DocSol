@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FavoriteMenu.cs" />
     <Compile Include="FormRegistrasi.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MenuRegistration.cs" />

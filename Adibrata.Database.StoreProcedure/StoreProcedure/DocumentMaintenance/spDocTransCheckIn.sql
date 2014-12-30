@@ -9,6 +9,6 @@ BEGIN
     SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-    update DocTrans set DocTransStatus = 'ACTIVE',CheckOutBy = '', UsrUpd = @usr, DtmUpd = getdate() where Id = @DocTransId
+    update DocTrans set DocTransStatus = 'ACTIVE', CheckOutBy = '', UsrUpd = @usr, DtmUpd = getdate() where Id = @DocTransId
 END
 

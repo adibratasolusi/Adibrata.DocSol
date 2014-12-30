@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spSummarySizeStorageByExt]
+﻿ALTER PROCEDURE [dbo].[spSummarySizeStorageByExt]
     -- Add the parameters for the stored procedure here
        @Ext varchar (10 )
 AS

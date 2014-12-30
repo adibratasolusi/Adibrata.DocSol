@@ -25,7 +25,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
                 string _doctranscode = SessionProperty.ReffKey;
-                  _ent.ClassName = "UploadProcess";
+                _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransGetTransID";
                 _ent.DocTransCode = SessionProperty.ReffKey;
 

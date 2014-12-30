@@ -11,21 +11,21 @@ BEGIN
     if @Status = '1'
     begin
     
-    update DocTrans set ArchieveStatus = 'ARCHIEVE' where Id = @DocTransId
+    update DocTrans set ArchiveStatus = 'ARCHIEVE' where Id = @DocTransId
     end
 
     if @Status = '2'
     
     begin
     
-    update DocTrans set ArchieveStatus = 'HOLD' where Id = @DocTransId
+    update DocTrans set ArchiveStatus = 'HOLD' where Id = @DocTransId
     end
 
     if @Status = '3'
     
     begin
     
-    update DocTrans set ArchieveStatus = 'REJECT' where Id = @DocTransId
+    update DocTrans set ArchiveStatus = 'REJECT' where Id = @DocTransId
     end
     -- Insert statements for procedure here
 END

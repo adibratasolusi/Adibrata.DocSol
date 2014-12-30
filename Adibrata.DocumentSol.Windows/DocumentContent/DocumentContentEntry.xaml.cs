@@ -126,8 +126,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         {
             try
             {
-                SessionProperty.ReffKey = lblCustomerCode.Text; 
-                RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
+                SessionProperty.ReffKey = lblCustomerCode.Text;
+                RedirectPage redirect = new RedirectPage(this, "DocumentContent.DocumentUploadPaging", SessionProperty);
             }
             catch (Exception _exp)
             {
@@ -160,8 +160,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 _ent.ApprovalNotes = oApproval.Notes;
                 _ent.RequestTo = oApproval.RequestTo;
                 ucUpload.CheckAndUpload(_ent);
-                SessionProperty.ReffKey = lblCustomerCode.Text; 
-                RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);
+                
+                RedirectPage redirect = new RedirectPage(this, "DocumentContent.DocumentUploadPaging", SessionProperty);
             }
             catch (Exception _exp)
             {

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCustPaging]
+﻿ALTER PROCEDURE [dbo].[spCustPaging]
 	@StartRecord varchar(10), 
 	@EndRecord varchar(10), 
 	@WhereCond varchar(8000), 

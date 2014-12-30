@@ -1,5 +1,5 @@
 ﻿
-CREATE PROCEDURE [dbo].[spImageUnlockedStatus]
+ALTER  PROCEDURE [dbo].[spImageUnlockedStatus]
 	
 
 	@ID Bigint

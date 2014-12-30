@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archiving\ArchivingPaging.cs" />
+    <Compile Include="DocTransActivity\DocTransActivity.cs" />
     <Compile Include="DocumentMaintenance\DeleteDocument.cs" />
     <Compile Include="ApprovalDocContent\DocContentApproval.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />

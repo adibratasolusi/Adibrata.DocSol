@@ -42,6 +42,7 @@
     <Compile Include="ApprovalDocContent\DocContentApproval.cs" />
     <Compile Include="Archiving\ArchivingPaging.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />
+    <Compile Include="DocTransActivity\DocTransActivity.cs" />
     <Compile Include="DocumentMaintenance\DeleteDocument.cs" />
     <Compile Include="DocumentMaintenance\ImageProcessCheckin.cs" />
     <Compile Include="DocumentMaintenance\ImageProcessCheckout.cs" />
@@ -90,6 +91,7 @@
       <Name>Adibrata.Framework.Rule</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

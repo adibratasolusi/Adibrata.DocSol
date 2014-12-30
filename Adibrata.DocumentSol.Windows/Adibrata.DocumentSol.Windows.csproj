@@ -138,6 +138,9 @@
     <Compile Include="DocumentContent\Approval\ApprovalProcessScreen.xaml.cs">
       <DependentUpon>ApprovalProcessScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentContent\DocTransActivity\DocTransActivity.xaml.cs">
+      <DependentUpon>DocTransActivity.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DocumentContent\DocumentAllUpload.xaml.cs">
       <DependentUpon>DocumentAllUpload.xaml</DependentUpon>
     </Compile>
@@ -484,6 +487,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentContent\Approval\ApprovalProcessScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\DocTransActivity\DocTransActivity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

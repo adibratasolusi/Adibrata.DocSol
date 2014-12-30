@@ -1,22 +1,23 @@
-﻿using Adibrata.BusinessProcess.Paging.Entities;
-using Adibrata.Configuration;
-using Adibrata.Framework.DataAccess;
-using Adibrata.Framework.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using Adibrata.Framework.DataAccess;
+using Adibrata.Framework.Logging;
+using Adibrata.BusinessProcess.Paging.Entities;
+using Adibrata.Configuration;
+using Adibrata.BusinessProcess.Entities.Base;
+using System.Data.SqlClient;
 
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class ImageProcessCheckin : Adibrata.BusinessProcess.Paging.Core.ImageProcessCheckin
+    public class DocTransActivity : Adibrata.BusinessProcess.Paging.Core.DocTransActivity
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
 
-        public virtual DataTable CheckinPaging(PagingEntities _ent)
+        public virtual DataTable DocTransActivityPaging(PagingEntities _ent)
         {
             {
                 DataTable _dt = new DataTable();
@@ -31,7 +32,7 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                     sqlParams[2].Value = _ent.WhereCond;
                     sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                     sqlParams[3].Value = _ent.SortBy;
-                    _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransCheckInPaging", sqlParams));
+                    _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransActivityPaging", sqlParams));
                 }
                 catch (Exception _exp)
                 {
@@ -40,9 +41,9 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                         UserLogin = _ent.UserLogin,
                         NameSpace = "Adibrata.BusinessProcess.Paging.Extend",
                         ClassName = "ImageProcessCheckin",
-                        FunctionName = "CheckinPaging",
+                        FunctionName = "CheckoutPaging",
                         ExceptionNumber = 1,
-                        EventSource = "CheckinPaging",
+                        EventSource = "CheckoutPaging",
                         ExceptionObject = _exp,
                         EventID = 80, // 80 Untuk Framework 
                         ExceptionDescription = _exp.Message
@@ -51,9 +52,6 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 }
                 return _dt;
             }
-
-
         }
-
     }
 }

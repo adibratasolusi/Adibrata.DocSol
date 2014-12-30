@@ -1,0 +1,121 @@
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.DocumentContent.DocTransActivity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"
+      xmlns:Favorite="clr-namespace:Adibrata.Windows.UserController.Favorite;assembly=Adibrata.Windows.UserController"
+      mc:Ignorable="d" 
+	Title="DocTransActivity">
+
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridStyle}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT ACTIVITY INQUIRY</TextBlock>
+                <Favorite:AddFavorite Name="oFavorite" HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                    <GroupBox Header="Search">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="User Name" Width="200"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Code" Width="200"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Name"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Code"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Name"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="0">
+                                <StackPanel>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtUserName" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustCode" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjCode" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjName" Width="300" Height="30"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Width="300" Height="35"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" Height="50" Width="100" ToolTip="Search">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/search-button-png-hi.png" Stretch="UniformToFill"/>
+                                    </Button.Background>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <GroupBox>
+                        <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="btnDetail" Click="btnDetail_Click" Content="Detail" ToolTip="Detail Upload">
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANS CODE" x:Name="Id" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding UserName}" Header="USER NAME" x:Name="UserName" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="120" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ProjCode}" Header="PROJECT CODE" x:Name="ProjCode" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding CustCode}" Header="CUSTOMER CODE" x:Name="CustCode" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding DocTransStatus}" Header="STATUS" x:Name="DocTransStatus" Width="50" />
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+
+                <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
+                    <GroupBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"  />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
+                                <UserController:UCPaging x:Name="oPaging"/>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

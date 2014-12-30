@@ -73,11 +73,12 @@
     <Folder Include="StoreProcedure\StorageMonitoring" />
     <Folder Include="StoreProcedure\ImageProcess" />
     <Folder Include="StoreProcedure\Logout" />
-    <Folder Include="StoreProcedure\DocumetnSearch" />
+    <Folder Include="StoreProcedure\DocumentSearch" />
     <Folder Include="StoreProcedure\Archieving" />
     <Folder Include="StoreProcedure\Menu" />
     <Folder Include="StoreProcedure\Search Engine Document" />
     <Folder Include="StoreProcedure\Favorite Menu" />
+    <Folder Include="StoreProcedure\DocTransActivity" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -193,7 +194,7 @@
     <Build Include="StoreProcedure\StorageMonitoring\spFileStoragePaging.sql" />
     <Build Include="StoreProcedure\UserManagement\spDocTransActivityInsert.sql" />
     <Build Include="Table\DocTransActivity.sql" />
-    <Build Include="StoreProcedure\DocumetnSearch\spDocTransSearchPaging.sql" />
+    <Build Include="StoreProcedure\DocumentSearch\spDocTransSearchPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchievePreparePaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveApprovalPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging.sql" />
@@ -218,5 +219,6 @@
     <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuAdd.sql" />
     <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuDisabled.sql" />
     <Build Include="Table\FavoriteMenu.sql" />
+    <Build Include="StoreProcedure\DocTransActivity\spDocTransActivityPaging.sql" />
   </ItemGroup>
 </Project>

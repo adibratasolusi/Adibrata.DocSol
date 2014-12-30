@@ -3,19 +3,9 @@ using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Adibrata.DocumentSol.Windows.UploadInquiry
 {
@@ -46,7 +36,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                     ClassName = "UploadInquiry",
                     FunctionName = "UploadInquiry",
                     ExceptionNumber = 1,
-                    EventSource = "Customer",
+                    EventSource = "UploadInquiry",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -152,7 +142,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                     ClassName = "UploadInquiry",
                     FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
-                    EventSource = "Customer",
+                    EventSource = "UploadInquiry",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message

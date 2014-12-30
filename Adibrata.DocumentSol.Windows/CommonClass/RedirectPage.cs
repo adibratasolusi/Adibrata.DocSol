@@ -145,6 +145,9 @@ namespace Adibrata.DocumentSol.Windows
                 #endregion 
 
 
+                #region "Document Transaction Activity"
+                case "DocumentContent.DocTransActivity": Source.NavigationService.Navigate(new DocumentContent.DocTransActivity(_ent)); break;
+                #endregion 
             }
         }
 
@@ -280,6 +283,10 @@ namespace Adibrata.DocumentSol.Windows
                 #region "Favorite"
                 case "UserManagement.Favorite.FavoriteEdit": Source.NavigationService.Navigate(new UserManagement.Favorite.FavoriteEdit(_ent)); break;
                 #endregion
+
+                #region "Document Transaction Activity"
+                case "DocumentContent.DocTransActivity": Source.NavigationService.Navigate(new DocumentContent.DocTransActivity(_ent)); break;
+                #endregion 
             }
 
         }

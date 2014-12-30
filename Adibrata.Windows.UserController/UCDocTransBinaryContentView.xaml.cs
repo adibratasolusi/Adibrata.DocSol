@@ -65,6 +65,7 @@ namespace Adibrata.Windows.UserController
 
             Int64 _transid = DocumentSolutionController.DocSolProcess<Int64>(_ent);
             Session.ReffKey = _transid.ToString();
+            DocTransId = _transid;
             txtDocTransId.Text = _ent.DocTransCode;
             bindContent(_transid);
             bindBinary(_transid);

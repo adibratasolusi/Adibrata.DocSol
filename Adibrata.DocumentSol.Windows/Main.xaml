@@ -47,7 +47,7 @@
                                     </Grid.ColumnDefinitions>
                                     
                                     <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                                        <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch" Width="300" FontSize="12"/>
+                                        <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch" Width="300" FontSize="12" Foreground="White" />
                                     </Grid>
                                     <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
                                         <Button x:Name="btnSearch" Click="btnSearch_Click" Width="40" Height="40" VerticalAlignment="Bottom">

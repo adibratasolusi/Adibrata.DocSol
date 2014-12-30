@@ -1,4 +1,4 @@
-﻿Alter Procedure spMenuTreeSave
+﻿Create Procedure spMenuTreeSave
 	@FormName varchar(50) = null, 
 	@ParentLevel BigInt, 
 	@MenuName varchar(50) = null, 

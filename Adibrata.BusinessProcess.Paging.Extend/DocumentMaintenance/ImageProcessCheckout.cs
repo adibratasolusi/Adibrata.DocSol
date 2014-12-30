@@ -31,7 +31,7 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                     sqlParams[2].Value = _ent.WhereCond;
                     sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                     sqlParams[3].Value = _ent.SortBy;
-                    _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransCheckInPaging", sqlParams));
+                    _dt.Load(SqlHelper.ExecuteReader(Connectionstring, CommandType.StoredProcedure, "spDocTransCheckOutPaging", sqlParams));
                 }
                 catch (Exception _exp)
                 {

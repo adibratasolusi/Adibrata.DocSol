@@ -16,7 +16,7 @@ namespace Adibrata.BusinessProcess.Paging.Extend
     {
         static string Connectionstring = AppConfig.Config("ConnectionString");
 
-    public virtual DataTable CheckoutPaging(PagingEntities _ent)
+    public virtual DataTable CheckinPaging(PagingEntities _ent)
         {
             {
                 DataTable _dt = new DataTable();

@@ -57,6 +57,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
                 RedirectPage redirect = new RedirectPage(this, "DocumentMaintenance.DeleteDocumentDetail", SessionProperty);
+            
             }
             catch (Exception _exp)
             {
@@ -90,11 +91,11 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     sb.Append(" And ");
                     if (txtTransId.Text.Contains("%"))
                     {
-                        sb.Append(" TransId LIKE '");
+                        sb.Append(" DocTransCode LIKE '");
                     }
                     else
                     {
-                        sb.Append(" TransId = '");
+                        sb.Append(" DocTransCode = '");
                     }
                     sb.Append(txtTransId.Text);
                     sb.Append("'");
@@ -118,7 +119,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " TransId Asc ";
+                oPaging.SortBy = " DocTransCode Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

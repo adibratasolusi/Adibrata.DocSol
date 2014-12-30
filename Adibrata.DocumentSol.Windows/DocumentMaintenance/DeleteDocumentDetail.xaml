@@ -22,9 +22,13 @@
 
                 <UserController:UCDocTransBinaryContentView Name="ucView" />
             </Grid>
-
             <Grid Grid.Row="2">
-                <Button Name="btnDelete" Content="Delete" Width="200" HorizontalAlignment="Right" Click="btnDelete_Click" ></Button>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnBack" Grid.Column="0" Content="Back" ToolTip="Back to Delete Document Paging"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
+                <Button Name="btnDelete" Grid.Column="2"  Content="Delete" ToolTip="Delete to Document" HorizontalAlignment="Right" Click="btnDelete_Click" ></Button>
             </Grid>
         </Grid>
     </ScrollViewer>

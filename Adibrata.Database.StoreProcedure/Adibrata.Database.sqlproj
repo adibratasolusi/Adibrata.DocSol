@@ -77,6 +77,7 @@
     <Folder Include="StoreProcedure\Archieving" />
     <Folder Include="StoreProcedure\Menu" />
     <Folder Include="StoreProcedure\Search Engine Document" />
+    <Folder Include="StoreProcedure\Favorite Menu" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -179,7 +180,6 @@
     <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeStorageByExt.sql" />
     <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeStorage.sql" />
     <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeDetailById.sql" />
-    <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeDetail.sql" />
     <Build Include="StoreProcedure\StorageMonitoring\spFileNumberPaging.sql" />
     <Build Include="StoreProcedure\ImageProcess\spImageWaterMarkPaging.sql" />
     <Build Include="StoreProcedure\ImageProcess\spImageUnlockPaging.sql" />
@@ -197,7 +197,6 @@
     <Build Include="StoreProcedure\Archieving\spArchievePreparePaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveApprovalPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging.sql" />
-    <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging_1.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveApproval.sql" />
     <Build Include="Table\MS_Menu_1.sql" />
     <Build Include="StoreProcedure\Menu\spMenuTreeGetDetail.sql" />
@@ -216,5 +215,8 @@
     <Build Include="StoreProcedure\UserManagement\spMsUserMenuGetByUserId.sql" />
     <Build Include="StoreProcedure\UserManagement\spMSUserMenuInsert.sql" />
     <Build Include="StoreProcedure\Search Engine Document\spDocTransSearchPaging.sql" />
+    <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuAdd.sql" />
+    <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuDisabled.sql" />
+    <Build Include="Table\FavoriteMenu.sql" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spDocTransCheckOut]
+﻿Create PROCEDURE [dbo].[spDocTransCheckOut]
     -- Add the parameters for the stored procedure here
     @DocTransId bigint,
     @Usr varchar(50)

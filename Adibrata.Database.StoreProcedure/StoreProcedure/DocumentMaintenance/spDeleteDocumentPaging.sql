@@ -1,4 +1,4 @@
-﻿Create PROCEDURE [dbo].[spDeleteDocumentPaging]
+﻿ALTER PROCEDURE [dbo].[spDeleteDocumentPaging]
 	@StartRecord varchar(10), 
 	@EndRecord varchar(10), 
 	@WhereCond varchar(8000), 

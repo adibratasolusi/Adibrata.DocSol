@@ -15,7 +15,7 @@ If @SortBy = ''
 
     Set @SqlStatement = 'Select * from 
         (Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, Id,TransID,DocTypeCode 
-        from DocTrans where  ArchieveStatus = ''ARCHIEVE'' ' + @WhereCond  + ') Qry
+        from DocTrans with (nolock) where  ArchiveStatus = ''ARCHIEVE'' ' + @WhereCond  + ') Qry
         where number between ' + @StartRecord  + ' and  ' + @EndRecord  
         exec (@SqlStatement)
 Set @TotalRecord =  @@ROWCOUNT

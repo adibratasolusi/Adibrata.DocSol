@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spUserActivityPaging]
+﻿ALTER  PROCEDURE [dbo].[spUserActivityPaging]
 	@StartRecord varchar(10), 
 	@EndRecord varchar(10), 
 	@WhereCond varchar(8000), 

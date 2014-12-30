@@ -1,4 +1,4 @@
-﻿create PROCEDURE [dbo].[spDocTransBinaryUpdateFileBinary]
+﻿Alter PROCEDURE [dbo].[spDocTransBinaryUpdateFileBinary]
     -- Add the parameters for the stored procedure here
     @DocTransBinaryId bigint,
     @Usr varchar(50),

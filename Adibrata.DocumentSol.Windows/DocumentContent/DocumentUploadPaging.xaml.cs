@@ -21,6 +21,10 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+                oFavorite.UserLogin = SessionProperty.UserName;
+                oFavorite.FormUrl = "DocumentContent.DocumentUploadPaging";
+                oFavorite.DisableFavorit();
+
             }
             catch (Exception _exp)
             {
@@ -43,31 +47,118 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder sb = new StringBuilder(8000);
+            StringBuilder sbquery = new StringBuilder(8000);
             try
             {
-                oPaging.ClassName = "CustomerRegistrasi";
-                oPaging.MethodName = "CustomerPaging";
+                oPaging.ClassName = "ProjectRegistrasi";
+                oPaging.MethodName = "ProjectRegisterPaging";
                 oPaging.dgObj = dgPaging;
-                if (txtCustName.Text != "")
+                sb.Append("");
+                if (txtCustCode.Text != "" || txtCustName.Text != "" || txtProjectCode.Text != "" || txtProjectName.Text != "")
                 {
                     sb.Append(" Where ");
-                    if (txtCustName.Text.Contains("%"))
+                    
+                    if (txtCustCode.Text != "")
                     {
-                        sb.Append(" CustName LIKE '");
+                        if (sbquery.ToString() != "")
+                        {
+                            sbquery.Append(" AND ");
+                        }
+                        else
+                        {
+                            sbquery.Append(" ");
+                        }
+    
+                        if (txtCustCode.Text.Contains("%"))
+                        {
+                            sbquery.Append(" CustCode LIKE '");
+                        }
+                        else
+                        {
+                            sbquery.Append(" CustCode = '");
+                        }
+                        sbquery.Append(txtCustCode.Text);
+                        sbquery.Append("' ");
                     }
-                    else
+
+
+                    if (txtCustName.Text != "")
                     {
-                        sb.Append(" CustName = '");
+                        if (sbquery.ToString() != "")
+                        {
+                            sbquery.Append(" AND ");
+                        }
+                        else
+                        {
+                            sbquery.Append(" ");
+                        }
+
+
+                        if (txtCustName.Text.Contains("%"))
+                        {
+                            sbquery.Append(" CustName LIKE '");
+                        }
+                        else
+                        {
+                            sbquery.Append(" CustName = '");
+                        }
+                        sbquery.Append(txtCustName.Text);
+                        sbquery.Append("' ");
                     }
-                    sb.Append(txtCustName.Text);
-                    sb.Append("'");
+
+
+                    if (txtProjectName.Text != "")
+                    {
+                        if (sbquery.ToString() != "")
+                        {
+                            sbquery.Append(" AND ");
+                        }
+                        else
+                        {
+                            sbquery.Append(" ");
+                        }
+
+                        if (txtProjectName.Text.Contains("%"))
+                        {
+                            sbquery.Append(" ProjName LIKE '");
+                        }
+                        else
+                        {
+                            sbquery.Append(" ProjName = '");
+                        }
+                        sbquery.Append(txtProjectName.Text);
+                        sbquery.Append("' ");
+                    }
+
+                    if (txtProjectCode.Text != "")
+                    {
+                        if (sbquery.ToString() != "")
+                        {
+                            sbquery.Append(" AND ");
+                        }
+                        else
+                        {
+                            sbquery.Append(" ");
+                        }
+
+                        if (txtProjectCode.Text.Contains("%"))
+                        {
+                            sbquery.Append(" ProjCode LIKE '");
+                        }
+                        else
+                        {
+                            sbquery.Append(" ProjCode = '");
+                        }
+                        sbquery.Append(txtProjectCode.Text);
+                        sbquery.Append("' ");
+                    }
                 }
-                else
+                if (sbquery.ToString() != "")
                 {
-                    sb.Append("");
+                    sb.Append(sbquery.ToString());
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " CustName Asc ";
+                oPaging.SortBy = " ProjName Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }
@@ -76,7 +167,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    NameSpace = "Adibrata.DocumentSol.Windows.Project",
                     ClassName = "DocumentUploadPaging",
                     FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
@@ -119,6 +210,11 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

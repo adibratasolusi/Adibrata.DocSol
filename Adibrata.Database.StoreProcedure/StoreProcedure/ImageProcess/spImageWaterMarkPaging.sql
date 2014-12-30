@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spImageWaterMarkPaging]
+﻿ALTER  PROCEDURE [dbo].[spImageWaterMarkPaging]
 	@StartRecord varchar(10), 
 	@EndRecord varchar(10), 
 	@WhereCond varchar(8000), 

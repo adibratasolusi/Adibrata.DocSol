@@ -75,19 +75,7 @@
                                 <DataGridTemplateColumn Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnUpload" Click="btnUpload_Click" Width="100" Height="50">
-                                                <Button.Background>
-                                                    <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/AlienAqua scanner 2.png"/>
-                                                </Button.Background>
-                                            </Button>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Width="150">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
                                             <Button Name="btnEdit" Click="btnEdit_Click" Width="100" Height="50" Content="Edit">
-                                                
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

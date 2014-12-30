@@ -47,6 +47,7 @@ namespace Adibrata.DocumentSol.Windows
                 #endregion
 
                 #region "DocumentContentEntry"
+                case "DocumentContent.DocumentUploadPaging": Source.NavigationService.Navigate(new DocumentContent.DocumentUploadPaging(_ent)); break;
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
                 #endregion
 
@@ -187,6 +188,7 @@ namespace Adibrata.DocumentSol.Windows
                 #endregion
 
                 #region "DocumentContentEntry"
+                case "DocumentContent.DocumentUploadPaging": Source.NavigationService.Navigate(new DocumentContent.DocumentUploadPaging(_ent)); break;
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
                 #endregion
 

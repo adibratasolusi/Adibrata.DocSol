@@ -121,6 +121,11 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
                 #endregion
             }
         }
+
+        private void btnBack_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

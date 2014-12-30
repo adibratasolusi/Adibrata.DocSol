@@ -82,6 +82,32 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
 
         }
 
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "DocumentMaintenance.DeleteDocumentPaging", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = " Adibrata.DocumentSol.Windows.DocumentMaintenance",
+                    ClassName = "DeleteDocumentInquiryDetail",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "DeleteDocumentInquiryDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Managemetn
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+        }
+
 
     }
 }

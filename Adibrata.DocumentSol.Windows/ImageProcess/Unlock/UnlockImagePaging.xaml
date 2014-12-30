@@ -28,7 +28,7 @@
                     <RowDefinition Height="Auto"  />
                 </Grid.RowDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-                    <GroupBox Background="Beige" Header="Search">
+                    <GroupBox  Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />

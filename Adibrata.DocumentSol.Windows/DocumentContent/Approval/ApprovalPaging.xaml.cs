@@ -1,14 +1,14 @@
-﻿using Adibrata.BusinessProcess.Entities.Base;
+﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Controller;
 using Adibrata.Framework.Logging;
+using Adibrata.Windows.UserController;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using Adibrata.Windows.UserController;
-using Adibrata.BusinessProcess.DocumentSol.Entities;
-using System.Data;
-using System.Collections.Generic;
-using Adibrata.Controller;
 
 namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
 {
@@ -28,12 +28,15 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+                oFavorite.UserLogin = SessionProperty.UserName;
+                oFavorite.FormUrl = "Approval.ApprovalPaging";
+                oFavorite.DisableFavorit();
 
                 DataTable _dt = new DataTable();
                 _ent.ClassName = "ProjectRegistrasi";
                 _ent.MethodName = "ProjectTypeReceive";
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                
+
                 if (_dt.Rows.Count > 0)
                 {
                     foreach (DataRow _row in _dt.Rows)
@@ -44,16 +47,14 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent.Approval
 
                 cboProjectType.ItemsSource = data;
                 #region "List Approval Status"
-                
+
 
                 statusApproval.Add("New");
                 statusApproval.Add("In Progress");
                 statusApproval.Add("Final");
                 cboApprStatus.ItemsSource = statusApproval;
-                #endregion 
+                #endregion
                 lblUserName.Text = SessionProperty.UserName;
-
-
             }
             catch (Exception _exp)
             {

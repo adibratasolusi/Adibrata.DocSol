@@ -1,10 +1,10 @@
 ﻿using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Framework.Logging;
+using Adibrata.Windows.UserController;
 using System;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using Adibrata.Windows.UserController;
 
 
 namespace Adibrata.DocumentSol.Windows.Project
@@ -22,6 +22,10 @@ namespace Adibrata.DocumentSol.Windows.Project
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+                oFavorite.UserLogin = SessionProperty.UserName;
+                oFavorite.FormUrl = "Project.CustomerProjectPaging";
+                oFavorite.DisableFavorit();
+
             }
             catch (Exception _exp)
             {

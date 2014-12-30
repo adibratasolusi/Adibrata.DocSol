@@ -30,7 +30,9 @@ namespace Adibrata.DocumentSol.Windows.UserManagement.UserFormRegistration
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
-
+            oFavorite.UserLogin = SessionProperty.UserName;
+            oFavorite.FormUrl = "UserManagement.UserFormRegistration.UserFormRegistrationPaging";
+            oFavorite.DisableFavorit();
         }
 
         private void btnMenu_Click(object sender, RoutedEventArgs e)

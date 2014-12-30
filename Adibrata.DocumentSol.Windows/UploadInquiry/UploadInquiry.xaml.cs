@@ -28,9 +28,31 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
         DocSolEntities _ent = new DocSolEntities();
         public UploadInquiry(SessionEntities _session)
         {
-            InitializeComponent();
-            this.DataContext = new MainVM(new Shell());
-            SessionProperty = _session;
+            try
+            {
+                InitializeComponent();
+                this.DataContext = new MainVM(new Shell());
+                SessionProperty = _session;
+                oFavorite.UserLogin = SessionProperty.UserName;
+                oFavorite.FormUrl = "UploadInquiry.UploadInquiry";
+                oFavorite.DisableFavorit();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
+                    ClassName = "UploadInquiry",
+                    FunctionName = "UploadInquiry",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)

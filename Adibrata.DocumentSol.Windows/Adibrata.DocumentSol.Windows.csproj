@@ -386,12 +386,6 @@
       <DependentUpon>RuleSchemePaging.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell.cs" />
-    <Compile Include="TestPage.xaml.cs">
-      <DependentUpon>TestPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TestScreen.xaml.cs">
-      <DependentUpon>TestScreen.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserManagement\UserFormRegistration\UserFormRegistration.xaml.cs">
       <DependentUpon>UserFormRegistration.xaml</DependentUpon>
     </Compile>
@@ -807,14 +801,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RuleUpload\RuleSchemePaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TestPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TestScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

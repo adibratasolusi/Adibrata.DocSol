@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
-using Adibrata.Framework.Caching;
-using Adibrata.Framework.Logging;
-using Adibrata.BusinessProcess.Entities.Base;
-using System.Windows;
-using System.Windows.Controls;
-using Adibrata.Controller.UserManagement;
+﻿using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Controller.UserManagement;
+using System.Windows.Controls;
 namespace Adibrata.DocumentSol.Windows
 {
     public class RedirectPage : Page

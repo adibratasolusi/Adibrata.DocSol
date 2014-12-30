@@ -31,7 +31,7 @@
                     <RowDefinition Height="Auto"  />
                 </Grid.RowDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-                    <GroupBox Background="Beige" Header="Search">
+                    <GroupBox  Header="Search">
                         <Grid Margin="0,0,0,47">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />

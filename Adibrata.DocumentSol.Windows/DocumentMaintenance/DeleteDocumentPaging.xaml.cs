@@ -2,19 +2,9 @@
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
 {
@@ -31,11 +21,14 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+                oFavorite.UserLogin = SessionProperty.UserName;
+                oFavorite.FormUrl = "DocumentMaintenance.DeleteDocumentPaging";
+                oFavorite.DisableFavorit();
             }
             catch (Exception _exp)
-        {
+            {
                 ErrorLogEntities _errent = new ErrorLogEntities
-           {
+                {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.DocumentMaintenance",
                     ClassName = "DeleteDocumentPaging",
@@ -45,9 +38,9 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
-           };
+                };
                 ErrorLog.WriteEventLog(_errent);
-     }
+            }
         }
 
 
@@ -64,6 +57,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
                 RedirectPage redirect = new RedirectPage(this, "DocumentMaintenance.DeleteDocumentDetail", SessionProperty);
+            
             }
             catch (Exception _exp)
             {
@@ -83,11 +77,6 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
             }
         }
 
-        private void txtTransId_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder sb = new StringBuilder(8000);
@@ -102,11 +91,11 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     sb.Append(" And ");
                     if (txtTransId.Text.Contains("%"))
                     {
-                        sb.Append(" TransId LIKE '");
+                        sb.Append(" DocTransCode LIKE '");
                     }
                     else
                     {
-                        sb.Append(" TransId = '");
+                        sb.Append(" DocTransCode = '");
                     }
                     sb.Append(txtTransId.Text);
                     sb.Append("'");
@@ -130,7 +119,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " TransId Asc ";
+                oPaging.SortBy = " DocTransCode Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

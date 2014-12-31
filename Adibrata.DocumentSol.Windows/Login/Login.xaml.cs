@@ -52,7 +52,9 @@ namespace Adibrata.DocumentSol.Windows.Login
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
-            UserManagementEntities _ent = new UserManagementEntities { ClassName = "UserManagement", MethodName = "UserNamePasswordVerification" };
+            UserManagementEntities _ent = new UserManagementEntities { 
+                ClassName = "UserManagement", 
+                MethodName = "UserNamePasswordVerification" };
             SessionEntities SessionProperty = new SessionEntities();
             try
             {

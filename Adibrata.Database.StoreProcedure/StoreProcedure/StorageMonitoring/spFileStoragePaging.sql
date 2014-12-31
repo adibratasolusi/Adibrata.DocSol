@@ -10,10 +10,10 @@ Declare @RecordNumber Numeric,
 Set NoCount On 
 Declare @TotalRecord int
 If @SortBy = '' 
-    Set @SortBy = ' TransID Asc '
+    Set @SortBy = ' DocTransCode Asc '
 
     Set @SqlStatement = 'Select * from                
-        (Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, dt.TransID,dt.DocTypeCode,dtb.FileName,dtb.SizeFileBytes,dtb.Pixel, dtb.ComputerName
+        (Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, dt.DocTransCode,dt.DocTypeCode,dtb.FileName,dtb.SizeFileBytes,dtb.Pixel, dtb.ComputerName
         From DocTransBinary dtb  join DocTrans dt  on dtb.DocTransID =dt.Id ' + @WhereCond  + ') Qry
         where number between ' + @StartRecord  + ' and  ' + @EndRecord  
         exec (@SqlStatement)

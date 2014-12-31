@@ -35,7 +35,8 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
                 ucView.DocTransCode = SessionProperty.ReffKey;
-            
+               
+         
 
             }
             catch (Exception _exp)

@@ -34,8 +34,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Unlock
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
-                ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
-
+                ucView.DocTransCode = SessionProperty.ReffKey;
             }
             catch (Exception _exp)
             {
@@ -66,7 +65,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Unlock
                 MethodName = "ImageStatusUnlocked",
                 ClassName = "ImageProcess"
             };
-            _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+            _ent.Id = ucView.DocTransId;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
             MessageBox.Show("Sukses");

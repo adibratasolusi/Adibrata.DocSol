@@ -48,32 +48,32 @@
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="TOTAL FILE"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="MAXIMUM SIZE" />
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="MAXIMUM SIZE (bytes)" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="2">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="MINIMUM SIZE" />
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="MINIMUM SIZE (bytes)" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="3">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="AVERAGE SIZE"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="AVERAGE SIZE (bytes)"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="4">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="TOTAL SIZE"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="TOTAL SIZE (bytes)"/>
 
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" IsReadOnly="True" x:Name="txtTotalFile"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}"  x:Name="txtTotalFile"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="1">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtMaxSize"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtMaxSize"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="2">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtMinSize"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtMinSize"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="3">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtAverageSize"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtAverageSize"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="4">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtTotalSize"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtTotalSize"/>
                             </Grid>
 
                         </Grid>

@@ -220,5 +220,10 @@
     <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuDisabled.sql" />
     <Build Include="Table\FavoriteMenu.sql" />
     <Build Include="StoreProcedure\DocTransActivity\spDocTransActivityPaging.sql" />
+    <Build Include="StoreProcedure\StorageMonitoring\spSummarySizeDetail.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransCheckInPaging.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransCheckOutPaging.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransCheckIn.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransCheckOut.sql" />
   </ItemGroup>
 </Project>

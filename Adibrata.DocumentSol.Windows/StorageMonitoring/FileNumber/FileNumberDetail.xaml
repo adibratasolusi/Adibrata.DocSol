@@ -62,19 +62,19 @@
 
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" IsReadOnly="True" x:Name="txtExtension"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}"  x:Name="txtExtension"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="1">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtNumberFile"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtNumberFile"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="2">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtMaxSize"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtMaxSize"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="3">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtMinSize"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtMinSize"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="4">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtAverageSize"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="txtAverageSize"/>
                             </Grid>
 
                         </Grid>

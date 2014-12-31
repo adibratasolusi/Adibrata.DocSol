@@ -64,7 +64,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 SessionProperty.ReffKey = ReffKey.Text;
                 RedirectPage redirect = new RedirectPage(this, "ImageProcess.Checkin.CheckinDetail", SessionProperty);
             }
-            catch (Exception _exp)
+             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
@@ -99,11 +99,11 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                     sb.Append(" And ");
                     if (txtTransId.Text.Contains("%"))
                     {
-                        sb.Append(" TransId LIKE '");
+                        sb.Append(" DocTransCode LIKE '");
                     }
                     else
                     {
-                        sb.Append(" TransId = '");
+                        sb.Append(" DocTransCode = '");
                     }
                     sb.Append(txtTransId.Text);
                     sb.Append("'");
@@ -128,7 +128,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                     sb.Append("");
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " TransId Asc ";
+                oPaging.SortBy = " DocTransCode Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

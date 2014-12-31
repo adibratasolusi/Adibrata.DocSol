@@ -64,12 +64,19 @@
                           >
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="150">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click"></Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
                                     
                                 </DataGridTemplateColumn>
-                              
-                                <DataGridTextColumn Binding="{Binding Ext}" Header="EKSTENSION" x:Name="Ext" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding JumlahFile}" Header="JUMLAH FILE" x:Name="JumlahFile" Width="200" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding TotalSize}" Header="TOTAL SIZE" x:Name="TotalSize" Width="200" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Ext}" Header="EKSTENSION" x:Name="Ext" Width="50"/>
+                                <DataGridTextColumn Binding="{Binding JumlahFile}" Header="JUMLAH FILE" x:Name="JumlahFile" Width="50" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding TotalSize}" Header="TOTAL SIZE" x:Name="TotalSize" Width="150" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Maximum}" Header="MAXIMUM SIZE" x:Name="Maximum" Width="150" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Minimum}" Header="MINIMUM SIZE" x:Name="Minimum" Width="150" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Average}" Header="AVERAGE SIZE" x:Name="Average" Width="150" FontSize="14" />
 
                             </DataGrid.Columns>
                         </DataGrid>

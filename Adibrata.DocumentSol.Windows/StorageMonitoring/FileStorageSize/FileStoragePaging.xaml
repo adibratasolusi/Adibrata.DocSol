@@ -80,7 +80,7 @@
                           >
                             <DataGrid.Columns>
                                 
-                               <DataGridTextColumn Binding="{Binding TransID}" Header="TRANS ID" x:Name="TransId" Width="150"/>
+                               <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT TRANS CODE" x:Name="DocTransCode" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocTypeCode" Width="150" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileName" Width="200" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE (Bytes)" x:Name="Size" Width="100" FontSize="14" />

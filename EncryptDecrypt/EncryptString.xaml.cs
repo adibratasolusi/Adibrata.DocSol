@@ -32,7 +32,7 @@ namespace Adibrata.DocumentSol.Windows
 
         private void btnDecrypt_Click(object sender, RoutedEventArgs e)
         {
-            txtString.Text = Encryption.EncryptToRSA (txtResult.Text);
+            txtString.Text = Encryption.DecryptFromRSA (txtResult.Text);
         }
     }
 }

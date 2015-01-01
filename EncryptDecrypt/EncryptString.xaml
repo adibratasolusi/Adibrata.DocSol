@@ -12,7 +12,7 @@
             <TextBox Name="txtString"></TextBox>
             <TextBox Name="txtResult"></TextBox>
             <Button Name="btnEncrypt" Click="btnEncrypt_Click"> Encrypt</Button>
-            <Button Name="btnDecrypt" Click="btnDecrypt_Click">Encrypt</Button>
+            <Button Name="btnDecrypt" Click="btnDecrypt_Click">Decrypt</Button>
         </StackPanel>
     </Grid>
 </Page>

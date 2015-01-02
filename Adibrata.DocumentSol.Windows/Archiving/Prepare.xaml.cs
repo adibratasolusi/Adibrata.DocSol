@@ -76,8 +76,9 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             DataGridHelper oDataGrid = new DataGridHelper();
             oDataGrid.dtg = dgPaging;
 
-          // DataGridCell cellId = oDataGrid.GetCell(i, 2);
-           // TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
+            //DataGridCell cellId = oDataGrid.GetCell(i, 1);
+            //TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
+
 
             DataGridCell cellDocTransCode = oDataGrid.GetCell(i, 2);
             TextBlock tbDocTransCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTransCode);
@@ -97,7 +98,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             }
             else
             {
-                MessageBox.Show(tbDocTransCode.Text + "-" + tbDocTransCode.Text + " already in queue");
+                MessageBox.Show(tbDocTransCode.Text + "-" + tbDocTypeCode.Text + " already in queue");
             }
 
         }

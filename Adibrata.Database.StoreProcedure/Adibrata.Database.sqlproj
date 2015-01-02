@@ -225,5 +225,6 @@
     <Build Include="StoreProcedure\ImageProcess\spDocTransCheckOutPaging.sql" />
     <Build Include="StoreProcedure\ImageProcess\spDocTransCheckIn.sql" />
     <Build Include="StoreProcedure\ImageProcess\spDocTransCheckOut.sql" />
+    <Build Include="StoreProcedure\Archieving\spArchievePrepare.sql" />
   </ItemGroup>
 </Project>

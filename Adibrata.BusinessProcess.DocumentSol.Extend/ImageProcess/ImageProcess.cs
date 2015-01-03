@@ -54,7 +54,6 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 #endregion
             }
         }
-        
         public void ImageStatusUnlocked(DocSolEntities _ent)//method
         {
             SqlParameter[] sqlParams;
@@ -63,8 +62,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             {
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[1];
-                sqlParams[0] = new SqlParameter("@ID", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.Id;
+                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar, 50);
+                sqlParams[0].Value = _ent.DocTransCode;
 
 
                 _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spImageUnlockedStatus", sqlParams);
@@ -92,8 +91,6 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 #endregion
             }
         }
-
-
         public void DocTransCheckOut(DocSolEntities _ent)//method
         {
             SqlParameter[] sqlParams;
@@ -141,8 +138,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             {
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[2];
-                sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.Id;
+                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.DocTransCode;
                 sqlParams[1] = new SqlParameter("@Usr", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.UserName;
 

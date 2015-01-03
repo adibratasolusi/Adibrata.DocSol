@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spDocTransCheckIn]
     -- Add the parameters for the stored procedure here
-    @DocTransId bigint,
+    @DocTransCode Varchar(50),
     @Usr varchar(50)
 AS
 BEGIN
@@ -9,5 +9,5 @@ BEGIN
     SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-    update DocTrans set DocTransStatus = 'ACTIVE', CheckOutBy = '', UsrUpd = @usr, DtmUpd = getdate() where Id = @DocTransId
+    update DocTrans set DocTransStatus = 'ACTIVE', CheckOutBy = '', UsrUpd = @usr, DtmUpd = getdate() where DocTransCode = @DocTransCode
 END

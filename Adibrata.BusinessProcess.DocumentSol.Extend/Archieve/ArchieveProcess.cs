@@ -73,9 +73,9 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 _trans = _conn.BeginTransaction();
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[2];
-                sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.DocTransId;
-                sqlParams[1] = new SqlParameter("@Status", SqlDbType.Char, 1);
+                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[1] = new SqlParameter("@Status", SqlDbType.VarChar, 2);
                 sqlParams[1].Value = _ent.ApprovalStatus;
 
                 #endregion
@@ -174,7 +174,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 
                     #region "List Parameter SQL"
                     sqlParams = new SqlParameter[2];
-                    sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                    sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
                     sqlParams[0].Value = _ent.ListArchieve[i];
                     sqlParams[1] = new SqlParameter("@Status", SqlDbType.Char, 1);
                     sqlParams[1].Value = _ent.ApprovalStatus;

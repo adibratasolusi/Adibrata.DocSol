@@ -19,6 +19,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
         List<string> listId = new List<string>();
         public class DataItem
         {
+            public string DocTransCode { get; set; }
             public string DocTypeCode { get; set; }
             public string TransID { get; set; }
             public string Id { get; set; }
@@ -71,28 +72,28 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             DataGridHelper oDataGrid = new DataGridHelper();
             oDataGrid.dtg = dgPaging;
 
-            DataGridCell cellId = oDataGrid.GetCell(i, 2);
-            TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
+            //DataGridCell cellId = oDataGrid.GetCell(i, 2);
+            //TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
 
-            DataGridCell cellTransId = oDataGrid.GetCell(i, 3);
-            TextBlock tbTransId = oDataGrid.GetVisualChild<TextBlock>(cellTransId);
+            DataGridCell cellDocTransCode = oDataGrid.GetCell(i, 2);
+            TextBlock tbDocTransCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTransCode);
 
-            DataGridCell cellDocTypeCode = oDataGrid.GetCell(i, 4);
+            DataGridCell cellDocTypeCode = oDataGrid.GetCell(i, 3);
             TextBlock tbDocTypeCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTypeCode);
-            if (!listId.Contains(tbId.Text))
+            if (!listId.Contains(tbDocTransCode.Text))
             {
                 if (listId.Count == 0)
                 {
                     gbQueue.Visibility = Visibility.Visible;
                 }
 
-                listId.Add(tbId.Text);
-                dgQueue.Items.Add(new DataItem { Id = tbId.Text, DocTypeCode = tbDocTypeCode.Text, TransID = tbTransId.Text, });
+                listId.Add(tbDocTransCode.Text);
+                dgQueue.Items.Add(new DataItem { DocTransCode = tbDocTransCode.Text, DocTypeCode = tbDocTypeCode.Text, });
                 dgQueue.Items.Refresh();
             }
             else
             {
-                MessageBox.Show(tbId.Text + "-" + tbTransId.Text + " already in queue");
+                MessageBox.Show(tbDocTransCode.Text + "-" + tbDocTypeCode.Text + " already in queue");
             }
 
         }
@@ -139,10 +140,10 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                 oPaging.MethodName = "ArchievingApproval";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
-                if (txtTransId.Text != "")
+                if (txtDocTransCode.Text != "")
                 {
                     sb.Append(" And ");
-                    if (txtTransId.Text.Contains("%"))
+                    if (txtDocTransCode.Text.Contains("%"))
                     {
                         sb.Append(" DocTransCode LIKE '");
                     }
@@ -150,7 +151,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     {
                         sb.Append(" DocTransCode = '");
                     }
-                    sb.Append(txtTransId.Text);
+                    sb.Append(txtDocTransCode.Text);
                     sb.Append("'");
                 }
                 if (txtDocType.Text != "")
@@ -213,19 +214,19 @@ namespace Adibrata.DocumentSol.Windows.Archiving
 
         private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
-            approvalProcess("1"); 
+            approvalProcess("A"); 
         }
 
         private void btnReject_Click(object sender, RoutedEventArgs e)
         {
 
-            approvalProcess("3");
+            approvalProcess("R");
         }
 
         private void btnHold_Click(object sender, RoutedEventArgs e)
         {
 
-            approvalProcess("2");
+            approvalProcess("H");
         }
 
         private void approvalProcess(string statusApproval)

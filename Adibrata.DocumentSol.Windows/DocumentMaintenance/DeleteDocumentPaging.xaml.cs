@@ -86,10 +86,10 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 oPaging.MethodName = "DeleteDocumentPaging";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
-                if (txtTransId.Text != "")
+                if (txtDocTransCode.Text != "")
                 {
                     sb.Append(" And ");
-                    if (txtTransId.Text.Contains("%"))
+                    if (txtDocTransCode.Text.Contains("%"))
                     {
                         sb.Append(" DocTransCode LIKE '");
                     }
@@ -97,7 +97,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                     {
                         sb.Append(" DocTransCode = '");
                     }
-                    sb.Append(txtTransId.Text);
+                    sb.Append(txtDocTransCode.Text);
                     sb.Append("'");
                 }
                 if (txtDocType.Text !="")

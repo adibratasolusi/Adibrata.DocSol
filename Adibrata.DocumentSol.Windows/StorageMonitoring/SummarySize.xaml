@@ -95,7 +95,7 @@
                           >
                             <DataGrid.Columns>
 
-                                <DataGridTextColumn Binding="{Binding TransID}"  Header="TRANS ID" x:Name="TransIDBigFile" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding DocTransCode}"  Header="DOCUMENT CODE" x:Name="DocTransCodeBigFile" Width="120"/>
                                 <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileNameBigFile" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCTYPE" x:Name="DocTypeCodeBigFile" Width="200" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE" x:Name="SizeFileBytesBigFile" Width="200" FontSize="14" />
@@ -127,7 +127,7 @@
                           >
                             <DataGrid.Columns>
 
-                                <DataGridTextColumn Binding="{Binding TransID}"  Header="TRANS ID" x:Name="TransIDSmallFile" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding DocTransCode}"  Header="DOCUMENT CODE" x:Name="DocTransCodeSmallFile" Width="120"/>
                                 <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileNameSmallFile" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCTYPE" x:Name="DocTypeCodeSmallFile" Width="200" FontSize="14" />
                                 <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE" x:Name="SizeFileBytesSmallFile" Width="200" FontSize="14" />

@@ -61,7 +61,7 @@
                           x:Name="dgPaging" 
                           
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
-                          >
+                          ScrollViewer.VerticalScrollBarVisibility="Auto" >
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="150">
                                     <DataGridTemplateColumn.CellTemplate>

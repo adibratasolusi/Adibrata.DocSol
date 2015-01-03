@@ -66,7 +66,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 MethodName = "DocTransCheckIn",
                 ClassName = "ImageProcess"
             };
-            _ent.Id = ucView.DocTransId;
+            _ent.DocTransCode = ucView.DocTransCode;
             _ent.UserName = SessionProperty.UserName;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);

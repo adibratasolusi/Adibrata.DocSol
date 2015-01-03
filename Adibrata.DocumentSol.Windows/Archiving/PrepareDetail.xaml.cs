@@ -58,7 +58,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     MethodName = "ArchievePrepare",
                     ClassName = "ArchieveProcess"
                 };
-                _ent.DocTransCode = SessionProperty.ReffKey;
+                _ent.DocTransCode = ucView.DocTransCode;
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 MessageBox.Show("Document Archieve Prepare Success");

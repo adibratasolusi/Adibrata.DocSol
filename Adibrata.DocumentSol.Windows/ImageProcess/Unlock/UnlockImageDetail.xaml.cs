@@ -58,19 +58,21 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Unlock
 
        
 
-        private void btnLock_Click(object sender, RoutedEventArgs e)
+  
+
+        private void btnUnlock_Click(object sender, RoutedEventArgs e)
         {
             DocSolEntities _ent = new DocSolEntities
             {
                 MethodName = "ImageStatusUnlocked",
                 ClassName = "ImageProcess"
             };
-            _ent.Id = ucView.DocTransId;
+            _ent.DocTransCode = ucView.DocTransCode;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
             MessageBox.Show("Sukses");
             RedirectPage redirect = new RedirectPage(this, "ImageProcess.Unlock.UnlockImagePaging", SessionProperty);
-  
+ 
         }
 
       

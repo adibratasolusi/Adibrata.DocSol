@@ -32,7 +32,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Name="btnHold" Grid.Column="0" Content="Back" ToolTip="Hold"  HorizontalAlignment="Right" Click="btnHold_Click" ></Button>
                 <Button Name="btnReject" Grid.Column="1" Content="Reject" ToolTip="Reject to Archieve"  HorizontalAlignment="Right" Click="btnReject_Click" ></Button>
-                <Button Name="btnApproval" Grid.Column="2"  Content="Prepare" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnApproval_Click" ></Button>
+                <Button Name="btnApproval" Grid.Column="2"  Content="Approval" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnApproval_Click" ></Button>
             </Grid>
         </Grid>
     </ScrollViewer>

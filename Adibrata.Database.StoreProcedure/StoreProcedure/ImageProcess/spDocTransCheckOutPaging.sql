@@ -13,7 +13,7 @@ If @SortBy = ''
     Set @SortBy = ' DocTransCode Asc '
 
     Set @SqlStatement = 'Select * from                
-        (Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, Id,DocTransCode,DocTypeCode 
+        (Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number,DocTransCode,DocTypeCode 
         from doctrans where DocTransStatus = ''ACTIVE'' and (CheckOutBy = '''' or CheckOutBy is null) ' + @WhereCond  + ') Qry
         where number between ' + @StartRecord  + ' and  ' + @EndRecord  
         exec (@SqlStatement)

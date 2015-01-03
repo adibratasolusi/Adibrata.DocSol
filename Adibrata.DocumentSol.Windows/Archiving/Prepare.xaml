@@ -42,10 +42,10 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="TransID"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtTransId" Margin="0,2" Width="159"/>
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Margin="0,2" Width="159"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type" />
@@ -147,7 +147,7 @@
                                             </DataGridTemplateColumn.CellTemplate>
 
                                         </DataGridTemplateColumn>
-                                        <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANS ID" x:Name="DocTransCodeQueue" Width="150"/>
+                                        <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT CODE" x:Name="DocTransCodeQueue" Width="150"/>
                                         <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocTypeQueue" Width="200" FontSize="14" />
 
                                     </DataGrid.Columns>

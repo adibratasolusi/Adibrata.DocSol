@@ -94,10 +94,10 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 oPaging.dgObj = dgPaging;
 
                 sb.Append(SessionProperty.UserName);
-                if (txtTransId.Text != "" || txtDocType.Text !="")
+                if (txtDocTransCode.Text != "" || txtDocType.Text !="")
                 {
                     sb.Append(" And ");
-                    if (txtTransId.Text.Contains("%"))
+                    if (txtDocTransCode.Text.Contains("%"))
                     {
                         sb.Append(" DocTransCode LIKE '");
                     }
@@ -105,7 +105,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                     {
                         sb.Append(" DocTransCode = '");
                     }
-                    sb.Append(txtTransId.Text);
+                    sb.Append(txtDocTransCode.Text);
                     sb.Append("'");
                     if (txtDocType.Text != "")
                     {

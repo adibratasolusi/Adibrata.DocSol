@@ -79,16 +79,11 @@
 
                         </Grid>
                     </GroupBox>
-                    <Grid Grid.Column="1">
-                        <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" ToolTip="Back To Project Paging" Margin="577,392,195,-290">
-                            <Button.Background>
-                                <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
-                            </Button.Background>
 
-                        </Button>
-                    </Grid>
+                  
+               
                 </Grid>
-                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="6*"/>
@@ -98,10 +93,10 @@
                           x:Name="dgPaging" 
                           
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch" Margin="0,0,0,139"
-                          >
+                        HorizontalScrollBarVisibility="Auto" >
                         <DataGrid.Columns>
 
-                            <DataGridTextColumn Binding="{Binding TransID}"  Header="TRANSID" x:Name="TransID" Width="120"/>
+                            <DataGridTextColumn Binding="{Binding DocTransCode}"  Header="DOCUMENT CODE" x:Name="DocTransCode" Width="120"/>
                             <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileName" Width="150"/>
                             <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCTYPE" x:Name="DocTypeCode" Width="200" FontSize="14" />
                             <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE" x:Name="SizeFileBytes" Width="200" FontSize="14" />
@@ -111,15 +106,27 @@
                                         <Image Name="imgPreview" Source="{Binding FileBinary}" Width="150" Height="150"></Image>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                              
+                                    
+                                </DataGridTemplateColumn>
 
                         </DataGrid.Columns>
+                       
                     </DataGrid>
-                </Grid>
+                    <Grid Grid.Column="1">
+                        <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" HorizontalAlignment="Left" ToolTip="Back To Project Paging" >
+                            <Button.Background>
+                                <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
+                            </Button.Background>
 
-                <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
+                        </Button>
+                    </Grid>
+                </Grid>
+           
+            <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
                     <GroupBox>
                         <Grid>
+                            
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="2*"/>

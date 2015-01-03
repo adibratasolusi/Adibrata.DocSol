@@ -34,7 +34,8 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
-                ucView.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+              
+                ucView.DocTransCode = SessionProperty.ReffKey;
 
 
             }

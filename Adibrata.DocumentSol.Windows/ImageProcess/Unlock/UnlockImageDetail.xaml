@@ -23,7 +23,7 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Name="btnLock" Content="UNLOCK" Width="200" HorizontalAlignment="Right" Click="btnLock_Click" ></Button>
+                <Button Name="btnUnlock" Content="UNLOCK" Width="200" HorizontalAlignment="Right" Click="btnUnlock_Click" ></Button>
             </Grid>
         </Grid>
     </ScrollViewer>

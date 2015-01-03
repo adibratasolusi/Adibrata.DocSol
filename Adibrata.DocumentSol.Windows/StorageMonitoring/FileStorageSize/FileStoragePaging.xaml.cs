@@ -43,13 +43,13 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileStorageSize
                 oPaging.MethodName = "FileStoragePaging";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
-                if (txtTransId.Text != "" || txtDocType.Text != "" || txtFilename.Text != "")
+                if (txtDocTransCode.Text != "" || txtDocType.Text != "" || txtFilename.Text != "")
                 {
-                    if (txtTransId.Text != "")
+                    if (txtDocTransCode.Text != "")
                     {
 
                         sb.Append(" and ");
-                        if (txtTransId.Text.Contains("%"))
+                        if (txtDocTransCode.Text.Contains("%"))
                         {
                             sb.Append(" DocTransCode LIKE '");
                         }
@@ -57,7 +57,7 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileStorageSize
                         {
                             sb.Append(" DocTransCode = '");
                         }
-                        sb.Append(txtTransId.Text);
+                        sb.Append(txtDocTransCode.Text);
                         sb.Append("'");
                     }
 

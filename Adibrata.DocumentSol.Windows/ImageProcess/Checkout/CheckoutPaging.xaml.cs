@@ -59,10 +59,10 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                 oPaging.MethodName = "CheckoutPaging";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
-                if (txtTransId.Text != "")
+                if (txtDocTransCode.Text != "")
                 {
                     sb.Append(" And ");
-                    if (txtTransId.Text.Contains("%"))
+                    if (txtDocTransCode.Text.Contains("%"))
                     {
                         sb.Append(" DocTransCode LIKE '");
                     }
@@ -70,7 +70,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                     {
                         sb.Append(" DocTransCode = '");
                     }
-                    sb.Append(txtTransId.Text);
+                    sb.Append(txtDocTransCode.Text);
                     sb.Append("'");
                 }
                 if (txtDocType.Text != "")

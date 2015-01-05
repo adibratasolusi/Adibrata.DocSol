@@ -80,20 +80,20 @@
                         </Grid>
                     </GroupBox>
 
-                  
-               
+
+
                 </Grid>
-                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" >
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="473" ScrollViewer.VerticalScrollBarVisibility="Auto"  VerticalAlignment="Top" Grid.RowSpan="2" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="6*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid IsTextSearchEnabled="True"
+                    <DataGrid IsTextSearchEnabled="True"  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"
                           SelectionMode="Single"
-                          x:Name="dgPaging" 
+                          x:Name="dgPaging"
                           
-                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch" Margin="0,0,0,139"
-                        HorizontalScrollBarVisibility="Auto" >
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch" Margin="0,0,0,98"
+                       >
                         <DataGrid.Columns>
 
                             <DataGridTextColumn Binding="{Binding DocTransCode}"  Header="DOCUMENT CODE" x:Name="DocTransCode" Width="120"/>
@@ -106,39 +106,58 @@
                                         <Image Name="imgPreview" Source="{Binding FileBinary}" Width="150" Height="150"></Image>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
-                              
-                                    
-                                </DataGridTemplateColumn>
+
+
+                            </DataGridTemplateColumn>
 
                         </DataGrid.Columns>
-                       
+
                     </DataGrid>
-                    <Grid Grid.Column="1">
-                        <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" HorizontalAlignment="Left" ToolTip="Back To Project Paging" >
+                    <!--<Grid Grid.Row="2" Grid.ColumnSpan="2">
+
+                        <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" HorizontalAlignment="Left" ToolTip="Back To Project Paging" Padding="10"  Margin="0,324,0,165" >
                             <Button.Background>
                                 <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
                             </Button.Background>
 
+
                         </Button>
-                    </Grid>
+
+                    </Grid>-->
                 </Grid>
-           
-            <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
+
+
+                <Grid Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2">
                     <GroupBox>
+
                         <Grid>
-                            
+                            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+
+                                <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" HorizontalAlignment="Left" ToolTip="Back To Project Paging" Margin="0,10,0,-10"  >
+                                    <Button.Background>
+                                        <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
+                                    </Button.Background>
+
+
+                                </Button>
+
+                            </Grid>
                             <Grid.ColumnDefinitions>
+
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
+
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
 
                         </Grid>
                     </GroupBox>
+
+
                 </Grid>
             </Grid>
         </Grid>

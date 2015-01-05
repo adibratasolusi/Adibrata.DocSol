@@ -17,7 +17,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
     /// </summary>
     public partial class Execution : Page
     {
-        List<string> listId = new List<string>();
+        List<string> listCode = new List<string>();
         public class DataItem
         {
             public string DocTransCode { get; set; }
@@ -76,14 +76,14 @@ namespace Adibrata.DocumentSol.Windows.Archiving
 
             DataGridCell cellDocTypeCode = oDataGrid.GetCell(i, 3);
             TextBlock tbDocTypeCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTypeCode);
-            if (!listId.Contains(tbDocTransCode.Text))
+            if (!listCode.Contains(tbDocTransCode.Text))
             {
-                if (listId.Count == 0)
+                if (listCode.Count == 0)
                 {
                     gbQueue.Visibility = Visibility.Visible;
                 }
 
-                listId.Add(tbDocTransCode.Text);
+                listCode.Add(tbDocTransCode.Text);
                 dgQueue.Items.Add(new DataItem { DocTransCode = tbDocTransCode.Text, DocTypeCode = tbDocTypeCode.Text,  });
                 dgQueue.Items.Refresh();
             }
@@ -200,9 +200,9 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             DataGridHelper oDataGrid = new DataGridHelper();
             oDataGrid.dtg = dgQueue;
 
-            DataGridCell cellId = oDataGrid.GetCell(i, 1);
-            TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
-            listId.Remove(tbId.Text);
+            DataGridCell cellCode = oDataGrid.GetCell(i, 1);
+            TextBlock tbCode = oDataGrid.GetVisualChild<TextBlock>(cellCode);
+            listCode.Remove(tbCode.Text);
             dgQueue.Items.RemoveAt(dgQueue.SelectedIndex);
             dgQueue.Items.Refresh();
             gbQueueVisibleCheck();
@@ -213,10 +213,18 @@ namespace Adibrata.DocumentSol.Windows.Archiving
         {
             try
             {
-                for (int i = 0; i < listId.Count; i++)
+                for (int i = 0; i < listCode.Count; i++)
                 {
+                    DocSolEntities _ent = new DocSolEntities();
+                    _ent.ClassName = "UploadProcess";
+                    _ent.MethodName = "DocTransGetTransID";
+                    _ent.DocTransCode = listCode[i];
+                    _ent.UserLogin = SessionProperty.UserName;
+                    Int64 _transid = DocumentSolutionController.DocSolProcess<Int64>(_ent);
+
+
                     WCFEntities oWcf = new WCFEntities();
-                    oWcf.DocTransID = Convert.ToInt64(listId[i]);
+                    oWcf.DocTransID = _transid;
                     oWcf.UserName = SessionProperty.UserName;
                     MessageToWCF.ArchieveExecProcess(oWcf);
 

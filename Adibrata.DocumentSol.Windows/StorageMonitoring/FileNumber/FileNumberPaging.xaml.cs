@@ -115,6 +115,11 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
             }
         }
 
+        private void oPaging_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
    
 
    

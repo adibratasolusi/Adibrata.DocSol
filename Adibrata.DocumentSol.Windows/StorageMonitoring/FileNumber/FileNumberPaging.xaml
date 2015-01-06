@@ -96,7 +96,7 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
-                                <UserController:UCPaging x:Name="oPaging"/>
+                                <UserController:UCPaging x:Name="oPaging" Loaded="oPaging_Loaded"/>
                             </Grid>
                         </Grid>
                     </GroupBox>

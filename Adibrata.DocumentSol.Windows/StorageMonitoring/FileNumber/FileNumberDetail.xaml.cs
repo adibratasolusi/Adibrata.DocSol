@@ -126,6 +126,11 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
         {
 
         }
+
+        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 }

@@ -95,6 +95,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Adibrata.Database.Archieve"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.WCF.DocTransView", "Adibrata.Framework.WCF.DocTransView\Adibrata.Framework.WCF.DocTransView.csproj", "{361AEBEE-0C75-4989-BB4D-C8F08D6CDA9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Web", "Adibrata.Web\Adibrata.Web.csproj", "{6CC75A53-50EB-4235-942E-58141F8B2623}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -471,6 +473,14 @@ Global
 		{361AEBEE-0C75-4989-BB4D-C8F08D6CDA9D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{361AEBEE-0C75-4989-BB4D-C8F08D6CDA9D}.Release|ARM.ActiveCfg = Release|Any CPU
 		{361AEBEE-0C75-4989-BB4D-C8F08D6CDA9D}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6CC75A53-50EB-4235-942E-58141F8B2623}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

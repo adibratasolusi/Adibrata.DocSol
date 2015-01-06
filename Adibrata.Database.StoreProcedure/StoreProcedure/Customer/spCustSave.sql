@@ -17,6 +17,7 @@ If @ISedit = 0 or @IsEdit is null
 Begin
 	Exec spMasterSequence 1, 'Cust', @PostingDate, @CustCode Output
 	Insert Into Cust (CustCode, CustName, CustType, UsrCrt, DtmCrt)
+	output inserted.ID
 	values (@CustCode, @CustName, @CustType, @UsrCrt, @DtmCrt)
 
 	Select @CustID = ID From Cust with (nolock) Where CustCode = @CustCode
@@ -28,4 +29,4 @@ BEGIN
 					DtmUpd = @DtmUpd
 	WHere ID = @CustIDReff
 END
-RETURN 0
+RETURN 

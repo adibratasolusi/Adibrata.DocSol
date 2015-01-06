@@ -6,5 +6,3 @@ AS
 Set NoCount On
 
 	Select @TransID = ID From DocTrans with (nolock) where DocTransCode = @DocTransCode
-
-RETURN 0

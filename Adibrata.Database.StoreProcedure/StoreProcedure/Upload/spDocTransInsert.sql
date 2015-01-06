@@ -15,10 +15,13 @@ AS
 -- interfering with SELECT statements.
 SET NOCOUNT ON;
 Declare @DocTransCode varchar(50)
-Exec spMasterSequence 1, 'UPL', @DtmCrt, @DocTransCode Output
+Declare @Postingdate datetime
+Set @Postingdate = getdate()
+Exec spMasterSequence 1, 'UPL', @Postingdate, @DocTransCode Output
+Select @DocTransCode
 -- Insert statements for procedure here
 Declare @TransIDInt BigInt
-Select @TransIDInt = ID from Proj With (nolock) where ProjCode = @TransId
+Select @TransIDInt = ID from Proj With (nolock) where ID = @TransId
 
 
 INSERT INTO DocTrans
@@ -41,4 +44,3 @@ VALUES
 	GETDATE()
 )
 
-RETURN 0

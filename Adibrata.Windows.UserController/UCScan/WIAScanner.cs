@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Drawing;
+
 namespace WIATest
 {
     public class WIAScanner
@@ -100,7 +101,7 @@ namespace WIATest
                 }
                 catch (Exception exc)
                 {
-                    throw exc;
+                    //throw exc;
                 }
                 finally
                 {

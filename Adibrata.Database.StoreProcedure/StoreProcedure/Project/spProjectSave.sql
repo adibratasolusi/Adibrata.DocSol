@@ -16,6 +16,7 @@ Begin
 		Exec spMasterSequence 1, 'Proj', @PostingDate, @ProjCode Output
 
 		Insert Into Proj (ProjCode, ProjName, ProjType, CustID, UsrCrt, DtmCrt )
+		output inserted.id
 		Values (@ProjCode, @ProjName, @ProjType, @CustID, @UsrCrt, getDate())
 End
 ELSE

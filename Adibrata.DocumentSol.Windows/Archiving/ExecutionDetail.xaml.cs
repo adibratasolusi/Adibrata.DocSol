@@ -62,7 +62,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             try
             {
                 WCFEntities oWcf = new WCFEntities();
-                oWcf.DocTransID = Convert.ToInt64(SessionProperty.ReffKey);
+                oWcf.DocTransID = ucView.DocTransId;
                 oWcf.UserName = SessionProperty.UserName;
                 MessageToWCF.ArchieveExecProcess(oWcf);
                 MessageBox.Show("Document Archieve Execution Success");

@@ -83,7 +83,7 @@
 
 
                 </Grid>
-                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="473" ScrollViewer.VerticalScrollBarVisibility="Auto"  VerticalAlignment="Top" Grid.RowSpan="2" >
+                <Grid Style="{StaticResource GridStyle}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="428" ScrollViewer.VerticalScrollBarVisibility="Auto"  VerticalAlignment="Top" Grid.RowSpan="2" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="6*"/>
@@ -127,39 +127,21 @@
                 </Grid>
 
 
-                <Grid Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="2">
-                    <GroupBox>
+               </Grid>
+            
+            <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                <GroupBox Margin="0,-2,0,2">
 
-                        <Grid>
-                            <Grid Grid.Row="2" Grid.ColumnSpan="2">
-
-                                <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" HorizontalAlignment="Left" ToolTip="Back To Project Paging" Margin="0,10,0,-10"  >
-                                    <Button.Background>
-                                        <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
-                                    </Button.Background>
-
-
-                                </Button>
-
-                            </Grid>
-                            <Grid.ColumnDefinitions>
-
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="2*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Grid.RowDefinitions>
-
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto"  />
-                            </Grid.RowDefinitions>
-
-                        </Grid>
-                    </GroupBox>
+                    <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" HorizontalAlignment="Left" ToolTip="Back To Project Paging" Margin="0,484,0,104"  >
+                        <Button.Background>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
+                        </Button.Background>
 
 
-                </Grid>
+                    </Button>
+                </GroupBox>
             </Grid>
         </Grid>
+        
     </ScrollViewer>
 </Page>

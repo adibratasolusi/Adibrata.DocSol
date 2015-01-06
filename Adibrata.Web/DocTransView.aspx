@@ -4,21 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title> 
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet"/>
-    <script src="js/bootstrap.min.js"></script>
+    <title>Adibrata.web</title> 
+
+    <link href="css/AdibrataStyleSheet.css" rel="stylesheet" />
 
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:TextBox ID="txtTest" runat="server" CssClass="table-hover"></asp:TextBox><br />
-    <asp:Button ID="btnTest" runat="server" OnClick="btnTest_Click" CssClass="btn btn-default btn-lg" >
-    </asp:Button>
-        <iframe src="http://maximus-pc/smartcms/Adibrata.DocumentSol.Windows.xbap" width="500" height="500"></iframe>
-    </div>
-
-    </form>
+  
+   <form id="GridView" runat="server">
+  <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  DataKeyNames="NIM">
+    <Columns>
+     <asp:BoundField DataField="FileName" HeaderText="DocTransCode" ReadOnly="True" SortExpression="DocTransCode" runat="server" />
+   
+      </Columns>
+</asp:GridView></form>
 </body>
 </html>

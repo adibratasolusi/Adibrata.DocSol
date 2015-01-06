@@ -1,5 +1,6 @@
 ﻿using Adibrata.Framework.Logging;
 using System;
+using System.Data;
 
 namespace Adibrata.Framework.Messaging
 {
@@ -75,5 +76,82 @@ namespace Adibrata.Framework.Messaging
 
  
         }
+
+
+        public static DataTable DocTransContentDetail(WCFEntities oWCF)
+        {
+            DataTable _dt = new DataTable();
+
+            Adibrata.Framework.Messaging.ServiceReference3.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference3.Service1Client();
+
+
+            try
+            {
+
+                Adibrata.Framework.Messaging.ServiceReference3.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceReference3.DocTrans();
+                oDocTrans.DocTransCode = oWCF.DocTransCode;
+                oDocTrans.UserName = oWCF.UserName;
+                _dt = objService.DocTransContentDetail(oDocTrans);
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "WCF",
+                    NameSpace = "Adibrata.Framework.Messaging",
+                    ClassName = "MessageToWCF",
+                    FunctionName = "ArchieveExecProcess",
+                    ExceptionNumber = 1,
+                    EventSource = "Messaging",
+                    ExceptionObject = _exp,
+                    EventID = 201,
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return _dt;
+        }
+
+
+        public static DataTable DocTransInquiryDetail(WCFEntities oWCF)
+        {
+            DataTable _dt = new DataTable();
+
+            Adibrata.Framework.Messaging.ServiceReference3.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference3.Service1Client();
+
+
+            try
+            {
+
+                Adibrata.Framework.Messaging.ServiceReference3.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceReference3.DocTrans();
+                oDocTrans.DocTransCode = oWCF.DocTransCode;
+                oDocTrans.UserName = oWCF.UserName;
+                _dt = objService.DocTransInquiryDetail(oDocTrans);
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "WCF",
+                    NameSpace = "Adibrata.Framework.Messaging",
+                    ClassName = "MessageToWCF",
+                    FunctionName = "ArchieveExecProcess",
+                    ExceptionNumber = 1,
+                    EventSource = "Messaging",
+                    ExceptionObject = _exp,
+                    EventID = 201,
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return _dt;
+        }
+       
     }
 }

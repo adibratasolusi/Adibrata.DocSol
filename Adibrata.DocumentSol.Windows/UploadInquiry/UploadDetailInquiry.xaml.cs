@@ -121,5 +121,11 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
 
         }
+
+        private void btnBack_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            RedirectPage redirect = new RedirectPage(this, "UploadInquiry.UploadInquiry", SessionProperty);
+ 
+        }
     }
 }

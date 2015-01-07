@@ -10,33 +10,51 @@
 namespace Adibrata.Web {
     
     
-    public partial class DocTransView {
+    public partial class TestingPage {
         
         /// <summary>
-        /// GridView control.
+        /// header control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm GridView;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl header;
         
         /// <summary>
-        /// gvContent control.
+        /// wrapper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvContent;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl wrapper;
         
         /// <summary>
-        /// gvBinary control.
+        /// leftBar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBinary;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl leftBar;
+        
+        /// <summary>
+        /// rightContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rightContent;
+        
+        /// <summary>
+        /// footer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl footer;
     }
 }

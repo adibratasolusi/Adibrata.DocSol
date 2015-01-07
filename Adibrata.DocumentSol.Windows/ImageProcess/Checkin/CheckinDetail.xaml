@@ -24,7 +24,13 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Name="btnCheckIn" Content="CHECK IN" Width="200" HorizontalAlignment="Right" Click="btnCheckIn_Click" ></Button>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="200" HorizontalAlignment="Right" Click="btnBack_Click"  />
+
+                <Button Name="btnCheckIn" Grid.Column="2" Content="CHECK IN" Width="200" HorizontalAlignment="Right" Click="btnCheckIn_Click" ></Button>
             </Grid>
         </Grid>
     </ScrollViewer>

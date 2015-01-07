@@ -75,5 +75,11 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Lock
             RedirectPage redirect = new RedirectPage(this, "ImageProcess.Lock.ImageLockPaging", SessionProperty);
         
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+            RedirectPage redirect = new RedirectPage(this, "ImageProcess.Lock.ImageLockPaging", SessionProperty);
+        }
     }
 }

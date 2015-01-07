@@ -18,6 +18,7 @@ namespace Adibrata.Framework.WCF.DocTransView
     {
 
         static string Connectionstring = AppConfig.Config("ConnectionString");
+        
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -39,7 +40,7 @@ namespace Adibrata.Framework.WCF.DocTransView
         #region INQUIRY
         public DataTable DocTransInquiryDetail(DocTrans _ent)
         {
-            DataTable _dt = new DataTable();
+            DataTable _dt = new DataTable("Testing");
             try
             {
 
@@ -65,7 +66,7 @@ namespace Adibrata.Framework.WCF.DocTransView
 
         public DataTable DocTransContentDetail(DocTrans _ent)
         {
-            DataTable _dt = new DataTable();
+            DataTable _dt = new DataTable("Testing");
             try
             {
 
@@ -98,7 +99,7 @@ namespace Adibrata.Framework.WCF.DocTransView
 
                 SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.DocTransID;
+                sqlParams[0].Value = _ent.DocTransCode;
                 sqlParams[1] = new SqlParameter("@TransID", SqlDbType.BigInt);
                 sqlParams[1].Direction = ParameterDirection.Output;
 

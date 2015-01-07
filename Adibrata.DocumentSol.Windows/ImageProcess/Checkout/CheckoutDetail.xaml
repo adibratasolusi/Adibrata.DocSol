@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">Check Out Docunent</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold">Check Out Document</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
 
@@ -24,7 +24,14 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Name="btnCheckout" Content="CHECK OUT" Width="200" HorizontalAlignment="Right" Click="btnCheckout_Click" ></Button>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="200" HorizontalAlignment="Right" Click="btnBack_Click"  />
+
+                <Button Name="btnCheckout" Grid.Column="2" Content="CHECK OUT" Width="200" HorizontalAlignment="Right" Click="btnCheckout_Click" ></Button>
+              
             </Grid>
         </Grid>
     </ScrollViewer>

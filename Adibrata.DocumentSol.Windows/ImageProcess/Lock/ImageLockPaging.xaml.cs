@@ -42,7 +42,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Lock
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
-           };
+           };   
                 ErrorLog.WriteEventLog(_errent);
      }
         }

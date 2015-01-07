@@ -23,7 +23,13 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Name="btnUnlock" Content="UNLOCK" Width="200" HorizontalAlignment="Right" Click="btnUnlock_Click" ></Button>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="200" HorizontalAlignment="Right" Click="btnBack_Click"  />
+
+                <Button Name="btnUnlock"  Grid.Column="2" Content="UNLOCK" Width="200" HorizontalAlignment="Right" Click="btnUnlock_Click" ></Button>
             </Grid>
         </Grid>
     </ScrollViewer>

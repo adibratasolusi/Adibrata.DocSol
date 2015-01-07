@@ -66,6 +66,13 @@ namespace Adibrata.Framework.Messaging
             get;
             set;
         }
+
+        public string DocTransCode
+        {
+            get;
+            set;
+        }
+
         public string FileName
         {
             get;
@@ -106,6 +113,7 @@ namespace Adibrata.Framework.Messaging
             get;
             set;
         }
+  
     }
 
 

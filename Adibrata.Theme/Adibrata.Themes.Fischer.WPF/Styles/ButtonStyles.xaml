@@ -4,8 +4,6 @@
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="..\Colors\Colors.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
-
-	
 	<ControlTemplate x:Key="ButtonControlTemplate" TargetType="{x:Type Button}">
 		<Grid>				
 			<VisualStateManager.VisualStateGroups>

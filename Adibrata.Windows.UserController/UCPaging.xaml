@@ -6,21 +6,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="500">
     <Grid Style="{StaticResource GridStyle}">
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0">
             <StackPanel Orientation="Horizontal" >
-                <Button Name="btnPrev" Click="btnPrev_Click" VerticalAlignment="Center" Height="50" Width="100" ToolTip="Previous">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Pictures/previous-png-hi.png"/>
-                    </Button.Background>
+                <Button Name="btnPrev" Click="btnPrev_Click" VerticalAlignment="Center"  FontSize="12" Style="{StaticResource buttonStyle}"  ToolTip="Previous">
+                        <Label Background="{x:Null}">_Prev</Label>
                 </Button>
-                <Button  Name="btnNext" Click="btnNext_Click"  VerticalAlignment="Center" Height="50" Width="100" ToolTip="Next">
-                    <Button.Background>
-                        <ImageBrush ImageSource="Pictures/next-button-png-hi.png"/>
-                    </Button.Background>
+                <Button  Name="btnNext" Click="btnNext_Click"  VerticalAlignment="Center"  ToolTip="Next"  FontSize="12" Style="{StaticResource buttonStyle}" >
+                    <Label Background="{x:Null}">_Next</Label>
                 </Button>
                 <TextBlock Text="     Page"  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"/>
                 <TextBox Style="{StaticResource textStyle}" x:Name="txtPageNumber" Width="100" MaxLength="3"></TextBox>

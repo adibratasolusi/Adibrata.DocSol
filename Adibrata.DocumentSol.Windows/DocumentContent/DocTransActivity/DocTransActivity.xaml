@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT ACTIVITY INQUIRY</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT VIEW ACTIVITY INQUIRY</TextBlock>
                 <Favorite:AddFavorite Name="oFavorite" HorizontalAlignment="Right"/>
             </Grid>
             <Grid Grid.Row="1">

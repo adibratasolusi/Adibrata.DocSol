@@ -14,7 +14,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">UPLOAD INQUIRY DETAIL</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT DETAIL</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -75,12 +75,12 @@
                     </GroupBox>
                 </Grid>
 
-                <Grid Grid.Column="0" Grid.Row="3" >
+                <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
                     <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="200" HorizontalAlignment="Right" Click="btnBack_Click"  />
+                    <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="100" HorizontalAlignment="Right" Click="btnBack_Click"  />
 
 
                 </Grid>

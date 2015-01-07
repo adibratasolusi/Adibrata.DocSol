@@ -66,6 +66,9 @@ namespace Adibrata.DocumentSol.Windows.Project
                             break;
                         }
                     }
+                    cboProjectType.Visibility = Visibility.Hidden;
+                    lblProjType.Visibility = Visibility.Visible;
+                    lblProjType.Text = _ent.ProjectType;
 
                 }
                 else
@@ -77,6 +80,9 @@ namespace Adibrata.DocumentSol.Windows.Project
                     _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                     lblCustomerCode.Text = _session.ReffKey;
                     lblCustomerName.Text = _ent.CompanyName;
+                    cboProjectType.Visibility = Visibility.Visible;
+                    lblProjType.Visibility = Visibility.Hidden;
+                    
                 }
                 _custcode = lblCustomerCode.Text;
 
@@ -116,7 +122,11 @@ namespace Adibrata.DocumentSol.Windows.Project
                         _ent.UserLogin = SessionProperty.UserName;
                         _ent.CustomerCode = SessionProperty.ReffKey;
                         _ent.IsEdit = SessionProperty.IsEdit;
-                        _ent.ProjectCode = SessionProperty.ReffKey;
+                        if (_ent.IsEdit)
+                        {
+                            _ent.ProjectCode = lblProjectCode.Text;
+                        }
+                       
                         DocumentSolutionController.DocSolProcess<string>(_ent);
                         SessionProperty.ReffKey = lblCustomerCode.Text;
                         RedirectPage redirect = new RedirectPage(this, "Project.ProjectPaging", SessionProperty);

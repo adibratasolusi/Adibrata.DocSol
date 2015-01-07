@@ -133,7 +133,7 @@ namespace Adibrata.DocumentSol.Windows
                 #endregion
 
                 #region "Document Search"
-                case "DocumentSearch.DocumentSearch": Source.NavigationService.Navigate(new DocumentSearch.DocumentSearch(_ent)); break;
+                //case "DocumentSearch.DocumentSearch": Source.NavigationService.Navigate(new DocumentSearch.DocumentSearch(_ent)); break;
                 #endregion
 
                 #region "Favorite"
@@ -277,7 +277,7 @@ namespace Adibrata.DocumentSol.Windows
                 #endregion
 
                 #region "Document Search"
-                case "DocumentSearch.DocumentSearch": Source.NavigationService.Navigate(new DocumentSearch.DocumentSearch(_ent)); break;
+                //case "DocumentSearch.DocumentSearch": Source.NavigationService.Navigate(new DocumentSearch.DocumentSearch(_ent)); break;
                 #endregion
 
                 #region "Favorite"

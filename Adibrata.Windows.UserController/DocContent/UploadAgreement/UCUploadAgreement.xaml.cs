@@ -49,11 +49,12 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
         public string UserLogin { get; set; }
         public string DocumentType { get; set; }
-        public string TransId
+        public long TransId
         {
             get;
             set;
         }
+        public string TransCode { get; set; }
         #endregion
 
         #region InitializeComponent
@@ -396,7 +397,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                     _ent.MethodName = "DocUpload";
                     _ent.ClassName = "UploadProcess";
-                    _ent.TransId = TransId;
+                    _ent.TransCode = this.TransCode;
                     _ent.DocumentType = DocumentType;
                     _ent.ListPath = listPath;
 
@@ -431,7 +432,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
         }
 
-        private Int64 SaveUploadToDocTrans(string transId, string docType)
+        private Int64 SaveUploadToDocTrans(Int64 transId, string docType)
         {
 
             try

@@ -89,7 +89,14 @@ namespace Adibrata.DocumentSol.Windows
         {
             try
             {
-                frmWorksheet.NavigationService.Navigate(new DocumentContent.SearchDocument(SessionProperty,txtSearch.Text));
+                if (txtSearch.Text == "")
+                {
+                    MessageBox.Show("Please Entry Your Search Criteria");
+                }
+                else
+                {
+                    frmWorksheet.NavigationService.Navigate(new DocumentContent.SearchDocument(SessionProperty, txtSearch.Text));
+                }
             }
             catch (Exception _exp)
             {

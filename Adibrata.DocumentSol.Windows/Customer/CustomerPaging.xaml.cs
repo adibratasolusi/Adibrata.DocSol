@@ -21,6 +21,9 @@ namespace Adibrata.DocumentSol.Windows.Customer
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+                oFavorite.UserLogin = SessionProperty.UserName;
+                oFavorite.FormUrl = "Customer.CustomerPaging";
+                oFavorite.DisableFavorit();
             }
             catch (Exception _exp)
             {

@@ -86,7 +86,34 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
 
         private void btnView_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                int i = dgPaging.SelectedIndex;
 
+                DataGridHelper oDataGrid = new DataGridHelper();
+                oDataGrid.dtg = dgPaging;
+                DataGridCell cell = oDataGrid.GetCell(i, 1);
+                TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
+                SessionProperty.IsEdit = true;
+                SessionProperty.ReffKey = ReffKey.Text;
+                RedirectPage redirect = new RedirectPage(this, "UploadInquiry.UploadDetailInquiry", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.DocumentContent",
+                    ClassName = "DocumentUploadPaging",
+                    FunctionName = "btnView_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void SearchDocumentProcess(string searchcriteria)

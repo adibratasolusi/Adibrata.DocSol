@@ -26,7 +26,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public long CustomerID { get; set; }
         public string CustomerCode { get; set; }
         public string AgrmntNo { get; set; }
-        public string TransId { get; set; }
+        public long TransId { get; set; }
         public string Crit { get; set; }
         public string By { get; set; }
         public string CompanyName { get; set; }
@@ -76,6 +76,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public string UserName { get; set; }
         public List<string> ListArchieve { get; set; }
 
+        public string TransCode { get; set; }
         public string BookmarkStat { get; set; }
     }
 }

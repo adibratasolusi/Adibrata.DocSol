@@ -109,14 +109,19 @@ namespace Adibrata.DocumentSol.Windows.Project
         {
             try
             {
-                if ( cboProjectType.SelectedItem == null)
+
+                if (cboProjectType.SelectedItem == null && SessionProperty.IsEdit == false)
                 { MessageBox.Show("Please Select Project Type"); }
                 else
-                    if (txtPrjectName.Text == "")
+                    if (txtPrjectName.Text == "" && SessionProperty.IsEdit == false)
                     { MessageBox.Show("Please Enter Project Name"); }
                     else
                     {
-                        DocSolEntities _ent = new DocSolEntities { ProjectName = txtPrjectName.Text, ProjectType = cboProjectType.SelectedItem.ToString() };
+                        DocSolEntities _ent = new DocSolEntities { ProjectName = txtPrjectName.Text};
+                        if (SessionProperty.IsEdit == false)
+                        {
+                            _ent.ProjectType = cboProjectType.SelectedItem.ToString();
+                        }
                         _ent.MethodName = "ProjectRegistrasiAdd";
                         _ent.ClassName = "ProjectRegistrasi";
                         _ent.UserLogin = SessionProperty.UserName;

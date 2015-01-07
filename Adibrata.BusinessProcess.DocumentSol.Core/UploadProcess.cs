@@ -256,8 +256,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 Int64 docTransId = 0;
                 _dt = new DataTable();
                 sqlParams = new SqlParameter[3];
-                sqlParams[0] = new SqlParameter("@TransId", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.TransId;
+                sqlParams[0] = new SqlParameter("@TransCode", SqlDbType.VarChar, 50);
+                sqlParams[0].Value = _ent.TransCode;
                 sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.DocumentType;
                 sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
@@ -630,7 +630,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.DocTransId;
+                sqlParams[0].Value = _ent.DocTransCode;
                 sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.UserName;
 
@@ -668,7 +668,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.DocTransId;
+                sqlParams[0].Value = _ent.DocTransCode;
                 sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.UserName;
 

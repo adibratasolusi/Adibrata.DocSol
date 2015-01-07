@@ -6,7 +6,7 @@
 -- =============================================
 ALTER PROCEDURE [dbo].[spDocTransInsert]
 	-- Add the parameters for the stored procedure here
-	@TransId Varchar(50),
+	@TransCode Varchar(50),
 	@docType varchar(50), 
 	@UsrCrt Varchar(50)
 
@@ -18,10 +18,10 @@ Declare @DocTransCode varchar(50)
 Declare @Postingdate datetime
 Set @Postingdate = getdate()
 Exec spMasterSequence 1, 'UPL', @Postingdate, @DocTransCode Output
-Select @DocTransCode
+
 -- Insert statements for procedure here
 Declare @TransIDInt BigInt
-Select @TransIDInt = ID from Proj With (nolock) where ID = @TransId
+Select @TransIDInt = ID from Proj With (nolock) where ProjCode = @TransCode
 
 
 INSERT INTO DocTrans

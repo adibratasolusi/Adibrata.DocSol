@@ -194,7 +194,6 @@
     <Build Include="StoreProcedure\StorageMonitoring\spFileStoragePaging.sql" />
     <Build Include="StoreProcedure\UserManagement\spDocTransActivityInsert.sql" />
     <Build Include="Table\DocTransActivity.sql" />
-    <Build Include="StoreProcedure\DocumentSearch\spDocTransSearchPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchievePreparePaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveApprovalPaging.sql" />
     <Build Include="StoreProcedure\Archieving\spArchieveExecutionPaging.sql" />
@@ -226,5 +225,6 @@
     <Build Include="StoreProcedure\ImageProcess\spDocTransCheckIn.sql" />
     <Build Include="StoreProcedure\ImageProcess\spDocTransCheckOut.sql" />
     <Build Include="StoreProcedure\Archieving\spArchievePrepare.sql" />
+    <Build Include="StoreProcedure\DocumentSearch\spDocTransSearchPaging.sql" />
   </ItemGroup>
 </Project>

@@ -10,15 +10,25 @@ Declare
 If @SortBy = '' 
 	Set @SortBy = ' B.Rank Asc '
 
-	Set @SqlStatement = 'Select * from  
-				(Select  Distinct ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number,C.Id, 
-				 C.DocTransCode, C.DocTypeCode, C.DocTransStatus, D.ProjCode, D.ProjName, D.ProjType, E.CustName
+	 --''' +  @WhereCond + '''
+
+
+
+
+	Set @SqlStatement = '  Select * from 
+ (Select    ROW_NUMBER() OVER (Order By ProjName) as number, *
+From 
+				(Select  distinct C.Id, 
+				 C.DocTransCode, C.DocTypeCode, C.DocTransStatus, D.ProjCode, D.ProjName, D.ProjType, E.CustName, 
+				 F.FileName, F.DateCreated, F.SizeFileBytes, F.Pixel, F.ComputerName, F.DPI
 				from
-				FreeTextTable (DocTransContent, ContentSearchTag, ''' +  @WhereCond + ''') As B
+				FreeTextTable (DocTransContent, ContentSearchTag,  ''' +  @WhereCond + ''') As B
 				Inner Join  DocTransContent A with (nolock) on A.ID= B.[Key]
 				inner Join DocTrans C with (nolock) on A.DocTransID = C.ID
 				inner Join Proj D with (nolock) on C.TransID = D.ID
-				Inner Join Cust E with (nolock) on E.Id = d.CustID) Qry
-		where number between ' + @StartRecord  + ' and  ' + @EndRecord  
+				Inner Join Cust E with (nolock) on E.Id = d.CustID
+				Left Join DocTransBinary F with (nolock) on F.DocTransID = C.ID) qry1 ) qry2
+				where number between ' + @StartRecord  + ' and  ' + @EndRecord  
+				
 			exec (@SqlStatement)
 RETURN 0

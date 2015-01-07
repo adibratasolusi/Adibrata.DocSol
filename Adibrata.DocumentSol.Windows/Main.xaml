@@ -50,7 +50,7 @@
                                         <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch" Width="300" FontSize="12" Foreground="White" />
                                     </Grid>
                                     <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
-                                        <Button x:Name="btnSearch" Click="btnSearch_Click" Width="40" Height="40" VerticalAlignment="Bottom">
+                                        <Button x:Name="btnSearch" Click="btnSearch_Click" Width="30" Height="30" VerticalAlignment="Bottom">
                                             <Button.Background>
                                                 <ImageBrush ImageSource="Images/Find.png" Stretch="UniformToFill"/>
                                             </Button.Background>
@@ -62,7 +62,7 @@
 
                     </Grid>
                     <Grid Grid.Column="4">
-                        <Button x:Name="btnHome" Click="btnHome_Click" Width="30" Height="30" HorizontalAlignment="Stretch" >
+                        <Button x:Name="btnHome" Click="btnHome_Click" Width="30" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                             <Button.Background>
                                 <ImageBrush Stretch="Fill" ImageSource="Images/home.png" />
                             </Button.Background>
@@ -70,7 +70,7 @@
                         <!--Margin="770,14,0,10"-->
                     </Grid>
                     <Grid Grid.Column="5">
-                        <Button x:Name="btnSetting" Click="btnSetting_Click" Width="30" Height="30" HorizontalAlignment="Stretch" >
+                        <Button x:Name="btnSetting" Click="btnSetting_Click" Width="30" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" >
                             <Button.Background>
                                 <ImageBrush Stretch="Fill" ImageSource="Images/settings-icon-png-27.png" />
                             </Button.Background>
@@ -78,7 +78,7 @@
                         <!--Margin="770,14,0,10"-->
                     </Grid>
                     <Grid Grid.Column="6">
-                        <Button x:Name="btnLogout" Click="btnLogout_Click" Width="30" Height="30" HorizontalAlignment="Stretch" >
+                        <Button x:Name="btnLogout" Click="btnLogout_Click" Width="30" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
                             <Button.Background>
                                 <ImageBrush Stretch="Fill" ImageSource="Images/300px-Crystal_Clear_action_exit.svg.png" />
                             </Button.Background>

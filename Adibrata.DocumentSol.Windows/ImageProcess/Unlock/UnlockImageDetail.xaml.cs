@@ -67,7 +67,29 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Unlock
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
 
-            RedirectPage redirect = new RedirectPage(this, "ImageProcess.Unlock.UnlockImagePaging", SessionProperty);
+        //    RedirectPage redirect = new RedirectPage(this, "ImageProcess.Unlock.UnlockImagePaging", SessionProperty);
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "ImageProcess.Unlock.UnlockImagePaging", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = " Adibrata.DocumentSol.Windows.ImageProcess.Unlock",
+                    ClassName = "UnlockImageDetail",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "DeleteDocumentInquiryDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Managemetn
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
         }
 
       

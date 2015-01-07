@@ -17,7 +17,7 @@
             <div class="loginDisplay">
               <h1>
                     Document
-                </h1>
+              </h1>
                
             </div></div>
             <div class="main" runat="server">
@@ -39,13 +39,13 @@
                 <asp:BoundField DataField="SizeFileBytes" HeaderText="SizeFileBytes" ReadOnly="True" runat="server" />
                 <asp:BoundField DataField="Pixel" HeaderText="Pixel" ReadOnly="True" runat="server" />
                 <asp:BoundField DataField="DPI" HeaderText="DPI" ReadOnly="True" runat="server" Visible="False" />
-                 <asp:BoundField DataField="ComputerName" HeaderText="ComputerName" ReadOnly="True" runat="server" Visible="False" />
-          
                 <asp:BoundField DataField="ComputerName" HeaderText="ComputerName" SortExpression="ComputerName" />
-          
-           </Columns>
+            </Columns>
         </asp:GridView>
-    </form> </div>
+
+    </form> 
+              
+            </div>
    </div>
 </body>
 </html>

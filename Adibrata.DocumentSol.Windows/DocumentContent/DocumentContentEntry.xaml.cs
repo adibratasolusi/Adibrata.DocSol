@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace Adibrata.DocumentSol.Windows.DocumentContent
 {
@@ -33,7 +34,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 lblCustomerCode.Text = _ent.CustomerCode;
                 _custcode = _ent.CustomerCode;
                 lblCustomerName.Text = _ent.CompanyName;
-                
+                ucUpload.Visibility = Visibility.Hidden;
                 lblProjectCode.Text = _session.ReffKey;
                 lblProjectName.Text = _ent.ProjectName;
                 lblProjectType.Text = _ent.ProjectType;
@@ -86,19 +87,19 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ucUpload.TransId = SessionProperty.ReffKey;
                 ucUpload.BindingValueMax();
                 oApproval.DocumentType = oDocContent.DocumentType;
-
+                ucUpload.Visibility = Visibility.Visible;
                 _ent.ClassName = "ApprovalProcess";
                 _ent.MethodName = "ApprovalRequestVisibility";
                 _ent.ProjectCode = SessionProperty.ReffKey;
                 _ent.DocumentType = oDocContent.DocumentType;
                 if (DocumentSolutionController.DocSolProcess<Boolean>(_ent))
                 {
-                    oApproval.Visibility = System.Windows.Visibility.Visible;
+                    oApproval.Visibility = Visibility.Visible;
                     _ent.DocContentNeedApproval = true;
                 }
                 else
                 {
-                    oApproval.Visibility = System.Windows.Visibility.Hidden;
+                    oApproval.Visibility = Visibility.Hidden;
                     _ent.DocContentNeedApproval = false;
                 }
 

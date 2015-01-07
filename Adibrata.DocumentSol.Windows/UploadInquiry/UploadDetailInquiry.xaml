@@ -14,7 +14,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT DETAIL</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold" Margin="-179,0,179,0">DOCUMENT DETAIL</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -52,30 +52,26 @@
                         </DataGrid>
                     </GroupBox>
                 </Grid>
-                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-                    <GroupBox Header="File">
-                        <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding FileName}" Header="File Name" x:Name="FileName"  />
-                                <DataGridTextColumn Binding="{Binding DateCreated}" ElementStyle="{StaticResource CellCenterAlign}" Header="Date Created" x:Name="DateCreated"  FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" ElementStyle="{StaticResource CellRightAlign}" Header="Size File (Bytes)" x:Name="SizeFileBytes" />
-                                <DataGridTextColumn Binding="{Binding Pixel}" Header="Pixel" x:Name="Pixel" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ComputerName}" Header="Computer Name" x:Name="ComputerName" />
-                                <DataGridTextColumn Binding="{Binding DPI}" Header="DPI" x:Name="DPI" FontSize="14"/>
-                                <DataGridTemplateColumn>
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                    <ListView Name="dgPaging">
+                        <ListView.View>
+                            
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding FileName}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding DateCreated}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding SizeFileBytes}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding Pixel}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding ComputerName}"/>
+                                <GridViewColumn DisplayMemberBinding="{Binding  DPI}"/>
+                            </GridView>
+                            
+                        </ListView.View>
+                    </ListView>
 
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </GroupBox>
-                </Grid>
+                   
+                       
+                    
 
-                <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
+                    <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
                     <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>

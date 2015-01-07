@@ -89,6 +89,8 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
 
         }
+
+
         void bindBinary()
         {
             try

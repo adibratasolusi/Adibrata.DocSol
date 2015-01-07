@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Button HorizontalAlignment="Left" Name="btnFavorite"  VerticalAlignment="Top" Width="75" Height="60" Click="btnFavorite_Click">
+        <Button HorizontalAlignment="Left" Name="btnFavorite"  VerticalAlignment="Top" Width="41" Height="34" Click="btnFavorite_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Adibrata.Windows.UserController;component/Pictures/favorite.png" Stretch="UniformToFill"/>
             </Button.Background>

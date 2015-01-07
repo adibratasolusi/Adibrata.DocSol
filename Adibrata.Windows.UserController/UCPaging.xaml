@@ -4,51 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="300">
+             d:DesignHeight="100" d:DesignWidth="500">
     <Grid Style="{StaticResource GridStyle}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*" />
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="50*" />
-
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Margin="5">
-            <Button Name="btnPrev" Click="btnPrev_Click" VerticalAlignment="Center" Height="50" Width="100" ToolTip="Previous">
-                <Button.Background>
-                    <ImageBrush ImageSource="Pictures/previous-png-hi.png"/>
-                </Button.Background>
-
-
-                <!--<Button.Content>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="Pictures/PreviousGreen.png"/>
-                    </StackPanel>
-                </Button.Content>-->
-            </Button>
-        </Grid>
-        <Grid Grid.Row="0" Grid.Column="1" Margin="5" >
-            <Button  Name="btnNext" Click="btnNext_Click"  VerticalAlignment="Center" Height="50" Width="100" ToolTip="Next">
-                <Button.Background>
-                    <ImageBrush ImageSource="Pictures/next-button-png-hi.png"/>
-                </Button.Background>
-
-                <!--<Button.Content>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="Pictures/NextGreen.png"/>
-                    </StackPanel>
-
-                </Button.Content>-->
-            </Button>
-        </Grid>
-        <Grid Grid.Column="2" Grid.Row="0" Margin="5">
-            <TextBlock Text="Page"  Style="{StaticResource TextBlockStyle}"/>
-        </Grid>
-        <Grid Grid.Row="0" Grid.Column="3" Margin="5">
-            <TextBox Style="{StaticResource textStyle}" x:Name="txtPageNumber" Width="100" MaxLength="3"></TextBox>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <StackPanel Orientation="Horizontal" >
+                <Button Name="btnPrev" Click="btnPrev_Click" VerticalAlignment="Center"  FontSize="12" Style="{StaticResource buttonStyle}"  ToolTip="Previous">
+                        <Label Background="{x:Null}">_Prev</Label>
+                </Button>
+                <Button  Name="btnNext" Click="btnNext_Click"  VerticalAlignment="Center"  ToolTip="Next"  FontSize="12" Style="{StaticResource buttonStyle}" >
+                    <Label Background="{x:Null}">_Next</Label>
+                </Button>
+                <TextBlock Text="     Page"  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"/>
+                <TextBox Style="{StaticResource textStyle}" x:Name="txtPageNumber" Width="100" MaxLength="3"></TextBox>
+                <TextBlock Text="          "  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left"/>
+                <Button Name="btnTotRec" Click="btnTotRec_Click" FontSize="12" Style="{StaticResource buttonStyle}" >
+                    <Label Background="{x:Null}">#_Total</Label>
+                </Button>
+                <TextBlock Text="   "  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left"/>
+                <TextBlock Name="lblTotalRec"  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left" FontSize="14" VerticalAlignment="Bottom"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

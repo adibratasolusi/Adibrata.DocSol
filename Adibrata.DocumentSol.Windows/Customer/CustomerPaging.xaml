@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-            <TextBlock FontSize="24" FontWeight="Bold">CUSTOMER REGISTRATION</TextBlock>
+            <TextBlock FontSize="20" FontWeight="Bold">CUSTOMER REGISTRATION</TextBlock>
                 <Favorite:AddFavorite Name="oFavorite" HorizontalAlignment="Right"/>
             </Grid>
             <Grid Grid.Row="1">
@@ -49,11 +49,8 @@
                                 <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Margin="0,2" Width="159"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" Height="50" Width="100" ToolTip="Search Data Customer">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/search-button-png-hi.png" Stretch="UniformToFill"/>
-                                    </Button.Background>
-
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" ToolTip="Search Data Customer"   FontSize="12" Style="{StaticResource buttonStyle}">
+                                    <Label>_Search</Label>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -108,11 +105,8 @@
                                 <UserController:UCPaging x:Name="oPaging"/>
                             </Grid>
                             <Grid Grid.Column="1" HorizontalAlignment="Right">
-                                <Button x:Name="btnAdd" Click="btnAdd_Click" Height="50" Width="100" ToolTip="New Customer">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/new-button-png-hi.png"/>
-                                    </Button.Background>
-
+                                <Button x:Name="btnAdd" Click="btnAdd_Click" ToolTip="New Customer" FontSize="12" Style="{StaticResource buttonStyle}">
+                                    <Label>_Add</Label>
                                 </Button>
                             </Grid>
                         </Grid>

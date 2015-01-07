@@ -61,10 +61,10 @@
                           HorizontalAlignment="Left"  CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnView" ToolTip="View Document" Click="btnView_Click" Width="80" Height="50">
+                                            <Button Name="btnView" ToolTip="View Document" Click="btnView_Click" Width="60" Height="50">
                                                 <Button.Background>
                                                     <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/AlienAqua scanner 2.png"/>
                                                 </Button.Background>
@@ -73,19 +73,20 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT CODE" x:Name="Doccode" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding CustCode}" Header="CUSTOMER CODE" x:Name="custcode" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding FullAddress}" Header="ADDRESS" x:Name="Address" Width="400" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding ProjCode}" Header="PROJECT CODE" x:Name="projcode" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="projName" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ProjType}" Header="PROJECT TYPE" x:Name="projType" Width="200" FontSize="14"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="doctype" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding DocTransStatus}" Header="DOCUMENT STATUS" x:Name="docstatus" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILE NAME" x:Name="FileName" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="FILE SIZE" x:Name="SizeFileBytes" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ComputerName}" Header="COMPUTER NAME" x:Name="ComputerName" Width="200" FontSize="14"/>
+
+                                <DataGridTextColumn Binding="{Binding DPI}" Header="DOCUMENT TYPE" x:Name="DPI" Width="200" FontSize="14"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
                 </Grid>
-
                 <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2" Name="GridPaging">
                     <GroupBox>
                         <Grid>

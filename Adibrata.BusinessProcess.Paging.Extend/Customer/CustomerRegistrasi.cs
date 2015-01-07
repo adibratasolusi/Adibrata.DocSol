@@ -5,6 +5,7 @@ using Adibrata.Framework.Logging;
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
     public class CustomerRegistrasi : Adibrata.BusinessProcess.Paging.Core.CustomerRegistrasi
@@ -33,7 +34,7 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 {
                     UserLogin = _ent.UserLogin,
                     NameSpace = "Adibrata.BusinessProcess.Paging.Core.UserManagement",
-                    ClassName = "UserRegisterPaging",
+                    ClassName = "CustomerRegistrasi",
                     FunctionName = "UserRegister",
                     ExceptionNumber = 1,
                     EventSource = "UserRegister",
@@ -44,6 +45,43 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 ErrorLog.WriteEventLog(_errent);
             }
             return _dt;
+        }
+
+        public virtual Int64 CustomerPagingTotRec(PagingEntities _ent)
+        {
+            DataTable _dt = new DataTable();
+            StringBuilder sb = new StringBuilder();
+            Int64 _value = 0;
+            try
+            {
+                sb.Append("spCustPagingTotRec");
+                SqlParameter[] sqlParams = new SqlParameter[2];
+
+                sqlParams[0] = new SqlParameter("@wherecond", SqlDbType.VarChar, 8000);
+                sqlParams[0].Value = _ent.WhereCond;
+                sqlParams[1] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
+                sqlParams[1].Value = _ent.SortBy;
+
+
+                _value = Convert.ToInt64(SqlHelper.ExecuteScalar(ConnectionString, CommandType.StoredProcedure, sb.ToString(), sqlParams));
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.Paging.Extend",
+                    ClassName = "CustomerRegistrasi",
+                    FunctionName = "CustomerPagingTotRec",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200,
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return _value;
         }
     }
 }

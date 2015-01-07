@@ -8,7 +8,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="350"
 	Title="ProjectPaging">
-
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
             <Grid.RowDefinitions>
@@ -16,7 +15,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold" Text="PROJECT REGISTRATION"/>
+                <TextBlock FontSize="20" FontWeight="Bold" Text="PROJECT REGISTRATION"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -58,11 +57,8 @@
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18" ToolTip="Search Data Project" Height="50" Width="100">
-                                    <Button.Background>
-                                        <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/search-button-png-hi.png"/>
-                                    </Button.Background>
-
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" ToolTip="Search Project Data" FontSize="12" Style="{StaticResource buttonStyle}">
+                                    <Label>_Search</Label>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -115,13 +111,10 @@
                                     </Button>
                                 </Grid>
                                 <Grid Grid.Column="1">
-                                    <Button x:Name="btnBack" Click="btnBack_Click"  Height="50" Width="100" ToolTip="Back To Customer Paging">
-                                        <Button.Background>
-                                            <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png" Stretch="UniformToFill"/>
-                                        </Button.Background>
+                                    <Button x:Name="btnBack" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
+                                        <Label>_Back</Label>
                                     </Button>
                                 </Grid>
-
                             </Grid>
                         </Grid>
                     </GroupBox>

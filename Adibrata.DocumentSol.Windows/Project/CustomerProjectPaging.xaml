@@ -48,10 +48,8 @@
                                 <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Margin="0,2" Width="159"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" Height="50" Width="100" ToolTip="Search">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/search-button-png-hi.png" Stretch="UniformToFill"/>
-                                    </Button.Background>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click"  FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Search">
+                                    <Label>_Search</Label>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -64,7 +62,7 @@
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnProject" Click="btnProject_Click" Width="60" Height="60" ToolTip="New Project">
+                                            <Button Name="btnProject" Click="btnProject_Click" Width="60" ToolTip="New Project">
                                                 <Button.Background>
                                                     <ImageBrush Stretch="None"  ImageSource="/Adibrata.DocumentSol.Windows;component/Images/project.png"/>
                                                 </Button.Background>

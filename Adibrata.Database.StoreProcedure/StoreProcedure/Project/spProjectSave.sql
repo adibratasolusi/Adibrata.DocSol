@@ -1,7 +1,7 @@
 ﻿ALTER PROCEDURE [dbo].[spProjectSave]
 	@CustCode Varchar(50), 
 	@ProjName Varchar(50), 
-	@ProjType Varchar(50), 
+	@ProjType Varchar(50) = null, 
 	@UsrCrt Varchar(50), 
 	@DtmCrt smallDateTime,
 	@ProjCode varchar(50) = null
@@ -21,7 +21,7 @@ Begin
 End
 ELSE
 BEGIN
-	Update Proj Set ProjName = @ProjName, ProjType = @ProjType
+	Update Proj Set ProjName = @ProjName
 	where Projcode = @ProjCode
 END
 RETURN 0

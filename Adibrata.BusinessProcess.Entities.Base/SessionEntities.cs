@@ -12,6 +12,7 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string FullName { get; set; }
         public string ReffKey { get; set; }
 
+        public string SourceForm { get; set; }
         public DateTime StartLoginTime { get; set;  }
     }
 }

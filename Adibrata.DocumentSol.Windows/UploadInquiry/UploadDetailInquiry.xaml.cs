@@ -124,8 +124,28 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         private void btnBack_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            RedirectPage redirect = new RedirectPage(this, "UploadInquiry.UploadInquiry", SessionProperty);
- 
+            try
+            {
+
+                RedirectPage redirect = new RedirectPage(this, SessionProperty.SourceForm, SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
+                    ClassName = "UploadDetailInquiry",
+                    FunctionName = "bindBinary",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
     }
 }

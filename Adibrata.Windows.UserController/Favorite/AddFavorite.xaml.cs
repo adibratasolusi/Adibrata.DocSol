@@ -60,6 +60,7 @@ namespace Adibrata.Windows.UserController.Favorite
                 _ent.UserLogin = UserLogin;
                 UserManagementController.UserManagement<string>(_ent);
                 DisableFavorit();
+                MessageBox.Show("Success to Add Favorite");
             }
              catch (Exception _exp)
             {

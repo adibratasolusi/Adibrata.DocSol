@@ -84,7 +84,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 cboDocumentType.IsEnabled = false;
                 ucUpload.DocumentType = oDocContent.DocumentType;
                 ucUpload.UserLogin = SessionProperty.UserName;
-                ucUpload.TransId = SessionProperty.ReffKey;
+                ucUpload.TransCode = SessionProperty.ReffKey;
                 ucUpload.BindingValueMax();
                 oApproval.DocumentType = oDocContent.DocumentType;
                 ucUpload.Visibility = Visibility.Visible;

@@ -269,29 +269,32 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 "Portable Document Format (*.pdf)|*.pdf|" +
                 "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
                 "All files (*.*)|*.*";
-
+                dlg.Multiselect = true;
 
                 // Display OpenFileDialog by calling ShowDialog method
+                
                 Nullable<bool> result = dlg.ShowDialog();
 
                 // Get the selected file name and display in a DataGrid
                 if (result == true)
                 {
-
-                    string filename = dlg.FileName;
-                    string path = Path.GetExtension(filename).ToLower();
-                    string picture = "";
-                    if (path == ".jpg" || path == ".jpeg" || path == ".png")
+                    foreach (String file in dlg.FileNames)
                     {
-                        picture = filename;
+                        string filename = file;
+                        string path = Path.GetExtension(filename).ToLower();
+                        string picture = "";
+                        if (path == ".jpg" || path == ".jpeg" || path == ".png")
+                        {
+                            picture = filename;
+                        }
+                        else
+                        {
+                            picture = "";
+                        }
+                        dtgUpload.Items.Add(new DataItem { PathFile = filename, img = picture });
+                        
                     }
-                    else
-                    {
-                        picture = "";
-                    }
-                    dtgUpload.Items.Add(new DataItem { PathFile = filename, img = picture });
                     dtgUpload.Items.Refresh();
-
                 }
             }
             catch (Exception _exp)

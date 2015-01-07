@@ -22,12 +22,21 @@ namespace Adibrata.Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm GridView;
         
         /// <summary>
-        /// GridView1 control.
+        /// gvContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvContent;
+        
+        /// <summary>
+        /// gvBinary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvBinary;
     }
 }

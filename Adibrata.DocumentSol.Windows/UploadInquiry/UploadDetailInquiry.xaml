@@ -75,22 +75,17 @@
                     </GroupBox>
                 </Grid>
 
-                <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
-                    <GroupBox>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="2*"/>
-                            </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.Row="3" >
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="200" HorizontalAlignment="Right" Click="btnBack_Click"  />
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto"  />
-                            </Grid.RowDefinitions>
-                        </Grid>
-                    </GroupBox>
+
                 </Grid>
             </Grid>
         </Grid>
     </ScrollViewer>
+    
 </Page>

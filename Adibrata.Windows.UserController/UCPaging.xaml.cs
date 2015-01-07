@@ -192,6 +192,7 @@ namespace Adibrata.Windows.UserController
                 _ent.ClassName = this.ClassName;
                 _totrec = PagingController.PagingData<Int64>(_ent);
                 btnTotRec.ToolTip = _totrec.ToString("###,###");
+                lblTotalRec.Text = _totrec.ToString("###,###");
 
             }
             catch (Exception _exp)

@@ -24,8 +24,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblMessage" FontStyle="Normal" Foreground="Red" />
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="DOCUMENT UPLOAD" FontSize="24" FontWeight="Bold"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="DOCUMENT UPLOAD" FontSize="20" FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
@@ -56,7 +55,7 @@
                     <TextBlock x:Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type" Width="200"/>
                 </Grid>
                 <Grid Grid.Column="1" HorizontalAlignment="Left">
-                    <ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="400" IsEditable="True" IsTextSearchEnabled="True" 
+                    <ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="250" IsEditable="True" IsTextSearchEnabled="True" 
 						Text="{Binding Result}" SelectedValue ="{Binding Result}"/>
                 </Grid>
 
@@ -82,18 +81,13 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
 
-                    <Button x:Name="btnSave" Click="btnSave_Click" Width="100" Height="50" ToolTip="Save Data Document Content">
-                        <Button.Background>
-                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/save-png-hi.png"/>
-                        </Button.Background>
-
+                    <Button x:Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Save Data Document Content">
+                        <Label>_Save</Label>
                     </Button>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" ToolTip="Back To Project Paging">
-                        <Button.Background>
-                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
-                        </Button.Background>
+                    <Button x:Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Back To Project Paging">
+                        <Label>_Back</Label>
 
                     </Button>
                 </Grid>

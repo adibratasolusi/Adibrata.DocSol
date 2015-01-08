@@ -17,8 +17,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="CUSTOMER REGISTRATION" FontSize="24" FontWeight="Bold"> </TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="CUSTOMER REGISTRATION" FontSize="20" FontWeight="Bold"> </TextBlock>
                 </StackPanel>
             </Grid>
 
@@ -64,19 +63,14 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
 
-                        <Button Name="btnSave" Click="btnSave_Click" ToolTip="Save Data" Width="100" Height="49">
-                            <Button.Background>
-                                <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/save-png-hi.png"/>
-                            </Button.Background>
+                        <Button Name="btnSave" Click="btnSave_Click" ToolTip="Save Data" FontSize="12" Style="{StaticResource buttonStyle}">
+                            <Label>_Save</Label>
 
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click" ToolTip="Back To Customer Paging" Width="100" Height="50">
-                            <Button.Background>
-                                <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png" Stretch="UniformToFill"/>
-                            </Button.Background>
-
+                        <Button Name="btnBack" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
+                            <Label>_Back</Label>
                         </Button>
                     </Grid>
 

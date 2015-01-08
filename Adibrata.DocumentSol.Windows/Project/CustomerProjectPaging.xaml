@@ -42,7 +42,7 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Name"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Name" Width="200"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Margin="0,2" Width="159"/>

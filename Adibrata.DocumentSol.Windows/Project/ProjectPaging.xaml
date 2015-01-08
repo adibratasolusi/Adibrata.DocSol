@@ -67,12 +67,14 @@
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <GroupBox>
 
-                        <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch">
+                        <DataGrid IsTextSearchEnabled="True"  SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="40">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnEdit" Click="btnEdit_Click" Width="100" Height="50" Content="Edit"/>
+                                            <Button x:Name="btnEdit" Click="btnEdit_Click" FontSize="12" Style="{StaticResource buttonStyle}" Height="50">
+                                                <Label>_Edit</Label>
+                                            </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -104,10 +106,8 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
 
-                                    <Button x:Name="btnAdd" Click="btnAdd_Click"  Height="50" Width="100" ToolTip="New Project">
-                                        <Button.Background>
-                                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/new-button-png-hi.png"/>
-                                        </Button.Background>
+                                    <Button x:Name="btnAdd" Click="btnAdd_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="New Project">
+                                        <Label>_New</Label>
                                     </Button>
                                 </Grid>
                                 <Grid Grid.Column="1">

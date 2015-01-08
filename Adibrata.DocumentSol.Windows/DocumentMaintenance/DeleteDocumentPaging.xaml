@@ -32,7 +32,11 @@
                     <RowDefinition Height="Auto"  />
                 </Grid.RowDefinitions>
                 <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-                    <GroupBox  Header="Search">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="365*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox  Header="Search" Grid.ColumnSpan="2">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
@@ -81,7 +85,7 @@
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT CODE" x:Name="DocTransCode" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}"  Header="DOCUMENT TYPE" x:Name="DocTypeCode" Width="200" FontSize="14" />
-                              
+
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
@@ -100,7 +104,8 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
-                                <UserController:UCPaging x:Name="oPaging"/>                       </Grid>
+                                <UserController:UCPaging x:Name="oPaging"/>
+                            </Grid>
                         </Grid>
                     </GroupBox>
                 </Grid>

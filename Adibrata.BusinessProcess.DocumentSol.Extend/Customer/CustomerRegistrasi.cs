@@ -77,8 +77,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 
                 sqlParams[7] = new SqlParameter("@IsEdit", SqlDbType.Bit);
                 sqlParams[7].Value = _ent.IsEdit;
-                sqlParams[8] = new SqlParameter("@CustIDReff", SqlDbType.BigInt);
-                sqlParams[8].Value = _ent.CustomerID;
+                sqlParams[8] = new SqlParameter("@CustCode", SqlDbType.VarChar,50);
+                sqlParams[8].Value = _ent.CustomerCode;
                 sqlParams[9] = new SqlParameter("@UsrUpd", SqlDbType.VarChar,50);
                 sqlParams[9].Value = _ent.UserLogin;
                 sqlParams[10] = new SqlParameter("@DtmUpd", SqlDbType.SmallDateTime);

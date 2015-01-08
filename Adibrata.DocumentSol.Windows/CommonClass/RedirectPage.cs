@@ -128,9 +128,7 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
-                #region "Upload Monitoring"
-                case "UploadMonitoring.UncompleteDocument": Source.NavigationService.Navigate(new UploadMonitoring.UncompleteDocument(_ent)); break;
-                #endregion
+             
 
                 #region "Document Search"
                 //case "DocumentSearch.DocumentSearch": Source.NavigationService.Navigate(new DocumentSearch.DocumentSearch(_ent)); break;
@@ -272,10 +270,7 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
-                #region "Upload Monitoring"
-                case "UploadMonitoring.UncompleteDocument": Source.NavigationService.Navigate(new UploadMonitoring.UncompleteDocument(_ent)); break;
-                #endregion
-
+                
                 #region "Document Search"
                 //case "DocumentSearch.DocumentSearch": Source.NavigationService.Navigate(new DocumentSearch.DocumentSearch(_ent)); break;
                 #endregion

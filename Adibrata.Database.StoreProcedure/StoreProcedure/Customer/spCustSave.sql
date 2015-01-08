@@ -7,12 +7,12 @@
 	@DtmCrt DateTime, 
 	@CustID Bigint Output,
 	@IsEdit Bit = null, 
-	@CustIDReff BigInt = null,
+	@CustCode Varchar(50) = null,
 	@UsrUpd Varchar(50) = Null, 
 	@DtmUpd DateTime = null
 AS
 set Nocount on 
-Declare @CustCode varchar(50)
+
 If @ISedit = 0 or @IsEdit is null
 Begin
 	Exec spMasterSequence 1, 'Cust', @PostingDate, @CustCode Output
@@ -24,9 +24,11 @@ Begin
 END
 Else
 BEGIN
+
+	Select @CustID = ID From Cust with (nolock) Where CustCode = @CustCode
 	Update Cust set CustName = @CustName,
 					UsrUpd = @UsrUpd,
 					DtmUpd = @DtmUpd
-	WHere ID = @CustIDReff
+	WHere ID = @CustID
 END
 RETURN 

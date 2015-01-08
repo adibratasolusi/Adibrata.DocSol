@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT SEARCH</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">DOCUMENT SEARCH</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -44,8 +44,8 @@
                                 <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch" Margin="0,2" Width="900"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">
-                                    <Label>_SEARCH</Label>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                                    <Label>_Search</Label>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -64,10 +64,8 @@
                                 <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnView" ToolTip="View Document" Click="btnView_Click" Width="60" Height="50">
-                                                <Button.Background>
-                                                    <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/AlienAqua scanner 2.png"/>
-                                                </Button.Background>
+                                            <Button Name="btnView" ToolTip="View Document" Click="btnView_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                                                <Label>_view</Label>
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

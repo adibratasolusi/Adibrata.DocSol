@@ -29,6 +29,6 @@ From
 				Inner Join Cust E with (nolock) on E.Id = d.CustID
 				Left Join DocTransBinary F with (nolock) on F.DocTransID = C.ID) qry1 ) qry2
 				where number between ' + @StartRecord  + ' and  ' + @EndRecord  
-				
+				print @SqlStatement
 			exec (@SqlStatement)
 RETURN 0

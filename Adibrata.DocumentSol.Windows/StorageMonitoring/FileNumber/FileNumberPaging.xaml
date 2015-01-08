@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">FILE NUMBER</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">FILE NUMBER</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -40,13 +40,17 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
+                                <StackPanel>
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="EKSTENSION"/>
+                                </StackPanel>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtExtension" Margin="0,2" Width="159"/>
+                                <StackPanel>
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtExtension"  Width="159"/>
+                                </StackPanel>
                             </Grid>
                               <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                                     <Label>_Search</Label>
                                 </Button>
                             </Grid>
@@ -66,7 +70,7 @@
                                 <DataGridTemplateColumn Width="150">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click"></Button>
+                                            <Button Name="btnDetail" Content="DETAIL" FontSize="12" Style="{StaticResource buttonStyle}" Click="btnDetail_Click"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                     

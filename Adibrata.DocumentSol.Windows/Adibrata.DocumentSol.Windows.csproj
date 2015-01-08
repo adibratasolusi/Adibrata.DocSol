@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>36</ApplicationRevision>
+    <ApplicationRevision>37</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -344,9 +344,6 @@
     </Compile>
     <Compile Include="UploadInquiry\UploadInquiry.xaml.cs">
       <DependentUpon>UploadInquiry.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UploadMonitoring\UncompleteDocument.xaml.cs">
-      <DependentUpon>UncompleteDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\Favorite\FavoriteEdit.xaml.cs">
       <DependentUpon>FavoriteEdit.xaml</DependentUpon>
@@ -739,10 +736,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UploadMonitoring\UncompleteDocument.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserManagement\Favorite\FavoriteEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1060,7 +1053,9 @@
   <ItemGroup>
     <Resource Include="Images\home.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UploadMonitoring\" />
+  </ItemGroup>
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

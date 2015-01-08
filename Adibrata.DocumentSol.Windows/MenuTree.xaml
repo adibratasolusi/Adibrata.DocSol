@@ -24,7 +24,7 @@
         <Grid Grid.Row="0" Grid.Column="2">
             
             <StackPanel>
-                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="500" Width="200" SelectedItemChanged="trvStructure_SelectedItemChanged">
+                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="600" Width="200"  FontSize="12" SelectedItemChanged="trvStructure_SelectedItemChanged">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                             <StackPanel Orientation="Horizontal">

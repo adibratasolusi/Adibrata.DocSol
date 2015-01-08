@@ -13,10 +13,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">DELETE DOCUMENT INQUIRY</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">DELETE DOCUMENT INQUIRY</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-
                 <UserController:UCDocTransBinaryContentView Name="ucView" />
             </Grid>
             <Grid Grid.Column="1">

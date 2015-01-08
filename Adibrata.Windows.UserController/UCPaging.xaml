@@ -21,7 +21,7 @@
                 <TextBox Style="{StaticResource textStyle}" x:Name="txtPageNumber" Width="100" MaxLength="3"></TextBox>
                 <TextBlock Text="          "  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left"/>
                 <Button Name="btnTotRec" Click="btnTotRec_Click" FontSize="12" Style="{StaticResource buttonStyle}" >
-                    <Label Background="{x:Null}">#_Total</Label>
+                    <Label Background="{x:Null}">#Rec</Label>
                 </Button>
                 <TextBlock Text="   "  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left"/>
                 <TextBlock Name="lblTotalRec"  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left" FontSize="14" VerticalAlignment="Bottom"/>

@@ -11,8 +11,8 @@ namespace Adibrata.BusinessProcess.Paging.Entities
     [Serializable]
     public class PagingEntities :EntitiesBase
     {
-      
-        
 
+
+        public string WhereCond2 { get; set; }
     }
 }

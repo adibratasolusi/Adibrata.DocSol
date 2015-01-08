@@ -41,18 +41,45 @@
                             </Grid.RowDefinitions>
                            
                             <Grid Grid.Column="0" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch" Margin="0,2" Width="900"/>
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch"  Width="600"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_Search</Label>
-                                </Button>
+                              
                             </Grid>
                         </Grid>
                     </GroupBox>
                 </Grid>
-              
-                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Name="GridDataGrid">
+                <GroupBox Header="Specific Search " Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,184,0" >
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"  />
+                    </Grid.RowDefinitions>
+                        <Grid Grid.Column="0" Grid.Row="0">
+                        <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="Search By" Width="150"></TextBlock>
+                                <ComboBox Name="cboSearchBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"></ComboBox>
+                                <TextBlock Width="10"></TextBlock>
+                                <TextBox Name="txtSearchSpesific" Style="{StaticResource textStyle}" Width="200" VerticalAlignment="Top"></TextBox>
+                                <TextBlock Width="80"></TextBlock>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}" VerticalAlignment="Top">
+                                    <Label>_Search</Label>
+                                </Button>
+                            </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <StackPanel>
+                            
+                            
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                </GroupBox>
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Name="GridDataGrid">
                     <GroupBox>
                         <DataGrid IsTextSearchEnabled="True"
                           SelectionMode="Single"
@@ -61,7 +88,7 @@
                           HorizontalAlignment="Left"  CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn Width="50">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Name="btnView" ToolTip="View Document" Click="btnView_Click" FontSize="12" Style="{StaticResource buttonStyle}">

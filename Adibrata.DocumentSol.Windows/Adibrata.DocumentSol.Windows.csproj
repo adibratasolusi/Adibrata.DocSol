@@ -141,9 +141,6 @@
     <Compile Include="DocumentContent\DocTransActivity\DocTransActivity.xaml.cs">
       <DependentUpon>DocTransActivity.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DocumentContent\DocumentAllUpload.xaml.cs">
-      <DependentUpon>DocumentAllUpload.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DocumentContent\DocumentContentEntry.xaml.cs">
       <DependentUpon>DocumentContentEntry.xaml</DependentUpon>
     </Compile>
@@ -177,15 +174,6 @@
     <Compile Include="MenuTree.xaml.cs">
       <DependentUpon>MenuTree.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ImageProcess\Canvas\CanvasDetail.xaml.cs">
-      <DependentUpon>CanvasDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Canvas\CanvasPaging.xaml.cs">
-      <DependentUpon>CanvasPaging.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Canvas\CanvasProcess.xaml.cs">
-      <DependentUpon>CanvasProcess.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ImageProcess\Checkin\CheckinDetail.xaml.cs">
       <DependentUpon>CheckinDetail.xaml</DependentUpon>
     </Compile>
@@ -194,42 +182,6 @@
     </Compile>
     <Compile Include="ImageProcess\Checkout\CheckoutPaging.xaml.cs">
       <DependentUpon>CheckoutPaging.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\DataImage\DataImageDetail.xaml.cs">
-      <DependentUpon>DataImageDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\DataImage\DataImagePaging.xaml.cs">
-      <DependentUpon>DataImagePaging.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Decryption\DecryptionDetail.xaml.cs">
-      <DependentUpon>DecryptionDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Decryption\DecryptionProcess.xaml.cs">
-      <DependentUpon>DecryptionProcess.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Decryption\DecrytionPaging.xaml.cs">
-      <DependentUpon>DecrytionPaging.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Encryption\EncryptionDetail.xaml.cs">
-      <DependentUpon>EncryptionDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Encryption\EncryptionPaging.xaml.cs">
-      <DependentUpon>EncryptionPaging.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Encryption\EncryptionProcess.xaml.cs">
-      <DependentUpon>EncryptionProcess.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Grayscale\GrayscaleDetail.xaml.cs">
-      <DependentUpon>GrayscaleDetail.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ImageProcess\Grayscale\GrayscalePaging.xaml.cs">
-      <DependentUpon>GrayscalePaging.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ImageProcess\Grayscale\GrayscaleProcess.xaml.cs">
-      <DependentUpon>GrayscaleProcess.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImageProcess\ImageToPdf\ImageToPdfDetail.xaml.cs">
       <DependentUpon>ImageToPdfDetail.xaml</DependentUpon>
@@ -251,18 +203,11 @@
       <DependentUpon>ImageLockPaging.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageProcess\Lock\ImageUnlockProcess.xaml.cs">
-      <DependentUpon>ImageUnlockProcess.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ImageProcess\Resize\ImageResizeDetail.xaml.cs">
       <DependentUpon>ImageResizeDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\Resize\ImageResizePaging.xaml.cs">
       <DependentUpon>ImageResizePaging.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ImageProcess\Resize\ImageResizeProcess.xaml.cs">
-      <DependentUpon>ImageResizeProcess.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\Rotate\ImageRotateDetail.xaml.cs">
       <DependentUpon>ImageRotateDetail.xaml</DependentUpon>
@@ -270,10 +215,6 @@
     </Compile>
     <Compile Include="ImageProcess\Rotate\ImageRotatePaging.xaml.cs">
       <DependentUpon>ImageRotatePaging.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ImageProcess\Rotate\ImageRotateProcess.xaml.cs">
-      <DependentUpon>ImageRotateProcess.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImageProcess\Unlock\UnlockImageDetail.xaml.cs">
@@ -488,10 +429,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DocumentContent\DocumentAllUpload.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DocumentContent\DocumentContentEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -536,18 +473,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Canvas\CanvasDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Canvas\CanvasPaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Canvas\CanvasProcess.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ImageProcess\Checkin\CheckinDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -557,50 +482,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\Checkout\CheckoutPaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\DataImage\DataImageDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\DataImage\DataImagePaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Decryption\DecryptionDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Decryption\DecryptionProcess.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Decryption\DecrytionPaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Encryption\EncryptionDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Encryption\EncryptionPaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Encryption\EncryptionProcess.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Grayscale\GrayscaleDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Grayscale\GrayscalePaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Grayscale\GrayscaleProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -624,10 +505,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Lock\ImageUnlockProcess.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ImageProcess\Resize\ImageResizeDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -636,19 +513,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageProcess\Resize\ImageResizeProcess.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ImageProcess\Rotate\ImageRotateDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\Rotate\ImageRotatePaging.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ImageProcess\Rotate\ImageRotateProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1054,6 +923,11 @@
     <Resource Include="Images\home.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ImageProcess\Canvas\" />
+    <Folder Include="ImageProcess\DataImage\" />
+    <Folder Include="ImageProcess\Decryption\" />
+    <Folder Include="ImageProcess\Encryption\" />
+    <Folder Include="ImageProcess\Grayscale\" />
     <Folder Include="UploadMonitoring\" />
   </ItemGroup>
   <PropertyGroup>

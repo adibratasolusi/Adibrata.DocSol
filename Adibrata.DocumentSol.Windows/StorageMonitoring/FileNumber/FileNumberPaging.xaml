@@ -41,7 +41,7 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
                                 <StackPanel>
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="EKSTENSION"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Extention " Width="200"/>
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">

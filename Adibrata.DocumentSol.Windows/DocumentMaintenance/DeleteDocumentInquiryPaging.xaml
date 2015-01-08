@@ -42,7 +42,7 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code" Width="150"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type" />
                                 </StackPanel>
                             </Grid>

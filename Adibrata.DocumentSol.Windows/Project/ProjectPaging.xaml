@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       x:Class="Adibrata.DocumentSol.Windows.Project.ProjectPaging" 
       mc:Ignorable="d" 
-      d:DesignHeight="350"
+      d:DesignHeight="550"
 	Title="ProjectPaging">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >

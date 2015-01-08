@@ -100,12 +100,12 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
 
-                <Button x:Name="btnSave" Click="btnSave_Click">
+                <Button x:Name="btnSave" Click="btnSave_Click"  FontSize="12" Style="{StaticResource buttonStyle}">
                     <Label Content="_SAVE"/>
                 </Button>
             </Grid>
             <Grid Grid.Column="1">
-                <Button x:Name="btnBack" Click="btnBack_Click">
+                <Button x:Name="btnBack" Click="btnBack_Click"  FontSize="12" Style="{StaticResource buttonStyle}">
                     <Label Content="_BACK"/>
                 </Button>
             </Grid>

@@ -73,7 +73,12 @@
                                             <StackPanel>
                                                 <TextBlock Text="File Name"></TextBlock>
                                                 <TextBlock Text="Date Created"></TextBlock>
+                                                <TextBlock Text="Pixel"></TextBlock>
+                                                <TextBlock Text="ComputerName"></TextBlock>
+                                                <TextBlock Text="DPI"></TextBlock>
+
                                                 <TextBlock Text="File Size"></TextBlock>
+                                                
                                             </StackPanel>
                                         </Grid>
                                         <Grid Grid.Column="2">
@@ -82,10 +87,14 @@
 
                                                 <TextBlock VerticalAlignment="Top" Style="{StaticResource TextBlockStyle}" Text="{Binding FileName}"></TextBlock>
                                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DateCreated}"></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Pixel}"></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ComputerName}"></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DPI}"></TextBlock>
 
                                                 <TextBlock  HorizontalAlignment="Right">
                                                     <Run Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}"/>
                                               <Run Text=" Bytes"/>
+                                              
                                                 </TextBlock>
                                             </StackPanel>
                                         </Grid>

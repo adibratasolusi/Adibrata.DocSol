@@ -157,20 +157,26 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         private void Hide_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            popImg.IsOpen = false;
+          
         }
 
         private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+          
             Byte[] _imgbin;
             string _filename;
             WebBrowser _brow = new WebBrowser();
             _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBin"];
+            
             _filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+
             System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.Create, System.IO.FileAccess.Write);
             _FileStream.Write(_imgbin, 0, _imgbin.Length);
             _FileStream.Close();
-         
+            //brow.Navigate(_filename);
+            //WebBrowser brow = new WebBrowser();
+            //brow.Navigate("http://www.detik.com");
+            
         }
 
     }

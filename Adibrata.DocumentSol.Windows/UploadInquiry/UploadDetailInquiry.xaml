@@ -6,19 +6,16 @@
       mc:Ignorable="d" Style="{StaticResource PageStyle}"
 	Title="UploadDetailInquiry">
 
-
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <Grid Style="{StaticResource GridStyle}" Height="263" >
+        <Grid Style="{StaticResource GridStyle}" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" MinHeight="106" />
-                <RowDefinition Height="Auto" MinHeight="60"  />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
-
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold" Margin="10,36,-10,-36">DOCUMENT DETAIL</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold">DOCUMENT DETAIL</TextBlock>
             </Grid>
-
-            <Grid Margin="-27,-13,27,0">
+            <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="110" />
                     <ColumnDefinition Width="*"/>
@@ -42,10 +39,10 @@
                         <TextBlock Grid.Column="0" Grid.Row="0" Text="Document Transaction ID :"></TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="0"  Name="txtDocTransId" Text="Test"></TextBlock>
                     </Grid>
-
+                    
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                    <GroupBox Header="Document Content" Margin="33,48,-33,-48">
+                    <GroupBox Header="Document Content">
                         <DataGrid Name="dtgContent" IsTextSearchEnabled="True" SelectionMode="Single" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding ContentName}" Header="Content Name" x:Name="ContentName" Width="150" />
@@ -54,8 +51,51 @@
                         </DataGrid>
                     </GroupBox>
                 </Grid>
+                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+                    <GroupBox Header="Document Detail">
+              
+                        <ListView Height="500" 
+                              Name="dgPaging"  FontSize="12" SelectionChanged="dgPaging_SelectionChanged" Width="Auto" >
+                    
+                            <ListView.ItemTemplate >
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="110" />
+                                            <ColumnDefinition Width="110" />
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                                <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
+                                            </StackPanel>
+                                        <Grid Grid.Column="1">
+                                            <StackPanel>
+                                                <TextBlock Text="File Name"></TextBlock>
+                                                <TextBlock Text="Date Created"></TextBlock>
+                                                <TextBlock Text="File Size"></TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <StackPanel>
 
-                <StackPanel>
+                                   
+                                                <TextBlock VerticalAlignment="Top" Style="{StaticResource TextBlockStyle}" Text="{Binding FileName}"></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DateCreated}"></TextBlock>
+
+                                                <TextBlock  HorizontalAlignment="Right">
+                                                    <Run Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}"/>
+                                              <Run Text=" Bytes"/>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+                    </GroupBox>
+                </Grid>
+                <!--<StackPanel>
                     <ListView Name="dgPaging" Margin="45,102,24,-76" Grid.ColumnSpan="2" Grid.Row="3" SelectionChanged="dgPaging_SelectionChanged"  >
                         <ListView.SelectedItems>
                             <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
@@ -70,7 +110,7 @@
                     </ListView>
 
 
-                </StackPanel>
+                </StackPanel>-->
 
 
 

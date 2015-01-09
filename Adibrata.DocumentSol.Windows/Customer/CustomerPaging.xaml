@@ -78,7 +78,7 @@
                                 <DataGridTextColumn Binding="{Binding CustCode}" Header="CODE" x:Name="CODE" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
                                 <DataGridTextColumn Binding="{Binding Address}" Header="ADDRESS" x:Name="Address" Width="400" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding CustType}" Header="TYPE" x:Name="CustType" Width="Auto" FontSize="14" CanUserResize="False"/>
+                                
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>

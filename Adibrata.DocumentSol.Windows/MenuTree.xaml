@@ -57,13 +57,6 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
-        </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
-        </Grid>
-        <Grid Grid.Row="1" Grid.Column="1">
-        </Grid>
-        <Grid Grid.Row="1" Grid.Column="2">
-        </Grid>    
+     
     </Grid>
 </Page>

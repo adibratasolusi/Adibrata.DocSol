@@ -81,8 +81,21 @@
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANSACTIONS ID" x:Name="Id" Width="120"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="120" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="150"/>
+                                
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILE NAME" x:Name="FileName" Width="150"/>
+                                <DataGridTemplateColumn Header="FILE SIZE" Width="100">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding StringFormat=SizeFileBytes{0:C}}" HorizontalAlignment="Right" >
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Extention}" Header="FILE TYPE" x:Name="FileType" Width="80"/>
+                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="80"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>

@@ -13,18 +13,19 @@ Set NoCount On
 Declare @RecordNumber Numeric, 
 		@SqlStatement Varchar(max)
 Set NoCount On 
+Select * From doctransbinary 
 Declare @TotalRecord int
 If @SortBy = '' 
 	Set @SortBy = ' DocTrans.TransID Asc '
 
 	Set @SqlStatement = 'Select * from 
 		(Select ROW_NUMBER() OVER (Order By ' + @SortBy + ') as number, DocTransCode, TransID, DocTrans.DocTypeCode, Proj.ProjCode, Proj.ProjName, Doctrans.DocTransStatus ,
-		Cust.CustCode, Cust.CustName
+		Cust.CustCode, Cust.CustName, B.DateCreated, B.SizeFileBytes, B.Pixel, B.ComputerName, B.FileName
 		
 		From DocTrans With (nolock) Inner Join 	Proj with (nolock) on Doctrans.Transid = Proj.ID 
 		inner join cust with (nolock) on Proj.CustID = cust.id
-		--Inner Join DocTransContent A with (nolock) on A.DocTransID = DocTrans.ID
-		--Inner Join DocTransBinary B with (nolock) on B.DocTransID = DocTrans.ID
+		Inner Join DocTransContent A with (nolock) on A.DocTransID = DocTrans.ID
+		Inner Join DocTransBinary B with (nolock) on B.DocTransID = DocTrans.ID
 		  ' 
 		+ @WhereCond  + ') Qry
 		where number between ' + @StartRecord  + ' and  ' + @EndRecord  

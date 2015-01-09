@@ -58,13 +58,8 @@
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <GroupBox>
-
-                        <DataGrid IsTextSearchEnabled="True"
-                          SelectionMode="Single"
-                          x:Name="dgPaging" 
-                          
-                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
-                          >
+                        <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" 
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="EDIT" Width="50" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>

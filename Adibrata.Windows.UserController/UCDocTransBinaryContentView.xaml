@@ -53,7 +53,16 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding FileName}" Header="File Name" x:Name="FileName"  />
                                 <DataGridTextColumn Binding="{Binding DateCreated}" Header="Date Created" x:Name="DateCreated"  FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="Size File (Bytes)" x:Name="SizeFileBytes" />
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding StringFormat=SizeFileBytes{0:C}}" HorizontalAlignment="Right" >
+                                            </TextBlock> 
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <!--<DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="Size File (Bytes)" x:Name="SizeFileBytes" />-->
                                 <DataGridTextColumn Binding="{Binding Pixel}" Header="Pixel" x:Name="Pixel" FontSize="14"/>
                                 <DataGridTextColumn Binding="{Binding ComputerName}" Header="Computer Name" x:Name="ComputerName" />
                                 <DataGridTextColumn Binding="{Binding DPI}" Header="DPI" x:Name="DPI" FontSize="14"/>

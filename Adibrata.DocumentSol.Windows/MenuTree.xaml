@@ -36,12 +36,21 @@
 
                 </TreeView>
                 <GroupBox Header="Favorite Menu">
-                    <ListView ItemsSource="{Binding}" DisplayMemberPath="FormName" Tag="{Binding Formurl}" Height="100" 
+                    <!--<ListView ItemsSource="{Binding}" DisplayMemberPath="FormName" Tag="{Binding Formurl}" Height="100" 
                               SelectedItem="{Binding Path=FormUrl}"
                               Name="lstFavorite" SelectedValuePath="FormUrl" FontSize="12" SelectionChanged="ListView_SelectionChanged">
-                        
+                    </ListView>-->
+                    <ListView Height="100" 
+                              Name="lstFavorite"  FontSize="12" SelectionChanged="ListView_SelectionChanged">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FormName}"></TextBlock>
+                            </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
                     </ListView>
-                  
                 </GroupBox>
                 <Button x:Name="btnRefresh" Click="btnRefresh_Click" FontSize="8" Style="{StaticResource buttonStyle}" >
                     <Label>_Refresh</Label>

@@ -282,6 +282,10 @@ namespace Adibrata.DocumentSol.Windows
                 #region "Document Transaction Activity"
                 case "DocumentContent.SearchDocument": Source.NavigationService.Navigate(new DocumentContent.SearchDocument(_ent)); break;
                 #endregion 
+
+                #region "Document Transaction Activity"
+                case "DocumentContent.DocTransActivity": Source.NavigationService.Navigate(new DocumentContent.DocTransActivity(_ent)); break;
+                #endregion 
             }
 
         }

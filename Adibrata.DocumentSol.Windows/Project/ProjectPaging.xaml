@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       x:Class="Adibrata.DocumentSol.Windows.Project.ProjectPaging" 
       mc:Ignorable="d" 
-      d:DesignHeight="550"
+      d:DesignHeight="500"
 	Title="ProjectPaging">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
@@ -67,9 +67,10 @@
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <GroupBox>
 
-                        <DataGrid IsTextSearchEnabled="True"  SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch">
+                        <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" 
+                          HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="40">
+                                <DataGridTemplateColumn Width="40" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button x:Name="btnEdit" Click="btnEdit_Click" FontSize="12" Style="{StaticResource buttonStyle}" Height="50">
@@ -99,22 +100,15 @@
                             <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
                                 <UserController:UCPaging x:Name="oPaging"/>
                             </Grid>
-                            <Grid Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Stretch">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-
+                            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                                <StackPanel Orientation="Horizontal">
                                     <Button x:Name="btnAdd" Click="btnAdd_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="New Project">
                                         <Label>_New</Label>
                                     </Button>
-                                </Grid>
-                                <Grid Grid.Column="1">
                                     <Button x:Name="btnBack" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
                                         <Label>_Back</Label>
                                     </Button>
-                                </Grid>
+                                </StackPanel>
                             </Grid>
                         </Grid>
                     </GroupBox>

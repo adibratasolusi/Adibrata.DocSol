@@ -1,4 +1,4 @@
-﻿ALTER PROCEDURE [dbo].[spProjectTotRec]
+﻿Create  PROCEDURE [dbo].[spProjectPagingTotRec]
 	@WhereCond varchar(8000), 
 	@SortBy Varchar(8000)
 AS

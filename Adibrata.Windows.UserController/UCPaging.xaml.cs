@@ -26,7 +26,7 @@ namespace Adibrata.Windows.UserController
         public string SortBy { get; set; }
         public DataGrid dgObj { get; set; }
         public string UserName { get; set; }
-        private int MaxPage = 999;
+        private int MaxPage = 999999;
         private static int _pageSize = Convert.ToInt32(AppConfig.Config("PageSize"));
         public UCPaging()
         {
@@ -183,17 +183,20 @@ namespace Adibrata.Windows.UserController
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                if (this.MethodNameTotalRec == null)
+                if (this.WhereCond != null)
                 {
-                    sb.Append(this.MethodName.Trim());
-                    sb.Append("TotRec");
+                    if (this.MethodNameTotalRec == null)
+                    {
+                        sb.Append(this.MethodName.Trim());
+                        sb.Append("TotRec");
+                    }
+                    PagingEntities _ent = new PagingEntities { SortBy = this.SortBy, WhereCond = this.WhereCond, UserLogin = this.UserName };
+                    _ent.MethodName = sb.ToString();
+                    _ent.ClassName = this.ClassName;
+                    _totrec = PagingController.PagingData<Int64>(_ent);
+                    btnTotRec.ToolTip = _totrec.ToString("###,###");
+                    lblTotalRec.Text = _totrec.ToString("###,###");
                 }
-                PagingEntities _ent = new PagingEntities {  SortBy = this.SortBy, WhereCond = this.WhereCond, UserLogin = this.UserName };
-                _ent.MethodName = sb.ToString();
-                _ent.ClassName = this.ClassName;
-                _totrec = PagingController.PagingData<Int64>(_ent);
-                btnTotRec.ToolTip = _totrec.ToString("###,###");
-                lblTotalRec.Text = _totrec.ToString("###,###");
 
             }
             catch (Exception _exp)

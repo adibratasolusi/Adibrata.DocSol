@@ -231,17 +231,21 @@ namespace Adibrata.DocumentSol.Windows
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string _url;
+            
             try
             {
                 _ent.ClassName = "MainMenu";
                 _ent.MethodName = "MenuTreeGetURL";
                 _ent.MenuName = ((DataRowView)lstFavorite.SelectedItem)["FormName"].ToString();
+                _url = ((DataRowView)lstFavorite.SelectedItem)["FormUrl"].ToString();
+                 RedirectPage redirect = new RedirectPage(_frmwork, _url, SessionProperty);
+
                 //_ent.MenuName = lstFavorite.SelectedValue.ToString();
-                _url = UserManagementController.UserManagement<String>(_ent);
-                if (_url != "")
-                {
-                    RedirectPage redirect = new RedirectPage(_frmwork, _url, SessionProperty);
-                }
+                //_url = UserManagementController.UserManagement<String>(_ent);
+                //if (_url != "")
+                //{
+                //    RedirectPage redirect = new RedirectPage(_frmwork, _url, SessionProperty);
+                //}
             }
             catch (Exception _exp)
             {

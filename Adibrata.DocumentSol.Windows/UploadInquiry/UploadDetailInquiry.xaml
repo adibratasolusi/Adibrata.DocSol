@@ -8,15 +8,17 @@
 
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <Grid Style="{StaticResource GridStyle}" >
+        <Grid Style="{StaticResource GridStyle}" Height="263" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto" MinHeight="106" />
+                <RowDefinition Height="Auto" MinHeight="60"  />
             </Grid.RowDefinitions>
+
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold" Margin="-179,0,179,0">DOCUMENT DETAIL</TextBlock>
+                <TextBlock FontSize="24" FontWeight="Bold" Margin="10,36,-10,-36">DOCUMENT DETAIL</TextBlock>
             </Grid>
-            <Grid Grid.Row="1">
+
+            <Grid Margin="-27,-13,27,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="110" />
                     <ColumnDefinition Width="*"/>
@@ -43,45 +45,45 @@
 
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                    <GroupBox Header="Document Content">
+                    <GroupBox Header="Document Content" Margin="33,48,-33,-48">
                         <DataGrid Name="dtgContent" IsTextSearchEnabled="True" SelectionMode="Single" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding ContentName}" Header="Content Name" x:Name="ContentName" Width="150" />
-                            <DataGridTextColumn Binding="{Binding value}" Header="Value" x:Name="Value" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding value}" Header="Value" x:Name="Value" Width="200" FontSize="14"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
                 </Grid>
-                    <ListView Name="dgPaging">
-                        <ListView.View>
-                            
-                            <GridView>
-                                <GridViewColumn DisplayMemberBinding="{Binding FileName}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding DateCreated}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding SizeFileBytes}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding Pixel}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding ComputerName}"/>
-                                <GridViewColumn DisplayMemberBinding="{Binding  DPI}"/>
-                            </GridView>
-                            
-                        </ListView.View>
+
+                <StackPanel>
+                    <ListView Name="dgPaging" Margin="45,102,24,-76" Grid.ColumnSpan="2" Grid.Row="3" SelectionChanged="dgPaging_SelectionChanged"  >
+                        <ListView.SelectedItems>
+                            <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
+                            <ListViewItem Content="FileName"  />
+                            <ListViewItem Content="{Binding FileName}" FontWeight="Bold"  />
+                            <ListViewItem Content="Fiame"/>
+                            <ListViewItem Content="{Binding DateCreated}" FontWeight="Bold" />
+                            <ListViewItem Content="FilName"/>
+                            <ListViewItem Content="{Binding SizeFileBytes}" FontWeight="Bold" />
+                        </ListView.SelectedItems>
+
                     </ListView>
 
-                   
-                       
-                    
 
-                    <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
-                    <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="100" HorizontalAlignment="Right" Click="btnBack_Click"  />
+                </StackPanel>
 
 
+
+
+                <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
+                    <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="100" HorizontalAlignment="Right" Click="btnBack_Click" Height="30" VerticalAlignment="Top" Margin="-1,155,1,-154"  />
                 </Grid>
+
             </Grid>
         </Grid>
+
+
+
     </ScrollViewer>
-    
+
 </Page>

@@ -149,5 +149,27 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 ErrorLog.WriteEventLog(_errent);
             }
         }
+
+        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+          
+        }
+
+     
+
+        //private void lstData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    int i = dgPaging.SelectedIndex;
+
+        //    DataGridHelper oDataGrid = new DataGridHelper();
+        //    oDataGrid.dtg = dgPaging;
+        //    DataGridCell cell = oDataGrid.GetCell(i, 1);
+        //    TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
+        //    SessionProperty.IsEdit = true;
+        //    SessionProperty.ReffKey = ReffKey.Text;
+        //}
+
+       
+   
     }
 }

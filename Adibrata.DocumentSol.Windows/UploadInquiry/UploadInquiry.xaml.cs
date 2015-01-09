@@ -163,7 +163,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
-                SessionProperty.SourceForm = "UploadInquiry.UploadInquiry";
+                SessionProperty.SourceForm= "UploadInquiry.UploadInquiry";
                 
                 RedirectPage redirect = new RedirectPage(this, "UploadInquiry.UploadDetailInquiry", SessionProperty);
             }

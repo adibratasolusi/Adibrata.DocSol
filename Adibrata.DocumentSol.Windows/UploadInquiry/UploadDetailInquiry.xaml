@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" Style="{StaticResource PageStyle}"
+            d:DesignHeight="1000" 
 	Title="UploadDetailInquiry">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -54,8 +55,7 @@
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
                     <GroupBox Header="Document Detail">
               
-                        <ListView Height="500" 
-                              Name="dgPaging"  FontSize="12" SelectionChanged="dgPaging_SelectionChanged" Width="Auto" >
+                        <ListView Height="300" Name="dgPaging"  FontSize="12" SelectionChanged="dgPaging_SelectionChanged" Width="Auto" >
                     
                             <ListView.ItemTemplate >
                                 <DataTemplate>
@@ -91,9 +91,14 @@
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
-
                         </ListView>
                     </GroupBox>
+                    <Popup Name="popImg" Placement="Center" Width="200" Height="200" >
+                        <StackPanel Background="PaleGreen">
+                            <Canvas Name="imgView"  Width="150" Height="150"></Canvas>
+                            <Button Click="Hide_Click" Margin="10">Close</Button>
+                        </StackPanel>
+                    </Popup>
                 </Grid>
                 <!--<StackPanel>
                     <ListView Name="dgPaging" Margin="45,102,24,-76" Grid.ColumnSpan="2" Grid.Row="3" SelectionChanged="dgPaging_SelectionChanged"  >
@@ -111,12 +116,10 @@
 
 
                 </StackPanel>-->
-
-
-
-
                 <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
-                    <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="100" HorizontalAlignment="Right" Click="btnBack_Click" Height="30" VerticalAlignment="Top" Margin="-1,155,1,-154"  />
+                    <Button Name="btnBack"  Grid.Column="0" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click"  VerticalAlignment="Top">
+                        <Label>_Back</Label>
+                    </Button>
                 </Grid>
 
             </Grid>

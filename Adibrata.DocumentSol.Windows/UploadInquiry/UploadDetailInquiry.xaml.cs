@@ -5,7 +5,10 @@ using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Data;
+using System.IO;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace Adibrata.DocumentSol.Windows.UploadInquiry
 {
@@ -36,6 +39,8 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                     
                 bindContent();
                 bindBinary();
+                WebBrowser browser = new WebBrowser();
+                browser.NavigateToString("www.detik.com");
             }
             catch (Exception _exp)
             {
@@ -150,26 +155,23 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
         }
 
-        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Hide_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-          
+            popImg.IsOpen = false;
         }
 
-     
+        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Byte[] _imgbin;
+            string _filename;
+            WebBrowser _brow = new WebBrowser();
+            _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBin"];
+            _filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+            System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+            _FileStream.Write(_imgbin, 0, _imgbin.Length);
+            _FileStream.Close();
+         
+        }
 
-        //private void lstData_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    int i = dgPaging.SelectedIndex;
-
-        //    DataGridHelper oDataGrid = new DataGridHelper();
-        //    oDataGrid.dtg = dgPaging;
-        //    DataGridCell cell = oDataGrid.GetCell(i, 1);
-        //    TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
-        //    SessionProperty.IsEdit = true;
-        //    SessionProperty.ReffKey = ReffKey.Text;
-        //}
-
-       
-   
     }
 }

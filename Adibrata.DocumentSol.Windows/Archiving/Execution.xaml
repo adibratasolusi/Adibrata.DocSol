@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">ARCHIEVE EXECUTION</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">ARCHIEVE EXECUTION</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -40,16 +40,17 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
+                                <StackPanel>
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type" />
+                                </StackPanel>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Margin="0,2" Width="159"/>
-                            </Grid>
-                            <Grid Grid.Column="0" Grid.Row="1">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type" />
-                            </Grid>
-                            <Grid Grid.Column="1" Grid.Row="1">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Margin="0,2" Width="159" />
+                                <StackPanel>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Margin="0,2" Width="159"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Margin="0,2" Width="159" />
+                                </StackPanel>
+                                
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
                                 <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">

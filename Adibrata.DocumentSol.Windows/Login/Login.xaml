@@ -30,8 +30,8 @@
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1" Margin="5">
                 <StackPanel>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource TextBlockStyle}"  Text="User Name" />
-                    <TextBlock HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}"  Text="Password" />
+                    <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}"  Text="User Name" />
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}"  Text="Password" />
                 </StackPanel>
                 
             </Grid>
@@ -43,7 +43,7 @@
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right">
                 <StackPanel>
-                    <Button Name="btnLogin" Click="btnLogin_Click" Width="155" Height="60" BorderThickness="0" ToolTip="Login ">
+                    <Button Name="btnLogin" Click="btnLogin_Click" Width="60" Height="40" BorderThickness="0" ToolTip="Login ">
                         <Button.Background>
                             <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/login.png" Stretch="Fill"/>
                         </Button.Background>

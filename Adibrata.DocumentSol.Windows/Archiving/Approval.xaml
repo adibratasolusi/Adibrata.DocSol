@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">ARCHIEVE APPROVAL</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">ARCHIEVE APPROVAL</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -41,19 +41,19 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code"/>
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code" Width="200"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type" />
+                                </StackPanel>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Margin="0,2" Width="159"/>
-                            </Grid>
-                            <Grid Grid.Column="0" Grid.Row="1">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type" />
-                            </Grid>
-                            <Grid Grid.Column="1" Grid.Row="1">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Margin="0,2" Width="159" />
+                                <StackPanel>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Width="200"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Width="200" />
+                                </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                                     <Label>_Search</Label>
                                 </Button>
                             </Grid>
@@ -69,21 +69,17 @@
                           
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="100">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Name="btnQueue" Content="QUEUE" Click="btnQueue_Click"></Button>
-
                                         </DataTemplate>
-
                                     </DataGridTemplateColumn.CellTemplate>
-
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="100">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click"></Button>
-
                                         </DataTemplate>
 
                                     </DataGridTemplateColumn.CellTemplate>
@@ -155,10 +151,9 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="0" Name="btnReject" Content="Reject Queue" Click="btnReject_Click" HorizontalAlignment="Right"></Button>
-                                <Button Grid.Column="1" Name="btnHold" Content="Hold Queue" Click="btnHold_Click" HorizontalAlignment="Right"></Button>
-                                <Button Grid.Column="2" Name="btnApprove" Content="Approve Queue" Click="btnApprove_Click" HorizontalAlignment="Right"></Button>
-
+                                <Button Grid.Column="0" Name="btnReject" Content="Reject Queue" Click="btnReject_Click" HorizontalAlignment="Right" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
+                                <Button Grid.Column="1" Name="btnHold" Content="Hold Queue" Click="btnHold_Click" HorizontalAlignment="Right" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
+                                <Button Grid.Column="2" Name="btnApprove" Content="Approve Queue" Click="btnApprove_Click" HorizontalAlignment="Right" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
                             </Grid>
                         </Grid>
                     </GroupBox>

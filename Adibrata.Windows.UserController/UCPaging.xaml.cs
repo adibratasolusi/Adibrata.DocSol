@@ -22,6 +22,7 @@ namespace Adibrata.Windows.UserController
         public Boolean IsNeedTotalRec { get; set; }
         public string DataGrid { get; set; }
         public string WhereCond { get; set; }
+        public string WhereCond2 { get; set; }
         public string SortBy { get; set; }
         public DataGrid dgObj { get; set; }
         public string UserName { get; set; }
@@ -144,7 +145,7 @@ namespace Adibrata.Windows.UserController
                     _endrecord = (Convert.ToInt32(txtPageNumber.Text) * _pageSize + 1) - 1;
                     _currentpage = Convert.ToInt32(txtPageNumber.Text);
                     PagingEntities _ent = new PagingEntities { MethodName = this.MethodName, ClassName = this.ClassName, SortBy = this.SortBy, WhereCond = this.WhereCond, StartRecord = _startrecord.ToString(), EndRecord = _endrecord.ToString(), UserLogin= this.UserName };
-
+                    _ent.WhereCond2 = this.WhereCond2;
                     _dt = (DataTable)PagingController.PagingData<DataTable>(_ent);
                     if (_dt.Rows.Count == 0)
                     {

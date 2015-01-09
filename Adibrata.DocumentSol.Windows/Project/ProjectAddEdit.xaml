@@ -16,8 +16,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="PROJECT REGISTRATION" FontSize="24" FontWeight="Bold"></TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="PROJECT REGISTRATION" FontSize="20" FontWeight="Bold"></TextBlock>
                 </StackPanel>
             </Grid>
 
@@ -51,7 +50,8 @@
                         <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblProjectCode" VerticalAlignment="Center"/>
                         
                         <TextBox Name="txtPrjectName" Style="{StaticResource textStyle}" MaxLength="50" Width="300"></TextBox>
-                        <ComboBox Name="cboProjectType" Text="{Binding Result}" IsTextSearchEnabled="True" Width="200"  HorizontalAlignment="Left" SelectedValue ="{Binding Result}">
+                        <ComboBox Name="cboProjectType" Text="{Binding Result}" IsTextSearchEnabled="True" Width="150"  HorizontalAlignment="Left" VerticalAlignment="Top" ItemsSource="{Binding}" 
+                                  DisplayMemberPath="Result" SelectedValuePath="Result"   SelectedItem="{Binding Path=Result}">
                         </ComboBox>
                         <TextBlock Name="lblProjType" VerticalAlignment="Top" Style="{StaticResource TextBlockStyle}" Visibility="Hidden"></TextBlock>
                     </StackPanel>
@@ -63,19 +63,13 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
 
-                        <Button Name="btnSave" Click="btnSave_Click" Width="100" Height="50">
-                            <Button.Background>
-                                <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/save-png-hi.png"/>
-                            </Button.Background>
-
+                        <Button Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                            <Label>_Save</Label>
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click" Width="100" Height="50">
-                            <Button.Background>
-                                <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
-                            </Button.Background>
-
+                        <Button Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                            <Label>_Back</Label>
                         </Button>
                     </Grid>
 

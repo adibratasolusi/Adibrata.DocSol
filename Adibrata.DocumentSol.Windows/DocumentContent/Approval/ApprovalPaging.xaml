@@ -55,19 +55,19 @@
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblUserName"/>
-                                    <ComboBox Name="cboProjectType" Text="{Binding Result}" Height="30" Width="400" SelectedValue ="{Binding Result}" SelectionChanged="cboProjectCode_SelectionChanged" HorizontalAlignment="Left">
+                                    <ComboBox Name="cboProjectType" Text="{Binding Result}" Width="400" SelectedValue ="{Binding Result}" SelectionChanged="cboProjectCode_SelectionChanged" HorizontalAlignment="Left">
                                     </ComboBox>
-                                    <ComboBox Name="cboDocumentType" Text="{Binding Result}"   Height="30"  Width="400" SelectedValue ="{Binding Result}" HorizontalAlignment="Left">
+                                    <ComboBox Name="cboDocumentType" Text="{Binding Result}"  Width="400" SelectedValue ="{Binding Result}" HorizontalAlignment="Left">
                                     </ComboBox>
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectName" Width="300"/>
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtCustomerName" Width="300"/>
-                                    <ComboBox Name="cboApprStatus" Text="{Binding Result}" Height="30" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" SelectedValue ="{Binding Result}">
+                                    <ComboBox Name="cboApprStatus" Text="{Binding Result}" Height="20" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Left" SelectedValue ="{Binding Result}">
                                     </ComboBox>
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" FontSize="18" Click="btnSearch_Click">
-                                    <Label>_SEARCH</Label>
+                                <Button x:Name="btnSearch" FontSize="12" Style="{StaticResource buttonStyle}" Click="btnSearch_Click">
+                                    <Label>_Search</Label>
                                 </Button>
                             </Grid>
                         </Grid>
@@ -117,8 +117,8 @@
                                 <UserController:UCPaging x:Name="oPaging"/>
                             </Grid>
                             <Grid Grid.Column="1" HorizontalAlignment="Right">
-                                <Button x:Name="btnApproval" FontSize="18" Click="btnApproval_Click">
-                                    <Label>_APPROVAL</Label>
+                                <Button x:Name="btnApproval" FontSize="12" Style="{StaticResource buttonStyle}" Click="btnApproval_Click">
+                                    <Label>_Approval</Label>
                                 </Button>
                             </Grid>
                         </Grid>

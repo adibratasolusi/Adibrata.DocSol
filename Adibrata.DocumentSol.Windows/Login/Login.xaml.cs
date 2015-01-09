@@ -1,13 +1,12 @@
 ﻿using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.BusinessProcess.UserManagement.Entities;
+using Adibrata.Configuration;
 using Adibrata.Controller.UserManagement;
+using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using Adibrata.Configuration;
-
-using Adibrata.Framework.Logging;
 
 
 namespace Adibrata.DocumentSol.Windows.Login

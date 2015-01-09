@@ -15,7 +15,7 @@ namespace Adibrata.DocumentSol.Windows
     {
         SessionEntities SessionProperty = new SessionEntities();
         UserManagementEntities _ent = new UserManagementEntities();
-        DataTable _dt = new DataTable();
+        
         Frame _frmwork = new Frame();
         public MenuTree(SessionEntities _session)
         {
@@ -25,6 +25,7 @@ namespace Adibrata.DocumentSol.Windows
                 this.DataContext = new Adibrata.Windows.UserController.MainVM(new Shell());
                 SessionProperty = _session;
                 BindMenuRoot();
+                BindFavoriteMenu();
             }
             catch (Exception _exp)
             {
@@ -52,6 +53,7 @@ namespace Adibrata.DocumentSol.Windows
                 SessionProperty = _session;
                 BindMenuRoot();
                 _frmwork = _frmworksheet;
+                BindFavoriteMenu();
             }
             catch (Exception _exp)
             {
@@ -59,7 +61,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Home",
+                    ClassName = "MenuTree",
                     FunctionName = "Home",
                     ExceptionNumber = 1,
                     EventSource = "Home",
@@ -84,7 +86,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Home",
+                    ClassName = "MenuTree",
                     FunctionName = "BindMenuRoot",
                     ExceptionNumber = 1,
                     EventSource = "Home",
@@ -99,6 +101,7 @@ namespace Adibrata.DocumentSol.Windows
         private void TreeViewItem_Expanded(object sender, RoutedEventArgs e)
         {
             TreeViewItem item = e.Source as TreeViewItem;
+            DataTable _dt = new DataTable();
             UserManagementEntities _menutag = new UserManagementEntities();
             try
             {
@@ -132,7 +135,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Home",
+                    ClassName = "MenuTree",
                     FunctionName = "TreeViewItem_Expanded",
                     ExceptionNumber = 1,
                     EventSource = "Main",
@@ -182,7 +185,7 @@ namespace Adibrata.DocumentSol.Windows
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows",
-                    ClassName = "Home",
+                    ClassName = "MenuTree",
                     FunctionName = "TreeViewItem_Expanded",
                     ExceptionNumber = 1,
                     EventSource = "Main",
@@ -192,6 +195,75 @@ namespace Adibrata.DocumentSol.Windows
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+        }
+
+        private void BindFavoriteMenu()
+        {
+               UserManagementEntities _ent = new UserManagementEntities();
+               DataTable _dt = new DataTable();
+               try
+               {
+                   _ent.ClassName = "FavoriteMenu";
+                   _ent.MethodName = "FavoriteMenuList";
+                   _ent.UserLogin = SessionProperty.UserName;
+                   _dt = UserManagementController.UserManagement<DataTable>(_ent);
+                   lstFavorite.ItemsSource = _dt.DefaultView;
+               }
+
+               catch (Exception _exp)
+               {
+                   ErrorLogEntities _errent = new ErrorLogEntities
+                   {
+                       UserLogin = SessionProperty.UserName,
+                       NameSpace = "Adibrata.DocumentSol.Windows",
+                       ClassName = "MenuTree",
+                       FunctionName = "BindFavoriteMenu",
+                       ExceptionNumber = 1,
+                       EventSource = "Main",
+                       ExceptionObject = _exp,
+                       EventID = 200, // 1 Untuk Framework 
+                       ExceptionDescription = _exp.Message
+                   };
+                   ErrorLog.WriteEventLog(_errent);
+               }
+
+        }
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string _url;
+            try
+            {
+                _ent.ClassName = "MainMenu";
+                _ent.MethodName = "MenuTreeGetURL";
+                _ent.MenuName = ((DataRowView)lstFavorite.SelectedItem)["FormName"].ToString();
+                //_ent.MenuName = lstFavorite.SelectedValue.ToString();
+                _url = UserManagementController.UserManagement<String>(_ent);
+                if (_url != "")
+                {
+                    RedirectPage redirect = new RedirectPage(_frmwork, _url, SessionProperty);
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "MenuTree",
+                    FunctionName = "TreeViewItem_Expanded",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            BindFavoriteMenu();
         }
 
     }

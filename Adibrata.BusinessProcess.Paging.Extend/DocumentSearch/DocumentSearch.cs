@@ -17,7 +17,7 @@ namespace Adibrata.BusinessProcess.Paging.Extend
             DataTable _dt = new DataTable();
             try
             {
-                SqlParameter[] sqlParams = new SqlParameter[4];
+                SqlParameter[] sqlParams = new SqlParameter[5];
                 sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar, 10);
                 sqlParams[0].Value = _ent.StartRecord;
                 sqlParams[1] = new SqlParameter("@EndRecord", SqlDbType.VarChar, 10);
@@ -26,6 +26,9 @@ namespace Adibrata.BusinessProcess.Paging.Extend
                 sqlParams[2].Value = _ent.WhereCond;
                 sqlParams[3] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
                 sqlParams[3].Value = _ent.SortBy;
+                sqlParams[4] = new SqlParameter("@WhereCond2", SqlDbType.VarChar, 8000);
+                sqlParams[4].Value = _ent.WhereCond2;
+
                 _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocTransSearchPaging", sqlParams));
             }
             catch (Exception _exp)

@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="24" FontWeight="Bold">ARCHIEVE APPROVAL DETAIL</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">ARCHIEVE APPROVAL DETAIL</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
 
@@ -30,9 +30,12 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnHold" Grid.Column="0" Content="Back" ToolTip="Hold"  HorizontalAlignment="Right" Click="btnHold_Click" ></Button>
-                <Button Name="btnReject" Grid.Column="1" Content="Reject" ToolTip="Reject to Archieve"  HorizontalAlignment="Right" Click="btnReject_Click" ></Button>
-                <Button Name="btnApproval" Grid.Column="2"  Content="Approval" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnApproval_Click" ></Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="btnHold"  Content="Back" ToolTip="Hold"  HorizontalAlignment="Right" Click="btnHold_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
+                    <Button Name="btnReject"  Content="Reject" ToolTip="Reject to Archieve"  HorizontalAlignment="Right" Click="btnReject_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
+                    <Button Name="btnApproval" Content="Approval" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnApproval_Click" FontSize="12" Style="{StaticResource buttonStyle}" ></Button>
+                </StackPanel>
+                
             </Grid>
         </Grid>
     </ScrollViewer>

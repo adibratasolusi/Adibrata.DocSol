@@ -42,16 +42,17 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 _ent.MethodName = "DocTypeRetrieve";
                 _ent.LineOfBusiness = _ent.ProjectType;
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                List<string> data = new List<string>();
-                if (_dt.Rows.Count > 0)
-                {
-                    foreach (DataRow _row in _dt.Rows)
-                    {
-                        data.Add(_row["Result"].ToString());
-                    }
-                }
 
-                cboDocumentType.ItemsSource = data;
+                //List<string> data = new List<string>();
+                //if (_dt.Rows.Count > 0)
+                //{
+                //    foreach (DataRow _row in _dt.Rows)
+                //    {
+                //        data.Add(_row["Result"].ToString());
+                //    }
+                //}
+
+                cboDocumentType.ItemsSource = _dt.DefaultView;
                 oApproval.Visibility = System.Windows.Visibility.Hidden;
             }
             catch (Exception _exp)
@@ -77,12 +78,14 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
             
             try
             {
-                oDocContent.DocumentType = cboDocumentType.SelectedValue.ToString();
-                TextBlock txtInput = (TextBlock)this.cboDocumentType.FindName("txtValue");
+                oDocContent.DocumentType = ((DataRowView)cboDocumentType.SelectedItem)["Result"].ToString();  //cboDocumentType.SelectedValue.ToString();
                
                 oDocContent.GenerateControls();
                 cboDocumentType.IsEnabled = false;
+                
+
                 ucUpload.DocumentType = oDocContent.DocumentType;
+
                 ucUpload.UserLogin = SessionProperty.UserName;
                 ucUpload.TransCode = SessionProperty.ReffKey;
                 ucUpload.BindingValueMax();

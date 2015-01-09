@@ -88,7 +88,12 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             try
             {
                 dtgUpload.Items.Clear();
-                DocSolEntities _ent = new DocSolEntities { ClassName = "DocContent", MethodName = "DocContentFiles", UserLogin = this.UserLogin, DocumentType = this.DocumentType };
+                DocSolEntities _ent = new DocSolEntities {
+                    ClassName = "DocContent",
+                    MethodName = "DocContentFiles",
+                    UserLogin = this.UserLogin,
+                    DocumentType = this.DocumentType 
+                };
 #if DEBUG
                 jumlahUploadMax = 5;
 #else

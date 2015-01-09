@@ -45,16 +45,16 @@ namespace Adibrata.Windows.UserController
                 _ent.DocumentType = _doctype;
 
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                List<string> data = new List<string>();
-                if (_dt.Rows.Count > 0)
-                {
-                    foreach (DataRow _row in _dt.Rows)
-                    {
-                        data.Add(_row["Result"].ToString());
-                    }
-                }
+                //List<string> data = new List<string>();
+                //if (_dt.Rows.Count > 0)
+                //{
+                //    foreach (DataRow _row in _dt.Rows)
+                //    {
+                //        data.Add(_row["Result"].ToString());
+                //    }
+                //}
 
-                cboRequestTo.ItemsSource = data;
+                cboRequestTo.ItemsSource = _dt.DefaultView;
             }
             catch (Exception _exp)
             {

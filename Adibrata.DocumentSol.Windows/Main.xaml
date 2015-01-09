@@ -106,7 +106,7 @@
                             </LinearGradientBrush>
                         </Border.Background>
                     </Border>
-
+                   
                     <!-- FAMILY TREE -->
                     <Frame Name="frmMenu" Width="Auto" HorizontalAlignment="Stretch" ScrollViewer.CanContentScroll="True" VerticalAlignment="Stretch" ></Frame>
 

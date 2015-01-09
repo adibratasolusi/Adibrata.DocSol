@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500" 
+      d:DesignHeight="1000" 
 	Title="Home">
 
         <Grid Style="{StaticResource GridStyle}" >
@@ -24,7 +24,7 @@
         <Grid Grid.Row="0" Grid.Column="2">
             
             <StackPanel>
-                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="600" Width="200"  FontSize="12" SelectedItemChanged="trvStructure_SelectedItemChanged">
+                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="400" Width="200"  FontSize="12" SelectedItemChanged="trvStructure_SelectedItemChanged">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                             <StackPanel Orientation="Horizontal">
@@ -35,6 +35,17 @@
                     </TreeView.ItemTemplate>
 
                 </TreeView>
+                <GroupBox Header="Favorite Menu">
+                    <ListView ItemsSource="{Binding}" DisplayMemberPath="FormName" Tag="{Binding Formurl}" Height="100" 
+                              SelectedItem="{Binding Path=FormUrl}"
+                              Name="lstFavorite" SelectedValuePath="FormUrl" FontSize="12" SelectionChanged="ListView_SelectionChanged">
+                        
+                    </ListView>
+                  
+                </GroupBox>
+                <Button x:Name="btnRefresh" Click="btnRefresh_Click" FontSize="8" Style="{StaticResource buttonStyle}" >
+                    <Label>_Refresh</Label>
+                </Button>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">

@@ -37,12 +37,13 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             }
             catch (Exception _exp)
             {
+                _trans.Rollback();
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
-                    ClassName = "UploadDetailInquiry",
-                    FunctionName = "btnEdit_Click",
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
+                    ClassName = "FavoriteMenu",
+                    FunctionName = "FavoriteMenuAdd",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -61,14 +62,12 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             Boolean _enabled = false;
             try
             {
-                if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
-                _trans = _conn.BeginTransaction();
                 sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@FormUrl", SqlDbType.VarChar, 255);
                 sqlParams[0].Value = _ent.FormURL;
                 sqlParams[1] = new SqlParameter("@UserLogin", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.UserLogin;
-                int _value = (int)SqlHelper.ExecuteScalar(_trans, CommandType.StoredProcedure, "spFavoriteMenuDisabled", sqlParams);
+                int _value = (int)SqlHelper.ExecuteScalar(ConnectionString, CommandType.StoredProcedure, "spFavoriteMenuDisabled", sqlParams);
                 if (_value == 1)
                 {
                     _enabled = false;
@@ -77,16 +76,16 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
                 {
                     _enabled = true;
                 }
-                _trans.Commit();
+                
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = _ent.UserLogin,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
-                    ClassName = "UploadDetailInquiry",
-                    FunctionName = "btnEdit_Click",
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
+                    ClassName = "FavoriteMenu",
+                    FunctionName = "FavoriteMenuDisable",
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
@@ -98,6 +97,43 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             }
             return _enabled;
         }
+
+        public virtual DataTable FavoriteMenuList(UserManagementEntities _ent)
+        {
+            SqlConnection _conn = new SqlConnection(ConnectionString);
+            SqlParameter[] sqlParams;
+            DataTable _dt = new DataTable();
+            try
+            {
+                
+                sqlParams = new SqlParameter[1];
+          
+                sqlParams[0] = new SqlParameter("@UserLogin", SqlDbType.VarChar, 50);
+                sqlParams[0].Value = _ent.UserLogin;
+
+                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spFavoriteMenuList", sqlParams));
+                
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.UserManagement.Extend",
+                    ClassName = "FavoriteMenu",
+                    FunctionName = "FavoriteMenuList",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+
+            }
+            return _dt;
+        }
+
 
     }
 }

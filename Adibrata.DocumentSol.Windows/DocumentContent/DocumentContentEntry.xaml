@@ -56,7 +56,10 @@
                 </Grid>
                 <Grid Grid.Column="1" HorizontalAlignment="Left">
                     <ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="250" IsEditable="True" IsTextSearchEnabled="True" 
-						Text="{Binding Result}" SelectedValue ="{Binding Result}"/>
+						 SelectedValue ="{Binding Result}" ItemsSource="{Binding}"  SelectedValuePath="Result" DisplayMemberPath="Result" 
+                                SelectedItem="{Binding Path=Result}">
+                      
+                    </ComboBox>
                 </Grid>
 
             </Grid>

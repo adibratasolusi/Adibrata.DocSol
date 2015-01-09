@@ -31,16 +31,16 @@ namespace Adibrata.DocumentSol.Windows.Project
                 _ent.ClassName = "ProjectRegistrasi";
                 _ent.MethodName = "ProjectTypeReceive";
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                List<string> data = new List<string>();
-                if (_dt.Rows.Count > 0)
-                {
-                    foreach (DataRow _row in _dt.Rows)
-                    {
-                        data.Add(_row["Result"].ToString());
-                    }
-                }
+                //List<string> data = new List<string>();
+                //if (_dt.Rows.Count > 0)
+                //{
+                //    foreach (DataRow _row in _dt.Rows)
+                //    {
+                //        data.Add(_row["Result"].ToString());
+                //    }
+                //}
 
-                cboProjectType.ItemsSource = data;
+                cboProjectType.ItemsSource = _dt.DefaultView;
                 _custcode = _session.ReffKey;
                 if (_session.IsEdit)
                 {
@@ -120,7 +120,9 @@ namespace Adibrata.DocumentSol.Windows.Project
                         DocSolEntities _ent = new DocSolEntities { ProjectName = txtPrjectName.Text};
                         if (SessionProperty.IsEdit == false)
                         {
-                            _ent.ProjectType = cboProjectType.SelectedItem.ToString();
+                            
+                            _ent.ProjectType = ((DataRowView)cboProjectType.SelectedItem)["Result"].ToString();
+                            //_ent.ProjectType = cboProjectType.SelectedItem.ToString();
                         }
                         _ent.MethodName = "ProjectRegistrasiAdd";
                         _ent.ClassName = "ProjectRegistrasi";

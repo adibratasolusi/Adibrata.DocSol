@@ -20,7 +20,7 @@
         <Grid Grid.Column="1" HorizontalAlignment="Left">
             <StackPanel Name="PanelInput" ToolTip="Entry Notes For Approval">
                 <ComboBox Name="cboRequestTo" SelectionChanged="cboRequestTo_SelectionChanged" Width="350"
-                       Text="{Binding Result}"   SelectedValue ="{Binding Result}"/>
+                       Text="{Binding Result}"   SelectedValue ="{Binding Result}" ItemsSource="{Binding}" DisplayMemberPath="Result"/>
                 <TextBox Name="txtNotes" MaxLength="8000" Height="100"></TextBox>
                 
             </StackPanel>

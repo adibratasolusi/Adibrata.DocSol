@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" Style="{StaticResource PageStyle}"
             d:DesignHeight="1000" 
-	Title="UploadDetailInquiry">
+	Title="UploadDetailInquiry" >
+  
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
@@ -53,11 +54,13 @@
                         </DataGrid>
                     </GroupBox>
                 </Grid>
+                
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
                     <GroupBox Header="Document Detail">
 
-                        <ListView Height="300" Name="dgPaging"  FontSize="12" SelectionChanged="dgPaging_SelectionChanged" Width="Auto" >
-
+                        <ListView Height="300" Name="dgPaging"  FontSize="12"  SelectionChanged="dgPaging_SelectionChanged" Width="Auto"
+                                 SelectedItem="dlg" >
+                            
                             <ListView.ItemTemplate >
                                 <DataTemplate>
                                     <Grid>
@@ -67,13 +70,19 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0">
-                                            <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
+
+                                            <Image Name="imgPreview" Source="{Binding FileBin }" Width="150" Height="150" ></Image>
                                         </StackPanel>
                                         <Grid Grid.Column="1">
                                             <StackPanel>
                                                 <TextBlock Text="File Name"></TextBlock>
                                                 <TextBlock Text="Date Created"></TextBlock>
+                                                <TextBlock Text="Pixel"></TextBlock>
+                                                <TextBlock Text="ComputerName"></TextBlock>
+                                                <TextBlock Text="DPI"></TextBlock>
+
                                                 <TextBlock Text="File Size"></TextBlock>
+                                                
                                             </StackPanel>
                                         </Grid>
                                         <Grid Grid.Column="2">
@@ -82,19 +91,46 @@
 
                                                 <TextBlock VerticalAlignment="Top" Style="{StaticResource TextBlockStyle}" Text="{Binding FileName}"></TextBlock>
                                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DateCreated}"></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Pixel}"></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ComputerName}"></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DPI}"></TextBlock>
 
                                                 <TextBlock  HorizontalAlignment="Right">
                                                     <Run Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}"/>
                                               <Run Text=" Bytes"/>
+                                              
                                                 </TextBlock>
+                                                
                                             </StackPanel>
+                                           
                                         </Grid>
                                     </Grid>
                                 </DataTemplate>
+                                
                             </ListView.ItemTemplate>
                         </ListView>
+                        
                     </GroupBox>
-                    <!--<Popup Name="popImg" Placement="RelativePoint" Width="500" Height="400" AllowsTransparency="True" PopupAnimation="Slide" >
+
+                </Grid>
+
+                <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
+                    <Button Name="btnBack"  Grid.Column="0" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click"  VerticalAlignment="Top">
+                        <Label>_Back</Label>
+                    </Button>
+                </Grid>
+               
+            </Grid>
+
+        </Grid>
+
+
+
+    </ScrollViewer>
+
+</Page>
+
+<!--<Popup Name="popImg" Placement="RelativePoint" Width="500" Height="400" AllowsTransparency="True" PopupAnimation="Slide" >
                         <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
                             <StackPanel>
                                 <WebBrowser Name="brow" VerticalAlignment="Top" HorizontalAlignment="Left" Width="450" Height="300">
@@ -113,35 +149,8 @@
                             <WebBrowser Name="brow" VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="500" Height="600"></WebBrowser>
                     </ScrollViewer>
                     </Grid>-->
-                </Grid>
-                <!--<StackPanel>
-                    <ListView Name="dgPaging" Margin="45,102,24,-76" Grid.ColumnSpan="2" Grid.Row="3" SelectionChanged="dgPaging_SelectionChanged"  >
-                        <ListView.SelectedItems>
-                            <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
-                            <ListViewItem Content="FileName"  />
-                            <ListViewItem Content="{Binding FileName}" FontWeight="Bold"  />
-                            <ListViewItem Content="Fiame"/>
-                            <ListViewItem Content="{Binding DateCreated}" FontWeight="Bold" />
-                            <ListViewItem Content="FilName"/>
-                            <ListViewItem Content="{Binding SizeFileBytes}" FontWeight="Bold" />
-                        </ListView.SelectedItems>
-
-                    </ListView>
-
-
-                </StackPanel>-->
-                <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
-                    <Button Name="btnBack"  Grid.Column="0" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click"  VerticalAlignment="Top">
-                        <Label>_Back</Label>
-                    </Button>
-                </Grid>
-
-            </Grid>
-
-        </Grid>
-
-
-
-    </ScrollViewer>
-
-</Page>
+            
+   
+              
+                
+            

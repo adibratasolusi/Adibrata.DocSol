@@ -1,14 +1,23 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Configuration;
 using Adibrata.Controller;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
+using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+using System.Drawing;
+
+
+
+
+
 
 namespace Adibrata.DocumentSol.Windows.UploadInquiry
 {
@@ -18,7 +27,30 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
     public partial class UploadDetailInquiry : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
-        
+
+        #region Global Variable
+
+        object jobTransferredSync = new object();
+        Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+        // ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
+        Dictionary<int, string> dicFile = new Dictionary<int, string>();
+        Dictionary<int, string> dicExt = new Dictionary<int, string>();
+        string server = AppConfig.Config("BITSServer");
+        Byte[] _imgbin;
+        String _filename = "";
+
+        int jumlahUploadMax; //jumlah maksimal upload, masih hardcode
+        #endregion
+        public class DataItem
+        {
+            public string PathFile { get; set; }
+            public string img { get; set; }
+            public bool save { get; set; }
+        }
+        public bool RestoreDirectory { get; set; }
+
+
+
         public UploadDetailInquiry(SessionEntities _session)
         {
             try
@@ -35,10 +67,10 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
                 SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(_ent));
 
-                txtDocTransId.Text =  _ent.DocTransCode;
-                    
-                bindContent();
-                bindBinary();
+                txtDocTransId.Text = _ent.DocTransCode;
+
+                BindContent();
+                BindBinary();
                 WebBrowser browser = new WebBrowser();
                 browser.NavigateToString("www.detik.com");
             }
@@ -57,11 +89,12 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
-               
+
             }
 
         }
-        private void bindContent()
+
+        private void BindContent()
         {
             try
             {
@@ -95,8 +128,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         }
 
-
-        void bindBinary()
+        private void BindBinary()
         {
             try
             {
@@ -155,29 +187,58 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
         }
 
-        private void Hide_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-          
-        }
+        //private void Hide_Click(object sender, System.Windows.RoutedEventArgs e)
+        //{
+
+        //}
 
         private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          
-            Byte[] _imgbin;
-            string _filename;
-            WebBrowser _brow = new WebBrowser();
-            _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBin"];
-            
-            _filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
 
-            System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+          
+
+            _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBin"];
+
+            //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+
+            dlg.Title = "Select a picture";
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+            "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+            "Portable Network Graphic (*.png)|*.png|" +
+            "Portable Document Format (*.pdf)|*.pdf|" +
+            "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
+            "All files (*.*)|*.*";
+            dlg.AddExtension = true;
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                foreach (String file in dlg.FileNames)
+                {
+
+                    //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+                
+                    _filename = @file;
+                   
+
+                }
+            }
+
+
+
+
+            System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
+
+
+            System.IO.Path.GetDirectoryName(_filename);
+
             _FileStream.Write(_imgbin, 0, _imgbin.Length);
             _FileStream.Close();
-            //brow.Navigate(_filename);
-            //WebBrowser brow = new WebBrowser();
-            //brow.Navigate("http://www.detik.com");
-            
+        
         }
+
+
+
 
     }
 }

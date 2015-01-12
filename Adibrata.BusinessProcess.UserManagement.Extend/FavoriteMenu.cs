@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Adibrata.Framework.Logging;
 using Adibrata.Framework.DataAccess;
+using Adibrata.Framework.Caching;
 
 namespace Adibrata.BusinessProcess.UserManagement.Extend
 {
@@ -24,6 +25,8 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             SqlParameter[] sqlParams;
             try
             {
+
+
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
                 sqlParams = new SqlParameter[2];
@@ -60,23 +63,36 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
             Boolean _enabled = false;
+            
+            StringBuilder _cachename = new StringBuilder(8000);
             try
             {
-                sqlParams = new SqlParameter[2];
-                sqlParams[0] = new SqlParameter("@FormUrl", SqlDbType.VarChar, 255);
-                sqlParams[0].Value = _ent.FormURL;
-                sqlParams[1] = new SqlParameter("@UserLogin", SqlDbType.VarChar, 50);
-                sqlParams[1].Value = _ent.UserLogin;
-                int _value = (int)SqlHelper.ExecuteScalar(ConnectionString, CommandType.StoredProcedure, "spFavoriteMenuDisabled", sqlParams);
-                if (_value == 1)
+                _cachename.Append("DisableFavorite");
+                _cachename.Append(_ent.UserLogin);
+                _cachename.Append (_ent.FormURL);
+
+                if (!DataCache.Contains(_cachename.ToString()))
                 {
-                    _enabled = false;
+                    sqlParams = new SqlParameter[2];
+                    sqlParams[0] = new SqlParameter("@FormUrl", SqlDbType.VarChar, 255);
+                    sqlParams[0].Value = _ent.FormURL;
+                    sqlParams[1] = new SqlParameter("@UserLogin", SqlDbType.VarChar, 50);
+                    sqlParams[1].Value = _ent.UserLogin;
+                    int _value = (int)SqlHelper.ExecuteScalar(ConnectionString, CommandType.StoredProcedure, "spFavoriteMenuDisabled", sqlParams);
+                    if (_value == 1)
+                    {
+                        _enabled = false;
+                    }
+                    else
+                    {
+                        _enabled = true;
+                    }
+                    DataCache.Insert<Boolean>(_cachename.ToString(), _enabled);
                 }
                 else
                 {
-                    _enabled = true;
+                    _enabled = DataCache.Get<Boolean>(_cachename.ToString());
                 }
-                
             }
             catch (Exception _exp)
             {
@@ -103,15 +119,27 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
             DataTable _dt = new DataTable();
+            StringBuilder _cachename = new StringBuilder(8000);
             try
             {
-                
-                sqlParams = new SqlParameter[1];
-          
-                sqlParams[0] = new SqlParameter("@UserLogin", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.UserLogin;
+                _cachename.Append("FavoriteList");
+                _cachename.Append(_ent.UserLogin);
+                if (!DataCache.Contains(_cachename.ToString()))
+                {
 
-                _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spFavoriteMenuList", sqlParams));
+                    sqlParams = new SqlParameter[1];
+
+                    sqlParams[0] = new SqlParameter("@UserLogin", SqlDbType.VarChar, 50);
+                    sqlParams[0].Value = _ent.UserLogin;
+
+                    _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spFavoriteMenuList", sqlParams));
+                    DataCache.Insert<DataTable>(_cachename.ToString(), _dt);
+                }
+                else
+                {
+                    _dt = DataCache.Get<DataTable>(_cachename.ToString());
+                }
+
                 
             }
             catch (Exception _exp)

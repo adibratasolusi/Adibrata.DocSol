@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" Style="{StaticResource PageStyle}"
             d:DesignHeight="1000" 
-	Title="UploadDetailInquiry">
+	Title="UploadDetailInquiry" >
+  
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
@@ -57,7 +58,8 @@
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
                     <GroupBox Header="Document Detail">
 
-                        <ListView Height="300" Name="dgPaging"  FontSize="12"  SelectionChanged="dgPaging_SelectionChanged" Width="Auto" MouseMove="dgPaging_MouseMove" >
+                        <ListView Height="300" Name="dgPaging"  FontSize="12"  SelectionChanged="dgPaging_SelectionChanged" Width="Auto"
+                                 SelectedItem="dlg" >
                             
                             <ListView.ItemTemplate >
                                 <DataTemplate>
@@ -68,7 +70,8 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0">
-                                            <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150"></Image>
+
+                                            <Image Name="imgPreview" Source="{Binding FileBin }" Width="150" Height="150" ></Image>
                                         </StackPanel>
                                         <Grid Grid.Column="1">
                                             <StackPanel>

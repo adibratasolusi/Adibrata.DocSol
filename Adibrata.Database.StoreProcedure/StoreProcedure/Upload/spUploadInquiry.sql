@@ -13,7 +13,7 @@ Set NoCount On
 Declare @RecordNumber Numeric, 
 		@SqlStatement Varchar(max)
 Set NoCount On 
-Select * From doctransbinary 
+
 Declare @TotalRecord int
 If @SortBy = '' 
 	Set @SortBy = ' DocTrans.TransID Asc '

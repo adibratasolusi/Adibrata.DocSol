@@ -25,8 +25,9 @@ namespace Adibrata.DocumentSol.Windows.Form
 
                 if (SessionProperty.IsEdit)
                 {
-                    UserManagementEntities _ent = new UserManagementEntities { MethodName = "FormRegisterAddEdit", ClassName = "UserRegister", UserLogin = SessionProperty.UserName };
-                    _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
+                    UserManagementEntities _ent = new UserManagementEntities { MethodName = "FormRegisterView", ClassName = "FormRegistrasi", UserLogin = SessionProperty.UserName };
+                    //_ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
+                    _ent.FormName = SessionProperty.ReffKey;
                     _ent = UserManagementController.UserManagement<UserManagementEntities>(_ent);
                     txtFormCode.Text = _ent.FormCode;
                     txtFormName.Text= _ent.FormName;
@@ -79,7 +80,6 @@ namespace Adibrata.DocumentSol.Windows.Form
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 UserManagementEntities _ent = new UserManagementEntities { MethodName = "FormRegisterAddEdit", ClassName = "FormRegistrasi", UserLogin = SessionProperty.UserName };
@@ -89,9 +89,7 @@ namespace Adibrata.DocumentSol.Windows.Form
                 _ent.UserLogin = SessionProperty.UserName;
                 _ent.IsEdit = SessionProperty.IsEdit;
                 _ent.UserID = Convert.ToInt64(SessionProperty.ReffKey);
-
                 UserManagementController.UserManagement<string>(_ent);
-                
                 RedirectPage redirect = new RedirectPage(this, "Form.FormRegistrasiPaging", SessionProperty);
             }
             catch (Exception _exp)

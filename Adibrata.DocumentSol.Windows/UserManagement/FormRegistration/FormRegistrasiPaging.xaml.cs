@@ -58,7 +58,7 @@ namespace Adibrata.DocumentSol.Windows.Form
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
-                RedirectPage redirect = new RedirectPage(this, "Form.FormRegistrasiPaging", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "Form.FormRegistrasiSave", SessionProperty);
             }
             catch (Exception _exp)
             {
@@ -82,7 +82,7 @@ namespace Adibrata.DocumentSol.Windows.Form
         {
             try
             {
-
+                SessionProperty.IsEdit = false;
                 RedirectPage redirect = new RedirectPage(this, "Form.FormRegistrasiSave", SessionProperty);
             }
             catch (Exception _exp)

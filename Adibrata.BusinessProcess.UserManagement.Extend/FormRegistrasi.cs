@@ -136,10 +136,10 @@ namespace Adibrata.BusinessProcess.UserManagement.Extend
             SqlDataReader _rdr;
             try
             {
-                sqlParams[0] = new SqlParameter("@FormCode", SqlDbType.VarChar,50);
-                sqlParams[0].Value = _ent.FormCode;
+                sqlParams[0] = new SqlParameter("@FormName", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.FormName;
 
-                _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spMsUserView", sqlParams);
+                _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spMsFormView", sqlParams);
                 while (_rdr.Read())
                 {
                     _ent.FormCode= (string)_rdr["FormCode"];

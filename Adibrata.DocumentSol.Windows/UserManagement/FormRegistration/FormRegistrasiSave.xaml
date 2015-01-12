@@ -12,7 +12,7 @@
         <Grid Style="{StaticResource GridStyle}" >
             <Grid>
                 <Grid>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="lblMessage" FontStyle="Normal" Foreground="Red" ></TextBlock>
+                    
                 </Grid>
             </Grid>
 
@@ -26,15 +26,17 @@
                     <RowDefinition Height="Auto"  />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-
-                <Grid Grid.Column="0" Grid.Row="0" Margin="5">
+                <Grid Grid.ColumnSpan="2" Grid.Row="0">
+                    <TextBlock FontSize="20" FontWeight="Bold">FORM REGISTRATION</TextBlock>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1">
                     <StackPanel>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Form Code" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Form Code"  Width="150" VerticalAlignment="Center"/>
                         <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch"  Text="Form Name" VerticalAlignment="Center"/>
                         <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" Text="Form Class" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Grid>
-                <Grid Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2">
+                <Grid Grid.Column="1" Grid.Row="1" Margin="5" Grid.ColumnSpan="2">
                     <StackPanel HorizontalAlignment="Stretch">
                         <TextBox Name="txtFormCode" Style="{StaticResource textStyle}" MaxLength="50"  Width="200"></TextBox>
                         <TextBox Name="txtFormName" Style="{StaticResource textStyle}" MaxLength="50"  Width="200"></TextBox>
@@ -48,12 +50,12 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
 
-                        <Button Name="btnSave" Click="btnSave_Click">
+                        <Button Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                             <Label>_SAVE</Label>
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click">
+                        <Button Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                             <Label>_BACK</Label>
                         </Button>
                     </Grid>

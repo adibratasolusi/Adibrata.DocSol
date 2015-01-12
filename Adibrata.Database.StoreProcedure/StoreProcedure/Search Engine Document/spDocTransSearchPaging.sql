@@ -59,6 +59,6 @@ From
 				@WhereCondSearch2 + '
 				) qry1 ) qry2
 				where number between ' + @StartRecord  + ' and  ' + @EndRecord  
-				print @SqlStatement
+				
 			exec (@SqlStatement)
 RETURN 0

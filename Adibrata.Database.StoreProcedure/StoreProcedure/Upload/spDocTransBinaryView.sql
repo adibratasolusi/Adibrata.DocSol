@@ -16,8 +16,9 @@ BEGIN
 	exec spDocTransActivityInsert @username = @UserName, @DocTransId = @DocTransId,@description = 'Binary View'
 	select 
 	FileName,DateCreated,SizeFileBytes,Pixel,ComputerName,DPI,
-	CAST(CASE WHEN DPI <> '-' THEN FileBinary ELSE null END as varbinary(MAX)) AS FileBin
-	 from DocTransBinary where DocTransID = @DocTransID
+	CAST(CASE WHEN DPI <> '-' THEN FileBinary ELSE null END as varbinary(MAX)) AS FileBin, 
+	dbo.FnDocTransActivity (DocTransID) as Activity
+	 from DocTransBinary with (nolock) where DocTransID = @DocTransID
 
 END
 GO

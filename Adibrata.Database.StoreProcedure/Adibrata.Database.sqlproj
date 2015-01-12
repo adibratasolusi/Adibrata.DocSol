@@ -231,5 +231,6 @@
     <Build Include="StoreProcedure\Upload\spUploadInquiryTotRec.sql" />
     <Build Include="StoreProcedure\DocTransActivity\spDocTransActivityPagingTotRec.sql" />
     <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuList.sql" />
+    <Build Include="Function\FnDocTransActivity.sql" />
   </ItemGroup>
 </Project>

@@ -106,7 +106,70 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 _ent.UserName = SessionProperty.UserName;
                 //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-                dtgContent.ItemsSource = _dt.DefaultView;
+
+                if (_dt.Rows.Count > 0)
+                {
+
+                    foreach (DataRow _row in _dt.Rows)
+                    {
+                        TextBlock DocContentDescription = new TextBlock();
+                        DocContentDescription.Name = "lbl" + _row["ContentName"].ToString().Replace(" ", "");
+                        DocContentDescription.Text = _row["ContentName"].ToString();
+                        DocContentDescription.HorizontalAlignment = HorizontalAlignment.Stretch;
+                        
+                        DocContentDescription.Width = 200;
+
+                        DocContentDescription.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
+                        spContent.Children.Remove(DocContentDescription);
+                        spContent.Children.Add(DocContentDescription);
+
+                        spContent.RegisterName(DocContentDescription.Name, DocContentDescription);
+                        string _datatype = _row["DataType"].ToString().ToUpper();
+
+                        switch (_row["DataType"].ToString().ToUpper())
+                        {
+
+                            case "DATE":
+                                {
+                                    TextBlock txtInput = new TextBlock();
+                                    txtInput.Name = "txt" + _row["ContentName"].ToString().Replace(" ", "");
+                                    txtInput.Text = _row["value"].ToString().Trim();
+                                    txtInput.Width = 400;
+                                    txtInput.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
+                                    spValue.Children.Add(txtInput);
+                                    spValue.RegisterName(txtInput.Name, txtInput);
+                                }
+                                break;
+                            case "NUMBER":
+                                {
+                                    TextBlock txtInput = new TextBlock();
+                                    txtInput.Name = "txt" + _row["ContentName"].ToString().Replace(" ", "");
+                                    txtInput.Text = _row["value"].ToString().Trim();
+                                    txtInput.Text = "0";
+                                    txtInput.Width = 400;
+                                    txtInput.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
+                                    spValue.Children.Add(txtInput);
+                                    spValue.RegisterName(txtInput.Name, txtInput);
+                                }
+                                break;
+                            default:
+                                {
+                                    TextBlock txtInput = new TextBlock();
+                                    txtInput.Name = "txt" + _row["ContentName"].ToString().Replace(" ", "");
+                                    txtInput.Text = _row["value"].ToString().Trim();
+                                    txtInput.Text = "-";
+                                    txtInput.Width = 400;
+                                    txtInput.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
+                                    //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
+                                    spValue.Children.Add(txtInput);
+
+                                    spValue.RegisterName(txtInput.Name, txtInput);
+                                }
+                                break;
+                        }
+                    }
+                }
+                //dtgContent.ItemsSource = _dt.DefaultView;
             }
             catch (Exception _exp)
             {
@@ -143,7 +206,6 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
             catch (Exception _exp)
             {
-
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
@@ -219,26 +281,16 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                     //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
                 
                     _filename = @file;
-                   
+                    System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
+
+
+                    System.IO.Path.GetDirectoryName(_filename);
+
+                    _FileStream.Write(_imgbin, 0, _imgbin.Length);
+                    _FileStream.Close();
 
                 }
             }
-
-
-
-
-            System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
-
-
-            System.IO.Path.GetDirectoryName(_filename);
-
-            _FileStream.Write(_imgbin, 0, _imgbin.Length);
-            _FileStream.Close();
-        
         }
-
-
-
-
     }
 }

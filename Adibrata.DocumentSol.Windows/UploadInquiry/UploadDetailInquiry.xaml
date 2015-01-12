@@ -45,14 +45,39 @@
 
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                    <GroupBox Header="Document Content">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto"  />
+
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="0">
+                            <StackPanel Name="spContent">
+
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+
+                            <StackPanel Name="spValue">
+
+                            </StackPanel>
+
+                        </Grid>
+                    </Grid>
+                    <!--<GroupBox Header="Document Content">
                         <DataGrid Name="dtgContent" IsTextSearchEnabled="True" SelectionMode="Single" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding ContentName}" Header="Content Name" x:Name="ContentName" Width="150" />
                                 <DataGridTextColumn Binding="{Binding value}" Header="Value" x:Name="Value" Width="200" FontSize="14"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                    </GroupBox>
+                    </GroupBox>-->
                 </Grid>
                 
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
@@ -60,50 +85,100 @@
 
                         <ListView Height="300" Name="dgPaging"  FontSize="12"  SelectionChanged="dgPaging_SelectionChanged" Width="Auto"
                                  SelectedItem="dlg" >
-                            
                             <ListView.ItemTemplate >
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="110" />
-                                            <ColumnDefinition Width="110" />
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
-                                        <StackPanel Grid.Column="0">
-
-                                            <Image Name="imgPreview" Source="{Binding FileBin }" Width="150" Height="150" ></Image>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto"  />
+                                            <RowDefinition Height="Auto"  />
+                                           
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Grid.Column="0"></Grid>
+                                        <StackPanel>
+                                            <Image Name="imgPreview" Source="{Binding FileBin}" Width="150" Height="150" ></Image>
                                         </StackPanel>
-                                        <Grid Grid.Column="1">
-                                            <StackPanel>
-                                                <TextBlock Text="File Name"></TextBlock>
-                                                <TextBlock Text="Date Created"></TextBlock>
-                                                <TextBlock Text="Pixel"></TextBlock>
-                                                <TextBlock Text="ComputerName"></TextBlock>
-                                                <TextBlock Text="DPI"></TextBlock>
-
-                                                <TextBlock Text="File Size"></TextBlock>
-                                                
+                                        <Grid Grid.Row="0" Grid.Column="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="110" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <StackPanel>
+                                                    <TextBlock Text="File Name" Width="150" ></TextBlock>
+                                                    <TextBlock Text="Date Created" VerticalAlignment="Top" Height="25"></TextBlock>
+                                                    <TextBlock Text="Pixel" VerticalAlignment="Top" Height="25"></TextBlock>
+                                                    <TextBlock Text="ComputerName" VerticalAlignment="Top" Height="25"></TextBlock>
+                                                    <TextBlock Text="DPI" VerticalAlignment="Top" Height="25"></TextBlock>
+                                                    <TextBlock Text="File Size" VerticalAlignment="Top" Height="20"></TextBlock>
+                                                </StackPanel>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <StackPanel>
+                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FileName}"></TextBlock>
+                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DateCreated}"  Height="15" VerticalAlignment="Top"></TextBlock>
+                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Pixel}"  VerticalAlignment="Bottom" Height="20"></TextBlock>
+                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ComputerName}"  VerticalAlignment="Bottom" Height="20"></TextBlock>
+                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DPI}"  VerticalAlignment="Bottom" Height="20"></TextBlock>
+                                                    <TextBlock  HorizontalAlignment="Right">
+                                                          <Run Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}"/>
+                                                          <Run Text=" Bytes"/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+                                            <TextBlock Name="txtActivity" Text="{Binding Activity}" Width="Auto" HorizontalAlignment="Stretch"></TextBlock>
+                                        </Grid>
+                                        <!--<Grid Grid.Column="0" Grid.Row="1">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="File Name" ></TextBlock>
+                                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FileName}"></TextBlock>
                                             </StackPanel>
                                         </Grid>
-                                        <Grid Grid.Column="2">
-                                            <StackPanel>
-
-
-                                                <TextBlock VerticalAlignment="Top" Style="{StaticResource TextBlockStyle}" Text="{Binding FileName}"></TextBlock>
+                                        <Grid Grid.Column="0" Grid.Row="2">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Date Created"></TextBlock>
                                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DateCreated}"></TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Column="0" Grid.Row="3">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Pixel"></TextBlock>
                                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Pixel}"></TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Column="0" Grid.Row="4">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="ComputerName"></TextBlock>
                                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ComputerName}"></TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Column="0" Grid.Row="5">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="DPI"></TextBlock>
                                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DPI}"></TextBlock>
-
+                                            </StackPanel>
+                                        </Grid>
+                                        <Grid Grid.Column="0" Grid.Row="6">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="File Size"></TextBlock>
                                                 <TextBlock  HorizontalAlignment="Right">
                                                     <Run Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}"/>
                                               <Run Text=" Bytes"/>
-                                              
                                                 </TextBlock>
-                                                
                                             </StackPanel>
-                                           
                                         </Grid>
+                                      
+                                       
+                                        <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3">
+                                                <TextBlock Name="txtActivity" Text="{Binding Activity}" Width="Auto" HorizontalAlignment="Stretch"></TextBlock>
+                                        </Grid>-->
                                     </Grid>
                                 </DataTemplate>
                                 

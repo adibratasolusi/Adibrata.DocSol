@@ -1,5 +1,5 @@
 ﻿
-/****** Object:  StoredProcedure [dbo].[spMenuSearch]    Script Date: 1/12/2015 1:00:54 PM ******/
+/****** Object:  StoredProcedure [dbo].[spMenuSearch]    Script Date: 1/12/2015 3:49:44 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -16,7 +16,7 @@ END
 ELSE
 BEGIN
 	SELECT FormName,FormURL from MS_Form with (nolock) 
-	inner join  FreeTextTable (MS_Form, FormName,  'Upload Document') As B
+	inner join  FreeTextTable (MS_Form, FormName,  @Crit) As B
 	on B.[Key] = Ms_Form.ID
 	order by formName
 		-- FormName like '%'+@Crit+'%' or FormURL like '%'+@Crit+'%'

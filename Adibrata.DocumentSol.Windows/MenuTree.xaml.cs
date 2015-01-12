@@ -281,7 +281,9 @@ namespace Adibrata.DocumentSol.Windows
             {
                 if (txtSearch.Text != "")
                 {
+                    _isSearchMenu = true;
                     lstSearchMenu.ItemsSource = MenuDataRetrieve().DefaultView;
+                    _isSearchMenu = false;
                 }
             }
             catch (Exception _exp)

@@ -3,7 +3,7 @@
 -- Create date: 20141218
 -- Description:	Stored Procedure untuk get Doc Trans Content by doc transs id
 -- =============================================
-CREATE PROCEDURE [dbo].[spDocTransContentView]
+ALTEr PROCEDURE [dbo].[spDocTransContentView]
 	-- Add the parameters for the stored procedure here
 	@DocTransId BigInt,
 	@UserName varchar(50)
@@ -30,10 +30,15 @@ BEGIN
 					END 
 			END
 		AS varchar(100)) 
-		as value
+		as value, 
+		(Case When result Like '%Number%'   then 'Number'
+				When result Like '%Date%' then 'Date'
+				else 'String'
+		 end) as DataType
 		from DocTransContent with (nolock) 
+		Left Join RuDocContentItem with (nolocK) on DocTransContent.ContentName = RuDocContentItem.Field2 and DocTransContent.DocTypeCode = RuDocContentItem.Field1
 		WHERE 
 		DocTransID = @DocTransId
-
+		
 END
 GO

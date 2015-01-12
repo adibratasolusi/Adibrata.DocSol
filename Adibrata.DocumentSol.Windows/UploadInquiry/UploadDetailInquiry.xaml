@@ -83,7 +83,7 @@
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
                     <GroupBox Header="Document Detail">
 
-                        <ListView Height="300" Name="dgPaging"  FontSize="12"  SelectionChanged="dgPaging_SelectionChanged" Width="Auto"
+                        <ListView Height="300" Name="dgPaging"  FontSize="12"  SelectionChanged="dgPaging_SelectionChanged" Width="Auto" Loaded="dgPaging_Loaded"
                                  SelectedItem="dlg" >
                             <ListView.ItemTemplate >
                                 <DataTemplate>
@@ -97,7 +97,7 @@
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="Auto"  />
                                             <RowDefinition Height="Auto"  />
-                                           
+                                            <RowDefinition Height="Auto"  />
                                         </Grid.RowDefinitions>
                                         <Grid Grid.Row="0" Grid.Column="0"></Grid>
                                         <StackPanel>
@@ -134,6 +134,25 @@
                                         </Grid>
                                         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
                                             <TextBlock Name="txtActivity" Text="{Binding Activity}" Width="Auto" HorizontalAlignment="Stretch"></TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row ="3" Grid.Column="0" Grid.ColumnSpan="3">
+                                            <StackPanel Orientation="Horizontal" Name="spButton">
+                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnRotate" Click="btnRotate_Click">
+                                                    <Label>_Rotate</Label>
+                                                </Button>
+                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnCheckOut" Click="btnCheckOut_Click">
+                                                    <Label>_CheckOut</Label>
+                                                </Button>
+                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnWaterMark" Click="btnWaterMark_Click">
+                                                    <Label>_WaterMark</Label>
+                                                </Button>
+                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnLock" Click="btnLock_Click">
+                                                    <Label>_Lock</Label>
+                                                </Button>
+                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnGreyScale" Click="btnGreyScale_Click">
+                                                    <Label>_GreyScale</Label>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                         <!--<Grid Grid.Column="0" Grid.Row="1">
                                             <StackPanel Orientation="Horizontal">

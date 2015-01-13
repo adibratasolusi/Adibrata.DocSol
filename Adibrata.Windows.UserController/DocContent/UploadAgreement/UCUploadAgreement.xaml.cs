@@ -27,8 +27,10 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
     {
 
         #region Global Variable
-        Saraff.Twain.Twain32 _twain;
+        Saraff.Twain.Twain32 _twain = new Saraff.Twain.Twain32();
         private bool _isEnable = false;
+
+        List<string> listPathFromTwain = new List<string>();
 
         object jobTransferredSync = new object();
         Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -66,7 +68,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             try
             {
                 InitializeComponent();
-                
+
                 //jumlahUploadMax = 3;
             }
             catch (Exception _exp)
@@ -92,11 +94,12 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             try
             {
                 dtgUpload.Items.Clear();
-                DocSolEntities _ent = new DocSolEntities {
+                DocSolEntities _ent = new DocSolEntities
+                {
                     ClassName = "DocContent",
                     MethodName = "DocContentFiles",
                     UserLogin = this.UserLogin,
-                    DocumentType = this.DocumentType 
+                    DocumentType = this.DocumentType
                 };
 #if DEBUG
                 jumlahUploadMax = 5;
@@ -185,7 +188,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
         private void btnScan_ClickLAMA(object sender, RoutedEventArgs e)
         {
-            
+
 
             if (dtgUpload.Items.Count > jumlahUploadMax)
             {
@@ -201,23 +204,25 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
             try
             {
-                if (Environment.OSVersion.Platform == PlatformID.Unix)
-                {
-                    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
-                    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        this._twain.SetDefaultSource(_dlg.SourceIndex);
-                        this._twain.SourceIndex = _dlg.SourceIndex;
-                    }
-                }
-                else
-                {
-                    this._twain.CloseDataSource();
-                    this._twain.SelectSource();
-                }
+                //if (Environment.OSVersion.Platform == PlatformID.Unix)
+                //{
+                //    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
+                //    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                //    {
+                //        this._twain.SetDefaultSource(_dlg.SourceIndex);
+                //        this._twain.SourceIndex = _dlg.SourceIndex;
+                //    }
+                //}
+                //else
+                //{
+                //    this._twain.CloseDataSource();
+                //    this._twain.SelectSource();
+                //}
+                listPathFromTwain.Clear();
                 _twain.TwainStateChanged += _twain_TwainStateChanged;
                 _twain.AcquireCompleted += _twain_AcquireCompleted;
                 this._twain.OpenDSM();
+                this._twain.Acquire();
             }
             catch (Exception ex)
             {
@@ -238,7 +243,6 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
         private void _twain_AcquireCompleted(object sender, EventArgs e)
         {
-            //List<string> listPathFromTwain = new List<string>();
             try
             {
 
@@ -248,11 +252,15 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     {
                         string path = "C:\\Temp\\Temp" + "_" + i.ToString() + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpg";
                         this._twain.GetImage(i).Save(path, ImageFormat.Jpeg);
-                        dtgUpload.Items.Add(new DataItem { PathFile = path, img = path });
-                        dtgUpload.Items.Refresh();
-                        
-                    }
+                        listPathFromTwain.Add(path);
 
+
+                    }
+                    for (int i = 0; i < listPathFromTwain.Count; i++)
+                    {
+                        dtgUpload.Items.Add(new DataItem { PathFile = listPathFromTwain[i], img = listPathFromTwain[i] });
+                        dtgUpload.Items.Refresh();
+                    }
                 }
             }
             catch (Exception ex)
@@ -358,7 +366,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 dlg.Multiselect = true;
 
                 // Display OpenFileDialog by calling ShowDialog method
-                
+
                 Nullable<bool> result = dlg.ShowDialog();
 
                 // Get the selected file name and display in a DataGrid
@@ -378,7 +386,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                             picture = "";
                         }
                         dtgUpload.Items.Add(new DataItem { PathFile = filename, img = picture });
-                        
+
                     }
                     dtgUpload.Items.Refresh();
                 }

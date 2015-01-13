@@ -66,8 +66,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             try
             {
                 InitializeComponent();
-                _twain.TwainStateChanged += _twain_TwainStateChanged;
-                _twain.AcquireCompleted += _twain_AcquireCompleted;
+                
                 //jumlahUploadMax = 3;
             }
             catch (Exception _exp)
@@ -202,6 +201,22 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
             try
             {
+                if (Environment.OSVersion.Platform == PlatformID.Unix)
+                {
+                    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
+                    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this._twain.SetDefaultSource(_dlg.SourceIndex);
+                        this._twain.SourceIndex = _dlg.SourceIndex;
+                    }
+                }
+                else
+                {
+                    this._twain.CloseDataSource();
+                    this._twain.SelectSource();
+                }
+                _twain.TwainStateChanged += _twain_TwainStateChanged;
+                _twain.AcquireCompleted += _twain_AcquireCompleted;
                 this._twain.OpenDSM();
             }
             catch (Exception ex)

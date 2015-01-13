@@ -6,6 +6,7 @@ using Adibrata.Framework.Logging;
 using Adibrata.Framework.Messaging;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using Saraff.Twain;
 using SharpBits.Base;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
     {
 
         #region Global Variable
+        Saraff.Twain.Twain32 _twain;
+        private bool _isEnable = false;
 
         object jobTransferredSync = new object();
         Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -63,6 +66,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             try
             {
                 InitializeComponent();
+                _twain.TwainStateChanged += _twain_TwainStateChanged;
+                _twain.AcquireCompleted += _twain_AcquireCompleted;
                 //jumlahUploadMax = 3;
             }
             catch (Exception _exp)
@@ -179,8 +184,10 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-        private void btnScan_Click(object sender, RoutedEventArgs e)
+        private void btnScan_ClickLAMA(object sender, RoutedEventArgs e)
         {
+            
+
             if (dtgUpload.Items.Count > jumlahUploadMax)
             {
                 MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
@@ -191,6 +198,21 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
 
         }
+        private void btnScan_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this._twain.OpenDSM();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("{0}\n\n{1}", ex.Message, ex.StackTrace), "SAMPLE1");
+            }
+
+
+
+
+        }
         #endregion
 
         Int64 docTransId;
@@ -198,6 +220,49 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
 
         #region Method
+
+        private void _twain_AcquireCompleted(object sender, EventArgs e)
+        {
+            //List<string> listPathFromTwain = new List<string>();
+            try
+            {
+
+                if (this._twain.ImageCount > 0)
+                {
+                    for (int i = 0; i < this._twain.ImageCount; i++)
+                    {
+                        string path = "C:\\Temp\\Temp" + "_" + i.ToString() + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpg";
+                        this._twain.GetImage(i).Save(path, ImageFormat.Jpeg);
+                        dtgUpload.Items.Add(new DataItem { PathFile = path, img = path });
+                        dtgUpload.Items.Refresh();
+                        
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SAMPLE1");
+            }
+        }
+
+        private void _twain_TwainStateChanged(object sender, Twain32.TwainStateEventArgs e)
+        {
+            try
+            {
+                if ((e.TwainState & Twain32.TwainStateFlag.DSEnabled) == 0 && this._isEnable)
+                {
+                    this._isEnable = false;
+                    // <<< scaning finished (or closed)
+                }
+                this._isEnable = (e.TwainState & Twain32.TwainStateFlag.DSEnabled) != 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SAMPLE1");
+            }
+        }
+
         public void CheckAndUpload(DocSolEntities _ent)
         {
             try
@@ -853,6 +918,31 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnDS_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Environment.OSVersion.Platform == PlatformID.Unix)
+                {
+                    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
+                    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this._twain.SetDefaultSource(_dlg.SourceIndex);
+                        this._twain.SourceIndex = _dlg.SourceIndex;
+                    }
+                }
+                else
+                {
+                    this._twain.CloseDataSource();
+                    this._twain.SelectSource();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SAMPLE1");
             }
         }
 

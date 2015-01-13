@@ -1,9 +1,10 @@
-﻿-- =============================================
+﻿
+-- =============================================
 -- Author:		Nurul Fredyani Tanaya
 -- Create date: 20141218
 -- Description:	Stored Procedure untuk view doc trans binary by DocTransId
 -- =============================================
-CREATE PROCEDURE spDocTransBinaryView 
+ALTER PROCEDURE [dbo].[spDocTransBinaryView] 
 	-- Add the parameters for the stored procedure here
 	@DocTransID bigint,
 	@UserName varchar(50)
@@ -16,10 +17,9 @@ BEGIN
 	exec spDocTransActivityInsert @username = @UserName, @DocTransId = @DocTransId,@description = 'Binary View'
 	select 
 	FileName,DateCreated,SizeFileBytes,Pixel,ComputerName,DPI,
-	CAST(CASE WHEN DPI <> '-' THEN FileBinary ELSE null END as varbinary(MAX)) AS FileBin, 
+	FileBinary,	CAST(CASE WHEN DPI <> '-' THEN FileBinary ELSE null END as varbinary(MAX)) AS FileBin, 
 	dbo.FnDocTransActivity (DocTransID) as Activity
 	 from DocTransBinary with (nolock) where DocTransID = @DocTransID
 
 END
-GO
 

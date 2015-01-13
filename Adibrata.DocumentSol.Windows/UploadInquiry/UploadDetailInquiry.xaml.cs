@@ -13,7 +13,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Drawing;
-
+using System;
 
 
 
@@ -32,6 +32,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         object jobTransferredSync = new object();
         Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+       
         // ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
         Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();
@@ -259,7 +260,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
           
 
-            _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBin"];
+            _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
 
             //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
 

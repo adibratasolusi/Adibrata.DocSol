@@ -11,20 +11,43 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto"  />
-            </Grid.RowDefinitions>
+            <RowDefinition Height="Auto"  />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0">
-            
-        </Grid>
+     
         <Grid Grid.Row="0" Grid.Column="1">
-            
+
+            <GroupBox Header="Search Menu">
+                <!--<ListView ItemsSource="{Binding}" DisplayMemberPath="FormName" Tag="{Binding Formurl}" Height="100" 
+                              SelectedItem="{Binding Path=FormUrl}"
+                              Name="lstFavorite" SelectedValuePath="FormUrl" FontSize="12" SelectionChanged="ListView_SelectionChanged">
+                    </ListView>-->
+                <StackPanel>
+                    <TextBox Name="txtSearch" Style="{StaticResource textStyle}" Width="150"></TextBox>
+                    <Button Name="btnSearch" Click="btnSearch_Click" FontSize="10" Style="{StaticResource buttonStyle}" HorizontalAlignment="Left">
+                        <Label>_Search</Label>
+                    </Button>
+                <ListView Height="50" 
+                              Name="lstSearchMenu"  FontSize="12" SelectionChanged="lstSearchMenu_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FormName}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+                </StackPanel>
+            </GroupBox>
+
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="2">
-            
+        <Grid Grid.Row="1" Grid.Column="2">
             <StackPanel>
-                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="400" Width="200"  FontSize="12" SelectedItemChanged="trvStructure_SelectedItemChanged">
+                <GroupBox Header="Menu">
+                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="250" Width="200"  FontSize="12" SelectedItemChanged="trvStructure_SelectedItemChanged">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                             <StackPanel Orientation="Horizontal">
@@ -33,14 +56,14 @@
                             </StackPanel>
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
-
                 </TreeView>
+                </GroupBox>
                 <GroupBox Header="Favorite Menu">
                     <!--<ListView ItemsSource="{Binding}" DisplayMemberPath="FormName" Tag="{Binding Formurl}" Height="100" 
                               SelectedItem="{Binding Path=FormUrl}"
                               Name="lstFavorite" SelectedValuePath="FormUrl" FontSize="12" SelectionChanged="ListView_SelectionChanged">
                     </ListView>-->
-                    <ListView Height="100" 
+                    <ListView Height="80" 
                               Name="lstFavorite"  FontSize="12" SelectionChanged="ListView_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>

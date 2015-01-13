@@ -17,6 +17,7 @@ namespace Adibrata.DocumentSol.Windows
         UserManagementEntities _ent = new UserManagementEntities();
         String _url;
         Boolean _isrefreshfav = false;
+        Boolean _isSearchMenu = false;
         Frame _frmwork = new Frame();
         public MenuTree(SessionEntities _session)
         {
@@ -272,6 +273,97 @@ namespace Adibrata.DocumentSol.Windows
             _isrefreshfav = true;
             BindFavoriteMenu();
             _isrefreshfav = false;
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (txtSearch.Text != "")
+                {
+                    _isSearchMenu = true;
+                    lstSearchMenu.ItemsSource = MenuDataRetrieve().DefaultView;
+                    _isSearchMenu = false;
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "MenuTree",
+                    FunctionName = "btnFind_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+        private DataTable MenuDataRetrieve()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                UserManagementEntities _ent = new UserManagementEntities
+                {
+                    MethodName = "SearchEngineMenu",
+                    ClassName = "MainMenu"
+                };
+                _ent.Form = txtSearch.Text;
+                dt = UserManagementController.UserManagement<DataTable>(_ent);
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "MenuTree",
+                    FunctionName = "MenuDataRetrieve",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+            return dt;
+        }
+
+        private void lstSearchMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if (_isSearchMenu != true)
+                {
+                    _ent.ClassName = "MainMenu";
+                    _ent.MethodName = "MenuTreeGetURL";
+                    _ent.MenuName = ((DataRowView)lstSearchMenu.SelectedItem)["FormName"].ToString();
+                    _url = ((DataRowView)lstSearchMenu.SelectedItem)["FormUrl"].ToString();
+                    RedirectPage redirect = new RedirectPage(_frmwork, _url, SessionProperty);
+                }
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows",
+                    ClassName = "MenuTree",
+                    FunctionName = "lstSearchMenu_SelectionChanged",
+                    ExceptionNumber = 1,
+                    EventSource = "Main",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
     }

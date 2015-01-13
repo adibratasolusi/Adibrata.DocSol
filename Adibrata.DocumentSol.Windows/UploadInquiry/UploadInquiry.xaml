@@ -88,7 +88,7 @@
                                 <DataGridTemplateColumn Header="FILE SIZE" Width="100">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding StringFormat=SizeFileBytes{0:C}}" HorizontalAlignment="Right" >
+                                            <TextBlock Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}" HorizontalAlignment="Right" >
                                             </TextBlock>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

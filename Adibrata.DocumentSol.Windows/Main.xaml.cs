@@ -126,7 +126,7 @@ namespace Adibrata.DocumentSol.Windows
             try
             {
                 //frmWorksheet.NavigationService.Navigate(new Menu.MenuRegistration(SessionProperty));
-                frmWorksheet.NavigationService.Navigate(new MenuTree(SessionProperty));
+                frmWorksheet.NavigationService.Navigate(new DocumentContent.SearchDocument(SessionProperty));
             }
             catch (Exception _exp)
             {

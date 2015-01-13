@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>41</ApplicationRevision>
+    <ApplicationRevision>42</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -896,19 +896,7 @@
     <Resource Include="Images\Edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\search-button-png-hi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\new-button-png-hi.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\project.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\back-button-png-hi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\save-png-hi.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AlienAqua scanner 2.png" />

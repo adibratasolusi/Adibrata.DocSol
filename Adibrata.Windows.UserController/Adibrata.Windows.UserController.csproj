@@ -40,6 +40,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Adibrata.Framework.ImageProcessing\lib\PdfSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Saraff.Twain, Version=1.0.13.387, Culture=neutral, PublicKeyToken=467d7c56f22cafb6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Saraff.Twain.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -173,6 +177,12 @@
     <Compile Include="CSUserControl.xaml.cs">
       <DependentUpon>CSUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocContent\UploadAgreement\SelectSourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocContent\UploadAgreement\SelectSourceForm.Designer.cs">
+      <DependentUpon>SelectSourceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DocContent\UploadAgreement\UCUploadAgreementAllDoc.xaml.cs">
       <DependentUpon>UCUploadAgreementAllDoc.xaml</DependentUpon>
     </Compile>
@@ -283,6 +293,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="DocContent\UploadAgreement\SelectSourceForm.resx">
+      <DependentUpon>SelectSourceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -379,6 +392,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\Interop.WIA.dll" />
+    <Content Include="lib\Saraff.Twain.dll" />
     <Resource Include="Pictures\favorite.png" />
     <Resource Include="Pictures\folder_delete.png" />
     <Resource Include="Pictures\kde-folder-saved-search.png" />

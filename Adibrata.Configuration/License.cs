@@ -10,7 +10,7 @@ namespace Adibrata.Configuration
 {
     public static class License
     {
-        private static string ConnectionStringConfiguration = "Server=.;Database=Configuration;User Id=sa;Password=Alpha2014";
+        private static string ConnectionStringConfiguration = "Server=Maximus-PC;Database=Configuration;User Id=sa;Password=Alpha2014";
         private static string ConnectionString= AppConfig.Config("ConnectionString");
         public static bool UserLicense()
         {

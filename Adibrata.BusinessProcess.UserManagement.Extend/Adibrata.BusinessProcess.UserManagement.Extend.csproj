@@ -65,6 +65,10 @@
       <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
       <Name>Adibrata.Configuration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Framework.Caching\Adibrata.Framework.Caching.csproj">
+      <Project>{87734e21-d1d6-49ab-8ba9-d207e82f9bc0}</Project>
+      <Name>Adibrata.Framework.Caching</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Adibrata.Framework.DataAccess\Adibrata.Framework.DataAccess.csproj">
       <Project>{306c31b7-89c3-424e-878d-efc950a58fa3}</Project>
       <Name>Adibrata.Framework.DataAccess</Name>

@@ -6,6 +6,7 @@ using Adibrata.Framework.Logging;
 using Adibrata.Framework.Messaging;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using Saraff.Twain;
 using SharpBits.Base;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,10 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
     {
 
         #region Global Variable
+        Saraff.Twain.Twain32 _twain;
+        private bool _isEnable = false;
+
+        List<string> listPathFromTwain = new List<string>();
 
         object jobTransferredSync = new object();
         Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -63,6 +68,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             try
             {
                 InitializeComponent();
+
                 //jumlahUploadMax = 3;
             }
             catch (Exception _exp)
@@ -88,11 +94,12 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             try
             {
                 dtgUpload.Items.Clear();
-                DocSolEntities _ent = new DocSolEntities {
+                DocSolEntities _ent = new DocSolEntities
+                {
                     ClassName = "DocContent",
                     MethodName = "DocContentFiles",
                     UserLogin = this.UserLogin,
-                    DocumentType = this.DocumentType 
+                    DocumentType = this.DocumentType
                 };
 #if DEBUG
                 jumlahUploadMax = 5;
@@ -179,8 +186,10 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-        private void btnScan_Click(object sender, RoutedEventArgs e)
+        private void btnScan_ClickLAMA(object sender, RoutedEventArgs e)
         {
+
+
             if (dtgUpload.Items.Count > jumlahUploadMax)
             {
                 MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
@@ -191,6 +200,40 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
 
         }
+        private void btnScan_Click(object sender, RoutedEventArgs e)
+        {
+            _twain =  new Saraff.Twain.Twain32();
+            try
+            {
+                if (Environment.OSVersion.Platform == PlatformID.Unix)
+                {
+                    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
+                    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this._twain.SetDefaultSource(_dlg.SourceIndex);
+                        this._twain.SourceIndex = _dlg.SourceIndex;
+                    }
+                }
+                else
+                {
+                    this._twain.CloseDataSource();
+                    this._twain.SelectSource();
+                }
+                listPathFromTwain.Clear();
+                _twain.TwainStateChanged += _twain_TwainStateChanged;
+                _twain.AcquireCompleted += _twain_AcquireCompleted;
+                this._twain.OpenDSM();
+                this._twain.Acquire();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("{0}\n\n{1}", ex.Message, ex.StackTrace), "SAMPLE1");
+            }
+
+
+
+
+        }
         #endregion
 
         Int64 docTransId;
@@ -198,6 +241,53 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
 
         #region Method
+
+        private void _twain_AcquireCompleted(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (this._twain.ImageCount > 0)
+                {
+                    for (int i = 0; i < this._twain.ImageCount; i++)
+                    {
+                        string path = "C:\\Temp\\Temp" + "_" + i.ToString() + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpg";
+                        this._twain.GetImage(i).Save(path, ImageFormat.Jpeg);
+                        listPathFromTwain.Add(path);
+
+
+                    }
+                    for (int i = 0; i < listPathFromTwain.Count; i++)
+                    {
+                        dtgUpload.Items.Add(new DataItem { PathFile = listPathFromTwain[i], img = listPathFromTwain[i] });
+                        dtgUpload.Items.Refresh();
+                    }
+                }
+                this._twain.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SAMPLE1");
+            }
+        }
+
+        private void _twain_TwainStateChanged(object sender, Twain32.TwainStateEventArgs e)
+        {
+            try
+            {
+                if ((e.TwainState & Twain32.TwainStateFlag.DSEnabled) == 0 && this._isEnable)
+                {
+                    this._isEnable = false;
+                    // <<< scaning finished (or closed)
+                }
+                this._isEnable = (e.TwainState & Twain32.TwainStateFlag.DSEnabled) != 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SAMPLE1");
+            }
+        }
+
         public void CheckAndUpload(DocSolEntities _ent)
         {
             try
@@ -278,7 +368,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 dlg.Multiselect = true;
 
                 // Display OpenFileDialog by calling ShowDialog method
-                
+
                 Nullable<bool> result = dlg.ShowDialog();
 
                 // Get the selected file name and display in a DataGrid
@@ -298,7 +388,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                             picture = "";
                         }
                         dtgUpload.Items.Add(new DataItem { PathFile = filename, img = picture });
-                        
+
                     }
                     dtgUpload.Items.Refresh();
                 }
@@ -380,7 +470,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
-        private void UploadFile(DocSolEntities _ent)
+        private void UploadFileSEBELUMREVISI(DocSolEntities _ent)
         {
 
             DataGridHelper dtgHelper = new DataGridHelper();
@@ -436,7 +526,119 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 ErrorLog.WriteEventLog(_errent);
             }
         }
+        private void UploadFile(DocSolEntities _ent)
+        {
 
+            DataGridHelper dtgHelper = new DataGridHelper();
+            List<string> listPath = new List<string>();
+            try
+            {
+                dtgHelper.dtg = dtgUpload;
+
+                List<KeyValuePair<Int64, string>> listDocTransBinary = new List<KeyValuePair<Int64, string>>();
+                #region singlefile langsung jadi image
+
+                if (dtgUpload.Items.Count == 1)
+                {
+                    DataGridCell cellPath = dtgHelper.GetCell(1, 1);
+                    TextBlock path = (TextBlock)cellPath.Content;
+                    listPath.Add(path.Text);
+
+                    if (listPath.Count != 0)
+                    {
+
+                        _ent.MethodName = "DocUpload";
+                        _ent.ClassName = "UploadProcess";
+                        _ent.TransId = TransId;
+                        _ent.DocumentType = DocumentType;
+                        _ent.ListPath = listPath;
+
+                        listDocTransBinary = Adibrata.Controller.DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
+
+                        for (int i = 0; i < listDocTransBinary.Count; i++)
+                        {
+                            string a = bits(listPath[i], listDocTransBinary[i].Key.ToString());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("File Not Found");
+                    }
+                }
+
+                #endregion
+                #region MultiFile jadi satu file pdf
+                if (dtgUpload.Items.Count > 1)
+                {
+                    #region CEK DATAGRID
+                    PdfDocument doc = new PdfDocument();
+                    for (int i = 0; i < dtgUpload.Items.Count; i++)
+                    {
+                        DataGridCell cellPath = dtgHelper.GetCell(i, 1);
+                        TextBlock path = (TextBlock)cellPath.Content;
+
+
+
+
+                        doc.Pages.Add(new PdfPage());
+                        XGraphics xgr = XGraphics.FromPdfPage(doc.Pages[i]);
+                        XImage img = XImage.FromFile(path.Text);
+                        xgr.DrawImage(img, 0, 0);
+                        xgr.Dispose();
+
+                        doc.Save("C:\\Temp\\FilePDF.pdf");
+                        doc.Close();
+
+                        MessageBox.Show("Convert Succeed");
+
+
+
+                    }
+
+                    listPath.Add("C:\\Temp\\FilePDF.pdf");
+                    if (listPath.Count != 0)
+                    {
+
+                        _ent.MethodName = "DocUpload";
+                        _ent.ClassName = "UploadProcess";
+                        _ent.TransId = TransId;
+                        _ent.DocumentType = DocumentType;
+                        _ent.ListPath = listPath;
+
+                        listDocTransBinary = Adibrata.Controller.DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
+
+                        for (int i = 0; i < listDocTransBinary.Count; i++)
+                        {
+                            string a = bits(listPath[i], listDocTransBinary[i].Key.ToString());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("File Not Found");
+                    }
+                    #endregion
+                }
+                #endregion
+
+
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "UCUploadAgreement",
+                    NameSpace = "Adibrata.Windows.UserController.DocContent.UploadAgreement",
+                    ClassName = "UCUploadAgreement",
+                    FunctionName = "UploadFile",
+                    ExceptionNumber = 1,
+                    EventSource = "UCUploadAgreement",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
         private Int64 SaveUploadToDocTrans(Int64 transId, string docType)
         {
 
@@ -741,6 +943,31 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnDS_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Environment.OSVersion.Platform == PlatformID.Unix)
+                {
+                    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
+                    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this._twain.SetDefaultSource(_dlg.SourceIndex);
+                        this._twain.SourceIndex = _dlg.SourceIndex;
+                    }
+                }
+                else
+                {
+                    this._twain.CloseDataSource();
+                    this._twain.SelectSource();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SAMPLE1");
             }
         }
 

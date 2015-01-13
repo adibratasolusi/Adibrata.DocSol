@@ -102,9 +102,9 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 DataTable _dt = new DataTable();
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransContentDetail";
-                _ent.DocTransCode = SessionProperty.ReffKey;
+                //_ent.DocTransId = SessionProperty.ReffKey;
                 _ent.UserName = SessionProperty.UserName;
-                //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dtgContent.ItemsSource = _dt.DefaultView;
             }
@@ -137,7 +137,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 _ent.ClassName = "UploadProcess";
                 _ent.MethodName = "DocTransInquiryDetail";
                 _ent.UserName = SessionProperty.UserName;
-                _ent.DocTransCode = SessionProperty.ReffKey;
+                _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
                 _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
                 dgPaging.ItemsSource = _dt.DefaultView;
             }
@@ -194,8 +194,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-          
+                     
 
             _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBin"];
 

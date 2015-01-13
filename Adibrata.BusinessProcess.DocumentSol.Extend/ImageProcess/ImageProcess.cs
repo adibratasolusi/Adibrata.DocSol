@@ -138,8 +138,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             {
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[2];
-                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
-                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.VarChar,50);
+                sqlParams[0].Value = _ent.Id;
                 sqlParams[1] = new SqlParameter("@Usr", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.UserName;
 

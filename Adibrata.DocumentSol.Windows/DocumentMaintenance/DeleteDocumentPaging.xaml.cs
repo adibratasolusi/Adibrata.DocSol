@@ -56,6 +56,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
+                SessionProperty.SourceForm = "DocumentMaintenance.DeleteDocumentPaging";
                 RedirectPage redirect = new RedirectPage(this, "DocumentMaintenance.DeleteDocumentDetail", SessionProperty);
             
             }

@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/WCF/Service1.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://maximus-pc/Adibrata.WCF/Service1.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="3873155e-6631-4d7f-9b86-f73225498392" SourceId="1" SourceUrl="http://localhost/WCF/Service1.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="60d4efbb-733f-423f-a251-0331a9f0108b" SourceId="1" SourceUrl="http://localhost/WCF/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="00b8e8fb-c662-4532-ad7e-d843472d7ad1" SourceId="1" SourceUrl="http://localhost/WCF/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="f6d44879-2da8-4ea2-878d-371452f5765a" SourceId="1" SourceUrl="http://localhost/WCF/Service1.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="ae93fb29-182c-4856-ad96-846e38442c54" SourceId="1" SourceUrl="http://maximus-pc/Adibrata.WCF/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service131.xsd" MetadataType="Schema" ID="b860f8f8-b4dd-4b61-b0bd-b6873bf0fa4e" SourceId="1" SourceUrl="http://maximus-pc/Adibrata.WCF/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service11.wsdl" MetadataType="Wsdl" ID="73aff1e3-f6c8-48f6-bad4-2555a0ae32c8" SourceId="1" SourceUrl="http://maximus-pc/Adibrata.WCF/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service132.xsd" MetadataType="Schema" ID="02268eaf-6649-4acb-b971-7fdd2f6caf74" SourceId="1" SourceUrl="http://maximus-pc/Adibrata.WCF/Service1.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

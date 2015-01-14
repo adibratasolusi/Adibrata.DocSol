@@ -44,7 +44,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
             try
             {
                 DocSolEntities _ent = new DocSolEntities();
-                Int64 id;
+
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
@@ -166,9 +166,6 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 
         }
 
-
-
-      
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -235,6 +232,9 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
             System.IO.Path.GetDirectoryName(_filename);
 
             _FileStream.Write(_imgbin, 0, _imgbin.Length);
+            string _url;
+
+            _url = @_filename;
             _FileStream.Close();
 
             DocSolEntities _ent = new DocSolEntities
@@ -247,7 +247,11 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
             MessageBox.Show("Check Out Succes");
+   
             RedirectPage redirect = new RedirectPage(this, "ImageProcess.Checkout.CheckoutPaging", SessionProperty);
+            WebBrowser wb = new WebBrowser();
+
+          
         }
     }
 }

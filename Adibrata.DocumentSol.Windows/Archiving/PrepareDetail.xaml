@@ -28,8 +28,12 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnBack" Grid.Column="0" Content="Back" ToolTip="Back to Archieve Prepare Paging"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
-                <Button Name="btnPrepare" Grid.Column="2"  Content="Prepare" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnPrepare_Click" ></Button>
+                <Grid Grid.Column="0" Grid.Row="3" >
+                    <Button Name="btnBack"  Content="Back" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Back to Archieve Prepare Paging"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="3">
+                    <Button Name="btnPrepare"  FontSize="12" Style="{StaticResource buttonStyle}" Content="Prepare" ToolTip="Prepare to Archieve" HorizontalAlignment="Right" Click="btnPrepare_Click" ></Button>
+                </Grid>
             </Grid>
         </Grid>
     </ScrollViewer>

@@ -30,10 +30,15 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnBack" Grid.Column="0" Content="Back" ToolTip="Back to Archieve Execution Paging"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
-                <Button Name="btnExec" Grid.Column="2"  Content="Execution" ToolTip="Execution to Archieve" HorizontalAlignment="Right" Click="btnExec_Click" ></Button>
+
+                <Grid Grid.Column="0" Grid.Row="3" >
+                    <Button Name="btnBack" Grid.Column="0" Content="Back" ToolTip="Back to Archieve Execution Paging" Style="{StaticResource buttonStyle}"  HorizontalAlignment="Right" Click="btnBack_Click" ></Button>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="3" >
+                    <Button Name="btnExec" Grid.Column="2"  Content="Execution" ToolTip="Execution to Archieve" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnExec_Click" ></Button>
+                    </Grid>
+                </Grid>
             </Grid>
-        </Grid>
     </ScrollViewer>
 
 </Page>

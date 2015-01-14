@@ -72,28 +72,28 @@ namespace Adibrata.DocumentSol.Windows.Archiving
             DataGridHelper oDataGrid = new DataGridHelper();
             oDataGrid.dtg = dgPaging;
 
-            //DataGridCell cellId = oDataGrid.GetCell(i, 2);
-            //TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
+            DataGridCell cellId = oDataGrid.GetCell(i, 2);
+            TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
 
-            DataGridCell cellDocTransCode = oDataGrid.GetCell(i, 2);
-            TextBlock tbDocTransCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTransCode);
+            //DataGridCell cellDocTransCode = oDataGrid.GetCell(i, 2);
+            //TextBlock tbDocTransCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTransCode);
 
             DataGridCell cellDocTypeCode = oDataGrid.GetCell(i, 3);
             TextBlock tbDocTypeCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTypeCode);
-            if (!listId.Contains(tbDocTransCode.Text))
+            if (!listId.Contains(tbId.Text))
             {
                 if (listId.Count == 0)
                 {
                     gbQueue.Visibility = Visibility.Visible;
                 }
 
-                listId.Add(tbDocTransCode.Text);
-                dgQueue.Items.Add(new DataItem { DocTransCode = tbDocTransCode.Text, DocTypeCode = tbDocTypeCode.Text, });
+                listId.Add(tbId.Text);
+                dgQueue.Items.Add(new DataItem { DocTransCode = tbId.Text, DocTypeCode = tbDocTypeCode.Text, });
                 dgQueue.Items.Refresh();
             }
             else
             {
-                MessageBox.Show(tbDocTransCode.Text + "-" + tbDocTypeCode.Text + " already in queue");
+                MessageBox.Show(tbId.Text + "-" + tbDocTypeCode.Text + " already in queue");
             }
 
         }

@@ -16,7 +16,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
     /// </summary>
     public partial class Prepare : Page
     {
-        List<string> listId = new List<string>();
+        List<string> listCode = new List<string>();
         public class DataItem
         {
             public string DocTransCode { get; set; }
@@ -33,6 +33,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+
                 gbQueue.Visibility = Visibility.Hidden;
             }
             catch (Exception _exp)
@@ -76,16 +77,19 @@ namespace Adibrata.DocumentSol.Windows.Archiving
 
             DataGridCell cellDocTypeCode = oDataGrid.GetCell(i, 3);
             TextBlock tbDocTypeCode = oDataGrid.GetVisualChild<TextBlock>(cellDocTypeCode);
-            if (!listId.Contains(tbDocTransCode.Text))
+            if (!listCode.Contains(tbDocTransCode.Text))
             {
-                if (listId.Count == 0)
+                if (listCode.Count == 0)
                 {
                     gbQueue.Visibility = Visibility.Visible;
                 }
-
-                listId.Add(tbDocTransCode.Text);
-                dgQueue.Items.Add(new DataItem { DocTransCode= tbDocTransCode.Text, DocTypeCode = tbDocTypeCode.Text,  });
+                
+                listCode.Add(tbDocTransCode.Text);
+                
+                dgQueue.Items.Add(new DataItem {  DocTransCode = tbDocTransCode.Text, DocTypeCode = tbDocTypeCode.Text, });
+                
                 dgQueue.Items.Refresh();
+
             }
             else
             {
@@ -202,7 +206,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
 
             DataGridCell cellId = oDataGrid.GetCell(i, 1);
             TextBlock tbId = oDataGrid.GetVisualChild<TextBlock>(cellId);
-            listId.Remove(tbId.Text);
+            listCode.Remove(tbId.Text);
             dgQueue.Items.RemoveAt(dgQueue.SelectedIndex);
             dgQueue.Items.Refresh();
             gbQueueVisibleCheck();
@@ -210,15 +214,22 @@ namespace Adibrata.DocumentSol.Windows.Archiving
 
         private void btnPrepare_Click(object sender, RoutedEventArgs e)
         {
+          
             try
             {
-
                 DocSolEntities _ent = new DocSolEntities
+
                 {
                     MethodName = "ArchievePreparelQueueProcess",
                     ClassName = "ArchieveProcess"
                 };
-                _ent.ListArchieve = listId;
+                _ent.ListArchieve = listCode;
+                _ent.UserName = SessionProperty.UserName;
+                _ent.DocTransCode = SessionProperty.ReffKey;
+              //  SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(_ent));
+
+
+        
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 MessageBox.Show("Document Prepare Success");

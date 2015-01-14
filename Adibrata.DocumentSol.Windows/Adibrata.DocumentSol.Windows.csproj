@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationRevision>50</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -285,6 +285,12 @@
     </Compile>
     <Compile Include="UploadInquiry\UploadInquiry.xaml.cs">
       <DependentUpon>UploadInquiry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\DocTypeSecurity\DocTypeSecurityPaging.xaml.cs">
+      <DependentUpon>DocTypeSecurityPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\DocTypeSecurity\DocTypeSecurityUserPaging.xaml.cs">
+      <DependentUpon>DocTypeSecurityUserPaging.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\Favorite\FavoriteEdit.xaml.cs">
       <DependentUpon>FavoriteEdit.xaml</DependentUpon>
@@ -602,6 +608,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UploadInquiry\UploadInquiry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\DocTypeSecurity\DocTypeSecurityPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement\DocTypeSecurity\DocTypeSecurityUserPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -189,7 +189,6 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
-
         }
 
         private void BindBinary()
@@ -255,6 +254,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         //}
 
+        #region "Selection Changed"
         private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String _extention;
@@ -318,6 +318,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
 
         }
+        #endregion 
 
         private void btnRotate_Click(object sender, RoutedEventArgs e)
         {
@@ -355,41 +356,51 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             String _filename;
             try
             {
-                if ((Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"] != null)
+                if (dgPaging.SelectedItem != null)
                 {
-                    _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
-                    _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
-                    _extention = _filename.PadRight(4);
-                    //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
-
-                    dlg.Title = "Select a picture";
-                    dlg.DefaultExt = _extention;
-                    dlg.Filter = "Portable Document Format (*.pdf)|*.pdf|" +
-                        "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                    "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                    "Portable Network Graphic (*.png)|*.png|" +
-                    "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
-                    "All files (*.*)|*.*";
-                    dlg.AddExtension = true;
-                    dlg.FileName = _filename;
-                    Nullable<bool> result = dlg.ShowDialog();
-                    if (result == true)
+                    if ((Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"] != null)
                     {
-                        foreach (String file in dlg.FileNames)
+                        _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
+                        _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
+                        _extention = _filename.PadRight(4);
+                        //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+
+                        dlg.Title = "Select a picture";
+                        dlg.DefaultExt = _extention;
+                        dlg.Filter = "Portable Document Format (*.pdf)|*.pdf|" +
+                            "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                        "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                        "Portable Network Graphic (*.png)|*.png|" +
+                        "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
+                        "All files (*.*)|*.*";
+                        dlg.AddExtension = true;
+                        dlg.FileName = _filename;
+                        Nullable<bool> result = dlg.ShowDialog();
+                        if (result == true)
                         {
+                            foreach (String file in dlg.FileNames)
+                            {
 
-                            //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+                                //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
 
-                            _filename = @file;
-                            System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
+                                _filename = @file;
+                                System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
 
 
-                            System.IO.Path.GetDirectoryName(_filename);
+                                System.IO.Path.GetDirectoryName(_filename);
 
-                            _FileStream.Write(_imgbin, 0, _imgbin.Length);
-                            _FileStream.Close();
+                                _FileStream.Write(_imgbin, 0, _imgbin.Length);
+                                _FileStream.Close();
 
+                            }
                         }
+                        WebBrowser wb = new WebBrowser();
+                        string _url;
+                        _url =  @_filename;
+
+                        //"file://" +
+                        wb.Navigate(new Uri(@_filename));
+                        
                     }
                 }
             }

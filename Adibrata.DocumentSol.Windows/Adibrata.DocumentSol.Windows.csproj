@@ -123,9 +123,6 @@
     </Compile>
     <Compile Include="CommonClass\Format.cs" />
     <Compile Include="CommonClass\RedirectPage.cs" />
-    <Compile Include="CSUserControl.xaml.cs">
-      <DependentUpon>CSUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Customer\CustomerAddEdit.xaml.cs">
       <DependentUpon>CustomerAddEdit.xaml</DependentUpon>
     </Compile>
@@ -408,10 +405,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Archiving\PrepareDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CSUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

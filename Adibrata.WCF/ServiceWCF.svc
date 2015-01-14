@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Adibrata.WCF.ServiceWCF" CodeBehind="ServiceWCF.svc.cs" %>

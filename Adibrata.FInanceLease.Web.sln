@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Framework.WCF.DocT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.Web", "Adibrata.Web\Adibrata.Web.csproj", "{6CC75A53-50EB-4235-942E-58141F8B2623}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.WCF", "Adibrata.WCF\Adibrata.WCF.csproj", "{BD281F8C-446E-46BB-A854-966B1A38D6D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -481,6 +483,14 @@ Global
 		{6CC75A53-50EB-4235-942E-58141F8B2623}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CC75A53-50EB-4235-942E-58141F8B2623}.Release|ARM.ActiveCfg = Release|Any CPU
 		{6CC75A53-50EB-4235-942E-58141F8B2623}.Release|x86.ActiveCfg = Release|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BD281F8C-446E-46BB-A854-966B1A38D6D7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

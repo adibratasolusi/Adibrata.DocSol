@@ -8,14 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Adibrata.Framework.Messaging.ServiceReference2 {
+namespace Adibrata.Framework.Messaging.ServiceWCF {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.Archieve")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.WCF")]
     [System.SerializableAttribute()]
     public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -76,7 +76,7 @@ namespace Adibrata.Framework.Messaging.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DocTrans", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.Archieve")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocTrans", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.WCF")]
     [System.SerializableAttribute()]
     public partial class DocTrans : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -109,6 +109,9 @@ namespace Adibrata.Framework.Messaging.ServiceReference2 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long DocTransBinaryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocTransCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long DocTransContentIdField;
@@ -272,6 +275,19 @@ namespace Adibrata.Framework.Messaging.ServiceReference2 {
                 if ((this.DocTransBinaryIdField.Equals(value) != true)) {
                     this.DocTransBinaryIdField = value;
                     this.RaisePropertyChanged("DocTransBinaryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DocTransCode {
+            get {
+                return this.DocTransCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocTransCodeField, value) != true)) {
+                    this.DocTransCodeField = value;
+                    this.RaisePropertyChanged("DocTransCode");
                 }
             }
         }
@@ -455,53 +471,250 @@ namespace Adibrata.Framework.Messaging.ServiceReference2 {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IService1")]
-    public interface IService1 {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PathDetails", Namespace="http://schemas.datacontract.org/2004/07/Adibrata.WCF")]
+    [System.SerializableAttribute()]
+    public partial class PathDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        string GetData(int value);
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ComputerNameField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        Adibrata.Framework.Messaging.ServiceReference2.CompositeType GetDataUsingDataContract(Adibrata.Framework.Messaging.ServiceReference2.CompositeType composite);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DPIField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<Adibrata.Framework.Messaging.ServiceReference2.CompositeType> GetDataUsingDataContractAsync(Adibrata.Framework.Messaging.ServiceReference2.CompositeType composite);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateCreatedField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ArchieveExecutionProcess", ReplyAction="http://tempuri.org/IService1/ArchieveExecutionProcessResponse")]
-        void ArchieveExecutionProcess(Adibrata.Framework.Messaging.ServiceReference2.DocTrans _ent);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long DocTransBinaryIDField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ArchieveExecutionProcess", ReplyAction="http://tempuri.org/IService1/ArchieveExecutionProcessResponse")]
-        System.Threading.Tasks.Task ArchieveExecutionProcessAsync(Adibrata.Framework.Messaging.ServiceReference2.DocTrans _ent);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long DocTransIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] FileBinaryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FileNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PixelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SizeFileBytesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ComputerName {
+            get {
+                return this.ComputerNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ComputerNameField, value) != true)) {
+                    this.ComputerNameField = value;
+                    this.RaisePropertyChanged("ComputerName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DPI {
+            get {
+                return this.DPIField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DPIField, value) != true)) {
+                    this.DPIField = value;
+                    this.RaisePropertyChanged("DPI");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateCreated {
+            get {
+                return this.DateCreatedField;
+            }
+            set {
+                if ((this.DateCreatedField.Equals(value) != true)) {
+                    this.DateCreatedField = value;
+                    this.RaisePropertyChanged("DateCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long DocTransBinaryID {
+            get {
+                return this.DocTransBinaryIDField;
+            }
+            set {
+                if ((this.DocTransBinaryIDField.Equals(value) != true)) {
+                    this.DocTransBinaryIDField = value;
+                    this.RaisePropertyChanged("DocTransBinaryID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long DocTransID {
+            get {
+                return this.DocTransIDField;
+            }
+            set {
+                if ((this.DocTransIDField.Equals(value) != true)) {
+                    this.DocTransIDField = value;
+                    this.RaisePropertyChanged("DocTransID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] FileBinary {
+            get {
+                return this.FileBinaryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileBinaryField, value) != true)) {
+                    this.FileBinaryField = value;
+                    this.RaisePropertyChanged("FileBinary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileName {
+            get {
+                return this.FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pixel {
+            get {
+                return this.PixelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PixelField, value) != true)) {
+                    this.PixelField = value;
+                    this.RaisePropertyChanged("Pixel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SizeFileBytes {
+            get {
+                return this.SizeFileBytesField;
+            }
+            set {
+                if ((this.SizeFileBytesField.Equals(value) != true)) {
+                    this.SizeFileBytesField = value;
+                    this.RaisePropertyChanged("SizeFileBytes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : Adibrata.Framework.Messaging.ServiceReference2.IService1, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceWCF.IServiceWCF")]
+    public interface IServiceWCF {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/GetData", ReplyAction="http://tempuri.org/IServiceWCF/GetDataResponse")]
+        string GetData(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/GetData", ReplyAction="http://tempuri.org/IServiceWCF/GetDataResponse")]
+        System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IServiceWCF/GetDataUsingDataContractResponse")]
+        Adibrata.Framework.Messaging.ServiceWCF.CompositeType GetDataUsingDataContract(Adibrata.Framework.Messaging.ServiceWCF.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IServiceWCF/GetDataUsingDataContractResponse")]
+        System.Threading.Tasks.Task<Adibrata.Framework.Messaging.ServiceWCF.CompositeType> GetDataUsingDataContractAsync(Adibrata.Framework.Messaging.ServiceWCF.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/ArchieveExecutionProcess", ReplyAction="http://tempuri.org/IServiceWCF/ArchieveExecutionProcessResponse")]
+        void ArchieveExecutionProcess(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/ArchieveExecutionProcess", ReplyAction="http://tempuri.org/IServiceWCF/ArchieveExecutionProcessResponse")]
+        System.Threading.Tasks.Task ArchieveExecutionProcessAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/DocTransInquiryDetail", ReplyAction="http://tempuri.org/IServiceWCF/DocTransInquiryDetailResponse")]
+        System.Data.DataTable DocTransInquiryDetail(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/DocTransInquiryDetail", ReplyAction="http://tempuri.org/IServiceWCF/DocTransInquiryDetailResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> DocTransInquiryDetailAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/DocTransContentDetail", ReplyAction="http://tempuri.org/IServiceWCF/DocTransContentDetailResponse")]
+        System.Data.DataTable DocTransContentDetail(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/DocTransContentDetail", ReplyAction="http://tempuri.org/IServiceWCF/DocTransContentDetailResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> DocTransContentDetailAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/DocTransGetTransID", ReplyAction="http://tempuri.org/IServiceWCF/DocTransGetTransIDResponse")]
+        long DocTransGetTransID(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/DocTransGetTransID", ReplyAction="http://tempuri.org/IServiceWCF/DocTransGetTransIDResponse")]
+        System.Threading.Tasks.Task<long> DocTransGetTransIDAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/UpdatePathDetails", ReplyAction="http://tempuri.org/IServiceWCF/UpdatePathDetailsResponse")]
+        void UpdatePathDetails(Adibrata.Framework.Messaging.ServiceWCF.PathDetails pathInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceWCF/UpdatePathDetails", ReplyAction="http://tempuri.org/IServiceWCF/UpdatePathDetailsResponse")]
+        System.Threading.Tasks.Task UpdatePathDetailsAsync(Adibrata.Framework.Messaging.ServiceWCF.PathDetails pathInfo);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServiceWCFChannel : Adibrata.Framework.Messaging.ServiceWCF.IServiceWCF, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<Adibrata.Framework.Messaging.ServiceReference2.IService1>, Adibrata.Framework.Messaging.ServiceReference2.IService1 {
+    public partial class ServiceWCFClient : System.ServiceModel.ClientBase<Adibrata.Framework.Messaging.ServiceWCF.IServiceWCF>, Adibrata.Framework.Messaging.ServiceWCF.IServiceWCF {
         
-        public Service1Client() {
+        public ServiceWCFClient() {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public ServiceWCFClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public ServiceWCFClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceWCFClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceWCFClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -513,20 +726,52 @@ namespace Adibrata.Framework.Messaging.ServiceReference2 {
             return base.Channel.GetDataAsync(value);
         }
         
-        public Adibrata.Framework.Messaging.ServiceReference2.CompositeType GetDataUsingDataContract(Adibrata.Framework.Messaging.ServiceReference2.CompositeType composite) {
+        public Adibrata.Framework.Messaging.ServiceWCF.CompositeType GetDataUsingDataContract(Adibrata.Framework.Messaging.ServiceWCF.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<Adibrata.Framework.Messaging.ServiceReference2.CompositeType> GetDataUsingDataContractAsync(Adibrata.Framework.Messaging.ServiceReference2.CompositeType composite) {
+        public System.Threading.Tasks.Task<Adibrata.Framework.Messaging.ServiceWCF.CompositeType> GetDataUsingDataContractAsync(Adibrata.Framework.Messaging.ServiceWCF.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public void ArchieveExecutionProcess(Adibrata.Framework.Messaging.ServiceReference2.DocTrans _ent) {
+        public void ArchieveExecutionProcess(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
             base.Channel.ArchieveExecutionProcess(_ent);
         }
         
-        public System.Threading.Tasks.Task ArchieveExecutionProcessAsync(Adibrata.Framework.Messaging.ServiceReference2.DocTrans _ent) {
+        public System.Threading.Tasks.Task ArchieveExecutionProcessAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
             return base.Channel.ArchieveExecutionProcessAsync(_ent);
+        }
+        
+        public System.Data.DataTable DocTransInquiryDetail(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
+            return base.Channel.DocTransInquiryDetail(_ent);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> DocTransInquiryDetailAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
+            return base.Channel.DocTransInquiryDetailAsync(_ent);
+        }
+        
+        public System.Data.DataTable DocTransContentDetail(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
+            return base.Channel.DocTransContentDetail(_ent);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> DocTransContentDetailAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
+            return base.Channel.DocTransContentDetailAsync(_ent);
+        }
+        
+        public long DocTransGetTransID(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
+            return base.Channel.DocTransGetTransID(_ent);
+        }
+        
+        public System.Threading.Tasks.Task<long> DocTransGetTransIDAsync(Adibrata.Framework.Messaging.ServiceWCF.DocTrans _ent) {
+            return base.Channel.DocTransGetTransIDAsync(_ent);
+        }
+        
+        public void UpdatePathDetails(Adibrata.Framework.Messaging.ServiceWCF.PathDetails pathInfo) {
+            base.Channel.UpdatePathDetails(pathInfo);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePathDetailsAsync(Adibrata.Framework.Messaging.ServiceWCF.PathDetails pathInfo) {
+            return base.Channel.UpdatePathDetailsAsync(pathInfo);
         }
     }
 }

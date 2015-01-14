@@ -10,12 +10,12 @@ namespace Adibrata.Framework.Messaging
         {
 
 
-            Adibrata.Framework.Messaging.ServiceReference1.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference1.Service1Client();
+            Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient objService = new Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient();
             
             try
             {
 
-                Adibrata.Framework.Messaging.ServiceReference1.PathDetails pathInfo = new Adibrata.Framework.Messaging.ServiceReference1.PathDetails();
+                Adibrata.Framework.Messaging.ServiceWCF.PathDetails pathInfo = new Adibrata.Framework.Messaging.ServiceWCF.PathDetails();
                 pathInfo.FileName = oWCF.FileName;
                 pathInfo.DocTransBinaryID = oWCF.DocTransBinaryID;
                 objService.UpdatePathDetails(pathInfo);
@@ -44,13 +44,13 @@ namespace Adibrata.Framework.Messaging
         {
 
 
-            Adibrata.Framework.Messaging.ServiceReference2.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference2.Service1Client();
+            Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient objService = new Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient();
             
 
             try
             {
-                
-                Adibrata.Framework.Messaging.ServiceReference2.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceReference2.DocTrans();
+
+                Adibrata.Framework.Messaging.ServiceWCF.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceWCF.DocTrans();
                 oDocTrans.DocTransID = oWCF.DocTransID;
                 oDocTrans.UserName = oWCF.UserName;
                 objService.ArchieveExecutionProcess(oDocTrans);
@@ -82,13 +82,13 @@ namespace Adibrata.Framework.Messaging
         {
             DataTable _dt = new DataTable();
 
-            Adibrata.Framework.Messaging.ServiceReference3.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference3.Service1Client();
+            Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient objService = new Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient();
 
 
             try
             {
 
-                Adibrata.Framework.Messaging.ServiceReference3.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceReference3.DocTrans();
+                Adibrata.Framework.Messaging.ServiceWCF.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceWCF.DocTrans();
                 oDocTrans.DocTransCode = oWCF.DocTransCode;
                 oDocTrans.UserName = oWCF.UserName;
                 _dt = objService.DocTransContentDetail(oDocTrans);
@@ -120,13 +120,13 @@ namespace Adibrata.Framework.Messaging
         {
             DataTable _dt = new DataTable();
 
-            Adibrata.Framework.Messaging.ServiceReference3.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference3.Service1Client();
+            Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient objService = new Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient();
 
 
             try
             {
 
-                Adibrata.Framework.Messaging.ServiceReference3.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceReference3.DocTrans();
+                Adibrata.Framework.Messaging.ServiceWCF.DocTrans oDocTrans = new Adibrata.Framework.Messaging.ServiceWCF.DocTrans();
                 oDocTrans.DocTransCode = oWCF.DocTransCode;
                 oDocTrans.UserName = oWCF.UserName;
                 _dt = objService.DocTransInquiryDetail(oDocTrans);

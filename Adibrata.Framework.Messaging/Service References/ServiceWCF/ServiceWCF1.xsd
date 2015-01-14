@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost/DocTransView/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.DocTransView" />
+  <xs:import schemaLocation="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Adibrata.WCF" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -18,21 +18,33 @@
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.DocTransView" minOccurs="0" name="composite" nillable="true" type="q1:CompositeType" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Adibrata.WCF" minOccurs="0" name="composite" nillable="true" type="q1:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContractResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.DocTransView" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Adibrata.WCF" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArchieveExecutionProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Adibrata.WCF" minOccurs="0" name="_ent" nillable="true" type="q3:DocTrans" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArchieveExecutionProcessResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="DocTransInquiryDetail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.DocTransView" minOccurs="0" name="_ent" nillable="true" type="q3:DocTrans" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Adibrata.WCF" minOccurs="0" name="_ent" nillable="true" type="q4:DocTrans" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,7 +70,7 @@
   <xs:element name="DocTransContentDetail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.DocTransView" minOccurs="0" name="_ent" nillable="true" type="q4:DocTrans" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Adibrata.WCF" minOccurs="0" name="_ent" nillable="true" type="q5:DocTrans" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -84,7 +96,7 @@
   <xs:element name="DocTransGetTransID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Adibrata.Framework.WCF.DocTransView" minOccurs="0" name="_ent" nillable="true" type="q5:DocTrans" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Adibrata.WCF" minOccurs="0" name="_ent" nillable="true" type="q6:DocTrans" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -93,6 +105,18 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="DocTransGetTransIDResult" type="xs:long" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePathDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Adibrata.WCF" minOccurs="0" name="pathInfo" nillable="true" type="q7:PathDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePathDetailsResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

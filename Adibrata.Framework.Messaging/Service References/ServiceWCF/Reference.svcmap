@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="34ca8615-746e-4d76-8eb3-8bfbb6dd09d6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://maximus-pc/WCF/ServiceWCF.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceWCF.xsd" MetadataType="Schema" ID="0390fb34-905c-49ca-bc58-e5ae443682a5" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceWCF1.xsd" MetadataType="Schema" ID="7379d320-23a8-4c03-8d97-bd8cdfd986bb" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceWCF2.xsd" MetadataType="Schema" ID="5f3c5510-a5c0-4bd5-8af2-9c0f381af519" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceWCF3.xsd" MetadataType="Schema" ID="536b54de-e7dc-4610-b3aa-462c2ea3d5b2" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceWCF.wsdl" MetadataType="Wsdl" ID="61ea7d3c-4ebb-49a8-a2b4-23c2b6fe9d3b" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

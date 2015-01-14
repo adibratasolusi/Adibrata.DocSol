@@ -53,7 +53,7 @@
                                 
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" Style="{StaticResource buttonStyle}" FontSize="12">
                                     <Label>_Search</Label>
                                 </Button>
                             </Grid>
@@ -70,20 +70,20 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnQueue" Content="QUEUE" Click="btnQueue_Click"></Button>
+                                            <Button Name="btnQueue" Content="QUEUE" Click="btnQueue_Click" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
 
                                         </DataTemplate>
 
                                     </DataGridTemplateColumn.CellTemplate>
 
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click"></Button>
+                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
 
                                         </DataTemplate>
 
@@ -134,10 +134,10 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"  VerticalAlignment="Stretch"
                           >
                                     <DataGrid.Columns>
-                                        <DataGridTemplateColumn Width="150">
+                                        <DataGridTemplateColumn Width="80">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click"></Button>
+                                                    <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
 
                                                 </DataTemplate>
 
@@ -156,8 +156,8 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="0" Name="btnExec" Content="Exec Queue" Click="btnExec_Click" HorizontalAlignment="Right"></Button>
-
+                                    <Button Grid.Column="0" Name="btnExec" Content="Exec Queue" Click="btnExec_Click" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right"></Button>
+                         
                             </Grid>
                         </Grid>
                     </GroupBox>

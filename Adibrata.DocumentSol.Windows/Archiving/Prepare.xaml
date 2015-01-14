@@ -1,13 +1,11 @@
 ﻿<Page x:Class="Adibrata.DocumentSol.Windows.Archiving.Prepare"
-       xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" 
-   
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController" 
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      Style="{StaticResource PageStyle}"
-	Title="Prepare">
+Style="{StaticResource PageStyle}" Title="Prepare">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
@@ -54,7 +52,7 @@
                                 <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Margin="0,2" Width="159" />
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="18">
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                                     <Label>_Search</Label>
                                 </Button>
                             </Grid>
@@ -71,29 +69,23 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnQueue" Content="QUEUE" Click="btnQueue_Click"></Button>
+                                            <Button Name="btnQueue" Content="QUEUE" Click="btnQueue_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
 
                                         </DataTemplate>
 
                                     </DataGridTemplateColumn.CellTemplate>
 
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click"></Button>
-
+                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
                                         </DataTemplate>
-
                                     </DataGridTemplateColumn.CellTemplate>
-
                                 </DataGridTemplateColumn>
-
-
-
                                 <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT CODE" x:Name="DocTransCode" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="200" FontSize="14" />
 
@@ -137,16 +129,14 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"  VerticalAlignment="Stretch"
                           >
                                     <DataGrid.Columns>
-                                        <DataGridTemplateColumn Width="150">
+                                        <DataGridTemplateColumn Width="80">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click"></Button>
-
+                                                    <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center" ></Button>
                                                 </DataTemplate>
-
                                             </DataGridTemplateColumn.CellTemplate>
-
                                         </DataGridTemplateColumn>
+
                                         <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT CODE" x:Name="DocTransCodeQueue" Width="150"/>
                                         <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocTypeQueue" Width="200" FontSize="14" />
 
@@ -154,8 +144,7 @@
                                 </DataGrid>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
-                                <Button Name="btnPrepare" Content="Prepare Queue" Click="btnPrepare_Click" Width="100" HorizontalAlignment="Right"></Button>
-
+                                <Button Name="btnPrepare" Content="Prepare Queue" Click="btnPrepare_Click" Width="100" HorizontalAlignment="Right" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
                             </Grid>
                         </Grid>
                     </GroupBox>

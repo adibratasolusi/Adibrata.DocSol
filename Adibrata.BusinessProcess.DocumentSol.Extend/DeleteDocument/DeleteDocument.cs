@@ -24,7 +24,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             {
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[1];
-                sqlParams[0] = new SqlParameter("@ID", SqlDbType.VarChar, 50);
+                sqlParams[0] = new SqlParameter("@ID", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.Id;
            
 

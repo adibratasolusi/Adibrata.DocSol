@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Adibrata.BusinessProcess.DocumentSol.Extend
 {
-    public class ArchieveProcess: Adibrata.BusinessProcess.DocumentSol.Core.ArchieveProcess
+    public class ArchieveProcess : Adibrata.BusinessProcess.DocumentSol.Core.ArchieveProcess
     {
         static string ConnectionString = AppConfig.Config("ConnectionString");
         SqlTransaction _trans;
-         public virtual void ArchievePrepare(DocSolEntities _ent)
+        public virtual void ArchievePrepare(DocSolEntities _ent)
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
@@ -27,8 +27,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 _trans = _conn.BeginTransaction();
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[1];
-                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
 
                 #endregion
 
@@ -62,7 +62,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             }
         }
 
-         public virtual void ArchieveApproval(DocSolEntities _ent)
+        public virtual void ArchieveApproval(DocSolEntities _ent)
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
@@ -73,7 +73,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 _trans = _conn.BeginTransaction();
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[2];
-                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
+                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.DocTransCode;
                 sqlParams[1] = new SqlParameter("@Status", SqlDbType.VarChar, 2);
                 sqlParams[1].Value = _ent.ApprovalStatus;
@@ -110,11 +110,13 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             }
         }
 
-         public virtual void ArchievePreparelQueueProcess(DocSolEntities _ent)
+        public virtual void ArchievePreparelQueueProcess(DocSolEntities _ent)
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
-
+            DocSolEntities newEnt = new DocSolEntities();
+            UploadProcess uplProc = new UploadProcess();
+        
             try
             {
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
@@ -123,9 +125,13 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 {
 
                     #region "List Parameter SQL"
+
+                    newEnt.DocTransCode = _ent.ListArchieve[i]; //modified fredy
+     
                     sqlParams = new SqlParameter[1];
-                    sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
-                    sqlParams[0].Value = _ent.ListArchieve[i];
+                    sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                    sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt); //modified
+                    
 
                     #endregion
 
@@ -160,22 +166,28 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             }
         }
 
-           public virtual void ArchieveApprovalQueueProcess(DocSolEntities _ent)
+        public virtual void ArchieveApprovalQueueProcess(DocSolEntities _ent)
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
-
+            //begin fredy
+            DocSolEntities newEnt = new DocSolEntities();
+            UploadProcess uplProc = new UploadProcess();
+            //end fredy
             try
             {
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
                 for (int i = 0; i < _ent.ListArchieve.Count; i++)
                 {
-
+                    
+                    newEnt.DocTransCode = _ent.ListArchieve[i]; //modified fredy
                     #region "List Parameter SQL"
                     sqlParams = new SqlParameter[2];
-                    sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar,50);
-                    sqlParams[0].Value = _ent.ListArchieve[i];
+                    sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                    
+                    sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt); //modified
+                    
                     sqlParams[1] = new SqlParameter("@Status", SqlDbType.Char, 1);
                     sqlParams[1].Value = _ent.ApprovalStatus;
 
@@ -211,7 +223,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 _conn.Dispose();
             }
         }
-    
+
 
     }
 }

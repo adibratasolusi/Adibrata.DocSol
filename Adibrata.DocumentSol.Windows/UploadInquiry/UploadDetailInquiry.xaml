@@ -152,6 +152,9 @@
                                                 <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnGreyScale" Click="btnGreyScale_Click">
                                                     <Label>_GreyScale</Label>
                                                 </Button>
+                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnDownload" Click="btnDownload_Click">
+                                                    <Label>_Download</Label>
+                                                </Button>
                                             </StackPanel>
                                         </Grid>
                                         <!--<Grid Grid.Column="0" Grid.Row="1">

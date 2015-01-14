@@ -553,7 +553,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                         _ent.DocumentType = DocumentType;
                         _ent.ListPath = listPath;
 
-                        listDocTransBinary = Adibrata.Controller.DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
+                        listDocTransBinary = DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
 
                         for (int i = 0; i < listDocTransBinary.Count; i++)
                         {
@@ -600,7 +600,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                         _ent.DocumentType = DocumentType;
                         _ent.ListPath = listPath;
 
-                        listDocTransBinary = Adibrata.Controller.DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
+                        listDocTransBinary = DocumentSolutionController.DocSolProcess<List<KeyValuePair<Int64, string>>>(_ent);
 
                         for (int i = 0; i < listDocTransBinary.Count; i++)
                         {
@@ -793,7 +793,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             return jobName;
         }
 
-        void manager_OnJobTransferred(object sender, NotificationEventArgs e)
+        private void manager_OnJobTransferred(object sender, NotificationEventArgs e)
         {
             lock (jobTransferredSync)
             {
@@ -883,7 +883,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         //}
 
 
-        void scanFile()
+        private void scanFile()
         {
             try
             {
@@ -910,6 +910,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                 if (!exists)
                     System.IO.Directory.CreateDirectory(path);
+
                 List<System.Drawing.Image> images = WIAScanner.Scan((string)lbDevices.SelectedItem);
                 string pathFile = path + DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".jpeg";
                 foreach (System.Drawing.Image img in images)
@@ -962,7 +963,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "SAMPLE1");
+                MessageBox.Show(ex.Message, "Warning");
             }
         }
 

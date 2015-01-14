@@ -15,6 +15,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
     public partial class CheckinDetail : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
+        Int64 id;
         public CheckinDetail(SessionEntities _session)
         {
             try
@@ -24,7 +25,8 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
                 ucView.DocTransCode = SessionProperty.ReffKey;
-               
+                id = ucView.DocTransId;
+
          
 
             }
@@ -55,7 +57,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 MethodName = "DocTransCheckIn",
                 ClassName = "ImageProcess"
             };
-            _ent.DocTransCode = ucView.DocTransCode;
+            _ent.Id = id; 
             _ent.UserName = SessionProperty.UserName;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);

@@ -16,19 +16,22 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
 
     {
         SessionEntities SessionProperty = new SessionEntities();
-       
+        Int64 id;
         public DeleteDocumentDetail(SessionEntities _session)
         {
             //Lampar ke detail
             try
             {
+               
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-
+                string _doctranscode = SessionProperty.ReffKey;
+              
                 ucView.Session = SessionProperty;
-                ucView.DocTransCode = SessionProperty.ReffKey;
-                
+                ucView.DocTransCode = _doctranscode;
+                id = ucView.DocTransId;
+                   
            
             }
             catch (Exception _exp)

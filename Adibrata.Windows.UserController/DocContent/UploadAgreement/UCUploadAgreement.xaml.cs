@@ -27,7 +27,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
     {
 
         #region Global Variable
-        Saraff.Twain.Twain32 _twain = new Saraff.Twain.Twain32();
+        Saraff.Twain.Twain32 _twain;
         private bool _isEnable = false;
 
         List<string> listPathFromTwain = new List<string>();
@@ -202,22 +202,23 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         }
         private void btnScan_Click(object sender, RoutedEventArgs e)
         {
+            _twain =  new Saraff.Twain.Twain32();
             try
             {
-                //if (Environment.OSVersion.Platform == PlatformID.Unix)
-                //{
-                //    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
-                //    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                //    {
-                //        this._twain.SetDefaultSource(_dlg.SourceIndex);
-                //        this._twain.SourceIndex = _dlg.SourceIndex;
-                //    }
-                //}
-                //else
-                //{
-                //    this._twain.CloseDataSource();
-                //    this._twain.SelectSource();
-                //}
+                if (Environment.OSVersion.Platform == PlatformID.Unix)
+                {
+                    SelectSourceForm _dlg = new SelectSourceForm { Twain = this._twain };
+                    if (_dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this._twain.SetDefaultSource(_dlg.SourceIndex);
+                        this._twain.SourceIndex = _dlg.SourceIndex;
+                    }
+                }
+                else
+                {
+                    this._twain.CloseDataSource();
+                    this._twain.SelectSource();
+                }
                 listPathFromTwain.Clear();
                 _twain.TwainStateChanged += _twain_TwainStateChanged;
                 _twain.AcquireCompleted += _twain_AcquireCompleted;
@@ -262,6 +263,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                         dtgUpload.Items.Refresh();
                     }
                 }
+                this._twain.Dispose();
             }
             catch (Exception ex)
             {

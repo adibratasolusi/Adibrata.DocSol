@@ -630,7 +630,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[0].Value = _ent.DocTransId;
                 sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.UserName;
 
@@ -668,7 +668,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 SqlParameter[] sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransID", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[0].Value = _ent.DocTransId;
                 sqlParams[1] = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
                 sqlParams[1].Value = _ent.UserName;
 

@@ -16,6 +16,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
     {
 
         SessionEntities SessionProperty = new SessionEntities();
+        Int64 id;
         public PrepareDetail(SessionEntities _session)
         {
             //Lampar ke detail
@@ -26,6 +27,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
                 ucView.DocTransCode = SessionProperty.ReffKey;
+                id = ucView.DocTransId;
 
 
             }

@@ -20,8 +20,8 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-                ucView.Session = SessionProperty;
-                ucView.DocTransCode = (SessionProperty.ReffKey);
+                ucView.Session = SessionProperty ;
+                ucView.DocTransCode = SessionProperty.ReffKey;
 
 
             }

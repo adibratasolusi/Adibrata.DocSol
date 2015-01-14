@@ -21,6 +21,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+
             }
             catch (Exception _exp)
             {
@@ -85,6 +86,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
 
                 sb.Append(SessionProperty.UserName);
                 if (txtDocTransCode.Text != "" || txtDocType.Text !="")
+                
                 {
                     sb.Append(" And ");
                     if (txtDocTransCode.Text.Contains("%"))

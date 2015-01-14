@@ -76,10 +76,10 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click"></Button>
+                                            <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

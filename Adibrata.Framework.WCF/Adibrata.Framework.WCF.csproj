@@ -75,6 +75,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Adibrata.WCF.pubxml" />
     <None Include="Properties\PublishProfiles\Fredy.pubxml" />
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

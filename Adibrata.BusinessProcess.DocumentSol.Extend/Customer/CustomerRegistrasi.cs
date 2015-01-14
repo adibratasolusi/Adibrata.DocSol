@@ -85,10 +85,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 sqlParams[10].Value = DateTime.Now;
 
                 SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spCustSave", sqlParams);
-                if (!_ent.IsEdit)
-                {
-                   _ent.CustomerID = (long)sqlParams[6].Value;
-                }
+
+                _ent.CustomerID = (long)sqlParams[6].Value;
                 
                 sqlParams = new SqlParameter[17];
                 sqlParams[0] = new SqlParameter("@CustID", SqlDbType.BigInt);

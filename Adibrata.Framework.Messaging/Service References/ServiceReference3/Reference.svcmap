@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/Adibrata.Framework.WCF.DocTransView/Service1.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/DocTransView/Service1.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="a1058ec7-d441-42fb-a160-6c268e16e08d" SourceId="1" SourceUrl="http://localhost/Adibrata.Framework.WCF.DocTransView/Service1.svc?xsd=xsd3" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="2d235c53-7734-415b-b4ff-ec5c5fe678f1" SourceId="1" SourceUrl="http://localhost/Adibrata.Framework.WCF.DocTransView/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="c6b47028-d6ab-45fc-85bd-17c6fe3814e2" SourceId="1" SourceUrl="http://localhost/Adibrata.Framework.WCF.DocTransView/Service1.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="b8bfe195-fd08-4658-b6b3-41b34f89da6d" SourceId="1" SourceUrl="http://localhost/Adibrata.Framework.WCF.DocTransView/Service1.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="60e83240-1904-46ca-adcd-65a53691331c" SourceId="1" SourceUrl="http://localhost/Adibrata.Framework.WCF.DocTransView/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service14.xsd" MetadataType="Schema" ID="293e2a25-62bd-41af-9e8a-20504ffbcf9c" SourceId="1" SourceUrl="http://localhost/DocTransView/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service141.xsd" MetadataType="Schema" ID="749af0aa-7aa5-43b6-a7f7-47eb030692d9" SourceId="1" SourceUrl="http://localhost/DocTransView/Service1.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service142.xsd" MetadataType="Schema" ID="b6ee6b77-d23a-4ddb-b492-8638ee7fdf14" SourceId="1" SourceUrl="http://localhost/DocTransView/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service143.xsd" MetadataType="Schema" ID="8f8a4380-d67d-4d48-ad92-c82b4b739cfb" SourceId="1" SourceUrl="http://localhost/DocTransView/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service11.wsdl" MetadataType="Wsdl" ID="6ccabf53-5f18-453a-929f-32f074985ddf" SourceId="1" SourceUrl="http://localhost/DocTransView/Service1.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

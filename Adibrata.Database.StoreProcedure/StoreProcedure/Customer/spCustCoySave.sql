@@ -1,4 +1,13 @@
-﻿Alter PROCEDURE [dbo].[spCustCoySave]
+﻿USE [SMARTCMS]
+GO
+/****** Object:  StoredProcedure [dbo].[spCustCoySave]    Script Date: 1/14/2015 11:32:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER PROCEDURE [dbo].[spCustCoySave]
 	@CustID bigint, 
 	@CoyAddress Varchar(100), 
 	@CoyRT varchar(4), 
@@ -28,22 +37,30 @@ Begin
 ENd
 ELSE
 BEGIN
-	Update CustCoy Set [Address] = @CoyAddress, 
-						RT = @CoyRT, 
-						RW = @CoyRW,
-						Kelurahan = @CoyKelurahan,
-						Kecamatan = @CoyKecamatan, 
-						City = @CoyCity, 
-						ZipCode  = @CoyZipCode, 
-						NPWP = @CoyNPWP,
-						SIUP = @CoySIUP, 
-						TDP = @CoyTDP, 
-						AkteNo = @CoyNotary, 
-						FullAddress = @FullAddress, 
-						UsrUpd = @UsrUpd, 
-						DtmUpd = GetDate()
-	Where CustID = @CustID
-						
-
+	If exists (Select 1 From CustCoy with (nolock) where CustID = @CustID)
+	BEGIN
+			Update CustCoy Set [Address] = @CoyAddress, 
+								RT = @CoyRT, 
+								RW = @CoyRW,
+								Kelurahan = @CoyKelurahan,
+								Kecamatan = @CoyKecamatan, 
+								City = @CoyCity, 
+								ZipCode  = @CoyZipCode, 
+								NPWP = @CoyNPWP,
+								SIUP = @CoySIUP, 
+								TDP = @CoyTDP, 
+								AkteNo = @CoyNotary, 
+								FullAddress = @FullAddress, 
+								UsrUpd = @UsrUpd, 
+								DtmUpd = GetDate()
+			Where CustID = @CustID
+	END						
+	ELSE
+	BEGIN
+				Insert into CustCoy (CustID, [Address], RT, RW, Kelurahan, Kecamatan, City, ZipCode, NPWP, SIUP, TDP, AkteNo, FullAddress, UsrCrt, DtmCrt)
+					values (@CustID, @CoyAddress, @CoyRT, @CoyRW, @CoyKelurahan, @CoyKecamatan, @CoyCity, @CoyZipCode, @CoyNPWP, @CoySIUP, @CoyTDP, @CoyNotary, @FullAddress, @UsrCrt, GetDate())
+	END
 END
 RETURN 0
+
+

@@ -34,17 +34,17 @@ namespace Adibrata.DocumentSol.Windows.Customer
                     _ent = DocumentSolutionController.DocSolProcess<DocSolEntities>(_ent);
                     txtCompanyName.Text = _ent.CompanyName;
 
-                    oAddress.Address.Text = _ent.CompanyAddress;
-                    oAddress.RT.Text = _ent.CompanyRT;
-                    oAddress.RW.Text = _ent.CompanyRW;
-                    oAddress.Kelurahan.Text = _ent.CompanyKelurahan;
-                    oAddress.Kecamatan.Text = _ent.CompanyKecamatan;
-                    oAddress.City.Text = _ent.CompanyCity;
-                    oAddress.ZipCode.Text = _ent.CompanyZipCode;
-                    txtNPWPNumber.Text = _ent.CompanyNPWP;
-                    txtSIUPNo.Text = _ent.CompanySiup;
-                    txtTDPNumber.Text = _ent.CompanyTDP;
-                    txtNotaryNumber.Text = _ent.CompanyNotary;
+                    oAddress.Address.Text = _ent.CompanyAddress.ToString();
+                    oAddress.RT.Text = _ent.CompanyRT.ToString();
+                    oAddress.RW.Text = _ent.CompanyRW.ToString();
+                    oAddress.Kelurahan.Text = _ent.CompanyKelurahan.ToString();
+                    oAddress.Kecamatan.Text = _ent.CompanyKecamatan.ToString();
+                    oAddress.City.Text = _ent.CompanyCity.ToString();
+                    oAddress.ZipCode.Text = _ent.CompanyZipCode.ToString();
+                    txtNPWPNumber.Text = _ent.CompanyNPWP.ToString();
+                    txtSIUPNo.Text = _ent.CompanySiup.ToString();
+                    txtTDPNumber.Text = _ent.CompanyTDP.ToString();
+                    txtNotaryNumber.Text = _ent.CompanyNotary.ToString();
                 }
             }
             catch (Exception _exp)

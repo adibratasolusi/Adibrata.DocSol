@@ -29,7 +29,8 @@
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" Grid.Row="0">
-                        <Button Name="btnDS"  Click="btnDS_Click"  HorizontalAlignment="Right" Content="DS">
+                        <Button Name="btnDS"  Click="btnDS_Click"  HorizontalAlignment="Right" FontSize="12" Style="{StaticResource buttonStyle}">
+                            <Label>_Select</Label>
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1" Grid.Row="0">

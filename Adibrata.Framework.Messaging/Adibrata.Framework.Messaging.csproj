@@ -102,43 +102,43 @@
     <None Include="Service References\ServiceReference1\Adibrata.Framework.Messaging.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\Service11.wsdl" />
+    <None Include="Service References\ServiceReference1\Service1.wsdl" />
+    <None Include="Service References\ServiceReference1\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\Service12.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\Service121.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\Service122.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference2\Adibrata.Framework.Messaging.ServiceReference2.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference2\Service1.wsdl" />
-    <None Include="Service References\ServiceReference2\Service1.xsd">
+    <None Include="Service References\ServiceReference2\Service11.wsdl" />
+    <None Include="Service References\ServiceReference2\Service13.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference2\Service11.xsd">
+    <None Include="Service References\ServiceReference2\Service131.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference2\Service12.xsd">
+    <None Include="Service References\ServiceReference2\Service132.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference3\Adibrata.Framework.Messaging.ServiceReference3.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference3\Service1.wsdl" />
-    <None Include="Service References\ServiceReference3\Service1.xsd">
+    <None Include="Service References\ServiceReference3\Service11.wsdl" />
+    <None Include="Service References\ServiceReference3\Service14.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference3\Service11.xsd">
+    <None Include="Service References\ServiceReference3\Service141.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference3\Service12.xsd">
+    <None Include="Service References\ServiceReference3\Service142.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference3\Service13.xsd">
+    <None Include="Service References\ServiceReference3\Service143.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

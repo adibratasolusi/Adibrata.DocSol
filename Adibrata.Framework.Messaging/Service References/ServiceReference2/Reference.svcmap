@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/Adibrata.WCF.Archieve/Service1.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/Archieve/Service1.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="8abac577-9a86-4007-a19e-9fcf3352758f" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF.Archieve/Service1.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="c88c22f0-d8cf-404a-9746-48a5124e6f4e" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF.Archieve/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="057611ad-2b23-453e-b22d-773140d3df1d" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF.Archieve/Service1.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="c655c86c-9c42-42bf-82d1-d9457244d78c" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF.Archieve/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="59a6eb28-4e06-40a7-a281-04e59dfd5d67" SourceId="1" SourceUrl="http://localhost/Archieve/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service131.xsd" MetadataType="Schema" ID="60c0521d-044e-4215-87ee-6b637ec735b3" SourceId="1" SourceUrl="http://localhost/Archieve/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service11.wsdl" MetadataType="Wsdl" ID="7e9cccba-1a32-4570-a7c7-006a80d0fcdf" SourceId="1" SourceUrl="http://localhost/Archieve/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service132.xsd" MetadataType="Schema" ID="229fb617-c6e4-4532-9d8d-0457c1dda554" SourceId="1" SourceUrl="http://localhost/Archieve/Service1.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

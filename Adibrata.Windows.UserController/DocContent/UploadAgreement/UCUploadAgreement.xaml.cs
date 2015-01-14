@@ -547,7 +547,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                         _ent.MethodName = "DocUpload";
                         _ent.ClassName = "UploadProcess";
-                        _ent.TransId = TransId;
+                        _ent.TransCode = this.TransCode;
                         _ent.DocumentType = DocumentType;
                         _ent.ListPath = listPath;
 
@@ -586,11 +586,6 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                         doc.Save("C:\\Temp\\FilePDF.pdf");
                         doc.Close();
-
-                        MessageBox.Show("Convert Succeed");
-
-
-
                     }
 
                     listPath.Add("C:\\Temp\\FilePDF.pdf");
@@ -599,7 +594,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                         _ent.MethodName = "DocUpload";
                         _ent.ClassName = "UploadProcess";
-                        _ent.TransId = TransId;
+                        _ent.TransCode = this.TransCode;
                         _ent.DocumentType = DocumentType;
                         _ent.ListPath = listPath;
 

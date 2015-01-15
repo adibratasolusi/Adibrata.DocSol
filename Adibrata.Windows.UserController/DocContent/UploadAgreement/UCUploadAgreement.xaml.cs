@@ -27,7 +27,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
     {
 
         #region Global Variable
-        Saraff.Twain.Twain32 _twain;
+        Saraff.Twain.Twain32 _twain = new Saraff.Twain.Twain32();
         private bool _isEnable = false;
 
         List<string> listPathFromTwain = new List<string>();
@@ -531,6 +531,13 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
             DataGridHelper dtgHelper = new DataGridHelper();
             List<string> listPath = new List<string>();
+            string tmpPath = "C:\\Temp";
+            if (!Directory.Exists(tmpPath))
+            {
+                Directory.CreateDirectory(tmpPath);
+            }
+
+
             try
             {
                 dtgHelper.dtg = dtgUpload;
@@ -540,7 +547,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                 if (dtgUpload.Items.Count == 1)
                 {
-                    DataGridCell cellPath = dtgHelper.GetCell(1, 1);
+                    DataGridCell cellPath = dtgHelper.GetCell(0, 1);
                     TextBlock path = (TextBlock)cellPath.Content;
                     listPath.Add(path.Text);
 
@@ -572,6 +579,16 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 {
                     #region CEK DATAGRID
                     PdfDocument doc = new PdfDocument();
+                    StringBuilder sbFileName = new StringBuilder(8000);
+                    sbFileName.Append(tmpPath);
+                    sbFileName.Append("\\");
+                    sbFileName.Append("imgScan_");
+                    sbFileName.Append(DateTime.Now.ToString("yyyy-MM-dd HHmmss"));
+                    sbFileName.Replace(".", "");
+                    sbFileName.Append(".pdf");
+
+                    string fullPath = sbFileName.ToString();
+ 
                     for (int i = 0; i < dtgUpload.Items.Count; i++)
                     {
                         DataGridCell cellPath = dtgHelper.GetCell(i, 1);
@@ -586,11 +603,11 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                         xgr.DrawImage(img, 0, 0);
                         xgr.Dispose();
 
-                        doc.Save("C:\\Temp\\FilePDF.pdf");
+                        doc.Save(fullPath);
                         doc.Close();
                     }
 
-                    listPath.Add("C:\\Temp\\FilePDF.pdf");
+                    listPath.Add(fullPath);
                     if (listPath.Count != 0)
                     {
 

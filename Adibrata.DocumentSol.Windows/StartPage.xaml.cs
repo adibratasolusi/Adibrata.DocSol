@@ -23,10 +23,10 @@ namespace Adibrata.DocumentSol.Windows
         public StartPage()
         {
             InitializeComponent();
-   
-            
-            frmWorksheet.NavigationService.Navigate (new Login.Login());
-//                 Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)
-        }
+
+                frmWorksheet.NavigationService.Navigate(new Login.Login());
+                //                 Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)
+       
+       }
     }
 }

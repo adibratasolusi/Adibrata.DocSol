@@ -23,8 +23,8 @@ namespace Adibrata.WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select ServiceWCF.svc or ServiceWCF.svc.cs at the Solution Explorer and start debugging.
     public class ServiceWCF : IServiceWCF
     {
-        static string Connectionstring = AppConfig.Config("ConnectionString");
-        static string ArchieveConnectionstring = AppConfig.Config("ArchieveConnectionString");
+        string Connectionstring = AppConfig.Config("ConnectionString");
+        string ArchieveConnectionstring = AppConfig.Config("ArchiveConnectionString");
         SessionEntities SessionProperty = new SessionEntities();
         SqlTransaction _trans;
         SqlTransaction _Archievetrans;

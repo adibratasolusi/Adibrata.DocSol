@@ -547,7 +547,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                 if (dtgUpload.Items.Count == 1)
                 {
-                    DataGridCell cellPath = dtgHelper.GetCell(1, 1);
+                    DataGridCell cellPath = dtgHelper.GetCell(0, 1);
                     TextBlock path = (TextBlock)cellPath.Content;
                     listPath.Add(path.Text);
 

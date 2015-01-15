@@ -20,15 +20,20 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
+            DocSolEntities newEnt = new DocSolEntities();
+            UploadProcess uplProc = new UploadProcess();
+     
 
             try
             {
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
                 #region "List Parameter SQL"
+                newEnt.DocTransCode = _ent.DocTransCode; 
+           
                 sqlParams = new SqlParameter[1];
                 sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                sqlParams[0].Value = _ent.Id;
+                sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt);
 
                 #endregion
 
@@ -66,17 +71,21 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
         {
             SqlConnection _conn = new SqlConnection(ConnectionString);
             SqlParameter[] sqlParams;
-
+            DocSolEntities newEnt = new DocSolEntities();
+            UploadProcess uplProc = new UploadProcess();
+     
             try
             {
                 if (_conn.State == ConnectionState.Closed) { _conn.Open(); };
                 _trans = _conn.BeginTransaction();
                 #region "List Parameter SQL"
+                newEnt.DocTransCode = _ent.DocTransCode; 
                 sqlParams = new SqlParameter[2];
-                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt);
                 sqlParams[1] = new SqlParameter("@Status", SqlDbType.VarChar, 2);
                 sqlParams[1].Value = _ent.ApprovalStatus;
+
 
                 #endregion
 

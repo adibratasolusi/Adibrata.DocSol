@@ -62,8 +62,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             {
                 #region "List Parameter SQL"
                 sqlParams = new SqlParameter[1];
-                sqlParams[0] = new SqlParameter("@DocTransCode", SqlDbType.VarChar, 50);
-                sqlParams[0].Value = _ent.DocTransCode;
+                sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
 
 
                 _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spImageUnlockedStatus", sqlParams);

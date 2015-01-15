@@ -16,7 +16,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Lock
     {
 
         SessionEntities SessionProperty = new SessionEntities();
-
+        Int64 id;
         public ImageLockDetail(SessionEntities _session)
         {
             try
@@ -24,8 +24,12 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Lock
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
+                string _doctranscode = SessionProperty.ReffKey;
+            
                 ucView.Session = SessionProperty;
                 ucView.DocTransCode = SessionProperty.ReffKey ;
+                id = ucView.DocTransId;
+         
 
             }
             catch (Exception _exp)

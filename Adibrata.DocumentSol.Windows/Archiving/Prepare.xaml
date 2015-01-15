@@ -40,10 +40,8 @@ Style="{StaticResource PageStyle}" Title="Prepare">
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code"/>
-                            </Grid>
-                            <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Margin="0,2" Width="159"/>
+                               <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Code"/>                                        
+                               <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Margin="0,2" Width="159"/>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Document Type" />

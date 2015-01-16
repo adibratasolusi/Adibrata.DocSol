@@ -122,6 +122,7 @@ namespace Adibrata.Configuration
 
         public static bool ActiveDate()
         {
+           // bool _valid = true;
             bool _valid = false;
             string key = "ActiveApplication";
 
@@ -144,7 +145,7 @@ namespace Adibrata.Configuration
                 }
                 DateTime test = Convert.ToDateTime(_licensevalue);
                 DateTime test1 = Convert.ToDateTime(DateTime.Now.ToString("MM/dd/yyyy"));
-                if ( test == test1 )
+                if (test == test1)
                 {
                     _valid = false;
                 }

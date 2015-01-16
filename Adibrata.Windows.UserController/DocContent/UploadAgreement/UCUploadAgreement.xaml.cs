@@ -30,6 +30,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         Saraff.Twain.Twain32 _twain = new Saraff.Twain.Twain32();
         private bool _isEnable = false;
 
+        private bool isWatermark = false;
+
         List<string> listPathFromTwain = new List<string>();
 
         object jobTransferredSync = new object();
@@ -549,7 +551,12 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                 {
                     DataGridCell cellPath = dtgHelper.GetCell(0, 1);
                     TextBlock path = (TextBlock)cellPath.Content;
-                    listPath.Add(path.Text);
+                    string newPath = path.Text;
+                    if (isWatermark)
+                    {
+                        newPath = WaterMarkProcess.SetWatermark(path.Text, txtWatermark.Text);
+                    }
+                    listPath.Add(newPath);
 
                     if (listPath.Count != 0)
                     {
@@ -594,12 +601,17 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                         DataGridCell cellPath = dtgHelper.GetCell(i, 1);
                         TextBlock path = (TextBlock)cellPath.Content;
 
+                        string newPath = path.Text;
+                        if (isWatermark)
+                        {
+                            newPath = WaterMarkProcess.SetWatermark(path.Text, txtWatermark.Text);
+                        }
 
 
 
                         doc.Pages.Add(new PdfPage());
                         XGraphics xgr = XGraphics.FromPdfPage(doc.Pages[i]);
-                        XImage img = XImage.FromFile(path.Text);
+                        XImage img = XImage.FromFile(newPath);
                         xgr.DrawImage(img, 0, 0);
                         xgr.Dispose();
 
@@ -982,6 +994,16 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
             {
                 MessageBox.Show(ex.Message, "Warning");
             }
+        }
+
+        private void chkWaterMark_Checked(object sender, RoutedEventArgs e)
+        {
+            this.isWatermark = true;
+        }
+
+        private void chkWaterMark_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.isWatermark = false;
         }
 
         #region comment

@@ -24,9 +24,9 @@ namespace Adibrata.DocumentSol.Windows
         {
             InitializeComponent();
    
+                frmWorksheet.NavigationService.Navigate(new Login.Login());
+                //                 Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)
             
-            frmWorksheet.NavigationService.Navigate (new Login.Login());
-                 //Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)
         }
     }
 }

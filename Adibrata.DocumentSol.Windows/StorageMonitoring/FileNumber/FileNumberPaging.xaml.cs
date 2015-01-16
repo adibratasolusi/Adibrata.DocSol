@@ -30,6 +30,7 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
             InitializeComponent();
             this.DataContext = new MainVM(new Shell());
             SessionProperty = _session;
+
         }
 
         private void btnDetail_Click(object sender, RoutedEventArgs e)

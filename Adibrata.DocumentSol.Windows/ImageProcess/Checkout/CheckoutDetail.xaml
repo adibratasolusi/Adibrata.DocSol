@@ -106,6 +106,18 @@
                                         </StackPanel>
 
                                     </Grid>
+
+
+                                    <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+                                        <TextBlock Name="txtActivity" Text="{Binding Activity}" Width="Auto" HorizontalAlignment="Stretch"></TextBlock>
+                                    </Grid>
+                                    <Grid Grid.Row ="3" Grid.Column="0" Grid.ColumnSpan="3">
+                                        <StackPanel Orientation="Horizontal" Name="spButton">
+                                            <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnDownload" Click="btnDownload_Click">
+                                                <Label>_Download</Label>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
                                 </Grid>
                             </DataTemplate>
 

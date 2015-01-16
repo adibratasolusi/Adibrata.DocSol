@@ -56,7 +56,7 @@
                                 </StackPanel>
                             </Grid>
 
-                            <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
                                 <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}" >
                                     <Label RenderTransformOrigin="0.524,2.059">_Search</Label>
                                 </Button>
@@ -64,10 +64,10 @@
                         </Grid>
                     </GroupBox>
                 </Grid>
-                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <GroupBox Margin="0,10,0,-10">
                         <DataGrid IsTextSearchEnabled="True"
-                          SelectionMode="Single"
+                          SelectionMode="Single" Height="400"
                           x:Name="dgPaging" 
                         
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch"
@@ -94,8 +94,9 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto"  />
+           
                             </Grid.RowDefinitions>
-                            <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
+                            <Grid Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Center">
                                 <UserController:UCPaging x:Name="oPaging"/>
                             </Grid>
                         </Grid>

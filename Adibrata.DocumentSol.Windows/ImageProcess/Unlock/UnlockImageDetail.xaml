@@ -27,9 +27,21 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnBack"  Grid.Column="0" Content="Back" Width="200" HorizontalAlignment="Right" Click="btnBack_Click"  />
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="btnBack"  Grid.Column="0"  FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click">
+                        <Label>_Back</Label>
+                    </Button>
 
-                <Button Name="btnUnlock"  Grid.Column="2" Content="UNLOCK" Width="200" HorizontalAlignment="Right" Click="btnUnlock_Click" ></Button>
+                    <Button Name="btnUnlock" Grid.Column="2" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnUnlock_Click" >
+                        <Label>_Unlock</Label>
+                    </Button>
+
+                </StackPanel>
+
+
+                <!--<Button Name="btnBack"  Grid.Column="0" Content="Back" Width="200" HorizontalAlignment="Right" Click="btnBack_Click"  />
+
+                <Button Name="btnUnlock"  Grid.Column="2" Content="UNLOCK" Width="200" HorizontalAlignment="Right" Click="btnUnlock_Click" ></Button>-->
             </Grid>
         </Grid>
     </ScrollViewer>

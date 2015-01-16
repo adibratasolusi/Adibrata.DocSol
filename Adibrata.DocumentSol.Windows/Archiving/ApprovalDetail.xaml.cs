@@ -40,7 +40,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     ClassName = "ArchieveProcess"
                 };
                 _ent.DocTransCode = SessionProperty.ReffKey;
-                _ent.ApprovalStatus = "4";
+                _ent.ApprovalStatus = "H";
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 MessageBox.Show("Document Approval Hold Success");
@@ -77,7 +77,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     ClassName = "ArchieveProcess"
                 };
                 _ent.DocTransCode = SessionProperty.ReffKey;
-                _ent.ApprovalStatus = "3";
+                _ent.ApprovalStatus = "R";
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 MessageBox.Show("Document Approval Reject Success");
@@ -115,7 +115,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     ClassName = "ArchieveProcess"
                 };
                 _ent.DocTransCode = SessionProperty.ReffKey;
-                _ent.ApprovalStatus = "1";
+                _ent.ApprovalStatus = "A";
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 MessageBox.Show("Document Approval Success");

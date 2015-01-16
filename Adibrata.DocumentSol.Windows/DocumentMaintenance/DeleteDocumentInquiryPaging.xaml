@@ -15,7 +15,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold">INQUIRY DOCUMENT</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">DELETE DOCUMENT INQUIRY</TextBlock>
                 <Favorite:AddFavorite Name="oFavorite" HorizontalAlignment="Right"/>
             </Grid>
             <Grid Grid.Row="1">
@@ -71,10 +71,10 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn Width="80">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Content="Detail" Click="btnDetail_Click"></Button>
+                                            <Button Name="btnDetail" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}" Content="Detail" Click="btnDetail_Click"></Button>
 
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

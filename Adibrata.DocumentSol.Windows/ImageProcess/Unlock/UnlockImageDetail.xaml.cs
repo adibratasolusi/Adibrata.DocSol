@@ -15,6 +15,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Unlock
     public partial class UnlockImageDetail : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
+        Int64 id;
         public UnlockImageDetail(SessionEntities _session)
         {
             try
@@ -24,6 +25,9 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Unlock
                 SessionProperty = _session;
                 ucView.Session = SessionProperty;
                 ucView.DocTransCode = SessionProperty.ReffKey;
+                id = ucView.DocTransId;
+
+         
             }
             catch (Exception _exp)
             {
@@ -56,7 +60,8 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Unlock
                 MethodName = "ImageStatusUnlocked",
                 ClassName = "ImageProcess"
             };
-            _ent.DocTransCode = ucView.DocTransCode;
+            _ent.Id = id;
+            _ent.UserName = SessionProperty.UserName;
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
             MessageBox.Show("Sukses");

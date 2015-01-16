@@ -44,7 +44,7 @@
                     </Button>
                     </Grid>
                     <Grid Grid.Column="2" Grid.Row="0">
-                        <!--<Grid>
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -55,7 +55,7 @@
                             </Grid.RowDefinitions>
                             <CheckBox Name="chkWaterMark" Checked="chkWaterMark_Checked" Unchecked="chkWaterMark_Unchecked" Grid.Column="0" Grid.Row="0" Content="With Watermark"></CheckBox>
                             <TextBox Name="txtWatermark" Grid.Row="0" Grid.Column="1" Width="100" Text="Adibrata"></TextBox>
-                        </Grid>-->
+                        </Grid>
                         
                     </Grid>
                     <Grid Grid.Column="0" Grid.Row="1">

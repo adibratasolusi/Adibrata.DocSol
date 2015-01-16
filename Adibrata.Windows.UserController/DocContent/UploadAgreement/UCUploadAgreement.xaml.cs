@@ -554,7 +554,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     string newPath = path.Text;
                     if (isWatermark)
                     {
-                        //newPath = WaterMarkProcess.SetWatermark(path.Text, txtWatermark.Text);
+                        newPath = WaterMarkProcess.SetWatermark(path.Text, txtWatermark.Text);
                     }
                     listPath.Add(newPath);
 
@@ -604,7 +604,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                         string newPath = path.Text;
                         if (isWatermark)
                         {
-                            //newPath = WaterMarkProcess.SetWatermark(path.Text, txtWatermark.Text);
+                            newPath = WaterMarkProcess.SetWatermark(path.Text, txtWatermark.Text);
                         }
 
 

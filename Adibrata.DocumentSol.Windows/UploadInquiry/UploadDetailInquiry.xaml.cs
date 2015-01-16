@@ -32,7 +32,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         object jobTransferredSync = new object();
         Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-       
+
         // ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
         Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();
@@ -117,7 +117,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                         DocContentDescription.Name = "lbl" + _row["ContentName"].ToString().Replace(" ", "");
                         DocContentDescription.Text = _row["ContentName"].ToString();
                         DocContentDescription.HorizontalAlignment = HorizontalAlignment.Stretch;
-                        
+
                         DocContentDescription.Width = 200;
 
                         DocContentDescription.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
@@ -318,7 +318,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
 
         }
-        #endregion 
+        #endregion
 
         private void btnRotate_Click(object sender, RoutedEventArgs e)
         {
@@ -396,11 +396,11 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                         }
                         WebBrowser wb = new WebBrowser();
                         string _url;
-                        _url =  @_filename;
+                        _url = @_filename;
 
                         //"file://" +
                         wb.Navigate(new Uri(@_filename));
-                        
+
                     }
                 }
             }

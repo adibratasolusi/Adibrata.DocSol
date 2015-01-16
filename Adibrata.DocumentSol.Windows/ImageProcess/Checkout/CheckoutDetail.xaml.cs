@@ -253,5 +253,10 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 
           
         }
+
+        private void btnDownload_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

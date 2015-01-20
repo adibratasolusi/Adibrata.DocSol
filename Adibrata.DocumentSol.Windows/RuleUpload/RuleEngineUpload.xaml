@@ -52,7 +52,7 @@
                                 <TextBox Name="txtRuleFile" Style="{StaticResource textStyle}" Height="30" Width="300"></TextBox>
                             </Grid>
                             <Grid Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                <Button Name="btnbrowse"  Width="60" Height="30" Click="btnbrowse_Click">
+                                <Button Name="btnbrowse"  Width="60" Height="30" Click="btnbrowse_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                                     <Label>Bro_wse</Label></Button>
                             </Grid>
                         </Grid>
@@ -65,12 +65,12 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Button Name="btnSave" Click="btnSave_Click">
+                        <Button Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                             <Label>_SAVE</Label>
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click">
+                        <Button Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                             <Label>_BACK</Label>
                         </Button>
                     </Grid>

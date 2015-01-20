@@ -141,6 +141,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                 oPaging.MethodName = "ArchivingPreparePaging";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
+
                 if (txtDocTransCode.Text != "")
                 {
                     sb.Append(" And ");

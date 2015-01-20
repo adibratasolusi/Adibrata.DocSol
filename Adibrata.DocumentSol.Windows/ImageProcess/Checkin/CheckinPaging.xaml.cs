@@ -85,7 +85,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkin
                 oPaging.dgObj = dgPaging;
 
                 sb.Append(SessionProperty.UserName);
-                if (txtDocTransCode.Text != "" || txtDocType.Text !="")
+                if (txtDocTransCode.Text != "" || txtDocType.Text != "")
                 
                 {
                     sb.Append(" And ");

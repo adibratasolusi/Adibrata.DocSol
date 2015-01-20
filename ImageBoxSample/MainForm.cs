@@ -19,12 +19,16 @@ namespace ImageBoxSample
 
         public MainForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.UpdateStatusBar();
 
-            imageBox.Image = img;
+            
         }
-
+        public void showDlg()
+        {
+            imageBox.Image = img;
+            this.ShowDialog();
+        }
         #endregion  Public Constructors
 
         #region  Event Handlers
@@ -92,6 +96,20 @@ namespace ImageBoxSample
         private void imageBox_Resize(object sender, EventArgs e)
         {
             this.UpdateStatusBar();
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+
+            dlg.Title = "Select a picture";
+            dlg.AddExtension = true;
+            dlg.ShowDialog();
+            if (dlg.FileName != "")
+            {
+                img.Save(dlg.FileName);
+            }
+           
+
         }
     }
 }

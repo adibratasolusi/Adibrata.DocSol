@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>60</ApplicationRevision>
+    <ApplicationRevision>61</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -59,7 +59,9 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -853,6 +855,10 @@
     <ProjectReference Include="..\Adibrata.Windows.UserController\Adibrata.Windows.UserController.csproj">
       <Project>{536678c3-fab3-43a9-8a68-adab972a6df1}</Project>
       <Name>Adibrata.Windows.UserController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageBoxSample\ImageBoxSample.csproj">
+      <Project>{8241a955-c8e4-4cfd-ba28-eeab34f6c00c}</Project>
+      <Name>ImageBoxSample</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpBITS.Base\SharpBITS.Base.csproj">
       <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>

@@ -17,6 +17,7 @@ namespace ImageBoxSample
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new MainForm());
+      
     }
   }
 }

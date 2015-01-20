@@ -55,7 +55,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                 oPaging.dgObj = dgPaging;
                 if (txtCustCode.Text != "" || txtCustName.Text != "" || txtProjCode.Text != "" || txtProjName.Text != "" || txtDocType.Text != "")
                 {
-                    sb.Append(" And ");
+                    sb.Append(" Where ");
                     if (txtCustCode.Text != "")
                     {
 

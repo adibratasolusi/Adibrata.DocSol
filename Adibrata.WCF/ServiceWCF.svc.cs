@@ -24,7 +24,7 @@ namespace Adibrata.WCF
     public class ServiceWCF : IServiceWCF
     {
         string Connectionstring = AppConfig.Config("ConnectionString");
-        string ArchieveConnectionstring = AppConfig.Config("ArchiveConnectionString");
+
         SessionEntities SessionProperty = new SessionEntities();
         SqlTransaction _trans;
         SqlTransaction _Archievetrans;
@@ -49,6 +49,7 @@ namespace Adibrata.WCF
 
         public void ArchieveExecutionProcess(DocTrans _ent)
         {
+            string ArchieveConnectionstring = AppConfig.Config("ArchiveConnectionString");
             SqlConnection _conn = new SqlConnection(Connectionstring);
             SqlConnection _Archieveconn = new SqlConnection(ArchieveConnectionstring);
             SqlParameter[] sqlParams;

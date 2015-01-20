@@ -145,7 +145,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                                 {
                                     TextBlock txtInput = new TextBlock();
                                     txtInput.Name = "txt" + _row["ContentName"].ToString().Replace(" ", "");
-                                    txtInput.Text = _row["value"].ToString().Trim();
+                                    txtInput.Text = Format.NumberFormatting(_row["value"].ToString().Trim());
                                     //txtInput.Text = "0";
                                     txtInput.Width = 400;
                                     txtInput.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");

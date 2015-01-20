@@ -246,7 +246,7 @@ namespace Adibrata.Windows.UserController
                                     TextBlock txtInput = new TextBlock();
                                     txtInput.Name = "txt" + _row["ContentName"].ToString().Replace(" ", "");
                                     txtInput.Text = _row["value"].ToString().Trim();
-                                    txtInput.Text = "0";
+                                    //txtInput.Text = "0";
                                     txtInput.Width = 400;
                                     txtInput.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
                                     spValue.Children.Add(txtInput);
@@ -258,7 +258,7 @@ namespace Adibrata.Windows.UserController
                                     TextBlock txtInput = new TextBlock();
                                     txtInput.Name = "txt" + _row["ContentName"].ToString().Replace(" ", "");
                                     txtInput.Text = _row["value"].ToString().Trim();
-                                    txtInput.Text = "-";
+                                    //txtInput.Text = "-";
                                     txtInput.Width = 400;
                                     txtInput.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
                                     //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");

@@ -452,18 +452,18 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                                     _FileStream.Close();
 
                                 }
-                                DocSolEntities _ent = new DocSolEntities
-                                {
-                                    MethodName = "DocTransCheckOut",
-                                    ClassName = "ImageProcess"
-                                };
-                                _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
-                                _ent.UserName = SessionProperty.UserName;
-
-                                DocumentSolutionController.DocSolProcess<string>(_ent);
-                                MessageBox.Show("Check Out Succes");
+                              
                             }
-                          
+                            DocSolEntities _ent = new DocSolEntities
+                            {
+                                MethodName = "DocTransCheckOut",
+                                ClassName = "ImageProcess"
+                            };
+                            _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+                            _ent.UserName = SessionProperty.UserName;
+
+                            DocumentSolutionController.DocSolProcess<string>(_ent);
+                            MessageBox.Show("Check Out Succes");
 
                             //RedirectPage redirect = new RedirectPage(this, "ImageProcess.Checkout.CheckoutPaging", SessionProperty);
                      

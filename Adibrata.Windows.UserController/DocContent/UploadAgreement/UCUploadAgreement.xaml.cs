@@ -40,7 +40,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();
         string server = AppConfig.Config("BITSServer");
-        int jumlahUploadMax; //jumlah maksimal upload, masih hardcode
+        //int jumlahUploadMax; //jumlah maksimal upload, masih hardcode
         #endregion
 
         #region Properties
@@ -103,12 +103,6 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
                     UserLogin = this.UserLogin,
                     DocumentType = this.DocumentType
                 };
-#if DEBUG
-                jumlahUploadMax = 5;
-#else
-                
-                jumlahUploadMax = DocumentSolutionController.DocSolProcess<int>(_ent);
-#endif
 
 
             }
@@ -137,14 +131,9 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
             try
             {
-                if (dtgUpload.Items.Count > jumlahUploadMax)
-                {
-                    MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
-                }
-                else
-                {
+
                     BrowseFile();
-                }
+                
             }
             catch (Exception _exp)
             {
@@ -192,14 +181,8 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
 
 
-            if (dtgUpload.Items.Count > jumlahUploadMax)
-            {
-                MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
-            }
-            else
-            {
                 scanFile();
-            }
+            
 
         }
         private void btnScan_Click(object sender, RoutedEventArgs e)
@@ -294,15 +277,10 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
         {
             try
             {
-                if (dtgUpload.Items.Count > jumlahUploadMax)
-                {
 
-                    MessageBox.Show("Number Of File insufficient, please check the Number of File Configuration");
-                }
-                else
-                {
+
                     UploadFile(_ent);
-                }
+               
             }
             catch (Exception _exp)
             {

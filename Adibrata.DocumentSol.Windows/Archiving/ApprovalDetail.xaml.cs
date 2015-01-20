@@ -24,6 +24,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
 
             ucView.Session = SessionProperty;
             ucView.DocTransCode = SessionProperty.ReffKey;
+            SessionProperty.ReffKey = ucView.DocTransId.ToString();
         }
 
 
@@ -39,7 +40,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     MethodName = "ArchieveApproval",
                     ClassName = "ArchieveProcess"
                 };
-                _ent.DocTransCode = SessionProperty.ReffKey;
+                _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
                 _ent.ApprovalStatus = "H";
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
@@ -76,7 +77,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     MethodName = "ArchieveApproval",
                     ClassName = "ArchieveProcess"
                 };
-                _ent.DocTransCode = SessionProperty.ReffKey;
+                _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
                 _ent.ApprovalStatus = "R";
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
@@ -114,7 +115,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     MethodName = "ArchieveApproval",
                     ClassName = "ArchieveProcess"
                 };
-                _ent.DocTransCode = SessionProperty.ReffKey;
+                _ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
                 _ent.ApprovalStatus = "A";
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);

@@ -61,7 +61,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                     ClassName = "ArchieveProcess"
                 };
                 _ent.Id = ucView.DocTransId;
-
+                _ent.UserName = SessionProperty.UserName;
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 MessageBox.Show("Document Archieve Prepare Success");
                 RedirectPage redirect = new RedirectPage(this, "Archiving.Prepare", SessionProperty);

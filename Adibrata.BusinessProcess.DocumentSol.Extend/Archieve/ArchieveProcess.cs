@@ -33,8 +33,9 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
            
                 sqlParams = new SqlParameter[1];
                 sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt);
-
+                //sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt);
+                sqlParams[0].Value = _ent.Id;
+                
                 #endregion
 
                 SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spArchievePrepare", sqlParams);
@@ -82,7 +83,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 newEnt.DocTransCode = _ent.DocTransCode; 
                 sqlParams = new SqlParameter[2];
                 sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
-                sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt);
+                //sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt);
+                sqlParams[0].Value = _ent.Id;
                 sqlParams[1] = new SqlParameter("@Status", SqlDbType.VarChar, 2);
                 sqlParams[1].Value = _ent.ApprovalStatus;
 

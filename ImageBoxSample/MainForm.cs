@@ -103,6 +103,11 @@ namespace ImageBoxSample
 
             dlg.Title = "Select a picture";
             dlg.AddExtension = true;
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+            "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+            "Portable Network Graphic (*.png)|*.png|"  +
+            "All files (*.*)|*.*";
             dlg.ShowDialog();
             if (dlg.FileName != "")
             {

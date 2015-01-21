@@ -36,7 +36,7 @@ namespace Adibrata.Framework.ImageProcessing
             Graphics grPhoto = Graphics.FromImage(bmPhoto);
 
             ////create a image object containing the watermark
-            Bitmap imgbitmap = ConvertTexttoImage("Copyright", "Arial", 15);
+            Bitmap imgbitmap = ConvertTexttoImage("Copyright", "Arial", 45);
             Image imgWatermark = imgbitmap;
             int wmWidth = 10;
             int wmHeight = 10;
@@ -190,7 +190,7 @@ namespace Adibrata.Framework.ImageProcessing
             string fileName = Path.GetFileNameWithoutExtension(WorkingDirectory);
             string extension = Path.GetExtension(WorkingDirectory);
             string newPath = path + "\\" + fileName + "_marking" + extension;
-            imgPhoto.Save(newPath);
+            imgPhoto.Save(newPath,ImageFormat.Jpeg);
             imgPhoto.Dispose();
             return newPath;
 

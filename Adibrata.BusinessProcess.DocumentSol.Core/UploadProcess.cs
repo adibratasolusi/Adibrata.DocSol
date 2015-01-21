@@ -239,11 +239,14 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sbsearchtag.Append(" Search ");
                 sbsearchtag.Append(" Upload Time ");
                 sbsearchtag.Append(DateTime.Now.ToString("dd/MM/yyyy"));
+                sbsearchtag.Append(" ");
                 sbsearchtag.Append(DateTime.Now.ToString("MM/dd/yyyy"));
+                sbsearchtag.Append(" ");
                 sbsearchtag.Append(DateTime.Now.ToString("yyyy/MM/dd"));
+                sbsearchtag.Append(" ");
                 sbsearchtag.Append(DateTime.Now.ToString("HH:MM:ss"));
-                
-                sbsearchtag.Append("Upload Document ");
+                sbsearchtag.Append(" ");
+                sbsearchtag.Append(" Upload Document ");
                 sbsearchtag.Append(" User Upload ");
                 sbsearchtag.Append(_ent.UserLogin);
                 sbsearchtag.Append(" Document Upload ");
@@ -307,9 +310,13 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     sbsearchtag.Append(_ent.Ext);
                     sbsearchtag.Append(" File Upload Date ");
                     sbsearchtag.Append(_ent.DateCreated.ToString("dd/MM/yyyy"));
+                    sbsearchtag.Append(" ");
                     sbsearchtag.Append(_ent.DateCreated.ToString("MM/dd/yyyy"));
+                    sbsearchtag.Append(" ");
                     sbsearchtag.Append(_ent.DateCreated.ToString("yyyy/MM/dd"));
+                    sbsearchtag.Append(" ");
                     sbsearchtag.Append(_ent.DateCreated.ToString("HH:mm:ss"));
+                    sbsearchtag.Append(" ");
                     sbsearchtag.Append(" Ukuran File ");
                     sbsearchtag.Append(_ent.SizeFileBytes.ToString());
                     sbsearchtag.Append(" Bytes ");
@@ -366,16 +373,18 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                     sbsearchtag.Append(" Document Type Code ");
                     sbsearchtag.Append(_ent.DtContent.Rows[i]["Field1"].ToString());
                     
-                    sbsearchtag.Append(" Content Name");
+                    sbsearchtag.Append(" Content Name ");
                     sbsearchtag.Append(_ent.DtContent.Rows[i]["Field2"].ToString());
                     sbsearchtag.Append(" Value ");
                     sbsearchtag.Append(_ent.ContentValue);
                     
                     sbsearchtag.Append(" Value Date ");
                     sbsearchtag.Append(_ent.ContentValueDate.ToString("dd/MM/yyyy"));
+                    sbsearchtag.Append(" ");
                     sbsearchtag.Append(_ent.ContentValueDate.ToString("MM/dd/yyyy"));
+                    sbsearchtag.Append(" ");
                     sbsearchtag.Append(_ent.ContentValueDate.ToString("yyyy/MM/dd"));
-                    
+                    sbsearchtag.Append(" ");
                     if (_ent.DocContentNeedApproval)
                     {
                         sbsearchtag.Append(" Request To ");

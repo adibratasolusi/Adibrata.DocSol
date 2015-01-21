@@ -2,24 +2,16 @@
 using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Configuration;
 using Adibrata.Controller;
+using Adibrata.Framework.ImageProcessing;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
-using Microsoft.Win32;
+using ImageBoxSample;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Drawing;
-using ImageBoxSample;
-using Adibrata.Framework.ImageProcessing;
-
-
-
-
-
 
 
 namespace Adibrata.DocumentSol.Windows.UploadInquiry

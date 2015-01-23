@@ -91,17 +91,17 @@
     <None Include="Service References\ServiceWCF\Adibrata.Framework.Messaging.ServiceWCF.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceWCF\ServiceWCF.wsdl" />
-    <None Include="Service References\ServiceWCF\ServiceWCF.xsd">
+    <None Include="Service References\ServiceWCF\ServiceWCF1.wsdl" />
+    <None Include="Service References\ServiceWCF\ServiceWCF4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceWCF\ServiceWCF1.xsd">
+    <None Include="Service References\ServiceWCF\ServiceWCF41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceWCF\ServiceWCF2.xsd">
+    <None Include="Service References\ServiceWCF\ServiceWCF42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceWCF\ServiceWCF3.xsd">
+    <None Include="Service References\ServiceWCF\ServiceWCF43.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

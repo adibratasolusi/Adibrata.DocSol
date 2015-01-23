@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://maximus-pc/WCF/ServiceWCF.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/adibrata.wcf/ServiceWCF.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServiceWCF.xsd" MetadataType="Schema" ID="0390fb34-905c-49ca-bc58-e5ae443682a5" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd1" />
-    <MetadataFile FileName="ServiceWCF1.xsd" MetadataType="Schema" ID="7379d320-23a8-4c03-8d97-bd8cdfd986bb" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServiceWCF2.xsd" MetadataType="Schema" ID="5f3c5510-a5c0-4bd5-8af2-9c0f381af519" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd3" />
-    <MetadataFile FileName="ServiceWCF3.xsd" MetadataType="Schema" ID="536b54de-e7dc-4610-b3aa-462c2ea3d5b2" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?xsd=xsd2" />
-    <MetadataFile FileName="ServiceWCF.wsdl" MetadataType="Wsdl" ID="61ea7d3c-4ebb-49a8-a2b4-23c2b6fe9d3b" SourceId="1" SourceUrl="http://maximus-pc/WCF/ServiceWCF.svc?wsdl" />
+    <MetadataFile FileName="ServiceWCF4.xsd" MetadataType="Schema" ID="ca770082-3380-4f2b-82c0-32ca30588c36" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/ServiceWCF.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceWCF41.xsd" MetadataType="Schema" ID="24dfae44-cd95-4067-a248-5d3200c162ee" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/ServiceWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceWCF42.xsd" MetadataType="Schema" ID="25cb5ba9-7801-43b8-85cf-2b4a3b113fcf" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/ServiceWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceWCF43.xsd" MetadataType="Schema" ID="02f7282c-643c-40e4-9c2b-28a40d960bcc" SourceId="1" SourceUrl="http://localhost/Adibrata.WCF/ServiceWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceWCF1.wsdl" MetadataType="Wsdl" ID="9ebda062-406f-4c49-a0d3-3021de198053" SourceId="1" SourceUrl="http://localhost/adibrata.wcf/ServiceWCF.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

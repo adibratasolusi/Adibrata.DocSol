@@ -77,10 +77,10 @@
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Binding="{Binding Ext}" Header="EKSTENSION" x:Name="Ext" Width="50"/>
                                 <DataGridTextColumn Binding="{Binding JumlahFile}" Header="JUMLAH FILE" x:Name="JumlahFile" Width="50" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding TotalSize,StringFormat=\{0:N0\}}" Header="TOTAL SIZE" x:Name="TotalSize" Width="150" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding Maximum,StringFormat=\{0:N0\}}" Header="MAXIMUM SIZE" x:Name="Maximum" Width="150" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding Minimum,StringFormat=\{0:N0\}}" Header="MINIMUM SIZE" x:Name="Minimum" Width="150" FontSize="14" />
-                                <DataGridTextColumn Binding="{Binding Average,StringFormat=\{0:N0\}}" Header="AVERAGE SIZE" x:Name="Average" Width="150" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding TotalSize,StringFormat=\{0:N0\}}" Header="TOTAL SIZE (BYTE)" x:Name="TotalSize" Width="150" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Maximum,StringFormat=\{0:N0\}}" Header="MAXIMUM SIZE (BYTE)" x:Name="Maximum" Width="150" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Minimum,StringFormat=\{0:N0\}}" Header="MINIMUM SIZE (BYTE)" x:Name="Minimum" Width="150" FontSize="14" />
+                                <DataGridTextColumn Binding="{Binding Average,StringFormat=\{0:N0\}}" Header="AVERAGE SIZE (BYTE)" x:Name="Average" Width="150" FontSize="14" />
 
                             </DataGrid.Columns>
                         </DataGrid>

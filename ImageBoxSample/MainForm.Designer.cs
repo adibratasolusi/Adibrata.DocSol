@@ -38,6 +38,9 @@
             this.showImageRegionToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.showSourceImageRegionToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnDownload = new System.Windows.Forms.Button();
+            this.dlg = new System.Windows.Forms.SaveFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -160,11 +163,22 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(53, 0);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(75, 23);
+            this.btnDownload.TabIndex = 3;
+            this.btnDownload.Text = "Download";
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 466);
+            this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip1);
@@ -172,6 +186,7 @@
             this.Text = "Image Viewer";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
@@ -194,6 +209,8 @@
     private System.Windows.Forms.ToolStripButton showImageRegionToolStripButton;
     private System.Windows.Forms.ToolStripButton showSourceImageRegionToolStripButton;
     private System.Windows.Forms.ToolStrip toolStrip1;
+    private System.Windows.Forms.Button btnDownload;
+    private System.Windows.Forms.SaveFileDialog dlg;
   }
 }
 

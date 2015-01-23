@@ -137,21 +137,6 @@
                                         </Grid>
                                         <Grid Grid.Row ="3" Grid.Column="0" Grid.ColumnSpan="3">
                                             <StackPanel Orientation="Horizontal" Name="spButton">
-                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnRotate" Click="btnRotate_Click">
-                                                    <Label>_Rotate</Label>
-                                                </Button>
-                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnCheckOut" Click="btnCheckOut_Click">
-                                                    <Label>_CheckOut</Label>
-                                                </Button>
-                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnWaterMark" Click="btnWaterMark_Click">
-                                                    <Label>_WaterMark</Label>
-                                                </Button>
-                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnLock" Click="btnLock_Click">
-                                                    <Label>_Lock</Label>
-                                                </Button>
-                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnGreyScale" Click="btnGreyScale_Click">
-                                                    <Label>_GreyScale</Label>
-                                                </Button>
                                                 <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnDownload" Click="btnDownload_Click">
                                                     <Label>_Download</Label>
                                                 </Button>

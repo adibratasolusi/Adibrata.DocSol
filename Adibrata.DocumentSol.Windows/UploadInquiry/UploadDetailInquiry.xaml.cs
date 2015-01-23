@@ -2,21 +2,16 @@
 using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Configuration;
 using Adibrata.Controller;
+using Adibrata.Framework.ImageProcessing;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
-using Microsoft.Win32;
+using ImageBoxSample;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Drawing;
-
-
-
-
 
 
 namespace Adibrata.DocumentSol.Windows.UploadInquiry
@@ -267,7 +262,14 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                     _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
                     _extention = _filename.PadRight(4);
                     //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
-
+                    if (_extention == ".jpg" ||_extention == ".png")
+                    {
+                        MainForm imgViewer = new MainForm();
+                        imgViewer.img = ImageConverterProcess.byteArrayToImage(_imgbin);
+                        imgViewer.showDlg();
+                    }
+                    else
+                    {
                     dlg.Title = "Select a picture";
                     dlg.DefaultExt = _extention;
                     dlg.Filter = "Portable Document Format (*.pdf)|*.pdf|" +
@@ -297,6 +299,9 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
                         }
                     }
+                    }
+
+                   
                 }
             }
             catch (Exception _exp)
@@ -363,6 +368,14 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                         _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
                         _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
                         _extention = _filename.PadRight(4);
+                        if (Path.GetExtension(_extention) == ".jpg" || Path.GetExtension(_extention) == ".png")
+                        {
+                            MainForm imgViewer = new MainForm();
+                            imgViewer.img = ImageConverterProcess.byteArrayToImage(_imgbin);
+                            imgViewer.showDlg();
+                        }
+                        else
+                        {
                         //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
 
                         dlg.Title = "Select a picture";
@@ -393,14 +406,18 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                                 _FileStream.Close();
 
                             }
-                        }
                         WebBrowser wb = new WebBrowser();
                         string _url;
                         _url = @_filename;
 
                         //"file://" +
                         wb.Navigate(new Uri(@_filename));
+                            }
+                            else 
+                            { 
+                            }
               
+                        }
 
                         
                     }

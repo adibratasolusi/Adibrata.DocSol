@@ -3,24 +3,25 @@ using Adibrata.Configuration;
 using Adibrata.Framework.DataAccess;
 using Adibrata.Framework.Logging;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Adibrata.BusinessProcess.Paging.Extend
 {
-    public class UploadProcessPaging : Adibrata.BusinessProcess.Paging.Core.UploadProcessPaging
+    public class EditDocument : Adibrata.BusinessProcess.Paging.Core.EditDocument
     {
-
         static string Connectionstring = AppConfig.Config("ConnectionString");
-
-        public virtual DataTable UploadInquiry(PagingEntities _ent)
+        public virtual DataTable EditDocumentPaging(PagingEntities _ent)
         {
             DataTable _dt = new DataTable();
             StringBuilder sb = new StringBuilder();
             try
             {
-                sb.Append("spUploadInquiry");
+                sb.Append("spEditDocumentPaging");
                 SqlParameter[] sqlParams = new SqlParameter[4];
                 sqlParams[0] = new SqlParameter("@StartRecord", SqlDbType.VarChar, 7);
                 sqlParams[0].Value = _ent.StartRecord;
@@ -53,41 +54,5 @@ namespace Adibrata.BusinessProcess.Paging.Extend
             return _dt;
         }
 
-        public virtual Int64 UploadInquiryTotRec(PagingEntities _ent)
-        {
-            DataTable _dt = new DataTable();
-            StringBuilder sb = new StringBuilder();
-            Int64 _value = 0;
-            try
-            {
-                sb.Append("spUploadInquiryTotRec");
-                SqlParameter[] sqlParams = new SqlParameter[2];
-  
-                sqlParams[0] = new SqlParameter("@wherecond", SqlDbType.VarChar, 8000);
-                sqlParams[0].Value = _ent.WhereCond;
-                sqlParams[1] = new SqlParameter("@sortby", SqlDbType.VarChar, 8000);
-                sqlParams[1].Value = _ent.SortBy;
-
-
-               _value = Convert.ToInt64(SqlHelper.ExecuteScalar(Connectionstring, CommandType.StoredProcedure, sb.ToString(), sqlParams));
-            }
-            catch (Exception _exp)
-            {
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = _ent.UserLogin,
-                    NameSpace = "Adibrata.BusinessProcess.Paging.Extend",
-                    ClassName = "UploadProcessPaging",
-                    FunctionName = "UploadInquiry",
-                    ExceptionNumber = 1,
-                    EventSource = "Customer",
-                    ExceptionObject = _exp,
-                    EventID = 200,
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
-            return _value;
-        }
     }
 }

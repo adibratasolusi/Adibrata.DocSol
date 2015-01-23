@@ -1,14 +1,14 @@
-﻿<Page x:Class="Adibrata.DocumentSol.Windows.DocumentContent.DocTransActivity"
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.EditUploadDocument.EditDocumentUpload"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    
+       xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"
+    
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"
-      xmlns:Favorite="clr-namespace:Adibrata.Windows.UserController.Favorite;assembly=Adibrata.Windows.UserController"
       mc:Ignorable="d" 
-	Title="DocTransActivity">
-
-
+     
+	Title="EditDocumentUpload">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
             <Grid.RowDefinitions>
@@ -16,8 +16,8 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold">DOCUMENT ACTIVITY VIEW INQUIRY</TextBlock>
-                <Favorite:AddFavorite Name="oFavorite" HorizontalAlignment="Right"/>
+                <TextBlock FontSize="20" FontWeight="Bold">Edit Document</TextBlock>
+      
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -43,7 +43,6 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="User Name" Width="200"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Code" Width="200"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Name"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Code"/>
@@ -53,11 +52,10 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtUserName" Width="300"/>
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtCustCode" Width="300"/>
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Width="300"/>
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtProjCode" Width="300"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjName" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjName" Width="300" />
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Width="300"/>
                                 </StackPanel>
                             </Grid>
@@ -73,26 +71,36 @@
                     <GroupBox>
                         <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <StackPanel>
-                                            <Button Name="btnDetail" Click="btnDetail_Click" Content="Detail" ToolTip="Detail Upload" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}" >
+                                            <Button Name="btnEdit" Click="btnEdit_Click" Content="Edit" ToolTip="Edit Document" FontSize="12" Style="{StaticResource buttonStyle}">
                                             </Button>
-                                            </StackPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANS CODE" x:Name="Id" Width="120"/>
-                                <DataGridTextColumn Binding="{Binding UserName}" Header="USER NAME" x:Name="UserName" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANSACTIONS ID" x:Name="Id" Width="120"/>
                                 <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="120" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding DocTransStatus}" Header="STATUS" x:Name="DocTransStatus" Width="50" />
+                                <DataGridTextColumn Binding="{Binding ProjName}"  Header="PROJECT NAME" x:Name="ProjName" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="150"/>
+
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILE NAME" x:Name="FileName" Width="150"/>
+                                <DataGridTemplateColumn Header="FILE SIZE" Width="100">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}" HorizontalAlignment="Right" >
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Extention}" Header="FILE TYPE" x:Name="FileType" Width="80"/>
+                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="80"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
                 </Grid>
+
                 <Grid Grid.Column="0" Grid.Row="3"  Grid.ColumnSpan="2">
                     <GroupBox>
                         <Grid>

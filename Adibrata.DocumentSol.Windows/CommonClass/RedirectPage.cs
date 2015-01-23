@@ -99,6 +99,12 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
+                #region "Edit Upload Document"
+                case "EditUploadDocument.EditDocumentUpload": Source.NavigationService.Navigate(new EditUploadDocument.EditDocumentUpload(_ent)); break;
+                case "EditUploadDocument.EditDocumentUploadDetail": Source.NavigationService.Navigate(new EditUploadDocument.EditDocumentUploadDetail(_ent)); break;
+
+                #endregion
+
                 #region "UserForm"
                 case "UserManagement.UserFormRegistration.UserFormRegistration": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistration(_ent)); break;
                 case "UserManagement.UserFormRegistration.UserFormRegistrationPaging": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistrationPaging(_ent)); break;
@@ -248,6 +254,12 @@ namespace Adibrata.DocumentSol.Windows
                 #region "Upload Inquiry"
                 case "UploadInquiry.UploadInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)); break;
                 case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
+
+                #endregion
+
+                #region "Edit Upload Document"
+                case "EditUploadDocument.EditDocumentUpload": Source.NavigationService.Navigate(new EditUploadDocument.EditDocumentUpload(_ent)); break;
+                case "EditUploadDocument.EditDocumentUploadDetail": Source.NavigationService.Navigate(new EditUploadDocument.EditDocumentUploadDetail(_ent)); break;
 
                 #endregion
 

@@ -45,6 +45,7 @@
     <Compile Include="DeleteDocument\DeleteDocument.cs" />
     <Compile Include="DocumentContent\DocContent.cs" />
     <Compile Include="DocumentContent\DocType.cs" />
+    <Compile Include="EditDocument\EditDocument.cs" />
     <Compile Include="ImageProcess\ImageProcess.cs" />
     <Compile Include="Project\ProjectRegistrasi.cs" />
     <Compile Include="Storage\StorageMonitoring.cs">

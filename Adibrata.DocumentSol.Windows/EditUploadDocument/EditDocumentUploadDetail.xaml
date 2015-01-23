@@ -1,0 +1,113 @@
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.EditUploadDocument.EditDocumentUploadDetail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:DocContent="clr-namespace:Adibrata.Windows.UserController.DocContent;assembly=Adibrata.Windows.UserController"
+       xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"
+ 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+	Title="EditDocumentUploadDetail">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource GridStyle}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="Auto"  />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="EDIT DOCUMENT UPLOAD" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
+                <StackPanel>
+                    <TextBlock Text="Customer Code" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Customer Name" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Project Code" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Project Name" Style="{StaticResource TextBlockStyle}" Width="200"/>
+                    <TextBlock Text="Project Type" Style="{StaticResource TextBlockStyle}" Width="200"/>
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <StackPanel>
+                    <TextBlock x:Name="lblCustomerCode" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblCustomerName" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblProjectName" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock x:Name="lblProjectType" Style="{StaticResource TextBlockStyle}"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBlock x:Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type" Width="200"/>
+                </Grid>
+                <Grid Grid.Column="1" HorizontalAlignment="Left">
+                    <ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="250" IsEditable="True" IsTextSearchEnabled="True" 
+						 SelectedValue ="{Binding Result}" ItemsSource="{Binding}"  SelectedValuePath="Result" DisplayMemberPath="Result" 
+                                SelectedItem="{Binding Path=Result}">
+
+                    </ComboBox>
+                </Grid>
+
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+                <Grid Grid.Column="0">
+                    <StackPanel Name="spContent">
+
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1">
+
+                    <StackPanel Name="spValue">
+
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
+                <!--<Grid>
+                    <UploadAgreement:UCUploadAgreement x:Name="ucUpload" Width="Auto" Height="Auto"  Visibility="Hidden"/>
+                </Grid>-->
+            </Grid>
+            <!--<Grid Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+                <UserController:UCRequestApproval x:Name="oApproval" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
+            </Grid>-->
+            <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+
+                    <Button x:Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Save Data Document Content">
+                        <Label>_Save</Label>
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button x:Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Back To Project Paging">
+                        <Label>_Back</Label>
+
+                    </Button>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

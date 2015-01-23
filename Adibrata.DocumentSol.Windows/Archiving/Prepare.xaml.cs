@@ -83,11 +83,11 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                 {
                     gbQueue.Visibility = Visibility.Visible;
                 }
-                
+
                 listCode.Add(tbDocTransCode.Text);
-                
-                dgQueue.Items.Add(new DataItem {  DocTransCode = tbDocTransCode.Text, DocTypeCode = tbDocTypeCode.Text, });
-                
+
+                dgQueue.Items.Add(new DataItem { DocTransCode = tbDocTransCode.Text, DocTypeCode = tbDocTypeCode.Text, });
+
                 dgQueue.Items.Refresh();
 
             }
@@ -215,7 +215,7 @@ namespace Adibrata.DocumentSol.Windows.Archiving
 
         private void btnPrepare_Click(object sender, RoutedEventArgs e)
         {
-          
+
             try
             {
                 DocSolEntities _ent = new DocSolEntities
@@ -227,10 +227,10 @@ namespace Adibrata.DocumentSol.Windows.Archiving
                 _ent.ListArchieve = listCode;
                 _ent.UserName = SessionProperty.UserName;
                 _ent.DocTransCode = SessionProperty.ReffKey;
-              //  SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(_ent));
+                //  SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(_ent));
 
 
-        
+
 
                 DocumentSolutionController.DocSolProcess<string>(_ent);
                 MessageBox.Show("Document Prepare Success");

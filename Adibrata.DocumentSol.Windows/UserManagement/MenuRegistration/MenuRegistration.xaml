@@ -37,7 +37,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0" Width="100" HorizontalAlignment="Left" Name="grdAdd">
-                            <Button Name="btnAdd" Click="btnAdd_Click">
+                            <Button Name="btnAdd" Click="btnAdd_Click" FontSize="18" Style="{StaticResource buttonStyle}" >
                                 <Label>_Add</Label></Button>
                         </Grid>
                         <Grid  Name="grdAddEdit" Grid.Row="1">
@@ -115,11 +115,11 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Button Name="btnSave" Click="btnSave_Click">
+                        <Button Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                             <Label>_Save</Label></Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click">
+                        <Button Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}">
                             <Label>_Back</Label>
                         </Button>
                     </Grid>

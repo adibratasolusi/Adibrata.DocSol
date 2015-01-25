@@ -91,7 +91,30 @@ namespace Adibrata.DocumentSol.Windows.Archiving
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
 
-            RedirectPage redirect = new RedirectPage(this, "Archiving.Prepare", SessionProperty);
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "Archiving.Prepare", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.Archiving",
+                    ClassName = "PrepareDetail",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "PrepareDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Managemetn
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+
+            
         }
     }
 }

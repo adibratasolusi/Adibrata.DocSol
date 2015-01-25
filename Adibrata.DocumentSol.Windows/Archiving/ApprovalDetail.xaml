@@ -15,6 +15,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+               
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <TextBlock FontSize="20" FontWeight="Bold">ARCHIEVE APPROVAL DETAIL</TextBlock>
@@ -22,7 +23,23 @@
             <Grid Grid.Row="1">
 
                 <UserController:UCDocTransBinaryContentView Name="ucView" />
+                
             </Grid>
+            <!--<Grid Grid.Row="2">
+                <Grid Grid.Column="0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Prepare By    :" ></TextBlock>
+                        <TextBlock Text="User Update :" ></TextBlock>
+
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Name="Prepare">
+                    <StackPanel>
+                        <TextBlock VerticalAlignment="Top" Style="{StaticResource TextBlockStyle}" Text="{Binding UsrUpd}"></TextBlock>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ArchiveProcessBy}"></TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Grid>-->
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -30,6 +47,7 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+             
                 <StackPanel Orientation="Horizontal">
                     <Button Name="btnHold"  Content="Back" ToolTip="Hold"  HorizontalAlignment="Right" Click="btnHold_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
                     <Button Name="btnReject"  Content="Reject" ToolTip="Reject to Archieve"  HorizontalAlignment="Right" Click="btnReject_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>

@@ -161,6 +161,12 @@
     <Compile Include="DocumentMaintenance\DeleteDocumentPaging.xaml.cs">
       <DependentUpon>DeleteDocumentPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditUploadDocument\EditDocumentUpload.xaml.cs">
+      <DependentUpon>EditDocumentUpload.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditUploadDocument\EditDocumentUploadDetail.xaml.cs">
+      <DependentUpon>EditDocumentUploadDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ImageProcess\Bookmark\BookmarkDetail.xaml.cs">
       <DependentUpon>BookmarkDetail.xaml</DependentUpon>
     </Compile>
@@ -455,6 +461,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentMaintenance\DeleteDocumentPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditUploadDocument\EditDocumentUpload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditUploadDocument\EditDocumentUploadDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

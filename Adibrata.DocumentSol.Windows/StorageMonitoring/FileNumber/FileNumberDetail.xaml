@@ -73,10 +73,10 @@
                     </Grid.ColumnDefinitions>
                     <DataGrid IsTextSearchEnabled="True" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" VerticalAlignment="Stretch">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding DocTransCode}"  Header="DOCUMENT CODE" x:Name="DocTransCode" Width="120"/>
+                            <!--<DataGridTextColumn Binding="{Binding DocTransCode}"  Header="DOCUMENT CODE" x:Name="DocTransCode" Width="120"/>
                             <DataGridTextColumn Binding="{Binding FileName}" Header="FILENAME" x:Name="FileName" Width="150"/>
                             <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCTYPE" x:Name="DocTypeCode" Width="200" FontSize="14" />
-                            <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE" x:Name="SizeFileBytes" Width="200" FontSize="14" />
+                            <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="SIZE" x:Name="SizeFileBytes" Width="200" FontSize="14" />-->
                             <DataGridTemplateColumn x:Name="preview" Visibility="Hidden">
                         <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

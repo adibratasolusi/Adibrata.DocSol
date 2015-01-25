@@ -47,6 +47,7 @@
     <Compile Include="DocumentMaintenance\ImageProcessCheckin.cs" />
     <Compile Include="DocumentMaintenance\ImageProcessCheckout.cs" />
     <Compile Include="DocumentMaintenance\ImageProcessPaging.cs" />
+    <Compile Include="EditDocument\EditDocument.cs" />
     <Compile Include="FileTransfer\FileTransferPaging.cs" />
     <Compile Include="Form\FormRegistrasi.cs" />
     <Compile Include="LogOut\LogOut.cs" />

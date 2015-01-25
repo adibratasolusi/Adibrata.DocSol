@@ -79,6 +79,7 @@
     <Folder Include="StoreProcedure\Search Engine Document" />
     <Folder Include="StoreProcedure\Favorite Menu" />
     <Folder Include="StoreProcedure\DocTransActivity" />
+    <Folder Include="StoreProcedure\EditUploadDocument" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Agrmnt.Table.sql" />
@@ -236,5 +237,8 @@
     <Build Include="StoreProcedure\ImageProcess\spDocTransBinaryNoteView.sql" />
     <Build Include="StoreProcedure\ImageProcess\spDocTransBinaryUpdateBinary.sql" />
     <Build Include="StoreProcedure\ImageProcess\spDocTransBinaryUpdateNote.sql" />
+    <Build Include="StoreProcedure\EditUploadDocument\spEditDocumentvalue.sql" />
+    <Build Include="StoreProcedure\EditUploadDocument\spEditDocumentPaging.sql" />
+    <Build Include="StoreProcedure\EditUploadDocument\spEditUploadDocument.sql" />
   </ItemGroup>
 </Project>

@@ -31,10 +31,14 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 #region "List Parameter SQL"
                 newEnt.DocTransCode = _ent.DocTransCode; 
            
-                sqlParams = new SqlParameter[1];
+                sqlParams = new SqlParameter[3];
                 sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
                 //sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt);
                 sqlParams[0].Value = _ent.Id;
+                sqlParams[1] = new SqlParameter("@Username", SqlDbType.VarChar,20);
+                sqlParams[1].Value = _ent.UserName;
+                sqlParams[2] = new SqlParameter("@ArcvProcBye", SqlDbType.VarChar, 20);
+                sqlParams[2].Value = _ent.UserName;
                 
                 #endregion
 
@@ -139,10 +143,14 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
 
                     newEnt.DocTransCode = _ent.ListArchieve[i]; //modified fredy
      
-                    sqlParams = new SqlParameter[1];
+                    sqlParams = new SqlParameter[3];
                     sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
                     sqlParams[0].Value = uplProc.DocTransGetTransID(newEnt); //modified
-                    
+                    sqlParams[1] = new SqlParameter("@Username", SqlDbType.VarChar, 20);
+                    sqlParams[1].Value = _ent.UserName;
+                    sqlParams[2] = new SqlParameter("@ArcvProcBye", SqlDbType.VarChar, 20);
+                    sqlParams[2].Value = _ent.UserName;
+                
 
                     #endregion
 

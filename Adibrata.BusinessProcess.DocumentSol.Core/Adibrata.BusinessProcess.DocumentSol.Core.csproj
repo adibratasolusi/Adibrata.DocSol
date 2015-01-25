@@ -46,6 +46,7 @@
     <Compile Include="Customer\DeleteDocument\DeleteDocument.cs" />
     <Compile Include="DocContent\DocContent.cs" />
     <Compile Include="DocContent\DocType.cs" />
+    <Compile Include="EditDocument\EditDocument.cs" />
     <Compile Include="ImageProcess\ImageProcess.cs" />
     <Compile Include="Project\ProjectRegistrasi.cs" />
     <Compile Include="Storage\StorageMonitoring.cs" />

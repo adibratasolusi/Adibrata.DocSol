@@ -68,7 +68,7 @@ namespace Adibrata.DocumentSol.Windows.Login
                     else
                     {
                         if (_ent.UserName == "")
-                        { lblMessage.Text = "Pleasse Enter Your User Name"; }
+                        { lblMessage.Text = "Please Enter Your User Name"; }
                         else
                         {
                             if (_ent.Password == "") { lblMessage.Text = "Please Enter Your Password"; }

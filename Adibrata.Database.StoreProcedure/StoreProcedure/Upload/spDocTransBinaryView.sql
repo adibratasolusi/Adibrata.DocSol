@@ -15,7 +15,7 @@ BEGIN
 	SET NOCOUNT ON;
 	
 	exec spDocTransActivityInsert @username = @UserName, @DocTransId = @DocTransId,@description = 'Binary View'
-	select 
+	select Id,
 	FileName,DateCreated,SizeFileBytes,Pixel,ComputerName,DPI,
 	FileBinary,	CAST(CASE WHEN DPI <> '-' THEN FileBinary ELSE null END as varbinary(MAX)) AS FileBin, 
 	dbo.FnDocTransActivity (DocTransID) as Activity

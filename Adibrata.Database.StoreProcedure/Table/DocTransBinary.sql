@@ -12,5 +12,7 @@
 	[UsrUpd] [varchar](50) NULL,
 	[DtmUpd] [smalldatetime] NULL,
 	[UsrCrt] [varchar](50) NULL,
-	[DtmCrt] [smalldatetime] NULL
+	[DtmCrt] [smalldatetime] NULL,
+	Note varchar(20) null,
+	OriginalBinary varbinary(max) null
 ) on FileUpload

@@ -251,6 +251,174 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 #endregion
             }
         }
+        public void UpdateBinaryDocTransBinary(DocSolEntities _ent)//method
+        {
+            SqlParameter[] sqlParams;
+            SqlDataReader _rdr;
+            try
+            {
+                #region "List Parameter SQL"
+                sqlParams = new SqlParameter[4];
+                sqlParams[0] = new SqlParameter("@DocTransBinaryId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
+                sqlParams[1] = new SqlParameter("@Note", SqlDbType.VarChar, 20);
+                sqlParams[1].Value = _ent.Note;
+                sqlParams[2] = new SqlParameter("@OldBinary", SqlDbType.VarBinary);
+                sqlParams[2].Value = _ent.OldFileBinary;
+                sqlParams[3] = new SqlParameter("@NewBinary", SqlDbType.VarBinary);
+                sqlParams[3].Value = _ent.NewFileBinary;
+                sqlParams[4] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 20);
+                sqlParams[4].Value = _ent.UserName;
+
+
+                _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocTransBinaryUpdateBinary", sqlParams);
+
+
+                _rdr.Close();
+                #endregion
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "ImageProcess",
+                    FunctionName = "UpdateBinaryDocTransBinary",
+                    ExceptionNumber = 1,
+                    EventSource = "ImageProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 80 Untuk DocumentManagement
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+        }
+        public void UpdateNoteDocTransBinary(DocSolEntities _ent)//method
+        {
+            SqlParameter[] sqlParams;
+            SqlDataReader _rdr;
+            try
+            {
+                #region "List Parameter SQL"
+                sqlParams = new SqlParameter[3];
+                sqlParams[0] = new SqlParameter("@DocTransBinaryId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
+                sqlParams[1] = new SqlParameter("@Note", SqlDbType.VarChar, 20);
+                sqlParams[1].Value = _ent.Note;
+                sqlParams[2] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 20);
+                sqlParams[2].Value = _ent.UserName;
+
+
+                _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocTransBinaryUpdateNote", sqlParams);
+
+
+                _rdr.Close();
+                #endregion
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "ImageProcess",
+                    FunctionName = "UpdateNoteDocTransBinary",
+                    ExceptionNumber = 1,
+                    EventSource = "ImageProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 80 Untuk DocumentManagement
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+        }
+
+
+        public DataTable DocTransBinaryNoteView(DocSolEntities _ent)//method
+        {
+            SqlParameter[] sqlParams;
+            DataTable dt = new DataTable();
+            try
+            {
+                #region "List Parameter SQL"
+                sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@DocTransBinaryId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
+
+
+                dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocTransBinaryNoteView", sqlParams));
+
+
+                #endregion
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "ImageProcess",
+                    FunctionName = "DocTransBinaryNoteView",
+                    ExceptionNumber = 1,
+                    EventSource = "ImageProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 80 Untuk DocumentManagement
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+            return dt;
+        }
+        public void DocTransBinaryReplaceFileBinary(DocSolEntities _ent)//method
+        {
+            SqlParameter[] sqlParams;
+            SqlDataReader _rdr;
+            try
+            {
+                #region "List Parameter SQL"
+                sqlParams = new SqlParameter[3];
+                sqlParams[0] = new SqlParameter("@DocTransBinaryId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
+                sqlParams[1] = new SqlParameter("@FileBinary", SqlDbType.VarBinary);
+                sqlParams[1].Value = _ent.FileBinary;
+                sqlParams[2] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 20);
+                sqlParams[2].Value = _ent.UserName;
+
+
+                _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spDocTransBinaryReplaceFileBinary", sqlParams);
+
+
+                _rdr.Close();
+                #endregion
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "ImageProcess",
+                    FunctionName = "UpdateNoteDocTransBinary",
+                    ExceptionNumber = 1,
+                    EventSource = "ImageProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 80 Untuk DocumentManagement
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+        }
+
+
 
 
 

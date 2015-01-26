@@ -169,7 +169,6 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
             }
             catch (Exception _exp)
             {
-
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,

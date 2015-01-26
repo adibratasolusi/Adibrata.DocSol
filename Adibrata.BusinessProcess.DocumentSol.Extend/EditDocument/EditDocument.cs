@@ -1,7 +1,9 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.Configuration;
+using Adibrata.Framework.Caching;
 using Adibrata.Framework.DataAccess;
 using Adibrata.Framework.Logging;
+using Adibrata.Framework.Rule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -66,7 +68,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.DocTransId;
                 sqlParams[1] = new SqlParameter("@DocTypeCode", SqlDbType.VarChar,50);
-                sqlParams[1].Value = _ent.DocTypeCode;
+                sqlParams[1].Value = _ent.DocumentType;
                 _dt.Load(SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, sb.ToString(), sqlParams));
 
 
@@ -93,6 +95,72 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             }
             return _dt;
         }
+        public virtual DataTable EditUploadContent(DocSolEntities _ent)
+       {
+           DataTable _dt = new DataTable();
+           RuleEngineEntities _entrule = new RuleEngineEntities { RuleName = "RUDocContentItem" };
+           try
+           {
+               if (!DataCache.Contains(_ent.DocumentType))
+               {
+                   StringBuilder sb = new StringBuilder();
+
+                   sb.Append(" Field1 = '");
+                   sb.Append(_ent.DocumentType);
+                   sb.Append(_ent.ContentValue);
+                   sb.Append("' ");
+                   _entrule.WhereCond = sb.ToString();
+                   _dt = Adibrata.Framework.Rule.RuleEngineProcess.RuleEngineResultList(_entrule);
+                   if (!_dt.Columns.Contains("DataType"))
+                   {
+                       _dt.Columns.Add("DataType", typeof(string));
+                   }
+                   
+                   string _value;
+                   string[] _splitvalue;
+
+                   foreach (DataRow _row in _dt.Rows)
+                   {
+                       _value = _row["Result"].ToString().Replace(")", "");
+                   
+                       _splitvalue = _value.Split('(');
+                       Int16 _counter = 0;
+                       foreach (string word in _splitvalue)
+                       {
+                           if (_counter == 0) { 
+                               _row["Result"] = word; 
+                               _counter = 1; } else {_row["DataType"] = word; _counter = 0; }
+                       }
+                       _row.AcceptChanges();
+                   }
+                   
+                   _dt.AcceptChanges();
+                   DataCache.Insert<DataTable>(_ent.DocumentType, _dt);
+               }
+               else
+               {
+                   _dt = DataCache.Get<DataTable>(_ent.DocumentType);
+               }
+           }
+           catch (Exception _exp)
+           {
+               ErrorLogEntities _errent = new ErrorLogEntities
+               {
+                   UserLogin = _ent.UserLogin,
+                   NameSpace = "Adibrata.BusinessProcess.DocumentSol",
+                   ClassName = "DocContent",
+                   FunctionName = "DocContentRetrieve",
+                   ExceptionNumber = 1,
+                   EventSource = "DocContent",
+                   ExceptionObject = _exp,
+                   EventID = 200, // 80 Untuk Framework 
+                   ExceptionDescription = _exp.Message
+               };
+               ErrorLog.WriteEventLog(_errent);
+           }
+           return _dt;
+
+       }
 
        
     }

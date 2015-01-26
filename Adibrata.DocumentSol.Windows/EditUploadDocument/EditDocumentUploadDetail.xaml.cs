@@ -28,7 +28,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
     {
         DocSolEntities _ent = new DocSolEntities();
         SessionEntities SessionProperty = new SessionEntities();
-        string _custcode;
+        //string _custcode;
         public EditDocumentUploadDetail(SessionEntities _session)
         {
             try
@@ -44,10 +44,12 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                 _ent.UserName = SessionProperty.UserName;
                 //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
                 SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(_ent));
-              
+
 
                 setScreen();
+
                 GenerateControls();
+
                 //txtDocTransId.Text = _ent.DocTransCode;
 
                 //BindContent();
@@ -92,7 +94,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                 lblProjectName.Text = _dt.Rows[0]["ProjName"].ToString();
                 lblProjectType.Text = _dt.Rows[0]["ProjType"].ToString();
                 lblDocumentType.Text = _dt.Rows[0]["DocTypeCode"].ToString();
-
+                _ent.Id = _ent.DocTransId;
                 //lblDocumentType.Text = _dt.Rows[1]["DocTypeCode"].ToString();
             }
 
@@ -123,99 +125,146 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void cboDocumentType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "EditUploadDocument.EditDocumentUpload", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = " Adibrata.DocumentSol.Windows.EditUploadDocument",
+                    ClassName = "EditDocumentUploadDetail",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "EditDocumentUploadDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Managemetn
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
         }
 
         public void GenerateControls()
         {
-            DataTable _dtcontent = new DataTable();
+            //DataTable _dtcontent = new DataTable();
             DataTable _dtValue = new DataTable();
+           
+
             try
             {
-                DocSolEntities _ent = new DocSolEntities { 
-                    ClassName = "DocContent", 
-                    MethodName = "DocContentRetrieve", 
-                    UserLogin = SessionProperty.UserLogin, 
-                    DocumentType = lblDocumentType.Text };
-                _dtcontent = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
-             spValue.Children.Clear();
-               spValue.Children.Clear();
+                //DocSolEntities _ent = new DocSolEntities();
+                
+                //    _ent.ClassName = "EditDocument";
+                //    _ent.MethodName = "EditUploadContent";
+                //    _ent.UserLogin = SessionProperty.UserLogin;
+                //    _ent.DocumentType = lblDocumentType.Text;
+                //    _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+           
+                //_dtcontent = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
 
-               DocSolEntities _entValue = new DocSolEntities
-               {
-                   ClassName = "EditDocument",
-                   MethodName = "EditUploadValue",
-                   UserLogin = SessionProperty.UserLogin,
-                   DocumentType = lblDocumentType.Text
-               };
-               _dtValue = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
 
-                if (_dtcontent.Rows.Count > 0)
+                DocSolEntities _ent = new DocSolEntities();
+                
+                    _ent.ClassName = "EditDocument";
+                    _ent.MethodName = "EditUploadValue";
+                    _ent.UserLogin = SessionProperty.UserLogin;
+                    _ent.DocumentType = lblDocumentType.Text;
+                    _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+            
+                _dtValue = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+               
+                spValue.Children.Clear();
+                spContent.Children.Clear();
+
+
+                if (_dtValue.Rows.Count > 0 )
                 {
+                   
 
-                    foreach (DataRow _row in _dtcontent.Rows)
+                    foreach (DataRow _row in _dtValue.Rows)
                     {
+                        //DataRow _rowv = _dtValue.NewRow();
+
+
                         TextBlock DocContentDescription = new TextBlock();
                         DocContentDescription.Name = _row["Field2"].ToString().Replace(" ", "");
                         DocContentDescription.Text = _row["Field2"].ToString();
                         DocContentDescription.HorizontalAlignment = HorizontalAlignment.Stretch;
                         DocContentDescription.Width = 200;
-
+                        //_dtValue.Equals(_row["ContentValue"]);
+                   
                         DocContentDescription.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
-                       spValue.Children.Remove(DocContentDescription);
-                        spValue.Children.Add(DocContentDescription);
+                        spValue.Children.Remove(DocContentDescription);
+                        spContent.Children.Add(DocContentDescription);
 
-                        spValue.RegisterName(DocContentDescription.Name, DocContentDescription);
-                        string _datatype = _row["DataType"].ToString().ToUpper();
+                        spContent.RegisterName(DocContentDescription.Name, DocContentDescription);
+                        //System.Type type = rdr.GetFieldType(c);
+                        //switch (Type.GetTypeCode(type))
+                        //{
+                        //    case TypeCode.DateTime:
+                        //        break;
+                        //    case TypeCode.String:
+                        //        break;
+                        //    default: break;
+                        //}
 
-                        switch (_row["DataType"].ToString().ToUpper())
-                        {
-                            case "STRING":
-                                {
-                                    TextBox txtInput = new TextBox();
-                                    txtInput.Name = _row["Result"].ToString().Trim();
-                                    txtInput.Text = "-";
-                                    txtInput.Width = 400;
-                                    txtInput.Margin.Top.Equals(5);
-                                    //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
-                               spValue.Children.Add(txtInput);
+                        string input = _row["Result"].ToString().ToLower();
+                        string _datatype = input.Split(new char[] { '(', ')' })[1];
+                        
+                       
+                        switch (_datatype.ToUpper())
+                            {   
+                                case "STRING":
+                                    {
+                                        //string _dataValue = _row["DocTypeCode"].ToString().ToUpper();
 
-                           spValue.RegisterName(txtInput.Name, txtInput);
-                                }
-                                break;
-                            case "DATE":
-                                {
-                                    DatePicker txtInput = new DatePicker();
-                                    txtInput.Name = _row["Result"].ToString().Trim();
-                                    txtInput.Text = DateTime.Now.ToString();
-                                    txtInput.Width = 400;
-                                 spValue.Children.Add(txtInput);
-                                    txtInput.Margin.Top.Equals(5);
-                               spValue.RegisterName(txtInput.Name, txtInput);
-                                }
-                                break;
-                            case "NUMBER":
-                                {
-                                    TextBox txtInput = new TextBox();
-                                    txtInput.Name = _row["Result"].ToString().Trim();
-                                    txtInput.Text = "0";
-                                    txtInput.Width = 400;
-                                    txtInput.Margin.Top.Equals(5);
-                                    //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
-                                   spValue.Children.Add(txtInput);
+                                        TextBox txtInput = new TextBox();
+                                        txtInput.Name = _row["Result"].ToString().Replace(")", "").Replace("(","").Replace("string","").Replace("String","").Trim();
+                                        txtInput.Text = _row["ContentValue"].ToString();
+                                        txtInput.Width = 400;
+                                        txtInput.Margin.Top.Equals(5);
+                                        //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
+                                        spValue.Children.Add(txtInput);
 
-                                   spValue.RegisterName(txtInput.Name, txtInput);
-                                }
-                                break;
-                        }
+                                        spValue.RegisterName(txtInput.Name, txtInput);
+
+                                    }
+                                    break;
+                                case "DATE":
+                                    {
+                                        DatePicker txtInput = new DatePicker();
+                                        txtInput.Name = _row["Result"].ToString().Replace(")", "").Replace("(", "").Replace("Date", "").Replace("date", "").Trim();
+                                        txtInput.Text = _row["ContentValue"].ToString();
+                                        txtInput.Width = 400;
+                                        spValue.Children.Add(txtInput);
+                                        txtInput.Margin.Top.Equals(5);
+                                        spValue.RegisterName(txtInput.Name, txtInput);
+                                    }
+                                    break;
+                                case "NUMBER":
+                                    {
+                                        TextBox txtInput = new TextBox();
+                                        txtInput.Name = _row["Result"].ToString().Replace(")", "").Replace("(","").Replace("number","").Trim();
+                                        txtInput.Text = _row["ContentValue"].ToString();
+                                        txtInput.Width = 400;
+                                        txtInput.Margin.Top.Equals(5);
+                                        //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
+                                        spValue.Children.Add(txtInput);
+
+                                        spValue.RegisterName(txtInput.Name, txtInput);
+                                    }
+                                    break;
+                            }
+                           
+                    }
                     }
                 }
-            }
+        
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
@@ -232,6 +281,44 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+
+        }
+
+        public void ValueContent()
+        {
+            DataTable _dtValue = new DataTable();
+            try
+            {
+                DocSolEntities _entValue = new DocSolEntities();
+                
+                    _ent.ClassName = "EditDocument";
+                    _ent.MethodName = "EditUploadValue";
+                   _ent.UserName = SessionProperty.UserName;
+                    _ent.DocumentType = lblDocumentType.Text;
+                     _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                
+           
+                _dtValue = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+               
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserLogin,
+                    NameSpace = "Adibrata.Windows.UserController.DocContent",
+                    ClassName = "UCDocumentContent",
+                    FunctionName = "GenerateControls",
+                    ExceptionNumber = 1,
+                    EventSource = "Customer",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+          
 
         }
     }

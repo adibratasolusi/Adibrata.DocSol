@@ -110,6 +110,7 @@
                                             </Grid.ColumnDefinitions>
                                             <Grid Grid.Column="0">
                                                 <StackPanel>
+                                                    <TextBlock Text="Id"></TextBlock>
                                                     <TextBlock Text="File Name" Width="150" ></TextBlock>
                                                     <TextBlock Text="Date Created" VerticalAlignment="Top" Height="25"></TextBlock>
                                                     <TextBlock Text="Pixel" VerticalAlignment="Top" Height="25"></TextBlock>
@@ -120,6 +121,7 @@
                                             </Grid>
                                             <Grid Grid.Column="1">
                                                 <StackPanel>
+                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Id}"></TextBlock>
                                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FileName}"></TextBlock>
                                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding DateCreated}"  Height="15" VerticalAlignment="Top"></TextBlock>
                                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Pixel}"  VerticalAlignment="Bottom" Height="20"></TextBlock>

@@ -233,6 +233,10 @@
     <Build Include="StoreProcedure\DocTransActivity\spDocTransActivityPagingTotRec.sql" />
     <Build Include="StoreProcedure\Favorite Menu\spFavoriteMenuList.sql" />
     <Build Include="Function\FnDocTransActivity.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransBinaryReplaceFileBinary.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransBinaryNoteView.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransBinaryUpdateBinary.sql" />
+    <Build Include="StoreProcedure\ImageProcess\spDocTransBinaryUpdateNote.sql" />
     <Build Include="StoreProcedure\EditUploadDocument\spEditDocumentvalue.sql" />
     <Build Include="StoreProcedure\EditUploadDocument\spEditDocumentPaging.sql" />
     <Build Include="StoreProcedure\EditUploadDocument\spEditUploadDocument.sql" />

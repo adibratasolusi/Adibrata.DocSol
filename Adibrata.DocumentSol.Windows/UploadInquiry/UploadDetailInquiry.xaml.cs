@@ -265,6 +265,8 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                     {
                         MainForm imgViewer = new MainForm();
                         imgViewer.img = ImageConverterProcess.byteArrayToImage(_imgbin);
+                        imgViewer.UserName = SessionProperty.UserName;
+                        imgViewer.DocTransBinaryId = Convert.ToInt64((String)((DataRowView)dgPaging.SelectedItem)["Id"]);
                         imgViewer.showDlg();
                     }
                     else
@@ -371,6 +373,8 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
                         {
                             MainForm imgViewer = new MainForm();
                             imgViewer.img = ImageConverterProcess.byteArrayToImage(_imgbin);
+                            imgViewer.UserName = SessionProperty.UserName;
+                            imgViewer.DocTransBinaryId = Convert.ToInt64((String)((DataRowView)dgPaging.SelectedItem)["Id"]);
                             imgViewer.showDlg();
                         }
                         else

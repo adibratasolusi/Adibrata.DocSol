@@ -3,6 +3,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using Cyotek.Windows.Forms;
+using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.Controller;
+using Adibrata.Framework.ImageProcessing;
+using System.Data;
 
 namespace ImageBoxSample
 {
@@ -16,17 +20,33 @@ namespace ImageBoxSample
     {
         #region  Public Constructors
         public Image img { get; set; }
-
+        public Int64 DocTransBinaryId { get; set; }
+        public string UserName { get; set; }
+        bool isFirstWatermark = false;
         public MainForm()
         {
             this.InitializeComponent();
             this.UpdateStatusBar();
 
-            
+
         }
         public void showDlg()
         {
+            DataTable dt = new DataTable();
             imageBox.Image = img;
+            imageBox.SizeToFit = true;
+            imageBox.SizeToFit = false;
+            DocSolEntities _ent = new DocSolEntities();
+            _ent.ClassName = "ImageProcess";
+            _ent.MethodName = "DocTransBinaryNoteView";
+            _ent.Id = this.DocTransBinaryId;
+            dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+            string note = dt.Rows[0]["Note"].ToString();
+            if (note == "-")
+            {
+                isFirstWatermark = true;
+            }
+            txtNote.Text = note;
             this.ShowDialog();
         }
         #endregion  Public Constructors
@@ -106,14 +126,64 @@ namespace ImageBoxSample
             dlg.DefaultExt = ".jpg";
             dlg.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
             "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-            "Portable Network Graphic (*.png)|*.png|"  +
+            "Portable Network Graphic (*.png)|*.png|" +
             "All files (*.*)|*.*";
             dlg.ShowDialog();
             if (dlg.FileName != "")
             {
                 img.Save(dlg.FileName);
             }
-           
+
+
+        }
+
+        private void propertyGrid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNote_Click(object sender, EventArgs e)
+        {
+            if (chkWatermark.Checked == true)
+            {
+                if (isFirstWatermark == true)
+                {
+
+                    DocSolEntities _ent = new DocSolEntities();
+                    _ent.ClassName = "ImageProcess";
+                    _ent.MethodName = "UpdateBinaryDocTransBinary";
+                    _ent.Id = this.DocTransBinaryId;
+                    _ent.Note = txtNote.Text.Trim();
+                    _ent.UserName = this.UserName;
+                    _ent.NewFileBinary = ImageConverterProcess.imageToByteArray(WaterMarkProcess.SetWatermark(img, txtNote.Text));
+                    _ent.OldFileBinary = ImageConverterProcess.imageToByteArray(this.img);
+                    DocumentSolutionController.DocSolProcess<string>(_ent);
+                }
+                else
+                {
+                    DocSolEntities _ent = new DocSolEntities();
+                    _ent.ClassName = "ImageProcess";
+                    _ent.MethodName = "DocTransBinaryReplaceFileBinary";
+                    _ent.Id = this.DocTransBinaryId;
+                    _ent.UserName = this.UserName;
+                    _ent.FileBinary = ImageConverterProcess.imageToByteArray(WaterMarkProcess.SetWatermark(img, txtNote.Text));
+                    DocumentSolutionController.DocSolProcess<string>(_ent);
+                }
+            }
+            else
+            {
+                DocSolEntities _ent = new DocSolEntities();
+                _ent.ClassName = "ImageProcess";
+                _ent.MethodName = "UpdateNoteDocTransBinary";
+                _ent.Id = this.DocTransBinaryId;
+                _ent.UserName = this.UserName;
+                _ent.Note = txtNote.Text.Trim();
+                DocumentSolutionController.DocSolProcess<string>(_ent);
+            }
+        }
+
+        private void chkWatermark_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

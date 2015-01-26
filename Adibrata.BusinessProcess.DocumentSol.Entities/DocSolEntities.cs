@@ -78,6 +78,10 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
 
         public string TransCode { get; set; }
         public string BookmarkStat { get; set; }
+
+        public string Note { get; set; }
+        public byte[] NewFileBinary { get; set; }
+        public byte[] OldFileBinary { get; set; }
     }
 }
 

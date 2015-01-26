@@ -40,6 +40,11 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDownload = new System.Windows.Forms.Button();
             this.dlg = new System.Windows.Forms.SaveFileDialog();
+            this.btnNote = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkWatermark = new System.Windows.Forms.CheckBox();
+            this.txtNote = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,8 +67,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.propertyGrid);
-            this.splitContainer1.Size = new System.Drawing.Size(887, 416);
-            this.splitContainer1.SplitterDistance = 587;
+            this.splitContainer1.Size = new System.Drawing.Size(1007, 416);
+            this.splitContainer1.SplitterDistance = 707;
             this.splitContainer1.TabIndex = 0;
             // 
             // imageBox
@@ -73,7 +78,7 @@
             this.imageBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageBox.Location = new System.Drawing.Point(0, 0);
             this.imageBox.Name = "imageBox";
-            this.imageBox.Size = new System.Drawing.Size(587, 416);
+            this.imageBox.Size = new System.Drawing.Size(707, 416);
             this.imageBox.TabIndex = 0;
             this.imageBox.ZoomChanged += new System.EventHandler(this.imageBox_ZoomChanged);
             this.imageBox.Scroll += new System.Windows.Forms.ScrollEventHandler(this.imageBox_Scroll);
@@ -88,6 +93,7 @@
             this.propertyGrid.SelectedObject = this.imageBox;
             this.propertyGrid.Size = new System.Drawing.Size(296, 416);
             this.propertyGrid.TabIndex = 0;
+            this.propertyGrid.Click += new System.EventHandler(this.propertyGrid_Click);
             // 
             // statusStrip
             // 
@@ -97,7 +103,7 @@
             this.zoomToolStripStatusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 441);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(887, 25);
+            this.statusStrip.Size = new System.Drawing.Size(1007, 25);
             this.statusStrip.TabIndex = 1;
             // 
             // positionToolStripStatusLabel
@@ -159,13 +165,13 @@
             this.showSourceImageRegionToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(887, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1007, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnDownload
             // 
-            this.btnDownload.Location = new System.Drawing.Point(53, 0);
+            this.btnDownload.Location = new System.Drawing.Point(920, 2);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(75, 23);
             this.btnDownload.TabIndex = 3;
@@ -173,11 +179,60 @@
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
+            // btnNote
+            // 
+            this.btnNote.Location = new System.Drawing.Point(299, 1);
+            this.btnNote.Name = "btnNote";
+            this.btnNote.Size = new System.Drawing.Size(75, 23);
+            this.btnNote.TabIndex = 4;
+            this.btnNote.Text = "Add Note";
+            this.btnNote.UseVisualStyleBackColor = true;
+            this.btnNote.Click += new System.EventHandler(this.btnNote_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(108, 1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Note :";
+            // 
+            // chkWatermark
+            // 
+            this.chkWatermark.AutoSize = true;
+            this.chkWatermark.Location = new System.Drawing.Point(215, 6);
+            this.chkWatermark.Name = "chkWatermark";
+            this.chkWatermark.Size = new System.Drawing.Size(78, 17);
+            this.chkWatermark.TabIndex = 7;
+            this.chkWatermark.Text = "Watermark";
+            this.chkWatermark.UseVisualStyleBackColor = true;
+            this.chkWatermark.CheckedChanged += new System.EventHandler(this.chkWatermark_CheckedChanged);
+            // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(108, 3);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(100, 20);
+            this.txtNote.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 466);
+            this.ClientSize = new System.Drawing.Size(1007, 466);
+            this.Controls.Add(this.chkWatermark);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNote);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnNote);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip);
@@ -211,6 +266,11 @@
     private System.Windows.Forms.ToolStrip toolStrip1;
     private System.Windows.Forms.Button btnDownload;
     private System.Windows.Forms.SaveFileDialog dlg;
+    private System.Windows.Forms.Button btnNote;
+    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.CheckBox chkWatermark;
+    private System.Windows.Forms.TextBox txtNote;
   }
 }
 

@@ -82,6 +82,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public string Note { get; set; }
         public byte[] NewFileBinary { get; set; }
         public byte[] OldFileBinary { get; set; }
+
+        public string Datatype { get; set; }
     }
 }
 

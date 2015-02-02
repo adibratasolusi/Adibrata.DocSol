@@ -46,6 +46,7 @@
                     <TextBlock x:Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock x:Name="lblProjectName" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock x:Name="lblProjectType" Style="{StaticResource TextBlockStyle}"/>
+         
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">

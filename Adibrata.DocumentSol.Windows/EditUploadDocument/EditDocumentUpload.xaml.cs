@@ -76,7 +76,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
-                    ClassName = "EditDocumentUpload",
+                    ClassName = "EditUploadSave",
                     FunctionName = "btnEdit_Click",
                     ExceptionNumber = 1,
                     EventSource = "EditDocumentUpload",

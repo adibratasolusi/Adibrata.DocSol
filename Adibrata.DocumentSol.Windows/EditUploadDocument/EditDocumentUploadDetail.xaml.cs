@@ -96,7 +96,6 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                 lblProjectName.Text = _dt.Rows[0]["ProjName"].ToString();
                 lblProjectType.Text = _dt.Rows[0]["ProjType"].ToString();
                 lblDocumentType.Text = _dt.Rows[0]["DocTypeCode"].ToString();
-                //lblId.Text = _dt.Rows[0]["Id"].ToString();
                 _ent.Id = _ent.DocTransId;
                 //lblDocumentType.Text = _dt.Rows[1]["DocTypeCode"].ToString();
             }
@@ -124,8 +123,41 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
 
-            //this.ValueContent();
-            FunctionSave();
+            try
+            {
+                DataTable dtContent = new DataTable();
+                dtContent = FunctionSave();
+
+                _ent.ClassName = "EditDocument";
+                _ent.MethodName = "UpdateDocContent";
+                _ent.UserLogin = SessionProperty.UserName;
+                _ent.DocumentType = lblDocumentType.Text;
+                _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                _ent.DtContent = dtContent;
+                //_ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
+
+                DocumentSolutionController.DocSolProcess<string>(_ent);
+                MessageBox.Show("Save Document Succes");
+                RedirectPage redirect = new RedirectPage(this, "EditUploadDocument.EditDocumentUpload", SessionProperty);
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
+                    ClassName = "EditDocumentUploadDetail",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "EditDocumentUploadDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -165,7 +197,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
 
                 _ent.ClassName = "EditDocument";
                 _ent.MethodName = "EditUploadValue";
-                _ent.UserLogin = SessionProperty.UserLogin;
+                _ent.UserLogin = SessionProperty.UserName;
                 _ent.DocumentType = lblDocumentType.Text;
                 _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
                 //_ent.Id = Convert.ToInt64(SessionProperty.ReffKey);
@@ -190,6 +222,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                         DocContentDescription.Text = _row["Field2"].ToString();
                         DocContentDescription.HorizontalAlignment = HorizontalAlignment.Stretch;
                         DocContentDescription.Width = 200;
+                        DocContentDescription.Height = 53;
                         //_dtValue.Equals(_row["ContentValue"]);
 
                         DocContentDescription.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
@@ -199,8 +232,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                         spContent.RegisterName(DocContentDescription.Name, DocContentDescription);
 
 
-                        string input = _row["Result"].ToString().ToLower();
-                        string _datatype = input.Split(new char[] { '(', ')' })[1];
+                        string _datatype = _row["DataType"].ToString();
 
 
                         switch (_datatype.ToUpper())
@@ -212,12 +244,12 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                                     TextBox txtInput = new TextBox();
                                     TextBox txtId = new TextBox();
                                     //txtId.Name = _row["ContentName"].ToString();
-                                    txtId.Text = _row["Id"].ToString();
+                                    //txtId.Text = _row["Id"].ToString();
                                     txtId.Visibility = Visibility.Hidden;
-                                    txtInput.Name = _row["Result"].ToString().Replace(")", "").Replace("(", "").Replace("string", "").Replace("String", "").Trim();
+                                    txtInput.Name = _row["Result"].ToString();
                                     txtInput.Text = _row["ContentValue"].ToString();
                                     txtInput.Width = 400;
-                                    txtInput.Margin.Top.Equals(5);
+                                    //txtInput.Margin.Top.Equals(1);
                                     //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
                                     spValue.Children.Add(txtInput);
                                     spValue.Children.Add(txtId);
@@ -231,12 +263,12 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                                     DatePicker txtInput = new DatePicker();
                                     TextBox txtId = new TextBox();
                                     //txtId.Name = _row["Result"].ToString();
-                                    txtId.Text = _row["Id"].ToString();
+                                    //txtId.Text = _row["Id"].ToString();
                                     txtId.Visibility = Visibility.Hidden;
-                                    txtInput.Name = _row["Result"].ToString().Replace(")", "").Replace("(", "").Replace("Date", "").Replace("date", "").Trim();
+                                    txtInput.Name = _row["Result"].ToString();
                                     txtInput.Text = _row["ContentValue"].ToString();
                                     txtInput.Width = 400;
-                                    txtInput.Margin.Top.Equals(5);
+                                    //txtInput.Margin.Top.Equals(1);
                                     spValue.Children.Add(txtInput);
                                     spValue.Children.Add(txtId);
                                     spValue.RegisterName(txtInput.Name, txtInput);
@@ -249,12 +281,13 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                                     TextBox txtInput = new TextBox();
                                     TextBox txtId = new TextBox();
                                     //txtId.Name = _row["Result"].ToString();
-                                    txtId.Text = _row["Id"].ToString();
+                                    //txtId.Text = _row["Id"].ToString();
                                     txtId.Visibility = Visibility.Hidden;
-                                    txtInput.Name = _row["Result"].ToString().Replace(")", "").Replace("(", "").Replace("number", "").Replace("Number", "").Trim();
+                                    //txtInput.Name = _row["Result"].ToString().Replace(")", "").Replace("(", "").Replace("number", "").Replace("Number", "").Trim();
+                                    txtInput.Name = _row["Result"].ToString();
                                     txtInput.Text = _row["ContentValue"].ToString();
                                     txtInput.Width = 400;
-                                    txtInput.Margin.Top.Equals(5);
+                                    //txtInput.Margin.Top.Equals(1);
                                     //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
                                     spValue.Children.Add(txtInput);
                                     spValue.Children.Add(txtId);
@@ -374,12 +407,11 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
         }
 
         public DataTable FunctionSave()
-       
         {
             DataTable _dtfinal = new DataTable();
             try
             {
-                _dtfinal =  _dtValue.Copy();
+                _dtfinal = _dtValue.Copy();
 
                 _dtfinal.Columns.Add("EntryValue", typeof(string));
                 _dtfinal.Columns.Add("EntryValueDate", typeof(DateTime));
@@ -396,7 +428,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                                 {
                                     TextBox txtInput = (TextBox)this.spValue.FindName(_row["Result"].ToString().Trim());
                                     _row["EntryValue"] = txtInput.Text;
-                                    
+
                                 }
                                 break;
                             case "DATE":
@@ -443,6 +475,6 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
             return this.ListContent;
         }
 
-        
+
     }
 }

@@ -169,7 +169,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 sqlParamsDel[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
                 sqlParamsDel[0].Value = _ent.DocTransId;
 
-                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spDocTransContentDelete", sqlParamsDel);
+                SqlHelper.ExecuteNonQuery(_trans, CommandType.StoredProcedure, "spEditDocumentDelete", sqlParamsDel);
                 sbsearchtag.Append(" Cari ");
                 sbsearchtag.Append(" View ");
                 sbsearchtag.Append(" Search ");

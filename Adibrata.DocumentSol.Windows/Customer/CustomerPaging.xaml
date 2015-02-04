@@ -64,13 +64,15 @@
                                 <DataGridTemplateColumn Header="EDIT" Width="50" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                      
-                                            <Button Name="btnEdit" Click="btnEdit_Click" BorderThickness="0">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/Edit.png"/>
-                                                </Button.Background>
 
+                                            <Button Name="btnEdit" Click="btnEdit_Click" BorderThickness="0" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center">
+                                                <Label>_Edit</Label>
                                             </Button>
+                                            <!--<Button.Background>
+                                                    <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/Edit.png"/>
+                                                </Button.Background>-->
+
+                                  
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

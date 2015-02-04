@@ -101,7 +101,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                 oPaging.dgObj = dgPaging;
                 if (txtCustCode.Text != "" || txtCustName.Text != "" || txtProjCode.Text != "" || txtProjName.Text != "" || txtDocType.Text != "")
                 {
-                    sb.Append(" And ");
+                    sb.Append(" where ");
                     if (txtCustCode.Text != "")
                     {
 
@@ -175,7 +175,7 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
                     }
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " Proj.ProjName Asc ";
+                oPaging.SortBy = " DocTrans.TransID Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }

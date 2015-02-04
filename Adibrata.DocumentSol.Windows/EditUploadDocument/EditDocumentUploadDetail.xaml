@@ -36,7 +36,7 @@
                     <TextBlock Text="Project Code" Style="{StaticResource TextBlockStyle}" Width="200"/>
                     <TextBlock Text="Project Name" Style="{StaticResource TextBlockStyle}" Width="200"/>
                     <TextBlock Text="Project Type" Style="{StaticResource TextBlockStyle}" Width="200"/>
-
+                    <TextBlock Text="Document Type" Style="{StaticResource TextBlockStyle}" Width="200"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1">
@@ -46,39 +46,37 @@
                     <TextBlock x:Name="lblProjectCode" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock x:Name="lblProjectName" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock x:Name="lblProjectType" Style="{StaticResource TextBlockStyle}"/>
-         
+                    <TextBlock x:Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}"/>
+
+
                 </StackPanel>
             </Grid>
-            <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+            <!--<Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <TextBlock x:Name="lblDocumentType"  Style="{StaticResource TextBlockStyle}" Text="Document Type" Width="200"/>
                 </Grid>
                 <Grid Grid.Column="1" HorizontalAlignment="Left">
-                    <!--<ComboBox x:Name="cboDocumentType" SelectionChanged="cboDocumentType_SelectionChanged" Width="250" IsEditable="True" IsTextSearchEnabled="True" 
-						 SelectedValue ="{Binding Result}" ItemsSource="{Binding}"  SelectedValuePath="Result" DisplayMemberPath="Result" 
-                                SelectedItem="{Binding Path=Result}">--><!--
 
-                    </ComboBox>-->
+
                 </Grid>
 
+            </Grid>-->
+
+            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+                <StackPanel Name="spContent" HorizontalAlignment="Left">
+
+                </StackPanel>
             </Grid>
-          
-                <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
-                    <StackPanel Name="spContent" HorizontalAlignment="Left">
+            <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
 
-                    </StackPanel>
-                </Grid>
-                <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
+                <StackPanel Name="spValue" HorizontalAlignment="Left">
 
-                    <StackPanel Name="spValue" HorizontalAlignment="Left">
+                </StackPanel>
 
-                    </StackPanel>
 
-        
             </Grid>
 
             <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">

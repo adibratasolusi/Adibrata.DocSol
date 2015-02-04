@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adibrata.WCF", "Adibrata.WC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageBoxSample", "ImageBoxSample\ImageBoxSample.csproj", "{8241A955-C8E4-4CFD-BA28-EEAB34F6C00C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessing", "ImageProcessing\ImageProcessing.csproj", "{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -501,6 +503,14 @@ Global
 		{8241A955-C8E4-4CFD-BA28-EEAB34F6C00C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8241A955-C8E4-4CFD-BA28-EEAB34F6C00C}.Release|ARM.ActiveCfg = Release|Any CPU
 		{8241A955-C8E4-4CFD-BA28-EEAB34F6C00C}.Release|x86.ActiveCfg = Release|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FBB32F70-4B10-4C70-84B8-4EE2364F8B71}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

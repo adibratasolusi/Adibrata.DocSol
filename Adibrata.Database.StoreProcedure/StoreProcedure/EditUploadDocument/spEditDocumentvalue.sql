@@ -1,7 +1,6 @@
-﻿
-USE [TBIG]
+﻿USE [TBIG]
 GO
-/****** Object:  StoredProcedure [dbo].[spEditDocumentvalue]    Script Date: 1/26/2015 6:28:19 PM ******/
+/****** Object:  StoredProcedure [dbo].[spEditDocumentvalue]    Script Date: 2/3/2015 3:35:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9,7 +8,7 @@ GO
 
 
 
-CREATE PROCEDURE [dbo].[spEditDocumentvalue]
+ALTER PROCEDURE [dbo].[spEditDocumentvalue]
     @DocTransId Bigint,
     @DocTypeCode Varchar(50)
 
@@ -19,10 +18,14 @@ Set NoCount On
 
 Begin
 select 
+	b.Field1,
     b.Field2,
+	dbo.fnGetResult(b.Result) Result,
+	UPPER(dbo.fnGetValueInsideBracket(b.Result)) DataType,
     a.DocTransID,
     a.ContentValue,
-    b.Result
+	a.Id
+
 from  
     RuDocContentItem b  join DocTransContent a 
 on 
@@ -33,6 +36,3 @@ where
     a.DocTransID = @DocTransId
 END
 RETURN 0
-
-
-

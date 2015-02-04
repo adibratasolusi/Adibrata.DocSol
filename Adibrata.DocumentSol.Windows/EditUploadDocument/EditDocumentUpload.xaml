@@ -71,10 +71,10 @@
                     <GroupBox>
                         <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="EDIT" Width="50" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnEdit" Click="btnEdit_Click" Content="Edit" ToolTip="Edit Document" FontSize="12" Style="{StaticResource buttonStyle}">
+                                            <Button Name="btnEdit" Click="btnEdit_Click" BorderThickness="0" Content="Edit" ToolTip="Edit Document" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center">
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

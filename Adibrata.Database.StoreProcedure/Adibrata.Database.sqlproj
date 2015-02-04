@@ -240,5 +240,7 @@
     <Build Include="StoreProcedure\EditUploadDocument\spEditDocumentvalue.sql" />
     <Build Include="StoreProcedure\EditUploadDocument\spEditDocumentPaging.sql" />
     <Build Include="StoreProcedure\EditUploadDocument\spEditUploadDocument.sql" />
+    <Build Include="Function\fnGetValueInsideBracket.sql" />
+    <Build Include="StoreProcedure\EditUploadDocument\spEditDocumentDelete.sql" />
   </ItemGroup>
 </Project>

@@ -31,7 +31,6 @@ namespace ImageProcessing
             this.components = new System.ComponentModel.Container();
             this.MainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItemFile = new System.Windows.Forms.MenuItem();
-            this.menuItemOpen = new System.Windows.Forms.MenuItem();
             this.menuItemSave = new System.Windows.Forms.MenuItem();
             this.menuItemSep1 = new System.Windows.Forms.MenuItem();
             this.menuItemExit = new System.Windows.Forms.MenuItem();
@@ -89,34 +88,26 @@ namespace ImageProcessing
             // 
             this.menuItemFile.Index = 0;
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemOpen,
             this.menuItemSave,
             this.menuItemSep1,
             this.menuItemExit});
             this.menuItemFile.Text = "&File";
             // 
-            // menuItemOpen
-            // 
-            this.menuItemOpen.Index = 0;
-            this.menuItemOpen.Shortcut = System.Windows.Forms.Shortcut.CtrlO;
-            this.menuItemOpen.Text = "&Open";
-            this.menuItemOpen.Click += new System.EventHandler(this.menuItemOpen_Click);
-            // 
             // menuItemSave
             // 
-            this.menuItemSave.Index = 1;
+            this.menuItemSave.Index = 0;
             this.menuItemSave.Shortcut = System.Windows.Forms.Shortcut.CtrlS;
             this.menuItemSave.Text = "&Save";
             this.menuItemSave.Click += new System.EventHandler(this.menuItemSave_Click);
             // 
             // menuItemSep1
             // 
-            this.menuItemSep1.Index = 2;
+            this.menuItemSep1.Index = 1;
             this.menuItemSep1.Text = "-";
             // 
             // menuItemExit
             // 
-            this.menuItemExit.Index = 3;
+            this.menuItemExit.Index = 2;
             this.menuItemExit.Text = "E&xit";
             this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
@@ -400,7 +391,6 @@ namespace ImageProcessing
 
         private System.Windows.Forms.MainMenu MainMenu1;
         private System.Windows.Forms.MenuItem menuItemFile;
-        private System.Windows.Forms.MenuItem menuItemOpen;
         private System.Windows.Forms.MenuItem menuItemSave;
         private System.Windows.Forms.MenuItem menuItemSep1;
         private System.Windows.Forms.MenuItem menuItemExit;

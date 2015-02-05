@@ -10,6 +10,23 @@ namespace ImageProcessing
 {
     public partial class ImageProcessing : Form
     {
+        public Image img { get; set; }
+        public Int64 DocTransBinaryId { get; set; }
+        public string UserName { get; set; }
+      public void showDlg()
+        {
+            DataTable dt = new DataTable();
+            imageHandler.CurrentBitmap = (Bitmap)img;
+
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new Size(Convert.ToInt32(imageHandler.CurrentBitmap.Width * zoomFactor), Convert.ToInt32(imageHandler.CurrentBitmap.Height * zoomFactor));
+            this.Invalidate();
+            menuItemImageInfo.Enabled = true;
+            //ImageInfo imgInfo = new ImageInfo(imageHandler);
+            //imgInfo.Show();
+            this.ShowDialog();
+        }
+  
         OpenFileDialog oDlg;
         SaveFileDialog sDlg;
         double zoomFactor = 1.0;
@@ -42,17 +59,7 @@ namespace ImageProcessing
 
         private void menuItemOpen_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == oDlg.ShowDialog())
-            {
-                imageHandler.CurrentBitmap = (Bitmap)Bitmap.FromFile(oDlg.FileName);
-                imageHandler.BitmapPath = oDlg.FileName;
-                this.AutoScroll = true;
-                this.AutoScrollMinSize = new Size(Convert.ToInt32(imageHandler.CurrentBitmap.Width * zoomFactor), Convert.ToInt32(imageHandler.CurrentBitmap.Height * zoomFactor));
-                this.Invalidate();
-                menuItemImageInfo.Enabled = true;
-                ImageInfo imgInfo = new ImageInfo(imageHandler);
-                imgInfo.Show();
-            }
+
         }
 
         private void menuItemSave_Click(object sender, EventArgs e)

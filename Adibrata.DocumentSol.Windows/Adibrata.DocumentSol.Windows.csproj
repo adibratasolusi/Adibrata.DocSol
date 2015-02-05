@@ -176,6 +176,12 @@
     <Compile Include="ImageProcess\Checkin\CheckinPaging.xaml.cs">
       <DependentUpon>CheckinPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageProcess\ImageMaintenance.xaml.cs">
+      <DependentUpon>ImageMaintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcess\ImageMaintenanceDetail.xaml.cs">
+      <DependentUpon>ImageMaintenanceDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuTree.xaml.cs">
       <DependentUpon>MenuTree.xaml</DependentUpon>
     </Compile>
@@ -481,6 +487,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\Checkin\CheckinPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageMaintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageProcess\ImageMaintenanceDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -874,6 +888,10 @@
       <Project>{8241a955-c8e4-4cfd-ba28-eeab34f6c00c}</Project>
       <Name>ImageBoxSample</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ImageProcessing\ImageProcessing.csproj">
+      <Project>{fbb32f70-4b10-4c70-84b8-4ee2364f8b71}</Project>
+      <Name>ImageProcessing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharpBITS.Base\SharpBITS.Base.csproj">
       <Project>{b39fdb92-7420-487e-8b44-d9bc0b88d857}</Project>
       <Name>SharpBITS.Base</Name>
@@ -943,6 +961,7 @@
     <Folder Include="ImageProcess\Decryption\" />
     <Folder Include="ImageProcess\Encryption\" />
     <Folder Include="ImageProcess\Grayscale\" />
+    <Folder Include="ImageProcess\NewFolder1\" />
     <Folder Include="UploadMonitoring\" />
   </ItemGroup>
   <PropertyGroup>

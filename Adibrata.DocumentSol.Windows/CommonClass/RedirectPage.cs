@@ -62,8 +62,11 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.Checkout.CheckoutDetail": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutDetail(_ent)); break;
                 case "ImageProcess.Checkin.CheckinPaging": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinPaging(_ent)); break;
                 case "ImageProcess.Checkin.CheckinDetail": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinDetail(_ent)); break;
-         
+                case "ImageProcess.ImageMaintenance": Source.NavigationService.Navigate(new ImageProcess.ImageMaintenance(_ent)); break;
+                case "ImageProcess.ImageMaintenanceDetail": Source.NavigationService.Navigate(new ImageProcess.ImageMaintenanceDetail(_ent)); break;
                 #endregion
+
+               
 
                 #region "FileNumber"
                 case "StorageMonitoring.FileNumber.FileNumberPaging": Source.NavigationService.Navigate(new StorageMonitoring.FileNumber.FileNumberPaging(_ent)); break;
@@ -217,6 +220,9 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.Checkout.CheckoutDetail": Source.NavigationService.Navigate(new ImageProcess.Checkout.CheckoutDetail(_ent)); break;
                 case "ImageProcess.Checkin.CheckinPaging": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinPaging(_ent)); break;
                 case "ImageProcess.Checkin.CheckinDetail": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinDetail(_ent)); break;
+                case "ImageProcess.ImageMaintenance": Source.NavigationService.Navigate(new ImageProcess.ImageMaintenance(_ent)); break;
+                case "ImageProcess.ImageMaintenanceDetail": Source.NavigationService.Navigate(new ImageProcess.ImageMaintenanceDetail(_ent)); break;
+         
                 #endregion
 
                 #region "FileNumber"

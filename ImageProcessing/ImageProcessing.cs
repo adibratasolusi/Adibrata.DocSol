@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.Controller;
+using Adibrata.Framework.ImageProcessing;
 
 namespace ImageProcessing
 {
@@ -13,7 +16,8 @@ namespace ImageProcessing
         public Image img { get; set; }
         public Int64 DocTransBinaryId { get; set; }
         public string UserName { get; set; }
-      public void showDlg()
+
+        public void showDlg()
         {
             DataTable dt = new DataTable();
             imageHandler.CurrentBitmap = (Bitmap)img;
@@ -22,29 +26,33 @@ namespace ImageProcessing
             this.AutoScrollMinSize = new Size(Convert.ToInt32(imageHandler.CurrentBitmap.Width * zoomFactor), Convert.ToInt32(imageHandler.CurrentBitmap.Height * zoomFactor));
             this.Invalidate();
             menuItemImageInfo.Enabled = true;
+
             //ImageInfo imgInfo = new ImageInfo(imageHandler);
             //imgInfo.Show();
+
             this.ShowDialog();
         }
-  
+
         OpenFileDialog oDlg;
         SaveFileDialog sDlg;
         double zoomFactor = 1.0;
         private MenuItem cZoom;
         ImageHandler imageHandler = new ImageHandler();
 
+
+
         public ImageProcessing()
         {
             InitializeComponent();
             oDlg = new OpenFileDialog(); // Open Dialog Initialization
             oDlg.RestoreDirectory = true;
-            oDlg.InitialDirectory = "C:\\";
+            //oDlg.InitialDirectory = "C:\\";
             oDlg.FilterIndex = 1;
             oDlg.Filter = "jpg Files (*.jpg)|*.jpg|gif Files (*.gif)|*.gif|png Files (*.png)|*.png |bmp Files (*.bmp)|*.bmp";
             /*************************/
             sDlg = new SaveFileDialog(); // Save Dialog Initialization
             sDlg.RestoreDirectory = true;
-            sDlg.InitialDirectory = "C:\\";
+            //sDlg.InitialDirectory = "C:\\";
             sDlg.FilterIndex = 1;
             sDlg.Filter = "jpg Files (*.jpg)|*.jpg|gif Files (*.gif)|*.gif|png Files (*.png)|*.png |bmp Files (*.bmp)|*.bmp";
             /*************************/
@@ -64,10 +72,11 @@ namespace ImageProcessing
 
         private void menuItemSave_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == sDlg.ShowDialog())
-            {
-                imageHandler.SaveBitmap(sDlg.FileName);
-            }
+            DocSolEntities ent = new DocSolEntities();
+            ent.Id= this.DocTransBinaryId;
+            ent.UserName = this.UserName;
+            imageHandler.SaveBitmap(ent);
+
         }
 
         private void menuItemExit_Click(object sender, EventArgs e)
@@ -347,9 +356,11 @@ namespace ImageProcessing
         {
             InsertTextForm itFrm = new InsertTextForm();
             itFrm.XPosition = itFrm.YPosition = 0;
+ 
             if (itFrm.ShowDialog() == DialogResult.OK)
             {
                 imageHandler.RestorePrevious();
+            
                 imageHandler.InsertText(itFrm.DisplayText, itFrm.XPosition, itFrm.YPosition, itFrm.DisplayTextFont, itFrm.DisplayTextFontSize, itFrm.DisplayTextFontStyle, itFrm.DisplayTextForeColor1, itFrm.DisplayTextForeColor2);
                 this.Invalidate();
             }

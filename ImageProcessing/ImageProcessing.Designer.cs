@@ -381,6 +381,7 @@ namespace ImageProcessing
             this.ClientSize = new System.Drawing.Size(764, 509);
             this.Menu = this.MainMenu1;
             this.Name = "ImageProcessing";
+            this.ShowIcon = false;
             this.Text = "Image Processing";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ImageProcessing_Paint);
             this.ResumeLayout(false);

@@ -277,22 +277,22 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                         imgViewer.UserName = SessionProperty.UserName;
                 
                         //imgViewer.showDlg();
-                        MessageBox.Show("Save Document Succes" );
+                        MessageBox.Show("Edit This Picture" );
                     }
                     //else
                     //{
-                    dlg.Title = "Select a picture";
-                    dlg.DefaultExt = _extention;
-                    dlg.Filter = "Portable Document Format (*.pdf)|*.pdf|" +
-                        "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                    "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                    "Portable Network Graphic (*.png)|*.png|" +
-                    "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
-                    "All files (*.*)|*.*";
-                    dlg.AddExtension = true;
-                    dlg.FileName = _filename;
-                    //MessageBox.Show("Save Document Succes");
-                    Nullable<bool> result = dlg.ShowDialog();
+                    //dlg.Title = "Select a picture";
+                    //dlg.DefaultExt = _extention;
+                    //dlg.Filter = "Portable Document Format (*.pdf)|*.pdf|" +
+                    //    "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                    //"JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                    //"Portable Network Graphic (*.png)|*.png|" +
+                    //"Word Document (*.doc;*.docx)|*.doc;*.docx|" +
+                    //"All files (*.*)|*.*";
+                    //dlg.AddExtension = true;
+                    //dlg.FileName = _filename;
+                    ////MessageBox.Show("Save Document Succes");
+                    //Nullable<bool> result = dlg.ShowDialog();
                     //    //if (result == true)
                     //    //{
                     //    //    MessageBox.Show("Save Document Succes");

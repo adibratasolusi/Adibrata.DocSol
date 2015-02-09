@@ -30,11 +30,11 @@ namespace ImageProcessing
 
         public Bitmap CurrentBitmap
         {
-            get
+            get 
             {
                 if (_currentBitmap == null)
                     _currentBitmap = new Bitmap(1, 1);
-                return _currentBitmap;
+                return _currentBitmap; 
             }
             set { _currentBitmap = value; }
         }
@@ -601,7 +601,7 @@ namespace ImageProcessing
                 default:
                     gr.DrawRectangle(pen, xPosition, yPosition, width, height);
                     break;
-
+               
             }
             _currentBitmap = (Bitmap)bmap.Clone();
         }

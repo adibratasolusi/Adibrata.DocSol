@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Text;
 using System.Windows.Forms;
 using Adibrata.BusinessProcess.DocumentSol.Entities;
@@ -16,7 +17,8 @@ namespace ImageProcessing
         public Image img { get; set; }
         public Int64 DocTransBinaryId { get; set; }
         public string UserName { get; set; }
-
+        private PrintDocument printDocument1;
+        private PictureBox myPicturebox;
         public void showDlg()
         {
             DataTable dt = new DataTable();
@@ -389,5 +391,35 @@ namespace ImageProcessing
                 this.Invalidate();
             }
         }
+
+
+        private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //Bitmap temp = (Bitmap)_currentBitmap;
+            ////PixelFormat forma = temp.PixelFormat;
+            //Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+            //Graphics gr = Graphics.FromImage(bmap);
+            //gr.Dispose();
+            Bitmap myBitmap1 = new Bitmap(Width, Height);
+            myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
+            e.Graphics.DrawImage(myBitmap1, 0, 0);
+            myBitmap1.Dispose();
+        }
+
+        private void menuItemPrint_Click(object sender, EventArgs e)
+        {
+            PrintDocument myPrintDocument1 = new PrintDocument();
+            PrintDialog myPrinDialog1 = new PrintDialog();
+            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
+            myPrinDialog1.Document = myPrintDocument1;
+
+            if (myPrinDialog1.ShowDialog() == DialogResult.OK)
+            {
+               myPrintDocument1.Print();
+            
+            }
+        }
+
+
     }
 }

@@ -7,6 +7,8 @@ using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.Controller;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace ImageProcessing
 {
@@ -251,7 +253,7 @@ namespace ImageProcessing
         public void SetGrayscale()
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap bmap = (Bitmap)temp.Clone();
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             Color c;
             for (int i = 0; i < bmap.Width; i++)
             {
@@ -392,90 +394,7 @@ namespace ImageProcessing
             _currentBitmap = (Bitmap)_bitmapPrevCropArea.Clone();
         }
 
-        public void CariPixel(int x, int y)
-        {
-            Color clr = Color.Empty;
-
-            // Get color components count
-            int cCount = Depth / 8;
-
-            // Get start index of the specified pixel
-            int i = ((y * Width) + x) * cCount;
-
-            if (i > Pixels.Length - cCount)
-                throw new IndexOutOfRangeException();
-
-            if (Depth == 32) // For 32 bpp get Red, Green, Blue and Alpha
-            {
-                byte b = Pixels[i];
-                byte g = Pixels[i + 1];
-                byte r = Pixels[i + 2];
-                byte a = Pixels[i + 3]; // a
-                clr = Color.FromArgb(a, r, g, b);
-            }
-            if (Depth == 24) // For 24 bpp get Red, Green and Blue
-            {
-                byte b = Pixels[i];
-                byte g = Pixels[i + 1];
-                byte r = Pixels[i + 2];
-                clr = Color.FromArgb(r, g, b);
-            }
-            if (Depth == 8)
-            // For 8 bpp get color value (Red, Green and Blue values are the same)
-            {
-                byte c = Pixels[i];
-                clr = Color.FromArgb(c, c, c);
-            }
-
-        }
-
-        public void ngeSetPixel(int x, int y, Color color)
-        {
-            // Get color components count
-            int cCount = Depth / 8;
-
-            // Get start index of the specified pixel
-            int i = ((y * Width) + x) * cCount;
-
-            if (Depth == 32) // For 32 bpp set Red, Green, Blue and Alpha
-            {
-                Pixels[i] = color.B;
-                Pixels[i + 1] = color.G;
-                Pixels[i + 2] = color.R;
-                Pixels[i + 3] = color.A;
-            }
-            if (Depth == 24) // For 24 bpp set Red, Green and Blue
-            {
-                Pixels[i] = color.B;
-                Pixels[i + 1] = color.G;
-                Pixels[i + 2] = color.R;
-            }
-            if (Depth == 8)
-            // For 8 bpp set color value (Red, Green and Blue values are the same)
-            {
-                Pixels[i] = color.B;
-            }
-        }
-
-        public Bitmap Convert2Bitmap(byte[] DATA, int width, int height)
-        {
-            Bitmap Bm = new Bitmap(width, height, PixelFormat.Format24bppRgb);
-            var b = new Bitmap(width, height, PixelFormat.Format8bppIndexed);
-            ColorPalette ncp = b.Palette;
-            for (int i = 0; i < 256; i++)
-                ncp.Entries[i] = Color.FromArgb(255, i, i, i);
-            b.Palette = ncp;
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    int Value = DATA[x + (y * width)];
-                    Color C = ncp.Entries[Value];
-                    Bm.SetPixel(x, y, C);
-                }
-            }
-            return Bm;
-        }
+          
 
 
         public void InsertText(string text, int xPosition, int yPosition, string fontName, float fontSize, string fontStyle, string colorName1, string colorName2)
@@ -486,36 +405,7 @@ namespace ImageProcessing
             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
         
             Graphics gr = Graphics.FromImage(bmap);
-            //Rectangle klon = new Rectangle(xPosition, yPosition, temp.Width, temp.Height);
-            //Bitmap bmap = temp.Clone(klon, PixelFormat.Format24bppRgb);
-            //byte[] pikels = Adibrata.Framework.ImageProcessing.ImageConverterProcess.imageToByteArray(bmap);
-            //using (MemoryStream ms= new MemoryStream(pikels))
-            //{
-            //    Bitmap gr = (Bitmap)Image.FromStream(ms);
-
-            //}
-
-
-            //  Bitmap temp = (Bitmap)_currentBitmap;
-            //  //PixelFormat forma = temp.PixelFormat;
-            //  Rectangle klon = new Rectangle(xPosition, yPosition, temp.Width, temp.Height);
-            //  Bitmap formatted = temp.Clone(klon, PixelFormat.Format24bppRgb);
-            //  byte[] pikel =Adibrata.Framework.ImageProcessing.ImageConverterProcess.imageToByteArray(formatted);
-            //  pixels = Process8Bits(pikel, System.Windows.Media.Colors.Red);
-            //  //Rectangle klon = new Rectangle();
-            //  //Rectangle klon = new Rectangle(xPosition, yPosition, temp.Width, temp.Height);
-            //  //Bitmap formatted = temp.Clone(klon, System.Drawing.Imaging.PixelFormat.);
-
-            //  Bitmap bmap = (Bitmap)formatted;
-            //  Graphics gr = Graphics.FromImage(bmap);
-            ////gr.SmoothingMode = SmoothingMode.AntiAlias; 
-            //  gr.InterpolationMode = InterpolmationMode.HighQualityBicubic;
-            // gr.DrawImage(temp, 0, 0, Width, Height);
-
-            //gr.SmoothingMode = SmoothingMode.HighQuality;
-            //gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            //gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            //gr.DrawImage(new Bitmap(temp), new Rectangle(xPosition, yPosition, temp.Width, temp.Height));
+          
 
             if (string.IsNullOrEmpty(fontName))
                 fontName = "Times New Roman";
@@ -604,6 +494,30 @@ namespace ImageProcessing
                
             }
             _currentBitmap = (Bitmap)bmap.Clone();
+        }
+
+        private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap temp = (Bitmap)_currentBitmap;
+            //PixelFormat forma = temp.PixelFormat;
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+            Graphics gr = Graphics.FromImage(bmap);
+           gr.Dispose();
+            //Bitmap myBitmap1 = new Bitmap(bmap.Width, myPicturebox.Height);
+            //myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
+            //e.Graphics.DrawImage(bmap);
+            //myBitmap1.Dispose();
+        }
+
+        public void Print()
+        {
+            Bitmap temp = (Bitmap)_currentBitmap;
+            //  Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+            //Graphics gr = Graphics.FromImage(bmap);
+            PrintDocument myPrintDocument1 = new PrintDocument();
+            PrintDialog myPrinDialog1 = new PrintDialog();
+            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
+            myPrinDialog1.Document = myPrintDocument1;
         }
     }
 }

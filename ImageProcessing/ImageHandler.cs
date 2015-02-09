@@ -375,7 +375,8 @@ namespace ImageProcessing
         public void InsertText(string text, int xPosition, int yPosition, string fontName, float fontSize, string fontStyle, string colorName1, string colorName2)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap bmap = (Bitmap)temp.Clone();
+            Bitmap testBmap = (Bitmap)temp.Clone();
+            Bitmap bmap = new Bitmap(testBmap.Width, testBmap.Height);
             Graphics gr = Graphics.FromImage(bmap);
             if (string.IsNullOrEmpty(fontName))
                 fontName = "Times New Roman";

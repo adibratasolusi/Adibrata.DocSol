@@ -15,6 +15,7 @@ namespace ImageProcessing
     public class ImageHandler
     {
 
+
         private string _bitmapPath;
         private Bitmap _currentBitmap;
         private Bitmap _bitmapbeforeProcessing;
@@ -499,8 +500,10 @@ namespace ImageProcessing
 
         public void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+           
             e.Graphics.DrawImage(bmap, 0, 0, bmap.Width, bmap.Height);
             bmap.Dispose();
         }

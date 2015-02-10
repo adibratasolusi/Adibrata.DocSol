@@ -33,7 +33,6 @@ namespace ImageProcessing
             this.menuItemFile = new System.Windows.Forms.MenuItem();
             this.menuItemSave = new System.Windows.Forms.MenuItem();
             this.menuItemPrint = new System.Windows.Forms.MenuItem();
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItemExit = new System.Windows.Forms.MenuItem();
             this.menuItemEdit = new System.Windows.Forms.MenuItem();
             this.menuItemUndo = new System.Windows.Forms.MenuItem();
@@ -89,7 +88,6 @@ namespace ImageProcessing
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemSave,
             this.menuItemPrint,
-            this.menuItem1,
             this.menuItemExit});
             this.menuItemFile.Text = "&File";
             // 
@@ -107,14 +105,9 @@ namespace ImageProcessing
             this.menuItemPrint.Text = "&Print";
             this.menuItemPrint.Click += new System.EventHandler(this.menuItemPrint_Click);
             // 
-            // menuItem1
-            // 
-            this.menuItem1.Index = 3;
-            this.menuItem1.Text = "-";
-            // 
             // menuItemExit
             // 
-            this.menuItemExit.Index = 4;
+            this.menuItemExit.Index = 2;
             this.menuItemExit.Text = "E&xit";
             this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click_1);
             // 
@@ -423,7 +416,6 @@ namespace ImageProcessing
         private System.Windows.Forms.MenuItem menuItemInsertImage;
         private System.Windows.Forms.MenuItem menuItemInsertShape;
         private System.Windows.Forms.MenuItem menuItemPrint;
-        private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItemExit;
     }
 }

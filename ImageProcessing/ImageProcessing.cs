@@ -400,7 +400,10 @@ namespace ImageProcessing
         {
             PrintDocument myPrintDocument1 = new PrintDocument();
             PrintDialog myPrinDialog1 = new PrintDialog();
-            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(imageHandler.myPrintDocument2_PrintPage);
+            PaperSize ps = new PaperSize();
+            ps.RawKind = (int)PaperKind.A4;
+            myPrintDocument1.DefaultPageSettings.PaperSize = ps;
+            myPrintDocument1.PrintPage += new PrintPageEventHandler(imageHandler.myPrintDocument2_PrintPage);
             myPrinDialog1.Document = myPrintDocument1;
 
             if (myPrinDialog1.ShowDialog() == DialogResult.OK)
@@ -415,7 +418,6 @@ namespace ImageProcessing
         {
 
         }
-
 
         private void menuItemExit_Click_1(object sender, EventArgs e)
         {

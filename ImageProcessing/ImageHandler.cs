@@ -499,25 +499,28 @@ namespace ImageProcessing
         private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            //PixelFormat forma = temp.PixelFormat;
             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
             Graphics gr = Graphics.FromImage(bmap);
-           gr.Dispose();
+            gr.DrawImage(bmap, 0, 0);
+            gr.Dispose();
             //Bitmap myBitmap1 = new Bitmap(bmap.Width, myPicturebox.Height);
             //myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
             //e.Graphics.DrawImage(bmap);
             //myBitmap1.Dispose();
         }
 
-        public void Print()
+        public void PrintDoc()
         {
-            Bitmap temp = (Bitmap)_currentBitmap;
-            //  Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-            //Graphics gr = Graphics.FromImage(bmap);
-            PrintDocument myPrintDocument1 = new PrintDocument();
-            PrintDialog myPrinDialog1 = new PrintDialog();
-            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
-            myPrinDialog1.Document = myPrintDocument1;
+           // Bitmap temp = (Bitmap)_currentBitmap;
+           // Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+           // Graphics gr = Graphics.FromImage(bmap);
+           // gr.DrawImage(bmap, 0, 0);
+           //gr.Dispose();
+           PrintDocument PDO = new PrintDocument();
+           PrintDialog PDI = new PrintDialog();
+
+         PDO.PrintPage += new PrintPageEventHandler(myPrintDocument2_PrintPage);
+     
         }
     }
 }

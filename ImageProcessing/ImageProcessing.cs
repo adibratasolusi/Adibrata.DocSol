@@ -17,8 +17,9 @@ namespace ImageProcessing
         public Image img { get; set; }
         public Int64 DocTransBinaryId { get; set; }
         public string UserName { get; set; }
-        private PrintDocument printDocument1;
-        private PictureBox myPicturebox;
+        private PrintDocument PDO;
+        private PrintDialog PDI;
+
         public void showDlg()
         {
             DataTable dt = new DataTable();
@@ -399,25 +400,34 @@ namespace ImageProcessing
             ////PixelFormat forma = temp.PixelFormat;
             //Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
             //Graphics gr = Graphics.FromImage(bmap);
-            //gr.Dispose();
-            Bitmap myBitmap1 = new Bitmap(Width, Height);
-            myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
-            e.Graphics.DrawImage(myBitmap1, 0, 0);
-            myBitmap1.Dispose();
+            ////gr.Dispose();
+            //Bitmap temp = new Bitmap(Width, Height);
+            //myPicturebox.DrawToBitmap(temp, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
+            //e.Graphics.DrawImage(temp, 0, 0);
+            //temp.Dispose();
+            Image i = Image.FromFile("C:\\Zapotec.bmp");
+            Point p = new Point(100, 100);
+            e.Graphics.DrawImage(i, p);
         }
 
         private void menuItemPrint_Click(object sender, EventArgs e)
         {
-            PrintDocument myPrintDocument1 = new PrintDocument();
-            PrintDialog myPrinDialog1 = new PrintDialog();
-            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
-            myPrinDialog1.Document = myPrintDocument1;
-
-            if (myPrinDialog1.ShowDialog() == DialogResult.OK)
+            PrintDocument PDO = new PrintDocument();
+            PrintDialog PDI = new PrintDialog();
+            ////_currentBitmap.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
+            ////myPrinDialog1.Document = myPrintDocument1;
+       
+            if (PDI.ShowDialog() == DialogResult.OK)
             {
-               myPrintDocument1.Print();
-            
+                imageHandler.RestorePrevious();
+               imageHandler.PrintDoc();
+                this.Invalidate();
             }
+        }
+
+        private void ImageProcessing_Load(object sender, EventArgs e)
+        {
+
         }
 
 

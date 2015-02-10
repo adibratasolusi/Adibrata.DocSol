@@ -86,6 +86,7 @@ namespace ImageProcessing
             _ent.FileBinary = Adibrata.Framework.ImageProcessing.ImageConverterProcess.imageToByteArray((Bitmap)_currentBitmap);
 
             DocumentSolutionController.DocSolProcess<string>(_ent);
+            MessageBox.Show("Save Succes");
 
         }
 
@@ -500,23 +501,11 @@ namespace ImageProcessing
         {
             Bitmap temp = (Bitmap)_currentBitmap;
             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-            Graphics gr = Graphics.FromImage(bmap);
-           gr.Dispose();
-            //Bitmap myBitmap1 = new Bitmap(bmap.Width, myPicturebox.Height);
-            //myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
-            //e.Graphics.DrawImage(bmap);
-            //myBitmap1.Dispose();
+            e.Graphics.DrawImage(bmap, 0, 0, bmap.Width, bmap.Height);
+            bmap.Dispose();
         }
 
-        public void Print()
-        {
-            Bitmap temp = (Bitmap)_currentBitmap;
-            //  Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-            //Graphics gr = Graphics.FromImage(bmap);
-            PrintDocument myPrintDocument1 = new PrintDocument();
-            PrintDialog myPrinDialog1 = new PrintDialog();
-            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
-            myPrinDialog1.Document = myPrintDocument1;
-        }
+
+       
     }
 }

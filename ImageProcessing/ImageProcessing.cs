@@ -27,7 +27,7 @@ namespace ImageProcessing
             this.AutoScroll = true;
             this.AutoScrollMinSize = new Size(Convert.ToInt32(imageHandler.CurrentBitmap.Width * zoomFactor), Convert.ToInt32(imageHandler.CurrentBitmap.Height * zoomFactor));
             this.Invalidate();
-            menuItemImageInfo.Enabled = true;
+            //menuItemImageInfo.Enabled = true;
 
             //ImageInfo imgInfo = new ImageInfo(imageHandler);
             //imgInfo.Show();
@@ -67,10 +67,7 @@ namespace ImageProcessing
             g.DrawImage(imageHandler.CurrentBitmap, new Rectangle(this.AutoScrollPosition.X, this.AutoScrollPosition.Y, Convert.ToInt32(imageHandler.CurrentBitmap.Width * zoomFactor), Convert.ToInt32(imageHandler.CurrentBitmap.Height * zoomFactor)));
         }
 
-        private void menuItemOpen_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void menuItemSave_Click(object sender, EventArgs e)
         {
@@ -81,10 +78,7 @@ namespace ImageProcessing
 
         }
 
-        private void menuItemExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void menuItemUndo_Click(object sender, EventArgs e)
         {
@@ -395,14 +389,10 @@ namespace ImageProcessing
 
         private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //Bitmap temp = (Bitmap)_currentBitmap;
-            ////PixelFormat forma = temp.PixelFormat;
-            //Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-            //Graphics gr = Graphics.FromImage(bmap);
-            //gr.Dispose();
+          
             Bitmap temp = new Bitmap(Width, Height);
             myPicturebox.DrawToBitmap(temp, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
-            e.Graphics.DrawImage(temp, 0, 0);
+            e.Graphics.DrawImage(temp, 0, 0 );
             temp.Dispose();
         }
 
@@ -412,17 +402,27 @@ namespace ImageProcessing
             PrintDialog myPrinDialog1 = new PrintDialog();
             myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(imageHandler.myPrintDocument2_PrintPage);
             myPrinDialog1.Document = myPrintDocument1;
-   
-            if (oDlg.ShowDialog() == DialogResult.OK)
+
+            if (myPrinDialog1.ShowDialog() == DialogResult.OK)
             {
-               
+                myPrintDocument1.Print();
+
             }
         }
+
 
         private void ImageProcessing_Load(object sender, EventArgs e)
         {
 
         }
+
+
+        private void menuItemExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+      
 
 
     }

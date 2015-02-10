@@ -32,15 +32,13 @@ namespace ImageProcessing
             this.MainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItemFile = new System.Windows.Forms.MenuItem();
             this.menuItemSave = new System.Windows.Forms.MenuItem();
-            this.menuItemSep1 = new System.Windows.Forms.MenuItem();
             this.menuItemPrint = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItemExit = new System.Windows.Forms.MenuItem();
             this.menuItemEdit = new System.Windows.Forms.MenuItem();
             this.menuItemUndo = new System.Windows.Forms.MenuItem();
             this.menuItemClearImage = new System.Windows.Forms.MenuItem();
             this.menuItemView = new System.Windows.Forms.MenuItem();
-            this.menuItemImageInfo = new System.Windows.Forms.MenuItem();
-            this.menuItemSep2 = new System.Windows.Forms.MenuItem();
             this.menuItemZoom = new System.Windows.Forms.MenuItem();
             this.menuItemZoom50 = new System.Windows.Forms.MenuItem();
             this.menuItemZoom100 = new System.Windows.Forms.MenuItem();
@@ -90,8 +88,8 @@ namespace ImageProcessing
             this.menuItemFile.Index = 0;
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemSave,
-            this.menuItemSep1,
             this.menuItemPrint,
+            this.menuItem1,
             this.menuItemExit});
             this.menuItemFile.Text = "&File";
             // 
@@ -102,22 +100,23 @@ namespace ImageProcessing
             this.menuItemSave.Text = "&Save";
             this.menuItemSave.Click += new System.EventHandler(this.menuItemSave_Click);
             // 
-            // menuItemSep1
-            // 
-            this.menuItemSep1.Index = 1;
-            this.menuItemSep1.Text = "-";
-            // 
             // menuItemPrint
             // 
-            this.menuItemPrint.Index = 2;
+            this.menuItemPrint.Index = 1;
             this.menuItemPrint.Shortcut = System.Windows.Forms.Shortcut.CtrlP;
             this.menuItemPrint.Text = "&Print";
             this.menuItemPrint.Click += new System.EventHandler(this.menuItemPrint_Click);
             // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 3;
+            this.menuItem1.Text = "-";
+            // 
             // menuItemExit
             // 
-            this.menuItemExit.Index = 3;
+            this.menuItemExit.Index = 4;
             this.menuItemExit.Text = "E&xit";
+            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click_1);
             // 
             // menuItemEdit
             // 
@@ -144,27 +143,12 @@ namespace ImageProcessing
             // 
             this.menuItemView.Index = 2;
             this.menuItemView.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemImageInfo,
-            this.menuItemSep2,
             this.menuItemZoom});
             this.menuItemView.Text = "&View";
             // 
-            // menuItemImageInfo
-            // 
-            this.menuItemImageInfo.Enabled = false;
-            this.menuItemImageInfo.Index = 0;
-            this.menuItemImageInfo.Shortcut = System.Windows.Forms.Shortcut.CtrlI;
-            this.menuItemImageInfo.Text = "I&mage Info.";
-            this.menuItemImageInfo.Click += new System.EventHandler(this.menuItemImageInfo_Click);
-            // 
-            // menuItemSep2
-            // 
-            this.menuItemSep2.Index = 1;
-            this.menuItemSep2.Text = "-";
-            // 
             // menuItemZoom
             // 
-            this.menuItemZoom.Index = 2;
+            this.menuItemZoom.Index = 0;
             this.menuItemZoom.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemZoom50,
             this.menuItemZoom100,
@@ -402,13 +386,10 @@ namespace ImageProcessing
         private System.Windows.Forms.MainMenu MainMenu1;
         private System.Windows.Forms.MenuItem menuItemFile;
         private System.Windows.Forms.MenuItem menuItemSave;
-        private System.Windows.Forms.MenuItem menuItemSep1;
         private System.Windows.Forms.MenuItem menuItemEdit;
         private System.Windows.Forms.MenuItem menuItemUndo;
         private System.Windows.Forms.MenuItem menuItemClearImage;
         private System.Windows.Forms.MenuItem menuItemView;
-        private System.Windows.Forms.MenuItem menuItemImageInfo;
-        private System.Windows.Forms.MenuItem menuItemSep2;
         private System.Windows.Forms.MenuItem menuItemZoom;
         private System.Windows.Forms.MenuItem menuItemZoom50;
         private System.Windows.Forms.MenuItem menuItemZoom100;
@@ -442,6 +423,7 @@ namespace ImageProcessing
         private System.Windows.Forms.MenuItem menuItemInsertImage;
         private System.Windows.Forms.MenuItem menuItemInsertShape;
         private System.Windows.Forms.MenuItem menuItemPrint;
+        private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItemExit;
     }
 }

@@ -386,7 +386,7 @@ namespace ImageProcessing
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(698, 509);
+            this.ClientSize = new System.Drawing.Size(764, 509);
             this.Menu = this.MainMenu1;
             this.Name = "ImageProcessing";
             this.ShowIcon = false;

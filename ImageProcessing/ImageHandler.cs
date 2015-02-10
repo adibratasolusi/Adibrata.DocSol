@@ -33,11 +33,11 @@ namespace ImageProcessing
 
         public Bitmap CurrentBitmap
         {
-            get 
+            get
             {
                 if (_currentBitmap == null)
                     _currentBitmap = new Bitmap(1, 1);
-                return _currentBitmap; 
+                return _currentBitmap;
             }
             set { _currentBitmap = value; }
         }
@@ -211,7 +211,7 @@ namespace ImageProcessing
         public void SetContrast(double contrast)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-          Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             if (contrast < -100) contrast = -100;
             if (contrast > 100) contrast = 100;
             contrast = (100.0 + contrast) / 100.0;
@@ -396,18 +396,15 @@ namespace ImageProcessing
             _currentBitmap = (Bitmap)_bitmapPrevCropArea.Clone();
         }
 
-          
-
-
         public void InsertText(string text, int xPosition, int yPosition, string fontName, float fontSize, string fontStyle, string colorName1, string colorName2)
         {
 
             Bitmap temp = (Bitmap)_currentBitmap;
             PixelFormat forma = temp.PixelFormat;
             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-        
+
             Graphics gr = Graphics.FromImage(bmap);
-          
+
 
             if (string.IsNullOrEmpty(fontName))
                 fontName = "Times New Roman";
@@ -493,7 +490,7 @@ namespace ImageProcessing
                 default:
                     gr.DrawRectangle(pen, xPosition, yPosition, width, height);
                     break;
-               
+
             }
             _currentBitmap = (Bitmap)bmap.Clone();
         }
@@ -502,13 +499,13 @@ namespace ImageProcessing
         {
 
             Bitmap temp = (Bitmap)_currentBitmap;
-             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-           
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+
             e.Graphics.DrawImage(bmap, 0, 0, bmap.Width, bmap.Height);
             bmap.Dispose();
         }
 
 
-       
+
     }
 }

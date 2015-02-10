@@ -67,8 +67,6 @@ namespace ImageProcessing
             g.DrawImage(imageHandler.CurrentBitmap, new Rectangle(this.AutoScrollPosition.X, this.AutoScrollPosition.Y, Convert.ToInt32(imageHandler.CurrentBitmap.Width * zoomFactor), Convert.ToInt32(imageHandler.CurrentBitmap.Height * zoomFactor)));
         }
 
- 
-
         private void menuItemSave_Click(object sender, EventArgs e)
         {
             DocSolEntities ent = new DocSolEntities();
@@ -77,8 +75,6 @@ namespace ImageProcessing
             imageHandler.SaveBitmap(ent);
 
         }
-
-
 
         private void menuItemUndo_Click(object sender, EventArgs e)
         {
@@ -386,7 +382,6 @@ namespace ImageProcessing
             }
         }
 
-
         private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
           
@@ -412,7 +407,6 @@ namespace ImageProcessing
 
             }
         }
-
 
         private void ImageProcessing_Load(object sender, EventArgs e)
         {

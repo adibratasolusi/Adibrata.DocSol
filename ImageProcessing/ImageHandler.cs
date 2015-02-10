@@ -32,11 +32,11 @@ namespace ImageProcessing
 
         public Bitmap CurrentBitmap
         {
-            get 
+            get
             {
                 if (_currentBitmap == null)
                     _currentBitmap = new Bitmap(1, 1);
-                return _currentBitmap; 
+                return _currentBitmap;
             }
             set { _currentBitmap = value; }
         }
@@ -209,7 +209,7 @@ namespace ImageProcessing
         public void SetContrast(double contrast)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-          Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             if (contrast < -100) contrast = -100;
             if (contrast > 100) contrast = 100;
             contrast = (100.0 + contrast) / 100.0;
@@ -394,7 +394,7 @@ namespace ImageProcessing
             _currentBitmap = (Bitmap)_bitmapPrevCropArea.Clone();
         }
 
-          
+
 
 
         public void InsertText(string text, int xPosition, int yPosition, string fontName, float fontSize, string fontStyle, string colorName1, string colorName2)
@@ -403,9 +403,9 @@ namespace ImageProcessing
             Bitmap temp = (Bitmap)_currentBitmap;
             PixelFormat forma = temp.PixelFormat;
             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-        
+
             Graphics gr = Graphics.FromImage(bmap);
-          
+
 
             if (string.IsNullOrEmpty(fontName))
                 fontName = "Times New Roman";
@@ -491,33 +491,20 @@ namespace ImageProcessing
                 default:
                     gr.DrawRectangle(pen, xPosition, yPosition, width, height);
                     break;
-               
+
             }
             _currentBitmap = (Bitmap)bmap.Clone();
         }
 
-        private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        public void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            //PixelFormat forma = temp.PixelFormat;
             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-            Graphics gr = Graphics.FromImage(bmap);
-           gr.Dispose();
-            //Bitmap myBitmap1 = new Bitmap(bmap.Width, myPicturebox.Height);
-            //myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
-            //e.Graphics.DrawImage(bmap);
-            //myBitmap1.Dispose();
+            e.Graphics.DrawImage(bmap,0,0,bmap.Width,bmap.Height);
+            bmap.Dispose();
         }
 
-        public void Print()
-        {
-            Bitmap temp = (Bitmap)_currentBitmap;
-            //  Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-            //Graphics gr = Graphics.FromImage(bmap);
-            PrintDocument myPrintDocument1 = new PrintDocument();
-            PrintDialog myPrinDialog1 = new PrintDialog();
-            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
-            myPrinDialog1.Document = myPrintDocument1;
-        }
+
+
     }
 }

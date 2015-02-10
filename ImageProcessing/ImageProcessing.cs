@@ -393,24 +393,25 @@ namespace ImageProcessing
         }
 
 
-        private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            //Bitmap temp = (Bitmap)_currentBitmap;
-            ////PixelFormat forma = temp.PixelFormat;
-            //Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
-            //Graphics gr = Graphics.FromImage(bmap);
-            //gr.Dispose();
-            Bitmap myBitmap1 = new Bitmap(Width, Height);
-            myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
-            e.Graphics.DrawImage(myBitmap1, 0, 0);
-            myBitmap1.Dispose();
-        }
+        //private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        //{
+        //    //Bitmap temp = (Bitmap)_currentBitmap;
+        //    ////PixelFormat forma = temp.PixelFormat;
+        //    //Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+        //    //Graphics gr = Graphics.FromImage(bmap);
+        //    //gr.Dispose();
+
+        //    Bitmap myBitmap1 = new Bitmap(Width, Height);
+        //    myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
+        //    e.Graphics.DrawImage(myBitmap1, 0, 0);
+        //    myBitmap1.Dispose();
+        //}
 
         private void menuItemPrint_Click(object sender, EventArgs e)
         {
             PrintDocument myPrintDocument1 = new PrintDocument();
             PrintDialog myPrinDialog1 = new PrintDialog();
-            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
+            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(imageHandler.myPrintDocument2_PrintPage);
             myPrinDialog1.Document = myPrintDocument1;
 
             if (myPrinDialog1.ShowDialog() == DialogResult.OK)

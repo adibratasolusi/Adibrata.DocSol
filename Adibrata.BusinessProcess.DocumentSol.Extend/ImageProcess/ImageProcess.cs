@@ -337,8 +337,6 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 #endregion
             }
         }
-
-
         public DataTable DocTransBinaryNoteView(DocSolEntities _ent)//method
         {
             SqlParameter[] sqlParams;
@@ -417,8 +415,47 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
                 #endregion
             }
         }
+        public void SaveEditImage(DocSolEntities _ent)
+        {
+            SqlParameter[] sqlParams;
+            SqlDataReader _rdr;
+            try
+            {
+                #region "List Parameter SQL"
+                sqlParams = new SqlParameter[3];
+                sqlParams[0] = new SqlParameter("@DocTransBinaryId", SqlDbType.BigInt);
+                sqlParams[0].Value = _ent.Id;
+                sqlParams[1] = new SqlParameter("@FileBinary", SqlDbType.VarBinary);
+                sqlParams[1].Value = _ent.FileBinary;
+                sqlParams[2] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 20);
+                sqlParams[2].Value = _ent.UserName;
 
 
+                _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spImageMaintenanceSave", sqlParams);
+
+
+                _rdr.Close();
+                #endregion
+            }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = _ent.UserLogin,
+                    NameSpace = "Adibrata.BusinessProcess.DocumentSol.Extend",
+                    ClassName = "ImageProcess",
+                    FunctionName = "UpdateNoteDocTransBinary",
+                    ExceptionNumber = 1,
+                    EventSource = "ImageProcess",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 80 Untuk DocumentManagement
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
+        }
 
 
 

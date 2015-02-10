@@ -65,7 +65,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                 oPaging.dgObj = dgPaging;
                 if (txtCustCode.Text != "" || txtCustName.Text != "" || txtProjCode.Text != "" || txtProjName.Text != "" || txtDocType.Text != "")
                 {
-                    sb.Append(" where ");
+                    sb.Append(" And ");
                     if (txtCustCode.Text != "")
                     {
 

@@ -33,7 +33,6 @@ namespace ImageProcessing
             this.menuItemFile = new System.Windows.Forms.MenuItem();
             this.menuItemSave = new System.Windows.Forms.MenuItem();
             this.menuItemSep1 = new System.Windows.Forms.MenuItem();
-            this.menuItemExit = new System.Windows.Forms.MenuItem();
             this.menuItemEdit = new System.Windows.Forms.MenuItem();
             this.menuItemUndo = new System.Windows.Forms.MenuItem();
             this.menuItemClearImage = new System.Windows.Forms.MenuItem();
@@ -72,6 +71,8 @@ namespace ImageProcessing
             this.menuItemInsertText = new System.Windows.Forms.MenuItem();
             this.menuItemInsertImage = new System.Windows.Forms.MenuItem();
             this.menuItemInsertShape = new System.Windows.Forms.MenuItem();
+            this.menuItemPrint = new System.Windows.Forms.MenuItem();
+            this.menuItemExit = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // MainMenu1
@@ -90,6 +91,7 @@ namespace ImageProcessing
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemSave,
             this.menuItemSep1,
+            this.menuItemPrint,
             this.menuItemExit});
             this.menuItemFile.Text = "&File";
             // 
@@ -104,12 +106,6 @@ namespace ImageProcessing
             // 
             this.menuItemSep1.Index = 1;
             this.menuItemSep1.Text = "-";
-            // 
-            // menuItemExit
-            // 
-            this.menuItemExit.Index = 2;
-            this.menuItemExit.Text = "E&xit";
-            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
             // menuItemEdit
             // 
@@ -374,6 +370,18 @@ namespace ImageProcessing
             this.menuItemInsertShape.Text = "&Shape";
             this.menuItemInsertShape.Click += new System.EventHandler(this.menuItemInsertShape_Click);
             // 
+            // menuItemPrint
+            // 
+            this.menuItemPrint.Index = 2;
+            this.menuItemPrint.Shortcut = System.Windows.Forms.Shortcut.CtrlP;
+            this.menuItemPrint.Text = "&Print";
+            this.menuItemPrint.Click += new System.EventHandler(this.menuItemPrint_Click);
+            // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Index = 3;
+            this.menuItemExit.Text = "E&xit";
+            // 
             // ImageProcessing
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -381,6 +389,7 @@ namespace ImageProcessing
             this.ClientSize = new System.Drawing.Size(764, 509);
             this.Menu = this.MainMenu1;
             this.Name = "ImageProcessing";
+            this.ShowIcon = false;
             this.Text = "Image Processing";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ImageProcessing_Paint);
             this.ResumeLayout(false);
@@ -393,7 +402,6 @@ namespace ImageProcessing
         private System.Windows.Forms.MenuItem menuItemFile;
         private System.Windows.Forms.MenuItem menuItemSave;
         private System.Windows.Forms.MenuItem menuItemSep1;
-        private System.Windows.Forms.MenuItem menuItemExit;
         private System.Windows.Forms.MenuItem menuItemEdit;
         private System.Windows.Forms.MenuItem menuItemUndo;
         private System.Windows.Forms.MenuItem menuItemClearImage;
@@ -432,6 +440,8 @@ namespace ImageProcessing
         private System.Windows.Forms.MenuItem menuItemInsertText;
         private System.Windows.Forms.MenuItem menuItemInsertImage;
         private System.Windows.Forms.MenuItem menuItemInsertShape;
+        private System.Windows.Forms.MenuItem menuItemPrint;
+        private System.Windows.Forms.MenuItem menuItemExit;
     }
 }
 

@@ -3,15 +3,27 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using Adibrata.BusinessProcess.DocumentSol.Entities;
+using Adibrata.Controller;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace ImageProcessing
 {
     public class ImageHandler
     {
+
         private string _bitmapPath;
         private Bitmap _currentBitmap;
         private Bitmap _bitmapbeforeProcessing;
         private Bitmap _bitmapPrevCropArea;
+        public byte[] Pixels { get; set; }
+        public int Depth { get; private set; }
+        public int Width { get; private set; }
+        public int Height { get; private set; }
+
 
         public ImageHandler()
         {
@@ -58,12 +70,23 @@ namespace ImageProcessing
             }
         }
 
-        public void SaveBitmap(string saveFilePath)
+        public void SaveBitmap(DocSolEntities ent)
         {
-            _bitmapPath = saveFilePath;
-            if (System.IO.File.Exists(saveFilePath))
-                System.IO.File.Delete(saveFilePath);
-            _currentBitmap.Save(saveFilePath);
+
+
+            // _currentBitmap;
+
+
+            DocSolEntities _ent = new DocSolEntities();
+            _ent.ClassName = "ImageProcess";
+            _ent.MethodName = "SaveEditImage";
+            _ent.Id = ent.Id;
+            _ent.UserName = ent.UserName;
+
+            _ent.FileBinary = Adibrata.Framework.ImageProcessing.ImageConverterProcess.imageToByteArray((Bitmap)_currentBitmap);
+
+            DocumentSolutionController.DocSolProcess<string>(_ent);
+
         }
 
         public void ClearImage()
@@ -186,7 +209,7 @@ namespace ImageProcessing
         public void SetContrast(double contrast)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap bmap = (Bitmap)temp.Clone();
+          Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             if (contrast < -100) contrast = -100;
             if (contrast > 100) contrast = 100;
             contrast = (100.0 + contrast) / 100.0;
@@ -230,7 +253,7 @@ namespace ImageProcessing
         public void SetGrayscale()
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap bmap = (Bitmap)temp.Clone();
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             Color c;
             for (int i = 0; i < bmap.Width; i++)
             {
@@ -265,9 +288,8 @@ namespace ImageProcessing
         {
             if (newWidth != 0 && newHeight != 0)
             {
-                Bitmap temp = (Bitmap)_currentBitmap;
+                Bitmap temp = (Bitmap)_currentBitmap.Clone();
                 Bitmap bmap = new Bitmap(newWidth, newHeight, temp.PixelFormat);
-
                 double nWidthFactor = (double)temp.Width / (double)newWidth;
                 double nHeightFactor = (double)temp.Height / (double)newHeight;
 
@@ -372,12 +394,19 @@ namespace ImageProcessing
             _currentBitmap = (Bitmap)_bitmapPrevCropArea.Clone();
         }
 
+          
+
+
         public void InsertText(string text, int xPosition, int yPosition, string fontName, float fontSize, string fontStyle, string colorName1, string colorName2)
         {
+
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap testBmap = (Bitmap)temp.Clone();
-            Bitmap bmap = new Bitmap(testBmap.Width, testBmap.Height);
+            PixelFormat forma = temp.PixelFormat;
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+        
             Graphics gr = Graphics.FromImage(bmap);
+          
+
             if (string.IsNullOrEmpty(fontName))
                 fontName = "Times New Roman";
             if (fontSize.Equals(null))
@@ -413,14 +442,22 @@ namespace ImageProcessing
             int gW = (int)(text.Length * fontSize);
             gW = gW == 0 ? 10 : gW;
             LinearGradientBrush LGBrush = new LinearGradientBrush(new Rectangle(0, 0, gW, (int)fontSize), color1, color2, LinearGradientMode.Vertical);
+
             gr.DrawString(text, font, LGBrush, xPosition, yPosition);
-            _currentBitmap = (Bitmap)bmap.Clone();
+
+
+
+
+            _currentBitmap = bmap.Clone(new Rectangle(0, 0, bmap.Width, bmap.Height), PixelFormat.Format24bppRgb);
+
+
+
         }
 
         public void InsertImage(string imagePath, int xPosition, int yPosition)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap bmap = (Bitmap)temp.Clone();
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             Graphics gr = Graphics.FromImage(bmap);
             if (!string.IsNullOrEmpty(imagePath))
             {
@@ -434,7 +471,7 @@ namespace ImageProcessing
         public void InsertShape(string shapeType, int xPosition, int yPosition, int width, int height, string colorName)
         {
             Bitmap temp = (Bitmap)_currentBitmap;
-            Bitmap bmap = (Bitmap)temp.Clone();
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             Graphics gr = Graphics.FromImage(bmap);
             if (string.IsNullOrEmpty(colorName))
                 colorName = "Black";
@@ -457,6 +494,30 @@ namespace ImageProcessing
                
             }
             _currentBitmap = (Bitmap)bmap.Clone();
+        }
+
+        private void myPrintDocument2_PrintPage(System.Object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap temp = (Bitmap)_currentBitmap;
+            //PixelFormat forma = temp.PixelFormat;
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+            Graphics gr = Graphics.FromImage(bmap);
+           gr.Dispose();
+            //Bitmap myBitmap1 = new Bitmap(bmap.Width, myPicturebox.Height);
+            //myPicturebox.DrawToBitmap(myBitmap1, new Rectangle(0, 0, myPicturebox.Width, myPicturebox.Height));
+            //e.Graphics.DrawImage(bmap);
+            //myBitmap1.Dispose();
+        }
+
+        public void Print()
+        {
+            Bitmap temp = (Bitmap)_currentBitmap;
+            //  Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), PixelFormat.Format24bppRgb);
+            //Graphics gr = Graphics.FromImage(bmap);
+            PrintDocument myPrintDocument1 = new PrintDocument();
+            PrintDialog myPrinDialog1 = new PrintDialog();
+            myPrintDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(myPrintDocument2_PrintPage);
+            myPrinDialog1.Document = myPrintDocument1;
         }
     }
 }

@@ -961,7 +961,6 @@
     <Folder Include="ImageProcess\Decryption\" />
     <Folder Include="ImageProcess\Encryption\" />
     <Folder Include="ImageProcess\Grayscale\" />
-    <Folder Include="ImageProcess\NewFolder1\" />
     <Folder Include="UploadMonitoring\" />
   </ItemGroup>
   <PropertyGroup>

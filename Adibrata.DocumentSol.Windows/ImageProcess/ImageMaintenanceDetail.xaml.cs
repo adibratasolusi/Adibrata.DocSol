@@ -230,14 +230,35 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                RedirectPage redirect = new RedirectPage(this, "ImageProcess.ImageMaintenance", SessionProperty);
+        }
+            catch (Exception _exp)
+            {
+                #region "Write to Event Viewer"
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.ImageProcess",
+                    ClassName = "ImageMaintenanceDetail",
+                    FunctionName = "btnBack_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "ImageMaintenanceDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 70 Untuk User Managemetn
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+                #endregion
+            }
         }
 
       
 
         private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-        
+
         }
 
         private void btnEditPicture_Click(object sender, RoutedEventArgs e)
@@ -257,12 +278,12 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                     ImageProcessing.ImageProcessing imgViewer = new ImageProcessing.ImageProcessing();
                     imgViewer.img = ImageConverterProcess.byteArrayToImage(_imgbin);
                     imgViewer.UserName = SessionProperty.UserName;
-                    //imgViewer.DocTransBinaryId = Convert.ToInt64((String)((DataRowView)dgPaging.SelectedItem)["Id"]);
+                    imgViewer.DocTransBinaryId = Convert.ToInt64(((DataRowView)dgPaging.SelectedItem)["Id"].ToString());
                     imgViewer.showDlg();
                 }
             }
 
-        }
+            }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {

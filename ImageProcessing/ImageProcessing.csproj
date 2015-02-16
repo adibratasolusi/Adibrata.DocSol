@@ -41,6 +41,13 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PdfSharp, Version=1.0.898.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Adibrata.Windows.UserController\lib\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PQScan.ImageToPDF">
+      <HintPath>..\lib\PQScan.ImageToPDF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -185,6 +192,10 @@
     <ProjectReference Include="..\Adibrata.BusinessProcess.Entities.Base\Adibrata.BusinessProcess.Entities.Base.csproj">
       <Project>{e55f8780-287d-44d7-9c30-37562e95ba42}</Project>
       <Name>Adibrata.BusinessProcess.Entities.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adibrata.Configuration\Adibrata.Configuration.csproj">
+      <Project>{b94bff51-11df-4651-aeb3-0192ad51180b}</Project>
+      <Name>Adibrata.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Adibrata.Controller\Adibrata.Controller.csproj">
       <Project>{3c1d4bbe-264f-405f-b212-72bfc2595d28}</Project>

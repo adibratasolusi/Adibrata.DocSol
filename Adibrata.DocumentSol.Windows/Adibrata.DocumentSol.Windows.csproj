@@ -161,11 +161,29 @@
     <Compile Include="DocumentMaintenance\DeleteDocumentPaging.xaml.cs">
       <DependentUpon>DeleteDocumentPaging.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentMaintenance\DuplicateDocument.xaml.cs">
+      <DependentUpon>DuplicateDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\DuplicateDocumentDetail.xaml.cs">
+      <DependentUpon>DuplicateDocumentDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\MovingDocument.xaml.cs">
+      <DependentUpon>MovingDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\MovingDocumentDetail.xaml.cs">
+      <DependentUpon>MovingDocumentDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditUploadDocument\EditDocumentUpload.xaml.cs">
       <DependentUpon>EditDocumentUpload.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditUploadDocument\EditDocumentUploadDetail.xaml.cs">
       <DependentUpon>EditDocumentUploadDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmailDocument\EmailDocument.xaml.cs">
+      <DependentUpon>EmailDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmailDocument\EmailDocumentDetail.xaml.cs">
+      <DependentUpon>EmailDocumentDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageProcess\Bookmark\BookmarkDetail.xaml.cs">
       <DependentUpon>BookmarkDetail.xaml</DependentUpon>
@@ -470,11 +488,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DocumentMaintenance\DuplicateDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\DuplicateDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\MovingDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\MovingDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditUploadDocument\EditDocumentUpload.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditUploadDocument\EditDocumentUploadDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmailDocument\EmailDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmailDocument\EmailDocumentDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -883,6 +925,10 @@
     <ProjectReference Include="..\Adibrata.Windows.UserController\Adibrata.Windows.UserController.csproj">
       <Project>{536678c3-fab3-43a9-8a68-adab972a6df1}</Project>
       <Name>Adibrata.Windows.UserController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailClient\Email Client\Email Client.csproj">
+      <Project>{0e43e86d-d8fc-44a6-92f5-ed28822adc8a}</Project>
+      <Name>Email Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\ImageBoxSample\ImageBoxSample.csproj">
       <Project>{8241a955-c8e4-4cfd-ba28-eeab34f6c00c}</Project>

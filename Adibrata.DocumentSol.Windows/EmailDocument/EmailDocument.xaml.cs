@@ -3,20 +3,30 @@ using Adibrata.BusinessProcess.Entities.Base;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace Adibrata.DocumentSol.Windows.ImageProcess
+namespace Adibrata.DocumentSol.Windows.EmailDocument
 {
     /// <summary>
-    /// Interaction logic for ImageMaintenance.xaml
+    /// Interaction logic for EmailDocument.xaml
     /// </summary>
-    public partial class ImageMaintenance : Page
+    public partial class EmailDocument : Page
     {
         SessionEntities SessionProperty;
         DocSolEntities _ent = new DocSolEntities();
-        public ImageMaintenance(SessionEntities _session)
+        public EmailDocument(SessionEntities _session)
         {
             try
             {
@@ -24,7 +34,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
                 //oFavorite.UserLogin = SessionProperty.UserName;
-                //oFavorite.FormUrl = "UploadInquiry.UploadInquiry";
+                //oFavorite.FormUrl = "EditUploadDocument.EditDocumentUpload";
                 //oFavorite.DisableFavorit();
             }
             catch (Exception _exp)
@@ -32,11 +42,11 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.ImageProcess",
-                    ClassName = "ImageMaintenance",
-                    FunctionName = "UploadInquiry",
+                    NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
+                    ClassName = "EditDocumentUpload",
+                    FunctionName = "EditDocumentUpload",
                     ExceptionNumber = 1,
-                    EventSource = "UploadInquiry",
+                    EventSource = "EditDocumentUpload",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -50,12 +60,12 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                oPaging.ClassName = "ImageProcessPaging";
-                oPaging.MethodName = "ImageMaintenancePaging";
+                oPaging.ClassName = "EditDocument";
+                oPaging.MethodName = "EditDocumentPaging";
                 oPaging.dgObj = dgPaging;
                 if (txtCustCode.Text != "" || txtCustName.Text != "" || txtProjCode.Text != "" || txtProjName.Text != "" || txtDocType.Text != "")
                 {
-                    sb.Append(" And ");
+                    sb.Append(" where ");
                     if (txtCustCode.Text != "")
                     {
 
@@ -129,7 +139,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                     }
                 }
                 oPaging.WhereCond = sb.ToString();
-                oPaging.SortBy = " DocTrans.TransID,proj.ID Asc ";
+                oPaging.SortBy = " DocTrans.TransID Asc ";
                 oPaging.UserName = SessionProperty.UserName;
                 oPaging.PagingData();
             }
@@ -149,6 +159,10 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+        }
+
+        private void btnEmail_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
@@ -164,26 +178,27 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
-                SessionProperty.SourceForm = "ImageProcess.ImageMaintenance";
-
-                RedirectPage redirect = new RedirectPage(this, "ImageProcess.ImageMaintenanceDetail", SessionProperty);
+                RedirectPage redirect = new RedirectPage(this, "EmailDocument.EmailDocumentDetail", SessionProperty);
             }
             catch (Exception _exp)
             {
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.ImageProcess",
-                    ClassName = "DocumentUploadPaging",
-                    FunctionName = "btnUpload_Click",
+                    NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
+                    ClassName = "EditUploadSave",
+                    FunctionName = "btnEdit_Click",
                     ExceptionNumber = 1,
-                    EventSource = "UploadInquiry",
+                    EventSource = "EditDocumentUpload",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+
         }
+
+
     }
 }

@@ -9,7 +9,11 @@ using System.Windows.Forms;
 using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.Controller;
 using Adibrata.Framework.ImageProcessing;
-
+using PdfSharp;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using System.IO; 
+using System.Diagnostics;
 namespace ImageProcessing
 {
     public partial class ImageProcessing : Form
@@ -19,6 +23,10 @@ namespace ImageProcessing
         public string UserName { get; set; }
         private PrintDocument printDocument1;
         private PictureBox myPicturebox;
+
+
+
+
         public void showDlg()
         {
             DataTable dt = new DataTable();
@@ -418,7 +426,76 @@ namespace ImageProcessing
             this.Close();
         }
 
-      
+        private void menuItemSaveASpdf_Click(object sender, EventArgs e)
+        {
+
+           // PdfDocument doc = new PdfDocument();
+            //Bitmap temp = new Bitmap(Width, Height);
+           // PdfPage pagePdf = new PdfPage();
+
+           //            // List<string> listPath = new List<string>();
+           //// string tmpPath = "C:\\Temp";
+           //// string newPath;
+           //// //if (!Directory.Exists(tmpPath))
+           //// //{
+           //// //    Directory.CreateDirectory(tmpPath);
+           //// //}
+         
+   
+           ////  StringBuilder sbFileName = new StringBuilder(8000);
+           //         sbFileName.Append(tmpPath);
+           //         sbFileName.Append(DateTime.Now.ToString("yyyy-MM-dd HHmmss"));
+           //         sbFileName.Replace(".", "");
+           //         sbFileName.Append(".pdf");
+           //  string fullPath = sbFileName.ToString();
+        
+            
+            //doc.Pages.Add(new PdfPage());
+            //XGraphics xgr = XGraphics.FromPdfPage(doc, XImageFormat.);
+            //XImage img = XImage.FromFile();
+            //xgr.DrawImage(img, 0, 0);
+            //xgr.Dispose();
+
+            //doc.Save(fullPath);
+            //doc.Close();
+            //DocSolEntities ent = new DocSolEntities();
+            //ent.Id = this.DocTransBinaryId;
+            //ent.UserName = this.UserName;
+            //string tmpPath = "C:\\Temp\\";
+          //  if (!Directory.Exists(tmpPath))
+          //  {
+          //      Directory.CreateDirectory(tmpPath);
+          //  }
+          //  PdfDocument pdf = new PdfDocument();
+
+          //  //byte[] lesson = (byte[])(dr[0]);
+          //tmpPath = System.IO.Path.GetTempFileName();
+          //  PdfPage pdfPage = pdf.AddPage();
+    
+          //  XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+          //  System.IO.File.Move(tmpPath,System.IO.Path.ChangeExtension(tmpPath, ".pdf"));
+          //  //XImage img = XImage.FromFile(tmpPath);
+
+          //  graph.DrawImage(img, 0, 0);
+          //  string pdfFilename = "firstpage.pdf";
+          //  pdf.Save(tmpPath);
+          //  Process.Start(pdfFilename);
+
+
+            DocSolEntities ent = new DocSolEntities();
+            ent.Id = this.DocTransBinaryId;
+            ent.UserName = this.UserName;
+            imageHandler.SaveAsPdf(ent);
+//            SaveFileDialog sd = new SaveFileDialog();
+//            sd.FilterIndex = 1;
+//sd.InitialDirectory = @"C:\temp";  // <--- Add this line
+//if (sd.ShowDialog() != DialogResult.OK)
+//{
+//    imageHandler.SaveAsPdf(sd);
+//}   
+        }
+
+
 
 
     }

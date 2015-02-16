@@ -595,6 +595,7 @@ namespace Adibrata.Windows.UserController.DocContent.UploadAgreement
 
                         doc.Save(fullPath);
                         doc.Close();
+                        
                     }
 
                     listPath.Add(fullPath);

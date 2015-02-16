@@ -59,8 +59,6 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 
                 BindBinary();
                 BindContent();
-                WebBrowser browser = new WebBrowser();
-                browser.NavigateToString("www.detik.com");
 
 
             }
@@ -409,7 +407,6 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
         private void btnDownload_Click(object sender, RoutedEventArgs e)
         {
 
-            {
                 String _extention;
                 String _filename;
           
@@ -444,7 +441,6 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 
                                     _filename = @file;
                                     System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
-
 
                                     System.IO.Path.GetDirectoryName(_filename);
 
@@ -494,7 +490,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                     };
                     ErrorLog.WriteEventLog(_errent);
                 }
-            }
+            
           }
    
 

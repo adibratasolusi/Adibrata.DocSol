@@ -1,22 +1,22 @@
 ﻿using Adibrata.BusinessProcess.DocumentSol.Entities;
 using Adibrata.BusinessProcess.Entities.Base;
-using Adibrata.Configuration;
 using Adibrata.Controller;
-using Adibrata.Framework.ImageProcessing;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Adibrata.DocumentSol.Windows.ImageProcess
+namespace Adibrata.DocumentSol.Windows.EmailDocument
 {
     /// <summary>
-    /// Interaction logic for ImageMaintenanceDetail.xaml
+    /// Interaction logic for EmailDocumentDetail.xaml
     /// </summary>
-    public partial class ImageMaintenanceDetail : Page
+    public partial class EmailDocumentDetail : Page
     {
         SessionEntities SessionProperty = new SessionEntities();
 
@@ -28,7 +28,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
         // ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
         Dictionary<int, string> dicFile = new Dictionary<int, string>();
         Dictionary<int, string> dicExt = new Dictionary<int, string>();
-        string server = AppConfig.Config("BITSServer");
+       
         Byte[] _imgbin;
         String _filename = "";
 
@@ -42,7 +42,8 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
         }
         public bool RestoreDirectory { get; set; }
 
-        public ImageMaintenanceDetail(SessionEntities _session)
+        string tmpPath = Adibrata.Configuration.AppConfig.Config("ReportOutputPath");
+        public EmailDocumentDetail(SessionEntities _session)
         {
             try
             {
@@ -62,8 +63,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
 
                 BindContent();
                 BindBinary();
-   
-           
+
             }
             catch (Exception _exp)
             {
@@ -82,7 +82,6 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                 ErrorLog.WriteEventLog(_errent);
 
             }
-
         }
 
         private void BindContent()
@@ -211,17 +210,13 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
             }
 
         }
-        private void dgPaging_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                RedirectPage redirect = new RedirectPage(this, "ImageProcess.ImageMaintenance", SessionProperty);
-        }
+                RedirectPage redirect = new RedirectPage(this, "EmailDocument.EmailDocument", SessionProperty);
+            }
             catch (Exception _exp)
             {
                 #region "Write to Event Viewer"
@@ -242,36 +237,81 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
             }
         }
 
-        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnEmail_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
+     
 
-        private void btnEditPicture_Click(object sender, RoutedEventArgs e)
-        {
             String _filename;
             String _extention;
-
+           
 
             if ((Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"] != null)
             {
+
                 _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
                 _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
+
                 _extention = System.IO.Path.GetExtension(_filename);
-                //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
-                if (_extention == ".jpg" || _extention == ".png")
+                //if (_extention == ".jpg" || _extention == ".png")
+                //{
+               
+                if (!Directory.Exists(tmpPath))
                 {
-                    ImageProcessing.ImageProcessing imgViewer = new ImageProcessing.ImageProcessing();
-                    imgViewer.img = ImageConverterProcess.byteArrayToImage(_imgbin);
-                    imgViewer.UserName = SessionProperty.UserName;
-                    imgViewer.DocTransBinaryId = Convert.ToInt64(((DataRowView)dgPaging.SelectedItem)["Id"].ToString());
-                    imgViewer.showDlg();
+                    Directory.CreateDirectory(tmpPath);
                 }
-            }
+              
+                StringBuilder sbFileName = new StringBuilder(8000);
+                sbFileName.Append(tmpPath);
+                sbFileName.Append("\\");
+                sbFileName.Append("filemail");
+                sbFileName.Replace(".", "");
+                sbFileName.Append(_extention);
+                string fullPath = sbFileName.ToString();
+                //_filename = tmpPath + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+
+                if (File.Exists(fullPath))
+                {
+               
+                    File.Delete(fullPath);
+                 
+                    System.IO.FileStream _FileStream = new System.IO.FileStream(fullPath, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+                    _FileStream.Write(_imgbin, 0, _imgbin.Length);
+
+                    _FileStream.Close();
+
+                }
+                else
+                {
+                    System.IO.FileStream _FileStream = new System.IO.FileStream(fullPath, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+                    _FileStream.Write(_imgbin, 0, _imgbin.Length);
+
+                    _FileStream.Close();
+                }
+
+
+
+
+                //        string myTempFile = System.IO.Path.Combine(System.IO.Path.GetTempPath(),_filename, tmpPath);
+                //using (StreamWriter sw = new StreamWriter(myTempFile))
+                //{
+                //    sw.Write(myTempFile);
+                //}
+
+
+                Email_Client.EmailClient emaildoc = new Email_Client.EmailClient();
+
+                emaildoc.DocTransBinaryId = Convert.ToInt64(((DataRowView)dgPaging.SelectedItem)["Id"].ToString());
+                //emaildoc._imgbin = Convert.ToByte(_imgbin);
+                emaildoc._filename = _filename;
+                emaildoc._extention = _extention;
+                    emaildoc.showDlg();
+
 
             }
+           
+        }
 
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

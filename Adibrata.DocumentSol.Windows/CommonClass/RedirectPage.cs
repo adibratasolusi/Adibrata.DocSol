@@ -66,7 +66,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.ImageMaintenanceDetail": Source.NavigationService.Navigate(new ImageProcess.ImageMaintenanceDetail(_ent)); break;
                 #endregion
 
-               
+
 
                 #region "FileNumber"
                 case "StorageMonitoring.FileNumber.FileNumberPaging": Source.NavigationService.Navigate(new StorageMonitoring.FileNumber.FileNumberPaging(_ent)); break;
@@ -108,6 +108,11 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
+                #region  "Email Document"
+                case "EmailDocument.EmailDocument": Source.NavigationService.Navigate(new EmailDocument.EmailDocument(_ent)); break;
+                case "EmailDocument.EmailDocumentDetail": Source.NavigationService.Navigate(new EmailDocument.EmailDocumentDetail(_ent)); break;
+                #endregion
+
                 #region "UserForm"
                 case "UserManagement.UserFormRegistration.UserFormRegistration": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistration(_ent)); break;
                 case "UserManagement.UserFormRegistration.UserFormRegistrationPaging": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistrationPaging(_ent)); break;
@@ -137,7 +142,7 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
-             
+
 
                 #region "Document Search"
                 case "DocumentContent.SearchDocument": Source.NavigationService.Navigate(new DocumentContent.SearchDocument(_ent)); break;
@@ -149,12 +154,12 @@ namespace Adibrata.DocumentSol.Windows
 
                 #region "Menu Registration"
                 case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
-                #endregion 
+                #endregion
 
 
                 #region "Document Transaction Activity"
                 case "DocumentContent.DocTransActivity": Source.NavigationService.Navigate(new DocumentContent.DocTransActivity(_ent)); break;
-                #endregion 
+                #endregion
             }
         }
 
@@ -222,7 +227,7 @@ namespace Adibrata.DocumentSol.Windows
                 case "ImageProcess.Checkin.CheckinDetail": Source.NavigationService.Navigate(new ImageProcess.Checkin.CheckinDetail(_ent)); break;
                 case "ImageProcess.ImageMaintenance": Source.NavigationService.Navigate(new ImageProcess.ImageMaintenance(_ent)); break;
                 case "ImageProcess.ImageMaintenanceDetail": Source.NavigationService.Navigate(new ImageProcess.ImageMaintenanceDetail(_ent)); break;
-         
+
                 #endregion
 
                 #region "FileNumber"
@@ -243,7 +248,7 @@ namespace Adibrata.DocumentSol.Windows
 
                 #region "Menu Registration"
                 case "Menu.MenuRegistration": Source.NavigationService.Navigate(new Menu.MenuRegistration(_ent)); break;
-                #endregion 
+                #endregion
 
                 #region "Project"
                 case "Project.CustomerProjectPaging": Source.NavigationService.Navigate(new Project.CustomerProjectPaging(_ent)); break;
@@ -269,6 +274,11 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
+                #region  "Email Document"
+                case "EmailDocument.EmailDocument": Source.NavigationService.Navigate(new EmailDocument.EmailDocument(_ent)); break;
+                case "EmailDocument.EmailDocumentDetail": Source.NavigationService.Navigate(new EmailDocument.EmailDocumentDetail(_ent)); break;
+                #endregion
+
                 #region "UserForm"
                 case "UserManagement.UserFormRegistration.UserFormRegistration": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistration(_ent)); break;
                 case "UserManagement.UserFormRegistration.UserFormRegistrationPaging": Source.NavigationService.Navigate(new UserManagement.UserFormRegistration.UserFormRegistrationPaging(_ent)); break;
@@ -288,7 +298,6 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
-                
                 #region "Document Search"
                 //case "DocumentSearch.DocumentSearch": Source.NavigationService.Navigate(new DocumentSearch.DocumentSearch(_ent)); break;
                 #endregion
@@ -299,11 +308,11 @@ namespace Adibrata.DocumentSol.Windows
 
                 #region "Document Transaction Activity"
                 case "DocumentContent.SearchDocument": Source.NavigationService.Navigate(new DocumentContent.SearchDocument(_ent)); break;
-                #endregion 
+                #endregion
 
                 #region "Document Transaction Activity"
                 case "DocumentContent.DocTransActivity": Source.NavigationService.Navigate(new DocumentContent.DocTransActivity(_ent)); break;
-                #endregion 
+                #endregion
             }
 
         }

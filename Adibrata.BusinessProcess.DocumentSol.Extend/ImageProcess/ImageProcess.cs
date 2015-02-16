@@ -422,13 +422,16 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             try
             {
                 #region "List Parameter SQL"
-                sqlParams = new SqlParameter[3];
+                sqlParams = new SqlParameter[4];
                 sqlParams[0] = new SqlParameter("@DocTransBinaryId", SqlDbType.BigInt);
                 sqlParams[0].Value = _ent.Id;
                 sqlParams[1] = new SqlParameter("@FileBinary", SqlDbType.VarBinary);
                 sqlParams[1].Value = _ent.FileBinary;
                 sqlParams[2] = new SqlParameter("@UsrUpd", SqlDbType.VarChar, 20);
                 sqlParams[2].Value = _ent.UserName;
+                sqlParams[3] = new SqlParameter("@FileName", SqlDbType.VarChar, 50);
+                sqlParams[3].Value = _ent.FileName;
+
 
 
                 _rdr = SqlHelper.ExecuteReader(ConnectionString, CommandType.StoredProcedure, "spImageMaintenanceSave", sqlParams);

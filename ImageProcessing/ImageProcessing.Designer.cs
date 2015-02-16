@@ -70,6 +70,7 @@ namespace ImageProcessing
             this.menuItemInsertText = new System.Windows.Forms.MenuItem();
             this.menuItemInsertImage = new System.Windows.Forms.MenuItem();
             this.menuItemInsertShape = new System.Windows.Forms.MenuItem();
+            this.menuItemSaveASpdf = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // MainMenu1
@@ -87,6 +88,7 @@ namespace ImageProcessing
             this.menuItemFile.Index = 0;
             this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemSave,
+            this.menuItemSaveASpdf,
             this.menuItemPrint,
             this.menuItemExit});
             this.menuItemFile.Text = "&File";
@@ -100,14 +102,14 @@ namespace ImageProcessing
             // 
             // menuItemPrint
             // 
-            this.menuItemPrint.Index = 1;
+            this.menuItemPrint.Index = 2;
             this.menuItemPrint.Shortcut = System.Windows.Forms.Shortcut.CtrlP;
             this.menuItemPrint.Text = "&Print";
             this.menuItemPrint.Click += new System.EventHandler(this.menuItemPrint_Click);
             // 
             // menuItemExit
             // 
-            this.menuItemExit.Index = 2;
+            this.menuItemExit.Index = 3;
             this.menuItemExit.Text = "E&xit";
             this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click_1);
             // 
@@ -359,6 +361,12 @@ namespace ImageProcessing
             this.menuItemInsertShape.Text = "&Shape";
             this.menuItemInsertShape.Click += new System.EventHandler(this.menuItemInsertShape_Click);
             // 
+            // menuItemSaveASpdf
+            // 
+            this.menuItemSaveASpdf.Index = 1;
+            this.menuItemSaveASpdf.Text = "Save as Pdf";
+            this.menuItemSaveASpdf.Click += new System.EventHandler(this.menuItemSaveASpdf_Click);
+            // 
             // ImageProcessing
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -417,6 +425,8 @@ namespace ImageProcessing
         private System.Windows.Forms.MenuItem menuItemInsertShape;
         private System.Windows.Forms.MenuItem menuItemPrint;
         private System.Windows.Forms.MenuItem menuItemExit;
+        private System.Windows.Forms.MenuItem menuItemSaveASpdf;
+        private System.ComponentModel.BackgroundWorker bw;
     }
 }
 

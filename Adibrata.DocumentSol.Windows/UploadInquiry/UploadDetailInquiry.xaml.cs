@@ -67,8 +67,8 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
                 BindContent();
                 BindBinary();
-                WebBrowser browser = new WebBrowser();
-                browser.NavigateToString("www.detik.com");
+                //WebBrowser browser = new WebBrowser();
+                //browser.NavigateToString("www.detik.com");
             }
             catch (Exception _exp)
             {

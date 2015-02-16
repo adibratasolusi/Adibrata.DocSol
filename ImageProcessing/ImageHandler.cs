@@ -9,6 +9,12 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Diagnostics;
+using PQScan.ImageToPDF;
+using System.ComponentModel;
+using System.Net;
 
 namespace ImageProcessing
 {
@@ -25,6 +31,8 @@ namespace ImageProcessing
         public int Width { get; private set; }
         public int Height { get; private set; }
 
+        string path = Adibrata.Configuration.AppConfig.Config("ReportOutputPath");
+        public string fullPath;
 
         public ImageHandler()
         {
@@ -74,14 +82,11 @@ namespace ImageProcessing
         public void SaveBitmap(DocSolEntities ent)
         {
 
-
-            // _currentBitmap;
-
-
             DocSolEntities _ent = new DocSolEntities();
             _ent.ClassName = "ImageProcess";
             _ent.MethodName = "SaveEditImage";
             _ent.Id = ent.Id;
+            _ent.FileName = DateTime.Now.ToString("yyyy-MM-dd HHmmss");
             _ent.UserName = ent.UserName;
 
             _ent.FileBinary = Adibrata.Framework.ImageProcessing.ImageConverterProcess.imageToByteArray((Bitmap)_currentBitmap);
@@ -90,6 +95,169 @@ namespace ImageProcessing
             MessageBox.Show("Save Succes");
 
         }
+
+        public void SaveAsPdf(DocSolEntities ent)
+        {
+            #region for ATTACHMENT
+            //for (int i = 1; i <= 1; i++)
+            //{
+            //    Bitmap temp = (Bitmap)_currentBitmap;
+            //    PixelFormat cumacekpixel = temp.PixelFormat;
+            //    Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            //    string tmpPath = "c:\\Temp";
+            //    StringBuilder sbFileName = new StringBuilder(8000);
+            //    sbFileName.Append(tmpPath);
+            //    sbFileName.Append("\\");
+            //    sbFileName.Append("imgPdf_");
+            //    sbFileName.Replace(".", "");
+            //    sbFileName.Append(".jpg");
+            //    string fullPath = sbFileName.ToString();
+            //    if (!Directory.Exists(tmpPath))
+            //    {
+            //        Directory.CreateDirectory(tmpPath);
+            //    }
+            //    if (File.Exists(fullPath))
+            //    {
+            //        File.Delete(fullPath);
+            //        bmap.Save(fullPath, ImageFormat.Jpeg);
+            //    }
+            //    else
+            //    {
+            //        bmap.Save(fullPath, ImageFormat.Jpeg);
+
+            //    }}
+            #endregion
+
+       
+            StringBuilder sbFileName = new StringBuilder(8000);
+            sbFileName.Append(path);
+            sbFileName.Append("\\");
+            sbFileName.Append("imgPdf_");
+            sbFileName.Append(DateTime.Now.ToString("yyyy-MM-dd HHmmss"));
+            sbFileName.Replace(".", "");
+            sbFileName.Append(".pdf");
+            string fullPath = sbFileName.ToString();
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+    
+            Bitmap temp = (Bitmap)_currentBitmap;
+            Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+            PdfDocument doc = new PdfDocument();
+            doc.Pages.Add(new PdfPage());
+            XGraphics xgr = XGraphics.FromPdfPage(doc.Pages[0]);
+            XImage img = XImage.FromGdiPlusImage(bmap);
+            xgr.DrawImage(img, 0, 0);
+            xgr.Dispose();
+            doc.Save(fullPath);
+            doc.Close();
+
+            StringBuilder sbName = new StringBuilder(8000);
+
+            sbName.Append("imgtoPdf_");
+            sbName.Append(DateTime.Now.ToString("yyyy-MM-dd HHmmss"));
+            sbName.Replace(".", "");
+            sbName.Append(".pdf");
+            string fullName = sbName.ToString();
+            var webClient = new WebClient();
+            byte[] fileBytes = webClient.DownloadData(fullPath);
+            try
+            {
+                DocSolEntities _ent = new DocSolEntities();
+                _ent.ClassName = "ImageProcess";
+                _ent.MethodName = "SaveEditImage";
+                _ent.Id = ent.Id;
+                _ent.UserName = ent.UserName;
+                _ent.FileName = fullName;
+                _ent.FileBinary = fileBytes;
+
+                DocumentSolutionController.DocSolProcess<string>(_ent);
+                File.Delete(fullPath);
+                MessageBox.Show("Save Succes");
+             
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+
+            #region Ngaco
+            ////      Graphics gr = Graphics.FromImage(bmap);
+            ////      PdfDocument pdf = new PdfDocument();
+
+            ////      pdf.FullPath
+            ////      PdfPage pdfPage = pdf.AddPage();
+            ////      gr.DrawImage(bmap, XGraphics.FromGraphics);
+            ////      XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+            ////graph
+            ////XGraphics = pdfPage(Graphics.FromImage(temp));
+            ////      graph.DrawString(font, XBrushes.Black, new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.Center);
+            ////      string ;
+            ////      pdf.Save(gr);
+            ////      Process.Start(pdfFilename);
+            ////      DocSolEntities _ent = new DocSolEntities();
+            ////      _ent.ClassName = "ImageProcess";
+            ////      _ent.MethodName = "SaveEditImage";
+            ////      _ent.Id = ent.Id;
+            ////      _ent.UserName = ent.UserName;
+            ////     _ent.FileBinary= 
+            //// PdfDocument doc = new PdfDocument();
+
+            //// PdfPage pagePdf = new PdfPage();
+
+            //// List<string> listPath = new List<string>();
+            //// string tmpPath = "C:\\Temp";
+            //// string newPath;
+            //// //if (!Directory.Exists(tmpPath))
+            //// //{
+            //// //    Directory.CreateDirectory(tmpPath);
+            //// //}
+
+
+
+
+
+
+            ////doc.Pages.Add(new PdfPage());
+
+            ////XImage img = XImage.FromFile(fullPath);
+            ////xgr.DrawImage(bmap, 0, 0);
+            ////xgr.Dispose();
+            #endregion
+
+        }
+
+
+
+        //private void bw_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    try
+        //    {
+        //        string source = (e.Argument as string[])[0];
+        //        string destinaton = (e.Argument as string[])[1];
+
+        //        PdfDocument doc = new PdfDocument();
+        //        doc.Pages.Add(new PdfPage());
+        //        XGraphics xgr = XGraphics.FromPdfPage(doc.Pages[0]);
+        //        XImage img = XImage.FromFile(source);
+
+        //        xgr.DrawImage(img, 0, 0);
+        //        doc.Save(destinaton);
+        //        doc.Close();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
 
         public void ClearImage()
         {
@@ -291,7 +459,7 @@ namespace ImageProcessing
             if (newWidth != 0 && newHeight != 0)
             {
                 Bitmap temp = (Bitmap)_currentBitmap.Clone();
-                Bitmap bmap = new Bitmap(newWidth, newHeight, temp.PixelFormat);
+                Bitmap bmap = new Bitmap(newWidth, newHeight, temp.PixelFormat);//delo no pixel 
                 double nWidthFactor = (double)temp.Width / (double)newWidth;
                 double nHeightFactor = (double)temp.Height / (double)newHeight;
 
@@ -400,7 +568,7 @@ namespace ImageProcessing
         {
 
             Bitmap temp = (Bitmap)_currentBitmap;
-            PixelFormat forma = temp.PixelFormat;
+            PixelFormat cumacekpixel = temp.PixelFormat;
             Bitmap bmap = (Bitmap)temp.Clone(new Rectangle(0, 0, temp.Width, temp.Height), System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
             Graphics gr = Graphics.FromImage(bmap);

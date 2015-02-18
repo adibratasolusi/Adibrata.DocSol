@@ -376,6 +376,12 @@
     <Compile Include="UserManagement\Widget\WidgetFrame.xaml.cs">
       <DependentUpon>WidgetFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorkflowApproval\WorkflowApprovalPaging.xaml.cs">
+      <DependentUpon>WorkflowApprovalPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkflowApproval\WorkflowApprovalProcess.xaml.cs">
+      <DependentUpon>WorkflowApprovalProcess.xaml</DependentUpon>
+    </Compile>
     <Page Include="AgrmntUpload\AgrmntUploadPaging.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -762,6 +768,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserManagement\Widget\WidgetFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkflowApproval\WorkflowApprovalPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkflowApproval\WorkflowApprovalProcess.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

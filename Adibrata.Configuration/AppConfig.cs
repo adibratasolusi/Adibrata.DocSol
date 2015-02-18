@@ -9,7 +9,7 @@ namespace Adibrata.Configuration
 {
     public static class AppConfig
     {
-        public const string ConnectionString = "Server=Maximus-PC;Database=Configuration;User Id=sa;Password=Alpha2014";
+        public const string ConnectionString = "Server=MAXIMUS-PC;Database=Configuration;User Id=sa;Password=Alpha2014";
         public static string Config(string key)
         {
             string value = "";

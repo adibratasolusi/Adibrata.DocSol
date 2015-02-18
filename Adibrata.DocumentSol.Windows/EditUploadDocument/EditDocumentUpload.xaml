@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold">Edit Document</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">EDIT DOCUMENT</TextBlock>
       
             </Grid>
             <Grid Grid.Row="1">

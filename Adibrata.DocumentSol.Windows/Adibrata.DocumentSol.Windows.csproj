@@ -137,6 +137,12 @@
     <Compile Include="DocumentContent\Approval\ApprovalProcessScreen.xaml.cs">
       <DependentUpon>ApprovalProcessScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentContent\DiscussionDocument.xaml.cs">
+      <DependentUpon>DiscussionDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\DiscussionDocumentDetail.xaml.cs">
+      <DependentUpon>DiscussionDocumentDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DocumentContent\DocTransActivity\DocTransActivity.xaml.cs">
       <DependentUpon>DocTransActivity.xaml</DependentUpon>
     </Compile>
@@ -145,6 +151,24 @@
     </Compile>
     <Compile Include="DocumentContent\DocumentUploadPaging.xaml.cs">
       <DependentUpon>DocumentUploadPaging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\LinkedDocument.xaml.cs">
+      <DependentUpon>LinkedDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\LinkedDocumentDetail.xaml.cs">
+      <DependentUpon>LinkedDocumentDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\PasswordDocument.xaml.cs">
+      <DependentUpon>PasswordDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\PasswordDocumentDetail.xaml.cs">
+      <DependentUpon>PasswordDocumentDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\RecommendDocument.xaml.cs">
+      <DependentUpon>RecommendDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentContent\RecommendDocumentDetail.xaml.cs">
+      <DependentUpon>RecommendDocumentDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="DocumentContent\SearchDocument\SearchDocument.xaml.cs">
       <DependentUpon>SearchDocument.xaml</DependentUpon>
@@ -167,11 +191,23 @@
     <Compile Include="DocumentMaintenance\DuplicateDocumentDetail.xaml.cs">
       <DependentUpon>DuplicateDocumentDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DocumentMaintenance\MergeDocument.xaml.cs">
+      <DependentUpon>MergeDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\MergeDocumentDetail.xaml.cs">
+      <DependentUpon>MergeDocumentDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DocumentMaintenance\MovingDocument.xaml.cs">
       <DependentUpon>MovingDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="DocumentMaintenance\MovingDocumentDetail.xaml.cs">
       <DependentUpon>MovingDocumentDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\PurgeDocument.xaml.cs">
+      <DependentUpon>PurgeDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaintenance\PurgeDocumentDetail.xaml.cs">
+      <DependentUpon>PurgeDocumentDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditUploadDocument\EditDocumentUpload.xaml.cs">
       <DependentUpon>EditDocumentUpload.xaml</DependentUpon>
@@ -456,6 +492,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DocumentContent\DiscussionDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\DiscussionDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DocumentContent\DocTransActivity\DocTransActivity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -465,6 +509,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentContent\DocumentUploadPaging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\LinkedDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\LinkedDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\PasswordDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\PasswordDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\RecommendDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentContent\RecommendDocumentDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -496,11 +564,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DocumentMaintenance\MergeDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\MergeDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DocumentMaintenance\MovingDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DocumentMaintenance\MovingDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\PurgeDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocumentMaintenance\PurgeDocumentDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

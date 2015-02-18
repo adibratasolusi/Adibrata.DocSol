@@ -66,6 +66,16 @@ namespace Email_Client
             attachments.Add(fullPath);
             Attachments.Items.Add(iteme);
             this.From.Text = emaile;
+            MailMessage.Text = "Dear, Mr/mrs This is file from Adibrata";
+            AddAttachment.Visible = false;
+            DeleteAttachment.Visible = false;
+            FontSize.Visible = false;
+            FontStyle.Visible = false;
+            Bold.Visible = false;
+            Italic.Visible = false;
+            Underline.Visible = false;
+            this.ProgressLabel.Text = "Email Document Ready";
+                
         }
 
         private void EmailTimer_Tick(object sender, EventArgs e)
@@ -164,7 +174,7 @@ namespace Email_Client
                         }
                         else
                         {
-                            MessageBox.Show(this, "Recipients' email address is not in the correct format, in \"To: \" field.", "Email Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(this, "Recipients' email address is not in the correct format, in \"To: \" field.", "Email Document", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
@@ -173,7 +183,7 @@ namespace Email_Client
                     {
                         if (!(this.RecipientsEmailValidation(this.Cc.Text)))
                         {
-                            MessageBox.Show(this, "Recipients' email address is not in the correct format, in \"Cc: \" field.", "Email Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(this, "Recipients' email address is not in the correct format, in \"Cc: \" field.", "Email Document", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         else
@@ -186,7 +196,7 @@ namespace Email_Client
                     {
                         if (!(this.RecipientsEmailValidation(this.Bcc.Text)))
                         {
-                            MessageBox.Show(this, "Recipients' email address is not in the correct format, in \"Bcc: \" field.", "Email Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(this, "Recipients' email address is not in the correct format, in \"Bcc: \" field.", "Email Document", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         else
@@ -225,12 +235,12 @@ namespace Email_Client
                     }
                     else
                     {
-                        MessageBox.Show(this, "You must connect to the internet.", "Email Client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(this, "You must connect to the internet.", "Email Document", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(this, "Sender email address is not in the correct format.", "Email Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Sender email address is not in the correct format.", "Email Document", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -243,7 +253,7 @@ namespace Email_Client
             this.Cc.Text = "";
             this.Bcc.Text = "";
             this.Subject.Text = "";
-            this.MailMessage.Text = "";
+            
             this.Attachments.Clear();
         }
 

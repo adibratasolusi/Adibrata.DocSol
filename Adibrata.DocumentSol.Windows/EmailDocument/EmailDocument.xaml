@@ -14,7 +14,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold">Email Document</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">EMAIL DOCUMENT</TextBlock>
 
             </Grid>
             <Grid Grid.Row="1">

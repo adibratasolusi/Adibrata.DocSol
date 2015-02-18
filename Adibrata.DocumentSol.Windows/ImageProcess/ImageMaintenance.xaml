@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold">Image Maintenance</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">IMAGE MAINTENANCE</TextBlock>
 
             </Grid>
             <Grid Grid.Row="1">

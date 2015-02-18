@@ -52,7 +52,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public Boolean IsFinal { get; set; }
         #endregion
 
-
+        public string Comment { get; set; }
         public string ProjectCode { get; set; }
         public string ProjectType { get; set; }
         public string ProjectName { get; set; }

@@ -84,6 +84,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         public byte[] OldFileBinary { get; set; }
 
         public string Datatype { get; set; }
+
+        public DateTime MaturityDt { get; set; }
     }
 }
 

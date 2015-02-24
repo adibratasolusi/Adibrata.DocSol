@@ -163,6 +163,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ucUpload.DocumentTypeUpload = cboDocumentType.Text;
                 _ent.ApprovalNotes = oApproval.Notes;
                 _ent.RequestTo = oApproval.RequestTo;
+                _ent.MaturityDt = dpMaturityDt.SelectedDate.Value;
                 ucUpload.CheckAndUpload(_ent);
                 
                 RedirectPage redirect = new RedirectPage(this, "DocumentContent.DocumentUploadPaging", SessionProperty);

@@ -152,6 +152,81 @@ namespace Adibrata.Framework.Messaging
 
             return _dt;
         }
-       
+
+
+        public static DataTable DocTransApproval(WCFEntities oWCF)
+        {
+            DataTable _dt = new DataTable();
+
+            Adibrata.Framework.Messaging.AdibrataWF.Service1Client objService = new Adibrata.Framework.Messaging.AdibrataWF.Service1Client();
+
+
+            try
+            {
+
+                Adibrata.Framework.Messaging.AdibrataWF.EntitiesBase oEnt = new Adibrata.Framework.Messaging.AdibrataWF.EntitiesBase();
+                oEnt.BranchId = oWCF.BranchId;
+                oEnt.RoleId = oWCF.RoleId;
+                oEnt.Status = oWCF.Status;
+                _dt = objService.GetDataCust(oEnt);
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "WCF",
+                    NameSpace = "Adibrata.Framework.Messaging",
+                    ClassName = "MessageToWCF",
+                    FunctionName = "DocTransApproval",
+                    ExceptionNumber = 1,
+                    EventSource = "Messaging",
+                    ExceptionObject = _exp,
+                    EventID = 201,
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return _dt;
+        }
+
+
+        public static String DocTransApprovalGetNextStep()
+        {
+            String result;
+
+            Adibrata.Framework.Messaging.AdibrataWF.Service1Client objService = new Adibrata.Framework.Messaging.AdibrataWF.Service1Client();
+
+
+            try
+            {
+
+                result = objService.GetNextStep();
+
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = "WCF",
+                    NameSpace = "Adibrata.Framework.Messaging",
+                    ClassName = "MessageToWCF",
+                    FunctionName = "DocTransApproval",
+                    ExceptionNumber = 1,
+                    EventSource = "Messaging",
+                    ExceptionObject = _exp,
+                    EventID = 201,
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+
+            return result;
+        }
+
+
     }
 }

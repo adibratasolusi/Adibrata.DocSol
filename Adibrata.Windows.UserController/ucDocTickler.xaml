@@ -20,7 +20,7 @@
                         </DataGridTemplateColumn>
                         <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT TRANS CODE" x:Name="DocTransCode"/>
                         <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType"/>
-                        <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="MATURITY DATE" x:Name="MaturityDt"/>
+                        <DataGridTextColumn Binding="{Binding MaturityDt}" Header="MATURITY DATE" x:Name="MaturityDt"/>
                     </DataGrid.Columns>
                 </DataGrid>
 

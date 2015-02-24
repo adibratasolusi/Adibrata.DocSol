@@ -113,7 +113,13 @@ namespace Adibrata.Framework.Messaging
             get;
             set;
         }
-  
+
+        public string Status
+        { get; set; }
+        public Int64 RoleId
+        { get; set; }
+        public Int64 BranchId
+        { get; set; }
     }
 
 

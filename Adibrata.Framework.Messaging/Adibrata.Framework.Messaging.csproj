@@ -59,6 +59,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Service References\AdibrataWF\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceWCF\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,6 +93,22 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\AdibrataWF\Adibrata.Framework.Messaging.AdibrataWF.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdibrataWF\Service1.wsdl" />
+    <None Include="Service References\AdibrataWF\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdibrataWF\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdibrataWF\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AdibrataWF\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceWCF\Adibrata.Framework.Messaging.ServiceWCF.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -112,6 +133,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AdibrataWF\" />
     <WCFMetadataStorage Include="Service References\ServiceWCF\" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +147,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceWCF\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdibrataWF\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdibrataWF\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdibrataWF\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -265,6 +265,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
                 sqlParams[1].Value = _ent.DocumentType;
                 sqlParams[2] = new SqlParameter("@UsrCrt", SqlDbType.VarChar, 50);
                 sqlParams[2].Value = _ent.UserLogin;
+                sqlParams[3] = new SqlParameter("@MaturityDt", SqlDbType.DateTime);
+                sqlParams[3].Value = _ent.MaturityDt;
                 _dt.Load(SqlHelper.ExecuteReader(_trans, CommandType.StoredProcedure, "spDocTransInsert", sqlParams));
                 docTransId = (Int64)_dt.Rows[0]["Id"];
                 #endregion

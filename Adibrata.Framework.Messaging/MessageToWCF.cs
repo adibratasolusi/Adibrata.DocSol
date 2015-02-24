@@ -195,7 +195,7 @@ namespace Adibrata.Framework.Messaging
 
         public static String DocTransApprovalGetNextStep()
         {
-            String result;
+            String result = "";
 
             Adibrata.Framework.Messaging.AdibrataWF.Service1Client objService = new Adibrata.Framework.Messaging.AdibrataWF.Service1Client();
 

@@ -117,6 +117,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ucDocTickler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCDocTransBinaryContentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -210,6 +214,9 @@
     </Compile>
     <Compile Include="UCCanvas\UCCanvas.xaml.cs">
       <DependentUpon>UCCanvas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucDocTickler.xaml.cs">
+      <DependentUpon>ucDocTickler.xaml</DependentUpon>
     </Compile>
     <Compile Include="UCDocTransBinaryContentView.xaml.cs">
       <DependentUpon>UCDocTransBinaryContentView.xaml</DependentUpon>

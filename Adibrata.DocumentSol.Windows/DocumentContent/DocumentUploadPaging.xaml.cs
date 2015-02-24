@@ -37,7 +37,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                     ExceptionNumber = 1,
                     EventSource = "Customer",
                     ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
+                    EventID = 200, 
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);

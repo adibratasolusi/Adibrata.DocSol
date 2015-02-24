@@ -53,6 +53,8 @@ namespace Adibrata.BusinessProcess.DocumentSol.Entities
         #endregion
 
         public string Comment { get; set; }
+        public Int64 LinkDoc { get; set; }
+        public Int64 DocTransCommentId { get; set; }
         public string ProjectCode { get; set; }
         public string ProjectType { get; set; }
         public string ProjectName { get; set; }

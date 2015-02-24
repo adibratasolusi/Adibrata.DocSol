@@ -42,11 +42,11 @@ namespace Adibrata.DocumentSol.Windows.EmailDocument
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
-                    ClassName = "EditDocumentUpload",
-                    FunctionName = "EditDocumentUpload",
+                    NameSpace = "Adibrata.DocumentSol.Windows.EmailDocument",
+                    ClassName = "EmailDocument",
+                    FunctionName = "EmailDocument",
                     ExceptionNumber = 1,
-                    EventSource = "EditDocumentUpload",
+                    EventSource = "EmailDocument",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -148,11 +148,11 @@ namespace Adibrata.DocumentSol.Windows.EmailDocument
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
-                    ClassName = "UploadInquiry",
+                    NameSpace = "Adibrata.DocumentSol.Windows.EmailDocument",
+                    ClassName = "EmailDocument",
                     FunctionName = "btnSearch_Click",
                     ExceptionNumber = 1,
-                    EventSource = "UploadInquiry",
+                    EventSource = "EmailDocument",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
@@ -186,10 +186,10 @@ namespace Adibrata.DocumentSol.Windows.EmailDocument
                 {
                     UserLogin = SessionProperty.UserName,
                     NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
-                    ClassName = "EditUploadSave",
-                    FunctionName = "btnEdit_Click",
+                    ClassName = "EmailDocument",
+                    FunctionName = "btnDetail_Click",
                     ExceptionNumber = 1,
-                    EventSource = "EditDocumentUpload",
+                    EventSource = "EmailDocument",
                     ExceptionObject = _exp,
                     EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message

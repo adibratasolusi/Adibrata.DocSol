@@ -45,8 +45,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Adibrata.Windows.UserController\lib\PdfSharp.dll</HintPath>
     </Reference>
-    <Reference Include="PQScan.ImageToPDF">
-      <HintPath>..\lib\PQScan.ImageToPDF.dll</HintPath>
+    <Reference Include="PQScan.ImageToPDF, Version=6.3.0.41116, Culture=neutral, PublicKeyToken=fd54e000ae24a166, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\PQScan.ImageToPDF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -205,6 +206,9 @@
       <Project>{794775bc-8818-45e6-ad10-491e74af573a}</Project>
       <Name>Adibrata.Framework.ImageProcessing</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\PQScan.ImageToPDF.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,19 +2,9 @@
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
 {
@@ -38,7 +28,6 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
             try
             {
                 int i = dgPaging.SelectedIndex;
-
                 DataGridHelper oDataGrid = new DataGridHelper();
                 oDataGrid.dtg = dgPaging;
                 DataGridCell cell = oDataGrid.GetCell(i, 1);
@@ -70,7 +59,7 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
             StringBuilder sb = new StringBuilder(8000);
             try
             {
-                oPaging.ClassName  = "FileNumberPaging";
+                oPaging.ClassName = "FileNumberPaging";
                 oPaging.MethodName = "StoragePaging";
                 //"DeleteDocumentPaging"
                 oPaging.dgObj = dgPaging;
@@ -88,7 +77,7 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
                     sb.Append(txtExtension.Text);
                     sb.Append("'");
                 }
-                
+
                 else
                 {
                     sb.Append("");
@@ -121,8 +110,8 @@ namespace Adibrata.DocumentSol.Windows.StorageMonitoring.FileNumber
 
         }
 
-   
 
-   
+
+
     }
 }

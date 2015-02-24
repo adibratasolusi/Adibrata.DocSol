@@ -22,7 +22,6 @@ namespace Adibrata.Windows.UserController.DocContent
         public string UserLogin { get; set; }
         public string DocumentType { get; set; }
         public DataTable ListContent { get; set; }
-
         DataTable _dtcontent = new DataTable();
         public UCDocumentContent()
         {

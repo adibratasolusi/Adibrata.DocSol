@@ -196,19 +196,13 @@ namespace Adibrata.Framework.Messaging
         public static String DocTransApprovalGetNextStep()
         {
             String result = "";
-
             Adibrata.Framework.Messaging.AdibrataWF.Service1Client objService = new Adibrata.Framework.Messaging.AdibrataWF.Service1Client();
-
-
             try
             {
-
                 result = objService.GetNextStep();
-
             }
             catch (Exception _exp)
             {
-
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
                     UserLogin = "WCF",
@@ -223,10 +217,7 @@ namespace Adibrata.Framework.Messaging
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
-
             return result;
         }
-
-
     }
 }

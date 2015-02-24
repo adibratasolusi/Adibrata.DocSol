@@ -4,20 +4,9 @@ using Adibrata.Controller;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Adibrata.DocumentSol.Windows.EditUploadDocument
 {
@@ -348,9 +337,6 @@ namespace Adibrata.DocumentSol.Windows.EditUploadDocument
 
                     string input = _row["Result"].ToString().ToLower();
                     string _datatype = input.Split(new char[] { '(', ')' })[1];
-
-                    //         for (int i = 0; i < _dtValue.Rows.Count; i++)
-                    //{
                     var a = spValue.Children[i];
                     var b = spContent.Children[i];
                     TextBox textvalue = (TextBox)a;

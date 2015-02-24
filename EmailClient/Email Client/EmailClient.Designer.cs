@@ -40,11 +40,9 @@ namespace Email_Client
             this.FormattingToolStrip = new System.Windows.Forms.ToolStrip();
             this.FontStyle = new System.Windows.Forms.ToolStripComboBox();
             this.FontSize = new System.Windows.Forms.ToolStripComboBox();
-            this.Separator1 = new System.Windows.Forms.ToolStripSeparator();
             this.Bold = new System.Windows.Forms.ToolStripButton();
             this.Italic = new System.Windows.Forms.ToolStripButton();
             this.Underline = new System.Windows.Forms.ToolStripButton();
-            this.Separator2 = new System.Windows.Forms.ToolStripSeparator();
             this.FontColor = new System.Windows.Forms.ToolStripButton();
             this.FontBackgroundColor = new System.Windows.Forms.ToolStripButton();
             this.AttachmentToolStrip = new System.Windows.Forms.ToolStrip();
@@ -129,7 +127,6 @@ namespace Email_Client
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.MailMessage);
             this.groupBox1.Controls.Add(this.FormattingToolStrip);
-            this.groupBox1.Controls.Add(this.AttachmentToolStrip);
             this.groupBox1.Controls.Add(this.Attachments);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.Subject);
@@ -183,11 +180,9 @@ namespace Email_Client
             this.FormattingToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FontStyle,
             this.FontSize,
-            this.Separator1,
             this.Bold,
             this.Italic,
             this.Underline,
-            this.Separator2,
             this.FontColor,
             this.FontBackgroundColor});
             this.FormattingToolStrip.Location = new System.Drawing.Point(89, 168);
@@ -226,11 +221,6 @@ namespace Email_Client
             this.FontSize.SelectedIndexChanged += new System.EventHandler(this.FontSize_SelectedIndexChanged);
             this.FontSize.Click += new System.EventHandler(this.FontSize_Click);
             // 
-            // Separator1
-            // 
-            this.Separator1.Name = "Separator1";
-            this.Separator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // Bold
             // 
             this.Bold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -261,11 +251,6 @@ namespace Email_Client
             this.Underline.ToolTipText = "Underline";
             this.Underline.Click += new System.EventHandler(this.Underline_Click);
             // 
-            // Separator2
-            // 
-            this.Separator2.Name = "Separator2";
-            this.Separator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // FontColor
             // 
             this.FontColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -294,7 +279,7 @@ namespace Email_Client
             this.AttachmentToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddAttachment,
             this.DeleteAttachment});
-            this.AttachmentToolStrip.Location = new System.Drawing.Point(455, 101);
+            this.AttachmentToolStrip.Location = new System.Drawing.Point(26, 205);
             this.AttachmentToolStrip.Name = "AttachmentToolStrip";
             this.AttachmentToolStrip.Size = new System.Drawing.Size(65, 25);
             this.AttachmentToolStrip.TabIndex = 12;
@@ -329,7 +314,7 @@ namespace Email_Client
             this.Attachments.Location = new System.Drawing.Point(89, 106);
             this.Attachments.MultiSelect = false;
             this.Attachments.Name = "Attachments";
-            this.Attachments.Size = new System.Drawing.Size(363, 58);
+            this.Attachments.Size = new System.Drawing.Size(485, 58);
             this.Attachments.SmallImageList = this.images;
             this.Attachments.TabIndex = 11;
             this.EmailToolTip.SetToolTip(this.Attachments, "Attachments list");
@@ -359,7 +344,7 @@ namespace Email_Client
             this.Subject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Subject.Location = new System.Drawing.Point(87, 78);
             this.Subject.Name = "Subject";
-            this.Subject.Size = new System.Drawing.Size(206, 21);
+            this.Subject.Size = new System.Drawing.Size(487, 21);
             this.Subject.TabIndex = 9;
             this.EmailToolTip.SetToolTip(this.Subject, "Type the subject for this message");
             // 
@@ -487,6 +472,7 @@ namespace Email_Client
             this.ClientSize = new System.Drawing.Size(706, 547);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.EmailTab);
+            this.Controls.Add(this.AttachmentToolStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -533,10 +519,8 @@ namespace Email_Client
         private System.Windows.Forms.ToolStripComboBox FontStyle;
         private System.Windows.Forms.ToolStripComboBox FontSize;
         private System.Windows.Forms.ToolStripButton Bold;
-        private System.Windows.Forms.ToolStripSeparator Separator1;
         private System.Windows.Forms.ToolStripButton Italic;
         private System.Windows.Forms.ToolStripButton Underline;
-        private System.Windows.Forms.ToolStripSeparator Separator2;
         private System.Windows.Forms.ToolStripButton FontColor;
         private System.Windows.Forms.ToolStripButton FontBackgroundColor;
         private System.Windows.Forms.RichTextBox MailMessage;

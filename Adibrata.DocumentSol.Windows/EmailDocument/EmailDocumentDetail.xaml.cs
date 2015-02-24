@@ -26,8 +26,8 @@ namespace Adibrata.DocumentSol.Windows.EmailDocument
         Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
         // ServiceReference1.Service1Client objService = new ServiceReference1.Service1Client();
-        Dictionary<int, string> dicFile = new Dictionary<int, string>();
-        Dictionary<int, string> dicExt = new Dictionary<int, string>();
+        //Dictionary<int, string> dicFile = new Dictionary<int, string>();
+        //Dictionary<int, string> dicExt = new Dictionary<int, string>();
        
         Byte[] _imgbin;
         String _filename = "";

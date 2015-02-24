@@ -14,5 +14,6 @@ namespace Adibrata.BusinessProcess.Paging.Entities
 
 
         public string WhereCond2 { get; set; }
+        public Int64 doctransid { get; set; }
     }
 }

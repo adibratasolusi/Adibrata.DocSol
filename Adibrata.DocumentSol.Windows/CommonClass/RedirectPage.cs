@@ -42,13 +42,31 @@ namespace Adibrata.DocumentSol.Windows
                 case "DocumentContent.DocumentContentEntry": Source.NavigationService.Navigate(new DocumentContent.DocumentContentEntry(_ent)); break;
                 #endregion
 
+                #region "DiscussionDocument-LinkedDocument-PasswordDocument-RecommendDocument"
+                case "DocumentContent.DiscussionDocument": Source.NavigationService.Navigate(new DocumentContent.DiscussionDocument(_ent)); break;
+                case "DocumentContent.DiscussionDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.DiscussionDocumentDetail(_ent)); break;
+                case "DocumentContent.LinkedDocument": Source.NavigationService.Navigate(new DocumentContent.LinkedDocument(_ent)); break;
+                case "DocumentContent.LinkedDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.LinkedDocumentDetail(_ent)); break;
+                case "DocumentContent.PasswordDocument": Source.NavigationService.Navigate(new DocumentContent.PasswordDocument(_ent)); break;
+                case "DocumentContent.PasswordDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.PasswordDocumentDetail(_ent)); break;
+                case "DocumentContent.RecommendDocument": Source.NavigationService.Navigate(new DocumentContent.RecommendDocument(_ent)); break;
+                case "DocumentContent.RecommendDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.RecommendDocumentDetail(_ent)); break;
+                #endregion
+
                 #region "DocumentsMaintenance"
                 case "DocumentMaintenance.DeleteDocumentPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentPaging(_ent)); break;
                 case "DocumentMaintenance.DeleteDocumentInquiryPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryPaging(_ent)); break;
                 case "DocumentMaintenance.DeleteDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentDetail(_ent)); break;
                 case "DocumentMaintenance.DeleteDocumentInquiryDetail": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryDetail(_ent)); break;
-
-
+                case "DocumentMaintenance.DuplicateDocument": Source.NavigationService.Navigate(new DocumentMaintenance.DuplicateDocument(_ent)); break;
+                case "DocumentMaintenance.DuplicateDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.DuplicateDocumentDetail(_ent)); break;
+                case "DocumentMaintenance.MovingDocument": Source.NavigationService.Navigate(new DocumentMaintenance.MovingDocument(_ent)); break;
+                case "DocumentMaintenance.MovingDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.MovingDocumentDetail(_ent)); break;
+                case "DocumentMaintenance.MergeDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.MergeDocumentDetail(_ent)); break;
+                case "DocumentMaintenance.MergeDocument": Source.NavigationService.Navigate(new DocumentMaintenance.MergeDocument(_ent)); break;
+                case "DocumentMaintenance.PurgeDocument": Source.NavigationService.Navigate(new DocumentMaintenance.PurgeDocument(_ent)); break;
+                case "DocumentMaintenance.PurgeDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.PurgeDocumentDetail(_ent)); break;
+     
                 #endregion
 
                 #region "ImageProcess"
@@ -209,9 +227,31 @@ namespace Adibrata.DocumentSol.Windows
                 case "Approval.ApprovalProcessScreen": Source.NavigationService.Navigate(new DocumentContent.Approval.ApprovalProcessScreen(_ent)); break;
                 #endregion
 
+                #region "DiscussionDocument-LinkedDocument-PasswordDocument-RecommendDocument"
+                case "DocumentContent.DiscussionDocument": Source.NavigationService.Navigate(new DocumentContent.DiscussionDocument(_ent)); break;
+                case "DocumentContent.DiscussionDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.DiscussionDocumentDetail(_ent)); break;
+                case "DocumentContent.LinkedDocument": Source.NavigationService.Navigate(new DocumentContent.LinkedDocument(_ent)); break;
+                case "DocumentContent.LinkedDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.LinkedDocumentDetail(_ent)); break;
+                case "DocumentContent.PasswordDocument": Source.NavigationService.Navigate(new DocumentContent.PasswordDocument(_ent)); break;
+                case "DocumentContent.PasswordDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.PasswordDocumentDetail(_ent)); break;
+                case "DocumentContent.RecommendDocument": Source.NavigationService.Navigate(new DocumentContent.RecommendDocument(_ent)); break;
+                case "DocumentContent.RecommendDocumentDetail": Source.NavigationService.Navigate(new DocumentContent.RecommendDocumentDetail(_ent)); break;
+
+                #endregion
+
+              
+
                 #region "DocumentsMaintenance"
                 case "DocumentMaintenance.DeleteDocumentPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentPaging(_ent)); break;
                 case "DocumentMaintenance.DeleteDocumentInquiryPaging": Source.NavigationService.Navigate(new DocumentMaintenance.DeleteDocumentInquiryPaging(_ent)); break;
+                case "DocumentMaintenance.DuplicateDocument": Source.NavigationService.Navigate(new DocumentMaintenance.DuplicateDocument(_ent)); break;
+                case "DocumentMaintenance.DuplicateDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.DuplicateDocumentDetail(_ent)); break;
+                case "DocumentMaintenance.MovingDocument": Source.NavigationService.Navigate(new DocumentMaintenance.MovingDocument(_ent)); break;
+                case "DocumentMaintenance.MovingDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.MovingDocumentDetail(_ent)); break;
+                case "DocumentMaintenance.MergeDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.MergeDocumentDetail(_ent)); break;
+                case "DocumentMaintenance.MergeDocument": Source.NavigationService.Navigate(new DocumentMaintenance.MergeDocument(_ent)); break;
+                case "DocumentMaintenance.PurgeDocument": Source.NavigationService.Navigate(new DocumentMaintenance.PurgeDocument(_ent)); break;
+                case "DocumentMaintenance.PurgeDocumentDetail": Source.NavigationService.Navigate(new DocumentMaintenance.PurgeDocumentDetail(_ent)); break;
                 #endregion
 
                 #region "ImageProcess"

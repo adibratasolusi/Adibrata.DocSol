@@ -193,7 +193,7 @@
                                 <Grid Grid.Column="1" Grid.Row="1">
                                     <StackPanel HorizontalAlignment="Right">
                                         <Button Name="btnCommento" Click="btnCommento_Click" >
-                                            <Label>_Save Comment</Label>
+                                            <Label Height="13" Width="88">_Save Comment</Label>
                                         </Button>
                                     </StackPanel>
                                 </Grid>
@@ -275,25 +275,7 @@
                     </GroupBox>
                 </Grid>
               
-                <!--<Grid  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Name="delcomuser">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Column="0">
-                        <StackPanel>
-                            <Button Name="btnDelete"  FontSize="12" Style="{StaticResource buttonStyle}"  Click="btnDelete_Click"  >
-                                <Label>_Delete</Label>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-
-
-                </Grid>-->
+           
                 <Grid Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right">
                     <Button Name="btnBack"  FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click"  VerticalAlignment="Top">
                         <Label>_Back</Label>

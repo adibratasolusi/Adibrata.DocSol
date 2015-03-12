@@ -4,20 +4,10 @@ using Adibrata.Controller;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
 {
@@ -47,6 +37,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
 
                 BindContent();
                 BindBinary();
+                BindLink();
 
             }
             catch (Exception _exp)
@@ -195,6 +186,37 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
 
         }
 
+        private void BindLink()
+        {
+            StringBuilder sb = new StringBuilder(8000);
+            try
+            {
+                oPaging.ClassName = "DocContentPaging";
+                oPaging.MethodName = "LinkDocumentPaging";
+                oPaging.dgObj = dgLink;
+                oPaging.WhereCond = sb.ToString();
+                oPaging.SortBy = " DocTrans.TransID Asc ";
+                oPaging.UserName = SessionProperty.UserName;
+                oPaging.PagingData();
+            }
+            catch (Exception _exp)
+            {
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
+                    ClassName = "UploadInquiry",
+                    FunctionName = "btnSearch_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "UploadInquiry",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -222,6 +244,11 @@ namespace Adibrata.DocumentSol.Windows.DocumentMaintenance
         }
 
         private void btnMerge_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnsetmerge_Click(object sender, RoutedEventArgs e)
         {
 
         }

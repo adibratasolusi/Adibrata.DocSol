@@ -4,20 +4,10 @@ using Adibrata.Controller;
 using Adibrata.Framework.Logging;
 using Adibrata.Windows.UserController;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Adibrata.DocumentSol.Windows.DocumentContent
 {
@@ -26,25 +16,28 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
     /// </summary>
     public partial class PasswordDocumentDetail : Page
     {
+        string active;
+
+        DocSolEntities _ent = new DocSolEntities();
         SessionEntities SessionProperty = new SessionEntities();
         public PasswordDocumentDetail(SessionEntities _session)
         {
+            
             try
             {
-                DocSolEntities _ent = new DocSolEntities();
+       
                 InitializeComponent();
                 this.DataContext = new MainVM(new Shell());
                 SessionProperty = _session;
-                string _doctranscode = SessionProperty.ReffKey;
-                _ent.ClassName = "UploadProcess";
-                _ent.MethodName = "DocTransGetTransID";
-                _ent.DocTransCode = SessionProperty.ReffKey;
-                _ent.UserName = SessionProperty.UserName;
-                //_ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
-                SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(_ent));
-
-                txtDocTransId.Text = _ent.DocTransCode;
-
+                _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                txtDocTransId.Text = Convert.ToString(SessionProperty.doctranscode);
+                _ent.UserName = SessionProperty.UsrCrt;
+                lblbtnpass.Content = "Insert Password";
+                if (_session.IsActive == 1 && _ent.UserName == SessionProperty.UserName)
+                { BoxPassword.Visibility = Visibility.Hidden; popupass.IsOpen = true; }
+                else if (_session.IsActive == 1 && _ent.UserName != SessionProperty.UserName)
+                { BoxPassword.Visibility = Visibility.Hidden; }
+                else { BoxPassword.Visibility = Visibility.Visible; }
                 BindContent();
                 BindBinary();
 
@@ -198,6 +191,35 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         private void btnPassword_Click(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+                DocSolEntities _ent = new DocSolEntities();
+                DataTable _dt = new DataTable();
+                _ent.ClassName = "DocContent";
+                _ent.MethodName = "DocSavePassword";
+                _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                _ent.UserName = SessionProperty.UserName;
+                _ent.Password = txtPassword.Password;
+                _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+                MessageBox.Show("Save succes");
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
+                    ClassName = "EditDocumentUploadDetail",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "EditDocumentUploadDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -225,5 +247,52 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 #endregion
             }
         }
+
+        private void Change_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (txtChangepassword.Password == "")
+                {
+                    lblchangepassword.Content = "Password Is null";
+                }
+                else
+                {
+                    DataTable _dt = new DataTable();
+                    _ent.ClassName = "DocContent";
+                    _ent.MethodName = "DocUpdatePassword";
+                    _ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                    _ent.UserName = SessionProperty.UsrCrt;
+                    _ent.Password = txtChangepassword.Password;
+                    _dt = DocumentSolutionController.DocSolProcess<DataTable>(_ent);
+                    MessageBox.Show("Update succes");
+                    txtChangepassword.Password = "";
+                }
+            }
+            catch (Exception _exp)
+            {
+
+                ErrorLogEntities _errent = new ErrorLogEntities
+                {
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.DocumentSol.Windows.EditUploadDocument",
+                    ClassName = "EditDocumentUploadDetail",
+                    FunctionName = "btnSave_Click",
+                    ExceptionNumber = 1,
+                    EventSource = "EditDocumentUploadDetail",
+                    ExceptionObject = _exp,
+                    EventID = 200, // 1 Untuk Framework 
+                    ExceptionDescription = _exp.Message
+                };
+                ErrorLog.WriteEventLog(_errent);
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            popupass.IsOpen = false;
+        }
+
+     
     }
 }

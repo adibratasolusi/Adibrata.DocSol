@@ -22,10 +22,13 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="110" />
+           
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"  />
+                    <RowDefinition Height="Auto"  />
                     <RowDefinition Height="Auto"  />
                     <RowDefinition Height="Auto"  />
                     <RowDefinition Height="Auto"  />
@@ -84,7 +87,7 @@
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
                     <GroupBox Header="Document Detail">
 
-                        <ListView Height="428" Name="dgPaging" FontSize="12"  Width="Auto" 
+                        <ListView Height="218" Name="dgPaging" FontSize="12"  Width="Auto" 
                                  SelectedItem="dlg" >
                             <ListView.ItemTemplate >
                                 <DataTemplate>
@@ -156,12 +159,83 @@
 
                 </Grid>
 
-                <Grid Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right">
+                <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="300">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"  />
+
+                    </Grid.RowDefinitions>
+                    <GroupBox>
+                        <DataGrid Grid.Row="0" IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgLink" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="EDIT" Width="50" CanUserReorder="False" CanUserResize="False">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+
+                                            <StackPanel>
+                                                <!--<CheckBox Name="PCheckBox" Margin="10,10,0,0" Content="spValue"/>
+
+                                                    <Popup IsOpen="{Binding ElementName=PCheckBox,Path=IsChecked}" 
+                                                       PlacementTarget="{Binding ElementName=popupe}" PopupAnimation="None"/>-->
+                                                <Button Name="btnsetmerge"  FontSize="12" Style="{StaticResource buttonStyle}" Click="btnsetmerge_Click" >
+                                                    <Label>_SetMerge</Label>
+                                                </Button>
+                                            </StackPanel>
+
+
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANSACTIONS ID" x:Name="Id" Width="120"/>
+                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="120" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ProjName}"  Header="PROJECT NAME" x:Name="ProjName" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="150"/>
+
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILE NAME" x:Name="FileName" Width="150"/>
+                                <DataGridTemplateColumn Header="FILE SIZE" Width="100">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}" HorizontalAlignment="Right" >
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding LINKED}" Header="LINK DOCUMENT" x:Name="FileType" Width="80"/>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </GroupBox>
+
+                </Grid>
+
+                <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"  />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
+                        <UserController:UCPaging x:Name="oPaging"/>
+                    </Grid>
+
+                  
+                </Grid>
+                <Grid Grid.Column="3" Grid.Row="5" HorizontalAlignment="Right">
                     <Button Name="btnBack"  Grid.Column="0" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click"  VerticalAlignment="Top">
                         <Label>_Back</Label>
                     </Button>
                 </Grid>
-
             </Grid>
 
         </Grid>

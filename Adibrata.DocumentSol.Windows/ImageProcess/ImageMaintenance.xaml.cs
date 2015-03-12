@@ -157,7 +157,6 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
             try
             {
                 int i = dgPaging.SelectedIndex;
-
                 DataGridHelper oDataGrid = new DataGridHelper();
                 oDataGrid.dtg = dgPaging;
                 DataGridCell cell = oDataGrid.GetCell(i, 1);
@@ -165,7 +164,6 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;
                 SessionProperty.SourceForm = "ImageProcess.ImageMaintenance";
-
                 RedirectPage redirect = new RedirectPage(this, "ImageProcess.ImageMaintenanceDetail", SessionProperty);
             }
             catch (Exception _exp)

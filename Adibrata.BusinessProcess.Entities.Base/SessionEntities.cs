@@ -11,7 +11,8 @@ namespace Adibrata.BusinessProcess.Entities.Base
         public string FormID { get; set; }
         public string FullName { get; set; }
         public string ReffKey { get; set; }
-
+        public string doctranscode { get; set; }
+        public string UsrCrt { get; set; }
         public string SourceForm { get; set; }
         public DateTime StartLoginTime { get; set;  }
     }

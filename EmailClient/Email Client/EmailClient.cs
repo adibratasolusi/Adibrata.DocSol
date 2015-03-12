@@ -247,8 +247,7 @@ namespace Email_Client
 
         private void SmtpClear_Click(object sender, EventArgs e)
         {
-
-           
+ 
             this.To.Text = "";
             this.Cc.Text = "";
             this.Bcc.Text = "";
@@ -780,7 +779,6 @@ namespace Email_Client
 
             return true;
         }
-
 
 
         private void SendEmail(object mail_msg)

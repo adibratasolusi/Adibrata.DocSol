@@ -53,18 +53,18 @@
                 <Grid Grid.Column="0">
 
                     <Button x:Name="btnSave" Click="btnSave_Click" Width="100" Height="50" ToolTip="Save Data Document Content">
-                        <Button.Background>
-                            <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/save-png-hi.png"/>
-                        </Button.Background>
-
+                        <!--<Button.Background>
+                            --><!--<ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/save-png-hi.png"/>--><!--
+                        </Button.Background>-->
+                        <Label>_Save</Label>
                     </Button>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Button x:Name="btnBack" Click="btnBack_Click" Width="100" Height="50" ToolTip="Back To Project Paging">
-                        <Button.Background>
+                        <!--<Button.Background>
                             <ImageBrush Stretch="UniformToFill" ImageSource="/Adibrata.DocumentSol.Windows;component/Images/back-button-png-hi.png"/>
-                        </Button.Background>
-
+                        </Button.Background>-->
+                        <Label>_Back</Label>
                     </Button>
                 </Grid>
 

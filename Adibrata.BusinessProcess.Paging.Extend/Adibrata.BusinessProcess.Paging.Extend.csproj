@@ -43,6 +43,7 @@
     <Compile Include="Archiving\ArchivingPaging.cs" />
     <Compile Include="Customer\CustomerRegistrasi.cs" />
     <Compile Include="DocTransActivity\DocTransActivity.cs" />
+    <Compile Include="DocumentContent\DocContentPaging.cs" />
     <Compile Include="DocumentMaintenance\DeleteDocument.cs" />
     <Compile Include="DocumentMaintenance\ImageProcessCheckin.cs" />
     <Compile Include="DocumentMaintenance\ImageProcessCheckout.cs" />

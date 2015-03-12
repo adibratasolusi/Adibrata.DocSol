@@ -76,14 +76,7 @@
 
                         </Grid>
                     </Grid>
-                    <!--<GroupBox Header="Document Content">
-                        <DataGrid Name="dtgContent" IsTextSearchEnabled="True" SelectionMode="Single" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding ContentName}" Header="Content Name" x:Name="ContentName" Width="150" />
-                                <DataGridTextColumn Binding="{Binding value}" Header="Value" x:Name="Value" Width="200" FontSize="14"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </GroupBox>-->
+  
                 </Grid>
 
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
@@ -259,19 +252,6 @@
                     </Grid.RowDefinitions>
 
 
-                    <!--<Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
-                        <StackPanel HorizontalAlignment="Left">
-                            <TextBox Name="txtlink" Width="200"/>
-                        </StackPanel>
-                    </Grid>
-                    <Grid Grid.Column="1" Grid.Row="0"  >
-                        <StackPanel>
-                            <Button Name="btnsetLink"  FontSize="12" Style="{StaticResource buttonStyle}" Click="btnsetLink_Click" >
-                                <Label>_SetLink</Label>
-                            </Button>
-                        </StackPanel>
-                      
-                    </Grid>-->
 
                     <Grid Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Center">
                         <UserController:UCPaging x:Name="oPaging"/>

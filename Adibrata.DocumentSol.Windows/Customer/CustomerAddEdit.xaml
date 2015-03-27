@@ -17,15 +17,15 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="CUSTOMER REGISTRATION" FontSize="20" FontWeight="Bold"> </TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="CUSTOMER REGISTRATION" FontSize="20" FontWeight="Bold"></TextBlock>
                 </StackPanel>
             </Grid>
 
             <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="91*"/>
-                    
+                    <ColumnDefinition Width="100"/>
+
 
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -46,11 +46,11 @@
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2">
                     <StackPanel HorizontalAlignment="Stretch">
-                        <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" MaxLength="50"  Width="500"></TextBox>
-                        <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100"></TextBox>
+                        <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" MaxLength="50"  Width="400" BorderBrush="Gray" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200" BorderBrush="Gray" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  MaxLength="20" Width="200" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
@@ -58,19 +58,17 @@
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
 
-                        <Button Name="btnSave" Click="btnSave_Click" ToolTip="Save Data" FontSize="12" Style="{StaticResource buttonStyle}">
-                            <Label>_Save</Label>
-
+                        <Button Name="btnSave" Click="btnSave_Click" Content="Save" BorderBrush="Gray" Height="23" Width="69" ToolTip="Save Data" FontSize="12" Style="{StaticResource buttonStyle}">
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
-                            <Label>_Back</Label>
+                        <Button Name="btnBack" Content="Back" BorderBrush="Gray" Height="23" Width="69" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
+                   
                         </Button>
                     </Grid>
 

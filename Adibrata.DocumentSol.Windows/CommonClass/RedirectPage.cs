@@ -114,10 +114,12 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
-                #region "Upload Inquiry"
+                #region "Inquiry Document"
                 case "UploadInquiry.UploadInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)); break;
                 case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
-
+                case "InquiryDocument.InquiryUncompleteDocument": Source.NavigationService.Navigate(new InquiryDocument.InquiryUncompleteDocument(_ent)); break;
+                case "InquiryDocument.InquiryEditDocument": Source.NavigationService.Navigate(new InquiryDocument.InquiryEditDocument(_ent)); break;
+      
                 #endregion
 
                 #region "Edit Upload Document"
@@ -302,10 +304,12 @@ namespace Adibrata.DocumentSol.Windows
 
                 #endregion
 
-                #region "Upload Inquiry"
+                #region "Inquiry Document"
                 case "UploadInquiry.UploadInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadInquiry(_ent)); break;
                 case "UploadInquiry.UploadDetailInquiry": Source.NavigationService.Navigate(new UploadInquiry.UploadDetailInquiry(_ent)); break;
-
+                case "InquiryDocument.InquiryUncompleteDocument": Source.NavigationService.Navigate(new InquiryDocument.InquiryUncompleteDocument(_ent)); break;
+                case "InquiryDocument.InquiryEditDocument": Source.NavigationService.Navigate(new InquiryDocument.InquiryEditDocument(_ent)); break;
+      
                 #endregion
 
                 #region "Edit Upload Document"

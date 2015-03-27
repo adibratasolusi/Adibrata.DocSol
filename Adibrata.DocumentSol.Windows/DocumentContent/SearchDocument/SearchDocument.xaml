@@ -39,75 +39,75 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
-                           
+
                             <Grid Grid.Column="0" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch"  Width="600"/>
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtSearch" Margin="60,2,0,0" BorderBrush="Gray" BorderThickness="0,0,0,1"  Width="600"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
-                              
+
                             </Grid>
                         </Grid>
                     </GroupBox>
                 </Grid>
-                <GroupBox Header="Specific Search " Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,184,0" >
-                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto"  />
-                    </Grid.RowDefinitions>
+                <GroupBox Header="Specific Search " Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,0" >
+                    <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"  />
+                        </Grid.RowDefinitions>
                         <Grid Grid.Column="0" Grid.Row="0">
-                        <StackPanel Orientation="Horizontal" >
-                                <TextBlock Text="Search By" Width="150"></TextBlock>
-                                <ComboBox Name="cboSearchBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"></ComboBox>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="Search By" Width="80" Margin="60,12,0,10" ></TextBlock>
+                                <ComboBox Name="cboSearchBy" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" Width="100"></ComboBox>
                                 <TextBlock Width="10"></TextBlock>
-                                <TextBox Name="txtSearchSpesific" Style="{StaticResource textStyle}" Width="200" VerticalAlignment="Top"></TextBox>
-                                <TextBlock Width="80"></TextBlock>
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}" VerticalAlignment="Top">
-                                    <Label>_Search</Label>
+                                <TextBox Name="txtSearchSpesific" Margin="0,12,0,0" BorderBrush="Gray" BorderThickness="0,0,0,1" Style="{StaticResource textStyle}" Width="280" VerticalAlignment="Top"></TextBox>
+                                <TextBlock Width="60"></TextBlock>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" Content=" Search" Height="23" Width="69" BorderBrush="Gray" FontSize="12" Style="{StaticResource buttonStyle}" VerticalAlignment="Top">
+                                    <!--<Label>_Search</Label>-->
                                 </Button>
                             </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <StackPanel>
+
+
+                            </StackPanel>
+                        </Grid>
                     </Grid>
-                    <Grid Grid.Column="1" Grid.Row="0">
-                        <StackPanel>
-                            
-                            
-                        </StackPanel>
-                    </Grid>
-                </Grid>
                 </GroupBox>
                 <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Name="GridDataGrid">
                     <GroupBox>
                         <DataGrid IsTextSearchEnabled="True"
                           SelectionMode="Single"
                           x:Name="dgPaging" 
-                          Width="1000"
+                          Width="1115"
                           HorizontalAlignment="Left"  CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="50">
+                                <DataGridTemplateColumn Width="70" Header="ACTION" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnView" ToolTip="View Document" Click="btnView_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                                <Label>_view</Label>
+                                            <Button Name="btnView" ToolTip="View Document" Content="View" Height="23" Width="60" Click="btnView_Click" BorderBrush="Gray" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}">
+                                                <!--<Label>_view</Label>-->
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Binding="{Binding DocTransCode}" Header="DOCUMENT CODE" x:Name="Doccode" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="projName" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="doctype" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILE NAME" x:Name="FileName" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="FILE SIZE" x:Name="SizeFileBytes" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="200" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ComputerName}" Header="COMPUTER NAME" x:Name="ComputerName" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="Auto" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="projName" Width="Auto" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="doctype" Width="Auto" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILE NAME" x:Name="FileName" Width="Auto" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="Auto" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding SizeFileBytes}" Header="FILE SIZE" x:Name="SizeFileBytes" Width="Auto" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="Auto" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding ComputerName}" Header="COMPUTER NAME" x:Name="ComputerName" Width="Auto" FontSize="14"/>
 
-                                <DataGridTextColumn Binding="{Binding DPI}" Header="DOCUMENT TYPE" x:Name="DPI" Width="200" FontSize="14"/>
+                                <DataGridTextColumn Binding="{Binding DPI}" Header="DPI" x:Name="DPI" Width="Auto" FontSize="14"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
@@ -130,7 +130,7 @@
                         </Grid>
                     </GroupBox>
                 </Grid>
-               
+
             </Grid>
         </Grid>
     </ScrollViewer>

@@ -1,14 +1,13 @@
-﻿<Page x:Class="Adibrata.DocumentSol.Windows.EditUploadDocument.EditDocumentUpload"
+﻿<Page x:Class="Adibrata.DocumentSol.Windows.InquiryDocument.InquiryUncompleteDocument"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    
-       xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"
-    
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-     
-	Title="EditDocumentUpload">
+      xmlns:UserController="clr-namespace:Adibrata.Windows.UserController;assembly=Adibrata.Windows.UserController"
+      xmlns:Favorite="clr-namespace:Adibrata.Windows.UserController.Favorite;assembly=Adibrata.Windows.UserController"
+      mc:Ignorable="d" Style="{StaticResource PageStyle}"
+	Title="InquiryUncompleteDocument">
+
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid Style="{StaticResource GridStyle}" >
             <Grid.RowDefinitions>
@@ -16,8 +15,8 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontSize="20" FontWeight="Bold">EDIT DOCUMENT</TextBlock>
-      
+                <TextBlock FontSize="20" FontWeight="Bold">UNCOMPLETE INQUIRY</TextBlock>
+
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -60,8 +59,8 @@
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" Height="23" Width="69" Content="Search" BorderBrush="Gray" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Search">
-                            
+                                <Button x:Name="btnSearch" Content="Search" Height="23" Width="69" BorderBrush="Gray" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Search">
+                               
                                 </Button>
                             </Grid>
                         </Grid>
@@ -71,31 +70,33 @@
                     <GroupBox>
                         <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="EDIT" Width="50" CanUserReorder="False" CanUserResize="False">
+                                <!--<DataGridTemplateColumn Width="70" Header="ACTION" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnEdit" Click="btnEdit_Click" BorderThickness="0" Content="Edit" ToolTip="Edit Document" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center">
-                                            </Button>
+                                            --><!--<Button Name="btnDetail" Click="btnDetail_Click" Content="Detail" BorderBrush="Gray" Height="23" Width="60" HorizontalAlignment="Center" ToolTip="Detail Upload" FontSize="12" Style="{StaticResource buttonStyle}">
+                                            </Button>--><!--
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTextColumn Binding="{Binding DocTransCode}" Header="TRANSACTIONS ID" x:Name="Id" Width="120"/>
-                                <DataGridTextColumn Binding="{Binding DocTypeCode}" Header="DOCUMENT TYPE" x:Name="DocType" Width="120" FontSize="14"/>
-                                <DataGridTextColumn Binding="{Binding ProjName}"  Header="PROJECT NAME" x:Name="ProjName" Width="150"/>
-                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="150"/>
+                                </DataGridTemplateColumn>-->
+                              
 
-                                <DataGridTextColumn Binding="{Binding FileName}" Header="FILE NAME" x:Name="FileName" Width="150"/>
-                                <DataGridTemplateColumn Header="FILE SIZE" Width="100">
+                                <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="150"/>
+                                <DataGridTextColumn Binding="{Binding ProjName}" Header="PROJECT NAME" x:Name="ProjName" Width="150"/>
+
+                                <!--<DataGridTemplateColumn Header="FILE SIZE" Width="100">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding Path=SizeFileBytes, StringFormat=\{0:N0\}}" HorizontalAlignment="Right" >
                                             </TextBlock>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="100"/>
-                                <DataGridTextColumn Binding="{Binding Extention}" Header="FILE TYPE" x:Name="FileType" Width="80"/>
-                                <DataGridTextColumn Binding="{Binding Pixel}" Header="PIXEL" x:Name="Pixel" Width="80"/>
+                                </DataGridTemplateColumn>-->
+                                <!--<DataGridTextColumn Binding="{Binding DateCreated}" Header="DATE CREATED" x:Name="DateCreated" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Extention}" Header="FORMAT TYPE" x:Name="FileType" Width="80"/>
+                                <DataGridTextColumn Binding="{Binding Pixel}" Header="EDIT By" x:Name="Pixel" Width="80"/>-->
+                                <DataGridTextColumn Binding="{Binding Required}" Header="TOTAL REQUIRED" x:Name="RequiredTotal" Width="110"/>
+                                <DataGridTextColumn Binding="{Binding Complete}" Header="TOTAL UPLOAD" x:Name="UploadTotal" Width="110"/>
+                                <DataGridTextColumn Binding="{Binding Uncomplete}" Header="TOTAL UNCOMPLETE" x:Name="UncompleteTotal" Width="110"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>

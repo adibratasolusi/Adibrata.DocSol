@@ -36,7 +36,7 @@
                     <GroupBox Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -45,7 +45,7 @@
                             </Grid.RowDefinitions>
                             <Grid Grid.Column="0" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Code" Width="200"/>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Code" />
                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Customer Name"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Code"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="Project Name"/>
@@ -53,17 +53,17 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustCode" Margin="0,2" Width="200"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Margin="0,2" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustCode" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
 
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectCode" Margin="0,2" Width="200"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectName" Margin="0,2" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectCode" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectName" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
 
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" ToolTip="Search Data Project" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_Search</Label>
+                                <Button x:Name="btnSearch" Content="Search" Height="23" Width="69" BorderBrush="Gray" Click="btnSearch_Click" ToolTip="Search Data Project" FontSize="12" Style="{StaticResource buttonStyle}">
+
                                 </Button>
                             </Grid>
                         </Grid>

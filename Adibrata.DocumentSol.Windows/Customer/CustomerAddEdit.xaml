@@ -24,7 +24,7 @@
             <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="91*"/>
+                    <ColumnDefinition Width="100"/>
                     
 
                 </Grid.ColumnDefinitions>
@@ -46,11 +46,11 @@
                 </Grid>
                 <Grid Grid.Column="1" Grid.Row="0" Margin="5" Grid.ColumnSpan="2">
                     <StackPanel HorizontalAlignment="Stretch">
-                        <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" MaxLength="50"  Width="500"></TextBox>
-                        <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200"></TextBox>
-                        <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100"></TextBox>
+                        <TextBox Name="txtCompanyName" Style="{StaticResource textStyle}" MaxLength="50"  Width="400" BorderBrush="Gray" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtNPWPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200" BorderBrush="Gray" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtSIUPNo" Style="{StaticResource textStyle}"  MaxLength="20" Width="200" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtTDPNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="200" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
+                        <TextBox Name="txtNotaryNumber" Style="{StaticResource textStyle}" MaxLength="20" Width="100" Margin="0,0,0,3" BorderThickness="0,0,0,1"></TextBox>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">

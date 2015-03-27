@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel>
-                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="CUSTOMER REGISTRATION" FontSize="20" FontWeight="Bold"> </TextBlock>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="CUSTOMER REGISTRATION" FontSize="20" FontWeight="Bold"></TextBlock>
                 </StackPanel>
             </Grid>
 
@@ -58,19 +58,17 @@
                 </Grid>
                 <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
 
-                        <Button Name="btnSave" Click="btnSave_Click" ToolTip="Save Data" FontSize="12" Style="{StaticResource buttonStyle}">
-                            <Label>_Save</Label>
-
+                        <Button Name="btnSave" Click="btnSave_Click" Content="Save" BorderBrush="Gray" Height="23" Width="69" ToolTip="Save Data" FontSize="12" Style="{StaticResource buttonStyle}">
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
-                            <Label>_Back</Label>
+                        <Button Name="btnBack" Content="Back" BorderBrush="Gray" Height="23" Width="69" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
+                   
                         </Button>
                     </Grid>
 

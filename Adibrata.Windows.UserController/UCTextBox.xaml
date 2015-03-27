@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
-            <TextBox Name="txtInput" LostKeyboardFocus="txtInput_LostKeyboardFocus"  Style="{StaticResource textStyle}" Width="240"></TextBox>
+            <TextBox Name="txtInput" LostKeyboardFocus="txtInput_LostKeyboardFocus" BorderBrush="Gray" BorderThickness="0,0,0,1"  Style="{StaticResource textStyle}" Width="240"></TextBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">
             <TextBlock Name="lblValidInput" FontStyle="Normal"  HorizontalAlignment="Left"></TextBlock>

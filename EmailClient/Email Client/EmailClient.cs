@@ -482,13 +482,13 @@ namespace Email_Client
             {
                 this._lock = true;
 
-                ((ToolStripComboBox)this.FormattingToolStrip.Items[0]).Text = this.MailMessage.SelectionFont.Name;
-                ((ToolStripComboBox)this.FormattingToolStrip.Items[1]).Text = this.MailMessage.SelectionFont.Size.ToString();
-                ((ToolStripButton)this.FormattingToolStrip.Items[3]).Checked = this.MailMessage.SelectionFont.Bold;
-                ((ToolStripButton)this.FormattingToolStrip.Items[4]).Checked = this.MailMessage.SelectionFont.Italic;
-                ((ToolStripButton)this.FormattingToolStrip.Items[5]).Checked = this.MailMessage.SelectionFont.Underline;
-                ((ToolStripButton)this.FormattingToolStrip.Items[7]).Image = this.CreateFontColorIcon(this.MailMessage.SelectionColor);
-                ((ToolStripButton)this.FormattingToolStrip.Items[8]).Image = this.CreateFontBackColorIcon(this.MailMessage.SelectionBackColor);
+                //((ToolStripComboBox)this.FormattingToolStrip.Items[0]).Text = this.MailMessage.SelectionFont.Name;
+                //((ToolStripComboBox)this.FormattingToolStrip.Items[1]).Text = this.MailMessage.SelectionFont.Size.ToString();
+                //((ToolStripButton)this.FormattingToolStrip.Items[3]).Checked = this.MailMessage.SelectionFont.Bold;
+                //((ToolStripButton)this.FormattingToolStrip.Items[4]).Checked = this.MailMessage.SelectionFont.Italic;
+                //((ToolStripButton)this.FormattingToolStrip.Items[5]).Checked = this.MailMessage.SelectionFont.Underline;
+                ////((ToolStripButton)this.FormattingToolStrip.Items[7]).Image = this.CreateFontColorIcon(this.MailMessage.SelectionColor);
+                //((ToolStripButton)this.FormattingToolStrip.Items[8]).Image = this.CreateFontBackColorIcon(this.MailMessage.SelectionBackColor);
 
                 this._lock = false;
             }

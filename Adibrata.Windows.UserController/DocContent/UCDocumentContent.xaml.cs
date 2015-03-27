@@ -48,7 +48,7 @@ namespace Adibrata.Windows.UserController.DocContent
                         DocContentDescription.Text = _row["Field2"].ToString();
                         DocContentDescription.HorizontalAlignment = HorizontalAlignment.Stretch;
                         DocContentDescription.Width = 200;
-                        
+                        DocContentDescription.Height = 25;
                         DocContentDescription.SetResourceReference(TextBlock.StyleProperty, "TextBlockStyle");
                         PanelInput.Children.Remove(DocContentDescription);
                         PanelLabel.Children.Add(DocContentDescription);
@@ -64,7 +64,7 @@ namespace Adibrata.Windows.UserController.DocContent
                                     txtInput.Name = _row["Result"].ToString().Trim();
                                     txtInput.Text = "-";
                                     txtInput.Width = 400;
-                                    txtInput.Margin.Top.Equals(5);
+                                    txtInput.Margin.Top.Equals(10);
                                     //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
                                     PanelInput.Children.Add(txtInput);
                                     
@@ -77,8 +77,9 @@ namespace Adibrata.Windows.UserController.DocContent
                                     txtInput.Name = _row["Result"].ToString().Trim();
                                     txtInput.Text = DateTime.Now.ToString();
                                     txtInput.Width = 400;
+                                    txtInput.Height = 30;
                                     PanelInput.Children.Add(txtInput);
-                                    txtInput.Margin.Top.Equals(5);
+                                    txtInput.Margin.Top.Equals(10);
                                     PanelInput.RegisterName(txtInput.Name, txtInput);
                                 }
                                 break;
@@ -88,7 +89,7 @@ namespace Adibrata.Windows.UserController.DocContent
                                     txtInput.Name = _row["Result"].ToString().Trim();
                                     txtInput.Text = "0";
                                     txtInput.Width = 400;
-                                    txtInput.Margin.Top.Equals(5);
+                                    txtInput.Margin.Top.Equals(10);
                                     //txtInput.SetResourceReference(TextBlock.StyleProperty, "textStyle");
                                     PanelInput.Children.Add(txtInput);
                      

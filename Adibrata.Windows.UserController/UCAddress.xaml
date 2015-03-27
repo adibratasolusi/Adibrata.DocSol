@@ -7,46 +7,46 @@
             d:DesignHeight="500">
     <GroupBox Header="Address">
         <Grid>
-            
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="138" />
-            <ColumnDefinition Width="240"/>
-            <ColumnDefinition Width="138"/>
-            <ColumnDefinition Width="240"/>
-        </Grid.ColumnDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="240"/>
+            </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Margin="5" HorizontalAlignment="Stretch">
                 <StackPanel>
                     <TextBlock Text="Address"  HorizontalAlignment="Left" Width="240" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock HorizontalAlignment="Stretch" Text="RT" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock HorizontalAlignment="Stretch" Text="RW"  VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock HorizontalAlignment="Stretch" Text="ZipCode" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
-                    
+
                 </StackPanel>
-        </Grid>
+            </Grid>
             <Grid  Grid.Column="1" HorizontalAlignment="Stretch">
                 <StackPanel>
-                    <TextBox Name="txtAddress" Style="{StaticResource textStyle}" Width="200" MaxLength="100" ></TextBox>
-                    <TextBox Name="txtRT" Style="{StaticResource textStyle}" Width="50" MaxLength="3"></TextBox>
-                    <TextBox Name="txtRW" Style="{StaticResource textStyle}"  Width="50" MaxLength="3"></TextBox>
-                    <TextBox Name="txtZipCode" Style="{StaticResource textStyle}"  Width="100" MaxLength="5"></TextBox>
+                    <TextBox Name="txtAddress" Style="{StaticResource textStyle}" Width="200" MaxLength="100" Margin="0,0,0,3" BorderThickness="0,0,0,1" BorderBrush="Gray"></TextBox>
+                    <TextBox Name="txtRT" Style="{StaticResource textStyle}" Width="50" MaxLength="3" Margin="0,0,0,3" BorderThickness="0,0,0,1" BorderBrush="Gray"></TextBox>
+                    <TextBox Name="txtRW" Style="{StaticResource textStyle}"  Width="50" MaxLength="3" Margin="0,0,0,3" BorderThickness="0,0,0,1" BorderBrush="Gray"></TextBox>
+                    <TextBox Name="txtZipCode" Style="{StaticResource textStyle}"  Width="100" MaxLength="5" Margin="0,0,0,3" BorderThickness="0,0,0,1" BorderBrush="Gray"></TextBox>
                 </StackPanel>
-            
-        </Grid>
+
+            </Grid>
             <Grid Grid.Column="2"  Margin="5" HorizontalAlignment="Stretch">
                 <StackPanel>
                     <TextBlock HorizontalAlignment="Left" Text="Kelurahan" Width="138"   VerticalAlignment="Bottom" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock HorizontalAlignment="Left" Text="Kecamatan"  VerticalAlignment="Bottom" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock HorizontalAlignment="Left" Text="City"   VerticalAlignment="Bottom" Style="{StaticResource TextBlockStyle}"/>
                 </StackPanel>
-            
-        </Grid>
+
+            </Grid>
             <Grid Grid.Column="3" HorizontalAlignment="Stretch">
                 <StackPanel>
-                    <TextBox Name="txtKelurahan" Style="{StaticResource textStyle}" MaxLength="20"  Width="150"></TextBox>
-                    <TextBox Name="txtKecamatan" Style="{StaticResource textStyle}"  MaxLength="20" Width="150"></TextBox>
-                    <TextBox Name="txtCity" Style="{StaticResource textStyle}" MaxLength="20" Width="150"></TextBox>
+                    <TextBox Name="txtKelurahan" Style="{StaticResource textStyle}" MaxLength="20"  Width="150" Margin="0,0,0,3" BorderThickness="0,0,0,1" BorderBrush="Gray"></TextBox>
+                    <TextBox Name="txtKecamatan" Style="{StaticResource textStyle}"  MaxLength="20" Width="150" Margin="0,0,0,3" BorderThickness="0,0,0,1" BorderBrush="Gray"></TextBox>
+                    <TextBox Name="txtCity" Style="{StaticResource textStyle}" MaxLength="20" Width="150" Margin="0,0,0,3" BorderThickness="0,0,0,1" BorderBrush="Gray"></TextBox>
                 </StackPanel>
+            </Grid>
         </Grid>
-    </Grid>
     </GroupBox>
 </UserControl>

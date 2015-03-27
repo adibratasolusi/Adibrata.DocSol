@@ -236,6 +236,19 @@
     <Compile Include="ImageProcess\ImageMaintenanceDetail.xaml.cs">
       <DependentUpon>ImageMaintenanceDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InquiryDocument\InquiryEditDocument.xaml.cs">
+      <DependentUpon>InquiryEditDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InquiryDocument\InquiryEditDocumentDetail.xaml.cs">
+      <DependentUpon>InquiryEditDocumentDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InquiryDocument\InquiryUncompleteDocument.xaml.cs">
+      <DependentUpon>InquiryUncompleteDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InquiryDocument\InquiryUncompleteDocumentDetail.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>InquiryUncompleteDocumentDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuTree.xaml.cs">
       <DependentUpon>MenuTree.xaml</DependentUpon>
     </Compile>
@@ -627,6 +640,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ImageProcess\ImageMaintenanceDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InquiryDocument\InquiryEditDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InquiryDocument\InquiryEditDocumentDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InquiryDocument\InquiryUncompleteDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InquiryDocument\InquiryUncompleteDocumentDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

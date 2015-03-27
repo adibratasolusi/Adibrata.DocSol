@@ -37,16 +37,14 @@
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1" >
                 <StackPanel>
-                    <UserController:UCTextBox  Name="txtUserName"></UserController:UCTextBox>
-                    <UserController:UCPassword Name="txtPassword"/>
+                    <UserController:UCTextBox  Name="txtUserName" Margin="0,0,0,4"/>
+                    <UserController:UCPassword Name="txtPassword" Margin="0,0,0,2"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right">
                 <StackPanel>
-                    <Button Name="btnLogin" Click="btnLogin_Click" Width="60" Height="40" BorderThickness="0" ToolTip="Login ">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/login.png" Stretch="Fill"/>
-                        </Button.Background>
+                    <Button Name="btnLogin" Click="btnLogin_Click" Height="23" Width="69" Content="Login" BorderBrush="Gray"  BorderThickness="1" Style="{StaticResource buttonStyle}">
+          
                     </Button>
                 </StackPanel>
             </Grid>

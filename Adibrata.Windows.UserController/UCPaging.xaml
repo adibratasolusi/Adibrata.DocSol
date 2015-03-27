@@ -11,17 +11,17 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0">
             <StackPanel Orientation="Horizontal" >
-                <Button Name="btnPrev" Click="btnPrev_Click" VerticalAlignment="Center"  FontSize="12" Style="{StaticResource buttonStyle}"  ToolTip="Previous">
-                        <Label Background="{x:Null}">_Prev</Label>
+                <Button Name="btnPrev" Click="btnPrev_Click" Content="Prev" VerticalAlignment="Center" BorderBrush="Gray" Width="50" FontSize="12" Style="{StaticResource buttonStyle}"  ToolTip="Previous">
+                    <!--<Label Background="{x:Null}">_Prev</Label>-->
                 </Button>
-                <Button  Name="btnNext" Click="btnNext_Click"  VerticalAlignment="Center"  ToolTip="Next"  FontSize="12" Style="{StaticResource buttonStyle}" >
-                    <Label Background="{x:Null}">_Next</Label>
+                <Button  Name="btnNext" Click="btnNext_Click" Content="Next"  VerticalAlignment="Center" BorderBrush="Gray" Width="50" ToolTip="Next"  FontSize="12" Style="{StaticResource buttonStyle}" >
+                    <!--<Label Background="{x:Null}">_Next</Label>-->
                 </Button>
                 <TextBlock Text="     Page"  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="14"/>
-                <TextBox Style="{StaticResource textStyle}" x:Name="txtPageNumber" Width="100" MaxLength="3"></TextBox>
+                <TextBox Style="{StaticResource textStyle}" x:Name="txtPageNumber" BorderBrush="Gray" Width="100" MaxLength="3"></TextBox>
                 <TextBlock Text="          "  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left"/>
-                <Button Name="btnTotRec" Click="btnTotRec_Click" FontSize="12" Style="{StaticResource buttonStyle}" >
-                    <Label Background="{x:Null}">#Rec</Label>
+                <Button Name="btnTotRec" Click="btnTotRec_Click" Content="#Rec" FontSize="12" BorderBrush="Gray" Width="50" Style="{StaticResource buttonStyle}" >
+                    <!--<Label Background="{x:Null}">#Rec</Label>-->
                 </Button>
                 <TextBlock Text="   "  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left"/>
                 <TextBlock Name="lblTotalRec"  Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Left" FontSize="14" VerticalAlignment="Bottom"/>

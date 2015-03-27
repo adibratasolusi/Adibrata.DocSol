@@ -7,16 +7,17 @@
       d:DesignHeight="1000" 
 	Title="Home">
 
-        <Grid Style="{StaticResource GridStyle}" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto"  />
+    <Grid Style="{StaticResource GridStyle}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"  />
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-     
+
         <Grid Grid.Row="0" Grid.Column="1">
 
             <GroupBox Header="Search Menu">
@@ -25,21 +26,27 @@
                               Name="lstFavorite" SelectedValuePath="FormUrl" FontSize="12" SelectionChanged="ListView_SelectionChanged">
                     </ListView>-->
                 <StackPanel>
-                    <TextBox Name="txtSearch" Style="{StaticResource textStyle}" Width="150"></TextBox>
-                    <Button Name="btnSearch" Click="btnSearch_Click" FontSize="10" Style="{StaticResource buttonStyle}" HorizontalAlignment="Left">
-                        <Label>_Search</Label>
-                    </Button>
-                <ListView Height="50" 
-                              Name="lstSearchMenu"  FontSize="12" SelectionChanged="lstSearchMenu_SelectionChanged">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FormName}"></TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                    <StackPanel>
+                        <TextBox Name="txtSearch" Style="{StaticResource textStyle}" Width="220" BorderBrush="Gray"></TextBox>
 
-                </ListView>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Name="btnSearch" Click="btnSearch_Click" HorizontalAlignment="Left" Width="220" Content="Search" FontSize="12" BorderBrush="Gray" Style="{StaticResource buttonStyle}">
+                            <!--<Label>_Search</Label>-->
+                        </Button>
+                    </StackPanel>
+
+                    <ListView Height="80" 
+                              Name="lstSearchMenu"  FontSize="12" SelectionChanged="lstSearchMenu_SelectionChanged">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FormName}"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
                 </StackPanel>
             </GroupBox>
 
@@ -47,16 +54,16 @@
         <Grid Grid.Row="1" Grid.Column="2">
             <StackPanel>
                 <GroupBox Header="Menu">
-                <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10" Height="250" Width="200"  FontSize="12" SelectedItemChanged="trvStructure_SelectedItemChanged">
-                    <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="Images/Find.jpg" Margin="0,0,5,0" />
-                                <TextBlock Text="{Binding Name}" Margin="0,0,4,0" />
-                            </StackPanel>
-                        </HierarchicalDataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
+                    <TreeView Name="trvStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="10,10,10,20" Height="280" Width="200" FontSize="12" SelectedItemChanged="trvStructure_SelectedItemChanged">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="Images/Find.jpg" Margin="0,0,5,0" />
+                                    <TextBlock Text="{Binding Name}" Margin="0,0,4,0" />
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
                 </GroupBox>
                 <GroupBox Header="Favorite Menu">
                     <!--<ListView ItemsSource="{Binding}" DisplayMemberPath="FormName" Tag="{Binding Formurl}" Height="100" 
@@ -67,19 +74,19 @@
                               Name="lstFavorite"  FontSize="12" SelectionChanged="ListView_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FormName}"></TextBlock>
-                            </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding FormName}"></TextBlock>
+                                </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
 
                     </ListView>
                 </GroupBox>
-                <Button x:Name="btnRefresh" Click="btnRefresh_Click" FontSize="8" Style="{StaticResource buttonStyle}" >
-                    <Label>_Refresh</Label>
+                <Button x:Name="btnRefresh" Click="btnRefresh_Click" BorderBrush="Gray" HorizontalAlignment="Center" Width="220" Content="Refresh Favorite" FontSize="12" Style="{StaticResource buttonStyle}" >
+                    <!--<Label>_Refresh</Label>-->
                 </Button>
             </StackPanel>
         </Grid>
-     
+
     </Grid>
 </Page>

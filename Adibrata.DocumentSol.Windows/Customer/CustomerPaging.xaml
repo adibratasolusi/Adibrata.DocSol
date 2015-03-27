@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto"  />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-            <TextBlock FontSize="20" FontWeight="Bold">CUSTOMER REGISTRATION</TextBlock>
+                <TextBlock FontSize="20" FontWeight="Bold">CUSTOMER REGISTRATION</TextBlock>
                 <Favorite:AddFavorite Name="oFavorite" HorizontalAlignment="Right"/>
             </Grid>
             <Grid Grid.Row="1">
@@ -66,36 +66,22 @@ Height="23" Width="69" FontSize="12" Style="{StaticResource buttonStyle}">
                                         <DataTemplate>
 
                                             <Button Name="btnEdit" Click="btnEdit_Click" Height="23" Width="60" Content="Edit" BorderBrush="Gray" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center">
-                                           
-                                            </Button>
-                                            <!--<Button.Background>
-                                                    <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/Edit.png"/>
-                                                </Button.Background>-->
-
-                                  
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                                <DataGridTemplateColumn  Width="70" CanUserReorder="False" CanUserResize="False">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-
-                                            <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Add"  Height="23" Width="60" BorderBrush="Gray" ToolTip="New Customer" FontSize="12" Style="{StaticResource buttonStyle}">
 
                                             </Button>
                                             <!--<Button.Background>
                                                     <ImageBrush ImageSource="/Adibrata.DocumentSol.Windows;component/Images/Edit.png"/>
                                                 </Button.Background>-->
 
-                                  
+
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
+                             
 
                                 <DataGridTextColumn Binding="{Binding CustCode}" Header="CODE" x:Name="CODE" Width="150"/>
                                 <DataGridTextColumn Binding="{Binding CustName}" Header="CUSTOMER NAME" x:Name="CustName" Width="200" FontSize="14"/>
                                 <DataGridTextColumn Binding="{Binding Address}" Header="ADDRESS" x:Name="Address" Width="400" FontSize="14" />
-                                
+
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>
@@ -117,8 +103,9 @@ Height="23" Width="69" FontSize="12" Style="{StaticResource buttonStyle}">
                                 <UserController:UCPaging x:Name="oPaging"/>
                             </Grid>
                             <Grid Grid.Column="1" HorizontalAlignment="Right">
-                                <!--<Button x:Name="btnAdd" Click="btnAdd_Click" Content="Add"  Height="23" Width="60" BorderBrush="Gray" ToolTip="New Customer" FontSize="12" Style="{StaticResource buttonStyle}">--><!--
-                                </Button>-->
+                                <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Add"  Height="23" Width="60" BorderBrush="Gray" ToolTip="New Customer" FontSize="12" Style="{StaticResource buttonStyle}">
+                                
+                                </Button>
                             </Grid>
                         </Grid>
                     </GroupBox>

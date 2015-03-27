@@ -47,8 +47,8 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtRole" Margin="0,2" Width="200" Text="1" IsReadOnly="True"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtBranch" Margin="0,2" Width="300" Text="1" IsReadOnly="True"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtRole" Margin="0,2" Width="200" Text="CA" IsReadOnly="True"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtBranch" Margin="0,2" Width="300" Text="Jakarta" IsReadOnly="True"/>
 
                                     <TextBox Style="{StaticResource textStyle}" x:Name="txtStatus" Margin="0,2" Width="200"/>
 

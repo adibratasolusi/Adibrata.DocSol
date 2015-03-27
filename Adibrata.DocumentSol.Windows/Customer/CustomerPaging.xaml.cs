@@ -125,7 +125,7 @@ namespace Adibrata.DocumentSol.Windows.Customer
 
                 DataGridHelper oDataGrid = new DataGridHelper();
                 oDataGrid.dtg = dgPaging;
-                DataGridCell cell = oDataGrid.GetCell(i, 1);
+                DataGridCell cell = oDataGrid.GetCell(i, 2);
                 TextBlock ReffKey = oDataGrid.GetVisualChild<TextBlock>(cell); // pass the DataGridCell as a parameter to GetVisualChild
                 SessionProperty.IsEdit = true;
                 SessionProperty.ReffKey = ReffKey.Text;

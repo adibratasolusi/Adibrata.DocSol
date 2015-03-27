@@ -114,7 +114,7 @@ namespace Adibrata.Framework.Messaging
 
             return _dt;
         }
-
+        
 
         public static DataTable DocTransInquiryDetail(WCFEntities oWCF)
         {
@@ -219,5 +219,6 @@ namespace Adibrata.Framework.Messaging
             }
             return result;
         }
+
     }
 }

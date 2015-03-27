@@ -35,7 +35,7 @@
                     <GroupBox Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -53,16 +53,16 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustCode" Width="300"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Width="300"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjCode" Width="300"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjName" Width="300" />
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustCode" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtCustName" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjCode" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjName" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Search">
-                                    <Label>_Search</Label>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Search" Content="Search" BorderBrush="Gray" Height="23" Width="69">
+                                 
                                 </Button>
                             </Grid>
                         </Grid>

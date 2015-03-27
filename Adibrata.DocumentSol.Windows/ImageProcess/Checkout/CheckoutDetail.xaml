@@ -96,7 +96,7 @@
 
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <!--<UserController:UCDocTransBinaryContentView Name="ucView" />-->
-                    <ListView Height="300" Name="dgPaging"  FontSize="12"  SelectionChanged="dgPaging_SelectionChanged" Width="Auto"
+                    <ListView Height="300" Name="dgPaging"  FontSize="12"   Width="Auto"
                                  SelectedItem="dlg" >
 
                         <ListView.ItemTemplate >

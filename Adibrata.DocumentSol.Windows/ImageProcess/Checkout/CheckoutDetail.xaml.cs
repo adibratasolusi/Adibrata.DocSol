@@ -7,6 +7,7 @@ using Adibrata.Windows.UserController;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -339,69 +340,69 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
 
 
         #region "Selection Changed"
-        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            String _extention;
-            String _filename;
-            try
-            {
-                if ((Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"] != null)
-                {
-                    _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
-                    _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
-                    _extention = _filename.PadRight(4);
-                    //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+        //private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    String _extention;
+        //    String _filename;
+        //    try
+        //    {
+        //        if ((Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"] != null)
+        //        {
+        //            _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
+        //            _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
+        //            _extention = _filename.PadRight(4);
+        //            //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
 
-                    dlg.Title = "Select a picture";
-                    dlg.DefaultExt = _extention;
-                    dlg.Filter = "Portable Document Format (*.pdf)|*.pdf|" +
-                        "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                    "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                    "Portable Network Graphic (*.png)|*.png|" +
-                    "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
-                    "All files (*.*)|*.*";
-                    dlg.AddExtension = true;
-                    dlg.FileName = _filename;
-                    Nullable<bool> result = dlg.ShowDialog();
-                    if (result == true)
-                    {
-                        foreach (String file in dlg.FileNames)
-                        {
+        //            dlg.Title = "Select a picture";
+        //            dlg.DefaultExt = _extention;
+        //            dlg.Filter = "Portable Document Format (*.pdf)|*.pdf|" +
+        //                "All supported graphics|*.jpg;*.jpeg;*.png|" +
+        //            "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+        //            "Portable Network Graphic (*.png)|*.png|" +
+        //            "Word Document (*.doc;*.docx)|*.doc;*.docx|" +
+        //            "All files (*.*)|*.*";
+        //            dlg.AddExtension = true;
+        //            dlg.FileName = _filename;
+        //            Nullable<bool> result = dlg.ShowDialog();
+        //            if (result == true)
+        //            {
+        //                foreach (String file in dlg.FileNames)
+        //                {
 
-                            //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
+        //                    //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
 
-                            _filename = @file;
-                            System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
+        //                    _filename = @file;
+        //                    System.IO.FileStream _FileStream = new System.IO.FileStream(_filename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
 
 
-                            System.IO.Path.GetDirectoryName(_filename);
+        //                    System.IO.Path.GetDirectoryName(_filename);
 
-                            _FileStream.Write(_imgbin, 0, _imgbin.Length);
-                            _FileStream.Close();
+        //                    _FileStream.Write(_imgbin, 0, _imgbin.Length);
+        //                    _FileStream.Close();
 
-                        }
-                    }
-                }
-            }
-            catch (Exception _exp)
-            {
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception _exp)
+        //    {
 
-                ErrorLogEntities _errent = new ErrorLogEntities
-                {
-                    UserLogin = SessionProperty.UserName,
-                    NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
-                    ClassName = "UploadDetailInquiry",
-                    FunctionName = "btnDownload_Click",
-                    ExceptionNumber = 1,
-                    EventSource = "UploadInquiry",
-                    ExceptionObject = _exp,
-                    EventID = 200, // 1 Untuk Framework 
-                    ExceptionDescription = _exp.Message
-                };
-                ErrorLog.WriteEventLog(_errent);
-            }
+        //        ErrorLogEntities _errent = new ErrorLogEntities
+        //        {
+        //            UserLogin = SessionProperty.UserName,
+        //            NameSpace = "Adibrata.DocumentSol.Windows.UploadInquiry",
+        //            ClassName = "UploadDetailInquiry",
+        //            FunctionName = "btnDownload_Click",
+        //            ExceptionNumber = 1,
+        //            EventSource = "UploadInquiry",
+        //            ExceptionObject = _exp,
+        //            EventID = 200, // 1 Untuk Framework 
+        //            ExceptionDescription = _exp.Message
+        //        };
+        //        ErrorLog.WriteEventLog(_errent);
+        //    }
 
-        }
+        //}
         #endregion
 
         private void btnDownload_Click(object sender, RoutedEventArgs e)
@@ -418,7 +419,7 @@ namespace Adibrata.DocumentSol.Windows.ImageProcess.Checkout
                         {
                             _imgbin = (Byte[])((DataRowView)dgPaging.SelectedItem)["FileBinary"];
                             _filename = (String)((DataRowView)dgPaging.SelectedItem)["FileName"];
-                            _extention = _filename.PadRight(4);
+                            _extention = Path.GetExtension(_filename); 
                             //_filename = @"C:\" + (string)((DataRowView)dgPaging.SelectedItem)["FileName"];
 
                             dlg.Title = "Select a picture";

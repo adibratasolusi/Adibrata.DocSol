@@ -92,13 +92,13 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
 
-                    <Button x:Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Save Data Document Content">
-                        <Label>_Save</Label>
+                    <Button x:Name="btnSave" Content="Save" Height="23" Width="69" BorderBrush="Gray" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Save Data Document Content">
+               
                     </Button>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Button x:Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Back To Project Paging">
-                        <Label>_Back</Label>
+                    <Button x:Name="btnBack" Content="Back" Height="23" Width="69" BorderBrush="Gray" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Back To Project Paging">
+                     
 
                     </Button>
                 </Grid>

@@ -32,7 +32,7 @@
                     <GroupBox  Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -46,12 +46,12 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtExtension"  Width="159"/>
+                                <TextBox Style="{StaticResource textStyle}"  BorderBrush="Gray" BorderThickness="0,0,0,1" x:Name="txtExtension"  Width="159"/>
                                 </StackPanel>
                             </Grid>
                               <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_Search</Label>
+                                <Button x:Name="btnSearch" Click="btnSearch_Click" Content="Search" Height="23" Width="69" BorderBrush="Gray"  FontSize="12" Style="{StaticResource buttonStyle}">
+                                   
                                 </Button>
                             </Grid>
                         </Grid>
@@ -67,10 +67,10 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           ScrollViewer.VerticalScrollBarVisibility="Auto" >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn Width="70" Header="ACTION" CanUserReorder="False" CanUserResize="False" >
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Content="DETAIL" FontSize="12" Style="{StaticResource buttonStyle}" Click="btnDetail_Click" HorizontalAlignment="Center"></Button>
+                                            <Button Name="btnDetail" Content="DETAIL" Height="23" Width="60" BorderBrush="Gray" HorizontalAlignment="Center"  FontSize="12" Style="{StaticResource buttonStyle}" Click="btnDetail_Click" ></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                     

@@ -326,20 +326,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
         }
         #endregion
 
-        private void btnRotate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnCheckOut_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnWaterMark_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+  
 
         private void dgPaging_Loaded(object sender, RoutedEventArgs e)
         {
@@ -351,10 +338,7 @@ namespace Adibrata.DocumentSol.Windows.UploadInquiry
 
         }
 
-        private void btnLock_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
         private void btnDownload_Click(object sender, RoutedEventArgs e)
         {

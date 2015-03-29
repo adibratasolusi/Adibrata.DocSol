@@ -11,7 +11,7 @@
     <ScrollViewer x:Name="svMain">
         <Grid Style="{StaticResource GridStyle}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-             <Grid Grid.Row="0">
+             <Grid Grid.Row="0" Grid.ColumnSpan="2">
                 <StackPanel>
                     <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblMessage" FontStyle="Normal" Foreground="Red" />
                     <TextBlock Style="{StaticResource TextBlockStyle}" Text="User Register" FontSize="24" FontWeight="Bold"/>
@@ -27,9 +27,9 @@
             </Grid>
             <Grid Grid.Column="0" Grid.Row="1">
                 <StackPanel>
-                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}"  Width="200">Email </TextBlock>
-                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Full Name</TextBlock>
-                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Password</TextBlock>
+                    <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Email </TextBlock>
+                    <TextBlock Margin="0,5,0,1"  Style="{StaticResource TextBlockStyle}" >Full Name</TextBlock>
+                    <TextBlock Margin="0,5,0,2"  Style="{StaticResource TextBlockStyle}" >Password</TextBlock>
                     <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Re. Password</TextBlock>
                     <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Active</TextBlock>
                     <TextBlock Margin="0"  Style="{StaticResource TextBlockStyle}" >Connect</TextBlock>
@@ -37,10 +37,10 @@
             </Grid>
             <Grid Grid.Column="1" Grid.Row="1" >
                 <StackPanel>
-                    <TextBox x:Name="txtUserName" Width="200" Text="" Style="{StaticResource textStyle}" />
-                    <TextBox x:Name="txtFullname"  Width="200" Text="" Style="{StaticResource textStyle}"/>
-                    <PasswordBox x:Name="txtPassword" Width="150"  FontSize="18" Style="{StaticResource PasswordStyle}"/>
-                    <PasswordBox x:Name="txtRepeatPsw" Width="150" FontSize="18" Style="{StaticResource PasswordStyle}" />
+                    <TextBox x:Name="txtUserName" Width="200" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"  Text="" Style="{StaticResource textStyle}" />
+                    <TextBox x:Name="txtFullname"  Width="200" Text="" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"  Style="{StaticResource textStyle}"/>
+                    <PasswordBox x:Name="txtPassword" Width="150"   Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"  Style="{StaticResource PasswordStyle}"/>
+                    <PasswordBox x:Name="txtRepeatPsw" Width="150"  Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" Style="{StaticResource PasswordStyle}" />
                     <CheckBox x:Name="isActive" IsChecked="True" FontSize="18"></CheckBox>
                     <CheckBox x:Name="isConnect" FontSize="18"></CheckBox>
                 </StackPanel>

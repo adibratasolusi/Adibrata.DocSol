@@ -73,11 +73,11 @@
                     <GroupBox>
                         <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn Width="80" Header="ACTION">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel>
-                                            <Button Name="btnDetail" Click="btnDetail_Click" Content="Detail" ToolTip="Detail Upload" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}" >
+                                                <Button Name="btnDetail" Margin="0,2,0,2" Click="btnDetail_Click" Height="23" Width="60" BorderBrush="Gray" Content="Detail" ToolTip="Detail Upload" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}" >
                                             </Button>
                                             </StackPanel>
                                         </DataTemplate>

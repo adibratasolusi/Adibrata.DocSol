@@ -139,8 +139,8 @@
                                         </Grid>
                                         <Grid Grid.Row ="3" Grid.Column="0" Grid.ColumnSpan="3">
                                             <StackPanel Orientation="Horizontal" Name="spButton">
-                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnDownload" Click="btnDownload_Click">
-                                                    <Label>_Download</Label>
+                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Content="Download" Height="23" Width="69" BorderBrush="Gray" Name="btnDownload" Click="btnDownload_Click">
+                                        
                                                 </Button>
                                             </StackPanel>
                                         </Grid>

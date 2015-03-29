@@ -183,5 +183,10 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
             }
 
         }
+
+        private void dgPaging_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -32,7 +32,7 @@
                     <GroupBox Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -51,14 +51,14 @@
                                 <StackPanel>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblCustCode" Width="150"/>
                                     <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="lblCustName" Width="300"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectCode" Margin="0,2" Width="200"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectName" Margin="0,2" Width="300"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectCode" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" Width="200"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtProjectName" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" Width="300"/>
 
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" ToolTip="Search Project Data" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_Search</Label>
+                                <Button x:Name="btnSearch" Content="Search" Height="23" Width="69" BorderBrush="Gray"  Click="btnSearch_Click" ToolTip="Search Project Data" FontSize="12" Style="{StaticResource buttonStyle}">
+
                                 </Button>
                             </Grid>
                         </Grid>
@@ -70,11 +70,11 @@
                         <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" 
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="40" CanUserReorder="False" CanUserResize="False">
+                                <DataGridTemplateColumn Width="70" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button x:Name="btnEdit" Click="btnEdit_Click" FontSize="12" Style="{StaticResource buttonStyle}" Height="50">
-                                                <Label>_Edit</Label>
+                                            <Button x:Name="btnEdit" Content="Edit" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60"  Click="btnEdit_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                                          
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -102,11 +102,11 @@
                             </Grid>
                             <Grid Grid.Column="1" HorizontalAlignment="Right">
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="btnAdd" Click="btnAdd_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="New Project">
-                                        <Label>_New</Label>
+                                    <Button x:Name="btnAdd" Content=" +Add" Height="23" Width="69" BorderBrush="Gray" Click="btnAdd_Click" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="New Project">
+                                       
                                     </Button>
-                                    <Button x:Name="btnBack" Click="btnBack_Click" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
-                                        <Label>_Back</Label>
+                                    <Button x:Name="btnBack" Click="btnBack_Click" Content="Back" Height="23" Width="69" BorderBrush="Gray" ToolTip="Back To Customer Paging" FontSize="12" Style="{StaticResource buttonStyle}">
+
                                     </Button>
                                 </StackPanel>
                             </Grid>

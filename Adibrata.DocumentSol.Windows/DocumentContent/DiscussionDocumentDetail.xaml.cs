@@ -19,6 +19,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
         SessionEntities SessionProperty = new SessionEntities();
         Int64 _transcomid;
         List<string> listCode = new List<string>();
+
         public DiscussionDocumentDetail(SessionEntities _session)
         {
             try
@@ -247,6 +248,10 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ent.MethodName = "DocTransCommentClear";
                 ent.DocTransCommentId = _transcomid;
                 _dtcom = DocumentSolutionController.DocSolProcess<DataTable>(ent);
+                LComment.Visibility = Visibility.Hidden;
+                MessageBox.Show("Delete comment succes");
+
+
             }
             catch (Exception _exp)
             {
@@ -313,29 +318,33 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
             try
             {
                 DocSolEntities _ent = new DocSolEntities();
-
-                _ent.UserName = ((DataRowView)LComment.SelectedItem)["Username"].ToString();
-                _ent.Comment = ((DataRowView)LComment.SelectedItem)["Comment"].ToString();
-                //_ent.DocTransCommentId = Convert.ToInt64(((DataRowView)LComment.SelectedItem)["DocTransCommentId"].ToString());
-                if (_ent.UserName == SessionProperty.UserName)
+                if (LComment.SelectedItem != null)
                 {
-                    DocSolEntities ent = new DocSolEntities();
-                    DataTable _dtcom = new DataTable();
-                    ent.ClassName = "DocContent";
-                    ent.MethodName = "DocTransCommentGetID";
-                    ent.UserName = _ent.UserName;
-                    ent.Comment = _ent.Comment;
-                    ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
-                    SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(ent));
-                    _transcomid = Convert.ToInt64(SessionProperty.ReffKey);
-                    ent.DocTransCommentId = _transcomid;
-                    this.DeleteComment();
+                    _ent.UserName = ((DataRowView)LComment.SelectedItem)["Username"].ToString();
+                    _ent.Comment = ((DataRowView)LComment.SelectedItem)["Comment"].ToString();
+                    //_ent.DocTransCommentId = Convert.ToInt64(((DataRowView)LComment.SelectedItem)["DocTransCommentId"].ToString());
+                    if (_ent.UserName == SessionProperty.UserName)
+                    {
+                        DocSolEntities ent = new DocSolEntities();
+                        DataTable _dtcom = new DataTable();
+                        ent.ClassName = "DocContent";
+                        ent.MethodName = "DocTransCommentGetID";
+                        ent.UserName = _ent.UserName;
+                        ent.Comment = _ent.Comment;
+                        ent.DocTransId = Convert.ToInt64(SessionProperty.ReffKey);
+                        SessionProperty.ReffKey = Convert.ToString(DocumentSolutionController.DocSolProcess<Int64>(ent));
+                        _transcomid = Convert.ToInt64(SessionProperty.ReffKey);
+                        ent.DocTransCommentId = _transcomid;
+                        this.DeleteComment();
+                        RedirectPage redirect = new RedirectPage(this, "DocumentContent.DiscussionDocument", SessionProperty);
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("You cant acces");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("You cant acces");
-                }
-
+                else { MessageBox.Show("Please select"); }
 
 
             }
@@ -357,6 +366,7 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
                 ErrorLog.WriteEventLog(_errent);
 
             }
+            LComment.Visibility = Visibility.Visible;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

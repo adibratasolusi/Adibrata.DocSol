@@ -91,7 +91,7 @@
                                 <DataGridTemplateColumn Width="70" Header="ACTION" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnView" ToolTip="View Document" Content="View" Height="23" Width="60" Click="btnView_Click" BorderBrush="Gray" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}">
+                                            <Button Name="btnView" ToolTip="View Document" Content="View" Height="23" Width="60" Margin="0,2,0,2" Click="btnView_Click" BorderBrush="Gray" HorizontalAlignment="Center" FontSize="12" Style="{StaticResource buttonStyle}">
                                                 <!--<Label>_view</Label>-->
                                             </Button>
                                         </DataTemplate>

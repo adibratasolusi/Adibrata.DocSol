@@ -8,81 +8,106 @@
 			</ScrollViewer>
 		</Border>
 	</ControlTemplate>
-	<Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
-		<Setter Property="VerticalContentAlignment" Value="Center"/>
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
-					<Grid>
-						<Themes:DataGridHeaderBorder BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" IsClickable="{TemplateBinding CanUserSort}" IsPressed="{TemplateBinding IsPressed}" IsHovered="{TemplateBinding IsMouseOver}" Padding="{TemplateBinding Padding}" SortDirection="{TemplateBinding SortDirection}" SeparatorBrush="{TemplateBinding SeparatorBrush}" SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
-							<ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-						</Themes:DataGridHeaderBorder>
-						<Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left">
-							<Thumb.Style>
-								<Style TargetType="{x:Type Thumb}">
-									<Setter Property="Width" Value="8"/>
-									<Setter Property="Background" Value="Transparent"/>
-									<Setter Property="Cursor" Value="SizeWE"/>
-									<Setter Property="Template">
-										<Setter.Value>
-											<ControlTemplate TargetType="{x:Type Thumb}">
-												<Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
-											</ControlTemplate>
-										</Setter.Value>
-									</Setter>
-								</Style>
-							</Thumb.Style>
-						</Thumb>
-						<Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right">
-							<Thumb.Style>
-								<Style TargetType="{x:Type Thumb}">
-									<Setter Property="Width" Value="8"/>
-									<Setter Property="Background" Value="Transparent"/>
-									<Setter Property="Cursor" Value="SizeWE"/>
-									<Setter Property="Template">
-										<Setter.Value>
-											<ControlTemplate TargetType="{x:Type Thumb}">
-												<Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
-											</ControlTemplate>
-										</Setter.Value>
-									</Setter>
-								</Style>
-							</Thumb.Style>
-						</Thumb>
-					</Grid>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-		<Setter Property="Background" Value="{DynamicResource DataGridColumnHeaderBrush}"/>
-		<Setter Property="MinHeight" Value="15"/>
-		<Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
-		<Setter Property="Padding" Value="3,0"/>
-		<Setter Property="BorderBrush" Value="{DynamicResource ButtonInnerBrush}"/>
-		<Setter Property="BorderThickness" Value="0,0,1,0"/>
-		<Setter Property="SeparatorBrush" Value="Black"/>
-		<Style.Triggers>
-			<Trigger Property="IsMouseOver" Value="True">
-				<Setter Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
-			</Trigger>
-			<Trigger Property="IsPressed" Value="True">
-				<Setter Property="Background" Value="{DynamicResource ButtonCheckedBrush}"/>
-			</Trigger>
-		</Style.Triggers>
-	</Style>
-	
-	<Style TargetType="{x:Type DataGrid}" x:Key="DataGridStyle">
+    <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                    <Grid>
+                        <Themes:DataGridHeaderBorder BorderBrush="{TemplateBinding BorderBrush}" 
+                                                     BorderThickness="{TemplateBinding BorderThickness}" 
+                                                     Background="{TemplateBinding Background}" 
+                                                     IsClickable="{TemplateBinding CanUserSort}" 
+                                                     IsPressed="{TemplateBinding IsPressed}" 
+                                                     IsHovered="{TemplateBinding IsMouseOver}" 
+                                                     Padding="{TemplateBinding Padding}" 
+                                                     SortDirection="{TemplateBinding SortDirection}" 
+                                                     SeparatorBrush="{TemplateBinding SeparatorBrush}" 
+                                                     SeparatorVisibility="{TemplateBinding SeparatorVisibility}"
+                                                 >
+                            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Themes:DataGridHeaderBorder>
+                        <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left">
+                            <Thumb.Style>
+                                <Style TargetType="{x:Type Thumb}">
+                                    <Setter Property="Width" Value="8"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Cursor" Value="SizeWE"/>
+                                    <!--<Setter Property="Cursor" Value="Hand"/>-->
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Thumb.Style>
+                        </Thumb>
+                        <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right">
+                            <Thumb.Style>
+                                <Style TargetType="{x:Type Thumb}">
+                                    <Setter Property="Width" Value="8"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Cursor" Value="SizeWE"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Thumb.Style>
+                        </Thumb>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--css paging grid Start #FF515F78-->
+        <Setter Property="Background" Value="#FF008EBA"/>
+        <Setter Property="MinHeight" Value="35"/>
+        <!--<Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>-->
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="Padding" Value="5,0,5,0"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonInnerBrush}"/>
+        <Setter Property="BorderThickness" Value="0,0,1,0"/>
+        <Setter Property="SeparatorBrush" Value="Transparent"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Cursor" Value="Hand"/>
+       
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
+               
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource ButtonCheckedBrush}"/>
+            
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style TargetType="{x:Type DataGrid}" x:Key="DataGridStyle">
         <Setter Property="BorderBrush" Value="Snow"></Setter>
         <Setter Property="BorderThickness" Value="0"></Setter>
         <Setter Property="AlternationCount" Value="1"></Setter>
         <Setter Property="GridLinesVisibility" Value="Vertical"></Setter>
-        <Setter Property="AlternatingRowBackground" Value="#FFB9E9FF"></Setter>
-        <Setter Property="RowBackground" Value="#FFECECEC"></Setter>
+        <Setter Property="AlternatingRowBackground" Value="White"></Setter>
+        <Setter Property="RowBackground" Value="#FFDAD6F3"></Setter>
         <Setter Property="VerticalGridLinesBrush" Value="Snow"></Setter>
         <Setter Property="HeadersVisibility" Value="Column"/>
+
+        <Setter Property="Cursor" Value="Hand"/>
+
         <Setter Property="Template" Value="{DynamicResource DataGridControlTemplate}"/>
         <Setter Property="ColumnHeaderStyle" Value="{DynamicResource DataGridColumnHeaderStyle}"/>
-        <Setter Property="Background" Value="#FFECECEC"/>
-	</Style>
+     
+        <Setter Property="Background" Value="#FFE6E6E8"/>
+        <!--<Setter Property="Background" Value="Gray"/>-->
+        <!--ini css paging grid END-->
+    </Style>
 	<ControlTemplate x:Key="DataGridScrollViewerControlTemplate" TargetType="{x:Type ScrollViewer}">
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -104,6 +129,7 @@
 					</Binding>
 				</Button.Visibility>
 			</Button>
+      
 			<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.Column="1">
 				<DataGridColumnHeadersPresenter.Visibility>
 					<Binding Path="HeadersVisibility" RelativeSource="{RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type DataGrid}}">

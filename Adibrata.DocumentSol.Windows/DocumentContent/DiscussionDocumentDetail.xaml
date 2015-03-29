@@ -146,9 +146,9 @@
                                         </Grid>
                                         <Grid Grid.Row ="3" Grid.Column="0" Grid.ColumnSpan="3">
                                             <StackPanel Orientation="Horizontal" Name="spButton">
-                                                <Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnComment" Click="btnComment_Click">
+                                                <!--<Button FontSize="12" Style="{StaticResource buttonStyle}" Name="btnComment" Click="btnComment_Click">
                                                     <Label>_Comment</Label>
-                                                </Button>
+                                                </Button>-->
 
 
 
@@ -175,7 +175,7 @@
                                 <RowDefinition Height="Auto"  />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left">
@@ -184,16 +184,16 @@
 
 
 
-                                <Grid Grid.Column="0" Grid.Row="1">
+                                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1">
                                     <StackPanel>
-                                        <TextBox Name="txtcomment" Width="700"/>
+                                        <TextBox Style="{StaticResource textStyle}" Margin="7,10,0,3" Name="txtcomment" BorderBrush="Gray" BorderThickness="0,0,0,1" Width="700"/>
                                     </StackPanel>
                                 </Grid>
 
                                 <Grid Grid.Column="1" Grid.Row="1">
                                     <StackPanel HorizontalAlignment="Right">
-                                        <Button Name="btnCommento" Click="btnCommento_Click" >
-                                            <Label Height="13" Width="88">_Save Comment</Label>
+                                        <Button Name="btnCommento" Style="{StaticResource buttonStyle}" Click="btnCommento_Click" Content="Save" BorderBrush="Gray" Margin="0,2,0,2" Padding="0,0,0,2" Height="23" Width="60">
+                                           
                                         </Button>
                                     </StackPanel>
                                 </Grid>
@@ -209,7 +209,7 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" >
-                    <GroupBox Header="Comment document">
+                    <GroupBox Header="Comment Document">
 
                         <ListView Height="218" Name="LComment"  FontSize="12"  Width="Auto" 
                                  SelectedItem="LCommentItem" SelectionChanged="LComment_SelectionChanged">
@@ -277,8 +277,8 @@
               
            
                 <Grid Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right">
-                    <Button Name="btnBack"  FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click"  VerticalAlignment="Top">
-                        <Label>_Back</Label>
+                    <Button Name="btnBack" Height="23" Width="69" BorderBrush="Gray"  Content="Back" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click"  VerticalAlignment="Top">
+
                     </Button>
                 </Grid>
 

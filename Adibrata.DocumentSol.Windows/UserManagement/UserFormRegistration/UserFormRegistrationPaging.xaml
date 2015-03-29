@@ -36,7 +36,7 @@
                     <GroupBox Background="Beige" Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -50,12 +50,12 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtUser"  Width="159"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtUser" BorderBrush="Gray" BorderThickness="0,0,0,1"  Width="200"/>
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_Search</Label>
+                                <Button x:Name="btnSearch" Content="Search" BorderBrush="Gray" Height="23" Width="69" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                                 
                                 </Button>
                             </Grid>
                         </Grid>
@@ -71,10 +71,10 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="150">
-                                    <DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn Width="70">
+                                    <DataGridTemplateColumn.CellTemplate >
                                         <DataTemplate>
-                                            <Button Name="btnMenu" Content="MENU" Click="btnMenu_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
+                                            <Button Name="btnMenu" Content="MENU" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60" HorizontalAlignment="Center" Click="btnMenu_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

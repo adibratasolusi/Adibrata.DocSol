@@ -230,11 +230,13 @@ namespace Adibrata.BusinessProcess.DocumentSol.Extend
             Int64 _transcomid = 0;
             try
             {
-                SqlParameter[] sqlParams = new SqlParameter[2];
+                SqlParameter[] sqlParams = new SqlParameter[3];
                 sqlParams[0] = new SqlParameter("@DocTransId", SqlDbType.BigInt);
                 sqlParams[0].Value = ent.DocTransId;
                 sqlParams[1] = new SqlParameter("@TransCommentID", SqlDbType.BigInt);
                 sqlParams[1].Direction = ParameterDirection.Output;
+                sqlParams[2] = new SqlParameter("@comment", SqlDbType.VarChar, 100);
+                sqlParams[2].Value = ent.Comment;
                 SqlHelper.ExecuteNonQuery(ConnectionString, CommandType.StoredProcedure, "spDocTransCommentGetID", sqlParams);
                 _transcomid = Convert.ToInt64(sqlParams[1].Value);
             }

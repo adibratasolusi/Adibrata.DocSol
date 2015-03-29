@@ -74,7 +74,7 @@
                                 <DataGridTemplateColumn Width="70" Header="ACTION" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Click="btnDetail_Click" Content="Detail" Height="23" Width="60" BorderBrush="Gray" HorizontalAlignment="Center"  ToolTip="Detail Upload" FontSize="12" Style="{StaticResource buttonStyle}">
+                                            <Button Name="btnDetail" Margin="0,2,0,2" Click="btnDetail_Click" Content="Detail" Height="23" Width="60" BorderBrush="Gray" HorizontalAlignment="Center"  ToolTip="Detail Upload" FontSize="12" Style="{StaticResource buttonStyle}">
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

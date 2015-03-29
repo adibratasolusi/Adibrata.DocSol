@@ -73,6 +73,8 @@ namespace Email_Client
             FontStyle.Visible = false;
             Bold.Visible = false;
             Italic.Visible = false;
+            FontColor.Visible = false;
+            FontBackgroundColor.Visible = false;
             Underline.Visible = false;
             this.ProgressLabel.Text = "Email Document Ready";
                 

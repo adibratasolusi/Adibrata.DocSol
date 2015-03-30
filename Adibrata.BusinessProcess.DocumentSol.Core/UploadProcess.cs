@@ -258,7 +258,7 @@ namespace Adibrata.BusinessProcess.DocumentSol.Core
 
                 Int64 docTransId = 0;
                 _dt = new DataTable();
-                sqlParams = new SqlParameter[3];
+                sqlParams = new SqlParameter[4];
                 sqlParams[0] = new SqlParameter("@TransCode", SqlDbType.VarChar, 50);
                 sqlParams[0].Value = _ent.TransCode;
                 sqlParams[1] = new SqlParameter("@docType", SqlDbType.VarChar, 50);

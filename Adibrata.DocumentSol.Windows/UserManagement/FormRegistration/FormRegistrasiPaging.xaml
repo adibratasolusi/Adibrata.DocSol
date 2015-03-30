@@ -49,13 +49,13 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtFormCode" Width="159"/>
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtFormName" Width="159"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtFormCode" Width="200" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtFormName" Width="200" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_SEARCH</Label>
+                                <Button x:Name="btnSearch"  Content="Search" Height="23" Width="69" BorderBrush="Gray" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+
                                 </Button>
                             </Grid>
                         </Grid>
@@ -70,10 +70,10 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="350" VerticalAlignment="Center"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="EDIT" Width="50">
+                                <DataGridTemplateColumn Header="ACTION" Width="70" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnEdit" Content="EDIT" Click="btnEdit_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
+                                            <Button Name="btnEdit" Content="EDIT" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60" Click="btnEdit_Click" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
 
@@ -101,8 +101,8 @@
                                 <UserController:UCPaging x:Name="oPaging"/>
                             </Grid>
                             <Grid Grid.Column="1" HorizontalAlignment="Right">
-                                <Button x:Name="btnAdd" Click="btnAdd_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_ADD</Label>
+                                <Button x:Name="btnAdd" Content=" +Add" Height="23" Width="69" BorderBrush="Gray"  Click="btnAdd_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                   
                                 </Button>
                             </Grid>
                         </Grid>

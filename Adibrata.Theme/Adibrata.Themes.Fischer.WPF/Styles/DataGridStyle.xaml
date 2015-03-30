@@ -74,7 +74,7 @@
         <Setter Property="BorderThickness" Value="0,0,1,0"/>
         <Setter Property="SeparatorBrush" Value="Transparent"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="FontWeight" Value="Bold"/>
+        <!--<Setter Property="FontWeight" Value="Bold"/>-->
         <Setter Property="Cursor" Value="Hand"/>
        
         <Style.Triggers>

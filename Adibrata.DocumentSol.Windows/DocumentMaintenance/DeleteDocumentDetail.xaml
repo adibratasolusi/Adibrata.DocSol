@@ -27,11 +27,11 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Name="btnBack" Grid.Column="0" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Back to Delete Document Paging"  HorizontalAlignment="Right" Click="btnBack_Click" >
-                    <Label>_Back</Label>
+                <Button Name="btnBack" Content="Back" Height="23" Width="69" BorderBrush="Gray" Grid.Column="0" FontSize="12" Style="{StaticResource buttonStyle}" ToolTip="Back to Delete Document Paging"  HorizontalAlignment="Right" Click="btnBack_Click" >
+                
                 </Button>
-                <Button Name="btnDelete" Grid.Column="2" ToolTip="Delete to Document" HorizontalAlignment="Right" Click="btnDelete_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                    <Label>_Delete</Label>
+                <Button Name="btnDelete"  Content="Delete" Height="23" Width="69" BorderBrush="Gray" Grid.Column="2" ToolTip="Delete to Document" HorizontalAlignment="Right" Click="btnDelete_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+              
                 </Button>
             </Grid>
         </Grid>

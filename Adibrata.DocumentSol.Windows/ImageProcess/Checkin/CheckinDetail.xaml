@@ -29,12 +29,12 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
-                    <Button Name="btnBack"  Grid.Column="0"  FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click">
-                            <Label>_Back</Label>
+                    <Button Name="btnBack" Content="Back" BorderBrush="Gray" Height="23" Width="69" Grid.Column="0"  FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click">
+                 
                         </Button>
 
-                    <Button Name="btnCheckIn" Grid.Column="2" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnCheckIn_Click" >
-                        <Label>_Check In</Label>
+                    <Button Name="btnCheckIn" Content="Check In" BorderBrush="Gray" Height="23" Width="60"  Grid.Column="2" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnCheckIn_Click" >
+              
                     </Button>
 
                 </StackPanel>

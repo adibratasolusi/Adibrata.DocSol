@@ -22,7 +22,7 @@
 
             <Grid Style="{StaticResource GridStyle}" Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="91*"/>
 
 
@@ -49,7 +49,7 @@
                         <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblCustomerName" VerticalAlignment="Center"/>
                         <TextBlock Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Stretch" x:Name="lblProjectCode" VerticalAlignment="Center"/>
                         
-                        <TextBox Name="txtPrjectName" Style="{StaticResource textStyle}" MaxLength="50" Width="300"></TextBox>
+                        <TextBox Name="txtPrjectName" Style="{StaticResource textStyle}" MaxLength="50" Width="300" BorderBrush="Gray"></TextBox>
                         <ComboBox Name="cboProjectType" Text="{Binding Result}" IsTextSearchEnabled="True" Width="150"  HorizontalAlignment="Left" VerticalAlignment="Top" ItemsSource="{Binding}" 
                                   DisplayMemberPath="Result" SelectedValuePath="Result"   SelectedItem="{Binding Path=Result}">
                         </ComboBox>
@@ -63,13 +63,13 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
 
-                        <Button Name="btnSave" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                            <Label>_Save</Label>
+                        <Button Name="btnSave" Height="23" Width="69" BorderBrush="Gray" Content="Save" Click="btnSave_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                      
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Button Name="btnBack" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                            <Label>_Back</Label>
+                        <Button Name="btnBack" Height="23" Width="69" BorderBrush="Gray" Content="Back" Click="btnBack_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                      
                         </Button>
                     </Grid>
 

@@ -32,7 +32,7 @@ Style="{StaticResource PageStyle}" Title="Prepare">
                     <GroupBox  Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -47,13 +47,13 @@ Style="{StaticResource PageStyle}" Title="Prepare">
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Width="159"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType"  Width="159" />
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType"  Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                    <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                        <Label>_Search</Label>
+                                <Button x:Name="btnSearch" Content="Back" BorderBrush="Gray" Height="23" Width="69" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -69,20 +69,20 @@ Style="{StaticResource PageStyle}" Title="Prepare">
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn Width="70">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnQueue" Content="QUEUE" Click="btnQueue_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
+                                            <Button Name="btnQueue" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60" Content="Queue" Click="btnQueue_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
 
                                         </DataTemplate>
 
                                     </DataGridTemplateColumn.CellTemplate>
 
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn Width="70">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnDetail" Content="DETAIL" Click="btnDetail_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
+                                            <Button Name="btnDetail" Content="Detail" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60" Click="btnDetail_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -131,10 +131,10 @@ Style="{StaticResource PageStyle}" Title="Prepare">
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True"  VerticalAlignment="Stretch"
                           >
                                     <DataGrid.Columns>
-                                        <DataGridTemplateColumn Width="80">
+                                        <DataGridTemplateColumn Width="70">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Button Name="btnDelete" Content="DELETE" Click="btnDelete_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center" ></Button>
+                                                    <Button Name="btnDelete" Content="Delete" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60" Click="btnDelete_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center" ></Button>
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
@@ -146,7 +146,7 @@ Style="{StaticResource PageStyle}" Title="Prepare">
                                 </DataGrid>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1">
-                                <Button Name="btnPrepare" Content="Prepare Queue" Click="btnPrepare_Click" Width="100" HorizontalAlignment="Right" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
+                                <Button Name="btnPrepare" Content="Prepare Queue" Click="btnPrepare_Click" BorderBrush="Gray" Height="23" Width="60" HorizontalAlignment="Right" FontSize="12" Style="{StaticResource buttonStyle}"></Button>
                             </Grid>
                         </Grid>
                     </GroupBox>

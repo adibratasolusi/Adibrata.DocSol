@@ -32,7 +32,7 @@
                     <GroupBox  Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -47,14 +47,14 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Margin="0,2" Width="159"/>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Margin="0,2" Width="159" />
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocTransCode" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtDocType" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
 
                                 </StackPanel>
                             </Grid>
                             <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-                                <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
-                                    <Label>_Search</Label>
+                                <Button x:Name="btnSearch" Content="Search" Height="23" Width="69" BorderBrush="Gray" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">
+                                
                                 </Button>
                             </Grid>
                         </Grid>
@@ -69,10 +69,10 @@
                           HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" Height="300" VerticalAlignment="Stretch"
                           >
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn Width="70" Header="ACTION" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Name="btnCheckIn" Content="CHECK IN" Click="btnCheckIn_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
+                                            <Button Name="btnCheckIn" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60" Content="CHECK IN" Click="btnCheckIn_Click" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center"></Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

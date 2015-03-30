@@ -34,7 +34,7 @@
                     <GroupBox Background="Beige" Header="Search">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -49,8 +49,8 @@
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
                                 <StackPanel>
-                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtUserName" IsReadOnly="True"  Width="159" />
-                                    <TextBox Style="{StaticResource textStyle}" IsReadOnly="True" x:Name="txtUserID"  Width="159"/>
+                                    <TextBox Style="{StaticResource textStyle}" x:Name="txtUserName" IsReadOnly="True"  Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1" />
+                                    <TextBox Style="{StaticResource textStyle}" IsReadOnly="True" x:Name="txtUserID"  Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
                                 </StackPanel>
                             </Grid>
 
@@ -74,7 +74,7 @@
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Keyword"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0">
-                                <TextBox Style="{StaticResource textStyle}" x:Name="txtKeyword" Margin="0,8" Width="159"/>
+                                <TextBox Style="{StaticResource textStyle}" x:Name="txtKeyword" Width="400" Margin="0,0,0,3" BorderBrush="Gray" BorderThickness="0,0,0,1"/>
                             </Grid>
                             <Grid Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Grid.ColumnSpan="2">
                                 <Button x:Name="btnSearch" Click="btnSearch_Click" FontSize="12" Style="{StaticResource buttonStyle}">

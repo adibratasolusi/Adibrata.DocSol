@@ -72,7 +72,7 @@
                     <GroupBox>
                         <DataGrid IsTextSearchEnabled="True" SelectionMode="Single" x:Name="dgPaging" HorizontalAlignment="Stretch"  Width="Auto" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Stretch">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="ACTION" Width="50" CanUserReorder="False" CanUserResize="False">
+                                <DataGridTemplateColumn Header="ACTION" Width="70" CanUserReorder="False" CanUserResize="False">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Name="btnDetail" BorderBrush="Gray" Margin="0,2,0,2" Height="23" Width="60" Click="btnDetail_Click"  Content="Detail" ToolTip="Detail Document" FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Center">

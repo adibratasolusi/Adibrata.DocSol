@@ -95,8 +95,8 @@
                 </Grid.ColumnDefinitions>
                 <Grid  Grid.Row="3">
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="btnBack"   FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click">
-                            <Label>_Back</Label>
+                        <Button Name="btnBack" Content="Back" Height="23" Width="69" BorderBrush="Gray"   FontSize="12" Style="{StaticResource buttonStyle}" HorizontalAlignment="Right" Click="btnBack_Click">
+                         
                         </Button>
                     </StackPanel>
                 </Grid>

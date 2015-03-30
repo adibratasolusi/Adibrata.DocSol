@@ -75,14 +75,14 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
 
         private void cboDocumentType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             try
             {
                 oDocContent.DocumentType = ((DataRowView)cboDocumentType.SelectedItem)["Result"].ToString();  //cboDocumentType.SelectedValue.ToString();
-               
+
                 oDocContent.GenerateControls();
                 cboDocumentType.IsEnabled = false;
-                
+
 
                 ucUpload.DocumentType = oDocContent.DocumentType;
 
@@ -157,15 +157,24 @@ namespace Adibrata.DocumentSol.Windows.DocumentContent
             {
                 DataTable dtContent = new DataTable();
                 dtContent = oDocContent.RetrieveValue();
-                
+
                 _ent.DtContent = dtContent;
                 _ent.UserLogin = SessionProperty.UserName;
                 ucUpload.DocumentTypeUpload = cboDocumentType.Text;
                 _ent.ApprovalNotes = oApproval.Notes;
                 _ent.RequestTo = oApproval.RequestTo;
-                _ent.MaturityDt = dpMaturityDt.SelectedDate.Value;
+                try
+                {
+
+                    _ent.MaturityDt = dpMaturityDt.SelectedDate.Value;
+                }
+                catch (Exception)
+                {
+
+                    _ent.MaturityDt = DateTime.Now;
+                }
                 ucUpload.CheckAndUpload(_ent);
-                
+
                 RedirectPage redirect = new RedirectPage(this, "DocumentContent.DocumentUploadPaging", SessionProperty);
             }
             catch (Exception _exp)

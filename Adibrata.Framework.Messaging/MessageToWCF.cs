@@ -10,12 +10,12 @@ namespace Adibrata.Framework.Messaging
         {
 
 
-            Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient objService = new Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient();
+            Adibrata.Framework.Messaging.ServiceReference1.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference1.Service1Client();
             
             try
             {
 
-                Adibrata.Framework.Messaging.ServiceWCF.PathDetails pathInfo = new Adibrata.Framework.Messaging.ServiceWCF.PathDetails();
+                Adibrata.Framework.Messaging.ServiceReference1.PathDetails pathInfo = new Adibrata.Framework.Messaging.ServiceReference1.PathDetails();
                 pathInfo.FileName = oWCF.FileName;
                 pathInfo.DocTransBinaryID = oWCF.DocTransBinaryID;
                 objService.UpdatePathDetails(pathInfo);

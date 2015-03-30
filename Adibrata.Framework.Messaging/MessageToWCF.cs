@@ -1,6 +1,10 @@
-﻿using Adibrata.Framework.Logging;
+﻿using Adibrata.BusinessProcess.Entities.Base;
+using Adibrata.Configuration;
+using Adibrata.Framework.Logging;
 using System;
 using System.Data;
+using System.Data.SqlClient;
+using System.Net;
 
 namespace Adibrata.Framework.Messaging
 {
@@ -9,34 +13,85 @@ namespace Adibrata.Framework.Messaging
         public static void UpdateFilePath(WCFEntities oWCF)
         {
 
-
+            SessionEntities SessionProperty = new SessionEntities();
             Adibrata.Framework.Messaging.ServiceReference1.Service1Client objService = new Adibrata.Framework.Messaging.ServiceReference1.Service1Client();
-            
+
+            //try
+            //{
+
+            string Connectionstring = AppConfig.Config("ConnectionString");
+            oWCF.FileName = oWCF.FileName;
+            oWCF.DocTransBinaryID = oWCF.DocTransBinaryID;
+
+
+
+            string bitsServer = AppConfig.Config("BITSServer");
+            var webClient = new WebClient();
+            byte[] fileBytes = webClient.DownloadData(bitsServer + oWCF.FileName);
+            oWCF.FileName = oWCF.DocTransBinaryID + oWCF.FileName;
+            string strMessage = string.Empty;
+            SqlConnection con = new SqlConnection(Connectionstring);
+            int result = 0;
             try
             {
 
-                Adibrata.Framework.Messaging.ServiceReference1.PathDetails pathInfo = new Adibrata.Framework.Messaging.ServiceReference1.PathDetails();
-                pathInfo.FileName = oWCF.FileName;
-                pathInfo.DocTransBinaryID = oWCF.DocTransBinaryID;
-                objService.UpdatePathDetails(pathInfo);
+                SqlCommand command = new SqlCommand("spDocTransBinaryUpdate", con);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("@DocTransBinaryID", SqlDbType.BigInt).Value = oWCF.DocTransBinaryID;
+                command.Parameters.Add("@FileName", SqlDbType.VarChar).Value = oWCF.FileName;
+                command.Parameters.Add("@FileBinary", SqlDbType.VarBinary).Value = fileBytes;
+                con.Open();
+                result = command.ExecuteNonQuery();
+                con.Close();
+
+                if (result == 1)
+                {
+
+                    //logging success here
+                }
+                else
+                {
+
+                    //logging error db here
+                }
             }
             catch (Exception _exp)
             {
-
+                //logging app here
                 ErrorLogEntities _errent = new ErrorLogEntities
                 {
-                    UserLogin = "WCF",
-                    NameSpace = "Adibrata.Framework.Messaging",
-                    ClassName = "MessageToWCF",
-                    FunctionName = "UpdateFilePath",
+                    UserLogin = SessionProperty.UserName,
+                    NameSpace = "Adibrata.Framework.WCF",
+                    ClassName = "Service1",
+                    FunctionName = "UpdatePathDetails",
                     ExceptionNumber = 1,
-                    EventSource = "Messaging",
+                    EventSource = "UploadServices",
                     ExceptionObject = _exp,
-                    EventID = 201,
+                    EventID = 200, // 1 Untuk Framework 
                     ExceptionDescription = _exp.Message
                 };
                 ErrorLog.WriteEventLog(_errent);
             }
+
+            //}
+            //catch (Exception _exp)
+            //{
+
+            //    ErrorLogEntities _errent = new ErrorLogEntities
+            //    {
+            //        UserLogin = "WCF",
+            //        NameSpace = "Adibrata.Framework.Messaging",
+            //        ClassName = "MessageToWCF",
+            //        FunctionName = "UpdateFilePath",
+            //        ExceptionNumber = 1,
+            //        EventSource = "Messaging",
+            //        ExceptionObject = _exp,
+            //        EventID = 201,
+            //        ExceptionDescription = _exp.Message
+            //    };
+            //    ErrorLog.WriteEventLog(_errent);
+            //}
 
         }
 
@@ -45,7 +100,7 @@ namespace Adibrata.Framework.Messaging
 
 
             Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient objService = new Adibrata.Framework.Messaging.ServiceWCF.ServiceWCFClient();
-            
+
 
             try
             {
@@ -74,7 +129,7 @@ namespace Adibrata.Framework.Messaging
                 ErrorLog.WriteEventLog(_errent);
             }
 
- 
+
         }
 
 
@@ -114,7 +169,7 @@ namespace Adibrata.Framework.Messaging
 
             return _dt;
         }
-        
+
 
         public static DataTable DocTransInquiryDetail(WCFEntities oWCF)
         {

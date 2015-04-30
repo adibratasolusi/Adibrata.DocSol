@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="AcLCqgPOdDPL0wONcO+lb0tx+E8=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="w07TrHkODOqt7vs/VLlCYKONwpw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IService11">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IService11" contract="ServiceReference1.IService1" bindingType="basicHttpBinding" address="http://localhost:52385/Service1.svc" bindingConfiguration="BasicHttpBinding_IService11">
+    <endpoint name="BasicHttpBinding_IService11" contract="ServiceReference1.IService1" bindingType="basicHttpBinding" address="http://localhost/Adibrata.Framework.WCF/Service1.svc" bindingConfiguration="BasicHttpBinding_IService11">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:52385/Service1.svc</serializedValue>
+          <serializedValue>http://localhost/Adibrata.Framework.WCF/Service1.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
